@@ -105,7 +105,7 @@ def generate_kicad_symbol(
             symbol_file.write(
                 f"""\t\t(property "{property_name}" "{property_value}"
 \t\t\t(at {position} 0)
-\t\t\t(show_name)
+\t\t\t{"(show_name)" if hidden else ""}
 \t\t\t(effects
 \t\t\t\t(font
 \t\t\t\t\t(size 1.27 1.27)
