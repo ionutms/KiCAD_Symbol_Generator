@@ -111,7 +111,7 @@ def generate_kicad_symbol(
 \t\t\t\t\t(size 1.27 1.27)
 \t\t\t\t)
 \t\t\t\t(justify {justification})
-\t\t\t\t{"(hide yes)" if hidden else "(hide no)"}
+\t\t\t\t{"(hide yes)" if hidden else ""}
 \t\t\t)
 \t\t)
 """)
