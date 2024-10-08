@@ -29,8 +29,8 @@ def generate_kicad_symbol(
     Generate a KiCad symbol file from CSV data.
 
     This function reads component data from a CSV file and creates a KiCad
-    symbol file (.kicad_sym) with the component's properties and graphical
-    representation.
+    symbol file (.kicad_sym) with the components' properties and graphical
+    representations.
 
     Args:
         input_csv_file (str):
@@ -55,22 +55,26 @@ def generate_kicad_symbol(
             If there are encoding-related issues when writing the symbol file.
 
     Note:
-        This function assumes the CSV file contains data for a single
-        component and uses only the first data row.
+        This function processes all rows in the CSV file,
+        generating a symbol for each row.
     """
     with open(input_csv_file, 'r', encoding=encoding) as csv_file:
         csv_reader = csv.DictReader(csv_file)
-        component_data = next(csv_reader)  # Assume processing one row
-
-    symbol_name = component_data['Symbol Name']
+        component_data_list = list(csv_reader)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         symbol_file.write(
-            f"""(kicad_symbol_lib
+            """(kicad_symbol_lib
 \t(version 20231120)
 \t(generator "kicad_symbol_editor")
 \t(generator_version "8.0")
-\t(symbol "{symbol_name}"
+""")
+
+        for component_data in component_data_list:
+            symbol_name = component_data['Symbol Name']
+
+            symbol_file.write(
+                f"""\t(symbol "{symbol_name}"
 \t\t(pin_numbers hide)
 \t\t(pin_names
 \t\t\t(offset 0)
@@ -80,30 +84,31 @@ def generate_kicad_symbol(
 \t\t(on_board yes)
 """)
 
-        # Generate properties
-        property_list = [
-            ("Reference", component_data['Reference'], "2.54 1.27", "left",
-             False),
-            ("Value", component_data['Value'], "2.54 -1.27", "left", False),
-            ("Footprint", component_data['Footprint'], "2.54 -8.89", "left",
-             True),
-            ("Datasheet", component_data['Datasheet'], "2.54 -3.81", "left",
-             True),
-            ("Description", component_data['Description'], "2.54 -6.35",
-             "left", True),
-            ("Manufacturer", component_data['Manufacturer'], "2.54 -11.43",
-             "left", True),
-            ("MPN", component_data['MPN'], "2.54 -13.97", "left", True),
-            ("Tolerance", component_data['Tolerance'], "2.794 -16.51", "left",
-             True),
-            ("Voltage Rating", component_data['Voltage Rating'],
-             "2.54 -19.05", "left", True),
-        ]
+            # Generate properties
+            property_list = [
+                ("Reference", component_data['Reference'], "2.54 1.27",
+                 "left", False),
+                ("Value", component_data['Value'], "2.54 -1.27",
+                 "left", False),
+                ("Footprint", component_data['Footprint'], "2.54 -8.89",
+                 "left", True),
+                ("Datasheet", component_data['Datasheet'], "2.54 -3.81",
+                 "left", True),
+                ("Description", component_data['Description'], "2.54 -6.35",
+                 "left", True),
+                ("Manufacturer", component_data['Manufacturer'], "2.54 -11.43",
+                 "left", True),
+                ("MPN", component_data['MPN'], "2.54 -13.97", "left", True),
+                ("Tolerance", component_data['Tolerance'], "2.794 -16.51",
+                 "left", True),
+                ("Voltage Rating", component_data['Voltage Rating'],
+                 "2.54 -19.05", "left", True),
+            ]
 
-        for property_name, property_value, position, justification, hidden \
-                in property_list:
-            symbol_file.write(
-                f"""\t\t(property "{property_name}" "{property_value}"
+            for property_name, property_value, position, justification, \
+                    hidden in property_list:
+                symbol_file.write(
+                    f"""\t\t(property "{property_name}" "{property_value}"
 \t\t\t(at {position} 0)
 \t\t\t{"(show_name)" if hidden else ""}
 \t\t\t(effects
@@ -116,9 +121,9 @@ def generate_kicad_symbol(
 \t\t)
 """)
 
-        # Symbol drawing (simplified resistor symbol)
-        symbol_file.write(
-            f"""\t\t(symbol "{symbol_name}_0_1"
+            # Symbol drawing (simplified resistor symbol)
+            symbol_file.write(
+                f"""\t\t(symbol "{symbol_name}_0_1"
 \t\t\t(polyline
 \t\t\t\t(pts
 \t\t\t\t\t(xy 0 -2.286) (xy 0 -2.54)
@@ -222,8 +227,9 @@ def generate_kicad_symbol(
 \t\t\t)
 \t\t)
 \t)
-)
 """)
+
+        symbol_file.write(")")
 
 
 if __name__ == "__main__":
