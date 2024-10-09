@@ -25,6 +25,23 @@ This Python script generates KiCad symbol files (.kicad_sym) for resistors based
 
 3. The script will generate a `RESISTORS_DATA_BASE.kicad_sym` file in the same directory.
 
+## CSV File Format
+
+The input CSV file should have the following headers:
+
+- Symbol Name
+- Reference
+- Value
+- Footprint
+- Datasheet
+- Description
+- Manufacturer
+- MPN
+- Tolerance
+- Voltage Rating
+
+Each row in the CSV represents a different resistor.
+
 ## Adding as a Submodule
 
 To add this repository as a submodule to your existing project, follow these steps:
@@ -57,7 +74,7 @@ git submodule update --remote KiCAD_Symbol_Generator
 To clone a project that includes this submodule, use:
 
 ```
-git clone --recursive [YOUR_PROJECT_URL]
+git clone --recursive https://github.com/ionutms/KiCAD_Symbol_Generator.git
 ```
 
 Or, if you've already cloned the project without the `--recursive` flag:
@@ -67,19 +84,38 @@ git submodule init
 git submodule update
 ```
 
-## CSV File Format
+## Removing the Submodule
 
-The input CSV file should have the following headers:
+If you need to remove the KiCAD Symbol Generator submodule from your project, follow these steps:
 
-- Symbol Name
-- Reference
-- Value
-- Footprint
-- Datasheet
-- Description
-- Manufacturer
-- MPN
-- Tolerance
-- Voltage Rating
+1. Run the `deinit` command to unregister the submodule:
 
-Each row in the CSV represents a different resistor.
+   ```
+   git submodule deinit -f KiCAD_Symbol_Generator
+   ```
+
+2. Remove the submodule from the Git cache:
+
+   ```
+   rm -rf .git/modules/KiCAD_Symbol_Generator
+   ```
+
+3. Remove the submodule from the working tree:
+
+   ```
+   git rm -f KiCAD_Symbol_Generator
+   ```
+
+4. Commit the changes:
+
+   ```
+   git commit -m "Removed KiCAD Symbol Generator submodule"
+   ```
+
+5. Push the changes to your remote repository:
+
+   ```
+   git push origin main
+   ```
+
+After completing these steps, the KiCAD Symbol Generator submodule will be completely removed from your project.
