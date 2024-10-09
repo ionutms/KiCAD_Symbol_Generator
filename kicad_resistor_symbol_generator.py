@@ -64,25 +64,31 @@ def generate_kicad_symbol(
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         symbol_file.write(
-            """(kicad_symbol_lib
-\t(version 20231120)
-\t(generator "kicad_symbol_editor")
-\t(generator_version "8.0")
-""")
+            '\n'.join([
+                "(kicad_symbol_lib",
+                "\t(version 20231120)",
+                "\t(generator \"kicad_symbol_editor\")",
+                "\t(generator_version \"8.0\")",
+                ""
+            ])
+        )
 
         for component_data in component_data_list:
             symbol_name = component_data['Symbol Name']
 
             symbol_file.write(
-                f"""\t(symbol "{symbol_name}"
-\t\t(pin_numbers hide)
-\t\t(pin_names
-\t\t\t(offset 0)
-\t\t)
-\t\t(exclude_from_sim no)
-\t\t(in_bom yes)
-\t\t(on_board yes)
-""")
+                '\n'.join([
+                    f"\t(symbol \"{symbol_name}\"",
+                    "\t\t(pin_numbers hide)",
+                    "\t\t(pin_names",
+                    "\t\t\t(offset 0)",
+                    "\t\t)",
+                    "\t\t(exclude_from_sim no)",
+                    "\t\t(in_bom yes)",
+                    "\t\t(on_board yes)",
+                    ""
+                ])
+            )
 
             # Generate properties
             property_list = [
@@ -108,126 +114,133 @@ def generate_kicad_symbol(
             for property_name, property_value, position, justification, \
                     hidden in property_list:
                 symbol_file.write(
-                    f"""\t\t(property "{property_name}" "{property_value}"
-\t\t\t(at {position} 0)
-\t\t\t{"(show_name)" if hidden else ""}
-\t\t\t(effects
-\t\t\t\t(font
-\t\t\t\t\t(size 1.27 1.27)
-\t\t\t\t)
-\t\t\t\t(justify {justification})
-\t\t\t\t{"(hide yes)" if hidden else ""}
-\t\t\t)
-\t\t)
-""")
+                    '\n'.join([
+                        f"\t\t(property \"{property_name}\" " +
+                        f"\"{property_value}\"",
+                        f"\t\t\t(at {position} 0)",
+                        f"\t\t\t{('(show_name)' if hidden else '')}",
+                        "\t\t\t(effects",
+                        "\t\t\t\t(font",
+                        "\t\t\t\t\t(size 1.27 1.27)",
+                        "\t\t\t\t)",
+                        f"\t\t\t\t(justify {justification})",
+                        f"\t\t\t\t{('(hide yes)' if hidden else '')}",
+                        "\t\t\t)",
+                        "\t\t)",
+                        ""
+                    ])
+                )
 
             # Symbol drawing (simplified resistor symbol)
             symbol_file.write(
-                f"""\t\t(symbol "{symbol_name}_0_1"
-\t\t\t(polyline
-\t\t\t\t(pts
-\t\t\t\t\t(xy 0 -2.286) (xy 0 -2.54)
-\t\t\t\t)
-\t\t\t\t(stroke
-\t\t\t\t\t(width 0)
-\t\t\t\t\t(type default)
-\t\t\t\t)
-\t\t\t\t(fill
-\t\t\t\t\t(type none)
-\t\t\t\t)
-\t\t\t)
-\t\t\t(polyline
-\t\t\t\t(pts
-\t\t\t\t\t(xy 0 2.286) (xy 0 2.54)
-\t\t\t\t)
-\t\t\t\t(stroke
-\t\t\t\t\t(width 0)
-\t\t\t\t\t(type default)
-\t\t\t\t)
-\t\t\t\t(fill
-\t\t\t\t\t(type none)
-\t\t\t\t)
-\t\t\t)
-\t\t\t(polyline
-\t\t\t\t(pts
-\t\t\t\t\t(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) \
-(xy -1.016 -1.905) (xy 0 -2.286)
-\t\t\t\t)
-\t\t\t\t(stroke
-\t\t\t\t\t(width 0)
-\t\t\t\t\t(type default)
-\t\t\t\t)
-\t\t\t\t(fill
-\t\t\t\t\t(type none)
-\t\t\t\t)
-\t\t\t)
-\t\t\t(polyline
-\t\t\t\t(pts
-\t\t\t\t\t(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) \
-(xy 0 -0.762)
-\t\t\t\t)
-\t\t\t\t(stroke
-\t\t\t\t\t(width 0)
-\t\t\t\t\t(type default)
-\t\t\t\t)
-\t\t\t\t(fill
-\t\t\t\t\t(type none)
-\t\t\t\t)
-\t\t\t)
-\t\t\t(polyline
-\t\t\t\t(pts
-\t\t\t\t\t(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) \
-(xy -1.016 1.143) (xy 0 0.762)
-\t\t\t\t)
-\t\t\t\t(stroke
-\t\t\t\t\t(width 0)
-\t\t\t\t\t(type default)
-\t\t\t\t)
-\t\t\t\t(fill
-\t\t\t\t\t(type none)
-\t\t\t\t)
-\t\t\t)
-\t\t)
-\t\t(symbol "{symbol_name}_1_1"
-\t\t\t(pin passive line
-\t\t\t\t(at 0 3.81 270)
-\t\t\t\t(length 1.27)
-\t\t\t\t(name "~"
-\t\t\t\t\t(effects
-\t\t\t\t\t\t(font
-\t\t\t\t\t\t\t(size 1.27 1.27)
-\t\t\t\t\t\t)
-\t\t\t\t\t)
-\t\t\t\t)
-\t\t\t\t(number "1"
-\t\t\t\t\t(effects
-\t\t\t\t\t\t(font
-\t\t\t\t\t\t\t(size 1.27 1.27)
-\t\t\t\t\t\t)
-\t\t\t\t\t)
-\t\t\t\t)
-\t\t\t)
-\t\t\t(pin passive line
-\t\t\t\t(at 0 -3.81 90)
-\t\t\t\t(length 1.27)
-\t\t\t\t(name "~"
-\t\t\t\t\t(effects
-\t\t\t\t\t\t(font
-\t\t\t\t\t\t\t(size 1.27 1.27)
-\t\t\t\t\t\t)
-\t\t\t\t\t)
-\t\t\t\t)
-\t\t\t\t(number "2"
-\t\t\t\t\t(effects
-\t\t\t\t\t\t(font
-\t\t\t\t\t\t\t(size 1.27 1.27)
-\t\t\t\t\t\t)
-\t\t\t\t\t)
-\t\t\t\t)
-\t\t\t)
-\t\t)
-\t)
-""")
+                '\n'.join([
+                    f"\t\t(symbol \"{symbol_name}_0_1\"",
+                    "\t\t\t(polyline",
+                    "\t\t\t\t(pts",
+                    "\t\t\t\t\t(xy 0 -2.286) (xy 0 -2.54)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(stroke",
+                    "\t\t\t\t\t(width 0)",
+                    "\t\t\t\t\t(type default)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(fill",
+                    "\t\t\t\t\t(type none)",
+                    "\t\t\t\t)",
+                    "\t\t\t)",
+                    "\t\t\t(polyline",
+                    "\t\t\t\t(pts",
+                    "\t\t\t\t\t(xy 0 2.286) (xy 0 2.54)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(stroke",
+                    "\t\t\t\t\t(width 0)",
+                    "\t\t\t\t\t(type default)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(fill",
+                    "\t\t\t\t\t(type none)",
+                    "\t\t\t\t)",
+                    "\t\t\t)",
+                    "\t\t\t(polyline",
+                    "\t\t\t\t(pts",
+                    "\t\t\t\t\t(xy 0 -0.762) (xy 1.016 -1.143) " +
+                    "(xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(stroke",
+                    "\t\t\t\t\t(width 0)",
+                    "\t\t\t\t\t(type default)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(fill",
+                    "\t\t\t\t\t(type none)",
+                    "\t\t\t\t)",
+                    "\t\t\t)",
+                    "\t\t\t(polyline",
+                    "\t\t\t\t(pts",
+                    "\t\t\t\t\t(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) " +
+                    "(xy -1.016 -0.381) (xy 0 -0.762)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(stroke",
+                    "\t\t\t\t\t(width 0)",
+                    "\t\t\t\t\t(type default)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(fill",
+                    "\t\t\t\t\t(type none)",
+                    "\t\t\t\t)",
+                    "\t\t\t)",
+                    "\t\t\t(polyline",
+                    "\t\t\t\t(pts",
+                    "\t\t\t\t\t(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) " +
+                    "(xy -1.016 1.143) (xy 0 0.762)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(stroke",
+                    "\t\t\t\t\t(width 0)",
+                    "\t\t\t\t\t(type default)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(fill",
+                    "\t\t\t\t\t(type none)",
+                    "\t\t\t\t)",
+                    "\t\t\t)",
+                    "\t\t)",
+                    f"\t\t(symbol \"{symbol_name}_1_1\"",
+                    "\t\t\t(pin passive line",
+                    "\t\t\t\t(at 0 3.81 270)",
+                    "\t\t\t\t(length 1.27)",
+                    "\t\t\t\t(name \"~\"",
+                    "\t\t\t\t\t(effects",
+                    "\t\t\t\t\t\t(font",
+                    "\t\t\t\t\t\t\t(size 1.27 1.27)",
+                    "\t\t\t\t\t\t)",
+                    "\t\t\t\t\t)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(number \"1\"",
+                    "\t\t\t\t\t(effects",
+                    "\t\t\t\t\t\t(font",
+                    "\t\t\t\t\t\t\t(size 1.27 1.27)",
+                    "\t\t\t\t\t\t)",
+                    "\t\t\t\t\t)",
+                    "\t\t\t\t)",
+                    "\t\t\t)",
+                    "\t\t\t(pin passive line",
+                    "\t\t\t\t(at 0 -3.81 90)",
+                    "\t\t\t\t(length 1.27)",
+                    "\t\t\t\t(name \"~\"",
+                    "\t\t\t\t\t(effects",
+                    "\t\t\t\t\t\t(font",
+                    "\t\t\t\t\t\t\t(size 1.27 1.27)",
+                    "\t\t\t\t\t\t)",
+                    "\t\t\t\t\t)",
+                    "\t\t\t\t)",
+                    "\t\t\t\t(number \"2\"",
+                    "\t\t\t\t\t(effects",
+                    "\t\t\t\t\t\t(font",
+                    "\t\t\t\t\t\t\t(size 1.27 1.27)",
+                    "\t\t\t\t\t\t)",
+                    "\t\t\t\t\t)",
+                    "\t\t\t\t)",
+                    "\t\t\t)",
+                    "\t\t)",
+                    "\t)",
+                    ""
+                ])
+            )
 
         symbol_file.write(")")
 
