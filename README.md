@@ -1,23 +1,38 @@
-# KiCad Resistor Symbol Generator and Resistors Database App
+# KiCad Symbol Generator and Electronic Components Database
 
-This project consists of two main components: a Python script for generating KiCad symbol files for resistors, and a web-based Resistors Database application.
+This project consists of three main components: a Python script for generating KiCad symbol files, a web-based Resistors Database application, and a web-based Capacitors Database application.
 
 ## Table of Contents
-1. [KiCad Resistor Symbol Generator](#kicad-resistor-symbol-generator)
-2. [Resistors Database App](#resistors-database-app)
-3. [Adding as a Submodule](#adding-as-a-submodule)
-4. [Removing the Submodule](#removing-the-submodule)
+- [KiCad Symbol Generator and Electronic Components Database](#kicad-symbol-generator-and-electronic-components-database)
+  - [Table of Contents](#table-of-contents)
+  - [KiCad Symbol Generator](#kicad-symbol-generator)
+    - [Features](#features)
+    - [Requirements](#requirements)
+    - [Usage](#usage)
+    - [CSV File Format](#csv-file-format)
+  - [Electronic Components Database](#electronic-components-database)
+    - [Deployment](#deployment)
+    - [Resistors Database](#resistors-database)
+      - [About](#about)
+      - [Features](#features-1)
+    - [Capacitors Database](#capacitors-database)
+      - [About](#about-1)
+      - [Features](#features-2)
+    - [Usage Steps (for both Resistors and Capacitors Databases)](#usage-steps-for-both-resistors-and-capacitors-databases)
+    - [Technical Details](#technical-details)
+  - [Adding as a Submodule](#adding-as-a-submodule)
+  - [Removing the Submodule](#removing-the-submodule)
 
-## KiCad Resistor Symbol Generator
+## KiCad Symbol Generator
 
-This Python script generates KiCad symbol files (.kicad_sym) for resistors based on data from a CSV file. It's designed to streamline the process of creating custom resistor symbols for use in KiCad electronic design automation (EDA) software.
+This Python script generates KiCad symbol files (.kicad_sym) for electronic components based on data from CSV files. It's designed to streamline the process of creating custom symbols for use in KiCad electronic design automation (EDA) software.
 
 ### Features
 
 - Generates KiCad symbol files from CSV data
-- Customizable for different resistor properties
-- Creates a standardized resistor symbol with configurable properties
-- Handles multiple resistors in a single CSV file
+- Customizable for different component properties
+- Creates standardized symbols with configurable properties
+- Handles multiple components in a single CSV file
 
 ### Requirements
 
@@ -26,14 +41,14 @@ This Python script generates KiCad symbol files (.kicad_sym) for resistors based
 
 ### Usage
 
-1. Prepare your CSV file with resistor data (see `resistor.csv` for example format).
+1. Prepare your CSV file with component data (see `resistor.csv` or `capacitor.csv` for example formats).
 2. Run the script:
 
    ```
-   python kicad_resistor_symbol_generator.py
+   python kicad_symbol_generator.py
    ```
 
-3. The script will generate a `RESISTORS_DATA_BASE.kicad_sym` file in the same directory.
+3. The script will generate a `.kicad_sym` file in the same directory.
 
 ### CSV File Format
 
@@ -52,23 +67,25 @@ The input CSV file should have the following headers:
 
 Each row in the CSV represents a different resistor.
 
-## Resistors Database App
+## Electronic Components Database
 
-The Resistors Database is a web application that provides an interactive interface for viewing and managing the database of resistors used in the symbol generation process.
+The Electronic Components Database consists of two web applications: the Resistors Database and the Capacitors Database. These applications provide interactive interfaces for viewing and managing databases of electronic components.
 
 ### Deployment
 
-The Resistors Database App is deployed and accessible at:
+Both database applications are deployed and accessible at:
 
 https://kicad-symbol-generator.onrender.com
 
-You can visit this URL to interact with the live version of the application.
+You can visit this URL to interact with the live versions of the applications.
 
-### About
+### Resistors Database
+
+#### About
 
 The Resistors Database is an interactive web application that provides a comprehensive view of resistor specifications. It allows users to easily browse, search, and filter through a database of resistors, providing quick access to important information and datasheets.
 
-### Features
+#### Features
 
 - Interactive data table displaying resistor specifications
 - Dynamic filtering and multi-column sorting capabilities
@@ -77,20 +94,36 @@ The Resistors Database is an interactive web application that provides a compreh
 - Responsive design adapting to light and dark themes
 - Easy-to-use interface for exploring resistor data
 
-### Usage Steps
+### Capacitors Database
 
-1. Navigate to the Resistors Database page at https://kicad-symbol-generator.onrender.com
-2. Use the table's built-in search functionality to find specific resistors
-3. Click on column headers to sort the data
-4. Use the filter action to narrow down the displayed results
-5. Navigate through pages using the pagination controls at the bottom of the table
-6. Access resistor datasheets by clicking on the provided links in the 'Datasheet' column
-7. Switch between light and dark themes for comfortable viewing in different environments
+#### About
+
+The Capacitors Database is an interactive web application that provides a comprehensive view of capacitor specifications. It allows users to easily browse, search, and filter through a database of capacitors, providing quick access to important information and datasheets.
+
+#### Features
+
+- Interactive data table displaying capacitor specifications
+- Dynamic filtering and multi-column sorting capabilities
+- Pagination for efficient browsing of large datasets
+- Direct links to capacitor datasheets
+- Responsive design adapting to light and dark themes
+- Easy-to-use interface for exploring capacitor data
+
+### Usage Steps (for both Resistors and Capacitors Databases)
+
+1. Navigate to the Electronic Components Database page at https://kicad-symbol-generator.onrender.com
+2. Choose either the Resistors Database or Capacitors Database from the navigation menu
+3. Use the table's built-in search functionality to find specific components
+4. Click on column headers to sort the data
+5. Use the filter action to narrow down the displayed results
+6. Navigate through pages using the pagination controls at the bottom of the table
+7. Access component datasheets by clicking on the provided links in the 'Datasheet' column
+8. Switch between light and dark themes for comfortable viewing in different environments
 
 ### Technical Details
 
 - Built using Dash and Dash Bootstrap Components
-- Data sourced from the same CSV file used for symbol generation
+- Data sourced from CSV files used for symbol generation
 - Utilizes Dash DataTable for interactive data display
 - Implements dynamic styling based on the user's theme preference
 
