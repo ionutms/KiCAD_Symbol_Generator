@@ -18,7 +18,7 @@ from dash.dependencies import Input, Output
 import pandas as pd
 
 import pages.utils.style_utils as styles
-import pages.utils.dash_component_utils as dcu
+# import pages.utils.dash_component_utils as dcu
 
 link_name = __name__.rsplit(".", maxsplit=1)[-1].replace("_page", "").title()
 module_name = __name__.rsplit(".", maxsplit=1)[-1]
@@ -96,7 +96,7 @@ layout = dbc.Container([html.Div([
     dbc.Row([dbc.Col([dcc.Link("Go back Home", href="/")])]),
     dbc.Row([dbc.Col([html.H3(
         f"{link_name.replace('_', ' ')}", style=styles.heading_3_style)])]),
-    dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
+    # dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
     dash_table.DataTable(
         id='resistor_table',
@@ -119,17 +119,20 @@ layout = dbc.Container([html.Div([
     Output("resistor_table", "style_data_conditional"),
     Output("resistor_table", "style_table"),
     Output("resistor_table", "style_cell"),
+    Output("resistor_table", "style_filter"),
+    Output("resistor_table", "css"),
     Input("theme_switch_value_store", "data"),
 )
 def update_table_style_and_visibility(
-        switch: bool
-) -> Tuple[Dict, Dict, List[Dict]]:
+    switch: bool
+) -> Tuple[Dict, Dict, List[Dict], Dict, Dict, Dict]:
     """
-    Update the DataTable styles based on the theme switch value.
+    Update the styles of the DataTable based on the theme switch value.
 
-    This function changes the appearance of the DataTable,
-    including data cells, header, and alternating row colors,
-    depending on the selected theme.
+    This function changes the appearance of the DataTable, including
+    data cells, header, filter row, and alternating row colors,
+    depending on the selected theme (light or dark). The function
+    applies the Roboto font to all elements within the DataTable.
 
     Args:
         switch (bool):
@@ -137,54 +140,143 @@ def update_table_style_and_visibility(
             True for light theme, False for dark theme.
 
     Returns:
-        Tuple[Dict, Dict, List[Dict]]:
-            Styles for data cells, header cells,
-            and conditional styles for alternating rows.
+        Tuple[Dict, Dict, List[Dict], Dict, Dict, Dict]:
+            Styles for data cells, header cells, conditional styles
+            for alternating rows, table style, cell style, and filter style.
     """
     style_data = {
-        "backgroundColor": "white" if switch else "#666666",
-        "color": "black" if switch else "white",
-        "fontWeight": "bold",
+        "backgroundColor":
+            styles.TABLE_GLOBAL_STYLES["light_background"]
+            if switch else
+            styles.TABLE_GLOBAL_STYLES["dark_background"],
+        "color":
+            styles.TABLE_GLOBAL_STYLES["light_color"]
+            if switch else
+            styles.TABLE_GLOBAL_STYLES["dark_color"],
+        "fontWeight": "normal",
         "whiteSpace": "normal",
-        "height": "auto"
+        "height": "auto",
+        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
     }
 
     style_header = {
-        "backgroundColor": "#DDDDDD" if switch else "#111111",
-        "fontSize": "16px",
+        "backgroundColor":
+            styles.TABLE_GLOBAL_STYLES["header_background_light"]
+            if switch else
+            styles.TABLE_GLOBAL_STYLES["header_background_dark"],
+        "fontSize": styles.TABLE_GLOBAL_STYLES["header_font_size"],
         "textAlign": "center",
         "height": "auto",
         "whiteSpace": "pre-wrap",
         "fontWeight": "bold",
-        "color": "black" if switch else "white"
+        "color":
+            styles.TABLE_GLOBAL_STYLES["light_color"]
+            if switch else
+            styles.TABLE_GLOBAL_STYLES["dark_color"],
+        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
     }
 
     style_data_conditional = (
-        [{"if": {"row_index": "odd"}, "backgroundColor": "#DDDDDD"}]
+        [{"if": {"row_index": "odd"},
+            "backgroundColor":
+                styles.TABLE_GLOBAL_STYLES["filter_background_light"]}]
         if switch else
-        [{"if": {"row_index": "odd"}, "backgroundColor": "#555555"}]
+        [{"if": {"row_index": "odd"},
+            "backgroundColor":
+                styles.TABLE_GLOBAL_STYLES["filter_background_dark"]}]
     )
 
     style_table = {
-        'overflowX': 'auto',
-        'minWidth': '100%',
-        'width': '100%',
-        'maxWidth': '100%',
-        'height': 'auto',
-        'overflowY': 'auto',
+        "overflowX": "auto",
+        "minWidth": "100%",
+        "width": "100%",
+        "maxWidth": "100%",
+        "height": "auto",
+        "overflowY": "auto",
+        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
     }
 
     style_cell = {
-        'textAlign': 'center',
-        'overflow': 'hidden',
-        'textOverflow': 'ellipsis',
-        'fontSize': '14px',
+        "textAlign": "center",
+        "overflow": "hidden",
+        "textOverflow": "ellipsis",
+        "fontSize": styles.TABLE_GLOBAL_STYLES["cell_font_size"],
+        "padding": styles.TABLE_GLOBAL_STYLES["cell_padding"],
+        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
     }
+
+    style_filter = {
+        "backgroundColor":
+            styles.TABLE_GLOBAL_STYLES["filter_background_light"]
+            if switch else
+            styles.TABLE_GLOBAL_STYLES["filter_background_dark"]}
+
+    css = (
+        [{
+            'selector': '.dash-filter input',
+            'rule': f'''
+                text-align: center !important;
+                font-size: 16px !important;
+                padding: 5px !important;
+                color: {
+                    styles.TABLE_GLOBAL_STYLES["input_text_color_light"]}
+                    !important;
+                font-family: {
+                    styles.TABLE_GLOBAL_STYLES["font_family"]}
+                    !important;
+            '''
+        },
+            {
+            'selector': '.dash-filter input::placeholder',
+            'rule': f'''
+                color: {
+                    styles.TABLE_GLOBAL_STYLES["placeholder_color_light"]}
+                    !important;
+                font-size: 14px !important;
+                text-align: center !important;
+                font-style: bold !important;
+                font-family: {
+                    styles.TABLE_GLOBAL_STYLES["font_family"]}
+                    !important;
+            '''
+        }]
+        if switch else
+        [{
+            'selector': '.dash-filter input',
+            'rule': f'''
+                text-align: center !important;
+                font-size: 16px !important;
+                padding: 5px !important;
+                color: {
+                    styles.TABLE_GLOBAL_STYLES["input_text_color_dark"]}
+                    !important;
+                font-family: {
+                    styles.TABLE_GLOBAL_STYLES["font_family"]}
+                    !important;
+            '''
+        },
+            {
+            'selector': '.dash-filter input::placeholder',
+            'rule': f'''
+                color: {
+                    styles.TABLE_GLOBAL_STYLES["placeholder_color_dark"]}
+                    !important;
+                font-size: 14px !important;
+                text-align: center !important;
+                font-style: bold !important;
+                font-family: {
+                    styles.TABLE_GLOBAL_STYLES["font_family"]}
+                    !important;
+            '''
+        }]
+    )
 
     return (
         style_data,
         style_header,
         style_data_conditional,
         style_table,
-        style_cell
+        style_cell,
+        style_filter,
+        css
     )

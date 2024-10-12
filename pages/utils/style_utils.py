@@ -49,6 +49,25 @@ RESPONSIVE_CENTER_BUTTON_CLASS = \
 CENTER_CONTENT_CLASS = \
     "w-100 d-flex justify-content-center align-items-center"
 
+TABLE_GLOBAL_STYLES = {
+    "font_family": "'Roboto', sans-serif",
+    "light_background": "white",
+    "dark_background": "#666666",
+    "light_color": "black",
+    "dark_color": "white",
+    "header_background_light": "#DDDDDD",
+    "header_background_dark": "#111111",
+    "filter_background_light": "#F8F8F8",
+    "filter_background_dark": "#555555",
+    "placeholder_color_light": "#AAAAAA",
+    "placeholder_color_dark": "#CCCCCC",
+    "input_text_color_light": "#555555",
+    "input_text_color_dark": "#E0E0E0",
+    "cell_padding": "10px",
+    "cell_font_size": "14px",
+    "header_font_size": "16px"
+}
+
 
 def style_accordionitem_title(title: str, font_size: int = 24):
     """Style accordionitem title."""
