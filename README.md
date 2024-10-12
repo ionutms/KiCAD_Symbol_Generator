@@ -1,20 +1,30 @@
-# KiCad Resistor Symbol Generator
+# KiCad Resistor Symbol Generator and Resistors Database App
+
+This project consists of two main components: a Python script for generating KiCad symbol files for resistors, and a web-based Resistors Database application.
+
+## Table of Contents
+1. [KiCad Resistor Symbol Generator](#kicad-resistor-symbol-generator)
+2. [Resistors Database App](#resistors-database-app)
+3. [Adding as a Submodule](#adding-as-a-submodule)
+4. [Removing the Submodule](#removing-the-submodule)
+
+## KiCad Resistor Symbol Generator
 
 This Python script generates KiCad symbol files (.kicad_sym) for resistors based on data from a CSV file. It's designed to streamline the process of creating custom resistor symbols for use in KiCad electronic design automation (EDA) software.
 
-## Features
+### Features
 
 - Generates KiCad symbol files from CSV data
 - Customizable for different resistor properties
 - Creates a standardized resistor symbol with configurable properties
 - Handles multiple resistors in a single CSV file
 
-## Requirements
+### Requirements
 
 - Python 3.x
 - No external libraries required (uses only Python standard library)
 
-## Usage
+### Usage
 
 1. Prepare your CSV file with resistor data (see `resistor.csv` for example format).
 2. Run the script:
@@ -25,7 +35,7 @@ This Python script generates KiCad symbol files (.kicad_sym) for resistors based
 
 3. The script will generate a `RESISTORS_DATA_BASE.kicad_sym` file in the same directory.
 
-## CSV File Format
+### CSV File Format
 
 The input CSV file should have the following headers:
 
@@ -41,6 +51,48 @@ The input CSV file should have the following headers:
 - Voltage Rating
 
 Each row in the CSV represents a different resistor.
+
+## Resistors Database App
+
+The Resistors Database is a web application that provides an interactive interface for viewing and managing the database of resistors used in the symbol generation process.
+
+### Deployment
+
+The Resistors Database App is deployed and accessible at:
+
+https://kicad-symbol-generator.onrender.com
+
+You can visit this URL to interact with the live version of the application.
+
+### About
+
+The Resistors Database is an interactive web application that provides a comprehensive view of resistor specifications. It allows users to easily browse, search, and filter through a database of resistors, providing quick access to important information and datasheets.
+
+### Features
+
+- Interactive data table displaying resistor specifications
+- Dynamic filtering and multi-column sorting capabilities
+- Pagination for efficient browsing of large datasets
+- Direct links to resistor datasheets
+- Responsive design adapting to light and dark themes
+- Easy-to-use interface for exploring resistor data
+
+### Usage Steps
+
+1. Navigate to the Resistors Database page at https://kicad-symbol-generator.onrender.com
+2. Use the table's built-in search functionality to find specific resistors
+3. Click on column headers to sort the data
+4. Use the filter action to narrow down the displayed results
+5. Navigate through pages using the pagination controls at the bottom of the table
+6. Access resistor datasheets by clicking on the provided links in the 'Datasheet' column
+7. Switch between light and dark themes for comfortable viewing in different environments
+
+### Technical Details
+
+- Built using Dash and Dash Bootstrap Components
+- Data sourced from the same CSV file used for symbol generation
+- Utilizes Dash DataTable for interactive data display
+- Implements dynamic styling based on the user's theme preference
 
 ## Adding as a Submodule
 
@@ -74,7 +126,7 @@ git submodule update --remote KiCAD_Symbol_Generator
 To clone a project that includes this submodule, use:
 
 ```
-git clone --recursive https://github.com/ionutms/KiCAD_Symbol_Generator.git
+git clone --recursive https://github.com/yourusername/your-project.git
 ```
 
 Or, if you've already cloned the project without the `--recursive` flag:
