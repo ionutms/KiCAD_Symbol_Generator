@@ -28,13 +28,33 @@ register_page(__name__, name=link_name, order=1)
 
 TITLE = "Resistors Database"
 ABOUT = (
-    "The ...", ""
+    "The Resistors Database is an interactive web application that "
+    "provides a comprehensive view of resistor specifications.",
+    "It allows users to easily browse, search, and filter "
+    "through a database of resistors, "
+    "providing quick access to important information and datasheets."
 )
+
 features = [
-    "TODO"
+    "Interactive data table displaying resistor specifications",
+    "Dynamic filtering and multi-column sorting capabilities",
+    "Pagination for efficient browsing of large datasets",
+    "Direct links to resistor datasheets",
+    "Responsive design adapting to light and dark themes",
+    "Easy-to-use interface for exploring resistor data"
 ]
+
 usage_steps = [
-    "TODO"
+    "Navigate to the Resistors Database page",
+    "Use the table's built-in search functionality to find specific resistors",
+    "Click on column headers to sort the data",
+    "Use the filter action to narrow down the displayed results",
+    "Navigate through pages using the pagination controls at "
+    "the bottom of the table",
+    "Access resistor datasheets by clicking on the provided links in the "
+    "'Datasheet' column",
+    "Switch between light and dark themes for comfortable viewing in "
+    "different environments"
 ]
 
 
