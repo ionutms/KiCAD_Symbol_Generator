@@ -13,17 +13,19 @@ The application can be run directly, and it will start a local server
 for viewing the table.
 """
 
+from typing import List, Dict, Any
 import pandas as pd
 import dash
 from dash import dash_table
 from dash import html
 
-resistor_dataframe = pd.read_csv('resistor.csv')
+resistor_dataframe: pd.DataFrame = pd.read_csv('resistor.csv')
 
-dash_app = dash.Dash(__name__)
+dash_app: dash.Dash = dash.Dash(__name__)
 
-CUSTOM_CSS = """
-    .dash-table-container .dash-spreadsheet-container
+CUSTOM_CSS: str = """
+    .dash-table-container
+    .dash-spreadsheet-container
     .dash-spreadsheet-inner td {
         text-align: center;
     }
@@ -38,7 +40,9 @@ CUSTOM_CSS = """
 dash_app.css.append_css({"external_url": CUSTOM_CSS})
 
 
-def create_column_definitions(dataframe):
+def create_column_definitions(
+        dataframe: pd.DataFrame
+) -> List[Dict[str, Any]]:
     """Create column definitions for the DataTable."""
     return [
         {
@@ -49,7 +53,9 @@ def create_column_definitions(dataframe):
     ]
 
 
-def generate_centered_link(url_text):
+def generate_centered_link(
+        url_text: Any
+) -> str:
     """Generate a centered link with inline CSS."""
     if pd.notna(url_text):
         return (
