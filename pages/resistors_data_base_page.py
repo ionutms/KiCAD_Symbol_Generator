@@ -125,7 +125,7 @@ layout = dbc.Container([html.Div([
 )
 def update_table_style_and_visibility(
     switch: bool
-) -> Tuple[Dict, Dict, List[Dict], Dict, Dict, Dict]:
+) -> Tuple[Dict, Dict, List[Dict], Dict, Dict, Dict, List[Dict]]:
     """
     Update the styles of the DataTable based on the theme switch value.
 
@@ -140,9 +140,10 @@ def update_table_style_and_visibility(
             True for light theme, False for dark theme.
 
     Returns:
-        Tuple[Dict, Dict, List[Dict], Dict, Dict, Dict]:
+        Tuple[Dict, Dict, List[Dict], Dict, Dict, Dict, List[Dict]]:
             Styles for data cells, header cells, conditional styles
-            for alternating rows, table style, cell style, and filter style.
+            for alternating rows, table style, cell style, filter style,
+            and CSS rules.
     """
     style_data = {
         "backgroundColor":
@@ -153,9 +154,9 @@ def update_table_style_and_visibility(
             styles.TABLE_GLOBAL_STYLES["light_color"]
             if switch else
             styles.TABLE_GLOBAL_STYLES["dark_color"],
-        "fontWeight": "normal",
-        "whiteSpace": "normal",
-        "height": "auto",
+        "fontWeight": styles.TABLE_GLOBAL_STYLES["font_weight_normal"],
+        "whiteSpace": styles.TABLE_GLOBAL_STYLES["white_space_normal"],
+        "height": styles.TABLE_GLOBAL_STYLES["height_auto"],
         "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
     }
 
@@ -165,10 +166,10 @@ def update_table_style_and_visibility(
             if switch else
             styles.TABLE_GLOBAL_STYLES["header_background_dark"],
         "fontSize": styles.TABLE_GLOBAL_STYLES["header_font_size"],
-        "textAlign": "center",
-        "height": "auto",
-        "whiteSpace": "pre-wrap",
-        "fontWeight": "bold",
+        "textAlign": styles.TABLE_GLOBAL_STYLES["text_align_center"],
+        "height": styles.TABLE_GLOBAL_STYLES["height_auto"],
+        "whiteSpace": styles.TABLE_GLOBAL_STYLES["white_space_pre_wrap"],
+        "fontWeight": styles.TABLE_GLOBAL_STYLES["font_weight_bold"],
         "color":
             styles.TABLE_GLOBAL_STYLES["light_color"]
             if switch else
@@ -187,89 +188,32 @@ def update_table_style_and_visibility(
     )
 
     style_table = {
-        "overflowX": "auto",
-        "minWidth": "100%",
-        "width": "100%",
-        "maxWidth": "100%",
-        "height": "auto",
-        "overflowY": "auto",
+        "overflowX": styles.TABLE_GLOBAL_STYLES["overflow_x_auto"],
+        "minWidth": styles.TABLE_GLOBAL_STYLES["min_width_100"],
+        "width": styles.TABLE_GLOBAL_STYLES["width_100"],
+        "maxWidth": styles.TABLE_GLOBAL_STYLES["max_width_100"],
+        "height": styles.TABLE_GLOBAL_STYLES["height_auto"],
+        "overflowY": styles.TABLE_GLOBAL_STYLES["overflow_y_auto"],
         "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
     }
 
     style_cell = {
-        "textAlign": "center",
-        "overflow": "hidden",
-        "textOverflow": "ellipsis",
+        "textAlign": styles.TABLE_GLOBAL_STYLES["text_align_center"],
+        "overflow": styles.TABLE_GLOBAL_STYLES["overflow_hidden"],
+        "textOverflow": styles.TABLE_GLOBAL_STYLES["text_overflow_ellipsis"],
         "fontSize": styles.TABLE_GLOBAL_STYLES["cell_font_size"],
         "padding": styles.TABLE_GLOBAL_STYLES["cell_padding"],
-        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
+        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"],
+        "whiteSpace": styles.TABLE_GLOBAL_STYLES["white_space_normal"],
+        "height": styles.TABLE_GLOBAL_STYLES["height_auto"]
     }
 
     style_filter = {
         "backgroundColor":
             styles.TABLE_GLOBAL_STYLES["filter_background_light"]
             if switch else
-            styles.TABLE_GLOBAL_STYLES["filter_background_dark"]}
-
-    css = (
-        [{
-            'selector': '.dash-filter input',
-            'rule': f'''
-                text-align: center !important;
-                font-size: 16px !important;
-                padding: 5px !important;
-                color: {
-                    styles.TABLE_GLOBAL_STYLES["input_text_color_light"]}
-                    !important;
-                font-family: {
-                    styles.TABLE_GLOBAL_STYLES["font_family"]}
-                    !important;
-            '''
-        },
-            {
-            'selector': '.dash-filter input::placeholder',
-            'rule': f'''
-                color: {
-                    styles.TABLE_GLOBAL_STYLES["placeholder_color_light"]}
-                    !important;
-                font-size: 14px !important;
-                text-align: center !important;
-                font-style: bold !important;
-                font-family: {
-                    styles.TABLE_GLOBAL_STYLES["font_family"]}
-                    !important;
-            '''
-        }]
-        if switch else
-        [{
-            'selector': '.dash-filter input',
-            'rule': f'''
-                text-align: center !important;
-                font-size: 16px !important;
-                padding: 5px !important;
-                color: {
-                    styles.TABLE_GLOBAL_STYLES["input_text_color_dark"]}
-                    !important;
-                font-family: {
-                    styles.TABLE_GLOBAL_STYLES["font_family"]}
-                    !important;
-            '''
-        },
-            {
-            'selector': '.dash-filter input::placeholder',
-            'rule': f'''
-                color: {
-                    styles.TABLE_GLOBAL_STYLES["placeholder_color_dark"]}
-                    !important;
-                font-size: 14px !important;
-                text-align: center !important;
-                font-style: bold !important;
-                font-family: {
-                    styles.TABLE_GLOBAL_STYLES["font_family"]}
-                    !important;
-            '''
-        }]
-    )
+            styles.TABLE_GLOBAL_STYLES["filter_background_dark"]
+    }
 
     return (
         style_data,
@@ -278,5 +222,5 @@ def update_table_style_and_visibility(
         style_table,
         style_cell,
         style_filter,
-        css
+        styles.generate_css(switch)
     )
