@@ -131,8 +131,9 @@ def update_table_style_and_visibility(
 
     This function changes the appearance of the DataTable, including
     data cells, header, filter row, and alternating row colors,
-    depending on the selected theme (light or dark). The function
-    applies the Roboto font to all elements within the DataTable.
+    depending on the selected theme (light or dark).
+    The function applies styles defined in the style_utils module
+    to all elements within the DataTable.
 
     Args:
         switch (bool):
@@ -143,84 +144,16 @@ def update_table_style_and_visibility(
         Tuple[Dict, Dict, List[Dict], Dict, Dict, Dict, List[Dict]]:
             Styles for data cells, header cells, conditional styles
             for alternating rows, table style, cell style, filter style,
-            and CSS rules.
+            and CSS rules. Note that table style and cell style are not
+            dependent on the theme switch.
     """
-    style_data = {
-        "backgroundColor":
-            styles.TABLE_GLOBAL_STYLES["light_background"]
-            if switch else
-            styles.TABLE_GLOBAL_STYLES["dark_background"],
-        "color":
-            styles.TABLE_GLOBAL_STYLES["light_color"]
-            if switch else
-            styles.TABLE_GLOBAL_STYLES["dark_color"],
-        "fontWeight": styles.TABLE_GLOBAL_STYLES["font_weight_normal"],
-        "whiteSpace": styles.TABLE_GLOBAL_STYLES["white_space_normal"],
-        "height": styles.TABLE_GLOBAL_STYLES["height_auto"],
-        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
-    }
-
-    style_header = {
-        "backgroundColor":
-            styles.TABLE_GLOBAL_STYLES["header_background_light"]
-            if switch else
-            styles.TABLE_GLOBAL_STYLES["header_background_dark"],
-        "fontSize": styles.TABLE_GLOBAL_STYLES["header_font_size"],
-        "textAlign": styles.TABLE_GLOBAL_STYLES["text_align_center"],
-        "height": styles.TABLE_GLOBAL_STYLES["height_auto"],
-        "whiteSpace": styles.TABLE_GLOBAL_STYLES["white_space_pre_wrap"],
-        "fontWeight": styles.TABLE_GLOBAL_STYLES["font_weight_bold"],
-        "color":
-            styles.TABLE_GLOBAL_STYLES["light_color"]
-            if switch else
-            styles.TABLE_GLOBAL_STYLES["dark_color"],
-        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
-    }
-
-    style_data_conditional = (
-        [{"if": {"row_index": "odd"},
-            "backgroundColor":
-                styles.TABLE_GLOBAL_STYLES["filter_background_light"]}]
-        if switch else
-        [{"if": {"row_index": "odd"},
-            "backgroundColor":
-                styles.TABLE_GLOBAL_STYLES["filter_background_dark"]}]
-    )
-
-    style_table = {
-        "overflowX": styles.TABLE_GLOBAL_STYLES["overflow_x_auto"],
-        "minWidth": styles.TABLE_GLOBAL_STYLES["min_width_100"],
-        "width": styles.TABLE_GLOBAL_STYLES["width_100"],
-        "maxWidth": styles.TABLE_GLOBAL_STYLES["max_width_100"],
-        "height": styles.TABLE_GLOBAL_STYLES["height_auto"],
-        "overflowY": styles.TABLE_GLOBAL_STYLES["overflow_y_auto"],
-        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"]
-    }
-
-    style_cell = {
-        "textAlign": styles.TABLE_GLOBAL_STYLES["text_align_center"],
-        "overflow": styles.TABLE_GLOBAL_STYLES["overflow_hidden"],
-        "textOverflow": styles.TABLE_GLOBAL_STYLES["text_overflow_ellipsis"],
-        "fontSize": styles.TABLE_GLOBAL_STYLES["cell_font_size"],
-        "padding": styles.TABLE_GLOBAL_STYLES["cell_padding"],
-        "font-family": styles.TABLE_GLOBAL_STYLES["font_family"],
-        "whiteSpace": styles.TABLE_GLOBAL_STYLES["white_space_normal"],
-        "height": styles.TABLE_GLOBAL_STYLES["height_auto"]
-    }
-
-    style_filter = {
-        "backgroundColor":
-            styles.TABLE_GLOBAL_STYLES["filter_background_light"]
-            if switch else
-            styles.TABLE_GLOBAL_STYLES["filter_background_dark"]
-    }
 
     return (
-        style_data,
-        style_header,
-        style_data_conditional,
-        style_table,
-        style_cell,
-        style_filter,
+        styles.generate_style_data(switch),
+        styles.generate_style_header(switch),
+        styles.generate_style_data_conditional(switch),
+        styles.generate_style_table(),
+        styles.generate_style_cell(),
+        styles.generate_style_filter(switch),
         styles.generate_css(switch)
     )
