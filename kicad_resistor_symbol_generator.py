@@ -19,230 +19,298 @@ Dependencies:
 """
 
 import csv
+from typing import List, Tuple, Dict, TextIO
 
 
 def generate_kicad_symbol(
         input_csv_file: str,
         output_symbol_file: str,
-        encoding: str = 'utf-8') -> None:
+        encoding: str = 'utf-8'
+) -> None:
     """
     Generate a KiCad symbol file from CSV data.
 
-    This function reads component data from a CSV file and creates a KiCad
-    symbol file (.kicad_sym) with the components' properties and graphical
-    representations.
-
     Args:
-        input_csv_file (str):
-            Path to the input CSV file containing component data.
-            The CSV should have headers matching the expected property names.
-        output_symbol_file (str):
-            Path where the output .kicad_sym file will be saved.
-        encoding (str):
-            The character encoding to use for reading the CSV and
-            writing the symbol file. Defaults to 'utf-8'.
-
-    Returns:
-        None
+        input_csv_file (str): Path to the input CSV file with component data.
+        output_symbol_file (str): Path for the output .kicad_sym file.
+        encoding (str, optional):
+            Character encoding to use. Defaults to 'utf-8'.
 
     Raises:
         FileNotFoundError: If the input CSV file is not found.
-        csv.Error: If there are issues reading the CSV file.
-        IOError: If there are issues writing to the output file.
-        UnicodeDecodeError:
-            If there are encoding-related issues when reading the CSV file.
-        UnicodeEncodeError:
-            If there are encoding-related issues when writing the symbol file.
-
-    Note:
-        This function processes all rows in the CSV file,
-        generating a symbol for each row.
+        csv.Error: If there's an error reading the CSV file.
+        IOError: If there's an error writing to the output file.
     """
-    with open(input_csv_file, 'r', encoding=encoding) as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        component_data_list = list(csv_reader)
+    component_data_list = read_csv_data(input_csv_file, encoding)
+    all_properties = get_all_properties(component_data_list)
+    property_order = get_property_order(all_properties)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
-        symbol_file.write(
-            '\n'.join([
-                "(kicad_symbol_lib",
-                "\t(version 20231120)",
-                "\t(generator \"kicad_symbol_editor\")",
-                "\t(generator_version \"8.0\")",
-                ""
-            ])
-        )
-
+        write_header(symbol_file)
         for component_data in component_data_list:
-            symbol_name = component_data['Symbol Name']
-
-            symbol_file.write(
-                '\n'.join([
-                    f"\t(symbol \"{symbol_name}\"",
-                    "\t\t(pin_numbers hide)",
-                    "\t\t(pin_names",
-                    "\t\t\t(offset 0)",
-                    "\t\t)",
-                    "\t\t(exclude_from_sim no)",
-                    "\t\t(in_bom yes)",
-                    "\t\t(on_board yes)",
-                    ""
-                ])
-            )
-
-            # Generate properties
-            property_list = [
-                ("Reference", component_data['Reference'], "2.54 1.27",
-                 "left", False),
-                ("Value", component_data['Value'], "2.54 -1.27",
-                 "left", False),
-                ("Footprint", component_data['Footprint'], "2.54 -8.89",
-                 "left", True),
-                ("Datasheet", component_data['Datasheet'], "2.54 -3.81",
-                 "left", True),
-                ("Description", component_data['Description'], "2.54 -6.35",
-                 "left", True),
-                ("Manufacturer", component_data['Manufacturer'], "2.54 -11.43",
-                 "left", True),
-                ("MPN", component_data['MPN'], "2.54 -13.97", "left", True),
-                ("Tolerance", component_data['Tolerance'], "2.794 -16.51",
-                 "left", True),
-                ("Voltage Rating", component_data['Voltage Rating'],
-                 "2.54 -19.05", "left", True),
-            ]
-
-            for property_name, property_value, position, justification, \
-                    hidden in property_list:
-                symbol_file.write(
-                    '\n'.join([
-                        f"\t\t(property \"{property_name}\" " +
-                        f"\"{property_value}\"",
-                        f"\t\t\t(at {position} 0)",
-                        f"\t\t\t{('(show_name)' if hidden else '')}",
-                        "\t\t\t(effects",
-                        "\t\t\t\t(font",
-                        "\t\t\t\t\t(size 1.27 1.27)",
-                        "\t\t\t\t)",
-                        f"\t\t\t\t(justify {justification})",
-                        f"\t\t\t\t{('(hide yes)' if hidden else '')}",
-                        "\t\t\t)",
-                        "\t\t)",
-                        ""
-                    ])
-                )
-
-            # Symbol drawing (simplified resistor symbol)
-            symbol_file.write(
-                '\n'.join([
-                    f"\t\t(symbol \"{symbol_name}_0_1\"",
-                    "\t\t\t(polyline",
-                    "\t\t\t\t(pts",
-                    "\t\t\t\t\t(xy 0 -2.286) (xy 0 -2.54)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(stroke",
-                    "\t\t\t\t\t(width 0)",
-                    "\t\t\t\t\t(type default)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(fill",
-                    "\t\t\t\t\t(type none)",
-                    "\t\t\t\t)",
-                    "\t\t\t)",
-                    "\t\t\t(polyline",
-                    "\t\t\t\t(pts",
-                    "\t\t\t\t\t(xy 0 2.286) (xy 0 2.54)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(stroke",
-                    "\t\t\t\t\t(width 0)",
-                    "\t\t\t\t\t(type default)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(fill",
-                    "\t\t\t\t\t(type none)",
-                    "\t\t\t\t)",
-                    "\t\t\t)",
-                    "\t\t\t(polyline",
-                    "\t\t\t\t(pts",
-                    "\t\t\t\t\t(xy 0 -0.762) (xy 1.016 -1.143) " +
-                    "(xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(stroke",
-                    "\t\t\t\t\t(width 0)",
-                    "\t\t\t\t\t(type default)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(fill",
-                    "\t\t\t\t\t(type none)",
-                    "\t\t\t\t)",
-                    "\t\t\t)",
-                    "\t\t\t(polyline",
-                    "\t\t\t\t(pts",
-                    "\t\t\t\t\t(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) " +
-                    "(xy -1.016 -0.381) (xy 0 -0.762)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(stroke",
-                    "\t\t\t\t\t(width 0)",
-                    "\t\t\t\t\t(type default)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(fill",
-                    "\t\t\t\t\t(type none)",
-                    "\t\t\t\t)",
-                    "\t\t\t)",
-                    "\t\t\t(polyline",
-                    "\t\t\t\t(pts",
-                    "\t\t\t\t\t(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) " +
-                    "(xy -1.016 1.143) (xy 0 0.762)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(stroke",
-                    "\t\t\t\t\t(width 0)",
-                    "\t\t\t\t\t(type default)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(fill",
-                    "\t\t\t\t\t(type none)",
-                    "\t\t\t\t)",
-                    "\t\t\t)",
-                    "\t\t)",
-                    f"\t\t(symbol \"{symbol_name}_1_1\"",
-                    "\t\t\t(pin passive line",
-                    "\t\t\t\t(at 0 3.81 270)",
-                    "\t\t\t\t(length 1.27)",
-                    "\t\t\t\t(name \"~\"",
-                    "\t\t\t\t\t(effects",
-                    "\t\t\t\t\t\t(font",
-                    "\t\t\t\t\t\t\t(size 1.27 1.27)",
-                    "\t\t\t\t\t\t)",
-                    "\t\t\t\t\t)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(number \"1\"",
-                    "\t\t\t\t\t(effects",
-                    "\t\t\t\t\t\t(font",
-                    "\t\t\t\t\t\t\t(size 1.27 1.27)",
-                    "\t\t\t\t\t\t)",
-                    "\t\t\t\t\t)",
-                    "\t\t\t\t)",
-                    "\t\t\t)",
-                    "\t\t\t(pin passive line",
-                    "\t\t\t\t(at 0 -3.81 90)",
-                    "\t\t\t\t(length 1.27)",
-                    "\t\t\t\t(name \"~\"",
-                    "\t\t\t\t\t(effects",
-                    "\t\t\t\t\t\t(font",
-                    "\t\t\t\t\t\t\t(size 1.27 1.27)",
-                    "\t\t\t\t\t\t)",
-                    "\t\t\t\t\t)",
-                    "\t\t\t\t)",
-                    "\t\t\t\t(number \"2\"",
-                    "\t\t\t\t\t(effects",
-                    "\t\t\t\t\t\t(font",
-                    "\t\t\t\t\t\t\t(size 1.27 1.27)",
-                    "\t\t\t\t\t\t)",
-                    "\t\t\t\t\t)",
-                    "\t\t\t\t)",
-                    "\t\t\t)",
-                    "\t\t)",
-                    "\t)",
-                    ""
-                ])
-            )
-
+            write_component(symbol_file, component_data, property_order)
         symbol_file.write(")")
+
+
+def read_csv_data(
+        input_csv_file: str,
+        encoding: str
+) -> List[Dict[str, str]]:
+    """
+    Read component data from a CSV file.
+
+    Args:
+        input_csv_file (str): Path to the input CSV file.
+        encoding (str): Character encoding of the CSV file.
+
+    Returns:
+        List[Dict[str, str]]: List of dictionaries containing component data.
+
+    Raises:
+        FileNotFoundError: If the input CSV file is not found.
+        csv.Error: If there's an error reading the CSV file.
+    """
+    with open(input_csv_file, 'r', encoding=encoding) as csv_file:
+        return list(csv.DictReader(csv_file))
+
+
+def get_all_properties(
+        component_data_list: List[Dict[str, str]]
+) -> set:
+    """
+    Get all unique properties from the component data.
+
+    Args:
+        component_data_list (List[Dict[str, str]]): List of component data.
+
+    Returns:
+        set: Set of all unique property names.
+    """
+    return set().union(
+        *(component_data.keys() for component_data in component_data_list))
+
+
+def get_property_order(
+        all_properties: set
+) -> List[str]:
+    """
+    Determine the order of properties for symbol generation.
+
+    Args:
+        all_properties (set): Set of all unique property names.
+
+    Returns:
+        List[str]: Ordered list of property names.
+    """
+    common_properties = [
+        "Symbol Name", "Reference", "Value", "Footprint", "Datasheet"
+    ]
+    return common_properties + \
+        sorted(list(all_properties - set(common_properties)))
+
+
+def write_header(
+        symbol_file: TextIO
+) -> None:
+    """
+    Write the header of the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+    """
+    symbol_file.write(
+        '\n'.join([
+            "(kicad_symbol_lib",
+            "\t(version 20231120)",
+            "\t(generator \"kicad_symbol_editor\")",
+            "\t(generator_version \"8.0\")",
+            ""
+        ])
+    )
+
+
+def write_component(
+        symbol_file: TextIO,
+        component_data: Dict[str, str],
+        property_order: List[str]
+) -> None:
+    """
+    Write a single component to the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        component_data (Dict[str, str]): Data for a single component.
+        property_order (List[str]): Ordered list of property names.
+    """
+    symbol_name = component_data['Symbol Name']
+    write_symbol_header(symbol_file, symbol_name)
+    write_properties(symbol_file, component_data, property_order)
+    write_symbol_drawing(symbol_file, symbol_name)
+
+
+def write_symbol_header(
+        symbol_file: TextIO,
+        symbol_name: str
+) -> None:
+    """
+    Write the header for a single symbol in the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+    """
+    symbol_file.write(
+        '\n'.join([
+            f"\t(symbol \"{symbol_name}\"",
+            "\t\t(pin_numbers hide)",
+            "\t\t(pin_names",
+            "\t\t\t(offset 0)",
+            "\t\t)",
+            "\t\t(exclude_from_sim no)",
+            "\t\t(in_bom yes)",
+            "\t\t(on_board yes)",
+            ""
+        ])
+    )
+
+
+def write_properties(
+        symbol_file: TextIO,
+        component_data: Dict[str, str],
+        property_order: List[str]
+) -> None:
+    """
+    Write properties for a single symbol in the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        component_data (Dict[str, str]): Data for a single component.
+        property_order (List[str]): Ordered list of property names.
+    """
+    common_properties = [
+        ("Symbol Name", True),
+        ("Reference", False),
+        ("Value", False),
+        ("Footprint", True),
+        ("Datasheet", True),
+    ]
+    y_offset = 1.27
+    for property_name in property_order:
+        if property_name in component_data:
+            write_property(
+                symbol_file,
+                property_name,
+                component_data[property_name],
+                y_offset,
+                common_properties)
+            y_offset += 2.54
+
+
+def write_property(
+    symbol_file: TextIO,
+    property_name: str,
+    property_value: str,
+    y_offset: float,
+    common_properties: List[Tuple[str, bool]]
+) -> None:
+    """
+    Write a single property for a symbol in the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        property_name (str): Name of the property.
+        property_value (str): Value of the property.
+        y_offset (float): Vertical offset for property placement.
+        common_properties (List[Tuple[str, bool]]): List of common properties.
+    """
+    is_common = any(prop == property_name for prop, _ in common_properties)
+    hidden = not is_common or any(
+        prop == property_name and hide for prop, hide in common_properties)
+    symbol_file.write(
+        '\n'.join([
+            f"\t\t(property \"{property_name}\" \"{property_value}\"",
+            f"\t\t\t(at 2.54 {-y_offset} 0)",
+            "\t\t\t(effects",
+            "\t\t\t\t(font",
+            "\t\t\t\t\t(size 1.27 1.27)",
+            "\t\t\t\t)",
+            "\t\t\t\t(justify left)",
+            f"\t\t\t\t{('(hide yes)' if hidden else '')}",
+            "\t\t\t)",
+            f"\t\t\t(show_name {'yes' if hidden else 'no'})",
+            "\t\t)",
+            ""
+        ])
+    )
+
+
+def write_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str
+) -> None:
+    """
+    Write the graphical representation of a symbol in the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+    """
+    symbol_file.write(
+        '\n'.join([
+            f"\t\t(symbol \"{symbol_name}_0_1\"",
+            "\t\t\t(polyline",
+            "\t\t\t\t(pts",
+            "\t\t\t\t\t(xy 0 -2.286) (xy 0 -2.54)",
+            "\t\t\t\t)",
+            "\t\t\t\t(stroke (width 0) (type default))",
+            "\t\t\t\t(fill (type none))",
+            "\t\t\t)",
+            "\t\t\t(polyline",
+            "\t\t\t\t(pts",
+            "\t\t\t\t\t(xy 0 2.286) (xy 0 2.54)",
+            "\t\t\t\t)",
+            "\t\t\t\t(stroke (width 0) (type default))",
+            "\t\t\t\t(fill (type none))",
+            "\t\t\t)",
+            "\t\t\t(polyline",
+            "\t\t\t\t(pts",
+            "\t\t\t\t\t(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) " +
+            "(xy -1.016 -1.905) (xy 0 -2.286)",
+            "\t\t\t\t)",
+            "\t\t\t\t(stroke (width 0) (type default))",
+            "\t\t\t\t(fill (type none))",
+            "\t\t\t)",
+            "\t\t\t(polyline",
+            "\t\t\t\t(pts",
+            "\t\t\t\t\t(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) " +
+            "(xy -1.016 -0.381) (xy 0 -0.762)",
+            "\t\t\t\t)",
+            "\t\t\t\t(stroke (width 0) (type default))",
+            "\t\t\t\t(fill (type none))",
+            "\t\t\t)",
+            "\t\t\t(polyline",
+            "\t\t\t\t(pts",
+            "\t\t\t\t\t(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) " +
+            "(xy -1.016 1.143) (xy 0 0.762)",
+            "\t\t\t\t)",
+            "\t\t\t\t(stroke (width 0) (type default))",
+            "\t\t\t\t(fill (type none))",
+            "\t\t\t)",
+            "\t\t)",
+            f"\t\t(symbol \"{symbol_name}_1_1\"",
+            "\t\t\t(pin passive line (at 0 3.81 270) (length 1.27)",
+            "\t\t\t\t(name \"~\" (effects (font (size 1.27 1.27))))",
+            "\t\t\t\t(number \"1\" (effects (font (size 1.27 1.27))))",
+            "\t\t\t)",
+            "\t\t\t(pin passive line (at 0 -3.81 90) (length 1.27)",
+            "\t\t\t\t(name \"~\" (effects (font (size 1.27 1.27))))",
+            "\t\t\t\t(number \"2\" (effects (font (size 1.27 1.27))))",
+            "\t\t\t)",
+            "\t\t)",
+            "\t)",
+            ""
+        ])
+    )
 
 
 if __name__ == "__main__":
