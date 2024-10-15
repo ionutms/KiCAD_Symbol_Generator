@@ -30,7 +30,7 @@ def generate_kicad_capacitor_symbol(
 
     This function reads capacitor data from a CSV file and creates a KiCad
     symbol file (.kicad_sym) with the capacitors' properties and graphical
-    representations.
+    representations. It dynamically handles any properties present in the CSV.
 
     Args:
         input_csv_file (str):
@@ -47,6 +47,25 @@ def generate_kicad_capacitor_symbol(
     with open(input_csv_file, 'r', encoding=encoding) as csv_file:
         csv_reader = csv.DictReader(csv_file)
         component_data_list = list(csv_reader)
+
+    # Get all unique property names from the CSV
+    all_properties = set()
+    for component_data in component_data_list:
+        all_properties.update(component_data.keys())
+
+    # Define the order and visibility of common properties
+    common_properties = [
+        ("Symbol Name", True),
+        ("Reference", False),
+        ("Value", False),
+        ("Footprint", True),
+        ("Datasheet", True),
+    ]
+
+    # Create a list of all properties in order, with common ones first
+    property_order = [prop for prop, _ in common_properties] + \
+        sorted(
+            list(all_properties - set(prop for prop, _ in common_properties)))
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         symbol_file.write(
@@ -77,44 +96,34 @@ def generate_kicad_capacitor_symbol(
             )
 
             # Generate properties
-            property_list = [
-                ("Reference",
-                 component_data['Reference'], "2.54 1.27",
-                 "left", False),
-                ("Value", component_data['Value'], "2.54 -1.27",
-                 "left", False),
-                ("Footprint", component_data['Footprint'], "2.54 -8.89",
-                 "left", True),
-                ("Datasheet", component_data['Datasheet'], "2.54 -3.81",
-                 "left", True),
-                ("Description", component_data['Description'], "2.54 -6.35",
-                 "left", True),
-                ("MPN", component_data['MPN'], "2.54 -11.43", "left", True),
-                ("Voltage Rating DC", component_data['Voltage Rating DC'],
-                 "2.54 -13.97", "left", True),
-                ("Tolerance", component_data['Tolerance'], "2.54 -16.51",
-                 "left", True),
-            ]
+            y_offset = 1.27
+            for property_name in property_order:
+                if property_name in component_data:
+                    property_value = component_data[property_name]
+                    is_common = any(
+                        prop == property_name for prop, _ in common_properties)
+                    hidden = not is_common or any(
+                        prop == property_name and hide for
+                        prop, hide in common_properties)
 
-            for property_name, property_value, position, justification, \
-                    hidden in property_list:
-                symbol_file.write(
-                    '\n'.join([
-                        f"\t\t(property \"{property_name}\" " +
-                        f"\"{property_value}\"",
-                        f"\t\t\t(at {position} 0)",
-                        f"\t\t\t{('(show_name)' if hidden else '')}",
-                        "\t\t\t(effects",
-                        "\t\t\t\t(font",
-                        "\t\t\t\t\t(size 1.27 1.27)",
-                        "\t\t\t\t)",
-                        f"\t\t\t\t(justify {justification})",
-                        f"\t\t\t\t{('(hide yes)' if hidden else '')}",
-                        "\t\t\t)",
-                        "\t\t)",
-                        ""
-                    ])
-                )
+                    symbol_file.write(
+                        '\n'.join([
+                            f"\t\t(property \"{property_name}\" " +
+                            f"\"{property_value}\"",
+                            f"\t\t\t(at 2.54 {-y_offset} 0)",
+                            "\t\t\t(effects",
+                            "\t\t\t\t(font",
+                            "\t\t\t\t\t(size 1.27 1.27)",
+                            "\t\t\t\t)",
+                            "\t\t\t\t(justify left)",
+                            f"\t\t\t\t{('(hide yes)' if hidden else '')}",
+                            "\t\t\t)",
+                            f"\t\t\t(show_name {'yes' if hidden else 'no'})",
+                            "\t\t)",
+                            ""
+                        ])
+                    )
+                    y_offset += 2.54
 
             # Symbol drawing (capacitor symbol)
             symbol_file.write(
