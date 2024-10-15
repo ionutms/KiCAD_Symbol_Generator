@@ -10,9 +10,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000001"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20,10 +30,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "10k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31,10 +41,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -42,10 +52,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -53,10 +63,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 10Kohms 1% AEC-Q200"
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -64,21 +74,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF1002X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -86,10 +85,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -97,10 +107,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -108,105 +118,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000001_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000001_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -218,9 +176,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000002"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -228,10 +196,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "1.5k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -239,10 +207,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -250,10 +218,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -261,10 +229,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 1.5Kohms 1% AEC-Q200"
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -272,21 +240,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF1501X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -294,10 +251,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -305,10 +273,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -316,105 +284,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000002_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000002_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -426,9 +342,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000003"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -436,10 +362,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "4.7k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -447,10 +373,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -458,10 +384,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -469,10 +395,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 4.7Kohms 5% AEC-Q200"
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -480,21 +406,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2GEJ472X "
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -502,10 +417,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "5 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -513,10 +439,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -524,105 +450,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000003_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000003_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -634,9 +508,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000004"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -644,10 +528,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "10k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -655,10 +539,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0603_1608Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -666,10 +550,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -677,10 +561,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0603 10Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -688,21 +572,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-3EKF1002V"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -710,10 +583,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -721,10 +605,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "75 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -732,105 +616,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000004_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000004_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -842,9 +674,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000005"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -852,10 +694,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "4.99k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -863,10 +705,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0603_1608Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -874,10 +716,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -885,10 +727,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0603 4.99Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -896,21 +738,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-3EKF4991V "
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -918,10 +749,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -929,10 +771,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "75 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -940,105 +782,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000005_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000005_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -1050,9 +840,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000006"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1060,10 +860,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "49.9"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1071,10 +871,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0603_1608Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1082,10 +882,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1093,10 +893,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0603 49.9ohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1104,21 +904,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-3EKF49R9V"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1126,10 +915,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1137,10 +937,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "75 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1148,105 +948,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000006_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000006_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -1258,9 +1006,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000007"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1268,10 +1026,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "1Meg"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1279,10 +1037,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0603_1608Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1290,10 +1048,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1301,10 +1059,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0603 1Mohms 1% Tol AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1312,21 +1070,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-3EKF1004V"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1334,10 +1081,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1345,10 +1103,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "75 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1356,105 +1114,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000007_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000007_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -1466,9 +1172,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000008"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1476,10 +1192,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "1k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1487,10 +1203,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1498,10 +1214,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1509,10 +1225,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 1Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1520,21 +1236,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF1001X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1542,10 +1247,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1553,10 +1269,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1564,105 +1280,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000008_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000008_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -1674,9 +1338,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000009"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1684,10 +1358,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "24.9k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1695,10 +1369,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1706,10 +1380,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1717,10 +1391,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 24.9Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1728,21 +1402,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF2492X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1750,10 +1413,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1761,10 +1435,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1772,105 +1446,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000009_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000009_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -1882,9 +1504,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000010"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1892,10 +1524,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "5.6k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1903,10 +1535,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1914,10 +1546,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://www.seielect.com/Catalog/SEI-RMCF_RMCP.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1925,10 +1557,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 5.6KOhms 0402 0.0625W 5% Std Power AEC-Q200"
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1936,21 +1568,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "SEI Stackpole "
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "RMCF0402JT5K60 "
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1958,10 +1579,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "SEI Stackpole "
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "5 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1969,10 +1601,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1980,105 +1612,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000010_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000010_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -2090,9 +1670,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000011"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2100,10 +1690,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "100k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2111,10 +1701,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2122,10 +1712,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2133,10 +1723,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 100Kohms 5% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2144,21 +1734,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2GEJ104X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2166,10 +1745,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "5 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2177,10 +1767,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2188,105 +1778,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000011_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000011_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -2298,9 +1836,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000012"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2308,10 +1856,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "430k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2319,10 +1867,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0603_1608Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2330,10 +1878,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2341,10 +1889,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0603 430Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2352,21 +1900,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-3EKF4303V "
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2374,10 +1911,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2385,10 +1933,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "75 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2396,105 +1944,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000012_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000012_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -2506,9 +2002,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000013"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2516,10 +2022,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "137k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2527,10 +2033,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0603_1608Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2538,10 +2044,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2549,10 +2055,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0603 137Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2560,21 +2066,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-3EKF1373V"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2582,10 +2077,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2593,10 +2099,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "75 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2604,105 +2110,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000013_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000013_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -2714,9 +2168,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000014"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2724,10 +2188,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "105k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2735,10 +2199,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2746,10 +2210,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20008/dcrcw.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2757,10 +2221,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 1/16watt 105Kohms 1% "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2768,21 +2232,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Vishay "
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "CRCW0402105KFKTD "
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2790,10 +2243,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Vishay "
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2801,10 +2265,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2812,105 +2276,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000014_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000014_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -2922,9 +2334,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000015"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2932,10 +2354,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "57.6k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2943,10 +2365,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2954,10 +2376,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2965,10 +2387,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 1/16watt 57.6Kohms 1% "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2976,21 +2398,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Vishay "
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "CRCW040257K6FKED "
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2998,10 +2409,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Vishay "
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3009,10 +2431,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3020,105 +2442,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000015_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000015_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -3130,9 +2500,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000016"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3140,10 +2520,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "18.2k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3151,10 +2531,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3162,10 +2542,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3173,10 +2553,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 18.2Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3184,21 +2564,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF1822X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3206,10 +2575,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3217,10 +2597,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3228,105 +2608,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000016_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000016_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -3338,9 +2666,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000017"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3348,10 +2686,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "15.4k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3359,10 +2697,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3370,10 +2708,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3381,10 +2719,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 15.4Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3392,21 +2730,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF1542X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3414,10 +2741,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3425,10 +2763,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3436,105 +2774,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000017_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000017_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -3546,9 +2832,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000018"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3556,10 +2852,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "28k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3567,10 +2863,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3578,10 +2874,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3589,10 +2885,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 28Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3600,21 +2896,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF2802X "
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3622,10 +2907,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3633,10 +2929,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3644,105 +2940,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000018_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000018_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -3754,9 +2998,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000019"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3764,10 +3018,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "23.2k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3775,10 +3029,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3786,10 +3040,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3797,10 +3051,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 23.2Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3808,21 +3062,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF2322X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3830,10 +3073,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3841,10 +3095,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3852,105 +3106,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000019_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000019_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -3962,9 +3164,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000020"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3972,10 +3184,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "115k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3983,10 +3195,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3994,10 +3206,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4005,10 +3217,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 115Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4016,21 +3228,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF1153X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4038,10 +3239,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4049,10 +3261,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4060,105 +3272,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000020_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000020_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -4170,9 +3330,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000021"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4180,10 +3350,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "44.2k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4191,10 +3361,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4202,10 +3372,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4213,10 +3383,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 44.2Kohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4224,21 +3394,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF4422X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4246,10 +3405,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4257,10 +3427,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4268,105 +3438,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000021_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000021_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -4378,9 +3496,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000022"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4388,10 +3516,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "100"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4399,10 +3527,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0603_1608Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4410,10 +3538,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4421,10 +3549,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0603 100ohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4432,21 +3560,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-3EKF1000V"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4454,10 +3571,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4465,10 +3593,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "75 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4476,105 +3604,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000022_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000022_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -4586,9 +3662,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000023"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4596,10 +3682,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "40.2"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4607,10 +3693,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0805_2012Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4618,10 +3704,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4629,10 +3715,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0805 40.2ohms 1% AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4640,21 +3726,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-6ENF40R2V"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4662,10 +3737,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4673,10 +3759,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "150 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4684,105 +3770,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000023_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000023_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -4794,9 +3828,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000024"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4804,10 +3848,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "3.3"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4815,10 +3859,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0805_2012Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4826,10 +3870,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4837,10 +3881,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Current Sense Resistors - SMD 0805 3.3ohms 5% Curr Sens AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4848,21 +3892,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-6DQJ3R3V "
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4870,10 +3903,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "5 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4881,10 +3925,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "150 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4892,105 +3936,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000024_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000024_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -5002,9 +3994,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000025"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5012,10 +4014,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "4.7Meg"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5023,10 +4025,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_2010_5025Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5034,10 +4036,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/product-datasheets/chv.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5045,10 +4047,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 4.7M .5W 5% TCR200 RES SMD "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5056,21 +4058,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Bourns "
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "CHV2010-JW-475ELF"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5078,10 +4069,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Bourns "
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "5 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5089,10 +4091,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "2 kV"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5100,105 +4102,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000025_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000025_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -5210,9 +4160,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000026"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5220,10 +4180,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "2k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5231,10 +4191,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5242,10 +4202,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5253,10 +4213,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thin Film Resistors - SMD 0402 1/16W 2Kohms "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5264,21 +4224,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERA-2AEB202X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5286,10 +4235,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "0.1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5297,10 +4257,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5308,105 +4268,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000026_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000026_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -5418,9 +4326,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000027"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5428,10 +4346,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "100"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5439,10 +4357,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0805_2012Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5450,10 +4368,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://docs.rs-online.com/0d1c/A700000006763755.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5461,10 +4379,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thin Film Resistors - SMD 1/8W 100 ohm .1% 10p pm "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5472,21 +4390,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "RT0805BRB07100RL"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5494,10 +4401,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "0.1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5505,10 +4423,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "150 V "
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5516,105 +4434,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000027_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000027_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
@@ -5626,9 +4492,19 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(property "Symbol Name" "R_000028"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
 		(property "Reference" "R"
-			(at 2.54 1.27 0)
-			
+			(at 2.54 -3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5636,10 +4512,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Value" "2k"
-			(at 2.54 -1.27 0)
-			
+			(at 2.54 -6.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5647,10 +4523,10 @@
 				(justify left)
 				
 			)
+			(show_name no)
 		)
 		(property "Footprint" "footprints:R_0402_1005Metric"
 			(at 2.54 -8.89 0)
-			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5658,10 +4534,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
-			(at 2.54 -3.81 0)
-			(show_name)
+			(at 2.54 -11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5669,10 +4545,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Description" "Thick Film Resistors - SMD 0402 2Kohms 1% Tol AEC-Q200 "
-			(at 2.54 -6.35 0)
-			(show_name)
+			(at 2.54 -13.969999999999999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5680,21 +4556,10 @@
 				(justify left)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 2.54 -11.43 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
+			(show_name yes)
 		)
 		(property "MPN" "ERJ-2RKF2001X"
-			(at 2.54 -13.97 0)
-			(show_name)
+			(at 2.54 -16.509999999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5702,10 +4567,21 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
 		)
 		(property "Tolerance" "1 %"
-			(at 2.794 -16.51 0)
-			(show_name)
+			(at 2.54 -21.589999999999996 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5713,10 +4589,10 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(property "Voltage Rating" "50 V"
-			(at 2.54 -19.05 0)
-			(show_name)
+			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5724,105 +4600,53 @@
 				(justify left)
 				(hide yes)
 			)
+			(show_name yes)
 		)
 		(symbol "R_000028_0_1"
 			(polyline
 				(pts
 					(xy 0 -2.286) (xy 0 -2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 0 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 		)
 		(symbol "R_000028_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 3.81 270) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 1.27)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+			(pin passive line (at 0 -3.81 90) (length 1.27)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 		)
 	)
