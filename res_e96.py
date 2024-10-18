@@ -1,40 +1,47 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Panasonic ERJ-2RK Part Number Generator
 
 This script generates all possible part numbers for the Panasonic ERJ-2RK
-resistor series based on the E96 standard resistance values, tolerance
-options, and packaging options. The results are saved to a CSV file.
+resistor series based on both E96 and E24 standard resistance values.
 
-The script generates part numbers for resistors with:
-- Values following E96 standard (10Ω to 1MΩ)
-- Tolerances: 1% (F) and 0.5% (D)
-- Packaging: tape (T) and bulk (P)
+Specifications:
+Size: 0402 inch (1005 metric)
+Power Rating: 0.1W
+Resistance Range: 10Ω to 1MΩ
+Series and Tolerances:
+- E96: ±1% (F)
+- E24: ±5% (J)
+Packaging Options:
+- X: Standard
+
+Part number format examples:
+ERJ-2RKF10R0X -> 10 Ohms
+ERJ-2RKF10R2X -> 10.2 Ohms
+ERJ-2RKF1003X -> 100 kOhms
+ERJ-2RKF1070X -> 107 Ohms
+ERJ-2RKF1001X -> 1 KOhms
+ERJ-2RKF1071X -> 1.07 kOhms
+ERJ-2RKF1002X -> 10 kOhms
+ERJ-2RKF1072X -> 10.7 kOhms
+ERJ-2RKF1073X -> 107 kOhms
+ERJ-2RKF1004X -> 1 MOhms
+
 """
 
 from __future__ import annotations
 import csv
 from typing import List, NamedTuple, Final
-import math
+from enum import Enum
+
+
+class SeriesType(Enum):
+    """Enumeration for resistor series types."""
+    E96 = "E96"
+    E24 = "E24"
 
 
 class PartInfo(NamedTuple):
-    """
-    Structure to hold component part information.
-
-    Attributes:
-        symbol_name: Unique identifier for the component
-        reference: Component reference designator
-        value: Resistance value in ohms
-        footprint: PCB footprint specification
-        datasheet: URL to component datasheet
-        description: Human-readable component description
-        manufacturer: Component manufacturer name
-        mpn: Manufacturer Part Number
-        tolerance: Resistance tolerance specification
-        voltage_rating: Maximum voltage rating
-    """
+    """Structure to hold component part information."""
     symbol_name: str
     reference: str
     value: float
@@ -47,9 +54,9 @@ class PartInfo(NamedTuple):
     voltage_rating: str
 
 
-# Constants for the ERJ-2RK series
+# Constants
 BASE_SERIES: Final[str] = "ERJ-2RK"
-FOOTPRINT: Final[str] = "R_0402_1005Metric"
+FOOTPRINT: Final[str] = "footprints: C_0402_1005Metric"
 MANUFACTURER: Final[str] = "Panasonic"
 DATASHEET: Final[str] = (
     "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -57,7 +64,6 @@ DATASHEET: Final[str] = (
 )
 VOLTAGE_RATING: Final[str] = "50V"
 
-# E96 series base resistance values (1Ω to 10Ω range)
 E96_BASE_VALUES: Final[List[float]] = [
     10.0, 10.2, 10.5, 10.7, 11.0, 11.3, 11.5, 11.8, 12.1, 12.4, 12.7, 13.0,
     13.3, 13.7, 14.0, 14.3, 14.7, 15.0, 15.4, 15.8, 16.2, 16.5, 16.9, 17.4,
@@ -69,31 +75,22 @@ E96_BASE_VALUES: Final[List[float]] = [
     75.0, 76.8, 78.7, 80.6, 82.5, 84.5, 86.6, 88.7, 90.9, 93.1, 95.3, 97.6
 ]
 
-# Multipliers to scale base values (1, 10, 100, ..., 1MΩ)
-MULTIPLIERS: Final[List[float]] = [1, 10, 100, 1000, 10000, 100000]
+E24_BASE_VALUES: Final[List[float]] = [
+    10.0, 11.0, 12.0, 13.0, 15.0, 16.0, 18.0, 20.0, 22.0, 24.0, 27.0, 30.0,
+    33.0, 36.0, 39.0, 43.0, 47.0, 51.0, 56.0, 62.0, 68.0, 75.0, 82.0, 91.0
+]
 
-# Tolerance options with their full values
-TOLERANCE_MAP: Final[dict[str, str]] = {
-    'F': '1%',
-    'D': '0.5%'
+TOLERANCE_MAP: Final[dict[SeriesType, dict[str, str]]] = {
+    SeriesType.E96: {'F': '1%'},
+    SeriesType.E24: {'J': '5%'}
 }
 
-# Packaging options
-PACKAGING_OPTIONS: Final[List[str]] = ['T', 'P']  # T = Tape, P = Bulk
+PACKAGING_OPTIONS: Final[List[str]] = ['X']
 
 
 def format_resistance_value(value: float) -> str:
-    """
-    Convert resistance value to a human-readable format with appropriate units.
-
-    Args:
-        value: The resistance value in ohms
-
-    Returns:
-        A formatted string with resistance value and units (Ω, kΩ, or MΩ)
-    """
+    """Convert resistance value to a human-readable format."""
     def clean_number(num: float) -> str:
-        """Remove trailing zeros from floating point number."""
         return f"{num:g}"
 
     if value >= 1_000_000:
@@ -106,89 +103,97 @@ def format_resistance_value(value: float) -> str:
 def generate_resistance_code(value: float) -> str:
     """
     Generate the resistance code portion of the Panasonic part number.
+    Format: 4 characters total
 
-    For Panasonic ERJ series:
-    - Three significant digits followed by a multiplier letter
-    - Multiplier letters: X=1, A=10, B=100, C=1k, D=10k, E=100k, F=1M
+    For values < 100Ω:
+        Use R notation (e.g., 10R0 for 10Ω, 10R2 for 10.2Ω)
 
-    Args:
-        value: Resistance value in ohms
-
-    Returns:
-        Three-digit resistance code with multiplier letter
+    For values ≥ 100Ω:
+        First 3 digits: significant digits
+        Last digit: multiplier where:
+            0 = ×1 (100-999Ω)
+            1 = ×10 (1k-9.99kΩ)
+            2 = ×100 (10k-99.9kΩ)
+            3 = ×1000 (100k-999kΩ)
     """
     if value < 10 or value > 1_000_000:
         raise ValueError("Resistance value out of range (10Ω to 1MΩ)")
 
-    # Calculate exponent (power of 10)
-    exponent = math.floor(math.log10(value))
+    # Handle values less than 100Ω using R notation
+    if value < 100:
+        whole = int(value)
+        decimal = int(round((value - whole) * 10))
+        return f"{whole:02d}R{decimal}"
 
-    # Normalize to 3 digits
-    normalized = value / (10 ** (exponent - 2))
-    digits = f"{int(round(normalized)):03d}"
+    # For values ≥ 100Ω, determine multiplier and significant digits
+    if value < 1000:  # 100-999Ω
+        significant = int(round(value))
+        multiplier = "0"
+    elif value < 10000:  # 1k-9.99kΩ
+        significant = int(round(value / 10))
+        multiplier = "1"
+    elif value < 100000:  # 10k-99.9kΩ
+        significant = int(round(value / 100))
+        multiplier = "2"
+    else:  # 100k-999kΩ
+        significant = int(round(value / 1000))
+        multiplier = "3"
 
-    # Determine multiplier letter
-    multiplier_map = {
-        0: 'X',  # 1Ω
-        1: 'A',  # 10Ω
-        2: 'B',  # 100Ω
-        3: 'C',  # 1kΩ
-        4: 'D',  # 10kΩ
-        5: 'E',  # 100kΩ
-        6: 'F'   # 1MΩ
-    }
-
-    multiplier_letter = multiplier_map[exponent - exponent % 1]
-    return f"{digits}{multiplier_letter}"
+    return f"{significant:03d}{multiplier}"
 
 
 def generate_part_numbers() -> List[PartInfo]:
-    """
-    Generate all possible part numbers for the ERJ-2RK series.
-
-    This function creates combinations of:
-    - E96 standard resistance values
-    - Available tolerances
-    - Packaging options
-
-    Returns:
-        A list of PartInfo objects containing all component specifications
-    """
+    """Generate all possible part numbers for both E96 and E24 series."""
     part_numbers: List[PartInfo] = []
     symbol_counter = 1
 
-    for base_value in E96_BASE_VALUES:
-        for multiplier in MULTIPLIERS:
-            scaled_resistance = base_value * multiplier
-            if 10 <= scaled_resistance <= 1_000_000:
-                resistance_code = generate_resistance_code(scaled_resistance)
+    for series_type in SeriesType:
+        base_values = (
+            E96_BASE_VALUES if series_type == SeriesType.E96
+            else E24_BASE_VALUES
+        )
 
-                for tolerance_code, tolerance_value in TOLERANCE_MAP.items():
-                    for packaging in PACKAGING_OPTIONS:
-                        mpn = \
-                            f"{BASE_SERIES}{resistance_code}" + \
-                            f"{tolerance_code}{packaging}"
-                        symbol_name = f"R_{symbol_counter:06d}"
+        for base_value in base_values:
+            # Calculate all possible values using multipliers of 10
+            current_value = base_value
+            while current_value <= 1_000_000:
+                if current_value >= 10:  # Only process values ≥ 10Ω
+                    resistance_code = generate_resistance_code(current_value)
 
-                        description = (
-                            "RES SMD "
-                            f"{format_resistance_value(scaled_resistance)} "
-                            f"{tolerance_value} 0402 {VOLTAGE_RATING}"
-                        )
+                    series_tolerances = TOLERANCE_MAP[series_type]
 
-                        part_numbers.append(PartInfo(
-                            symbol_name=symbol_name,
-                            reference="R",
-                            value=scaled_resistance,
-                            footprint=FOOTPRINT,
-                            datasheet=DATASHEET,
-                            description=description,
-                            manufacturer=MANUFACTURER,
-                            mpn=mpn,
-                            tolerance=tolerance_value,
-                            voltage_rating=VOLTAGE_RATING
-                        ))
-                        symbol_counter += 1
+                    for tolerance_code, tolerance_value in \
+                            series_tolerances.items():
+                        for packaging in PACKAGING_OPTIONS:
+                            mpn = (
+                                f"{BASE_SERIES}"
+                                f"{tolerance_code}"
+                                f"{resistance_code}"
+                                f"{packaging}"
+                            )
+                            symbol_name = f"R_{symbol_counter:06d}"
+
+                            description = (
+                                f"RES SMD "
+                                f"{format_resistance_value(current_value)} "
+                                f"{tolerance_value} 0402 {VOLTAGE_RATING}"
+                            )
+
+                            part_numbers.append(PartInfo(
+                                symbol_name=symbol_name,
+                                reference="R",
+                                value=current_value,
+                                footprint=FOOTPRINT,
+                                datasheet=DATASHEET,
+                                description=description,
+                                manufacturer=MANUFACTURER,
+                                mpn=mpn,
+                                tolerance=tolerance_value,
+                                voltage_rating=VOLTAGE_RATING
+                            ))
+                            symbol_counter += 1
+
+                current_value *= 10
 
     return part_numbers
 
@@ -198,14 +203,7 @@ def write_to_csv(
     filename: str = 'ERJ2RK_part_numbers.csv',
     encoding: str = 'utf-8'
 ) -> None:
-    """
-    Write the generated part numbers and their information to a CSV file.
-
-    Args:
-        part_numbers: List of PartInfo objects to write to the file
-        filename: Name of the output CSV file
-        encoding: Character encoding for the CSV file
-    """
+    """Write the generated part numbers to a CSV file."""
     headers: Final[List[str]] = [
         'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
         'Description', 'Manufacturer', 'MPN', 'Tolerance', 'Voltage Rating'
@@ -234,7 +232,10 @@ def main() -> None:
     """Generate part numbers and write them to a CSV file."""
     generated_part_numbers: List[PartInfo] = generate_part_numbers()
     write_to_csv(generated_part_numbers)
-    print("Part numbers have been written to 'ERJ2RK_part_numbers.csv'")
+    print(
+        f"Generated {len(generated_part_numbers)} part numbers "
+        "in 'ERJ2RK_part_numbers.csv'"
+    )
 
 
 if __name__ == "__main__":
