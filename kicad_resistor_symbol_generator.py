@@ -314,15 +314,19 @@ def write_symbol_drawing(
 
 
 if __name__ == "__main__":
-    INPUT_CSV_FILE = 'resistor.csv'
-    OUTPUT_SYMBOL_FILE = 'RESISTORS_DATA_BASE.kicad_sym'
+    file_pairs = [
+        ('resistor.csv', 'RESISTORS_DATA_BASE.kicad_sym'),
+        ('ERJ2RK_part_numbers.csv', 'RESISTORS_ERJ2RK_DATA_BASE.kicad_sym')
+    ]
 
-    try:
-        generate_kicad_symbol(INPUT_CSV_FILE, OUTPUT_SYMBOL_FILE)
-        print("KiCad symbol file generated successfully.")
-    except FileNotFoundError:
-        print(f"Error: Input CSV file '{INPUT_CSV_FILE}' not found.")
-    except csv.Error as e:
-        print(f"Error reading CSV file: {e}")
-    except IOError as e:
-        print(f"Error writing to output file: {e}")
+    for input_csv, output_symbol in file_pairs:
+        try:
+            generate_kicad_symbol(input_csv, output_symbol)
+            print(
+                f"KiCad symbol file '{output_symbol}' generated successfully.")
+        except FileNotFoundError:
+            print(f"Error: Input CSV file '{input_csv}' not found.")
+        except csv.Error as e:
+            print(f"Error reading CSV file '{input_csv}': {e}")
+        except IOError as e:
+            print(f"Error writing to output file '{output_symbol}': {e}")
