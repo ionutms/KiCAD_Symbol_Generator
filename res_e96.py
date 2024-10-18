@@ -16,6 +16,7 @@ The script generates part numbers for resistors with:
 from __future__ import annotations
 import csv
 from typing import List, NamedTuple, Final
+import math
 
 
 class PartInfo(NamedTuple):
@@ -102,6 +103,45 @@ def format_resistance_value(value: float) -> str:
     return f"{clean_number(value)} Ω"
 
 
+def generate_resistance_code(value: float) -> str:
+    """
+    Generate the resistance code portion of the Panasonic part number.
+
+    For Panasonic ERJ series:
+    - Three significant digits followed by a multiplier letter
+    - Multiplier letters: X=1, A=10, B=100, C=1k, D=10k, E=100k, F=1M
+
+    Args:
+        value: Resistance value in ohms
+
+    Returns:
+        Three-digit resistance code with multiplier letter
+    """
+    if value < 10 or value > 1_000_000:
+        raise ValueError("Resistance value out of range (10Ω to 1MΩ)")
+
+    # Calculate exponent (power of 10)
+    exponent = math.floor(math.log10(value))
+
+    # Normalize to 3 digits
+    normalized = value / (10 ** (exponent - 2))
+    digits = f"{int(round(normalized)):03d}"
+
+    # Determine multiplier letter
+    multiplier_map = {
+        0: 'X',  # 1Ω
+        1: 'A',  # 10Ω
+        2: 'B',  # 100Ω
+        3: 'C',  # 1kΩ
+        4: 'D',  # 10kΩ
+        5: 'E',  # 100kΩ
+        6: 'F'   # 1MΩ
+    }
+
+    multiplier_letter = multiplier_map[exponent - exponent % 1]
+    return f"{digits}{multiplier_letter}"
+
+
 def generate_part_numbers() -> List[PartInfo]:
     """
     Generate all possible part numbers for the ERJ-2RK series.
@@ -119,15 +159,9 @@ def generate_part_numbers() -> List[PartInfo]:
 
     for base_value in E96_BASE_VALUES:
         for multiplier in MULTIPLIERS:
-            scaled_resistance: float = base_value * multiplier
+            scaled_resistance = base_value * multiplier
             if 10 <= scaled_resistance <= 1_000_000:
-                # Generate resistance code for part number
-                if scaled_resistance >= 1_000_000:
-                    resistance_code = f"{int(base_value)}M"
-                elif scaled_resistance >= 1_000:
-                    resistance_code = f"{int(base_value)}K"
-                else:
-                    resistance_code = f"{int(base_value)}"
+                resistance_code = generate_resistance_code(scaled_resistance)
 
                 for tolerance_code, tolerance_value in TOLERANCE_MAP.items():
                     for packaging in PACKAGING_OPTIONS:
