@@ -46,7 +46,7 @@ FOOTPRINT: Final[str] = "footprints:R_0603_1608Metric"
 MANUFACTURER: Final[str] = "Panasonic"
 DATASHEET: Final[str] = (
     "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-    "RDM0000/AOA0000C304.pdf"
+    "RDA0000/AOA0000C304.pdf"
 )
 VOLTAGE_RATING: Final[str] = "75V"
 
