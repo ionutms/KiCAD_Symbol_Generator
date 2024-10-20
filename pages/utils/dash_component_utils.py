@@ -245,3 +245,66 @@ def generate_centered_link(
             f'style="display:inline-block;">Link</a></div>'
         )
     return ''
+
+
+def callback_update_page_size(
+        table_id: str,
+        dropdown_id: str
+) -> None:
+    """Create a callback function to update DataTable page size.
+
+    This is a factory function that generates a callback for managing the
+    number of items displayed per page in a Dash DataTable component.
+
+    Args:
+        table_id (str): The ID of the DataTable component to update.
+        dropdown_id (str): The ID of the Dropdown component that controls
+            page size.
+
+    Returns:
+        None: This function registers a callback with Dash and doesn't
+            return a value directly.
+    """
+    @callback(
+        Output(table_id, 'page_size'),
+        Input(dropdown_id, 'value')
+    )
+    def update_page_size(page_size: int) -> int:
+        """Update the number of items displayed per page.
+
+        Args:
+            page_size: The number of items to display per page.
+
+        Returns:
+            The selected page size value.
+        """
+        return page_size
+
+
+def callback_update_dropdown_style(dropdown_id: str) -> None:
+    """Create a callback function to update Dropdown styles based on theme.
+
+    Args:
+        dropdown_id (str): The ID of the Dropdown component to style.
+    """
+    @callback(
+        Output(dropdown_id, 'style'),
+        Input("theme_switch_value_store", "data"),
+    )
+    def update_dropdown_style(switch: bool) -> dict:
+        """Update the dropdown styling based on the theme.
+
+        Args:
+            switch: True for light theme, False for dark theme.
+
+        Returns:
+            Dictionary containing the dropdown styles.
+        """
+        base_style = {"width": "150px"}
+        if not switch:
+            return {
+                **base_style,
+                "backgroundColor": "#AAAAAA",
+                "color": "#334455",
+            }
+        return base_style

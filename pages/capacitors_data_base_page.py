@@ -9,7 +9,7 @@ Key features:
 - Interactive DataTable displaying capacitor specifications
 - Column visibility controls for customizing the view
 - Dynamic filtering and multi-column sorting capabilities
-- Pagination for efficient browsing of large datasets
+- Pagination with customizable page size
 - Theme-aware styling with light/dark mode support
 - Direct links to capacitor datasheets
 - Responsive design for various screen sizes
@@ -45,7 +45,7 @@ ABOUT = (
 features = [
     "Interactive data table displaying capacitor specifications",
     "Dynamic filtering and multi-column sorting capabilities",
-    "Pagination for efficient browsing of large datasets",
+    "Customizable pagination with adjustable items per page",
     "Direct links to capacitor datasheets",
     "Responsive design adapting to light and dark themes",
     "Easy-to-use interface for exploring capacitor data",
@@ -59,6 +59,7 @@ usage_steps = [
     "Click on column headers to sort the data",
     "Use the filter action to narrow down the displayed results",
     "Toggle column visibility using the checkboxes above the table",
+    "Adjust the number of items per page using the dropdown menu",
     "Navigate through pages using the pagination controls at "
     "the bottom of the table",
     "Access capacitor datasheets by clicking on the provided links in the "
@@ -92,7 +93,19 @@ layout = dbc.Container([html.Div([
                 inline=True,
                 style={"marginBottom": "1rem"}
             )
-        ])
+        ]),
+        dbc.Col([
+            html.H6("Items per page:", className="mb-2"),
+            dcc.Dropdown(
+                id=f'{module_name}_page_size',
+                options=[
+                    {'label': str(page_size), 'value': page_size}
+                    for page_size in [10, 25, 50, 100]
+                ],
+                value=10,
+                clearable=False
+            )
+        ], width="auto")
     ]),
 
     dash_table.DataTable(
@@ -101,7 +114,7 @@ layout = dbc.Container([html.Div([
         data=dataframe.to_dict('records'),
         cell_selectable=False,
         markdown_options={'html': True},
-        page_size=8,
+        page_size=10,
         filter_action="native",
         sort_action="native",
         sort_mode="multi"),
@@ -116,3 +129,8 @@ dcu.callback_update_visible_columns(
     dataframe)
 
 dcu.callback_update_table_style_and_visibility(f'{module_name}_table')
+
+dcu.callback_update_page_size(
+    f'{module_name}_table', f'{module_name}_page_size')
+
+dcu.callback_update_dropdown_style(f'{module_name}_page_size')
