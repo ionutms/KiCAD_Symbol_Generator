@@ -18,6 +18,7 @@ Packaging Options:
 import csv
 from typing import List, NamedTuple, Final, Iterator
 from enum import Enum
+import kicad_resistor_symbol_generator as ki_rsg
 
 
 class SeriesType(Enum):
@@ -38,6 +39,8 @@ class PartInfo(NamedTuple):
     mpn: str
     tolerance: str
     voltage_rating: str
+    case_code_in: str
+    case_code_mm: str
 
 
 # Constants
@@ -49,6 +52,8 @@ DATASHEET: Final[str] = (
     "RDA0000/AOA0000C304.pdf"
 )
 VOLTAGE_RATING: Final[str] = "50V"
+CASE_CODE_IN: Final[str] = "0402"
+CASE_CODE_MM: Final[str] = "1005"
 
 E96_BASE_VALUES: Final[List[float]] = [
     10.0, 10.2, 10.5, 10.7, 11.0, 11.3, 11.5, 11.8, 12.1, 12.4, 12.7, 13.0,
@@ -168,7 +173,9 @@ def create_part_info(
         manufacturer=MANUFACTURER,
         mpn=mpn,
         tolerance=tolerance_value,
-        voltage_rating=VOLTAGE_RATING
+        voltage_rating=VOLTAGE_RATING,
+        case_code_in=CASE_CODE_IN,
+        case_code_mm=CASE_CODE_MM
     )
 
 
@@ -207,7 +214,8 @@ def write_to_csv(
     """Write the generated part numbers to a CSV file."""
     headers: Final[List[str]] = [
         'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
-        'Description', 'Manufacturer', 'MPN', 'Tolerance', 'Voltage Rating'
+        'Description', 'Manufacturer', 'MPN', 'Tolerance', 'Voltage Rating',
+        'Case Code - in', 'Case Code - mm'
     ]
 
     with open(filename, 'w', newline='', encoding=encoding) as csvfile:
@@ -225,7 +233,9 @@ def write_to_csv(
                 part_info.manufacturer,
                 part_info.mpn,
                 part_info.tolerance,
-                part_info.voltage_rating
+                part_info.voltage_rating,
+                part_info.case_code_in,
+                part_info.case_code_mm
             ])
 
 
@@ -236,3 +246,18 @@ if __name__ == "__main__":
         f"Generated {len(generated_part_numbers)} part numbers "
         "in 'ERJ2RK_part_numbers.csv'"
     )
+    file_pairs = [
+        ('ERJ2RK_part_numbers.csv', 'RESISTORS_ERJ2RK_DATA_BASE.kicad_sym')
+    ]
+
+    for input_csv, output_symbol in file_pairs:
+        try:
+            ki_rsg.generate_kicad_symbol(input_csv, output_symbol)
+            print(
+                f"KiCad symbol file '{output_symbol}' generated successfully.")
+        except FileNotFoundError:
+            print(f"Error: Input CSV file '{input_csv}' not found.")
+        except csv.Error as e:
+            print(f"Error reading CSV file '{input_csv}': {e}")
+        except IOError as e:
+            print(f"Error writing to output file '{output_symbol}': {e}")
