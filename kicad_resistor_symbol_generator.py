@@ -317,7 +317,8 @@ if __name__ == "__main__":
     file_pairs = [
         ('resistor.csv', 'RESISTORS_DATA_BASE.kicad_sym'),
         ('ERJ2RK_part_numbers.csv', 'RESISTORS_ERJ2RK_DATA_BASE.kicad_sym'),
-        ('ERJ3EK_part_numbers.csv', 'RESISTORS_ERJ3EK_DATA_BASE.kicad_sym')
+        ('ERJ3EK_part_numbers.csv', 'RESISTORS_ERJ3EK_DATA_BASE.kicad_sym'),
+        ('ERJ6EN_part_numbers.csv', 'RESISTORS_ERJ6EN_DATA_BASE.kicad_sym')
     ]
 
     for input_csv, output_symbol in file_pairs:
