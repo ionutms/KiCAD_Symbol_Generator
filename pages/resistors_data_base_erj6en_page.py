@@ -68,7 +68,7 @@ usage_steps = [
     "different environments"
 ]
 
-dataframe: pd.DataFrame = pd.read_csv('ERJ3EK_part_numbers.csv')
+dataframe: pd.DataFrame = pd.read_csv('ERJ6EN_part_numbers.csv')
 
 dataframe['Datasheet'] = dataframe['Datasheet'].apply(
     dcu.generate_centered_link)
