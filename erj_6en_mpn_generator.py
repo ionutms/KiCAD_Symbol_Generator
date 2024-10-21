@@ -10,7 +10,7 @@ Power Rating: 0.125W
 Resistance Range: 10Ω to 2.2MΩ
 Series and Tolerances:
 - E96: ±1% (F)
-- E24: ±5% (J)
+- E24: ±5% (J) [Note: Only 1% (F) tolerance available for values > 1MΩ]
 Packaging Options:
 - V: Embossed Carrier Tape
 """
@@ -185,8 +185,13 @@ def generate_part_numbers() -> List[PartInfo]:
 
         for value in generate_resistance_values(base_values):
             if value <= 2_200_000:  # Ensure we don't exceed maximum resistance
-                for tolerance_code, tolerance_value in \
-                        TOLERANCE_MAP[series_type].items():
+                # For values over 1MΩ, only generate F (1%) tolerance parts
+                if value > 1_000_000:
+                    tolerance_codes = {'F': '1%'}
+                else:
+                    tolerance_codes = TOLERANCE_MAP[series_type]
+
+                for tolerance_code, tolerance_value in tolerance_codes.items():
                     for packaging in PACKAGING_OPTIONS:
                         part_numbers.append(create_part_info(
                             value,
