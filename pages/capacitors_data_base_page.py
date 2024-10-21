@@ -93,7 +93,7 @@ layout = dbc.Container([html.Div([
                 inline=True,
                 style={"marginBottom": "1rem"}
             )
-        ]),
+        ], xs=12, md=10),
         dbc.Col([
             html.H6("Items per page:", className="mb-2"),
             dcc.Dropdown(
