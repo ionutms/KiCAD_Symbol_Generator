@@ -151,13 +151,12 @@ def create_part_info(
     value: float,
     tolerance_code: str,
     tolerance_value: str,
-    packaging: str,
-    symbol_counter: int
+    packaging: str
 ) -> PartInfo:
     """Create a PartInfo instance for given parameters."""
     resistance_code = generate_resistance_code(value)
     mpn = f"{BASE_SERIES}{tolerance_code}{resistance_code}{packaging}"
-    symbol_name = f"R_{symbol_counter:06d}"
+    symbol_name = f"R_{mpn}"
     description = (
         f"RES SMD {format_resistance_value(value)} "
         f"{tolerance_value} 0402 {VOLTAGE_RATING}"
@@ -182,7 +181,6 @@ def create_part_info(
 def generate_part_numbers() -> List[PartInfo]:
     """Generate all possible part numbers for both E96 and E24 series."""
     part_numbers: List[PartInfo] = []
-    symbol_counter = 1
 
     for series_type in SeriesType:
         base_values = (
@@ -198,10 +196,8 @@ def generate_part_numbers() -> List[PartInfo]:
                         value,
                         tolerance_code,
                         tolerance_value,
-                        packaging,
-                        symbol_counter
+                        packaging
                     ))
-                    symbol_counter += 1
 
     return part_numbers
 
