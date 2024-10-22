@@ -92,20 +92,22 @@ layout = dbc.Container([html.Div([
                 inline=True,
                 style={"marginBottom": "1rem"}
             )
-        ], xs=12, md=10),
+        ], xs=12, sm=11),
         dbc.Col([
-            html.H6("Items per page:", className="mb-2"),
-            dcc.Dropdown(
-                id=f'{module_name}_page_size',
-                options=[
-                    {'label': str(page_size), 'value': page_size}
-                    for page_size in [10, 25, 50, 100]
-                ],
-                value=10,
-                clearable=False
-            )
-        ], width="auto")
-    ]),
+            html.Div([
+                html.H6("Items per page:", className="mb-2"),
+                dcc.Dropdown(
+                    id=f'{module_name}_page_size',
+                    options=[
+                        {'label': str(page_size), 'value': page_size}
+                        for page_size in [10, 25, 50, 100]
+                    ],
+                    value=10,
+                    clearable=False
+                )
+            ], className="d-flex flex-column align-items-end")
+        ], xs=12, sm=1, className="d-flex justify-content-end")
+    ], className="g-0"),
 
     dash_table.DataTable(
         id=f'{module_name}_table',
