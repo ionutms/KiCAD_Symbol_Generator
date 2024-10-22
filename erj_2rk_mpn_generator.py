@@ -41,6 +41,7 @@ class PartInfo(NamedTuple):
     voltage_rating: str
     case_code_in: str
     case_code_mm: str
+    series: str
 
 
 # Constants
@@ -174,7 +175,8 @@ def create_part_info(
         tolerance=tolerance_value,
         voltage_rating=VOLTAGE_RATING,
         case_code_in=CASE_CODE_IN,
-        case_code_mm=CASE_CODE_MM
+        case_code_mm=CASE_CODE_MM,
+        series=BASE_SERIES
     )
 
 
@@ -211,7 +213,7 @@ def write_to_csv(
     headers: Final[List[str]] = [
         'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
         'Description', 'Manufacturer', 'MPN', 'Tolerance', 'Voltage Rating',
-        'Case Code - in', 'Case Code - mm'
+        'Case Code - in', 'Case Code - mm', 'Series'
     ]
 
     with open(filename, 'w', newline='', encoding=encoding) as csvfile:
@@ -231,7 +233,8 @@ def write_to_csv(
                 part_info.tolerance,
                 part_info.voltage_rating,
                 part_info.case_code_in,
-                part_info.case_code_mm
+                part_info.case_code_mm,
+                part_info.series
             ])
 
 
