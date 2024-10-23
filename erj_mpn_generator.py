@@ -110,7 +110,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "ERJ-P08": SeriesSpec(
         base_series="ERJ-P08",
         footprint="footprints:R_1206_3216Metric",
-        voltage_rating="200V",
+        voltage_rating="500V",
         case_code_in="1206",
         case_code_mm="3216",
         power_rating="0.66W",

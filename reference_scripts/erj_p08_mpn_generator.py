@@ -52,7 +52,7 @@ DATASHEET: Final[str] = (
     "https://industrial.panasonic.com/cdbs/www-data/pdf/"
     "RDO0000/AOA0000C331.pdf"
 )
-VOLTAGE_RATING: Final[str] = "200V"
+VOLTAGE_RATING: Final[str] = "500V"
 CASE_CODE_IN: Final[str] = "1206"
 CASE_CODE_MM: Final[str] = "3216"
 
