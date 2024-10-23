@@ -36,6 +36,7 @@ class PartInfo(NamedTuple):
     case_code_in: str
     case_code_mm: str
     series: str
+    trustedparts_link: str
 
 
 class SeriesSpec(NamedTuple):
@@ -55,6 +56,8 @@ class SeriesSpec(NamedTuple):
 
 # Constants
 MANUFACTURER: Final[str] = "Panasonic"
+TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
+
 
 # Series specifications
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
@@ -268,6 +271,7 @@ def create_part_info(
         f"RES SMD {format_resistance_value(resistance)} "
         f"{tolerance_value} {specs.case_code_in} {specs.voltage_rating}"
     )
+    trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
 
     return PartInfo(
         symbol_name=symbol_name,
@@ -282,7 +286,8 @@ def create_part_info(
         voltage_rating=specs.voltage_rating,
         case_code_in=specs.case_code_in,
         case_code_mm=specs.case_code_mm,
-        series=specs.base_series
+        series=specs.base_series,
+        trustedparts_link=trustedparts_link
     )
 
 
@@ -326,7 +331,8 @@ def write_to_csv(
     headers: Final[List[str]] = [
         'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
         'Description', 'Manufacturer', 'MPN', 'Tolerance', 'Voltage Rating',
-        'Case Code - in', 'Case Code - mm', 'Series'
+        'Case Code - in', 'Case Code - mm', 'Series',
+        'Trustedparts Search'
     ]
 
     with open(output_file, 'w', newline='', encoding=encoding) as csvfile:
@@ -347,7 +353,8 @@ def write_to_csv(
                 part_info.voltage_rating,
                 part_info.case_code_in,
                 part_info.case_code_mm,
-                part_info.series
+                part_info.series,
+                part_info.trustedparts_link
             ])
 
 
