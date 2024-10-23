@@ -49,15 +49,12 @@ class SeriesSpec(NamedTuple):
     max_resistance: int
     packaging_options: List[str]
     tolerance_map: Dict[SeriesType, Dict[str, str]]
+    datasheet: str
     high_resistance_tolerance: Dict[str, str] | None = None
 
 
 # Constants
 MANUFACTURER: Final[str] = "Panasonic"
-DATASHEET: Final[str] = (
-    "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-    "RDA0000/AOA0000C304.pdf"
-)
 
 # Series specifications
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
@@ -73,7 +70,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         tolerance_map={
             SeriesType.E96: {'F': '1%'},
             SeriesType.E24: {'J': '5%'}
-        }
+        },
+        datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
+        "RDA0000/AOA0000C304.pdf",
     ),
     "ERJ-3EK": SeriesSpec(
         base_series="ERJ-3EK",
@@ -87,7 +86,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         tolerance_map={
             SeriesType.E96: {'F': '1%'},
             SeriesType.E24: {'J': '5%'}
-        }
+        },
+        datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
+        "RDA0000/AOA0000C304.pdf",
     ),
     "ERJ-6EN": SeriesSpec(
         base_series="ERJ-6EN",
@@ -102,6 +103,8 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             SeriesType.E96: {'F': '1%'},
             SeriesType.E24: {'J': '5%'}
         },
+        datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
+        "RDA0000/AOA0000C304.pdf",
         high_resistance_tolerance={'F': '1%'}
     )
 }
@@ -217,7 +220,7 @@ def create_part_info(
         reference="R",
         value=resistance,
         footprint=specs.footprint,
-        datasheet=DATASHEET,
+        datasheet=specs.datasheet,
         description=description,
         manufacturer=MANUFACTURER,
         mpn=mpn,
