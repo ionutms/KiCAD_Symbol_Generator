@@ -70,6 +70,15 @@ usage_steps = [
 
 dataframe: pd.DataFrame = pd.read_csv('ERJ2RK_part_numbers.csv')
 
+hidden_columns = [
+    'Reference',
+    'Case Code - mm',
+    'Series'
+]
+
+visible_columns = [
+    col for col in dataframe.columns if col not in hidden_columns]
+
 try:
     dataframe['Datasheet'] = dataframe['Datasheet'].apply(
         lambda url_text: dcu.generate_centered_link(url_text, "Datasheet"))
@@ -94,7 +103,7 @@ layout = dbc.Container([html.Div([
                     {"label": " ".join(col.split()), "value": col}
                     for col in dataframe.columns
                 ],
-                value=dataframe.columns.tolist(),
+                value=visible_columns,
                 inline=True,
                 style={"marginBottom": "1rem"}
             )
@@ -117,8 +126,8 @@ layout = dbc.Container([html.Div([
 
     dash_table.DataTable(
         id=f'{module_name}_table',
-        columns=dcu.create_column_definitions(dataframe),
-        data=dataframe.to_dict('records'),
+        columns=dcu.create_column_definitions(dataframe, visible_columns),
+        data=dataframe[visible_columns].to_dict('records'),
         cell_selectable=False,
         markdown_options={'html': True},
         page_size=10,
