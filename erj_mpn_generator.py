@@ -103,7 +103,25 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             SeriesType.E24: {'J': '5%'}
         },
         high_resistance_tolerance={'F': '1%'}
-    )
+    ),
+    "ERJ-P08": SeriesSpec(
+        base_series="ERJ-P08",
+        footprint="footprints:R_1206_3216Metric",
+        voltage_rating="200V",
+        case_code_in="1206",
+        case_code_mm="3216",
+        power_rating="0.66W",
+        max_resistance=1_000_000,
+        packaging_options=['V'],
+        tolerance_map={
+            SeriesType.E96: {'F': '1%'},
+            SeriesType.E24: {'F': '1%'}
+        },
+        datasheet=(
+            "https://industrial.panasonic.com/cdbs/www-data/pdf/"
+            "RDO0000/AOA0000C331.pdf"
+        )
+    ),
 }
 
 E96_BASE_VALUES: Final[List[float]] = [
