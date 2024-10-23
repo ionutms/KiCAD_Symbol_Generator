@@ -215,13 +215,16 @@ def create_column_definitions(
         {
             "name": "\n".join(column.split()),
             "id": column,
-            "presentation": "markdown" if column == "Datasheet" else "input"
+            "presentation":
+                "markdown" if column in ["Datasheet", "Trustedparts Search"]
+                else "input"
         } for column in dataframe.columns if column in visible_columns
     ]
 
 
 def generate_centered_link(
-        url_text: Any
+        url_text: str,
+        link_text: str = "Link"
 ) -> str:
     """Generate a centered HTML link with consistent styling.
 
@@ -233,6 +236,8 @@ def generate_centered_link(
         url_text:
             The URL to convert into a centered link. Can be any type,
             as the function handles null/NaN values.
+        link_text:
+            The text to display for the link. Defaults to "Link".
 
     Returns:
         A string containing HTML for a centered link, or an empty string if
@@ -242,7 +247,7 @@ def generate_centered_link(
         return (
             f'<div style="width:100%;text-align:center;">'
             f'<a href="{url_text}" target="_blank" '
-            f'style="display:inline-block;">Link</a></div>'
+            f'style="display:inline-block;">{link_text}</a></div>'
         )
     return ''
 

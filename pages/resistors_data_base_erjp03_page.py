@@ -70,8 +70,14 @@ usage_steps = [
 
 dataframe: pd.DataFrame = pd.read_csv('ERJP03_part_numbers.csv')
 
-dataframe['Datasheet'] = dataframe['Datasheet'].apply(
-    dcu.generate_centered_link)
+try:
+    dataframe['Datasheet'] = dataframe['Datasheet'].apply(
+        lambda url_text: dcu.generate_centered_link(url_text, "Datasheet"))
+
+    dataframe['Trustedparts Search'] = dataframe['Trustedparts Search'].apply(
+        lambda url_text: dcu.generate_centered_link(url_text, "Search"))
+except KeyError:
+    pass
 
 layout = dbc.Container([html.Div([
     dbc.Row([dbc.Col([dcc.Link("Go back Home", href="/")])]),
