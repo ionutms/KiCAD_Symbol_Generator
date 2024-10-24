@@ -7,8 +7,8 @@ and KiCad symbol files.
 """
 
 import csv
+from typing import List, NamedTuple, Final, Iterator, Dict
 from enum import Enum
-from typing import Dict, Final, Iterator, List, NamedTuple
 import kicad_capacitor_symbol_generator as ki_csg
 
 
@@ -40,62 +40,47 @@ class SeriesSpec(NamedTuple):
     """Specifications for a capacitor series."""
     base_series: str
     footprint: str
-    voltage_ratings: List[str]
+    voltage_rating: str
     case_code_in: str
     case_code_mm: str
-    min_temp: str
-    max_temp: str
     packaging_options: List[str]
-    tolerance_options: List[str]
+    tolerance_map: Dict[SeriesType, Dict[str, str]]
     datasheet: str
     value_range: Dict[SeriesType, tuple[float, float]]
+    voltage_code: str
+    dielectric_code: Dict[SeriesType, str]
 
 
 # Constants
 MANUFACTURER: Final[str] = "Murata Electronics"
-BASE_FOOTPRINT: Final[str] = "footprints:C_"
-TRUSTEDPARTS_BASE: Final[str] = "https://www.trustedparts.com/en/search/"
+TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
-# Dielectric code mapping
-DIELECTRIC_MAP: Final[Dict[str, str]] = {
-    "X7R": "R7",
-}
-
-# Tolerance mapping
-TOLERANCE_MAP: Final[Dict[str, str]] = {
-    "K": "10 %"
-}
 
 # Series specifications
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM155": SeriesSpec(
         base_series="GCM155",
-        footprint=f"{BASE_FOOTPRINT}0402_1005Metric",
-        voltage_ratings=["1H"],  # 50V code
+        footprint="footprints:C_0402_1005Metric",
+        voltage_rating="50V",
         case_code_in="0402",
         case_code_mm="1005",
-        min_temp="- 55 C",
-        max_temp="+ 125 C",
         packaging_options=['D', 'J'],
-        tolerance_options=['K'],  # Replaces 'K' with '10 %'
+        tolerance_map={
+            SeriesType.X7R: {'K': '10%'}
+        },
         datasheet=(
             "https://www.murata.com/-/media/webrenewal/support/"
             "library/catalog/products/capacitor/mlcc/c02e.ashx"
         ),
         value_range={
-            SeriesType.X7R: (220e-12, 0.1e-6),  # 220pF to 0.1µF
+            SeriesType.X7R: (220e-12, 0.1e-6)  # 220pF to 0.1µF
+        },
+        voltage_code="1H",
+        dielectric_code={
+            SeriesType.X7R: "R7"
         }
     ),
 }
-
-
-def get_characteristic_code(capacitance: float) -> str:
-    """Determine the characteristic code based on capacitance value."""
-    value_uf = capacitance * 1e6
-
-    if value_uf >= 0.01:
-        return "A55"
-    return "A37"
 
 
 def format_capacitance(capacitance: float) -> str:
@@ -107,25 +92,11 @@ def format_capacitance(capacitance: float) -> str:
     return f"{capacitance/1e-12:.3g} pF"
 
 
-def parse_capacitance(value_str: str) -> float:
-    """Convert a capacitance string to Farads."""
-    value_str = value_str.strip().lower()
-    multiplier = 1e-12
-
-    if 'uf' in value_str or 'µf' in value_str:
-        multiplier = 1e-6
-    elif 'nf' in value_str:
-        multiplier = 1e-9
-
-    num = float(value_str.split()[0])
-    return num * multiplier
-
-
 def generate_capacitance_code(capacitance: float) -> str:
-    """Generate the capacitance code for Murata part number."""
-    if capacitance < 1e-12 or capacitance > 1e-2:
-        raise ValueError("Capacitance value out of range")
-
+    """
+    Generate the capacitance code portion of the Murata part number.
+    Format: 3 characters for values >= 10pF, 3 characters with 'R' for < 10pF
+    """
     pf_value = capacitance * 1e12
 
     if pf_value < 10:
@@ -134,75 +105,26 @@ def generate_capacitance_code(capacitance: float) -> str:
         return f"{whole}R{decimal}"
 
     significant = round(pf_value)
-
     if significant % 10 == 0:
         significant += 1
 
     return f"{significant:03d}"
 
 
-def format_tolerance(tolerance: str) -> str:
-    """Format the tolerance using the TOLERANCE_MAP."""
-    return TOLERANCE_MAP.get(tolerance, tolerance)
-
-
-def create_part_info(
-    capacitance: float,
-    voltage: str,
-    dielectric: SeriesType,
-    tolerance: str,
-    packaging: str,
-    specs: SeriesSpec
-) -> PartInfo:
-    """Create a PartInfo instance for given parameters."""
-    capacitance_code = generate_capacitance_code(capacitance)
-    dielectric_code = DIELECTRIC_MAP.get(dielectric.value, "R7")
-    characteristic_code = get_characteristic_code(capacitance)
-
-    formatted_tolerance = format_tolerance(tolerance)
-
-    mpn = (
-        f"{specs.base_series}"
-        f"{dielectric_code}"
-        f"{voltage}"
-        f"{capacitance_code}"
-        f"{tolerance}"
-        f"{characteristic_code}"
-        f"{packaging}"
-    )
-
-    symbol_name = f"C_{mpn}"
-    description = (
-        f"CAP SMD {format_capacitance(capacitance)} "
-        f"{dielectric.value} {formatted_tolerance} "
-        f"{specs.case_code_in} {voltage}V"
-    )
-
-    return PartInfo(
-        symbol_name=symbol_name,
-        reference="C",
-        value=capacitance,
-        footprint=specs.footprint,
-        datasheet=specs.datasheet,
-        description=description,
-        manufacturer=MANUFACTURER,
-        mpn=mpn,
-        dielectric=dielectric.value,
-        tolerance=formatted_tolerance,
-        voltage_rating=voltage,
-        case_code_in=specs.case_code_in,
-        case_code_mm=specs.case_code_mm,
-        series=specs.base_series,
-        trustedparts_link=f"{TRUSTEDPARTS_BASE}{mpn}"
-    )
+def get_characteristic_code(capacitance: float) -> str:
+    """Determine the characteristic code based on capacitance value."""
+    value_uf = capacitance * 1e6
+    return "A55" if value_uf >= 0.01 else "A37"
 
 
 def generate_standard_values(
-        min_value: float, max_value: float) -> Iterator[float]:
-    """Generate standard capacitance values for E12 series within range."""
-    # E12 series multipliers
-    e12_multipliers = [
-        1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2]
+    min_value: float,
+    max_value: float
+) -> Iterator[float]:
+    """Generate standard capacitance values (E12 series) within range."""
+    e12_multipliers: Final[List[float]] = [
+        1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
+    ]
 
     decade = 1.0e-12
     while decade <= max_value:
@@ -213,25 +135,75 @@ def generate_standard_values(
         decade *= 10
 
 
+def create_part_info(
+    capacitance: float,
+    tolerance_code: str,
+    tolerance_value: str,
+    packaging: str,
+    series_type: SeriesType,
+    specs: SeriesSpec
+) -> PartInfo:
+    """Create a PartInfo instance for given parameters."""
+    capacitance_code = generate_capacitance_code(capacitance)
+    characteristic_code = get_characteristic_code(capacitance)
+
+    mpn = (
+        f"{specs.base_series}"
+        f"{specs.dielectric_code[series_type]}"
+        f"{specs.voltage_code}"
+        f"{capacitance_code}"
+        f"{tolerance_code}"
+        f"{characteristic_code}"
+        f"{packaging}"
+    )
+
+    symbol_name = f"C_{mpn}"
+    description = (
+        f"CAP SMD {format_capacitance(capacitance)} "
+        f"{series_type.value} {tolerance_value} "
+        f"{specs.case_code_in} {specs.voltage_rating}"
+    )
+    trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
+
+    return PartInfo(
+        symbol_name=symbol_name,
+        reference="C",
+        value=capacitance,
+        footprint=specs.footprint,
+        datasheet=specs.datasheet,
+        description=description,
+        manufacturer=MANUFACTURER,
+        mpn=mpn,
+        dielectric=series_type.value,
+        tolerance=tolerance_value,
+        voltage_rating=specs.voltage_rating,
+        case_code_in=specs.case_code_in,
+        case_code_mm=specs.case_code_mm,
+        series=specs.base_series,
+        trustedparts_link=trustedparts_link
+    )
+
+
 def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
-    """Generate all possible part numbers for the series using E12 values."""
+    """Generate all possible part numbers for both X7R series."""
     parts_list: List[PartInfo] = []
 
-    for dielectric_type, (min_val, max_val) in specs.value_range.items():
-        for voltage in specs.voltage_ratings:
+    for series_type in SeriesType:
+        if series_type in specs.value_range:
+            min_val, max_val = specs.value_range[series_type]
+
             for capacitance in generate_standard_values(min_val, max_val):
-                for tolerance in specs.tolerance_options:
+                for tolerance_code, tolerance_value in \
+                        specs.tolerance_map[series_type].items():
                     for packaging in specs.packaging_options:
-                        parts_list.append(
-                            create_part_info(
-                                capacitance,
-                                voltage,
-                                dielectric_type,
-                                tolerance,
-                                packaging,
-                                specs
-                            )
-                        )
+                        parts_list.append(create_part_info(
+                            capacitance,
+                            tolerance_code,
+                            tolerance_value,
+                            packaging,
+                            series_type,
+                            specs
+                        ))
 
     return sorted(parts_list, key=lambda x: (x.dielectric, x.value))
 
@@ -241,22 +213,11 @@ def write_to_csv(
     output_file: str,
     encoding: str = 'utf-8'
 ) -> None:
-    """Write generated part numbers to CSV file."""
-    headers = [
-        'Symbol Name',
-        'Reference',
-        'Value',
-        'Footprint',
-        'Datasheet',
-        'Description',
-        'Manufacturer',
-        'MPN',
-        'Dielectric',
-        'Tolerance',
-        'Voltage Rating',
-        'Case Code - in',
-        'Case Code - mm',
-        'Series',
+    """Write the generated part numbers to a CSV file."""
+    headers: Final[List[str]] = [
+        'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
+        'Description', 'Manufacturer', 'MPN', 'Dielectric', 'Tolerance',
+        'Voltage Rating', 'Case Code - in', 'Case Code - mm', 'Series',
         'Trustedparts Search'
     ]
 
@@ -264,23 +225,23 @@ def write_to_csv(
         writer = csv.writer(csvfile)
         writer.writerow(headers)
 
-        for part in parts_list:
+        for part_info in parts_list:
             writer.writerow([
-                part.symbol_name,
-                part.reference,
-                format_capacitance(part.value),
-                part.footprint,
-                part.datasheet,
-                part.description,
-                part.manufacturer,
-                part.mpn,
-                part.dielectric,
-                part.tolerance,
-                part.voltage_rating,
-                part.case_code_in,
-                part.case_code_mm,
-                part.series,
-                part.trustedparts_link
+                part_info.symbol_name,
+                part_info.reference,
+                format_capacitance(part_info.value),
+                part_info.footprint,
+                part_info.datasheet,
+                part_info.description,
+                part_info.manufacturer,
+                part_info.mpn,
+                part_info.dielectric,
+                part_info.tolerance,
+                part_info.voltage_rating,
+                part_info.case_code_in,
+                part_info.case_code_mm,
+                part_info.series,
+                part_info.trustedparts_link
             ])
 
 
@@ -303,12 +264,12 @@ def generate_files_for_series(series_name: str) -> None:
     try:
         ki_csg.generate_kicad_symbol(csv_filename, symbol_filename)
         print(f"KiCad symbol file '{symbol_filename}' generated successfully.")
-    except FileNotFoundError:
-        print(f"Error: CSV file '{csv_filename}' not found.")
-    except csv.Error as e:
-        print(f"Error reading CSV file '{csv_filename}': {e}")
-    except IOError as e:
-        print(f"Error writing to output file '{symbol_filename}': {e}")
+    except FileNotFoundError as file_error:
+        print(f"CSV file not found: {file_error}")
+    except csv.Error as csv_error:
+        print(f"CSV processing error: {csv_error}")
+    except IOError as io_error:
+        print(f"I/O error when generating KiCad symbol file: {io_error}")
 
 
 if __name__ == "__main__":
