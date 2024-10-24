@@ -102,10 +102,9 @@ def format_capacitance(capacitance: float) -> str:
     """Convert capacitance value to human-readable format."""
     if capacitance >= 1e-6:
         return f"{capacitance/1e-6:.3g} µF"
-    elif capacitance >= 1e-9:
+    if capacitance >= 1e-9:
         return f"{capacitance/1e-9:.3g} nF"
-    else:
-        return f"{capacitance/1e-12:.3g} pF"
+    return f"{capacitance/1e-12:.3g} pF"
 
 
 def parse_capacitance(value_str: str) -> float:
