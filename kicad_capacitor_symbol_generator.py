@@ -1,18 +1,19 @@
 """
-KiCad Capacitor Symbol Generator
+KiCad Symbol Generator
 
 This module provides functionality to generate KiCad symbol files from CSV
-data specifically for capacitors. It creates a symbol file (.kicad_sym) with
-capacitor properties and graphical representations based on the input data.
+data. It creates a symbol for electronic components, specifically tailored
+for capacitors in this version, but can be extended for other components.
 
-The main function, generate_kicad_capacitor_symbol, reads capacitor data from
-a CSV file and produces a .kicad_sym file with the symbol definitions,
-including properties and graphical representations for each capacitor.
+The main function, generate_kicad_symbol, reads data from a CSV file and
+produces a .kicad_sym file with the symbol definition, including properties
+and graphical representation.
 
 Usage:
     python kicad_capacitor_symbol_generator.py
 
-Or import and use the generate_kicad_capacitor_symbol function in your script.
+Or import and use the kicad_capacitor_symbol_generator
+function in your own script.
 
 Dependencies:
     - csv (Python standard library)
@@ -22,28 +23,24 @@ import csv
 from typing import List, Tuple, Dict, TextIO
 
 
-def generate_kicad_capacitor_symbol(
+def generate_kicad_symbol(
         input_csv_file: str,
         output_symbol_file: str,
-        encoding: str = 'utf-8') -> None:
+        encoding: str = 'utf-8'
+) -> None:
     """
-    Generate a KiCad symbol file for capacitors from CSV data.
-
-    This function reads capacitor data from a CSV file and creates a KiCad
-    symbol file (.kicad_sym) with the capacitors' properties and graphical
-    representations. It dynamically handles any properties present in the CSV.
+    Generate a KiCad symbol file from CSV data.
 
     Args:
-        input_csv_file (str):
-            Path to the input CSV file containing capacitor data.
-        output_symbol_file (str):
-            Path where the output .kicad_sym file will be saved.
-        encoding (str): The character encoding to use. Defaults to 'utf-8'.
+        input_csv_file (str): Path to the input CSV file with component data.
+        output_symbol_file (str): Path for the output .kicad_sym file.
+        encoding (str, optional):
+            Character encoding to use. Defaults to 'utf-8'.
 
     Raises:
         FileNotFoundError: If the input CSV file is not found.
-        csv.Error: If there are issues reading the CSV file.
-        IOError: If there are issues writing to the output file.
+        csv.Error: If there's an error reading the CSV file.
+        IOError: If there's an error writing to the output file.
     """
     component_data_list = read_csv_data(input_csv_file, encoding)
     all_properties = get_all_properties(component_data_list)
@@ -56,7 +53,10 @@ def generate_kicad_capacitor_symbol(
         symbol_file.write(")")
 
 
-def read_csv_data(input_csv_file: str, encoding: str) -> List[Dict[str, str]]:
+def read_csv_data(
+        input_csv_file: str,
+        encoding: str
+) -> List[Dict[str, str]]:
     """
     Read component data from a CSV file.
 
@@ -75,7 +75,9 @@ def read_csv_data(input_csv_file: str, encoding: str) -> List[Dict[str, str]]:
         return list(csv.DictReader(csv_file))
 
 
-def get_all_properties(component_data_list: List[Dict[str, str]]) -> set:
+def get_all_properties(
+        component_data_list: List[Dict[str, str]]
+) -> set:
     """
     Get all unique properties from the component data.
 
@@ -89,7 +91,9 @@ def get_all_properties(component_data_list: List[Dict[str, str]]) -> set:
         *(component_data.keys() for component_data in component_data_list))
 
 
-def get_property_order(all_properties: set) -> List[str]:
+def get_property_order(
+        all_properties: set
+) -> List[str]:
     """
     Determine the order of properties for symbol generation.
 
@@ -106,7 +110,9 @@ def get_property_order(all_properties: set) -> List[str]:
         sorted(list(all_properties - set(common_properties)))
 
 
-def write_header(symbol_file: TextIO) -> None:
+def write_header(
+        symbol_file: TextIO
+) -> None:
     """
     Write the header of the KiCad symbol file.
 
@@ -143,7 +149,10 @@ def write_component(
     write_symbol_drawing(symbol_file, symbol_name)
 
 
-def write_symbol_header(symbol_file: TextIO, symbol_name: str) -> None:
+def write_symbol_header(
+        symbol_file: TextIO,
+        symbol_name: str
+) -> None:
     """
     Write the header for a single symbol in the KiCad symbol file.
 
@@ -190,8 +199,11 @@ def write_properties(
     for property_name in property_order:
         if property_name in component_data:
             write_property(
-                symbol_file, property_name, component_data[property_name],
-                y_offset, common_properties)
+                symbol_file,
+                property_name,
+                component_data[property_name],
+                y_offset,
+                common_properties)
             y_offset += 2.54
 
 
@@ -233,7 +245,10 @@ def write_property(
     )
 
 
-def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
+def write_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str
+) -> None:
     """
     Write the graphical representation of a symbol in the KiCad symbol file.
 
@@ -314,15 +329,18 @@ def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
 
 
 if __name__ == "__main__":
-    INPUT_CSV_FILE = 'capacitor.csv'
-    OUTPUT_SYMBOL_FILE = 'CAPACITORS_DATA_BASE.kicad_sym'
+    file_pairs = [
+        ('capacitor.csv', 'CAPACITORS_DATA_BASE.kicad_sym'),
+    ]
 
-    try:
-        generate_kicad_capacitor_symbol(INPUT_CSV_FILE, OUTPUT_SYMBOL_FILE)
-        print("KiCad capacitor symbol file generated successfully.")
-    except FileNotFoundError:
-        print(f"Error: Input CSV file '{INPUT_CSV_FILE}' not found.")
-    except csv.Error as e:
-        print(f"Error reading CSV file: {e}")
-    except IOError as e:
-        print(f"Error writing to output file: {e}")
+    for input_csv, output_symbol in file_pairs:
+        try:
+            generate_kicad_symbol(input_csv, output_symbol)
+            print(
+                f"KiCad symbol file '{output_symbol}' generated successfully.")
+        except FileNotFoundError:
+            print(f"Error: Input CSV file '{input_csv}' not found.")
+        except csv.Error as e:
+            print(f"Error reading CSV file '{input_csv}': {e}")
+        except IOError as e:
+            print(f"Error writing to output file '{output_symbol}': {e}")
