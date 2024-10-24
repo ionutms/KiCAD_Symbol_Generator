@@ -15,15 +15,13 @@ import kicad_capacitor_symbol_generator as ki_csg
 class SeriesType(Enum):
     """Enumeration for capacitor series types."""
     X7R = "X7R"
-    X5R = "X5R"
-    C0G = "C0G"
 
 
 class PartInfo(NamedTuple):
     """Structure to hold component part information."""
     symbol_name: str
     reference: str
-    value: float  # in Farads
+    value: float
     footprint: str
     datasheet: str
     description: str
@@ -63,8 +61,6 @@ TRUSTEDPARTS_BASE: Final[str] = "https://www.trustedparts.com/en/search/"
 # Dielectric code mapping
 DIELECTRIC_MAP: Final[Dict[str, str]] = {
     "X7R": "R7",
-    "X5R": "R6",
-    "C0G": "C0"
 }
 
 # Series specifications
@@ -88,39 +84,16 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             SeriesType.X7R: (220e-12, 0.1e-6),  # 220pF to 0.1µF
         }
     ),
-    "GCM188": SeriesSpec(
-        base_series="GCM188",
-        footprint=f"{BASE_FOOTPRINT}0603_1608Metric",
-        voltage_ratings=["1H", "2A"],  # 50V, 100V codes
-        case_code_in="0603",
-        case_code_mm="1608",
-        min_temp="- 55 C",
-        max_temp="+ 125 C",
-        packaging_options=['D', 'J'],
-        tolerance_options=['K', 'M'],
-        qualification="AEC-Q200",
-        datasheet=(
-            "https://www.murata.com/-/media/webrenewal/support/"
-            "library/catalog/products/capacitor/mlcc/c02e.ashx"
-        ),
-        value_range={
-            SeriesType.X7R: (100e-12, 4.7e-6),  # 100pF to 4.7µF
-            SeriesType.X5R: (1e-6, 10e-6),      # 1µF to 10µF
-            SeriesType.C0G: (1e-12, 470e-12),   # 1pF to 470pF
-        }
-    ),
 }
 
 
 def get_characteristic_code(capacitance: float) -> str:
     """Determine the characteristic code based on capacitance value."""
-    # Convert to microfarads for easier comparison
     value_uf = capacitance * 1e6
 
-    if value_uf >= 0.01:  # 10nF and above
+    if value_uf >= 0.01:
         return "A55"
-    else:  # Below 10nF
-        return "A37"
+    return "A37"
 
 
 def format_capacitance(capacitance: float) -> str:
@@ -136,7 +109,7 @@ def format_capacitance(capacitance: float) -> str:
 def parse_capacitance(value_str: str) -> float:
     """Convert a capacitance string to Farads."""
     value_str = value_str.strip().lower()
-    multiplier = 1e-12  # default to picofarads
+    multiplier = 1e-12
 
     if 'uf' in value_str or 'µf' in value_str:
         multiplier = 1e-6
@@ -159,13 +132,10 @@ def generate_capacitance_code(capacitance: float) -> str:
         decimal = int((pf_value - whole) * 10)
         return f"{whole}R{decimal}"
 
-    # For all other values, we ensure 3 significant digits
-    # Adjust to ensure correct code format, e.g., 220pF -> 221
     significant = round(pf_value)
 
-    # If the result is 100 or more, round to nearest three-digit number
     if significant % 10 == 0:
-        significant += 1  # Fix for 220pF -> 221 instead of 2201
+        significant += 1
 
     return f"{significant:03d}"
 
@@ -220,26 +190,23 @@ def create_part_info(
 
 
 def generate_standard_values(
-    min_value: float,
-    max_value: float,
-    multipliers: List[float] = None
-) -> Iterator[float]:
-    """Generate standard capacitance values within range."""
-    if multipliers is None:
-        multipliers = [1.0, 1.2, 1.5, 1.8, 2.2,
-                       2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2]
+        min_value: float, max_value: float) -> Iterator[float]:
+    """Generate standard capacitance values for E12 series within range."""
+    # E12 series multipliers
+    e12_multipliers = [
+        1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2]
 
-    current = min_value
-    while current <= max_value:
-        for multiplier in multipliers:
-            value = current * multiplier
+    decade = 1.0e-12
+    while decade <= max_value:
+        for multiplier in e12_multipliers:
+            value = decade * multiplier
             if min_value <= value <= max_value:
                 yield value
-        current *= 10
+        decade *= 10
 
 
 def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
-    """Generate all possible part numbers for the series."""
+    """Generate all possible part numbers for the series using E12 values."""
     parts_list: List[PartInfo] = []
 
     for dielectric_type, (min_val, max_val) in specs.value_range.items():
