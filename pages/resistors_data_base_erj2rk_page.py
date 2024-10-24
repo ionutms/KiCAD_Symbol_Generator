@@ -73,6 +73,7 @@ dataframe: pd.DataFrame = pd.read_csv('ERJ2RK_part_numbers.csv')
 hidden_columns = [
     'Reference',
     'Case Code - mm',
+    'Case Code - in',
     'Series'
 ]
 
