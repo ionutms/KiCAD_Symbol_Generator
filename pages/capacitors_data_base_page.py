@@ -73,6 +73,7 @@ dataframe: pd.DataFrame = pd.read_csv('capacitor.csv')
 hidden_columns = [
     'Reference',
     'Case Code - mm',
+    'Case Code - in',
     'Series'
 ]
 
