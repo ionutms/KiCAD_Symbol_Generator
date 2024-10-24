@@ -66,6 +66,11 @@ TOLERANCE_MAP: Final[Dict[str, str]] = {
     "K": "10 %"
 }
 
+# Voltage code to display value mapping
+VOLTAGE_DISPLAY_MAP: Final[Dict[str, str]] = {
+    "1H": "50 V"
+}
+
 # Series specifications
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM155": SeriesSpec(
@@ -160,6 +165,8 @@ def create_part_info(
     characteristic_code = get_characteristic_code(capacitance)
 
     formatted_tolerance = format_tolerance(tolerance)
+    display_voltage = VOLTAGE_DISPLAY_MAP.get(
+        voltage, voltage)
 
     mpn = (
         f"{specs.base_series}"
@@ -175,7 +182,7 @@ def create_part_info(
     description = (
         f"CAP SMD {format_capacitance(capacitance)} "
         f"{dielectric.value} {formatted_tolerance} "
-        f"{specs.case_code_in} {voltage}V"
+        f"{specs.case_code_in} {display_voltage}"
     )
 
     return PartInfo(
@@ -189,7 +196,7 @@ def create_part_info(
         mpn=mpn,
         dielectric=dielectric.value,
         tolerance=formatted_tolerance,
-        voltage_rating=voltage,
+        voltage_rating=display_voltage,
         case_code_in=specs.case_code_in,
         case_code_mm=specs.case_code_mm,
         series=specs.base_series,
