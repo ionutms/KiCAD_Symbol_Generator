@@ -61,6 +61,11 @@ DIELECTRIC_MAP: Final[Dict[str, str]] = {
     "X7R": "R7",
 }
 
+# Tolerance mapping
+TOLERANCE_MAP: Final[Dict[str, str]] = {
+    "K": "10 %"
+}
+
 # Series specifications
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM155": SeriesSpec(
@@ -72,7 +77,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         min_temp="- 55 C",
         max_temp="+ 125 C",
         packaging_options=['D', 'J'],
-        tolerance_options=['K'],  # 10%
+        tolerance_options=['K'],  # Replaces 'K' with '10 %'
         datasheet=(
             "https://www.murata.com/-/media/webrenewal/support/"
             "library/catalog/products/capacitor/mlcc/c02e.ashx"
@@ -137,6 +142,11 @@ def generate_capacitance_code(capacitance: float) -> str:
     return f"{significant:03d}"
 
 
+def format_tolerance(tolerance: str) -> str:
+    """Format the tolerance using the TOLERANCE_MAP."""
+    return TOLERANCE_MAP.get(tolerance, tolerance)
+
+
 def create_part_info(
     capacitance: float,
     voltage: str,
@@ -149,6 +159,8 @@ def create_part_info(
     capacitance_code = generate_capacitance_code(capacitance)
     dielectric_code = DIELECTRIC_MAP.get(dielectric.value, "R7")
     characteristic_code = get_characteristic_code(capacitance)
+
+    formatted_tolerance = format_tolerance(tolerance)
 
     mpn = (
         f"{specs.base_series}"
@@ -163,7 +175,8 @@ def create_part_info(
     symbol_name = f"C_{mpn}"
     description = (
         f"CAP SMD {format_capacitance(capacitance)} "
-        f"{dielectric.value} {tolerance}% {specs.case_code_in} {voltage}V"
+        f"{dielectric.value} {formatted_tolerance} "
+        f"{specs.case_code_in} {voltage}V"
     )
 
     return PartInfo(
@@ -176,7 +189,7 @@ def create_part_info(
         manufacturer=MANUFACTURER,
         mpn=mpn,
         dielectric=dielectric.value,
-        tolerance=tolerance,
+        tolerance=formatted_tolerance,
         voltage_rating=voltage,
         case_code_in=specs.case_code_in,
         case_code_mm=specs.case_code_mm,
