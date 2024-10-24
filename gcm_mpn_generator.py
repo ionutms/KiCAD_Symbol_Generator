@@ -33,7 +33,6 @@ class PartInfo(NamedTuple):
     case_code_in: str
     case_code_mm: str
     series: str
-    qualification: str
     trustedparts_link: str
 
 
@@ -48,7 +47,6 @@ class SeriesSpec(NamedTuple):
     max_temp: str
     packaging_options: List[str]
     tolerance_options: List[str]
-    qualification: str
     datasheet: str
     value_range: Dict[SeriesType, tuple[float, float]]
 
@@ -75,7 +73,6 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         max_temp="+ 125 C",
         packaging_options=['D', 'J'],
         tolerance_options=['K'],  # 10%
-        qualification="AEC-Q200",
         datasheet=(
             "https://www.murata.com/-/media/webrenewal/support/"
             "library/catalog/products/capacitor/mlcc/c02e.ashx"
@@ -184,7 +181,6 @@ def create_part_info(
         case_code_in=specs.case_code_in,
         case_code_mm=specs.case_code_mm,
         series=specs.base_series,
-        qualification=specs.qualification,
         trustedparts_link=f"{TRUSTEDPARTS_BASE}{mpn}"
     )
 
@@ -249,7 +245,6 @@ def write_to_csv(
         'Case Code - in',
         'Case Code - mm',
         'Series',
-        'Qualification',
         'Trustedparts Search'
     ]
 
@@ -273,7 +268,6 @@ def write_to_csv(
                 part.case_code_in,
                 part.case_code_mm,
                 part.series,
-                part.qualification,
                 part.trustedparts_link
             ])
 
