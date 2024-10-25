@@ -90,6 +90,34 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             82e-9   # 82 nF
         }
     ),
+    "GCM188": SeriesSpec(
+        base_series="GCM188",
+        footprint="footprints:C_0603_1608Metric",
+        voltage_rating="50V",
+        case_code_in="0603",
+        case_code_mm="1608",
+        packaging_options=['D', 'J'],
+        tolerance_map={
+            SeriesType.X7R: {'K': '10%'}
+        },
+        value_range={
+            SeriesType.X7R: (1e-9, 220e-9)  # Updated: 1nF to 220nF
+        },
+        voltage_code="1H",
+        dielectric_code={
+            SeriesType.X7R: "R7"
+        },
+        characteristic_thresholds={
+            'high': 22e-9,  # > 22nF: E02
+            'low': 5.6e-9   # >= 5.6nF and <= 22nF: A55, < 5.6nF: A37
+        },
+        excluded_values={
+            # 27e-9,  # 27 nF
+            # 39e-9,  # 39 nF
+            # 56e-9,  # 56 nF
+            # 82e-9   # 82 nF
+        }
+    ),
 }
 
 
