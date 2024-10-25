@@ -22,6 +22,7 @@ class PartInfo(NamedTuple):
     symbol_name: str
     reference: str
     value: float
+    formatted_value: str
     footprint: str
     datasheet: str
     description: str
@@ -45,7 +46,6 @@ class SeriesSpec(NamedTuple):
     case_code_mm: str
     packaging_options: List[str]
     tolerance_map: Dict[SeriesType, Dict[str, str]]
-    datasheet: str
     value_range: Dict[SeriesType, tuple[float, float]]
     voltage_code: str
     dielectric_code: Dict[SeriesType, str]
@@ -54,6 +54,19 @@ class SeriesSpec(NamedTuple):
 # Constants
 MANUFACTURER: Final[str] = "Murata Electronics"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
+DATASHEET_BASE_URL: Final[str] = \
+    "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
+
+# Excluded capacitance values in Farads
+EXCLUDED_VALUES: Final[set[float]] = {
+    27e-9,  # 27 nF
+    39e-9,  # 39 nF
+    56e-9,  # 56 nF
+    82e-9   # 82 nF
+}
+
+# Characteristic code threshold
+CHARACTERISTIC_CODE_THRESHOLD: Final[float] = 22e-9  # 22 nF
 
 
 # Series specifications
@@ -68,10 +81,6 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         tolerance_map={
             SeriesType.X7R: {'K': '10%'}
         },
-        datasheet=(
-            "https://www.murata.com/-/media/webrenewal/support/"
-            "library/catalog/products/capacitor/mlcc/c02e.ashx"
-        ),
         value_range={
             SeriesType.X7R: (220e-12, 0.1e-6)  # 220pF to 0.1µF
         },
@@ -84,37 +93,90 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
 
 
 def format_capacitance(capacitance: float) -> str:
-    """Convert capacitance value to human-readable format."""
-    if capacitance >= 1e-6:
-        return f"{capacitance/1e-6:.3g} µF"
-    if capacitance >= 1e-9:
-        return f"{capacitance/1e-9:.3g} nF"
-    return f"{capacitance/1e-12:.3g} pF"
+    """
+    Convert capacitance value to human-readable format.
+    Handles unit conversion to ensure most appropriate unit is used.
+    """
+    pf_value = capacitance * 1e12
+
+    if capacitance >= 1e-6:  # 1 µF and above
+        value = capacitance/1e-6
+        unit = "µF"
+    elif pf_value >= 1000:  # 1000 pF and above -> convert to nF
+        value = pf_value/1000
+        unit = "nF"
+    else:  # Below 1000 pF
+        value = pf_value
+        unit = "pF"
+
+    # Format the number to remove unnecessary decimals
+    if value % 1 == 0:
+        return f"{int(value)} {unit}"
+    formatted = f"{value:.3g}"
+    value = pf_value/1000
+
+    return f"{formatted} {unit}"
 
 
 def generate_capacitance_code(capacitance: float) -> str:
     """
     Generate the capacitance code portion of the Murata part number.
-    Format: 3 characters for values >= 10pF, 3 characters with 'R' for < 10pF
+    Format:
+    - For values < 10pF: uses R notation (e.g., 1R5 for 1.5pF)
+    - For values ≥ 10pF and < 1000pF: direct value in pF (e.g., 100pF -> "101")
+    - For values ≥ 1000pF: first two digits + zeros (e.g., 1000pF -> "102")
     """
+    # Convert to picofarads
     pf_value = capacitance * 1e12
 
+    # Handle values under 10pF
     if pf_value < 10:
         whole = int(pf_value)
         decimal = int((pf_value - whole) * 10)
         return f"{whole}R{decimal}"
 
-    significant = round(pf_value)
-    if significant % 10 == 0:
-        significant += 1
+    # Handle values under 1000pF
+    if pf_value < 1000:
+        significant = round(pf_value)
+        if significant % 10 == 0:
+            significant += 1
+        return f"{significant:03d}"
 
-    return f"{significant:03d}"
+    # Handle values 1000pF and above
+    # Convert to scientific notation with 2 significant digits
+    sci_notation = f"{pf_value:.2e}"
+
+    # Split into significand and power
+    parts = sci_notation.split('e')
+    significand = float(parts[0])
+    power = int(parts[1])
+
+    # Calculate first two digits and zero count
+    first_two = int(round(significand * 10))
+    zero_count = power - 1
+
+    return f"{first_two}{zero_count}"
 
 
 def get_characteristic_code(capacitance: float) -> str:
-    """Determine the characteristic code based on capacitance value."""
-    value_uf = capacitance * 1e6
-    return "A55" if value_uf >= 0.01 else "A37"
+    """
+    Determine the characteristic code based on capacitance value.
+    For GCM155R7 series:
+    - E02 for values > 22nF
+    - A55 for values >= 5.6nF and <= 22nF
+    - A37 for values < 5.6nF
+
+    Args:
+        capacitance: Value in Farads
+
+    Returns:
+        str: 'E02', 'A55', or 'A37' characteristic code
+    """
+    if capacitance > CHARACTERISTIC_CODE_THRESHOLD:
+        return "E02"
+
+    low_threshold: Final[float] = 5.6e-9
+    return "A55" if capacitance >= low_threshold else "A37"
 
 
 def generate_standard_values(
@@ -131,8 +193,16 @@ def generate_standard_values(
         for multiplier in e12_multipliers:
             value = decade * multiplier
             if min_value <= value <= max_value:
-                yield value
+                # Skip excluded values
+                if value not in EXCLUDED_VALUES:
+                    yield float(f"{value:.1e}")
         decade *= 10
+
+
+def generate_datasheet_url(mpn: str) -> str:
+    """Generate the datasheet URL for a given Murata part number."""
+    base_mpn = mpn[:-1]
+    return f"{DATASHEET_BASE_URL}{base_mpn}-01.pdf"
 
 
 def create_part_info(
@@ -146,6 +216,7 @@ def create_part_info(
     """Create a PartInfo instance for given parameters."""
     capacitance_code = generate_capacitance_code(capacitance)
     characteristic_code = get_characteristic_code(capacitance)
+    formatted_value = format_capacitance(capacitance)
 
     mpn = (
         f"{specs.base_series}"
@@ -159,18 +230,20 @@ def create_part_info(
 
     symbol_name = f"C_{mpn}"
     description = (
-        f"CAP SMD {format_capacitance(capacitance)} "
+        f"CAP SMD {formatted_value} "
         f"{series_type.value} {tolerance_value} "
         f"{specs.case_code_in} {specs.voltage_rating}"
     )
     trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
+    datasheet_url = generate_datasheet_url(mpn)
 
     return PartInfo(
         symbol_name=symbol_name,
         reference="C",
         value=capacitance,
+        formatted_value=formatted_value,
         footprint=specs.footprint,
-        datasheet=specs.datasheet,
+        datasheet=datasheet_url,
         description=description,
         manufacturer=MANUFACTURER,
         mpn=mpn,
@@ -193,6 +266,9 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
             min_val, max_val = specs.value_range[series_type]
 
             for capacitance in generate_standard_values(min_val, max_val):
+                if capacitance in EXCLUDED_VALUES:
+                    continue
+
                 for tolerance_code, tolerance_value in \
                         specs.tolerance_map[series_type].items():
                     for packaging in specs.packaging_options:
@@ -229,7 +305,7 @@ def write_to_csv(
             writer.writerow([
                 part_info.symbol_name,
                 part_info.reference,
-                format_capacitance(part_info.value),
+                part_info.formatted_value,
                 part_info.footprint,
                 part_info.datasheet,
                 part_info.description,
