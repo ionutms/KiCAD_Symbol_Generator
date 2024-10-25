@@ -191,16 +191,6 @@ def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     series specs.
     Different codes for different series:
 
-    GCM155R7 series:
-    - E02 for values > 22nF
-    - A55 for values >= 5.6nF and <= 22nF
-    - A37 for values < 5.6nF
-
-    GCM188R7 series:
-    - E13 for values > 33nF
-    - A58 for values >= 27nF and <= 33nF
-    - A40 for values < 27nF
-
     Args:
         capacitance: Value in Farads
         specs: SeriesSpec containing characteristic thresholds
@@ -217,9 +207,14 @@ def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
         return "A55" if capacitance >= low_threshold else "A37"
 
     if specs.base_series == "GCM188":
-        if capacitance > high_threshold:
+        if capacitance > 47e-9 and capacitance < 150e-9:
+            return "A57"
+        elif capacitance > 100e-9:
+            return "A64"
+        elif capacitance > high_threshold:
             return "A55"
         return "A55" if capacitance >= low_threshold else "A37"
+
     raise ValueError(f"Unknown series: {specs.base_series}")
 
 
