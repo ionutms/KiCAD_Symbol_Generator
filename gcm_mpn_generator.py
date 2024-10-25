@@ -21,7 +21,8 @@ class PartInfo(NamedTuple):
     """Structure to hold component part information."""
     symbol_name: str
     reference: str
-    value: float
+    value: float  # Keep as float for proper sorting
+    formatted_value: str  # Add formatted string representation
     footprint: str
     datasheet: str
     description: str
@@ -45,7 +46,6 @@ class SeriesSpec(NamedTuple):
     case_code_mm: str
     packaging_options: List[str]
     tolerance_map: Dict[SeriesType, Dict[str, str]]
-    datasheet: str
     value_range: Dict[SeriesType, tuple[float, float]]
     voltage_code: str
     dielectric_code: Dict[SeriesType, str]
@@ -54,6 +54,8 @@ class SeriesSpec(NamedTuple):
 # Constants
 MANUFACTURER: Final[str] = "Murata Electronics"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
+DATASHEET_BASE_URL: Final[str] = \
+    "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
 
 
 # Series specifications
@@ -68,10 +70,6 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         tolerance_map={
             SeriesType.X7R: {'K': '10%'}
         },
-        datasheet=(
-            "https://www.murata.com/-/media/webrenewal/support/"
-            "library/catalog/products/capacitor/mlcc/c02e.ashx"
-        ),
         value_range={
             SeriesType.X7R: (220e-12, 0.1e-6)  # 220pF to 0.1µF
         },
@@ -84,12 +82,29 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
 
 
 def format_capacitance(capacitance: float) -> str:
-    """Convert capacitance value to human-readable format."""
-    if capacitance >= 1e-6:
-        return f"{capacitance/1e-6:.3g} µF"
-    if capacitance >= 1e-9:
-        return f"{capacitance/1e-9:.3g} nF"
-    return f"{capacitance/1e-12:.3g} pF"
+    """
+    Convert capacitance value to human-readable format.
+    Handles unit conversion to ensure most appropriate unit is used.
+    """
+    pf_value = capacitance * 1e12
+
+    if capacitance >= 1e-6:  # 1 µF and above
+        value = capacitance/1e-6
+        unit = "µF"
+    elif pf_value >= 1000:  # 1000 pF and above -> convert to nF
+        value = pf_value/1000
+        unit = "nF"
+    else:  # Below 1000 pF
+        value = pf_value
+        unit = "pF"
+
+    # Format the number to remove unnecessary decimals
+    if value % 1 == 0:
+        return f"{int(value)} {unit}"
+    formatted = f"{value:.3g}"
+    value = pf_value/1000
+
+    return f"{formatted} {unit}"
 
 
 def generate_capacitance_code(capacitance: float) -> str:
@@ -131,8 +146,15 @@ def generate_standard_values(
         for multiplier in e12_multipliers:
             value = decade * multiplier
             if min_value <= value <= max_value:
-                yield value
+                yield float(f"{value:.1e}")
         decade *= 10
+
+
+def generate_datasheet_url(mpn: str) -> str:
+    """Generate the datasheet URL for a given Murata part number."""
+    # Remove packaging code (last character) for datasheet URL
+    base_mpn = mpn[:-1]
+    return f"{DATASHEET_BASE_URL}{base_mpn}-01.pdf"
 
 
 def create_part_info(
@@ -146,6 +168,7 @@ def create_part_info(
     """Create a PartInfo instance for given parameters."""
     capacitance_code = generate_capacitance_code(capacitance)
     characteristic_code = get_characteristic_code(capacitance)
+    formatted_value = format_capacitance(capacitance)
 
     mpn = (
         f"{specs.base_series}"
@@ -159,18 +182,20 @@ def create_part_info(
 
     symbol_name = f"C_{mpn}"
     description = (
-        f"CAP SMD {format_capacitance(capacitance)} "
+        f"CAP SMD {formatted_value} "
         f"{series_type.value} {tolerance_value} "
         f"{specs.case_code_in} {specs.voltage_rating}"
     )
     trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
+    datasheet_url = generate_datasheet_url(mpn)
 
     return PartInfo(
         symbol_name=symbol_name,
         reference="C",
-        value=capacitance,
+        value=capacitance,  # Store raw float value
+        formatted_value=formatted_value,  # Store formatted string
         footprint=specs.footprint,
-        datasheet=specs.datasheet,
+        datasheet=datasheet_url,
         description=description,
         manufacturer=MANUFACTURER,
         mpn=mpn,
@@ -229,7 +254,7 @@ def write_to_csv(
             writer.writerow([
                 part_info.symbol_name,
                 part_info.reference,
-                format_capacitance(part_info.value),
+                part_info.formatted_value,  # Use formatted value in CSV
                 part_info.footprint,
                 part_info.datasheet,
                 part_info.description,
