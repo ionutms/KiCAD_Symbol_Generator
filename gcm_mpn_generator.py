@@ -57,6 +57,17 @@ TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 DATASHEET_BASE_URL: Final[str] = \
     "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
 
+# Excluded capacitance values in Farads
+EXCLUDED_VALUES: Final[set[float]] = {
+    27e-9,  # 27 nF
+    39e-9,  # 39 nF
+    56e-9,  # 56 nF
+    82e-9   # 82 nF
+}
+
+# Characteristic code threshold
+CHARACTERISTIC_CODE_THRESHOLD: Final[float] = 22e-9  # 22 nF
+
 
 # Series specifications
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
@@ -151,17 +162,21 @@ def get_characteristic_code(capacitance: float) -> str:
     """
     Determine the characteristic code based on capacitance value.
     For GCM155R7 series:
-    - A55 for values >= 5.6nF
+    - E02 for values > 22nF
+    - A55 for values >= 5.6nF and <= 22nF
     - A37 for values < 5.6nF
 
     Args:
         capacitance: Value in Farads
 
     Returns:
-        str: 'A55' or 'A37' characteristic code
+        str: 'E02', 'A55', or 'A37' characteristic code
     """
-    threshold: Final[float] = 5.6e-9  # 4.7nF threshold
-    return "A55" if capacitance >= threshold else "A37"
+    if capacitance > CHARACTERISTIC_CODE_THRESHOLD:
+        return "E02"
+
+    low_threshold: Final[float] = 5.6e-9  # 5.6nF threshold
+    return "A55" if capacitance >= low_threshold else "A37"
 
 
 def generate_standard_values(
@@ -178,7 +193,9 @@ def generate_standard_values(
         for multiplier in e12_multipliers:
             value = decade * multiplier
             if min_value <= value <= max_value:
-                yield float(f"{value:.1e}")
+                # Skip excluded values
+                if value not in EXCLUDED_VALUES:
+                    yield float(f"{value:.1e}")
         decade *= 10
 
 
