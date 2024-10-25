@@ -49,8 +49,7 @@ class SeriesSpec(NamedTuple):
     value_range: Dict[SeriesType, tuple[float, float]]
     voltage_code: str
     dielectric_code: Dict[SeriesType, str]
-    characteristic_thresholds: Dict[str, float]
-    excluded_values: Set[float]  # Added field for excluded values
+    excluded_values: Set[float]
 
 
 # Constants
@@ -79,10 +78,6 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        characteristic_thresholds={
-            'high': 22e-9,  # > 22nF: E02
-            'low': 5.6e-9   # >= 5.6nF and <= 22nF: A55, < 5.6nF: A37
-        },
         excluded_values={
             27e-9,  # 27 nF
             39e-9,  # 39 nF
@@ -107,15 +102,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        characteristic_thresholds={
-            'high': 22e-9,  # > 22nF: E02
-            'low': 5.6e-9   # >= 5.6nF and <= 22nF: A55, < 5.6nF: A37
-        },
         excluded_values={
-            # 27e-9,  # 27 nF
-            # 39e-9,  # 39 nF
-            # 56e-9,  # 56 nF
-            # 82e-9   # 82 nF
+            120e-9,  # 120 nF
+            180e-9,  # 180 nF
         }
     ),
 }
@@ -187,28 +176,88 @@ def generate_capacitance_code(capacitance: float) -> str:
     return f"{first_two}{zero_count}"
 
 
-def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
+def get_gcm155_code(capacitance: float) -> str:
     """
-    Determine the characteristic code based on capacitance value
-    and series specs.
-    For GCM155R7 series:
-    - E02 for values > 22nF
-    - A55 for values >= 5.6nF and <= 22nF
-    - A37 for values < 5.6nF
+    Determine the characteristic code for the GCM155 series based on
+    capacitance value.
 
     Args:
-        capacitance: Value in Farads
-        specs: SeriesSpec containing characteristic thresholds
+        capacitance (float): Capacitance value in Farads.
 
     Returns:
-        str: 'E02', 'A55', or 'A37' characteristic code
-    """
-    high_threshold = specs.characteristic_thresholds['high']
-    low_threshold = specs.characteristic_thresholds['low']
+        str:
+            The characteristic code for the GCM155 series based on
+            capacitance thresholds.
 
-    if capacitance > high_threshold:
+    Logic:
+        - Returns "E02" if capacitance > 22nF.
+        - Returns "A55" if 5.6nF <= capacitance <= 22nF.
+        - Returns "A37" if capacitance < 5.6nF.
+    """
+    if capacitance > 22e-9:
         return "E02"
-    return "A55" if capacitance >= low_threshold else "A37"
+    if capacitance >= 5.6e-9:
+        return "A55"
+    return "A37"
+
+
+def get_gcm188_code(capacitance: float) -> str:
+    """
+    Determine the characteristic code for the GCM188 series based on
+    capacitance value.
+
+    Args:
+        capacitance (float): Capacitance value in Farads.
+
+    Returns:
+        str:
+            The characteristic code for the GCM188 series based on
+            capacitance thresholds.
+
+    Logic:
+        - Returns "A64" if capacitance > 100nF.
+        - Returns "A57" if 47nF < capacitance <= 100nF.
+        - Returns "A55" if 27nF <= capacitance <= 47nF.
+        - Returns "A37" if capacitance < 27nF.
+    """
+    if capacitance > 100e-9:
+        return "A64"
+    if 47e-9 < capacitance <= 100e-9:
+        return "A57"
+    if capacitance >= 27e-9:
+        return "A55"
+    return "A37"
+
+
+def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
+    """
+    Determine the characteristic code based on capacitance and
+    series specification.
+
+    Args:
+        capacitance (float): Capacitance value in Farads.
+        specs (SeriesSpec):
+            An instance of SeriesSpec containing series information,
+            such as the `base_series` attribute.
+
+    Returns:
+        str: The characteristic code for the specified series and capacitance.
+
+    Raises:
+        ValueError:
+            If the series in `specs.base_series` is unknown or unsupported.
+
+    Logic:
+        - Calls `get_gcm155_code` if the series is "GCM155".
+        - Calls `get_gcm188_code` if the series is "GCM188".
+        - Raises a ValueError for unsupported series.
+    """
+    if specs.base_series == "GCM155":
+        return get_gcm155_code(capacitance)
+    if specs.base_series == "GCM188":
+        return get_gcm188_code(capacitance)
+
+    raise ValueError(f"Unknown series: {specs.base_series}")
 
 
 def generate_standard_values(
