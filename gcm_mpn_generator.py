@@ -21,8 +21,8 @@ class PartInfo(NamedTuple):
     """Structure to hold component part information."""
     symbol_name: str
     reference: str
-    value: float  # Keep as float for proper sorting
-    formatted_value: str  # Add formatted string representation
+    value: float
+    formatted_value: str
     footprint: str
     datasheet: str
     description: str
@@ -175,7 +175,7 @@ def get_characteristic_code(capacitance: float) -> str:
     if capacitance > CHARACTERISTIC_CODE_THRESHOLD:
         return "E02"
 
-    low_threshold: Final[float] = 5.6e-9  # 5.6nF threshold
+    low_threshold: Final[float] = 5.6e-9
     return "A55" if capacitance >= low_threshold else "A37"
 
 
@@ -201,7 +201,6 @@ def generate_standard_values(
 
 def generate_datasheet_url(mpn: str) -> str:
     """Generate the datasheet URL for a given Murata part number."""
-    # Remove packaging code (last character) for datasheet URL
     base_mpn = mpn[:-1]
     return f"{DATASHEET_BASE_URL}{base_mpn}-01.pdf"
 
@@ -241,8 +240,8 @@ def create_part_info(
     return PartInfo(
         symbol_name=symbol_name,
         reference="C",
-        value=capacitance,  # Store raw float value
-        formatted_value=formatted_value,  # Store formatted string
+        value=capacitance,
+        formatted_value=formatted_value,
         footprint=specs.footprint,
         datasheet=datasheet_url,
         description=description,
@@ -267,6 +266,9 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
             min_val, max_val = specs.value_range[series_type]
 
             for capacitance in generate_standard_values(min_val, max_val):
+                if capacitance in EXCLUDED_VALUES:
+                    continue
+
                 for tolerance_code, tolerance_value in \
                         specs.tolerance_map[series_type].items():
                     for packaging in specs.packaging_options:
@@ -303,7 +305,7 @@ def write_to_csv(
             writer.writerow([
                 part_info.symbol_name,
                 part_info.reference,
-                part_info.formatted_value,  # Use formatted value in CSV
+                part_info.formatted_value,
                 part_info.footprint,
                 part_info.datasheet,
                 part_info.description,
