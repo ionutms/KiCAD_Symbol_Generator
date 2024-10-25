@@ -234,11 +234,8 @@ def generate_standard_values(
     decade = 1.0e-12
     while decade <= max_value:
         for multiplier in e12_multipliers:
-            value = decade * multiplier
-            if min_value <= value <= max_value:
-                # Normalize the value
-                normalized_value = float(f"{value:.1e}")
-                # Check against normalized excluded values
+            normalized_value = float(f"{decade * multiplier:.1e}")
+            if min_value <= normalized_value <= max_value:
                 if normalized_value not in normalized_excluded:
                     yield normalized_value
         decade *= 10
