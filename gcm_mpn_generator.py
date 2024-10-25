@@ -7,7 +7,7 @@ and KiCad symbol files.
 """
 
 import csv
-from typing import List, NamedTuple, Final, Iterator, Dict
+from typing import List, NamedTuple, Final, Iterator, Dict, Set
 from enum import Enum
 import kicad_capacitor_symbol_generator as ki_csg
 
@@ -49,6 +49,8 @@ class SeriesSpec(NamedTuple):
     value_range: Dict[SeriesType, tuple[float, float]]
     voltage_code: str
     dielectric_code: Dict[SeriesType, str]
+    characteristic_thresholds: Dict[str, float]
+    excluded_values: Set[float]  # Added field for excluded values
 
 
 # Constants
@@ -56,17 +58,6 @@ MANUFACTURER: Final[str] = "Murata Electronics"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 DATASHEET_BASE_URL: Final[str] = \
     "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
-
-# Excluded capacitance values in Farads
-EXCLUDED_VALUES: Final[set[float]] = {
-    27e-9,  # 27 nF
-    39e-9,  # 39 nF
-    56e-9,  # 56 nF
-    82e-9   # 82 nF
-}
-
-# Characteristic code threshold
-CHARACTERISTIC_CODE_THRESHOLD: Final[float] = 22e-9  # 22 nF
 
 
 # Series specifications
@@ -87,6 +78,44 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         voltage_code="1H",
         dielectric_code={
             SeriesType.X7R: "R7"
+        },
+        characteristic_thresholds={
+            'high': 22e-9,  # > 22nF: E02
+            'low': 5.6e-9   # >= 5.6nF and <= 22nF: A55, < 5.6nF: A37
+        },
+        excluded_values={
+            27e-9,  # 27 nF
+            39e-9,  # 39 nF
+            56e-9,  # 56 nF
+            82e-9   # 82 nF
+        }
+    ),
+    "GCM188": SeriesSpec(
+        base_series="GCM188",
+        footprint="footprints:C_0603_1608Metric",
+        voltage_rating="50V",
+        case_code_in="0603",
+        case_code_mm="1608",
+        packaging_options=['D', 'J'],
+        tolerance_map={
+            SeriesType.X7R: {'K': '10%'}
+        },
+        value_range={
+            SeriesType.X7R: (1e-9, 220e-9)  # Updated: 1nF to 220nF
+        },
+        voltage_code="1H",
+        dielectric_code={
+            SeriesType.X7R: "R7"
+        },
+        characteristic_thresholds={
+            'high': 22e-9,  # > 22nF: E02
+            'low': 5.6e-9   # >= 5.6nF and <= 22nF: A55, < 5.6nF: A37
+        },
+        excluded_values={
+            # 27e-9,  # 27 nF
+            # 39e-9,  # 39 nF
+            # 56e-9,  # 56 nF
+            # 82e-9   # 82 nF
         }
     ),
 }
@@ -158,9 +187,10 @@ def generate_capacitance_code(capacitance: float) -> str:
     return f"{first_two}{zero_count}"
 
 
-def get_characteristic_code(capacitance: float) -> str:
+def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     """
-    Determine the characteristic code based on capacitance value.
+    Determine the characteristic code based on capacitance value
+    and series specs.
     For GCM155R7 series:
     - E02 for values > 22nF
     - A55 for values >= 5.6nF and <= 22nF
@@ -168,34 +198,49 @@ def get_characteristic_code(capacitance: float) -> str:
 
     Args:
         capacitance: Value in Farads
+        specs: SeriesSpec containing characteristic thresholds
 
     Returns:
         str: 'E02', 'A55', or 'A37' characteristic code
     """
-    if capacitance > CHARACTERISTIC_CODE_THRESHOLD:
-        return "E02"
+    high_threshold = specs.characteristic_thresholds['high']
+    low_threshold = specs.characteristic_thresholds['low']
 
-    low_threshold: Final[float] = 5.6e-9
+    if capacitance > high_threshold:
+        return "E02"
     return "A55" if capacitance >= low_threshold else "A37"
 
 
 def generate_standard_values(
     min_value: float,
-    max_value: float
+    max_value: float,
+    excluded_values: Set[float]
 ) -> Iterator[float]:
-    """Generate standard capacitance values (E12 series) within range."""
+    """
+    Generate standard capacitance values (E12 series) within range.
+
+    Args:
+        min_value: Minimum capacitance value in Farads
+        max_value: Maximum capacitance value in Farads
+        excluded_values: Set of capacitance values to exclude
+    """
     e12_multipliers: Final[List[float]] = [
         1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
     ]
+
+    # Convert excluded values to normalized form
+    normalized_excluded = {float(f"{value:.1e}") for value in excluded_values}
 
     decade = 1.0e-12
     while decade <= max_value:
         for multiplier in e12_multipliers:
             value = decade * multiplier
             if min_value <= value <= max_value:
-                # Skip excluded values
-                if value not in EXCLUDED_VALUES:
-                    yield float(f"{value:.1e}")
+                # Normalize the value
+                normalized_value = float(f"{value:.1e}")
+                # Check against normalized excluded values
+                if normalized_value not in normalized_excluded:
+                    yield normalized_value
         decade *= 10
 
 
@@ -215,7 +260,7 @@ def create_part_info(
 ) -> PartInfo:
     """Create a PartInfo instance for given parameters."""
     capacitance_code = generate_capacitance_code(capacitance)
-    characteristic_code = get_characteristic_code(capacitance)
+    characteristic_code = get_characteristic_code(capacitance, specs)
     formatted_value = format_capacitance(capacitance)
 
     mpn = (
@@ -265,10 +310,9 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
         if series_type in specs.value_range:
             min_val, max_val = specs.value_range[series_type]
 
-            for capacitance in generate_standard_values(min_val, max_val):
-                if capacitance in EXCLUDED_VALUES:
-                    continue
-
+            for capacitance in generate_standard_values(
+                min_val, max_val, specs.excluded_values
+            ):
                 for tolerance_code, tolerance_value in \
                         specs.tolerance_map[series_type].items():
                     for packaging in specs.packaging_options:
