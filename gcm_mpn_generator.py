@@ -49,6 +49,7 @@ class SeriesSpec(NamedTuple):
     value_range: Dict[SeriesType, tuple[float, float]]
     voltage_code: str
     dielectric_code: Dict[SeriesType, str]
+    characteristic_thresholds: Dict[str, float]
 
 
 # Constants
@@ -64,9 +65,6 @@ EXCLUDED_VALUES: Final[set[float]] = {
     56e-9,  # 56 nF
     82e-9   # 82 nF
 }
-
-# Characteristic code threshold
-CHARACTERISTIC_CODE_THRESHOLD: Final[float] = 22e-9  # 22 nF
 
 
 # Series specifications
@@ -87,6 +85,10 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         voltage_code="1H",
         dielectric_code={
             SeriesType.X7R: "R7"
+        },
+        characteristic_thresholds={
+            'high': 22e-9,  # > 22nF: E02
+            'low': 5.6e-9   # >= 5.6nF and <= 22nF: A55, < 5.6nF: A37
         }
     ),
 }
@@ -158,9 +160,10 @@ def generate_capacitance_code(capacitance: float) -> str:
     return f"{first_two}{zero_count}"
 
 
-def get_characteristic_code(capacitance: float) -> str:
+def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     """
-    Determine the characteristic code based on capacitance value.
+    Determine the characteristic code based on capacitance value and
+    series specs.
     For GCM155R7 series:
     - E02 for values > 22nF
     - A55 for values >= 5.6nF and <= 22nF
@@ -168,14 +171,16 @@ def get_characteristic_code(capacitance: float) -> str:
 
     Args:
         capacitance: Value in Farads
+        specs: SeriesSpec containing characteristic thresholds
 
     Returns:
         str: 'E02', 'A55', or 'A37' characteristic code
     """
-    if capacitance > CHARACTERISTIC_CODE_THRESHOLD:
-        return "E02"
+    high_threshold = specs.characteristic_thresholds['high']
+    low_threshold = specs.characteristic_thresholds['low']
 
-    low_threshold: Final[float] = 5.6e-9
+    if capacitance > high_threshold:
+        return "E02"
     return "A55" if capacitance >= low_threshold else "A37"
 
 
@@ -215,7 +220,7 @@ def create_part_info(
 ) -> PartInfo:
     """Create a PartInfo instance for given parameters."""
     capacitance_code = generate_capacitance_code(capacitance)
-    characteristic_code = get_characteristic_code(capacitance)
+    characteristic_code = get_characteristic_code(capacitance, specs)
     formatted_value = format_capacitance(capacitance)
 
     mpn = (
