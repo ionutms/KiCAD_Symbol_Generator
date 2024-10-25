@@ -110,26 +110,58 @@ def format_capacitance(capacitance: float) -> str:
 def generate_capacitance_code(capacitance: float) -> str:
     """
     Generate the capacitance code portion of the Murata part number.
-    Format: 3 characters for values >= 10pF, 3 characters with 'R' for < 10pF
+    Format:
+    - For values < 10pF: uses R notation (e.g., 1R5 for 1.5pF)
+    - For values ≥ 10pF and < 1000pF: direct value in pF (e.g., 100pF -> "101")
+    - For values ≥ 1000pF: first two digits + zeros (e.g., 1000pF -> "102")
     """
+    # Convert to picofarads
     pf_value = capacitance * 1e12
 
+    # Handle values under 10pF
     if pf_value < 10:
         whole = int(pf_value)
         decimal = int((pf_value - whole) * 10)
         return f"{whole}R{decimal}"
 
-    significant = round(pf_value)
-    if significant % 10 == 0:
-        significant += 1
+    # Handle values under 1000pF
+    if pf_value < 1000:
+        significant = round(pf_value)
+        if significant % 10 == 0:
+            significant += 1
+        return f"{significant:03d}"
 
-    return f"{significant:03d}"
+    # Handle values 1000pF and above
+    # Convert to scientific notation with 2 significant digits
+    sci_notation = f"{pf_value:.2e}"
+
+    # Split into significand and power
+    parts = sci_notation.split('e')
+    significand = float(parts[0])
+    power = int(parts[1])
+
+    # Calculate first two digits and zero count
+    first_two = int(round(significand * 10))
+    zero_count = power - 1
+
+    return f"{first_two}{zero_count}"
 
 
 def get_characteristic_code(capacitance: float) -> str:
-    """Determine the characteristic code based on capacitance value."""
-    value_uf = capacitance * 1e6
-    return "A55" if value_uf >= 0.01 else "A37"
+    """
+    Determine the characteristic code based on capacitance value.
+    For GCM155R7 series:
+    - A55 for values >= 5.6nF
+    - A37 for values < 5.6nF
+
+    Args:
+        capacitance: Value in Farads
+
+    Returns:
+        str: 'A55' or 'A37' characteristic code
+    """
+    threshold: Final[float] = 5.6e-9  # 4.7nF threshold
+    return "A55" if capacitance >= threshold else "A37"
 
 
 def generate_standard_values(
