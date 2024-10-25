@@ -108,7 +108,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             SeriesType.X7R: "R7"
         },
         characteristic_thresholds={
-            'high': 33e-9,  # > 22nF: E02
+            'high': 39e-9,  # > 22nF: E02
             'low': 27e-9   # >= 8.2nF and <= 22nF: A55, < 8.2nF: A37
         },
         excluded_values={
@@ -187,26 +187,40 @@ def generate_capacitance_code(capacitance: float) -> str:
 
 def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     """
-    Determine the characteristic code based on capacitance value
-    and series specs.
-    For GCM155R7 series:
+    Determine the characteristic code based on capacitance value and
+    series specs.
+    Different codes for different series:
+
+    GCM155R7 series:
     - E02 for values > 22nF
     - A55 for values >= 5.6nF and <= 22nF
     - A37 for values < 5.6nF
+
+    GCM188R7 series:
+    - E13 for values > 33nF
+    - A58 for values >= 27nF and <= 33nF
+    - A40 for values < 27nF
 
     Args:
         capacitance: Value in Farads
         specs: SeriesSpec containing characteristic thresholds
 
     Returns:
-        str: 'E02', 'A55', or 'A37' characteristic code
+        str: Characteristic code based on series and value
     """
     high_threshold = specs.characteristic_thresholds['high']
     low_threshold = specs.characteristic_thresholds['low']
 
-    if capacitance > high_threshold:
-        return "E02"
-    return "A55" if capacitance >= low_threshold else "A37"
+    if specs.base_series == "GCM155":
+        if capacitance > high_threshold:
+            return "E02"
+        return "A55" if capacitance >= low_threshold else "A37"
+
+    if specs.base_series == "GCM188":
+        if capacitance > high_threshold:
+            return "A55"
+        return "A55" if capacitance >= low_threshold else "A37"
+    raise ValueError(f"Unknown series: {specs.base_series}")
 
 
 def generate_standard_values(
