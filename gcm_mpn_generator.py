@@ -108,14 +108,12 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             SeriesType.X7R: "R7"
         },
         characteristic_thresholds={
-            'high': 22e-9,  # > 22nF: E02
-            'low': 5.6e-9   # >= 5.6nF and <= 22nF: A55, < 5.6nF: A37
+            'high': 33e-9,  # > 22nF: E02
+            'low': 27e-9   # >= 8.2nF and <= 22nF: A55, < 8.2nF: A37
         },
         excluded_values={
-            # 27e-9,  # 27 nF
-            # 39e-9,  # 39 nF
-            # 56e-9,  # 56 nF
-            # 82e-9   # 82 nF
+            120e-9,  # 120 nF
+            180e-9,  # 180 nF
         }
     ),
 }
