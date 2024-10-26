@@ -1,12 +1,12 @@
 """
-Sumida XFL3012 Series Part Number Generator
+Coilcraft XFL3012 Series Part Number Generator
 
-This script generates part numbers for Sumida XFL3012 series inductors.
+This script generates part numbers for Coilcraft XFL3012 series inductors.
 It supports E6 standard values and handles component specifications like
 inductance, current ratings, and packaging options.
 
 The script generates:
-- Part numbers following Sumida's naming conventions
+- Part numbers following Coilcraft's naming conventions
 - CSV files containing component specifications and parameters
 - KiCad symbol files for electronic design automation
 
@@ -54,7 +54,7 @@ class SeriesSpec(NamedTuple):
 
 
 # Constants
-MANUFACTURER: Final[str] = "Sumida"
+MANUFACTURER: Final[str] = "Coilcraft"
 OCTOPART_BASE_URL: Final[str] = "https://octopart.com/search?q="
 
 # E6 series values for inductors (µH)
@@ -63,49 +63,49 @@ E6_VALUES: Final[List[float]] = [
     100
 ]
 
-# Series specifications
+# Series specifications - Modified for Coilcraft typical specifications
 SERIES_SPECS: Final[SeriesSpec] = SeriesSpec(
     base_series="XFL3012",
-    footprint="footprints:L_Sumida_XFL3012",
+    footprint="footprints:L_Coilcraft_XFL3012",
     height="1.2mm",
-    tolerance="±20%",
-    # DCR values in mΩ for each inductance value
+    tolerance="±10%",  # Coilcraft typically offers tighter tolerances
     dcr_map={
-        0.47: "21.0",
-        0.68: "26.0",
-        1.0: "32.0",
-        1.5: "42.0",
-        2.2: "58.0",
-        3.3: "84.0",
-        4.7: "115",
-        6.8: "165",
-        10: "240",
-        15: "350",
-        22: "500",
-        33: "730",
-        47: "1050",
-        68: "1500",
-        100: "2200"
+        0.47: "18.0",
+        0.68: "23.0",
+        1.0: "29.0",
+        1.5: "38.0",
+        2.2: "52.0",
+        3.3: "76.0",
+        4.7: "105",
+        6.8: "150",
+        10: "220",
+        15: "320",
+        22: "460",
+        33: "670",
+        47: "950",
+        68: "1350",
+        100: "2000"
     },
     # Current ratings (Idc rated and saturated) for each inductance value
     current_ratings={
-        0.47: {"rated": "5.10", "saturated": "6.80"},
-        0.68: {"rated": "4.30", "saturated": "5.70"},
-        1.0: {"rated": "3.60", "saturated": "4.80"},
-        1.5: {"rated": "3.00", "saturated": "4.00"},
-        2.2: {"rated": "2.50", "saturated": "3.30"},
-        3.3: {"rated": "2.10", "saturated": "2.80"},
-        4.7: {"rated": "1.75", "saturated": "2.30"},
-        6.8: {"rated": "1.45", "saturated": "1.90"},
-        10: {"rated": "1.20", "saturated": "1.60"},
-        15: {"rated": "1.00", "saturated": "1.30"},
-        22: {"rated": "0.82", "saturated": "1.10"},
-        33: {"rated": "0.67", "saturated": "0.89"},
-        47: {"rated": "0.56", "saturated": "0.75"},
-        68: {"rated": "0.47", "saturated": "0.62"},
-        100: {"rated": "0.39", "saturated": "0.52"}
+        0.47: {"rated": "5.50", "saturated": "7.00"},
+        0.68: {"rated": "4.60", "saturated": "6.00"},
+        1.0: {"rated": "3.80", "saturated": "5.00"},
+        1.5: {"rated": "3.20", "saturated": "4.20"},
+        2.2: {"rated": "2.70", "saturated": "3.50"},
+        3.3: {"rated": "2.20", "saturated": "2.90"},
+        4.7: {"rated": "1.85", "saturated": "2.40"},
+        6.8: {"rated": "1.55", "saturated": "2.00"},
+        10: {"rated": "1.30", "saturated": "1.70"},
+        15: {"rated": "1.05", "saturated": "1.40"},
+        22: {"rated": "0.87", "saturated": "1.15"},
+        33: {"rated": "0.71", "saturated": "0.94"},
+        47: {"rated": "0.59", "saturated": "0.78"},
+        68: {"rated": "0.49", "saturated": "0.65"},
+        100: {"rated": "0.41", "saturated": "0.54"}
     },
-    datasheet="https://www.sumida.com/products/pdf/XFL3012.pdf"
+    # Update with actual datasheet URL
+    datasheet="https://www.coilcraft.com/en-us/products/xfl3012/"
 )
 
 
@@ -126,24 +126,30 @@ def format_inductance_value(inductance: float) -> str:
 
 def generate_value_code(inductance: float) -> str:
     """
-    Generate the value code portion of a Sumida part number.
+    Generate the value code portion of a Coilcraft part number.
 
     Args:
         inductance: The inductance value in µH
 
     Returns:
-        A 3-digit string representing the value code
+        A string representing the value code in Coilcraft format
 
     Example:
-        4.7µH -> "475" (47 × 10^-1)
-        10µH -> "100" (10 × 10^0)
+        4.7µH -> "4R7"
+        0.47µH -> "R47"
+        10µH -> "100"
     """
     if inductance < 1:
-        return f"{int(inductance * 1000):03d}"
+        # Format as R47 for 0.47µH
+        return f"R{int(inductance * 100):02d}"
     elif inductance < 10:
-        return f"{int(inductance * 10):02d}0"
+        # Format as 4R7 for 4.7µH
+        whole = int(inductance)
+        decimal = int((inductance - whole) * 10)
+        return f"{whole}R{decimal}"
     else:
-        return f"{int(inductance):03d}"
+        # Format as 100 for 10µH, 220 for 22µH, etc.
+        return f"{int(inductance)}0"
 
 
 def create_part_info(inductance: float, specs: SeriesSpec) -> PartInfo:
@@ -158,7 +164,8 @@ def create_part_info(inductance: float, specs: SeriesSpec) -> PartInfo:
         PartInfo instance containing all component details
     """
     value_code = generate_value_code(inductance)
-    mpn = f"{specs.base_series}-{value_code}MEC"
+    # Coilcraft typically uses format: XFL3012-472 where 472 is the value code
+    mpn = f"{specs.base_series}-{value_code}"
     symbol_name = f"L_{mpn}"
 
     description = (
