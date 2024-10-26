@@ -15,6 +15,7 @@ Features:
 """
 
 import csv
+from dataclasses import dataclass
 from typing import List, NamedTuple, Final, Iterator, Dict, Set
 from enum import Enum
 import kicad_capacitor_symbol_generator as ki_csg
@@ -91,6 +92,26 @@ class SeriesSpec(NamedTuple):
     voltage_code: str
     dielectric_code: Dict[SeriesType, str]
     excluded_values: Set[float]
+
+
+@dataclass
+class PartParameters:
+    """Input parameters for creating a part number.
+
+    Attributes:
+        capacitance: Capacitance value in Farads
+        tolerance_code: Code indicating component tolerance
+        tolerance_value: Human-readable tolerance specification
+        packaging: Component packaging code
+        series_type: Dielectric type specification
+        specs: Complete series specifications
+    """
+    capacitance: float
+    tolerance_code: str
+    tolerance_value: str
+    packaging: str
+    series_type: SeriesType
+    specs: SeriesSpec
 
 
 # Constants
@@ -446,46 +467,37 @@ def generate_datasheet_url(mpn: str) -> str:
     return f"{DATASHEET_BASE_URL}{base_mpn}-01.pdf"
 
 
-def create_part_info(
-    capacitance: float,
-    tolerance_code: str,
-    tolerance_value: str,
-    packaging: str,
-    series_type: SeriesType,
-    specs: SeriesSpec
-) -> PartInfo:
+def create_part_info(params: PartParameters) -> PartInfo:
     """Create complete part information from component parameters.
 
     Args:
-        capacitance: Capacitance value in Farads
-        tolerance_code: Tolerance code for part number
-        tolerance_value: Human-readable tolerance specification
-        packaging: Packaging code for part number
-        series_type: Dielectric type specification
-        specs: Complete series specifications
+        params: Complete set of parameters needed to create part info
 
     Returns:
         PartInfo containing all component information and identifiers
     """
-    capacitance_code = generate_capacitance_code(capacitance)
-    characteristic_code = get_characteristic_code(capacitance, specs)
-    formatted_value = format_capacitance(capacitance)
+    capacitance_code = generate_capacitance_code(params.capacitance)
+    characteristic_code = get_characteristic_code(
+        params.capacitance,
+        params.specs
+    )
+    formatted_value = format_capacitance(params.capacitance)
 
     mpn = (
-        f"{specs.base_series}"
-        f"{specs.dielectric_code[series_type]}"
-        f"{specs.voltage_code}"
+        f"{params.specs.base_series}"
+        f"{params.specs.dielectric_code[params.series_type]}"
+        f"{params.specs.voltage_code}"
         f"{capacitance_code}"
-        f"{tolerance_code}"
+        f"{params.tolerance_code}"
         f"{characteristic_code}"
-        f"{packaging}"
+        f"{params.packaging}"
     )
 
     symbol_name = f"C_{mpn}"
     description = (
         f"CAP SMD {formatted_value} "
-        f"{series_type.value} {tolerance_value} "
-        f"{specs.case_code_in} {specs.voltage_rating}"
+        f"{params.series_type.value} {params.tolerance_value} "
+        f"{params.specs.case_code_in} {params.specs.voltage_rating}"
     )
     trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
     datasheet_url = generate_datasheet_url(mpn)
@@ -493,19 +505,19 @@ def create_part_info(
     return PartInfo(
         symbol_name=symbol_name,
         reference="C",
-        value=capacitance,
+        value=params.capacitance,
         formatted_value=formatted_value,
-        footprint=specs.footprint,
+        footprint=params.specs.footprint,
         datasheet=datasheet_url,
         description=description,
         manufacturer=MANUFACTURER,
         mpn=mpn,
-        dielectric=series_type.value,
-        tolerance=tolerance_value,
-        voltage_rating=specs.voltage_rating,
-        case_code_in=specs.case_code_in,
-        case_code_mm=specs.case_code_mm,
-        series=specs.base_series,
+        dielectric=params.series_type.value,
+        tolerance=params.tolerance_value,
+        voltage_rating=params.specs.voltage_rating,
+        case_code_in=params.specs.case_code_in,
+        case_code_mm=params.specs.case_code_mm,
+        series=params.specs.base_series,
         trustedparts_link=trustedparts_link
     )
 
@@ -527,19 +539,22 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
             min_val, max_val = specs.value_range[series_type]
 
             for capacitance in generate_standard_values(
-                min_val, max_val, specs.excluded_values
+                min_val,
+                max_val,
+                specs.excluded_values
             ):
                 for tolerance_code, tolerance_value in \
                         specs.tolerance_map[series_type].items():
                     for packaging in specs.packaging_options:
-                        parts_list.append(create_part_info(
-                            capacitance,
-                            tolerance_code,
-                            tolerance_value,
-                            packaging,
-                            series_type,
-                            specs
-                        ))
+                        params = PartParameters(
+                            capacitance=capacitance,
+                            tolerance_code=tolerance_code,
+                            tolerance_value=tolerance_value,
+                            packaging=packaging,
+                            series_type=series_type,
+                            specs=specs
+                        )
+                        parts_list.append(create_part_info(params))
 
     return sorted(parts_list, key=lambda x: (x.dielectric, x.value))
 
