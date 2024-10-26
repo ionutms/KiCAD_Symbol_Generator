@@ -7,7 +7,7 @@ and KiCad symbol files.
 """
 
 import csv
-from typing import List, NamedTuple, Final, Iterator, Dict, Set, Callable
+from typing import List, NamedTuple, Final, Iterator, Dict, Set
 from enum import Enum
 import kicad_capacitor_symbol_generator as ki_csg
 
@@ -37,10 +37,10 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-class PackagingOptions(NamedTuple):
-    """Structure to hold packaging options with optional threshold."""
-    options: List[str]
-    threshold_func: Callable[[float], List[str]] = lambda _: []
+# class PackagingOptions(NamedTuple):
+#     """Structure to hold packaging options with optional threshold."""
+#     options: List[str]
+#     threshold_func: Callable[[float], List[str]] = lambda _: []
 
 
 class SeriesSpec(NamedTuple):
@@ -65,11 +65,11 @@ DATASHEET_BASE_URL: Final[str] = \
     "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
 
 
-def get_gcm31m_packaging(capacitance: float) -> List[str]:
-    """Get packaging options for GCM31M based on capacitance."""
-    if capacitance > 560e-9:  # > 560nF
-        return ['K', 'L']
-    return ['D', 'J']
+# def get_gcm31m_packaging(capacitance: float) -> List[str]:
+#     """Get packaging options for GCM31M based on capacitance."""
+#     if capacitance > 560e-9:  # > 560nF
+#         return ['K', 'L']
+#     return ['D', 'J']
 
 
 # Series specifications
@@ -80,7 +80,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         voltage_rating="50V",
         case_code_in="0402",
         case_code_mm="1005",
-        packaging_options=PackagingOptions(['D', 'J']),
+        packaging_options=['D', 'J'],
         tolerance_map={
             SeriesType.X7R: {'K': '10%'}
         },
@@ -104,7 +104,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         voltage_rating="50V",
         case_code_in="0603",
         case_code_mm="1608",
-        packaging_options=PackagingOptions(['D', 'J']),
+        packaging_options=['D', 'J'],
         tolerance_map={
             SeriesType.X7R: {'K': '10%'}
         },
@@ -126,7 +126,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         voltage_rating="50V",
         case_code_in="0805",
         case_code_mm="2012",
-        packaging_options=PackagingOptions(['D', 'J']),
+        packaging_options=['D', 'J'],
         tolerance_map={
             SeriesType.X7R: {'K': '10%'}
         },
@@ -145,7 +145,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         voltage_rating="50V",
         case_code_in="1206",
         case_code_mm="3216",
-        packaging_options=PackagingOptions([], get_gcm31m_packaging),
+        packaging_options=['K', 'L'],
         tolerance_map={
             SeriesType.X7R: {'K': '10%'}
         },
@@ -445,15 +445,11 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
             min_val, max_val = specs.value_range[series_type]
 
             for capacitance in generate_standard_values(
-                    min_val, max_val, specs.excluded_values):
-                packaging_options = (
-                    specs.packaging_options.threshold_func(capacitance)
-                    if specs.packaging_options.threshold_func(capacitance)
-                    else specs.packaging_options.options)
-
+                min_val, max_val, specs.excluded_values
+            ):
                 for tolerance_code, tolerance_value in \
                         specs.tolerance_map[series_type].items():
-                    for packaging in packaging_options:
+                    for packaging in specs.packaging_options:
                         parts_list.append(create_part_info(
                             capacitance,
                             tolerance_code,
