@@ -31,7 +31,7 @@ import pages.utils.dash_component_utils as dcu
 link_name = __name__.rsplit(".", maxsplit=1)[-1].replace("_page", "").title()
 module_name = __name__.rsplit(".", maxsplit=1)[-1]
 
-register_page(__name__, name=link_name, order=12)
+register_page(__name__, name=link_name, order=14)
 
 TITLE = "Capacitors Database"
 ABOUT = (
@@ -68,7 +68,7 @@ usage_steps = [
     "different environments"
 ]
 
-dataframe: pd.DataFrame = pd.read_csv('GCM216_part_numbers.csv')
+dataframe: pd.DataFrame = pd.read_csv('GCM31C_part_numbers.csv')
 
 hidden_columns = [
     'Reference',

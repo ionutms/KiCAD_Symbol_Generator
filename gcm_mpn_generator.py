@@ -37,12 +37,6 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-# class PackagingOptions(NamedTuple):
-#     """Structure to hold packaging options with optional threshold."""
-#     options: List[str]
-#     threshold_func: Callable[[float], List[str]] = lambda _: []
-
-
 class SeriesSpec(NamedTuple):
     """Specifications for a capacitor series."""
     base_series: str
@@ -63,13 +57,6 @@ MANUFACTURER: Final[str] = "Murata Electronics"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 DATASHEET_BASE_URL: Final[str] = \
     "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
-
-
-# def get_gcm31m_packaging(capacitance: float) -> List[str]:
-#     """Get packaging options for GCM31M based on capacitance."""
-#     if capacitance > 560e-9:  # > 560nF
-#         return ['K', 'L']
-#     return ['D', 'J']
 
 
 # Series specifications
@@ -117,7 +104,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         },
         excluded_values={
             120e-9,  # 120 nF
-            180e-9,  # 180 nF
+            180e-9,  # 180 nF,
         }
     ),
     "GCM216": SeriesSpec(
@@ -158,8 +145,27 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         },
         excluded_values={
             180e-9,  # 180 nF
-            560e-9,  # 560 nF
+            560e-9,  # 560 nF,
         }
+    ),
+    "GCM31C": SeriesSpec(  # Added new GCM31C series
+        base_series="GCM31C",
+        footprint="footprints:C_1206_3216Metric",
+        voltage_rating="25V",
+        case_code_in="1206",
+        case_code_mm="3216",
+        packaging_options=['K', 'L'],
+        tolerance_map={
+            SeriesType.X7R: {'K': '10%'}
+        },
+        value_range={
+            SeriesType.X7R: (4.7e-6, 4.7e-6)  # Only 4.7µF
+        },
+        voltage_code="1E",  # 25V code
+        dielectric_code={
+            SeriesType.X7R: "R7"
+        },
+        excluded_values=set()
     ),
 }
 
@@ -318,6 +324,21 @@ def get_gcm31m_code(capacitance: float) -> str:
     return "A55"
 
 
+def get_gcm31c_code(capacitance: float) -> str:
+    """
+    Determine the characteristic code for the GCM31C series based on
+    capacitance value.
+
+    Args:
+        capacitance (float): Capacitance value in Farads.
+
+    Returns:
+        str: The characteristic code for the GCM31C series.
+    """
+    if capacitance >= 4.7e-6:
+        return "A55"
+
+
 def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     """
     Determine the characteristic code based on capacitance and
@@ -343,6 +364,8 @@ def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     if specs.base_series == "GCM216":
         return get_gcm216_code(capacitance)
     if specs.base_series == "GCM31M":
+        return get_gcm31m_code(capacitance)
+    if specs.base_series == "GCM31C":
         return get_gcm31m_code(capacitance)
 
     raise ValueError(f"Unknown series: {specs.base_series}")
