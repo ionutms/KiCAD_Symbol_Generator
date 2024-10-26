@@ -89,7 +89,7 @@ CURRENT_RATINGS: Final[Dict[float, Dict[str, str]]] = {
     33: {"rated": "0.71", "saturated": "0.94"},
     47: {"rated": "0.59", "saturated": "0.78"},
     68: {"rated": "0.49", "saturated": "0.65"},
-    100: {"rated": "0.39", "saturated": "0.54"}  # 390mA rated
+    100: {"rated": "0.39", "saturated": "0.54"}
 }
 
 # Series specifications
@@ -153,7 +153,7 @@ def generate_value_code(
         33: "330",
         47: "470",
         68: "680",
-        100: "104"  # Fixed value code for 100µH
+        100: "104"
     }
 
     if inductance not in value_codes:
