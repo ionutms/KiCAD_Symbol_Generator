@@ -39,7 +39,7 @@ class PartInfo(NamedTuple):
     idc_saturated: str
     series: str
     height: str
-    octopart_link: str
+    trustedparts_link: str
 
 
 class SeriesSpec(NamedTuple):
@@ -55,12 +55,11 @@ class SeriesSpec(NamedTuple):
 
 # Constants
 MANUFACTURER: Final[str] = "Coilcraft"
-OCTOPART_BASE_URL: Final[str] = "https://octopart.com/search?q="
+TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
 # E6 series values for inductors (µH)
 E6_VALUES: Final[List[float]] = [
-    # 0.47, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10, 15, 22, 33, 47, 68,
-    100
+    0.47, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10, 15, 22, 33, 47, 68, 100
 ]
 
 # Series specifications - Modified for Coilcraft typical specifications
@@ -68,7 +67,7 @@ SERIES_SPECS: Final[SeriesSpec] = SeriesSpec(
     base_series="XFL3012",
     footprint="footprints:L_Coilcraft_XFL3012",
     height="1.2mm",
-    tolerance="±10%",  # Coilcraft typically offers tighter tolerances
+    tolerance="±10%",
     dcr_map={
         0.47: "18.0",
         0.68: "23.0",
@@ -164,7 +163,6 @@ def create_part_info(inductance: float, specs: SeriesSpec) -> PartInfo:
         PartInfo instance containing all component details
     """
     value_code = generate_value_code(inductance)
-    # Coilcraft typically uses format: XFL3012-472 where 472 is the value code
     mpn = f"{specs.base_series}-{value_code}"
     symbol_name = f"L_{mpn}"
 
@@ -174,7 +172,11 @@ def create_part_info(inductance: float, specs: SeriesSpec) -> PartInfo:
         f"RATED {specs.current_ratings[inductance]['rated']}A"
     )
 
-    octopart_link = f"{OCTOPART_BASE_URL}{mpn}"
+    # Format TrustedParts search URL with manufacturer and part number
+    trustedparts_link = (
+        f"{TRUSTEDPARTS_BASE_URL}{MANUFACTURER.replace(' ', '%20')}/"
+        f"{mpn.replace('-', '%2D')}"
+    )
 
     return PartInfo(
         symbol_name=symbol_name,
@@ -192,7 +194,7 @@ def create_part_info(inductance: float, specs: SeriesSpec) -> PartInfo:
         idc_saturated=f"{specs.current_ratings[inductance]['saturated']}A",
         series=specs.base_series,
         height=specs.height,
-        octopart_link=octopart_link
+        trustedparts_link=trustedparts_link  # Changed from octopart_link
     )
 
 
@@ -226,7 +228,7 @@ def write_to_csv(
         'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
         'Description', 'Manufacturer', 'MPN', 'Inductance', 'Tolerance',
         'DCR Max', 'Idc Rated', 'Idc Saturated', 'Series', 'Height',
-        'Octopart Search'
+        'TrustedParts Search'
     ]
 
     with open(f'data/{output_file}', 'w', newline='', encoding=encoding) \
@@ -251,7 +253,7 @@ def write_to_csv(
                 part_info.idc_saturated,
                 part_info.series,
                 part_info.height,
-                part_info.octopart_link
+                part_info.trustedparts_link
             ])
 
 
