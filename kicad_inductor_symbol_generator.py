@@ -3,7 +3,7 @@ KiCad Inductor Symbol Generator
 
 This module provides functionality to generate KiCad symbol files from CSV
 data for inductors. It creates symbol files with proper inductor properties
-and graphical representation, including both horizontal and vertical layouts.
+and graphical representation in horizontal layout.
 
 The main function, generate_kicad_symbol, reads data from a CSV file and
 produces a .kicad_sym file with the symbol definition, including properties
@@ -146,8 +146,7 @@ def write_component(
     symbol_name = component_data['Symbol Name']
     write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
-    write_symbol_drawing_horizontal(symbol_file, symbol_name)
-    write_symbol_drawing_vertical(symbol_file, symbol_name)
+    write_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("\t)\n")
 
 
@@ -253,7 +252,7 @@ def write_property(
     )
 
 
-def write_symbol_drawing_horizontal(
+def write_symbol_drawing(
         symbol_file: TextIO,
         symbol_name: str
 ) -> None:
@@ -353,169 +352,6 @@ def write_symbol_drawing_horizontal(
             "\t\t\t)",
             "\t\t)",
             ""
-        ])
-    )
-
-
-def write_symbol_drawing_vertical(
-        symbol_file: TextIO,
-        symbol_name: str
-) -> None:
-    """
-    Write the vertical graphical representation of an inductor symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
-    """
-    symbol_file.write(
-        '\n'.join([
-            f"\t\t(symbol \"{symbol_name}_1_2\"",
-            "\t\t\t(arc",
-            "\t\t\t\t(start -1.27 5.08)",
-            "\t\t\t\t(mid -2.5344 3.81)",
-            "\t\t\t\t(end -1.27 2.54)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(arc",
-            "\t\t\t\t(start -1.27 7.62)",
-            "\t\t\t\t(mid -2.5344 6.35)",
-            "\t\t\t\t(end -1.27 5.08)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(arc",
-            "\t\t\t\t(start -1.27 10.16)",
-            "\t\t\t\t(mid -2.5344 8.89)",
-            "\t\t\t\t(end -1.27 7.62)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(arc",
-            "\t\t\t\t(start -1.27 12.7)",
-            "\t\t\t\t(mid -2.5344 11.43)",
-            "\t\t\t\t(end -1.27 10.16)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(polyline",
-            "\t\t\t\t(pts",
-            "\t\t\t\t\t(xy 0 2.54) (xy -1.27 2.54)",
-            "\t\t\t\t)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(polyline",
-            "\t\t\t\t(pts",
-            "\t\t\t\t\t(xy 0 5.08) (xy -1.27 5.08)",
-            "\t\t\t\t)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(polyline",
-            "\t\t\t\t(pts",
-            "\t\t\t\t\t(xy 0 7.62) (xy -1.27 7.62)",
-            "\t\t\t\t)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(polyline",
-            "\t\t\t\t(pts",
-            "\t\t\t\t\t(xy 0 10.16) (xy -1.27 10.16)",
-            "\t\t\t\t)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(polyline",
-            "\t\t\t\t(pts",
-            "\t\t\t\t\t(xy 0 12.7) (xy -1.27 12.7)",
-            "\t\t\t\t)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(pin unspecified line",
-            "\t\t\t\t(at 0 15.24 270)",
-            "\t\t\t\t(length 2.54)",
-            "\t\t\t\t(name \"1\"",
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t\t(number \"1\"",
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(pin unspecified line",
-            "\t\t\t\t(at 0 0 90)",
-            "\t\t\t\t(length 2.54)",
-            "\t\t\t\t(name \"2\"",
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t\t(number \"2\"",
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t)",
         ])
     )
 
