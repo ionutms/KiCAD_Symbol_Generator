@@ -107,6 +107,25 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             180e-9,  # 180 nF
         }
     ),
+    "GCM216": SeriesSpec(
+        base_series="GCM216",
+        footprint="footprints:C_0805_2012Metric",
+        voltage_rating="50V",
+        case_code_in="0805",
+        case_code_mm="2012",
+        packaging_options=['D', 'J'],
+        tolerance_map={
+            SeriesType.X7R: {'K': '10%'}
+        },
+        value_range={
+            SeriesType.X7R: (1e-9, 22e-9)  # 1nF to 22nF
+        },
+        voltage_code="1H",
+        dielectric_code={
+            SeriesType.X7R: "R7"
+        },
+        excluded_values=set()  # No excluded values for this series
+    ),
 }
 
 
@@ -229,6 +248,23 @@ def get_gcm188_code(capacitance: float) -> str:
     return "A37"
 
 
+# Add characteristic code function for GCM216
+def get_gcm216_code(capacitance: float) -> str:
+    """
+    Determine the characteristic code for the GCM216 series based on
+    capacitance value.
+
+    Args:
+        capacitance (float): Capacitance value in Farads.
+
+    Returns:
+        str: The characteristic code for the GCM216 series.
+    """
+    if capacitance >= 15e-9:
+        return "A55"
+    return "A37"
+
+
 def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     """
     Determine the characteristic code based on capacitance and
@@ -246,16 +282,13 @@ def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     Raises:
         ValueError:
             If the series in `specs.base_series` is unknown or unsupported.
-
-    Logic:
-        - Calls `get_gcm155_code` if the series is "GCM155".
-        - Calls `get_gcm188_code` if the series is "GCM188".
-        - Raises a ValueError for unsupported series.
     """
     if specs.base_series == "GCM155":
         return get_gcm155_code(capacitance)
     if specs.base_series == "GCM188":
         return get_gcm188_code(capacitance)
+    if specs.base_series == "GCM216":
+        return get_gcm216_code(capacitance)
 
     raise ValueError(f"Unknown series: {specs.base_series}")
 
