@@ -1,10 +1,17 @@
 """
 Murata GCM Series Capacitor Part Number Generator
 
-Generates part numbers for Murata GCM series capacitors based on
-standard capacitance values and specifications. Outputs both individual
-series files and unified files containing all series data in both CSV
-and KiCad symbol formats.
+A module for generating standardized part numbers for Murata GCM series
+capacitors. Supports multiple series types and specifications, producing both
+individual series files and unified output in CSV and KiCad symbol formats.
+
+Features:
+    - Generates part numbers for GCM155, GCM188, GCM216, GCM31M,
+        and GCM31C series
+    - Supports X7R dielectric type
+    - Creates individual series and unified output files
+    - Produces both CSV and KiCad symbol format outputs
+    - Handles standard E12 series values with exclusions
 """
 
 import csv
@@ -14,12 +21,31 @@ import kicad_capacitor_symbol_generator as ki_csg
 
 
 class SeriesType(Enum):
-    """Enumeration for capacitor series types."""
+    """Enumeration of supported capacitor series dielectric types."""
     X7R = "X7R"
 
 
 class PartInfo(NamedTuple):
-    """Structure to hold component part information."""
+    """Container for capacitor part information.
+
+    Attributes:
+        symbol_name: KiCad symbol identifier
+        reference: Component reference designator
+        value: Capacitance value in Farads
+        formatted_value: Human-readable capacitance value with units
+        footprint: PCB footprint reference
+        datasheet: URL to component datasheet
+        description: Component description text
+        manufacturer: Component manufacturer name
+        mpn: Manufacturer part number
+        dielectric: Dielectric material type
+        tolerance: Component tolerance value
+        voltage_rating: Maximum voltage rating
+        case_code_in: Package size in inches
+        case_code_mm: Package size in millimeters
+        series: Component series identifier
+        trustedparts_link: URL to component listing
+    """
     symbol_name: str
     reference: str
     value: float
@@ -39,7 +65,21 @@ class PartInfo(NamedTuple):
 
 
 class SeriesSpec(NamedTuple):
-    """Specifications for a capacitor series."""
+    """Specifications defining a capacitor series.
+
+    Attributes:
+        base_series: Base part number series
+        footprint: PCB footprint identifier
+        voltage_rating: Maximum voltage specification
+        case_code_in: Package dimensions (inches)
+        case_code_mm: Package dimensions (millimeters)
+        packaging_options: Available packaging codes
+        tolerance_map: Mapping of series types to tolerance codes and values
+        value_range: Valid capacitance range per series type
+        voltage_code: Voltage rating code for part number
+        dielectric_code: Dielectric material codes per series type
+        excluded_values: Set of unsupported capacitance values
+    """
     base_series: str
     footprint: str
     voltage_rating: str
@@ -172,9 +212,13 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
 
 
 def format_capacitance(capacitance: float) -> str:
-    """
-    Convert capacitance value to human-readable format.
-    Handles unit conversion to ensure most appropriate unit is used.
+    """Convert capacitance value to human-readable format with units.
+
+    Args:
+        capacitance: Capacitance value in Farads
+
+    Returns:
+        Formatted string with appropriate unit prefix (pF, nF, or µF)
     """
     pf_value = capacitance * 1e12
 
@@ -198,12 +242,18 @@ def format_capacitance(capacitance: float) -> str:
 
 
 def generate_capacitance_code(capacitance: float) -> str:
-    """
-    Generate the capacitance code portion of the Murata part number.
+    """Generate the capacitance portion of Murata part number.
+
+    Args:
+        capacitance: Capacitance value in Farads
+
+    Returns:
+        Three-character code representing the capacitance value
+
     Format:
-    - For values < 10pF: uses R notation (e.g., 1R5 for 1.5pF)
-    - For values ≥ 10pF and < 1000pF: direct value in pF (e.g., 100pF -> "101")
-    - For values ≥ 1000pF: first two digits + zeros (e.g., 1000pF -> "102")
+        - Values < 10pF: Use R notation (e.g., 1R5 for 1.5pF)
+        - Values ≥ 10pF and < 1000pF: Direct pF value (e.g., 101)
+        - Values ≥ 1000pF: First two digits + zeros (e.g., 102)
     """
     # Convert to picofarads
     pf_value = capacitance * 1e12
@@ -238,22 +288,16 @@ def generate_capacitance_code(capacitance: float) -> str:
 
 
 def get_gcm155_code(capacitance: float) -> str:
-    """
-    Determine the characteristic code for the GCM155 series based on
-    capacitance value.
+    """Get characteristic code for GCM155 series based on capacitance.
 
     Args:
-        capacitance (float): Capacitance value in Farads.
+        capacitance: Capacitance value in Farads
 
     Returns:
-        str:
-            The characteristic code for the GCM155 series based on
-            capacitance thresholds.
-
-    Logic:
-        - Returns "E02" if capacitance > 22nF.
-        - Returns "A55" if 5.6nF <= capacitance <= 22nF.
-        - Returns "A37" if capacitance < 5.6nF.
+        Characteristic code based on thresholds:
+        - "E02" if > 22nF
+        - "A55" if 5.6nF to 22nF
+        - "A37" if < 5.6nF
     """
     if capacitance > 22e-9:
         return "E02"
@@ -263,23 +307,17 @@ def get_gcm155_code(capacitance: float) -> str:
 
 
 def get_gcm188_code(capacitance: float) -> str:
-    """
-    Determine the characteristic code for the GCM188 series based on
-    capacitance value.
+    """Get characteristic code for GCM188 series based on capacitance.
 
     Args:
-        capacitance (float): Capacitance value in Farads.
+        capacitance: Capacitance value in Farads
 
     Returns:
-        str:
-            The characteristic code for the GCM188 series based on
-            capacitance thresholds.
-
-    Logic:
-        - Returns "A64" if capacitance > 100nF.
-        - Returns "A57" if 47nF < capacitance <= 100nF.
-        - Returns "A55" if 27nF <= capacitance <= 47nF.
-        - Returns "A37" if capacitance < 27nF.
+        Characteristic code based on thresholds:
+        - "A64" if > 100nF
+        - "A57" if 47nF to 100nF
+        - "A55" if 27nF to 47nF
+        - "A37" if < 27nF
     """
     if capacitance > 100e-9:
         return "A64"
@@ -290,17 +328,16 @@ def get_gcm188_code(capacitance: float) -> str:
     return "A37"
 
 
-# Add characteristic code function for GCM216
 def get_gcm216_code(capacitance: float) -> str:
-    """
-    Determine the characteristic code for the GCM216 series based on
-    capacitance value.
+    """Get characteristic code for GCM216 series based on capacitance.
 
     Args:
-        capacitance (float): Capacitance value in Farads.
+        capacitance: Capacitance value in Farads
 
     Returns:
-        str: The characteristic code for the GCM216 series.
+        Characteristic code:
+        - "A55" if > 22nF
+        - "A37" otherwise
     """
     if capacitance > 22e-9:
         return "A55"
@@ -308,15 +345,16 @@ def get_gcm216_code(capacitance: float) -> str:
 
 
 def get_gcm31m_code(capacitance: float) -> str:
-    """
-    Determine the characteristic code for the GCM31M series based on
-    capacitance value.
+    """Get characteristic code for GCM31M series based on capacitance.
 
     Args:
-        capacitance (float): Capacitance value in Farads.
+        capacitance: Capacitance value in Farads
 
     Returns:
-        str: The characteristic code for the GCM31M series.
+        Characteristic code:
+        - "A55" if ≥ 560nF
+        - "A37" if 100nF to 559nF
+        - "A55" if < 100nF
     """
     if capacitance >= 560e-9:
         return "A55"
@@ -326,37 +364,34 @@ def get_gcm31m_code(capacitance: float) -> str:
 
 
 def get_gcm31c_code(capacitance: float) -> str:
-    """
-    Determine the characteristic code for the GCM31C series based on
-    capacitance value.
+    """Get characteristic code for GCM31C series based on capacitance.
 
     Args:
-        capacitance (float): Capacitance value in Farads.
+        capacitance: Capacitance value in Farads
 
     Returns:
-        str: The characteristic code for the GCM31C series.
+        "A55" if capacitance ≥ 4.7µF
     """
     if capacitance >= 4.7e-6:
         return "A55"
+    return "A55"
 
 
-def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
-    """
-    Determine the characteristic code based on capacitance and
-    series specification.
+def get_characteristic_code(
+    capacitance: float,
+    specs: SeriesSpec
+) -> str:
+    """Determine characteristic code based on series and capacitance.
 
     Args:
-        capacitance (float): Capacitance value in Farads.
-        specs (SeriesSpec):
-            An instance of SeriesSpec containing series information,
-            such as the `base_series` attribute.
+        capacitance: Capacitance value in Farads
+        specs: Series specifications including base series name
 
     Returns:
-        str: The characteristic code for the specified series and capacitance.
+        Appropriate characteristic code for the series/value combination
 
     Raises:
-        ValueError:
-            If the series in `specs.base_series` is unknown or unsupported.
+        ValueError: If specs.base_series is not a supported series
     """
     if specs.base_series == "GCM155":
         return get_gcm155_code(capacitance)
@@ -377,13 +412,16 @@ def generate_standard_values(
     max_value: float,
     excluded_values: Set[float]
 ) -> Iterator[float]:
-    """
-    Generate standard capacitance values (E12 series) within range.
+    """Generate standard E12 series capacitance values within range.
 
     Args:
-        min_value: Minimum capacitance value in Farads
-        max_value: Maximum capacitance value in Farads
-        excluded_values: Set of capacitance values to exclude
+        min_value: Minimum capacitance in Farads
+        max_value: Maximum capacitance in Farads
+        excluded_values: Set of values to exclude from output
+
+    Yields:
+        Standard E12 series values between min and max,
+        excluding specified values
     """
     e12_multipliers: Final[List[float]] = [
         1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
@@ -416,7 +454,19 @@ def create_part_info(
     series_type: SeriesType,
     specs: SeriesSpec
 ) -> PartInfo:
-    """Create a PartInfo instance for given parameters."""
+    """Create complete part information from component parameters.
+
+    Args:
+        capacitance: Capacitance value in Farads
+        tolerance_code: Tolerance code for part number
+        tolerance_value: Human-readable tolerance specification
+        packaging: Packaging code for part number
+        series_type: Dielectric type specification
+        specs: Complete series specifications
+
+    Returns:
+        PartInfo containing all component information and identifiers
+    """
     capacitance_code = generate_capacitance_code(capacitance)
     characteristic_code = get_characteristic_code(capacitance, specs)
     formatted_value = format_capacitance(capacitance)
@@ -461,7 +511,15 @@ def create_part_info(
 
 
 def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
-    """Generate all possible part numbers for both X7R series."""
+    """Generate all valid part numbers for a series specification.
+
+    Args:
+        specs: Complete series specifications
+
+    Returns:
+        List of PartInfo objects for all valid component combinations,
+        sorted by dielectric type and capacitance value
+    """
     parts_list: List[PartInfo] = []
 
     for series_type in SeriesType:
@@ -491,7 +549,15 @@ def write_to_csv(
     output_file: str,
     encoding: str = 'utf-8'
 ) -> None:
-    """Write the generated part numbers to a CSV file."""
+    """Write part information to CSV file.
+
+    Args:
+        parts_list: List of parts to write
+        output_file: Output filename
+        encoding: Character encoding for file (default: utf-8)
+
+    The file is created in the 'data' subdirectory.
+    """
     headers: Final[List[str]] = [
         'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
         'Description', 'Manufacturer', 'MPN', 'Dielectric', 'Tolerance',
@@ -525,8 +591,21 @@ def write_to_csv(
 
 
 def generate_files_for_series(
-        series_name: str, unified_parts_list: List[PartInfo]) -> None:
-    """Generate CSV and KiCad symbol files for a specific series."""
+    series_name: str,
+    unified_parts_list: List[PartInfo]
+) -> None:
+    """Generate CSV and KiCad files for a specific series.
+
+    Args:
+        series_name: Series identifier (must exist in SERIES_SPECS)
+        unified_parts_list: List to append generated parts to
+
+    Raises:
+        ValueError: If series_name is not found in SERIES_SPECS
+        FileNotFoundError: If CSV file creation fails
+        csv.Error: If CSV processing fails
+        IOError: If file operations fail
+    """
     if series_name not in SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
@@ -556,8 +635,19 @@ def generate_files_for_series(
 
 
 def generate_unified_files(all_parts: List[PartInfo]) -> None:
-    """
-    Generate unified CSV and KiCad symbol files containing all series data.
+    """Generate unified CSV and KiCad files containing all series.
+
+    Args:
+        all_parts: Complete list of parts to include
+
+    Creates:
+        - UNITED_CAPACITORS_DATA_BASE.csv
+        - UNITED_CAPACITORS_DATA_BASE.kicad_sym
+
+    Raises:
+        FileNotFoundError: If CSV file creation fails
+        csv.Error: If CSV processing fails
+        IOError: If file operations fail
     """
     unified_csv = "UNITED_CAPACITORS_DATA_BASE.csv"
     unified_symbol = "UNITED_CAPACITORS_DATA_BASE.kicad_sym"

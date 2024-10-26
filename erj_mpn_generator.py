@@ -1,12 +1,22 @@
 """
 Panasonic ERJ Series Part Number Generator
 
-This script generates part numbers for multiple Panasonic ERJ resistor series
-including ERJ-2RK, ERJ-3EK, and ERJ-6EN based on E96 and E24 standard values.
+This script generates part numbers for Panasonic ERJ resistor series including
+ERJ-2RK, ERJ-3EK, ERJ-6EN, ERJ-P08, ERJ-P06, and ERJ-P03. It supports both E96
+and E24 standard values and handles component specifications like size, power
+rating, resistance range, and packaging options.
 
-Each series has its own specifications for size, power rating,
-resistance range, and packaging options. The script generates appropriate
-part numbers and can output both CSV files and KiCad symbol files.
+The script generates:
+- Part numbers following Panasonic's naming conventions
+- CSV files containing component specifications and parameters
+- KiCad symbol files for electronic design automation
+
+Features:
+- Supports E96 and E24 resistance value series
+- Handles resistance values from 10Ω to 2.2MΩ depending on series
+- Generates both individual series files and unified component database
+- Includes vendor links and detailed component specifications
+- Exports in industry-standard formats (CSV, KiCad)
 """
 
 import csv
@@ -184,7 +194,15 @@ E24_BASE_VALUES: Final[List[float]] = [
 
 
 def format_resistance_value(resistance: float) -> str:
-    """Convert resistance value to a human-readable format."""
+    """
+    Convert a resistance value to a human-readable string format.
+
+    Args:
+        resistance: The resistance value in ohms
+
+    Returns:
+        A formatted string with appropriate unit suffix (Ω, kΩ, or MΩ)
+    """
     def clean_number(num: float) -> str:
         return f"{num:g}"
 
@@ -197,20 +215,27 @@ def format_resistance_value(resistance: float) -> str:
 
 def generate_resistance_code(resistance: float, max_resistance: int) -> str:
     """
-    Generate the resistance code portion of the Panasonic part number.
-    Format: 4 characters total
+    Generate the resistance code portion of a Panasonic part number.
 
-    For values < 100Ω:
-        Use R notation (e.g., 10R0 for 10Ω, 10R2 for 10.2Ω)
+    The code follows Panasonic's format:
+    - For values < 100Ω: Uses R notation (e.g., 10R0 for 10Ω)
+    - For values ≥ 100Ω: Uses 3 significant digits + multiplier digit where:
+        0 = ×1 (100-999Ω)
+        1 = ×10 (1k-9.99kΩ)
+        2 = ×100 (10k-99.9kΩ)
+        3 = ×1000 (100k-999kΩ)
+        4 = ×10000 (1MΩ+)
 
-    For values ≥ 100Ω:
-        First 3 digits: significant digits
-        Last digit: multiplier where:
-            0 = ×1 (100-999Ω)
-            1 = ×10 (1k-9.99kΩ)
-            2 = ×100 (10k-99.9kΩ)
-            3 = ×1000 (100k-999kΩ)
-            4 = ×10000 (1MΩ+)
+    Args:
+        resistance: The resistance value in ohms
+        max_resistance: Maximum allowed resistance value for the series
+
+    Returns:
+        A 4-character string representing the resistance code
+
+    Raises:
+        ValueError:
+            If resistance is outside valid range (10Ω to max_resistance)
     """
     if resistance < 10 or resistance > max_resistance:
         raise ValueError(
@@ -246,7 +271,19 @@ def generate_resistance_values(
     base_values: List[float],
     max_resistance: int
 ) -> Iterator[float]:
-    """Generate all valid resistance values from base values."""
+    """
+    Generate all valid resistance values from a list of base values.
+
+    For each base value, generates a geometric sequence by multiplying by 10
+    until reaching max_resistance. Only yields values ≥ 10Ω.
+
+    Args:
+        base_values: List of base resistance values (E96 or E24 series)
+        max_resistance: Maximum resistance value to generate
+
+    Yields:
+        float: Valid resistance values in ascending order
+    """
     for base_value in base_values:
         current = base_value
         while current <= max_resistance:
@@ -262,7 +299,20 @@ def create_part_info(
     packaging: str,
     specs: SeriesSpec
 ) -> PartInfo:
-    """Create a PartInfo instance for given parameters."""
+    """
+    Create a PartInfo instance with complete component specifications.
+
+    Args:
+        resistance: Resistance value in ohms
+        tolerance_code: Manufacturer's tolerance code (e.g., 'F' for 1%)
+        tolerance_value: Human-readable tolerance (e.g., '1%')
+        packaging: Packaging code (e.g., 'X' or 'V')
+        specs: SeriesSpec instance containing series specifications
+
+    Returns:
+        PartInfo instance containing all component details
+        and vendor information
+    """
     resistance_code = generate_resistance_code(
         resistance, specs.max_resistance)
     mpn = f"{specs.base_series}{tolerance_code}{resistance_code}{packaging}"
@@ -292,7 +342,21 @@ def create_part_info(
 
 
 def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
-    """Generate all possible part numbers for both E96 and E24 series."""
+    """
+    Generate all possible part numbers for a resistor series.
+
+    Generates part numbers for both E96 and E24 value series, considering:
+    - All valid resistance values up to max_resistance
+    - All tolerance options for each series type
+    - All packaging options
+    - Special handling for high resistance values (>1MΩ) if applicable
+
+    Args:
+        specs: SeriesSpec instance containing series specifications
+
+    Returns:
+        List of PartInfo instances for all valid combinations
+    """
     parts_list: List[PartInfo] = []
 
     for series_type in SeriesType:
@@ -327,7 +391,25 @@ def write_to_csv(
     output_file: str,
     encoding: str = 'utf-8'
 ) -> None:
-    """Write the generated part numbers to a CSV file."""
+    """
+    Write component specifications to a CSV file.
+
+    Creates a CSV file in the 'data' directory containing all component
+    specifications including:
+    - Symbol and reference designators
+    - Component values and tolerances
+    - Physical specifications (case size, voltage rating)
+    - Manufacturer information and part numbers
+    - Vendor links
+
+    Args:
+        parts_list: List of PartInfo instances to write
+        output_file: Name of the output file
+        encoding: Character encoding for the CSV file (default: utf-8)
+
+    Raises:
+        IOError: If unable to create or write to the output file
+    """
     headers: Final[List[str]] = [
         'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
         'Description', 'Manufacturer', 'MPN', 'Tolerance', 'Voltage Rating',
@@ -360,8 +442,27 @@ def write_to_csv(
 
 
 def generate_files_for_series(
-        series_name: str, unified_parts_list: List[PartInfo]) -> None:
-    """Generate CSV and KiCad symbol files for a specific series."""
+    series_name: str,
+    unified_parts_list: List[PartInfo]
+) -> None:
+    """
+    Generate CSV and KiCad symbol files for a specific resistor series.
+
+    Creates:
+    1. A CSV file containing all component specifications
+    2. A KiCad symbol file for use in electronic design
+    3. Adds generated parts to the unified parts list
+
+    Args:
+        series_name: Name of the resistor series (e.g., 'ERJ-2RK')
+        unified_parts_list: List to store generated parts for unified database
+
+    Raises:
+        ValueError: If series_name is not recognized
+        FileNotFoundError: If CSV file cannot be found for symbol generation
+        csv.Error: If CSV processing fails
+        IOError: If file operations fail
+    """
     if series_name not in SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
@@ -392,7 +493,22 @@ def generate_files_for_series(
 
 def generate_unified_files(all_parts: List[PartInfo]) -> None:
     """
-    Generate unified CSV and KiCad symbol files containing all series data.
+    Generate unified component database files containing all series.
+
+    Creates:
+    1. A unified CSV file containing all component specifications
+    2. A unified KiCad symbol file containing all components
+
+    These files combine data from all series into single reference files
+    for easier component selection and management.
+
+    Args:
+        all_parts: List of all PartInfo instances across all series
+
+    Raises:
+        FileNotFoundError: If unified CSV file cannot be found
+        csv.Error: If CSV processing fails
+        IOError: If file operations fail
     """
     unified_csv = "UNITED_RESISTORS_DATA_BASE.csv"
     unified_symbol = "UNITED_RESISTORS_DATA_BASE.kicad_sym"
