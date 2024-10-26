@@ -9,22 +9,37 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Reference" "L"
-			(at 0 2.54 0)
+		(property "Symbol Name" "L_XFL3012-100MEC"
+			(at 0 -12.7 0)
+			(show_name)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Reference" "L"
+			(at 0 2.54 0)
+			
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
 			)
 		)
 		(property "Value" "100.0µH"
 			(at 0 -2.54 0)
+			
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
 				(justify left)
+				
 			)
 		)
 		(property "Footprint" "footprints:L_Sumida_XFL3012"
@@ -60,63 +75,8 @@
 				(hide yes)
 			)
 		)
-		(property "Symbol Name" "L_XFL3012-100MEC"
-			(at 0 -15.24 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "DCR Max" "2200mΩ"
-			(at 0 -22.86 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "1.2mm"
-			(at 0 -27.94 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "0.39A"
-			(at 0 -33.02 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "0.52A"
-			(at 0 -35.56 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "100.0µH"
-			(at 0 -38.1 0)
+		(property "Octopart Search" "https://octopart.com/search?q=XFL3012-100MEC"
+			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
 				(font
@@ -127,7 +87,7 @@
 			)
 		)
 		(property "MPN" "XFL3012-100MEC"
-			(at 0 -17.78 0)
+			(at 0 -17.779999999999998 0)
 			(show_name)
 			(effects
 				(font
@@ -138,7 +98,7 @@
 			)
 		)
 		(property "Manufacturer" "Sumida"
-			(at 0 -20.32 0)
+			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
 				(font
@@ -148,8 +108,8 @@
 				(hide yes)
 			)
 		)
-		(property "Octopart Search" "https://octopart.com/search?q=XFL3012-100MEC"
-			(at 0 -12.7 0)
+		(property "DCR Max" "2200mΩ"
+			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
 				(font
@@ -160,7 +120,18 @@
 			)
 		)
 		(property "Series" "XFL3012"
-			(at 0 -25.4 0)
+			(at 0 -25.399999999999995 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.2mm"
+			(at 0 -27.939999999999994 0)
 			(show_name)
 			(effects
 				(font
@@ -171,7 +142,40 @@
 			)
 		)
 		(property "Tolerance" "±20%"
-			(at 0 -30.48 0)
+			(at 0 -30.479999999999993 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Idc Rated" "0.39A"
+			(at 0 -33.019999999999996 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Idc Saturated" "0.52A"
+			(at 0 -35.559999999999995 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Inductance" "100.0µH"
+			(at 0 -38.099999999999994 0)
 			(show_name)
 			(effects
 				(font
