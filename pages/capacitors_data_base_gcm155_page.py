@@ -68,7 +68,7 @@ usage_steps = [
     "different environments"
 ]
 
-dataframe: pd.DataFrame = pd.read_csv('GCM155_part_numbers.csv')
+dataframe: pd.DataFrame = pd.read_csv('data/GCM155_part_numbers.csv')
 
 hidden_columns = [
     'Reference',

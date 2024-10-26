@@ -68,7 +68,7 @@ usage_steps = [
     "different environments"
 ]
 
-dataframe: pd.DataFrame = pd.read_csv('resistor.csv')
+dataframe: pd.DataFrame = pd.read_csv('data/resistor.csv')
 
 hidden_columns = [
     'Reference',

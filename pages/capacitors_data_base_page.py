@@ -68,7 +68,7 @@ usage_steps = [
     "different environments"
 ]
 
-dataframe: pd.DataFrame = pd.read_csv('capacitor.csv')
+dataframe: pd.DataFrame = pd.read_csv('data/capacitor.csv')
 
 hidden_columns = [
     'Reference',

@@ -68,7 +68,7 @@ usage_steps = [
     "different environments"
 ]
 
-dataframe: pd.DataFrame = pd.read_csv('ERJ2RK_part_numbers.csv')
+dataframe: pd.DataFrame = pd.read_csv('data/ERJ2RK_part_numbers.csv')
 
 hidden_columns = [
     'Reference',
