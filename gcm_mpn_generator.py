@@ -260,7 +260,7 @@ def get_gcm216_code(capacitance: float) -> str:
     Returns:
         str: The characteristic code for the GCM216 series.
     """
-    if capacitance >= 15e-9:
+    if capacitance > 22e-9:
         return "A55"
     return "A37"
 
