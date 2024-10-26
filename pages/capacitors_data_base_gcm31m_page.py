@@ -31,7 +31,7 @@ import pages.utils.dash_component_utils as dcu
 link_name = __name__.rsplit(".", maxsplit=1)[-1].replace("_page", "").title()
 module_name = __name__.rsplit(".", maxsplit=1)[-1]
 
-register_page(__name__, name=link_name, order=11)
+register_page(__name__, name=link_name, order=13)
 
 TITLE = "Capacitors Database"
 ABOUT = (
