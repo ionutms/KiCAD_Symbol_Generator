@@ -124,7 +124,29 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        excluded_values=set()  # No excluded values for this series
+        excluded_values={}
+    ),
+    "GCM31M": SeriesSpec(  # New series
+        base_series="GCM31M",
+        footprint="footprints:C_1206_3216Metric",
+        voltage_rating="50V",
+        case_code_in="1206",
+        case_code_mm="3216",
+        packaging_options=['D', 'J'],
+        tolerance_map={
+            SeriesType.X7R: {'K': '10%'}
+        },
+        value_range={
+            SeriesType.X7R: (100e-9, 1e-6)  # 100nF to 1µF
+        },
+        voltage_code="1H",
+        dielectric_code={
+            SeriesType.X7R: "R7"
+        },
+        excluded_values={
+            180e-9,  # 180 nF
+            560e-9,  # 560 nF
+        }
     ),
 }
 
@@ -265,6 +287,22 @@ def get_gcm216_code(capacitance: float) -> str:
     return "A37"
 
 
+def get_gcm31m_code(capacitance: float) -> str:
+    """
+    Determine the characteristic code for the GCM31M series based on
+    capacitance value.
+
+    Args:
+        capacitance (float): Capacitance value in Farads.
+
+    Returns:
+        str: The characteristic code for the GCM31M series.
+    """
+    if capacitance >= 100e-9:
+        return "A37"
+    return "A55"
+
+
 def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     """
     Determine the characteristic code based on capacitance and
@@ -289,6 +327,8 @@ def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
         return get_gcm188_code(capacitance)
     if specs.base_series == "GCM216":
         return get_gcm216_code(capacitance)
+    if specs.base_series == "GCM31M":
+        return get_gcm31m_code(capacitance)
 
     raise ValueError(f"Unknown series: {specs.base_series}")
 
