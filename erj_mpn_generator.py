@@ -335,7 +335,8 @@ def write_to_csv(
         'Trustedparts Search'
     ]
 
-    with open(output_file, 'w', newline='', encoding=encoding) as csvfile:
+    with open(f'data/{output_file}', 'w', newline='', encoding=encoding) \
+            as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(headers)
 
@@ -375,7 +376,7 @@ def generate_files_for_series(series_name: str) -> None:
 
     # Generate KiCad symbol file
     try:
-        ki_rsg.generate_kicad_symbol(csv_filename, symbol_filename)
+        ki_rsg.generate_kicad_symbol(f'data/{csv_filename}', symbol_filename)
         print(f"KiCad symbol file '{symbol_filename}' generated successfully.")
     except FileNotFoundError as file_error:
         print(f"CSV file not found: {file_error}")
