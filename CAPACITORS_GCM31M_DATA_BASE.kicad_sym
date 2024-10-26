@@ -3810,7 +3810,7 @@
 			)
 		)
 	)
-	(symbol "C_GCM31MR71H564KA37D"
+	(symbol "C_GCM31MR71H684KA55D"
 		(pin_numbers hide)
 		(pin_names
 			(offset 0.254)
@@ -3818,483 +3818,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "C_GCM31MR71H564KA37D"
-			(at 2.54 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Reference" "C"
-			(at 2.54 -3.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				
-			)
-			(show_name no)
-		)
-		(property "Value" "560 nF"
-			(at 2.54 -6.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				
-			)
-			(show_name no)
-		)
-		(property "Footprint" "footprints:C_1206_3216Metric"
-			(at 2.54 -8.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H564KA37-01.pdf"
-			(at 2.54 -11.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Case Code - in" "1206"
-			(at 2.54 -13.969999999999999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Case Code - mm" "3216"
-			(at 2.54 -16.509999999999998 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Description" "CAP SMD 560 nF X7R 10% 1206 50V"
-			(at 2.54 -19.049999999999997 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Dielectric" "X7R"
-			(at 2.54 -21.589999999999996 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "MPN" "GCM31MR71H564KA37D"
-			(at 2.54 -24.129999999999995 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Manufacturer" "Murata Electronics"
-			(at 2.54 -26.669999999999995 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Series" "GCM31M"
-			(at 2.54 -29.209999999999994 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Tolerance" "10%"
-			(at 2.54 -31.749999999999993 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H564KA37D"
-			(at 2.54 -34.28999999999999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Voltage Rating" "50V"
-			(at 2.54 -36.82999999999999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(symbol "C_GCM31MR71H564KA37D_0_1"
-			(polyline
-				(pts
-					(xy -2.032 -0.762) (xy 2.032 -0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy -2.032 0.762) (xy 2.032 0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-		)
-		(symbol "C_GCM31MR71H564KA37D_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-	)
-	(symbol "C_GCM31MR71H564KA37J"
-		(pin_numbers hide)
-		(pin_names
-			(offset 0.254)
-		)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(property "Symbol Name" "C_GCM31MR71H564KA37J"
-			(at 2.54 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Reference" "C"
-			(at 2.54 -3.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				
-			)
-			(show_name no)
-		)
-		(property "Value" "560 nF"
-			(at 2.54 -6.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				
-			)
-			(show_name no)
-		)
-		(property "Footprint" "footprints:C_1206_3216Metric"
-			(at 2.54 -8.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H564KA37-01.pdf"
-			(at 2.54 -11.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Case Code - in" "1206"
-			(at 2.54 -13.969999999999999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Case Code - mm" "3216"
-			(at 2.54 -16.509999999999998 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Description" "CAP SMD 560 nF X7R 10% 1206 50V"
-			(at 2.54 -19.049999999999997 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Dielectric" "X7R"
-			(at 2.54 -21.589999999999996 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "MPN" "GCM31MR71H564KA37J"
-			(at 2.54 -24.129999999999995 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Manufacturer" "Murata Electronics"
-			(at 2.54 -26.669999999999995 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Series" "GCM31M"
-			(at 2.54 -29.209999999999994 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Tolerance" "10%"
-			(at 2.54 -31.749999999999993 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H564KA37J"
-			(at 2.54 -34.28999999999999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(property "Voltage Rating" "50V"
-			(at 2.54 -36.82999999999999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-			(show_name yes)
-		)
-		(symbol "C_GCM31MR71H564KA37J_0_1"
-			(polyline
-				(pts
-					(xy -2.032 -0.762) (xy 2.032 -0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy -2.032 0.762) (xy 2.032 0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-		)
-		(symbol "C_GCM31MR71H564KA37J_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-	)
-	(symbol "C_GCM31MR71H684KA37D"
-		(pin_numbers hide)
-		(pin_names
-			(offset 0.254)
-		)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(property "Symbol Name" "C_GCM31MR71H684KA37D"
+		(property "Symbol Name" "C_GCM31MR71H684KA55D"
 			(at 2.54 -1.27 0)
 			(effects
 				(font
@@ -4338,7 +3862,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H684KA37-01.pdf"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H684KA55-01.pdf"
 			(at 2.54 -11.43 0)
 			(effects
 				(font
@@ -4393,7 +3917,7 @@
 			)
 			(show_name yes)
 		)
-		(property "MPN" "GCM31MR71H684KA37D"
+		(property "MPN" "GCM31MR71H684KA55D"
 			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
@@ -4437,7 +3961,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H684KA37D"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H684KA55D"
 			(at 2.54 -34.28999999999999 0)
 			(effects
 				(font
@@ -4459,7 +3983,7 @@
 			)
 			(show_name yes)
 		)
-		(symbol "C_GCM31MR71H684KA37D_0_1"
+		(symbol "C_GCM31MR71H684KA55D_0_1"
 			(polyline
 				(pts
 					(xy -2.032 -0.762) (xy 2.032 -0.762)
@@ -4485,7 +4009,7 @@
 				)
 			)
 		)
-		(symbol "C_GCM31MR71H684KA37D_1_1"
+		(symbol "C_GCM31MR71H684KA55D_1_1"
 			(pin passive line
 				(at 0 3.81 270)
 				(length 2.794)
@@ -4524,7 +4048,7 @@
 			)
 		)
 	)
-	(symbol "C_GCM31MR71H684KA37J"
+	(symbol "C_GCM31MR71H684KA55J"
 		(pin_numbers hide)
 		(pin_names
 			(offset 0.254)
@@ -4532,7 +4056,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "C_GCM31MR71H684KA37J"
+		(property "Symbol Name" "C_GCM31MR71H684KA55J"
 			(at 2.54 -1.27 0)
 			(effects
 				(font
@@ -4576,7 +4100,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H684KA37-01.pdf"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H684KA55-01.pdf"
 			(at 2.54 -11.43 0)
 			(effects
 				(font
@@ -4631,7 +4155,7 @@
 			)
 			(show_name yes)
 		)
-		(property "MPN" "GCM31MR71H684KA37J"
+		(property "MPN" "GCM31MR71H684KA55J"
 			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
@@ -4675,7 +4199,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H684KA37J"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H684KA55J"
 			(at 2.54 -34.28999999999999 0)
 			(effects
 				(font
@@ -4697,7 +4221,7 @@
 			)
 			(show_name yes)
 		)
-		(symbol "C_GCM31MR71H684KA37J_0_1"
+		(symbol "C_GCM31MR71H684KA55J_0_1"
 			(polyline
 				(pts
 					(xy -2.032 -0.762) (xy 2.032 -0.762)
@@ -4723,7 +4247,7 @@
 				)
 			)
 		)
-		(symbol "C_GCM31MR71H684KA37J_1_1"
+		(symbol "C_GCM31MR71H684KA55J_1_1"
 			(pin passive line
 				(at 0 3.81 270)
 				(length 2.794)
@@ -4762,7 +4286,7 @@
 			)
 		)
 	)
-	(symbol "C_GCM31MR71H824KA37D"
+	(symbol "C_GCM31MR71H824KA55D"
 		(pin_numbers hide)
 		(pin_names
 			(offset 0.254)
@@ -4770,7 +4294,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "C_GCM31MR71H824KA37D"
+		(property "Symbol Name" "C_GCM31MR71H824KA55D"
 			(at 2.54 -1.27 0)
 			(effects
 				(font
@@ -4814,7 +4338,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H824KA37-01.pdf"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H824KA55-01.pdf"
 			(at 2.54 -11.43 0)
 			(effects
 				(font
@@ -4869,7 +4393,7 @@
 			)
 			(show_name yes)
 		)
-		(property "MPN" "GCM31MR71H824KA37D"
+		(property "MPN" "GCM31MR71H824KA55D"
 			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
@@ -4913,7 +4437,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H824KA37D"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H824KA55D"
 			(at 2.54 -34.28999999999999 0)
 			(effects
 				(font
@@ -4935,7 +4459,7 @@
 			)
 			(show_name yes)
 		)
-		(symbol "C_GCM31MR71H824KA37D_0_1"
+		(symbol "C_GCM31MR71H824KA55D_0_1"
 			(polyline
 				(pts
 					(xy -2.032 -0.762) (xy 2.032 -0.762)
@@ -4961,7 +4485,7 @@
 				)
 			)
 		)
-		(symbol "C_GCM31MR71H824KA37D_1_1"
+		(symbol "C_GCM31MR71H824KA55D_1_1"
 			(pin passive line
 				(at 0 3.81 270)
 				(length 2.794)
@@ -5000,7 +4524,7 @@
 			)
 		)
 	)
-	(symbol "C_GCM31MR71H824KA37J"
+	(symbol "C_GCM31MR71H824KA55J"
 		(pin_numbers hide)
 		(pin_names
 			(offset 0.254)
@@ -5008,7 +4532,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "C_GCM31MR71H824KA37J"
+		(property "Symbol Name" "C_GCM31MR71H824KA55J"
 			(at 2.54 -1.27 0)
 			(effects
 				(font
@@ -5052,7 +4576,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H824KA37-01.pdf"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H824KA55-01.pdf"
 			(at 2.54 -11.43 0)
 			(effects
 				(font
@@ -5107,7 +4631,7 @@
 			)
 			(show_name yes)
 		)
-		(property "MPN" "GCM31MR71H824KA37J"
+		(property "MPN" "GCM31MR71H824KA55J"
 			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
@@ -5151,7 +4675,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H824KA37J"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H824KA55J"
 			(at 2.54 -34.28999999999999 0)
 			(effects
 				(font
@@ -5173,7 +4697,7 @@
 			)
 			(show_name yes)
 		)
-		(symbol "C_GCM31MR71H824KA37J_0_1"
+		(symbol "C_GCM31MR71H824KA55J_0_1"
 			(polyline
 				(pts
 					(xy -2.032 -0.762) (xy 2.032 -0.762)
@@ -5199,7 +4723,7 @@
 				)
 			)
 		)
-		(symbol "C_GCM31MR71H824KA37J_1_1"
+		(symbol "C_GCM31MR71H824KA55J_1_1"
 			(pin passive line
 				(at 0 3.81 270)
 				(length 2.794)
@@ -5238,7 +4762,7 @@
 			)
 		)
 	)
-	(symbol "C_GCM31MR71H105KA37D"
+	(symbol "C_GCM31MR71H105KA55D"
 		(pin_numbers hide)
 		(pin_names
 			(offset 0.254)
@@ -5246,7 +4770,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "C_GCM31MR71H105KA37D"
+		(property "Symbol Name" "C_GCM31MR71H105KA55D"
 			(at 2.54 -1.27 0)
 			(effects
 				(font
@@ -5290,7 +4814,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H105KA37-01.pdf"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H105KA55-01.pdf"
 			(at 2.54 -11.43 0)
 			(effects
 				(font
@@ -5345,7 +4869,7 @@
 			)
 			(show_name yes)
 		)
-		(property "MPN" "GCM31MR71H105KA37D"
+		(property "MPN" "GCM31MR71H105KA55D"
 			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
@@ -5389,7 +4913,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H105KA37D"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H105KA55D"
 			(at 2.54 -34.28999999999999 0)
 			(effects
 				(font
@@ -5411,7 +4935,7 @@
 			)
 			(show_name yes)
 		)
-		(symbol "C_GCM31MR71H105KA37D_0_1"
+		(symbol "C_GCM31MR71H105KA55D_0_1"
 			(polyline
 				(pts
 					(xy -2.032 -0.762) (xy 2.032 -0.762)
@@ -5437,7 +4961,7 @@
 				)
 			)
 		)
-		(symbol "C_GCM31MR71H105KA37D_1_1"
+		(symbol "C_GCM31MR71H105KA55D_1_1"
 			(pin passive line
 				(at 0 3.81 270)
 				(length 2.794)
@@ -5476,7 +5000,7 @@
 			)
 		)
 	)
-	(symbol "C_GCM31MR71H105KA37J"
+	(symbol "C_GCM31MR71H105KA55J"
 		(pin_numbers hide)
 		(pin_names
 			(offset 0.254)
@@ -5484,7 +5008,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "C_GCM31MR71H105KA37J"
+		(property "Symbol Name" "C_GCM31MR71H105KA55J"
 			(at 2.54 -1.27 0)
 			(effects
 				(font
@@ -5528,7 +5052,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H105KA37-01.pdf"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H105KA55-01.pdf"
 			(at 2.54 -11.43 0)
 			(effects
 				(font
@@ -5583,7 +5107,7 @@
 			)
 			(show_name yes)
 		)
-		(property "MPN" "GCM31MR71H105KA37J"
+		(property "MPN" "GCM31MR71H105KA55J"
 			(at 2.54 -24.129999999999995 0)
 			(effects
 				(font
@@ -5627,7 +5151,7 @@
 			)
 			(show_name yes)
 		)
-		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H105KA37J"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H105KA55J"
 			(at 2.54 -34.28999999999999 0)
 			(effects
 				(font
@@ -5649,7 +5173,7 @@
 			)
 			(show_name yes)
 		)
-		(symbol "C_GCM31MR71H105KA37J_0_1"
+		(symbol "C_GCM31MR71H105KA55J_0_1"
 			(polyline
 				(pts
 					(xy -2.032 -0.762) (xy 2.032 -0.762)
@@ -5675,7 +5199,7 @@
 				)
 			)
 		)
-		(symbol "C_GCM31MR71H105KA37J_1_1"
+		(symbol "C_GCM31MR71H105KA55J_1_1"
 			(pin passive line
 				(at 0 3.81 270)
 				(length 2.794)

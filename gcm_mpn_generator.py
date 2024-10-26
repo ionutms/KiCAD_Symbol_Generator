@@ -298,6 +298,8 @@ def get_gcm31m_code(capacitance: float) -> str:
     Returns:
         str: The characteristic code for the GCM31M series.
     """
+    if capacitance >= 560e-9:
+        return "A55"
     if capacitance >= 100e-9:
         return "A37"
     return "A55"
