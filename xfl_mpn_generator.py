@@ -44,9 +44,7 @@ class SeriesSpec(NamedTuple):
 
 # Constants
 MANUFACTURER: Final[str] = "Coilcraft"
-TRUSTEDPARTS_BASE_URL: Final[str] = (
-    "https://www.trustedparts.com/en/search/"
-)
+TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
 # E6 series values for inductors (µH)
 E6_VALUES: Final[List[float]] = [
@@ -131,35 +129,50 @@ def generate_value_code(
         is_aec: If True, add AEC-Q200 suffix
 
     Returns:
-        Formatted value code string following standard inductor codes:
+        Formatted value code string following Coilcraft standard:
+        For values < 10µH:
         - R47 for 0.47µH
         - 1R0 for 1.0µH
-        - 102 for 1000nH
-        - 104 for 100µH
-    """
-    # Standard inductor codes mapping
-    value_codes = {
-        0.47: "R47",
-        0.68: "R68",
-        1.0: "1R0",
-        1.5: "1R5",
-        2.2: "2R2",
-        3.3: "3R3",
-        4.7: "4R7",
-        6.8: "6R8",
-        10: "100",
-        15: "150",
-        22: "220",
-        33: "330",
-        47: "470",
-        68: "680",
-        100: "104"
-    }
 
-    if inductance not in value_codes:
+        For values >= 10µH:
+        - 100 for 10µH (10 × 10⁰)
+        - 150 for 15µH
+        - 220 for 22µH
+        - 330 for 33µH
+        - 470 for 47µH
+        - 680 for 68µH
+        - 104 for 100µH (10 × 10⁴)
+    """
+    if inductance < 10:
+        # For values less than 10µH, use decimal point format
+        value_codes = {
+            0.47: "R47",
+            0.68: "R68",
+            1.0: "1R0",
+            1.5: "1R5",
+            2.2: "2R2",
+            3.3: "3R3",
+            4.7: "4R7",
+            6.8: "6R8"
+        }
+        base_code = value_codes.get(inductance)
+    else:
+        # For values 10µH and above, use 3-digit format
+        # where third digit is number of zeros
+        value_codes = {
+            10: "100",    # 10 × 10⁰
+            15: "150",    # 15 × 10⁰
+            22: "220",    # 22 × 10⁰
+            33: "330",    # 33 × 10⁰
+            47: "470",    # 47 × 10⁰
+            68: "680",    # 68 × 10⁰
+            100: "104"    # 10 × 10⁴
+        }
+        base_code = value_codes.get(inductance)
+
+    if not base_code:
         raise ValueError(f"Invalid inductance value: {inductance}µH")
 
-    base_code = value_codes[inductance]
     return f"{base_code}MEC" if is_aec else base_code
 
 
@@ -212,11 +225,8 @@ def create_part_info(
     value_code = generate_value_code(inductance, is_aec)
     mpn = f"{specs.base_series}-{value_code}"
 
-    trustedparts_link = (
-        f"{TRUSTEDPARTS_BASE_URL}"
-        f"{MANUFACTURER.replace(' ', '%20')}/"
-        f"{mpn.replace('-', '%2D')}"
-    )
+    # Fixed TrustedParts link to match the correct format
+    trustedparts_link = f"https://www.trustedparts.com/en/search/{mpn}"
 
     return PartInfo(
         symbol_name=f"L_{mpn}",
