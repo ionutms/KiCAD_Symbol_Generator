@@ -54,6 +54,17 @@ SERIES_CATALOG: Dict[str, SeriesSpec] = {
             10.0, 15.0, 22.0, 33.0, 39.0, 47.0, 56.0, 68.0,
             82.0, 100.0, 220.0
         ]
+    ),
+    "XFL3010": SeriesSpec(
+        base_series="XFL3010",
+        footprint="footprints:L_Coilcraft_XFL3010",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "0118859e-f2e2-4063-93cf-e50ed636ea4e/xfl3010.pdf",
+        inductance_values=[
+            0.60, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10.0, 15.0,
+            22.0, 33.0, 47.0, 68.0, 82.0, 100.0
+        ]
     )
 }
 
@@ -94,13 +105,14 @@ def generate_value_code(
     """
     if inductance < 1:
         nh_value = inductance * 1000
-        if nh_value == 330:
-            base_code = "331"
-        elif nh_value == 560:
-            base_code = "561"
-        elif nh_value == 680:
-            base_code = "681"
-        else:
+        value_codes = {
+            330: "331",
+            560: "561",
+            600: "601",
+            680: "681"
+        }
+        base_code = value_codes.get(int(nh_value))
+        if base_code is None:
             raise ValueError(f"Invalid inductance value: {inductance}µH")
     elif inductance < 10:
         value_codes = {
@@ -308,7 +320,10 @@ def generate_files(series_name: str, is_aec: bool = True) -> None:
 
 if __name__ == "__main__":
     try:
-        generate_files("XFL3012")
+        # Generate files for both series
+        for series in SERIES_CATALOG:
+            print(f"\nGenerating files for {series} series:")
+            generate_files(series)
 
     except (ValueError, csv.Error, IOError) as error:
         print(f"Error generating files: {error}")
