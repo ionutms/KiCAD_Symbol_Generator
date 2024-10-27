@@ -4,6 +4,7 @@ Coilcraft Inductor Series Part Number Generator
 Generates part numbers and specifications for Coilcraft inductor series
 with custom inductance values.
 Supports both standard and AEC-Q200 qualified parts.
+Generates both individual series files and unified component database.
 """
 
 import csv
@@ -278,13 +279,18 @@ def write_to_csv(
             ])
 
 
-def generate_files(series_name: str, is_aec: bool = True) -> None:
+def generate_files_for_series(
+    series_name: str,
+    is_aec: bool,
+    unified_parts_list: List[PartInfo]
+) -> None:
     """
     Generate CSV and KiCad symbol files for specified series.
 
     Args:
         series_name: Name of the series to generate files for
         is_aec: If True, generate AEC-Q200 qualified parts
+        unified_parts_list: List to store generated parts for unified database
     """
     if series_name not in SERIES_CATALOG:
         raise ValueError(f"Unknown series: {series_name}")
@@ -310,6 +316,9 @@ def generate_files(series_name: str, is_aec: bool = True) -> None:
             "generated successfully."
         )
 
+        # Add parts to unified list
+        unified_parts_list.extend(parts_list)
+
     except FileNotFoundError as e:
         print(f"CSV file not found: {e}")
     except csv.Error as e:
@@ -318,12 +327,48 @@ def generate_files(series_name: str, is_aec: bool = True) -> None:
         print(f"I/O error when generating files: {e}")
 
 
+def generate_unified_files(all_parts: List[PartInfo]) -> None:
+    """
+    Generate unified component database files containing all series.
+
+    Creates:
+    1. A unified CSV file containing all component specifications
+    2. A unified KiCad symbol file containing all components
+
+    Args:
+        all_parts: List of all PartInfo instances across all series
+    """
+    unified_csv = "UNITED_INDUCTORS_DATA_BASE.csv"
+    unified_symbol = "UNITED_INDUCTORS_DATA_BASE.kicad_sym"
+
+    # Write unified CSV file
+    write_to_csv(all_parts, unified_csv)
+    print(f"Generated unified CSV file with {len(all_parts)} part numbers")
+
+    # Generate unified KiCad symbol file
+    try:
+        ki_isg.generate_kicad_symbol(f'data/{unified_csv}', unified_symbol)
+        print("Unified KiCad symbol file generated successfully.")
+    except FileNotFoundError as e:
+        print(f"Unified CSV file not found: {e}")
+    except csv.Error as e:
+        print(f"CSV processing error for unified file: {e}")
+    except IOError as e:
+        print(f"I/O error when generating unified KiCad symbol file: {e}")
+
+
 if __name__ == "__main__":
     try:
+        unified_parts: List[PartInfo] = []
+
         # Generate files for both series
         for series in SERIES_CATALOG:
             print(f"\nGenerating files for {series} series:")
-            generate_files(series)
+            generate_files_for_series(series, True, unified_parts)
+
+        # Generate unified files after all series are processed
+        print("\nGenerating unified files:")
+        generate_unified_files(unified_parts)
 
     except (ValueError, csv.Error, IOError) as error:
         print(f"Error generating files: {error}")
