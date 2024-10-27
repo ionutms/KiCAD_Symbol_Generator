@@ -2,8 +2,8 @@
 Coilcraft XFL3012 Series Part Number Generator
 
 Generates part numbers and specifications for Coilcraft XFL3012 series
-inductors.
-Supports both standard and AEC-Q200 qualified parts with E6 series values.
+inductors with custom inductance values.
+Supports both standard and AEC-Q200 qualified parts.
 """
 
 import csv
@@ -38,10 +38,17 @@ class SeriesSpec(NamedTuple):
 MANUFACTURER: Final[str] = "Coilcraft"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
-# E6 series values for inductors (µH)
-E6_VALUES: Final[List[float]] = [
-    0.47, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8,
-    10, 15, 22, 33, 47, 68, 100
+# Custom inductance values (in µH)
+INDUCTANCE_VALUES: Final[List[float]] = [
+    0.22,  # 220 nH
+    0.36,  # 360 nH
+    0.60,  # 600 nH
+    0.68,  # 680 nH
+    33.0,  # 33 µH
+    39.0,  # 39 µH
+    56.0,  # 56 µH
+    82.0,  # 82 µH
+    100.0  # 100 µH
 ]
 
 # Series specifications
@@ -80,49 +87,33 @@ def generate_value_code(
         is_aec: If True, add AEC-Q200 suffix
 
     Returns:
-        Formatted value code string following Coilcraft standard:
-        For values < 10µH:
-        - R47 for 0.47µH
-        - 1R0 for 1.0µH
-
-        For values >= 10µH:
-        - 100 for 10µH (10 × 10⁰)
-        - 150 for 15µH
-        - 220 for 22µH
-        - 330 for 33µH
-        - 470 for 47µH
-        - 680 for 68µH
-        - 104 for 100µH (10 × 10⁴)
+        Formatted value code string following Coilcraft standard
     """
-    if inductance < 10:
-        # For values less than 10µH, use decimal point format
-        value_codes = {
-            0.47: "R47",
-            0.68: "R68",
-            1.0: "1R0",
-            1.5: "1R5",
-            2.2: "2R2",
-            3.3: "3R3",
-            4.7: "4R7",
-            6.8: "6R8"
-        }
-        base_code = value_codes.get(inductance)
+    if inductance < 1:
+        # Convert to nH for sub-1µH values
+        nh_value = inductance * 1000
+        if nh_value == 220:
+            base_code = "R22"
+        elif nh_value == 360:
+            base_code = "R36"
+        elif nh_value == 600:
+            base_code = "R60"
+        elif nh_value == 680:
+            base_code = "R68"
+        else:
+            raise ValueError(f"Invalid inductance value: {inductance}µH")
     else:
-        # For values 10µH and above, use 3-digit format
-        # where third digit is number of zeros
+        # Handle values >= 1µH
         value_codes = {
-            10: "100",    # 10 × 10⁰
-            15: "150",    # 15 × 10⁰
-            22: "220",    # 22 × 10⁰
-            33: "330",    # 33 × 10⁰
-            47: "470",    # 47 × 10⁰
-            68: "680",    # 68 × 10⁰
-            100: "104"    # 10 × 10⁴
+            33.0: "330",    # 33 × 10⁰
+            39.0: "390",    # 39 × 10⁰
+            56.0: "560",    # 56 × 10⁰
+            82.0: "820",    # 82 × 10⁰
+            100.0: "104"    # 10 × 10⁴
         }
         base_code = value_codes.get(inductance)
-
-    if not base_code:
-        raise ValueError(f"Invalid inductance value: {inductance}µH")
+        if base_code is None:
+            raise ValueError(f"Invalid inductance value: {inductance}µH")
 
     return f"{base_code}MEC" if is_aec else base_code
 
@@ -206,7 +197,7 @@ def generate_part_numbers(
     """
     return [
         create_part_info(value, specs, is_aec)
-        for value in E6_VALUES
+        for value in INDUCTANCE_VALUES
     ]
 
 
