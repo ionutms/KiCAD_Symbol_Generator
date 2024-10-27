@@ -115,8 +115,8 @@ def format_inductance_value(inductance: float) -> str:
         Formatted string with unit
     """
     if inductance < 1:
-        return f"{inductance*1000:.0f}nH"
-    return f"{inductance:.1f}µH"
+        return f"{inductance*1000:.0f} nH"
+    return f"{inductance:.1f} µH"
 
 
 def generate_value_code(
