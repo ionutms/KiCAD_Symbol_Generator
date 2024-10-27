@@ -74,7 +74,10 @@ hidden_columns = [
     'Reference',
     'Case Code - mm',
     'Case Code - in',
-    'Series'
+    'Series',
+    'Dielectric',
+    'Tolerance',
+    'Voltage Rating'
 ]
 
 visible_columns = [
