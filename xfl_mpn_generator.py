@@ -38,17 +38,28 @@ class SeriesSpec(NamedTuple):
 MANUFACTURER: Final[str] = "Coilcraft"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
-# Custom inductance values (in µH)
+# Inductance values from datasheet (in µH)
 INDUCTANCE_VALUES: Final[List[float]] = [
-    0.22,  # 220 nH
-    0.36,  # 360 nH
-    0.60,  # 600 nH
-    0.68,  # 680 nH
-    33.0,  # 33 µH
-    39.0,  # 39 µH
-    56.0,  # 56 µH
-    82.0,  # 82 µH
-    100.0  # 100 µH
+    0.33,   # 330 nH
+    0.56,   # 560 nH
+    0.68,   # 680 nH
+    1.0,    # 1.0 µH
+    1.5,    # 1.5 µH
+    2.2,    # 2.2 µH
+    3.3,    # 3.3 µH
+    4.7,    # 4.7 µH
+    6.8,    # 6.8 µH
+    10.0,   # 10 µH
+    15.0,   # 15 µH
+    22.0,   # 22 µH
+    33.0,   # 33 µH
+    39.0,   # 39 µH
+    47.0,   # 47 µH
+    56.0,   # 56 µH
+    68.0,   # 68 µH
+    82.0,   # 82 µH
+    100.0,  # 100 µH
+    220.0   # 220 µH
 ]
 
 # Series specifications
@@ -88,7 +99,7 @@ def generate_value_code(
     is_aec: bool = True
 ) -> str:
     """
-    Generate Coilcraft value code.
+    Generate Coilcraft value code according to datasheet format.
 
     Args:
         inductance: Value in µH
@@ -100,30 +111,47 @@ def generate_value_code(
     if inductance < 1:
         # Convert to nH for sub-1µH values
         nh_value = inductance * 1000
-        if nh_value == 220:
-            base_code = "R22"
-        elif nh_value == 360:
-            base_code = "R36"
-        elif nh_value == 600:
-            base_code = "R60"
+        if nh_value == 330:
+            base_code = "331"
+        elif nh_value == 560:
+            base_code = "561"
         elif nh_value == 680:
-            base_code = "R68"
+            base_code = "681"
         else:
             raise ValueError(f"Invalid inductance value: {inductance}µH")
-    else:
-        # Handle values >= 1µH
+    elif inductance < 10:
+        # Values from 1.0 to 9.9 µH
         value_codes = {
-            33.0: "330",    # 33 × 10⁰
-            39.0: "390",    # 39 × 10⁰
-            56.0: "560",    # 56 × 10⁰
-            82.0: "820",    # 82 × 10⁰
-            100.0: "104"    # 10 × 10⁴
+            1.0: "102",  # 1.0 × 10²
+            1.5: "152",  # 1.5 × 10²
+            2.2: "222",  # 2.2 × 10²
+            3.3: "332",  # 3.3 × 10²
+            4.7: "472",  # 4.7 × 10²
+            6.8: "682",  # 6.8 × 10²
+        }
+        base_code = value_codes.get(inductance)
+        if base_code is None:
+            raise ValueError(f"Invalid inductance value: {inductance}µH")
+    else:
+        # Values 10 µH and above
+        value_codes = {
+            10.0: "103",   # 10 × 10³
+            15.0: "153",   # 15 × 10³
+            22.0: "223",   # 22 × 10³
+            33.0: "333",   # 33 × 10³
+            39.0: "393",   # 39 × 10³
+            47.0: "473",   # 47 × 10³
+            56.0: "563",   # 56 × 10³
+            68.0: "683",   # 68 × 10³
+            82.0: "823",   # 82 × 10³
+            100.0: "104",  # 10 × 10⁴
+            220.0: "224",  # 22 × 10⁴
         }
         base_code = value_codes.get(inductance)
         if base_code is None:
             raise ValueError(f"Invalid inductance value: {inductance}µH")
 
-    return f"{base_code}MEC" if is_aec else base_code
+    return f"{base_code}ME" if is_aec else base_code
 
 
 def create_description(
