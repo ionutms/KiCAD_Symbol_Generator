@@ -225,8 +225,8 @@ def create_part_info(
     value_code = generate_value_code(inductance, is_aec)
     mpn = f"{specs.base_series}-{value_code}"
 
-    # Fixed TrustedParts link to match the correct format
-    trustedparts_link = f"https://www.trustedparts.com/en/search/{mpn}"
+    # Updated to use TRUSTEDPARTS_BASE_URL constant
+    trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
 
     return PartInfo(
         symbol_name=f"L_{mpn}",
@@ -287,7 +287,7 @@ def write_to_csv(
         'Symbol Name', 'Reference', 'Value', 'Footprint',
         'Datasheet', 'Description', 'Manufacturer', 'MPN',
         'Inductance', 'Tolerance', 'DCR Max', 'Idc Rated',
-        'Idc Saturated', 'Series', 'Height', 'TrustedParts Search'
+        'Idc Saturated', 'Series', 'Height', 'Trustedparts Search'
     ]
 
     with open(
