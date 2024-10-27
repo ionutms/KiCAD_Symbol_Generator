@@ -21,7 +21,7 @@ class SeriesSpec:
     datasheet: str
     inductance_values: List[float]
     has_aec: bool = True
-    value_suffix: str = "ME"  # AEC-Q200 suffix
+    value_suffix: str = "ME"
 
 
 class PartInfo(NamedTuple):
@@ -39,11 +39,9 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-# Constants
 MANUFACTURER: Final[str] = "Coilcraft"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
-# Series Definitions
 SERIES_CATALOG: Dict[str, SeriesSpec] = {
     "XFL3012": SeriesSpec(
         base_series="XFL3012",
@@ -73,10 +71,9 @@ def format_inductance_value(inductance: float) -> str:
     """
     if inductance < 1:
         return f"{int(inductance*1000)} nH"
-    elif inductance.is_integer():
+    if inductance.is_integer():
         return f"{int(inductance)} µH"
-    else:
-        return f"{inductance:.1f} µH"
+    return f"{inductance:.1f} µH"
 
 
 def generate_value_code(
@@ -96,7 +93,6 @@ def generate_value_code(
         Formatted value code string
     """
     if inductance < 1:
-        # Convert to nH for sub-1µH values
         nh_value = inductance * 1000
         if nh_value == 330:
             base_code = "331"
@@ -107,32 +103,30 @@ def generate_value_code(
         else:
             raise ValueError(f"Invalid inductance value: {inductance}µH")
     elif inductance < 10:
-        # Values from 1.0 to 9.9 µH
         value_codes = {
-            1.0: "102",  # 1.0 × 10²
-            1.5: "152",  # 1.5 × 10²
-            2.2: "222",  # 2.2 × 10²
-            3.3: "332",  # 3.3 × 10²
-            4.7: "472",  # 4.7 × 10²
-            6.8: "682",  # 6.8 × 10²
+            1.0: "102",
+            1.5: "152",
+            2.2: "222",
+            3.3: "332",
+            4.7: "472",
+            6.8: "682",
         }
         base_code = value_codes.get(inductance)
         if base_code is None:
             raise ValueError(f"Invalid inductance value: {inductance}µH")
     else:
-        # Values 10 µH and above
         value_codes = {
-            10.0: "103",   # 10 × 10³
-            15.0: "153",   # 15 × 10³
-            22.0: "223",   # 22 × 10³
-            33.0: "333",   # 33 × 10³
-            39.0: "393",   # 39 × 10³
-            47.0: "473",   # 47 × 10³
-            56.0: "563",   # 56 × 10³
-            68.0: "683",   # 68 × 10³
-            82.0: "823",   # 82 × 10³
-            100.0: "104",  # 10 × 10⁴
-            220.0: "224",  # 22 × 10⁴
+            10.0: "103",
+            15.0: "153",
+            22.0: "223",
+            33.0: "333",
+            39.0: "393",
+            47.0: "473",
+            56.0: "563",
+            68.0: "683",
+            82.0: "823",
+            100.0: "104",
+            220.0: "224",
         }
         base_code = value_codes.get(inductance)
         if base_code is None:
@@ -288,7 +282,6 @@ def generate_files(series_name: str, is_aec: bool = True) -> None:
     symbol_filename = f"INDUCTORS_{specs.base_series}_DATA_BASE.kicad_sym"
 
     try:
-        # Generate part numbers and write to CSV
         parts_list = generate_part_numbers(specs, is_aec)
         write_to_csv(parts_list, csv_filename)
         print(
@@ -296,7 +289,6 @@ def generate_files(series_name: str, is_aec: bool = True) -> None:
             f"in '{csv_filename}'"
         )
 
-        # Generate KiCad symbol file
         ki_isg.generate_kicad_symbol(
             f'data/{csv_filename}',
             symbol_filename
@@ -316,11 +308,7 @@ def generate_files(series_name: str, is_aec: bool = True) -> None:
 
 if __name__ == "__main__":
     try:
-        # Generate files for XFL3012 series (with AEC-Q200 qualification)
         generate_files("XFL3012")
-
-        # Example: Generate non-AEC-Q200 parts
-        # generate_files("XFL3012", is_aec=False)
 
     except (ValueError, csv.Error, IOError) as error:
         print(f"Error generating files: {error}")
