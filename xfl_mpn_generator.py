@@ -63,6 +63,7 @@ SERIES_SPECS: Final[SeriesSpec] = SeriesSpec(
 def format_inductance_value(inductance: float) -> str:
     """
     Format inductance value with appropriate unit.
+    Shows integer values where possible (no decimal places needed).
 
     Args:
         inductance: Value in µH
@@ -71,8 +72,14 @@ def format_inductance_value(inductance: float) -> str:
         Formatted string with unit
     """
     if inductance < 1:
-        return f"{inductance*1000:.0f} nH"
-    return f"{inductance:.1f} µH"
+        # Convert to nH and always show as integer
+        return f"{int(inductance*1000)} nH"
+    elif inductance.is_integer():
+        # For whole µH values, show as integer
+        return f"{int(inductance)} µH"
+    else:
+        # For fractional µH values, show one decimal place
+        return f"{inductance:.1f} µH"
 
 
 def generate_value_code(
