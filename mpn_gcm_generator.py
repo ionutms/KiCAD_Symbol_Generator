@@ -80,6 +80,7 @@ class SeriesSpec(NamedTuple):
         voltage_code: Voltage rating code for part number
         dielectric_code: Dielectric material codes per series type
         excluded_values: Set of unsupported capacitance values
+        datasheet_url: URL to the series datasheet
     """
     base_series: str
     footprint: str
@@ -92,6 +93,7 @@ class SeriesSpec(NamedTuple):
     voltage_code: str
     dielectric_code: Dict[SeriesType, str]
     excluded_values: Set[float]
+    datasheet_url: str
 
 
 @dataclass
@@ -184,7 +186,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             39e-9,  # 39 nF
             56e-9,  # 56 nF
             82e-9   # 82 nF
-        }
+        },
+        datasheet_url="https://search.murata.co.jp/Ceramy/"
+        "image/img/A01X/G101/ENG/GCM155"
     ),
     "GCM188": SeriesSpec(
         base_series="GCM188",
@@ -206,7 +210,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         excluded_values={
             120e-9,  # 120 nF
             180e-9,  # 180 nF,
-        }
+        },
+        datasheet_url="https://search.murata.co.jp/Ceramy/"
+        "image/img/A01X/G101/ENG/GCM188"
     ),
     "GCM216": SeriesSpec(
         base_series="GCM216",
@@ -225,7 +231,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        excluded_values={}
+        excluded_values={},
+        datasheet_url="https://search.murata.co.jp/Ceramy/"
+        "image/img/A01X/G101/ENG/GCM216"
     ),
     "GCM31M": SeriesSpec(
         base_series="GCM31M",
@@ -247,9 +255,11 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         excluded_values={
             180e-9,  # 180 nF
             560e-9,  # 560 nF,
-        }
+        },
+        datasheet_url="https://search.murata.co.jp/Ceramy/"
+        "image/img/A01X/G101/ENG/GCM31M"
     ),
-    "GCM31C": SeriesSpec(  # Added new GCM31C series
+    "GCM31C": SeriesSpec(
         base_series="GCM31C",
         footprint="footprints:C_1206_3216Metric",
         voltage_rating="25V",
@@ -266,7 +276,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        excluded_values=set()
+        excluded_values=set(),
+        datasheet_url="https://search.murata.co.jp/Ceramy/" +
+        "image/img/A01X/G101/ENG/GCM31C"
     ),
 }
 
@@ -405,10 +417,22 @@ def generate_standard_values(
         decade *= 10
 
 
-def generate_datasheet_url(mpn: str) -> str:
-    """Generate the datasheet URL for a given Murata part number."""
+def generate_datasheet_url(mpn: str, specs: SeriesSpec) -> str:
+    """Generate the datasheet URL for a given Murata part number.
+
+    Args:
+        mpn: Complete manufacturer part number
+        specs: Series specifications containing base datasheet URL
+
+    Returns:
+        URL to the appropriate datasheet for the series and specific part
+    """
+    # Remove the last character (packaging code) from MPN
     base_mpn = mpn[:-1]
-    return f"{DATASHEET_BASE_URL}{base_mpn}-01.pdf"
+    # Get specific series characteristics (voltage code, dielectric code)
+    specific_part = base_mpn[len(specs.base_series):]
+    # Combine base URL with specific part characteristics
+    return f"{specs.datasheet_url}{specific_part}-01.pdf"
 
 
 def create_part_info(params: PartParameters) -> PartInfo:
@@ -444,7 +468,7 @@ def create_part_info(params: PartParameters) -> PartInfo:
         f"{params.specs.case_code_in} {params.specs.voltage_rating}"
     )
     trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
-    datasheet_url = generate_datasheet_url(mpn)
+    datasheet_url = generate_datasheet_url(mpn, params.specs)
 
     return PartInfo(
         symbol_name=symbol_name,
