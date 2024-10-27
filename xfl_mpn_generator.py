@@ -7,7 +7,7 @@ Supports both standard and AEC-Q200 qualified parts with E6 series values.
 """
 
 import csv
-from typing import List, NamedTuple, Final, Dict
+from typing import List, NamedTuple, Final
 import kicad_inductor_symbol_generator as ki_isg
 
 
@@ -21,13 +21,8 @@ class PartInfo(NamedTuple):
     description: str
     manufacturer: str
     mpn: str
-    inductance: str
     tolerance: str
-    dcr_max: str
-    idc_rated: str
-    idc_saturated: str
     series: str
-    height: str
     trustedparts_link: str
 
 
@@ -35,10 +30,7 @@ class SeriesSpec(NamedTuple):
     """Inductor series specifications."""
     base_series: str
     footprint: str
-    height: str
     tolerance: str
-    dcr_map: Dict[float, str]
-    current_ratings: Dict[float, Dict[str, str]]
     datasheet: str
 
 
@@ -52,52 +44,11 @@ E6_VALUES: Final[List[float]] = [
     10, 15, 22, 33, 47, 68, 100
 ]
 
-# DCR values in mΩ for each inductance value
-DCR_MAP: Final[Dict[float, str]] = {
-    0.47: "18.0",
-    0.68: "23.0",
-    1.0: "29.0",
-    1.5: "38.0",
-    2.2: "52.0",
-    3.3: "76.0",
-    4.7: "105",
-    6.8: "150",
-    10: "220",
-    15: "320",
-    22: "460",
-    33: "670",
-    47: "950",
-    68: "1350",
-    100: "3000"  # 3Ω for 100µH
-}
-
-# Current ratings for each inductance value
-CURRENT_RATINGS: Final[Dict[float, Dict[str, str]]] = {
-    0.47: {"rated": "5.50", "saturated": "7.00"},
-    0.68: {"rated": "4.60", "saturated": "6.00"},
-    1.0: {"rated": "3.80", "saturated": "5.00"},
-    1.5: {"rated": "3.20", "saturated": "4.20"},
-    2.2: {"rated": "2.70", "saturated": "3.50"},
-    3.3: {"rated": "2.20", "saturated": "2.90"},
-    4.7: {"rated": "1.85", "saturated": "2.40"},
-    6.8: {"rated": "1.55", "saturated": "2.00"},
-    10: {"rated": "1.30", "saturated": "1.70"},
-    15: {"rated": "1.05", "saturated": "1.40"},
-    22: {"rated": "0.87", "saturated": "1.15"},
-    33: {"rated": "0.71", "saturated": "0.94"},
-    47: {"rated": "0.59", "saturated": "0.78"},
-    68: {"rated": "0.49", "saturated": "0.65"},
-    100: {"rated": "0.39", "saturated": "0.54"}
-}
-
 # Series specifications
 SERIES_SPECS: Final[SeriesSpec] = SeriesSpec(
     base_series="XFL3012",
     footprint="footprints:L_Coilcraft_XFL3012",
-    height="1.2mm",
     tolerance="±20%",
-    dcr_map=DCR_MAP,
-    current_ratings=CURRENT_RATINGS,
     datasheet="https://www.coilcraft.com/en-us/products/xfl3012/"
 )
 
@@ -195,9 +146,7 @@ def create_description(
     parts = [
         "INDUCTOR SMD",
         format_inductance_value(inductance),
-        specs.tolerance,
-        specs.height,
-        f"RATED {specs.current_ratings[inductance]['rated']}A"
+        specs.tolerance
     ]
 
     if is_aec:
@@ -224,8 +173,6 @@ def create_part_info(
     """
     value_code = generate_value_code(inductance, is_aec)
     mpn = f"{specs.base_series}-{value_code}"
-
-    # Updated to use TRUSTEDPARTS_BASE_URL constant
     trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
 
     return PartInfo(
@@ -237,15 +184,8 @@ def create_part_info(
         description=create_description(inductance, specs, is_aec),
         manufacturer=MANUFACTURER,
         mpn=mpn,
-        inductance=format_inductance_value(inductance),
         tolerance=specs.tolerance,
-        dcr_max=f"{specs.dcr_map[inductance]}mΩ",
-        idc_rated=f"{specs.current_ratings[inductance]['rated']}A",
-        idc_saturated=(
-            f"{specs.current_ratings[inductance]['saturated']}A"
-        ),
         series=specs.base_series,
-        height=specs.height,
         trustedparts_link=trustedparts_link
     )
 
@@ -286,8 +226,7 @@ def write_to_csv(
     headers = [
         'Symbol Name', 'Reference', 'Value', 'Footprint',
         'Datasheet', 'Description', 'Manufacturer', 'MPN',
-        'Inductance', 'Tolerance', 'DCR Max', 'Idc Rated',
-        'Idc Saturated', 'Series', 'Height', 'Trustedparts Search'
+        'Tolerance', 'Series', 'Trustedparts Search'
     ]
 
     with open(
@@ -309,13 +248,8 @@ def write_to_csv(
                 part.description,
                 part.manufacturer,
                 part.mpn,
-                part.inductance,
                 part.tolerance,
-                part.dcr_max,
-                part.idc_rated,
-                part.idc_saturated,
                 part.series,
-                part.height,
                 part.trustedparts_link
             ])
 
