@@ -121,6 +121,45 @@ DATASHEET_BASE_URL: Final[str] = \
     "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
 
 
+@dataclass(frozen=True)
+class CharacteristicThreshold:
+    """Threshold configuration for characteristic codes.
+
+    Attributes:
+        threshold: Capacitance threshold in Farads
+        code: Characteristic code to use when value exceeds threshold
+    """
+    threshold: float
+    code: str
+
+
+CHARACTERISTIC_CONFIGS: Final[Dict[str, List[CharacteristicThreshold]]] = {
+    "GCM155": [
+        CharacteristicThreshold(22e-9, "E02"),
+        CharacteristicThreshold(4.7e-9, "A55"),
+        CharacteristicThreshold(0, "A37")
+    ],
+    "GCM188": [
+        CharacteristicThreshold(100e-9, "A64"),
+        CharacteristicThreshold(47e-9, "A57"),
+        CharacteristicThreshold(22e-9, "A55"),
+        CharacteristicThreshold(0, "A37")
+    ],
+    "GCM216": [
+        CharacteristicThreshold(22e-9, "A55"),
+        CharacteristicThreshold(0, "A37")
+    ],
+    "GCM31M": [
+        CharacteristicThreshold(560e-9, "A55"),
+        CharacteristicThreshold(100e-9, "A37"),
+        CharacteristicThreshold(0, "A37")
+    ],
+    "GCM31C": [
+        CharacteristicThreshold(4.7e-6, "A55"),
+        CharacteristicThreshold(0, "A55")
+    ]
+}
+
 # Series specifications
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM155": SeriesSpec(
@@ -308,100 +347,7 @@ def generate_capacitance_code(capacitance: float) -> str:
     return f"{first_two}{zero_count}"
 
 
-def get_gcm155_code(capacitance: float) -> str:
-    """Get characteristic code for GCM155 series based on capacitance.
-
-    Args:
-        capacitance: Capacitance value in Farads
-
-    Returns:
-        Characteristic code based on thresholds:
-        - "E02" if > 22nF
-        - "A55" if 5.6nF to 22nF
-        - "A37" if < 5.6nF
-    """
-    if capacitance > 22e-9:
-        return "E02"
-    if capacitance >= 5.6e-9:
-        return "A55"
-    return "A37"
-
-
-def get_gcm188_code(capacitance: float) -> str:
-    """Get characteristic code for GCM188 series based on capacitance.
-
-    Args:
-        capacitance: Capacitance value in Farads
-
-    Returns:
-        Characteristic code based on thresholds:
-        - "A64" if > 100nF
-        - "A57" if 47nF to 100nF
-        - "A55" if 27nF to 47nF
-        - "A37" if < 27nF
-    """
-    if capacitance > 100e-9:
-        return "A64"
-    if 47e-9 < capacitance <= 100e-9:
-        return "A57"
-    if capacitance >= 27e-9:
-        return "A55"
-    return "A37"
-
-
-def get_gcm216_code(capacitance: float) -> str:
-    """Get characteristic code for GCM216 series based on capacitance.
-
-    Args:
-        capacitance: Capacitance value in Farads
-
-    Returns:
-        Characteristic code:
-        - "A55" if > 22nF
-        - "A37" otherwise
-    """
-    if capacitance > 22e-9:
-        return "A55"
-    return "A37"
-
-
-def get_gcm31m_code(capacitance: float) -> str:
-    """Get characteristic code for GCM31M series based on capacitance.
-
-    Args:
-        capacitance: Capacitance value in Farads
-
-    Returns:
-        Characteristic code:
-        - "A55" if ≥ 560nF
-        - "A37" if 100nF to 559nF
-        - "A55" if < 100nF
-    """
-    if capacitance >= 560e-9:
-        return "A55"
-    if capacitance >= 100e-9:
-        return "A37"
-    return "A55"
-
-
-def get_gcm31c_code(capacitance: float) -> str:
-    """Get characteristic code for GCM31C series based on capacitance.
-
-    Args:
-        capacitance: Capacitance value in Farads
-
-    Returns:
-        "A55" if capacitance ≥ 4.7µF
-    """
-    if capacitance >= 4.7e-6:
-        return "A55"
-    return "A55"
-
-
-def get_characteristic_code(
-    capacitance: float,
-    specs: SeriesSpec
-) -> str:
+def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
     """Determine characteristic code based on series and capacitance.
 
     Args:
@@ -414,18 +360,16 @@ def get_characteristic_code(
     Raises:
         ValueError: If specs.base_series is not a supported series
     """
-    if specs.base_series == "GCM155":
-        return get_gcm155_code(capacitance)
-    if specs.base_series == "GCM188":
-        return get_gcm188_code(capacitance)
-    if specs.base_series == "GCM216":
-        return get_gcm216_code(capacitance)
-    if specs.base_series == "GCM31M":
-        return get_gcm31m_code(capacitance)
-    if specs.base_series == "GCM31C":
-        return get_gcm31m_code(capacitance)
+    if specs.base_series not in CHARACTERISTIC_CONFIGS:
+        raise ValueError(f"Unknown series: {specs.base_series}")
 
-    raise ValueError(f"Unknown series: {specs.base_series}")
+    thresholds = CHARACTERISTIC_CONFIGS[specs.base_series]
+
+    for threshold in thresholds:
+        if capacitance > threshold.threshold:
+            return threshold.code
+
+    return thresholds[-1].code
 
 
 def generate_standard_values(
