@@ -56,7 +56,8 @@ SERIES_SPECS: Final[SeriesSpec] = SeriesSpec(
     base_series="XFL3012",
     footprint="footprints:L_Coilcraft_XFL3012",
     tolerance="±20%",
-    datasheet="https://www.coilcraft.com/en-us/products/xfl3012/"
+    datasheet="https://www.coilcraft.com/getmedia/" +
+    "f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 )
 
 
