@@ -309,7 +309,7 @@ def generate_files_for_series(
 
         ki_isg.generate_kicad_symbol(
             f'data/{csv_filename}',
-            symbol_filename
+            f'series_kicad_sym/{symbol_filename}'
         )
         print(
             f"KiCad symbol file '{symbol_filename}' "

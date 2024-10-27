@@ -636,7 +636,9 @@ def generate_files_for_series(
 
     # Generate KiCad symbol file
     try:
-        ki_csg.generate_kicad_symbol(f'data/{csv_filename}', symbol_filename)
+        ki_csg.generate_kicad_symbol(
+            f'data/{csv_filename}',
+            f'series_kicad_sym/{symbol_filename}')
         print(f"KiCad symbol file '{symbol_filename}' generated successfully.")
     except FileNotFoundError as file_error:
         print(f"CSV file not found: {file_error}")
