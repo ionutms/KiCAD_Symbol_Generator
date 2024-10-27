@@ -1,14 +1,27 @@
 """
-Coilcraft XFL3012 Series Part Number Generator
+Coilcraft Inductor Series Part Number Generator
 
-Generates part numbers and specifications for Coilcraft XFL3012 series
-inductors with custom inductance values.
+Generates part numbers and specifications for Coilcraft inductor series
+with custom inductance values.
 Supports both standard and AEC-Q200 qualified parts.
 """
 
 import csv
-from typing import List, NamedTuple, Final
+from typing import List, NamedTuple, Final, Dict
+from dataclasses import dataclass
 import kicad_inductor_symbol_generator as ki_isg
+
+
+@dataclass
+class SeriesSpec:
+    """Inductor series specifications."""
+    base_series: str
+    footprint: str
+    tolerance: str
+    datasheet: str
+    inductance_values: List[float]
+    has_aec: bool = True
+    value_suffix: str = "ME"  # AEC-Q200 suffix
 
 
 class PartInfo(NamedTuple):
@@ -26,50 +39,25 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-class SeriesSpec(NamedTuple):
-    """Inductor series specifications."""
-    base_series: str
-    footprint: str
-    tolerance: str
-    datasheet: str
-
-
 # Constants
 MANUFACTURER: Final[str] = "Coilcraft"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
-# Inductance values from datasheet (in µH)
-INDUCTANCE_VALUES: Final[List[float]] = [
-    0.33,   # 330 nH
-    0.56,   # 560 nH
-    0.68,   # 680 nH
-    1.0,    # 1.0 µH
-    1.5,    # 1.5 µH
-    2.2,    # 2.2 µH
-    3.3,    # 3.3 µH
-    4.7,    # 4.7 µH
-    6.8,    # 6.8 µH
-    10.0,   # 10 µH
-    15.0,   # 15 µH
-    22.0,   # 22 µH
-    33.0,   # 33 µH
-    39.0,   # 39 µH
-    47.0,   # 47 µH
-    56.0,   # 56 µH
-    68.0,   # 68 µH
-    82.0,   # 82 µH
-    100.0,  # 100 µH
-    220.0   # 220 µH
-]
-
-# Series specifications
-SERIES_SPECS: Final[SeriesSpec] = SeriesSpec(
-    base_series="XFL3012",
-    footprint="footprints:L_Coilcraft_XFL3012",
-    tolerance="±20%",
-    datasheet="https://www.coilcraft.com/getmedia/" +
-    "f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
-)
+# Series Definitions
+SERIES_CATALOG: Dict[str, SeriesSpec] = {
+    "XFL3012": SeriesSpec(
+        base_series="XFL3012",
+        footprint="footprints:L_Coilcraft_XFL3012",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf",
+        inductance_values=[
+            0.33, 0.56, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8,
+            10.0, 15.0, 22.0, 33.0, 39.0, 47.0, 56.0, 68.0,
+            82.0, 100.0, 220.0
+        ]
+    )
+}
 
 
 def format_inductance_value(inductance: float) -> str:
@@ -84,29 +72,28 @@ def format_inductance_value(inductance: float) -> str:
         Formatted string with unit
     """
     if inductance < 1:
-        # Convert to nH and always show as integer
         return f"{int(inductance*1000)} nH"
     elif inductance.is_integer():
-        # For whole µH values, show as integer
         return f"{int(inductance)} µH"
     else:
-        # For fractional µH values, show one decimal place
         return f"{inductance:.1f} µH"
 
 
 def generate_value_code(
     inductance: float,
-    is_aec: bool = True
+    is_aec: bool = True,
+    value_suffix: str = "ME"
 ) -> str:
     """
     Generate Coilcraft value code according to datasheet format.
 
     Args:
         inductance: Value in µH
-        is_aec: If True, add AEC-Q200 suffix
+        is_aec: If True, add AEC suffix
+        value_suffix: Suffix to use for AEC qualified parts
 
     Returns:
-        Formatted value code string following Coilcraft standard
+        Formatted value code string
     """
     if inductance < 1:
         # Convert to nH for sub-1µH values
@@ -151,7 +138,7 @@ def generate_value_code(
         if base_code is None:
             raise ValueError(f"Invalid inductance value: {inductance}µH")
 
-    return f"{base_code}ME" if is_aec else base_code
+    return f"{base_code}{value_suffix}" if is_aec else base_code
 
 
 def create_description(
@@ -176,7 +163,7 @@ def create_description(
         specs.tolerance
     ]
 
-    if is_aec:
+    if is_aec and specs.has_aec:
         parts.append("AEC-Q200")
 
     return " ".join(parts)
@@ -198,7 +185,11 @@ def create_part_info(
     Returns:
         PartInfo instance with all specifications
     """
-    value_code = generate_value_code(inductance, is_aec)
+    value_code = generate_value_code(
+        inductance,
+        is_aec and specs.has_aec,
+        specs.value_suffix
+    )
     mpn = f"{specs.base_series}-{value_code}"
     trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
 
@@ -233,7 +224,7 @@ def generate_part_numbers(
     """
     return [
         create_part_info(value, specs, is_aec)
-        for value in INDUCTANCE_VALUES
+        for value in specs.inductance_values
     ]
 
 
@@ -281,15 +272,24 @@ def write_to_csv(
             ])
 
 
-def generate_files() -> None:
-    """Generate CSV and KiCad symbol files."""
-    series_code = SERIES_SPECS.base_series
-    csv_filename = f"{series_code}_part_numbers.csv"
-    symbol_filename = f"INDUCTORS_{series_code}_DATA_BASE.kicad_sym"
+def generate_files(series_name: str, is_aec: bool = True) -> None:
+    """
+    Generate CSV and KiCad symbol files for specified series.
+
+    Args:
+        series_name: Name of the series to generate files for
+        is_aec: If True, generate AEC-Q200 qualified parts
+    """
+    if series_name not in SERIES_CATALOG:
+        raise ValueError(f"Unknown series: {series_name}")
+
+    specs = SERIES_CATALOG[series_name]
+    csv_filename = f"{specs.base_series}_part_numbers.csv"
+    symbol_filename = f"INDUCTORS_{specs.base_series}_DATA_BASE.kicad_sym"
 
     try:
         # Generate part numbers and write to CSV
-        parts_list = generate_part_numbers(SERIES_SPECS)
+        parts_list = generate_part_numbers(specs, is_aec)
         write_to_csv(parts_list, csv_filename)
         print(
             f"Generated {len(parts_list)} part numbers "
@@ -316,6 +316,11 @@ def generate_files() -> None:
 
 if __name__ == "__main__":
     try:
-        generate_files()
-    except (csv.Error, IOError) as file_error:
-        print(f"Error generating files: {file_error}")
+        # Generate files for XFL3012 series (with AEC-Q200 qualification)
+        generate_files("XFL3012")
+
+        # Example: Generate non-AEC-Q200 parts
+        # generate_files("XFL3012", is_aec=False)
+
+    except (ValueError, csv.Error, IOError) as error:
+        print(f"Error generating files: {error}")
