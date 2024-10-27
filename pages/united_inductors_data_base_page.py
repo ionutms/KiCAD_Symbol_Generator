@@ -31,7 +31,7 @@ import pages.utils.dash_component_utils as dcu
 link_name = __name__.rsplit(".", maxsplit=1)[-1].replace("_page", "").title()
 module_name = __name__.rsplit(".", maxsplit=1)[-1]
 
-register_page(__name__, name=link_name, order=3)
+register_page(__name__, name=link_name, order=5)
 
 TITLE = "Resistors Database"
 ABOUT = (
@@ -68,7 +68,7 @@ usage_steps = [
     "different environments"
 ]
 
-dataframe: pd.DataFrame = pd.read_csv('data/UNITED_RESISTORS_DATA_BASE.csv')
+dataframe: pd.DataFrame = pd.read_csv('data/UNITED_INDUCTORS_DATA_BASE.csv')
 
 hidden_columns = [
     'Reference',
