@@ -1,14 +1,27 @@
 """
-Coilcraft XFL3012 Series Part Number Generator
+Coilcraft Inductor Series Part Number Generator
 
-Generates part numbers and specifications for Coilcraft XFL3012 series
-inductors.
-Supports both standard and AEC-Q200 qualified parts with E6 series values.
+Generates part numbers and specifications for Coilcraft inductor series
+with custom inductance values.
+Supports both standard and AEC-Q200 qualified parts.
 """
 
 import csv
 from typing import List, NamedTuple, Final, Dict
+from dataclasses import dataclass
 import kicad_inductor_symbol_generator as ki_isg
+
+
+@dataclass
+class SeriesSpec:
+    """Inductor series specifications."""
+    base_series: str
+    footprint: str
+    tolerance: str
+    datasheet: str
+    inductance_values: List[float]
+    has_aec: bool = True
+    value_suffix: str = "ME"  # AEC-Q200 suffix
 
 
 class PartInfo(NamedTuple):
@@ -21,92 +34,36 @@ class PartInfo(NamedTuple):
     description: str
     manufacturer: str
     mpn: str
-    inductance: str
     tolerance: str
-    dcr_max: str
-    idc_rated: str
-    idc_saturated: str
     series: str
-    height: str
     trustedparts_link: str
-
-
-class SeriesSpec(NamedTuple):
-    """Inductor series specifications."""
-    base_series: str
-    footprint: str
-    height: str
-    tolerance: str
-    dcr_map: Dict[float, str]
-    current_ratings: Dict[float, Dict[str, str]]
-    datasheet: str
 
 
 # Constants
 MANUFACTURER: Final[str] = "Coilcraft"
-TRUSTEDPARTS_BASE_URL: Final[str] = (
-    "https://www.trustedparts.com/en/search/"
-)
+TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
-# E6 series values for inductors (µH)
-E6_VALUES: Final[List[float]] = [
-    0.47, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8,
-    10, 15, 22, 33, 47, 68, 100
-]
-
-# DCR values in mΩ for each inductance value
-DCR_MAP: Final[Dict[float, str]] = {
-    0.47: "18.0",
-    0.68: "23.0",
-    1.0: "29.0",
-    1.5: "38.0",
-    2.2: "52.0",
-    3.3: "76.0",
-    4.7: "105",
-    6.8: "150",
-    10: "220",
-    15: "320",
-    22: "460",
-    33: "670",
-    47: "950",
-    68: "1350",
-    100: "3000"  # 3Ω for 100µH
+# Series Definitions
+SERIES_CATALOG: Dict[str, SeriesSpec] = {
+    "XFL3012": SeriesSpec(
+        base_series="XFL3012",
+        footprint="footprints:L_Coilcraft_XFL3012",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf",
+        inductance_values=[
+            0.33, 0.56, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8,
+            10.0, 15.0, 22.0, 33.0, 39.0, 47.0, 56.0, 68.0,
+            82.0, 100.0, 220.0
+        ]
+    )
 }
-
-# Current ratings for each inductance value
-CURRENT_RATINGS: Final[Dict[float, Dict[str, str]]] = {
-    0.47: {"rated": "5.50", "saturated": "7.00"},
-    0.68: {"rated": "4.60", "saturated": "6.00"},
-    1.0: {"rated": "3.80", "saturated": "5.00"},
-    1.5: {"rated": "3.20", "saturated": "4.20"},
-    2.2: {"rated": "2.70", "saturated": "3.50"},
-    3.3: {"rated": "2.20", "saturated": "2.90"},
-    4.7: {"rated": "1.85", "saturated": "2.40"},
-    6.8: {"rated": "1.55", "saturated": "2.00"},
-    10: {"rated": "1.30", "saturated": "1.70"},
-    15: {"rated": "1.05", "saturated": "1.40"},
-    22: {"rated": "0.87", "saturated": "1.15"},
-    33: {"rated": "0.71", "saturated": "0.94"},
-    47: {"rated": "0.59", "saturated": "0.78"},
-    68: {"rated": "0.49", "saturated": "0.65"},
-    100: {"rated": "0.39", "saturated": "0.54"}
-}
-
-# Series specifications
-SERIES_SPECS: Final[SeriesSpec] = SeriesSpec(
-    base_series="XFL3012",
-    footprint="footprints:L_Coilcraft_XFL3012",
-    height="1.2mm",
-    tolerance="±20%",
-    dcr_map=DCR_MAP,
-    current_ratings=CURRENT_RATINGS,
-    datasheet="https://www.coilcraft.com/en-us/products/xfl3012/"
-)
 
 
 def format_inductance_value(inductance: float) -> str:
     """
     Format inductance value with appropriate unit.
+    Shows integer values where possible (no decimal places needed).
 
     Args:
         inductance: Value in µH
@@ -115,52 +72,73 @@ def format_inductance_value(inductance: float) -> str:
         Formatted string with unit
     """
     if inductance < 1:
-        return f"{inductance*1000:.0f}nH"
-    return f"{inductance:.1f}µH"
+        return f"{int(inductance*1000)} nH"
+    elif inductance.is_integer():
+        return f"{int(inductance)} µH"
+    else:
+        return f"{inductance:.1f} µH"
 
 
 def generate_value_code(
     inductance: float,
-    is_aec: bool = True
+    is_aec: bool = True,
+    value_suffix: str = "ME"
 ) -> str:
     """
-    Generate Coilcraft value code.
+    Generate Coilcraft value code according to datasheet format.
 
     Args:
         inductance: Value in µH
-        is_aec: If True, add AEC-Q200 suffix
+        is_aec: If True, add AEC suffix
+        value_suffix: Suffix to use for AEC qualified parts
 
     Returns:
-        Formatted value code string following standard inductor codes:
-        - R47 for 0.47µH
-        - 1R0 for 1.0µH
-        - 102 for 1000nH
-        - 104 for 100µH
+        Formatted value code string
     """
-    # Standard inductor codes mapping
-    value_codes = {
-        0.47: "R47",
-        0.68: "R68",
-        1.0: "1R0",
-        1.5: "1R5",
-        2.2: "2R2",
-        3.3: "3R3",
-        4.7: "4R7",
-        6.8: "6R8",
-        10: "100",
-        15: "150",
-        22: "220",
-        33: "330",
-        47: "470",
-        68: "680",
-        100: "104"
-    }
+    if inductance < 1:
+        # Convert to nH for sub-1µH values
+        nh_value = inductance * 1000
+        if nh_value == 330:
+            base_code = "331"
+        elif nh_value == 560:
+            base_code = "561"
+        elif nh_value == 680:
+            base_code = "681"
+        else:
+            raise ValueError(f"Invalid inductance value: {inductance}µH")
+    elif inductance < 10:
+        # Values from 1.0 to 9.9 µH
+        value_codes = {
+            1.0: "102",  # 1.0 × 10²
+            1.5: "152",  # 1.5 × 10²
+            2.2: "222",  # 2.2 × 10²
+            3.3: "332",  # 3.3 × 10²
+            4.7: "472",  # 4.7 × 10²
+            6.8: "682",  # 6.8 × 10²
+        }
+        base_code = value_codes.get(inductance)
+        if base_code is None:
+            raise ValueError(f"Invalid inductance value: {inductance}µH")
+    else:
+        # Values 10 µH and above
+        value_codes = {
+            10.0: "103",   # 10 × 10³
+            15.0: "153",   # 15 × 10³
+            22.0: "223",   # 22 × 10³
+            33.0: "333",   # 33 × 10³
+            39.0: "393",   # 39 × 10³
+            47.0: "473",   # 47 × 10³
+            56.0: "563",   # 56 × 10³
+            68.0: "683",   # 68 × 10³
+            82.0: "823",   # 82 × 10³
+            100.0: "104",  # 10 × 10⁴
+            220.0: "224",  # 22 × 10⁴
+        }
+        base_code = value_codes.get(inductance)
+        if base_code is None:
+            raise ValueError(f"Invalid inductance value: {inductance}µH")
 
-    if inductance not in value_codes:
-        raise ValueError(f"Invalid inductance value: {inductance}µH")
-
-    base_code = value_codes[inductance]
-    return f"{base_code}MEC" if is_aec else base_code
+    return f"{base_code}{value_suffix}" if is_aec else base_code
 
 
 def create_description(
@@ -182,12 +160,10 @@ def create_description(
     parts = [
         "INDUCTOR SMD",
         format_inductance_value(inductance),
-        specs.tolerance,
-        specs.height,
-        f"RATED {specs.current_ratings[inductance]['rated']}A"
+        specs.tolerance
     ]
 
-    if is_aec:
+    if is_aec and specs.has_aec:
         parts.append("AEC-Q200")
 
     return " ".join(parts)
@@ -209,14 +185,13 @@ def create_part_info(
     Returns:
         PartInfo instance with all specifications
     """
-    value_code = generate_value_code(inductance, is_aec)
-    mpn = f"{specs.base_series}-{value_code}"
-
-    trustedparts_link = (
-        f"{TRUSTEDPARTS_BASE_URL}"
-        f"{MANUFACTURER.replace(' ', '%20')}/"
-        f"{mpn.replace('-', '%2D')}"
+    value_code = generate_value_code(
+        inductance,
+        is_aec and specs.has_aec,
+        specs.value_suffix
     )
+    mpn = f"{specs.base_series}-{value_code}"
+    trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
 
     return PartInfo(
         symbol_name=f"L_{mpn}",
@@ -227,15 +202,8 @@ def create_part_info(
         description=create_description(inductance, specs, is_aec),
         manufacturer=MANUFACTURER,
         mpn=mpn,
-        inductance=format_inductance_value(inductance),
         tolerance=specs.tolerance,
-        dcr_max=f"{specs.dcr_map[inductance]}mΩ",
-        idc_rated=f"{specs.current_ratings[inductance]['rated']}A",
-        idc_saturated=(
-            f"{specs.current_ratings[inductance]['saturated']}A"
-        ),
         series=specs.base_series,
-        height=specs.height,
         trustedparts_link=trustedparts_link
     )
 
@@ -256,7 +224,7 @@ def generate_part_numbers(
     """
     return [
         create_part_info(value, specs, is_aec)
-        for value in E6_VALUES
+        for value in specs.inductance_values
     ]
 
 
@@ -276,8 +244,7 @@ def write_to_csv(
     headers = [
         'Symbol Name', 'Reference', 'Value', 'Footprint',
         'Datasheet', 'Description', 'Manufacturer', 'MPN',
-        'Inductance', 'Tolerance', 'DCR Max', 'Idc Rated',
-        'Idc Saturated', 'Series', 'Height', 'TrustedParts Search'
+        'Tolerance', 'Series', 'Trustedparts Search'
     ]
 
     with open(
@@ -299,26 +266,30 @@ def write_to_csv(
                 part.description,
                 part.manufacturer,
                 part.mpn,
-                part.inductance,
                 part.tolerance,
-                part.dcr_max,
-                part.idc_rated,
-                part.idc_saturated,
                 part.series,
-                part.height,
                 part.trustedparts_link
             ])
 
 
-def generate_files() -> None:
-    """Generate CSV and KiCad symbol files."""
-    series_code = SERIES_SPECS.base_series
-    csv_filename = f"{series_code}_part_numbers.csv"
-    symbol_filename = f"INDUCTORS_{series_code}_DATA_BASE.kicad_sym"
+def generate_files(series_name: str, is_aec: bool = True) -> None:
+    """
+    Generate CSV and KiCad symbol files for specified series.
+
+    Args:
+        series_name: Name of the series to generate files for
+        is_aec: If True, generate AEC-Q200 qualified parts
+    """
+    if series_name not in SERIES_CATALOG:
+        raise ValueError(f"Unknown series: {series_name}")
+
+    specs = SERIES_CATALOG[series_name]
+    csv_filename = f"{specs.base_series}_part_numbers.csv"
+    symbol_filename = f"INDUCTORS_{specs.base_series}_DATA_BASE.kicad_sym"
 
     try:
         # Generate part numbers and write to CSV
-        parts_list = generate_part_numbers(SERIES_SPECS)
+        parts_list = generate_part_numbers(specs, is_aec)
         write_to_csv(parts_list, csv_filename)
         print(
             f"Generated {len(parts_list)} part numbers "
@@ -345,6 +316,11 @@ def generate_files() -> None:
 
 if __name__ == "__main__":
     try:
-        generate_files()
-    except (csv.Error, IOError) as file_error:
-        print(f"Error generating files: {file_error}")
+        # Generate files for XFL3012 series (with AEC-Q200 qualification)
+        generate_files("XFL3012")
+
+        # Example: Generate non-AEC-Q200 parts
+        # generate_files("XFL3012", is_aec=False)
+
+    except (ValueError, csv.Error, IOError) as error:
+        print(f"Error generating files: {error}")

@@ -2,14 +2,14 @@
 	(version 20231120)
 	(generator "kicad_symbol_editor")
 	(generator_version "8.0")
-	(symbol "L_XFL3012-R47MEC"
+	(symbol "L_XFL3012-331ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-R47MEC"
+		(property "Symbol Name" "L_XFL3012-331ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -31,7 +31,7 @@
 				
 			)
 		)
-		(property "Value" "470nH"
+		(property "Value" "330 nH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -53,7 +53,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -64,7 +64,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 470nH ±20% 1.2mm RATED 5.50A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 330 nH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -75,7 +75,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-R47MEC"
+		(property "MPN" "XFL3012-331ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -97,7 +97,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "18.0mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -108,7 +108,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -119,7 +119,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-331ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -130,62 +130,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "5.50A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "7.00A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "470nH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2DR47MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-R47MEC_1_1"
+		(symbol "L_XFL3012-331ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -272,14 +217,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-R68MEC"
+	(symbol "L_XFL3012-561ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-R68MEC"
+		(property "Symbol Name" "L_XFL3012-561ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -301,7 +246,7 @@
 				
 			)
 		)
-		(property "Value" "680nH"
+		(property "Value" "560 nH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -323,7 +268,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -334,7 +279,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 680nH ±20% 1.2mm RATED 4.60A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 560 nH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -345,7 +290,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-R68MEC"
+		(property "MPN" "XFL3012-561ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -367,7 +312,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "23.0mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -378,7 +323,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -389,7 +334,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-561ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -400,62 +345,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "4.60A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "6.00A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "680nH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2DR68MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-R68MEC_1_1"
+		(symbol "L_XFL3012-561ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -542,14 +432,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-1R0MEC"
+	(symbol "L_XFL3012-681ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-1R0MEC"
+		(property "Symbol Name" "L_XFL3012-681ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -571,7 +461,7 @@
 				
 			)
 		)
-		(property "Value" "1.0µH"
+		(property "Value" "680 nH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -593,7 +483,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -604,7 +494,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 1.0µH ±20% 1.2mm RATED 3.80A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 680 nH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -615,7 +505,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-1R0MEC"
+		(property "MPN" "XFL3012-681ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -637,7 +527,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "29.0mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -648,7 +538,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -659,7 +549,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-681ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -670,62 +560,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "3.80A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "5.00A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "1.0µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D1R0MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-1R0MEC_1_1"
+		(symbol "L_XFL3012-681ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -812,14 +647,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-1R5MEC"
+	(symbol "L_XFL3012-102ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-1R5MEC"
+		(property "Symbol Name" "L_XFL3012-102ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -841,7 +676,7 @@
 				
 			)
 		)
-		(property "Value" "1.5µH"
+		(property "Value" "1 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -863,7 +698,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -874,7 +709,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 1.5µH ±20% 1.2mm RATED 3.20A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 1 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -885,7 +720,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-1R5MEC"
+		(property "MPN" "XFL3012-102ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -907,7 +742,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "38.0mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -918,7 +753,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -929,7 +764,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-102ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -940,62 +775,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "3.20A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "4.20A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "1.5µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D1R5MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-1R5MEC_1_1"
+		(symbol "L_XFL3012-102ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -1082,14 +862,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-2R2MEC"
+	(symbol "L_XFL3012-152ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-2R2MEC"
+		(property "Symbol Name" "L_XFL3012-152ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -1111,7 +891,7 @@
 				
 			)
 		)
-		(property "Value" "2.2µH"
+		(property "Value" "1.5 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -1133,7 +913,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -1144,7 +924,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 2.2µH ±20% 1.2mm RATED 2.70A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 1.5 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -1155,7 +935,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-2R2MEC"
+		(property "MPN" "XFL3012-152ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -1177,7 +957,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "52.0mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -1188,7 +968,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -1199,7 +979,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-152ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -1210,62 +990,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "2.70A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "3.50A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "2.2µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D2R2MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-2R2MEC_1_1"
+		(symbol "L_XFL3012-152ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -1352,14 +1077,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-3R3MEC"
+	(symbol "L_XFL3012-222ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-3R3MEC"
+		(property "Symbol Name" "L_XFL3012-222ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -1381,7 +1106,7 @@
 				
 			)
 		)
-		(property "Value" "3.3µH"
+		(property "Value" "2.2 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -1403,7 +1128,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -1414,7 +1139,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 3.3µH ±20% 1.2mm RATED 2.20A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 2.2 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -1425,7 +1150,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-3R3MEC"
+		(property "MPN" "XFL3012-222ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -1447,7 +1172,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "76.0mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -1458,7 +1183,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -1469,7 +1194,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-222ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -1480,62 +1205,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "2.20A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "2.90A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "3.3µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D3R3MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-3R3MEC_1_1"
+		(symbol "L_XFL3012-222ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -1622,14 +1292,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-4R7MEC"
+	(symbol "L_XFL3012-332ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-4R7MEC"
+		(property "Symbol Name" "L_XFL3012-332ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -1651,7 +1321,7 @@
 				
 			)
 		)
-		(property "Value" "4.7µH"
+		(property "Value" "3.3 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -1673,7 +1343,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -1684,7 +1354,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 4.7µH ±20% 1.2mm RATED 1.85A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 3.3 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -1695,7 +1365,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-4R7MEC"
+		(property "MPN" "XFL3012-332ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -1717,7 +1387,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "105mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -1728,7 +1398,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -1739,7 +1409,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-332ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -1750,62 +1420,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "1.85A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "2.40A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "4.7µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D4R7MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-4R7MEC_1_1"
+		(symbol "L_XFL3012-332ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -1892,14 +1507,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-6R8MEC"
+	(symbol "L_XFL3012-472ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-6R8MEC"
+		(property "Symbol Name" "L_XFL3012-472ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -1921,7 +1536,7 @@
 				
 			)
 		)
-		(property "Value" "6.8µH"
+		(property "Value" "4.7 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -1943,7 +1558,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -1954,7 +1569,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 6.8µH ±20% 1.2mm RATED 1.55A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 4.7 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -1965,7 +1580,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-6R8MEC"
+		(property "MPN" "XFL3012-472ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -1987,7 +1602,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "150mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -1998,7 +1613,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -2009,7 +1624,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-472ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -2020,62 +1635,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "1.55A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "2.00A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "6.8µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D6R8MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-6R8MEC_1_1"
+		(symbol "L_XFL3012-472ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -2162,14 +1722,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-100MEC"
+	(symbol "L_XFL3012-682ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-100MEC"
+		(property "Symbol Name" "L_XFL3012-682ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -2191,7 +1751,7 @@
 				
 			)
 		)
-		(property "Value" "10.0µH"
+		(property "Value" "6.8 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -2213,7 +1773,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -2224,7 +1784,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 10.0µH ±20% 1.2mm RATED 1.30A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 6.8 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -2235,7 +1795,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-100MEC"
+		(property "MPN" "XFL3012-682ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -2257,7 +1817,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "220mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -2268,7 +1828,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -2279,7 +1839,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-682ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -2290,62 +1850,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "1.30A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "1.70A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "10.0µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D100MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-100MEC_1_1"
+		(symbol "L_XFL3012-682ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -2432,14 +1937,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-150MEC"
+	(symbol "L_XFL3012-103ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-150MEC"
+		(property "Symbol Name" "L_XFL3012-103ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -2461,7 +1966,7 @@
 				
 			)
 		)
-		(property "Value" "15.0µH"
+		(property "Value" "10 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -2483,7 +1988,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -2494,7 +1999,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 15.0µH ±20% 1.2mm RATED 1.05A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 10 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -2505,7 +2010,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-150MEC"
+		(property "MPN" "XFL3012-103ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -2527,7 +2032,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "320mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -2538,7 +2043,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -2549,7 +2054,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-103ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -2560,62 +2065,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "1.05A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "1.40A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "15.0µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D150MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-150MEC_1_1"
+		(symbol "L_XFL3012-103ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -2702,14 +2152,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-220MEC"
+	(symbol "L_XFL3012-153ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-220MEC"
+		(property "Symbol Name" "L_XFL3012-153ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -2731,7 +2181,7 @@
 				
 			)
 		)
-		(property "Value" "22.0µH"
+		(property "Value" "15 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -2753,7 +2203,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -2764,7 +2214,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 22.0µH ±20% 1.2mm RATED 0.87A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 15 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -2775,7 +2225,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-220MEC"
+		(property "MPN" "XFL3012-153ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -2797,7 +2247,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "460mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -2808,7 +2258,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -2819,7 +2269,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-153ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -2830,62 +2280,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "0.87A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "1.15A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "22.0µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D220MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-220MEC_1_1"
+		(symbol "L_XFL3012-153ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -2972,14 +2367,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-330MEC"
+	(symbol "L_XFL3012-223ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-330MEC"
+		(property "Symbol Name" "L_XFL3012-223ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -3001,7 +2396,7 @@
 				
 			)
 		)
-		(property "Value" "33.0µH"
+		(property "Value" "22 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -3023,7 +2418,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -3034,7 +2429,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 33.0µH ±20% 1.2mm RATED 0.71A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 22 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -3045,7 +2440,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-330MEC"
+		(property "MPN" "XFL3012-223ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -3067,7 +2462,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "670mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -3078,7 +2473,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -3089,7 +2484,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-223ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -3100,62 +2495,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "0.71A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "0.94A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "33.0µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D330MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-330MEC_1_1"
+		(symbol "L_XFL3012-223ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -3242,14 +2582,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-470MEC"
+	(symbol "L_XFL3012-333ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-470MEC"
+		(property "Symbol Name" "L_XFL3012-333ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -3271,7 +2611,7 @@
 				
 			)
 		)
-		(property "Value" "47.0µH"
+		(property "Value" "33 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -3293,7 +2633,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -3304,7 +2644,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 47.0µH ±20% 1.2mm RATED 0.59A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 33 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -3315,7 +2655,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-470MEC"
+		(property "MPN" "XFL3012-333ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -3337,7 +2677,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "950mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -3348,7 +2688,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -3359,7 +2699,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-333ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -3370,62 +2710,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "0.59A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "0.78A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "47.0µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D470MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-470MEC_1_1"
+		(symbol "L_XFL3012-333ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -3512,14 +2797,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-680MEC"
+	(symbol "L_XFL3012-393ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-680MEC"
+		(property "Symbol Name" "L_XFL3012-393ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -3541,7 +2826,7 @@
 				
 			)
 		)
-		(property "Value" "68.0µH"
+		(property "Value" "39 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -3563,7 +2848,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -3574,7 +2859,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 68.0µH ±20% 1.2mm RATED 0.49A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 39 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -3585,7 +2870,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-680MEC"
+		(property "MPN" "XFL3012-393ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -3607,7 +2892,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "1350mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -3618,7 +2903,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -3629,7 +2914,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-393ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -3640,62 +2925,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Rated" "0.49A"
-			(at 0 -30.479999999999993 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Idc Saturated" "0.65A"
-			(at 0 -33.019999999999996 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Inductance" "68.0µH"
-			(at 0 -35.559999999999995 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D680MEC"
-			(at 0 -38.099999999999994 0)
-			(show_name)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(symbol "L_XFL3012-680MEC_1_1"
+		(symbol "L_XFL3012-393ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
@@ -3782,14 +3012,14 @@
 			)
 		)
 	)
-	(symbol "L_XFL3012-104MEC"
+	(symbol "L_XFL3012-473ME"
 		(pin_names
 			(offset 0.254)
 		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Symbol Name" "L_XFL3012-104MEC"
+		(property "Symbol Name" "L_XFL3012-473ME"
 			(at 0 -12.7 0)
 			(show_name)
 			(effects
@@ -3811,7 +3041,7 @@
 				
 			)
 		)
-		(property "Value" "100.0µH"
+		(property "Value" "47 µH"
 			(at 0 -2.54 0)
 			
 			(effects
@@ -3833,7 +3063,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.coilcraft.com/en-us/products/xfl3012/"
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
 			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
@@ -3844,7 +3074,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "INDUCTOR SMD 100.0µH ±20% 1.2mm RATED 0.39A AEC-Q200"
+		(property "Description" "INDUCTOR SMD 47 µH ±20% AEC-Q200"
 			(at 0 -10.16 0)
 			(show_name)
 			(effects
@@ -3855,7 +3085,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XFL3012-104MEC"
+		(property "MPN" "XFL3012-473ME"
 			(at 0 -15.239999999999998 0)
 			(show_name)
 			(effects
@@ -3877,7 +3107,7 @@
 				(hide yes)
 			)
 		)
-		(property "DCR Max" "3000mΩ"
+		(property "Series" "XFL3012"
 			(at 0 -20.319999999999997 0)
 			(show_name)
 			(effects
@@ -3888,7 +3118,7 @@
 				(hide yes)
 			)
 		)
-		(property "Series" "XFL3012"
+		(property "Tolerance" "±20%"
 			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
@@ -3899,7 +3129,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.2mm"
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-473ME"
 			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
@@ -3910,8 +3140,201 @@
 				(hide yes)
 			)
 		)
+		(symbol "L_XFL3012-473ME_1_1"
+			(arc
+				(start -2.54 0.0056)
+				(mid -3.81 1.27)
+				(end -5.08 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 0 0.0056)
+				(mid -1.27 1.27)
+				(end -2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 2.54 0.0056)
+				(mid 1.27 1.27)
+				(end 0 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 5.08 0.0056)
+				(mid 3.81 1.27)
+				(end 2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin unspecified line
+				(at -7.62 0 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin unspecified line
+				(at 7.62 0 180)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "L_XFL3012-563ME"
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "L_XFL3012-563ME"
+			(at 0 -12.7 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Reference" "L"
+			(at 0 2.54 0)
+			
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Value" "56 µH"
+			(at 0 -2.54 0)
+			
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Footprint" "footprints:L_Coilcraft_XFL3012"
+			(at 0 -5.08 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
+			(at 0.254 -7.62 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "INDUCTOR SMD 56 µH ±20% AEC-Q200"
+			(at 0 -10.16 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "MPN" "XFL3012-563ME"
+			(at 0 -15.239999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Coilcraft"
+			(at 0 -17.779999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Series" "XFL3012"
+			(at 0 -20.319999999999997 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 		(property "Tolerance" "±20%"
-			(at 0 -27.939999999999994 0)
+			(at 0 -22.859999999999996 0)
 			(show_name)
 			(effects
 				(font
@@ -3921,8 +3344,8 @@
 				(hide yes)
 			)
 		)
-		(property "Idc Rated" "0.39A"
-			(at 0 -30.479999999999993 0)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-563ME"
+			(at 0 -25.399999999999995 0)
 			(show_name)
 			(effects
 				(font
@@ -3932,8 +3355,102 @@
 				(hide yes)
 			)
 		)
-		(property "Idc Saturated" "0.54A"
-			(at 0 -33.019999999999996 0)
+		(symbol "L_XFL3012-563ME_1_1"
+			(arc
+				(start -2.54 0.0056)
+				(mid -3.81 1.27)
+				(end -5.08 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 0 0.0056)
+				(mid -1.27 1.27)
+				(end -2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 2.54 0.0056)
+				(mid 1.27 1.27)
+				(end 0 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 5.08 0.0056)
+				(mid 3.81 1.27)
+				(end 2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin unspecified line
+				(at -7.62 0 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin unspecified line
+				(at 7.62 0 180)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "L_XFL3012-683ME"
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "L_XFL3012-683ME"
+			(at 0 -12.7 0)
 			(show_name)
 			(effects
 				(font
@@ -3943,8 +3460,30 @@
 				(hide yes)
 			)
 		)
-		(property "Inductance" "100.0µH"
-			(at 0 -35.559999999999995 0)
+		(property "Reference" "L"
+			(at 0 2.54 0)
+			
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Value" "68 µH"
+			(at 0 -2.54 0)
+			
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Footprint" "footprints:L_Coilcraft_XFL3012"
+			(at 0 -5.08 0)
 			(show_name)
 			(effects
 				(font
@@ -3954,8 +3493,8 @@
 				(hide yes)
 			)
 		)
-		(property "TrustedParts Search" "https://www.trustedparts.com/en/search/Coilcraft/XFL3012%2D104MEC"
-			(at 0 -38.099999999999994 0)
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
+			(at 0.254 -7.62 0)
 			(show_name)
 			(effects
 				(font
@@ -3965,7 +3504,718 @@
 				(hide yes)
 			)
 		)
-		(symbol "L_XFL3012-104MEC_1_1"
+		(property "Description" "INDUCTOR SMD 68 µH ±20% AEC-Q200"
+			(at 0 -10.16 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "MPN" "XFL3012-683ME"
+			(at 0 -15.239999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Coilcraft"
+			(at 0 -17.779999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Series" "XFL3012"
+			(at 0 -20.319999999999997 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Tolerance" "±20%"
+			(at 0 -22.859999999999996 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-683ME"
+			(at 0 -25.399999999999995 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(symbol "L_XFL3012-683ME_1_1"
+			(arc
+				(start -2.54 0.0056)
+				(mid -3.81 1.27)
+				(end -5.08 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 0 0.0056)
+				(mid -1.27 1.27)
+				(end -2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 2.54 0.0056)
+				(mid 1.27 1.27)
+				(end 0 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 5.08 0.0056)
+				(mid 3.81 1.27)
+				(end 2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin unspecified line
+				(at -7.62 0 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin unspecified line
+				(at 7.62 0 180)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "L_XFL3012-823ME"
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "L_XFL3012-823ME"
+			(at 0 -12.7 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Reference" "L"
+			(at 0 2.54 0)
+			
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Value" "82 µH"
+			(at 0 -2.54 0)
+			
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Footprint" "footprints:L_Coilcraft_XFL3012"
+			(at 0 -5.08 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
+			(at 0.254 -7.62 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "INDUCTOR SMD 82 µH ±20% AEC-Q200"
+			(at 0 -10.16 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "MPN" "XFL3012-823ME"
+			(at 0 -15.239999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Coilcraft"
+			(at 0 -17.779999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Series" "XFL3012"
+			(at 0 -20.319999999999997 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Tolerance" "±20%"
+			(at 0 -22.859999999999996 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-823ME"
+			(at 0 -25.399999999999995 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(symbol "L_XFL3012-823ME_1_1"
+			(arc
+				(start -2.54 0.0056)
+				(mid -3.81 1.27)
+				(end -5.08 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 0 0.0056)
+				(mid -1.27 1.27)
+				(end -2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 2.54 0.0056)
+				(mid 1.27 1.27)
+				(end 0 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 5.08 0.0056)
+				(mid 3.81 1.27)
+				(end 2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin unspecified line
+				(at -7.62 0 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin unspecified line
+				(at 7.62 0 180)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "L_XFL3012-104ME"
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "L_XFL3012-104ME"
+			(at 0 -12.7 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Reference" "L"
+			(at 0 2.54 0)
+			
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Value" "100 µH"
+			(at 0 -2.54 0)
+			
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Footprint" "footprints:L_Coilcraft_XFL3012"
+			(at 0 -5.08 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
+			(at 0.254 -7.62 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "INDUCTOR SMD 100 µH ±20% AEC-Q200"
+			(at 0 -10.16 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "MPN" "XFL3012-104ME"
+			(at 0 -15.239999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Coilcraft"
+			(at 0 -17.779999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Series" "XFL3012"
+			(at 0 -20.319999999999997 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Tolerance" "±20%"
+			(at 0 -22.859999999999996 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-104ME"
+			(at 0 -25.399999999999995 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(symbol "L_XFL3012-104ME_1_1"
+			(arc
+				(start -2.54 0.0056)
+				(mid -3.81 1.27)
+				(end -5.08 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 0 0.0056)
+				(mid -1.27 1.27)
+				(end -2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 2.54 0.0056)
+				(mid 1.27 1.27)
+				(end 0 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 5.08 0.0056)
+				(mid 3.81 1.27)
+				(end 2.54 0.0056)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin unspecified line
+				(at -7.62 0 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin unspecified line
+				(at 7.62 0 180)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "L_XFL3012-224ME"
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "L_XFL3012-224ME"
+			(at 0 -12.7 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Reference" "L"
+			(at 0 2.54 0)
+			
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Value" "220 µH"
+			(at 0 -2.54 0)
+			
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				
+			)
+		)
+		(property "Footprint" "footprints:L_Coilcraft_XFL3012"
+			(at 0 -5.08 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.coilcraft.com/getmedia/f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf"
+			(at 0.254 -7.62 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "INDUCTOR SMD 220 µH ±20% AEC-Q200"
+			(at 0 -10.16 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "MPN" "XFL3012-224ME"
+			(at 0 -15.239999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Coilcraft"
+			(at 0 -17.779999999999998 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Series" "XFL3012"
+			(at 0 -20.319999999999997 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Tolerance" "±20%"
+			(at 0 -22.859999999999996 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL3012-224ME"
+			(at 0 -25.399999999999995 0)
+			(show_name)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(symbol "L_XFL3012-224ME_1_1"
 			(arc
 				(start -2.54 0.0056)
 				(mid -3.81 1.27)
