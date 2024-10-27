@@ -320,12 +320,7 @@ def generate_capacitance_code(capacitance: float) -> str:
         capacitance: Capacitance value in Farads
 
     Returns:
-        Three-character code representing the capacitance value
-
-    Format:
-        - Values < 10pF: Use R notation (e.g., 1R5 for 1.5pF)
-        - Values ≥ 10pF and < 1000pF: Direct pF value (e.g., 101)
-        - Values ≥ 1000pF: First two digits + zeros (e.g., 102)
+        str: Three-character code representing the capacitance value
     """
     # Convert to picofarads
     pf_value = capacitance * 1e12
@@ -397,8 +392,14 @@ def generate_standard_values(
         excluded_values: Set of values to exclude from output
 
     Yields:
-        Standard E12 series values between min and max,
-        excluding specified values
+        float:
+            Standard E12 series values between min and max,
+            excluding specified values
+
+    Note:
+        Values are normalized to avoid floating point precision issues.
+        The function uses the E12 series multipliers:
+            1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
     """
     e12_multipliers: Final[List[float]] = [
         1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
@@ -536,10 +537,16 @@ def write_to_csv(
 
     Args:
         parts_list: List of parts to write
-        output_file: Output filename
+        output_file: Output filename (will be created in 'data' subdirectory)
         encoding: Character encoding for file (default: utf-8)
 
-    The file is created in the 'data' subdirectory.
+    Raises:
+        IOError: If the data directory doesn't exist or isn't writable
+        csv.Error: If there are issues writing the CSV data
+
+    Note:
+        The file is created in the 'data' subdirectory, which must exist.
+        Existing files with the same name will be overwritten.
     """
     headers: Final[List[str]] = [
         'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
@@ -586,8 +593,12 @@ def generate_files_for_series(
     Raises:
         ValueError: If series_name is not found in SERIES_SPECS
         FileNotFoundError: If CSV file creation fails
-        csv.Error: If CSV processing fails
-        IOError: If file operations fail
+        csv.Error: If CSV processing fails or data formatting is invalid
+        IOError: If file operations fail due to permissions or disk space
+
+    Note:
+        Generated files are saved in 'data/' and 'series_kicad_sym/'
+        directories. The directories must exist before running this function.
     """
     if series_name not in SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
@@ -623,16 +634,20 @@ def generate_unified_files(all_parts: List[PartInfo]) -> None:
     """Generate unified CSV and KiCad files containing all series.
 
     Args:
-        all_parts: Complete list of parts to include
-
-    Creates:
-        - UNITED_CAPACITORS_DATA_BASE.csv
-        - UNITED_CAPACITORS_DATA_BASE.kicad_sym
+        all_parts: Complete list of parts to include in unified files
 
     Raises:
         FileNotFoundError: If CSV file creation fails
-        csv.Error: If CSV processing fails
-        IOError: If file operations fail
+        csv.Error: If CSV processing fails or data formatting is invalid
+        IOError: If file operations fail due to permissions or disk space
+
+    Note:
+        Creates two files:
+        - data/UNITED_CAPACITORS_DATA_BASE.csv
+        - UNITED_CAPACITORS_DATA_BASE.kicad_sym
+
+        The 'data' directory must exist before running this function.
+        Existing files will be overwritten.
     """
     unified_csv = "UNITED_CAPACITORS_DATA_BASE.csv"
     unified_symbol = "UNITED_CAPACITORS_DATA_BASE.kicad_sym"
