@@ -67,6 +67,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             22.0, 33.0, 47.0, 68.0, 82.0, 100.0
         ],
         trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XFL4012": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL4012",
+        footprint="footprints:XFL4012",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "2d7c4d90-1677-4c05-9569-33b6dc7153e7/xfl4012.pdf",
+        inductance_values=[
+            0.12, 0.25, 0.47, 0.6
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
     )
 }
 
@@ -108,7 +120,10 @@ def generate_value_code(
     if inductance < 1:
         nh_value = inductance * 1000
         value_codes = {
+            120: "121",
+            250: "251",
             330: "331",
+            470: "471",
             560: "561",
             600: "601",
             680: "681"
