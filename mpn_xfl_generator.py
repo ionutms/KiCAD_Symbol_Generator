@@ -16,6 +16,7 @@ import kicad_inductor_symbol_generator as ki_isg
 @dataclass
 class SeriesSpec:
     """Inductor series specifications."""
+    manufacturer: str
     base_series: str
     footprint: str
     tolerance: str
@@ -40,11 +41,11 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-MANUFACTURER: Final[str] = "Coilcraft"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
-SERIES_CATALOG: Dict[str, SeriesSpec] = {
+SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL3012": SeriesSpec(
+        manufacturer="Coilcraft",
         base_series="XFL3012",
         footprint="footprints:XFL3012",
         tolerance="±20%",
@@ -57,6 +58,7 @@ SERIES_CATALOG: Dict[str, SeriesSpec] = {
         ]
     ),
     "XFL3010": SeriesSpec(
+        manufacturer="Coilcraft",
         base_series="XFL3010",
         footprint="footprints:XFL3010",
         tolerance="±20%",
@@ -207,7 +209,7 @@ def create_part_info(
         footprint=specs.footprint,
         datasheet=specs.datasheet,
         description=create_description(inductance, specs, is_aec),
-        manufacturer=MANUFACTURER,
+        manufacturer=specs.manufacturer,
         mpn=mpn,
         tolerance=specs.tolerance,
         series=specs.base_series,
@@ -292,10 +294,10 @@ def generate_files_for_series(
         is_aec: If True, generate AEC-Q200 qualified parts
         unified_parts_list: List to store generated parts for unified database
     """
-    if series_name not in SERIES_CATALOG:
+    if series_name not in SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = SERIES_CATALOG[series_name]
+    specs = SERIES_SPECS[series_name]
     csv_filename = f"{specs.base_series}_part_numbers.csv"
     symbol_filename = f"INDUCTORS_{specs.base_series}_DATA_BASE.kicad_sym"
 
@@ -362,7 +364,7 @@ if __name__ == "__main__":
         unified_parts: List[PartInfo] = []
 
         # Generate files for both series
-        for series in SERIES_CATALOG:
+        for series in SERIES_SPECS:
             print(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, True, unified_parts)
 
