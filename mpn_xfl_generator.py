@@ -115,6 +115,30 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.47, 1.0, 2.0, 3.0, 4.7
         ],
         trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XFL5015": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL5015",
+        footprint="footprints:XFL5015",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "5f7b596c-8f2f-415e-931e-74a5b6804936/xfl5015.pdf",
+        inductance_values=[
+            0.22, 0.42, 0.68, 1.2, 1.5
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XFL5018": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL5018",
+        footprint="footprints:XFL5018",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "5f7b596c-8f2f-415e-931e-74a5b6804936/xfl5015.pdf",
+        inductance_values=[
+            2.2, 3.3
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
     )
 }
 
@@ -158,9 +182,11 @@ def generate_value_code(
         value_codes = {
             120: "121",
             180: "181",
+            220: "221",
             240: "241",
             250: "251",
             330: "331",
+            420: "421",
             470: "471",
             560: "561",
             600: "601",
