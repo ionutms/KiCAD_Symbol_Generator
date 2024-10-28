@@ -8,19 +8,19 @@ Generates both individual series files and unified component database.
 """
 
 import csv
-from typing import List, NamedTuple, Final, Dict
-from dataclasses import dataclass
+from typing import List, NamedTuple, Dict
 import kicad_inductor_symbol_generator as ki_isg
 
 
-@dataclass
-class SeriesSpec:
+class SeriesSpec(NamedTuple):
     """Inductor series specifications."""
+    manufacturer: str
     base_series: str
     footprint: str
     tolerance: str
     datasheet: str
     inductance_values: List[float]
+    trustedparts_link: str
     has_aec: bool = True
     value_suffix: str = "ME"
 
@@ -40,11 +40,9 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-MANUFACTURER: Final[str] = "Coilcraft"
-TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
-
-SERIES_CATALOG: Dict[str, SeriesSpec] = {
+SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL3012": SeriesSpec(
+        manufacturer="Coilcraft",
         base_series="XFL3012",
         footprint="footprints:XFL3012",
         tolerance="±20%",
@@ -54,9 +52,11 @@ SERIES_CATALOG: Dict[str, SeriesSpec] = {
             0.33, 0.56, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8,
             10.0, 15.0, 22.0, 33.0, 39.0, 47.0, 56.0, 68.0,
             82.0, 100.0, 220.0
-        ]
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL3010": SeriesSpec(
+        manufacturer="Coilcraft",
         base_series="XFL3010",
         footprint="footprints:XFL3010",
         tolerance="±20%",
@@ -65,7 +65,8 @@ SERIES_CATALOG: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.60, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10.0, 15.0,
             22.0, 33.0, 47.0, 68.0, 82.0, 100.0
-        ]
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
     )
 }
 
@@ -198,7 +199,7 @@ def create_part_info(
         specs.value_suffix
     )
     mpn = f"{specs.base_series}-{value_code}"
-    trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
+    trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     return PartInfo(
         symbol_name=f"L_{mpn}",
@@ -207,7 +208,7 @@ def create_part_info(
         footprint=specs.footprint,
         datasheet=specs.datasheet,
         description=create_description(inductance, specs, is_aec),
-        manufacturer=MANUFACTURER,
+        manufacturer=specs.manufacturer,
         mpn=mpn,
         tolerance=specs.tolerance,
         series=specs.base_series,
@@ -292,10 +293,10 @@ def generate_files_for_series(
         is_aec: If True, generate AEC-Q200 qualified parts
         unified_parts_list: List to store generated parts for unified database
     """
-    if series_name not in SERIES_CATALOG:
+    if series_name not in SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = SERIES_CATALOG[series_name]
+    specs = SERIES_SPECS[series_name]
     csv_filename = f"{specs.base_series}_part_numbers.csv"
     symbol_filename = f"INDUCTORS_{specs.base_series}_DATA_BASE.kicad_sym"
 
@@ -362,7 +363,7 @@ if __name__ == "__main__":
         unified_parts: List[PartInfo] = []
 
         # Generate files for both series
-        for series in SERIES_CATALOG:
+        for series in SERIES_SPECS:
             print(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, True, unified_parts)
 

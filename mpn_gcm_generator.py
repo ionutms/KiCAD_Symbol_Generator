@@ -70,6 +70,7 @@ class SeriesSpec(NamedTuple):
 
     Attributes:
         base_series: Base part number series
+        manufacturer: Component manufacturer name
         footprint: PCB footprint identifier
         voltage_rating: Maximum voltage specification
         case_code_in: Package dimensions (inches)
@@ -80,9 +81,11 @@ class SeriesSpec(NamedTuple):
         voltage_code: Voltage rating code for part number
         dielectric_code: Dielectric material codes per series type
         excluded_values: Set of unsupported capacitance values
-        datasheet_url: URL to the series datasheet
+        datasheet_url: Complete URL to the series datasheet
+        trustedparts_url: Base URL for component listing on Trustedparts
     """
     base_series: str
+    manufacturer: str
     footprint: str
     voltage_rating: str
     case_code_in: str
@@ -94,6 +97,7 @@ class SeriesSpec(NamedTuple):
     dielectric_code: Dict[SeriesType, str]
     excluded_values: Set[float]
     datasheet_url: str
+    trustedparts_url: str
 
 
 @dataclass
@@ -114,13 +118,6 @@ class PartParameters:
     packaging: str
     series_type: SeriesType
     specs: SeriesSpec
-
-
-# Constants
-MANUFACTURER: Final[str] = "Murata Electronics"
-TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
-DATASHEET_BASE_URL: Final[str] = \
-    "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
 
 
 @dataclass(frozen=True)
@@ -166,6 +163,7 @@ CHARACTERISTIC_CONFIGS: Final[Dict[str, List[CharacteristicThreshold]]] = {
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM155": SeriesSpec(
         base_series="GCM155",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_0402_1005Metric",
         voltage_rating="50V",
         case_code_in="0402",
@@ -188,10 +186,12 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             82e-9   # 82 nF
         },
         datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM155"
+        "image/img/A01X/G101/ENG/GCM155",
+        trustedparts_url="https://www.trustedparts.com/en/search"
     ),
     "GCM188": SeriesSpec(
         base_series="GCM188",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_0603_1608Metric",
         voltage_rating="50V",
         case_code_in="0603",
@@ -212,10 +212,12 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             180e-9,  # 180 nF,
         },
         datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM188"
+        "image/img/A01X/G101/ENG/GCM188",
+        trustedparts_url="https://www.trustedparts.com/en/search"
     ),
     "GCM216": SeriesSpec(
         base_series="GCM216",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_0805_2012Metric",
         voltage_rating="50V",
         case_code_in="0805",
@@ -233,10 +235,12 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         },
         excluded_values={},
         datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM216"
+        "image/img/A01X/G101/ENG/GCM216",
+        trustedparts_url="https://www.trustedparts.com/en/search"
     ),
     "GCM31M": SeriesSpec(
         base_series="GCM31M",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_1206_3216Metric",
         voltage_rating="50V",
         case_code_in="1206",
@@ -257,10 +261,12 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             560e-9,  # 560 nF,
         },
         datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM31M"
+        "image/img/A01X/G101/ENG/GCM31M",
+        trustedparts_url="https://www.trustedparts.com/en/search"
     ),
     "GCM31C": SeriesSpec(
         base_series="GCM31C",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_1206_3216Metric",
         voltage_rating="25V",
         case_code_in="1206",
@@ -278,7 +284,8 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         },
         excluded_values=set(),
         datasheet_url="https://search.murata.co.jp/Ceramy/" +
-        "image/img/A01X/G101/ENG/GCM31C"
+        "image/img/A01X/G101/ENG/GCM31C",
+        trustedparts_url="https://www.trustedparts.com/en/search"
     ),
 }
 
@@ -468,7 +475,7 @@ def create_part_info(params: PartParameters) -> PartInfo:
         f"{params.series_type.value} {params.tolerance_value} "
         f"{params.specs.case_code_in} {params.specs.voltage_rating}"
     )
-    trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
+    trustedparts_link = f"{params.specs.trustedparts_url}/{mpn}"
     datasheet_url = generate_datasheet_url(mpn, params.specs)
 
     return PartInfo(
@@ -479,7 +486,7 @@ def create_part_info(params: PartParameters) -> PartInfo:
         footprint=params.specs.footprint,
         datasheet=datasheet_url,
         description=description,
-        manufacturer=MANUFACTURER,
+        manufacturer=params.specs.manufacturer,
         mpn=mpn,
         dielectric=params.series_type.value,
         tolerance=params.tolerance_value,

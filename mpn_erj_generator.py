@@ -61,12 +61,9 @@ class SeriesSpec(NamedTuple):
     packaging_options: List[str]
     tolerance_map: Dict[SeriesType, Dict[str, str]]
     datasheet: str
+    manufacturer: str
+    trustedparts_url: str
     high_resistance_tolerance: Dict[str, str] | None = None
-
-
-# Constants
-MANUFACTURER: Final[str] = "Panasonic"
-TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
 
 # Series specifications
@@ -86,6 +83,8 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         },
         datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
         "RDA0000/AOA0000C304.pdf",
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"
     ),
     "ERJ-3EK": SeriesSpec(
         base_series="ERJ-3EK",
@@ -102,6 +101,8 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         },
         datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
         "RDA0000/AOA0000C304.pdf",
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"
     ),
     "ERJ-6EN": SeriesSpec(
         base_series="ERJ-6EN",
@@ -118,6 +119,8 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         },
         datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
         "RDA0000/AOA0000C304.pdf",
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/",
         high_resistance_tolerance={'F': '1%'}
     ),
     "ERJ-P08": SeriesSpec(
@@ -136,7 +139,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"
-        )
+        ),
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"
     ),
     "ERJ-P06": SeriesSpec(
         base_series="ERJ-P06",
@@ -154,7 +159,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"
-        )
+        ),
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"
     ),
     "ERJ-P03": SeriesSpec(
         base_series="ERJ-P03",
@@ -172,7 +179,9 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"
-        )
+        ),
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"
     ),
 }
 
@@ -321,7 +330,7 @@ def create_part_info(
         f"RES SMD {format_resistance_value(resistance)} "
         f"{tolerance_value} {specs.case_code_in} {specs.voltage_rating}"
     )
-    trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
+    trustedparts_link = f"{specs.trustedparts_url}{mpn}"
 
     return PartInfo(
         symbol_name=symbol_name,
@@ -330,7 +339,7 @@ def create_part_info(
         footprint=specs.footprint,
         datasheet=specs.datasheet,
         description=description,
-        manufacturer=MANUFACTURER,
+        manufacturer=specs.manufacturer,
         mpn=mpn,
         tolerance=tolerance_value,
         voltage_rating=specs.voltage_rating,
