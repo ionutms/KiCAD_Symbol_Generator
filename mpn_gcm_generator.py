@@ -70,6 +70,7 @@ class SeriesSpec(NamedTuple):
 
     Attributes:
         base_series: Base part number series
+        manufacturer: Component manufacturer name
         footprint: PCB footprint identifier
         voltage_rating: Maximum voltage specification
         case_code_in: Package dimensions (inches)
@@ -83,6 +84,7 @@ class SeriesSpec(NamedTuple):
         datasheet_url: URL to the series datasheet
     """
     base_series: str
+    manufacturer: str
     footprint: str
     voltage_rating: str
     case_code_in: str
@@ -117,7 +119,6 @@ class PartParameters:
 
 
 # Constants
-MANUFACTURER: Final[str] = "Murata Electronics"
 TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 DATASHEET_BASE_URL: Final[str] = \
     "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
@@ -166,6 +167,7 @@ CHARACTERISTIC_CONFIGS: Final[Dict[str, List[CharacteristicThreshold]]] = {
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM155": SeriesSpec(
         base_series="GCM155",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_0402_1005Metric",
         voltage_rating="50V",
         case_code_in="0402",
@@ -192,6 +194,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "GCM188": SeriesSpec(
         base_series="GCM188",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_0603_1608Metric",
         voltage_rating="50V",
         case_code_in="0603",
@@ -216,6 +219,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "GCM216": SeriesSpec(
         base_series="GCM216",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_0805_2012Metric",
         voltage_rating="50V",
         case_code_in="0805",
@@ -237,6 +241,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "GCM31M": SeriesSpec(
         base_series="GCM31M",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_1206_3216Metric",
         voltage_rating="50V",
         case_code_in="1206",
@@ -261,6 +266,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "GCM31C": SeriesSpec(
         base_series="GCM31C",
+        manufacturer="Murata Electronics",
         footprint="footprints:C_1206_3216Metric",
         voltage_rating="25V",
         case_code_in="1206",
@@ -479,7 +485,7 @@ def create_part_info(params: PartParameters) -> PartInfo:
         footprint=params.specs.footprint,
         datasheet=datasheet_url,
         description=description,
-        manufacturer=MANUFACTURER,
+        manufacturer=params.specs.manufacturer,
         mpn=mpn,
         dielectric=params.series_type.value,
         tolerance=params.tolerance_value,
