@@ -8,7 +8,7 @@ Generates both individual series files and unified component database.
 """
 
 import csv
-from typing import List, NamedTuple, Final, Dict
+from typing import List, NamedTuple, Dict
 from dataclasses import dataclass
 import kicad_inductor_symbol_generator as ki_isg
 
@@ -24,6 +24,7 @@ class SeriesSpec:
     inductance_values: List[float]
     has_aec: bool = True
     value_suffix: str = "ME"
+    trustedparts_base_url: str = "https://www.trustedparts.com/en/search/"
 
 
 class PartInfo(NamedTuple):
@@ -40,8 +41,6 @@ class PartInfo(NamedTuple):
     series: str
     trustedparts_link: str
 
-
-TRUSTEDPARTS_BASE_URL: Final[str] = "https://www.trustedparts.com/en/search/"
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL3012": SeriesSpec(
@@ -200,7 +199,7 @@ def create_part_info(
         specs.value_suffix
     )
     mpn = f"{specs.base_series}-{value_code}"
-    trustedparts_link = f"{TRUSTEDPARTS_BASE_URL}{mpn}"
+    trustedparts_link = f"{specs.trustedparts_base_url}{mpn}"
 
     return PartInfo(
         symbol_name=f"L_{mpn}",
