@@ -176,6 +176,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         ],
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
+    "XFL7015": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL7015",
+        footprint="footprints:XFL7015",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "ccf09628-6e8c-462a-9dc9-fa4346e7cf0a/xfl7015.pdf",
+        inductance_values=[
+            0.25, 0.47, 0.68, 1.0, 1.5
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
 }
 
 
