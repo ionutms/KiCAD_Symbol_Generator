@@ -9,12 +9,10 @@ Generates both individual series files and unified component database.
 
 import csv
 from typing import List, NamedTuple, Dict
-from dataclasses import dataclass
 import kicad_inductor_symbol_generator as ki_isg
 
 
-@dataclass
-class SeriesSpec:
+class SeriesSpec(NamedTuple):
     """Inductor series specifications."""
     manufacturer: str
     base_series: str
@@ -22,9 +20,9 @@ class SeriesSpec:
     tolerance: str
     datasheet: str
     inductance_values: List[float]
+    trustedparts_link: str
     has_aec: bool = True
     value_suffix: str = "ME"
-    trustedparts_base_url: str = "https://www.trustedparts.com/en/search/"
 
 
 class PartInfo(NamedTuple):
@@ -54,7 +52,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.33, 0.56, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8,
             10.0, 15.0, 22.0, 33.0, 39.0, 47.0, 56.0, 68.0,
             82.0, 100.0, 220.0
-        ]
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL3010": SeriesSpec(
         manufacturer="Coilcraft",
@@ -66,7 +65,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.60, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10.0, 15.0,
             22.0, 33.0, 47.0, 68.0, 82.0, 100.0
-        ]
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
     )
 }
 
@@ -199,7 +199,7 @@ def create_part_info(
         specs.value_suffix
     )
     mpn = f"{specs.base_series}-{value_code}"
-    trustedparts_link = f"{specs.trustedparts_base_url}{mpn}"
+    trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     return PartInfo(
         symbol_name=f"L_{mpn}",
