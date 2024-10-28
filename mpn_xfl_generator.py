@@ -79,6 +79,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.12, 0.25, 0.47, 0.6
         ],
         trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XFL4015": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL4015",
+        footprint="footprints:XFL4015",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "84927b8b-f089-421b-a7f4-a0fa23afe908/xfl4015.pdf",
+        inductance_values=[
+            0.18, 0.33, 0.47, 0.7, 1.2
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
     )
 }
 
@@ -121,12 +133,14 @@ def generate_value_code(
         nh_value = inductance * 1000
         value_codes = {
             120: "121",
+            180: "181",
             250: "251",
             330: "331",
             470: "471",
             560: "561",
             600: "601",
-            680: "681"
+            680: "681",
+            700: "701"
         }
         base_code = value_codes.get(int(nh_value))
         if base_code is None:
@@ -134,6 +148,7 @@ def generate_value_code(
     elif inductance < 10:
         value_codes = {
             1.0: "102",
+            1.2: "122",
             1.5: "152",
             2.2: "222",
             3.3: "332",
