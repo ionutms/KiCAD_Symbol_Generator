@@ -152,6 +152,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         ],
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
+    "XFL6012": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL6012",
+        footprint="footprints:XFL6012",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "ae4a44fc-deeb-45d7-81a6-abe1d0432add/xfl6012.pdf",
+        inductance_values=[
+            0.18, 0.39, 0.6, 0.8, 1.0
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
 }
 
 
@@ -199,12 +211,14 @@ def generate_value_code(
             250: "251",
             270: "271",
             330: "331",
+            390: "391",
             420: "421",
             470: "471",
             560: "561",
             600: "601",
             680: "681",
-            700: "701"
+            700: "701",
+            800: "801"
         }
         base_code = value_codes.get(int(nh_value))
         if base_code is None:
