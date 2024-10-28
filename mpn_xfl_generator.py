@@ -164,6 +164,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         ],
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
+    "XFL6060": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL6060",
+        footprint="footprints:XFL6060",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "9e8cc1df-cee0-4215-90fb-b5193fa22761/xfl6060-473.pdf",
+        inductance_values=[
+            47.0
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
 }
 
 
