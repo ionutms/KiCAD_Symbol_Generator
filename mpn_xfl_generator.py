@@ -103,6 +103,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.12, 0.24, 0.33, 0.47, 0.56, 1.0, 1.5, 2.2, 3.3, 4.7
         ],
         trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XFL4030": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL4030",
+        footprint="footprints:XFL4030",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "d12f7f67-cfc1-404a-9993-f09a1451b0a9/xfl4030.pdf",
+        inductance_values=[
+            0.47, 1.0, 2.0, 3.0, 4.7
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
     )
 }
 
@@ -163,7 +175,9 @@ def generate_value_code(
             1.0: "102",
             1.2: "122",
             1.5: "152",
+            2.0: "202",
             2.2: "222",
+            3.0: "302",
             3.3: "332",
             4.7: "472",
             6.8: "682",
