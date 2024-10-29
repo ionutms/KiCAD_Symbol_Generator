@@ -16,88 +16,9 @@ Features:
 
 import csv
 from dataclasses import dataclass
-from typing import List, NamedTuple, Final, Iterator, Dict, Set
-from enum import Enum
+from typing import List, Final, Iterator, Dict, Set
 import kicad_capacitor_symbol_generator as ki_csg
-
-
-class SeriesType(Enum):
-    """Enumeration of supported capacitor series dielectric types."""
-    X7R = "X7R"
-
-
-class PartInfo(NamedTuple):
-    """Container for capacitor part information.
-
-    Attributes:
-        symbol_name: KiCad symbol identifier
-        reference: Component reference designator
-        value: Capacitance value in Farads
-        formatted_value: Human-readable capacitance value with units
-        footprint: PCB footprint reference
-        datasheet: URL to component datasheet
-        description: Component description text
-        manufacturer: Component manufacturer name
-        mpn: Manufacturer part number
-        dielectric: Dielectric material type
-        tolerance: Component tolerance value
-        voltage_rating: Maximum voltage rating
-        case_code_in: Package size in inches
-        case_code_mm: Package size in millimeters
-        series: Component series identifier
-        trustedparts_link: URL to component listing
-    """
-    symbol_name: str
-    reference: str
-    value: float
-    formatted_value: str
-    footprint: str
-    datasheet: str
-    description: str
-    manufacturer: str
-    mpn: str
-    dielectric: str
-    tolerance: str
-    voltage_rating: str
-    case_code_in: str
-    case_code_mm: str
-    series: str
-    trustedparts_link: str
-
-
-class SeriesSpec(NamedTuple):
-    """Specifications defining a capacitor series.
-
-    Attributes:
-        base_series: Base part number series
-        manufacturer: Component manufacturer name
-        footprint: PCB footprint identifier
-        voltage_rating: Maximum voltage specification
-        case_code_in: Package dimensions (inches)
-        case_code_mm: Package dimensions (millimeters)
-        packaging_options: Available packaging codes
-        tolerance_map: Mapping of series types to tolerance codes and values
-        value_range: Valid capacitance range per series type
-        voltage_code: Voltage rating code for part number
-        dielectric_code: Dielectric material codes per series type
-        excluded_values: Set of unsupported capacitance values
-        datasheet_url: Complete URL to the series datasheet
-        trustedparts_url: Base URL for component listing on Trustedparts
-    """
-    base_series: str
-    manufacturer: str
-    footprint: str
-    voltage_rating: str
-    case_code_in: str
-    case_code_mm: str
-    packaging_options: List[str]
-    tolerance_map: Dict[SeriesType, Dict[str, str]]
-    value_range: Dict[SeriesType, tuple[float, float]]
-    voltage_code: str
-    dielectric_code: Dict[SeriesType, str]
-    excluded_values: Set[float]
-    datasheet_url: str
-    trustedparts_url: str
+import series_specs_capacitors as ssc
 
 
 @dataclass
@@ -116,8 +37,8 @@ class PartParameters:
     tolerance_code: str
     tolerance_value: str
     packaging: str
-    series_type: SeriesType
-    specs: SeriesSpec
+    series_type: ssc.SeriesType
+    specs: ssc.SeriesSpec
 
 
 @dataclass(frozen=True)
@@ -157,136 +78,6 @@ CHARACTERISTIC_CONFIGS: Final[Dict[str, List[CharacteristicThreshold]]] = {
         CharacteristicThreshold(4.7e-6, "A55"),
         CharacteristicThreshold(0, "A55")
     ]
-}
-
-# Series specifications
-SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
-    "GCM155": SeriesSpec(
-        base_series="GCM155",
-        manufacturer="Murata Electronics",
-        footprint="footprints:C_0402_1005Metric",
-        voltage_rating="50V",
-        case_code_in="0402",
-        case_code_mm="1005",
-        packaging_options=['D', 'J'],
-        tolerance_map={
-            SeriesType.X7R: {'K': '10%'}
-        },
-        value_range={
-            SeriesType.X7R: (220e-12, 0.1e-6)  # 220pF to 0.1µF
-        },
-        voltage_code="1H",
-        dielectric_code={
-            SeriesType.X7R: "R7"
-        },
-        excluded_values={
-            27e-9,  # 27 nF
-            39e-9,  # 39 nF
-            56e-9,  # 56 nF
-            82e-9   # 82 nF
-        },
-        datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM155",
-        trustedparts_url="https://www.trustedparts.com/en/search"
-    ),
-    "GCM188": SeriesSpec(
-        base_series="GCM188",
-        manufacturer="Murata Electronics",
-        footprint="footprints:C_0603_1608Metric",
-        voltage_rating="50V",
-        case_code_in="0603",
-        case_code_mm="1608",
-        packaging_options=['D', 'J'],
-        tolerance_map={
-            SeriesType.X7R: {'K': '10%'}
-        },
-        value_range={
-            SeriesType.X7R: (1e-9, 220e-9)  # Updated: 1nF to 220nF
-        },
-        voltage_code="1H",
-        dielectric_code={
-            SeriesType.X7R: "R7"
-        },
-        excluded_values={
-            120e-9,  # 120 nF
-            180e-9,  # 180 nF,
-        },
-        datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM188",
-        trustedparts_url="https://www.trustedparts.com/en/search"
-    ),
-    "GCM216": SeriesSpec(
-        base_series="GCM216",
-        manufacturer="Murata Electronics",
-        footprint="footprints:C_0805_2012Metric",
-        voltage_rating="50V",
-        case_code_in="0805",
-        case_code_mm="2012",
-        packaging_options=['D', 'J'],
-        tolerance_map={
-            SeriesType.X7R: {'K': '10%'}
-        },
-        value_range={
-            SeriesType.X7R: (1e-9, 22e-9)  # 1nF to 22nF
-        },
-        voltage_code="1H",
-        dielectric_code={
-            SeriesType.X7R: "R7"
-        },
-        excluded_values={},
-        datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM216",
-        trustedparts_url="https://www.trustedparts.com/en/search"
-    ),
-    "GCM31M": SeriesSpec(
-        base_series="GCM31M",
-        manufacturer="Murata Electronics",
-        footprint="footprints:C_1206_3216Metric",
-        voltage_rating="50V",
-        case_code_in="1206",
-        case_code_mm="3216",
-        packaging_options=['K', 'L'],
-        tolerance_map={
-            SeriesType.X7R: {'K': '10%'}
-        },
-        value_range={
-            SeriesType.X7R: (100e-9, 1e-6)  # 100nF to 1µF
-        },
-        voltage_code="1H",
-        dielectric_code={
-            SeriesType.X7R: "R7"
-        },
-        excluded_values={
-            180e-9,  # 180 nF
-            560e-9,  # 560 nF,
-        },
-        datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM31M",
-        trustedparts_url="https://www.trustedparts.com/en/search"
-    ),
-    "GCM31C": SeriesSpec(
-        base_series="GCM31C",
-        manufacturer="Murata Electronics",
-        footprint="footprints:C_1206_3216Metric",
-        voltage_rating="25V",
-        case_code_in="1206",
-        case_code_mm="3216",
-        packaging_options=['K', 'L'],
-        tolerance_map={
-            SeriesType.X7R: {'K': '10%'}
-        },
-        value_range={
-            SeriesType.X7R: (4.7e-6, 4.7e-6)  # Only 4.7µF
-        },
-        voltage_code="1E",  # 25V code
-        dielectric_code={
-            SeriesType.X7R: "R7"
-        },
-        excluded_values=set(),
-        datasheet_url="https://search.murata.co.jp/Ceramy/" +
-        "image/img/A01X/G101/ENG/GCM31C",
-        trustedparts_url="https://www.trustedparts.com/en/search"
-    ),
 }
 
 
@@ -361,7 +152,7 @@ def generate_capacitance_code(capacitance: float) -> str:
     return f"{first_two}{zero_count}"
 
 
-def get_characteristic_code(capacitance: float, specs: SeriesSpec) -> str:
+def get_characteristic_code(capacitance: float, specs: ssc.SeriesSpec) -> str:
     """Determine characteristic code based on series and capacitance.
 
     Args:
@@ -425,7 +216,7 @@ def generate_standard_values(
         decade *= 10
 
 
-def generate_datasheet_url(mpn: str, specs: SeriesSpec) -> str:
+def generate_datasheet_url(mpn: str, specs: ssc.SeriesSpec) -> str:
     """Generate the datasheet URL for a given Murata part number.
 
     Args:
@@ -443,7 +234,7 @@ def generate_datasheet_url(mpn: str, specs: SeriesSpec) -> str:
     return f"{specs.datasheet_url}{specific_part}-01.pdf"
 
 
-def create_part_info(params: PartParameters) -> PartInfo:
+def create_part_info(params: PartParameters) -> ssc.PartInfo:
     """Create complete part information from component parameters.
 
     Args:
@@ -478,7 +269,7 @@ def create_part_info(params: PartParameters) -> PartInfo:
     trustedparts_link = f"{params.specs.trustedparts_url}/{mpn}"
     datasheet_url = generate_datasheet_url(mpn, params.specs)
 
-    return PartInfo(
+    return ssc.PartInfo(
         symbol_name=symbol_name,
         reference="C",
         value=params.capacitance,
@@ -498,7 +289,7 @@ def create_part_info(params: PartParameters) -> PartInfo:
     )
 
 
-def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
+def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
     """Generate all valid part numbers for a series specification.
 
     Args:
@@ -508,9 +299,9 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
         List of PartInfo objects for all valid component combinations,
         sorted by dielectric type and capacitance value
     """
-    parts_list: List[PartInfo] = []
+    parts_list: List[ssc.PartInfo] = []
 
-    for series_type in SeriesType:
+    for series_type in ssc.SeriesType:
         if series_type in specs.value_range:
             min_val, max_val = specs.value_range[series_type]
 
@@ -536,7 +327,7 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
 
 
 def write_to_csv(
-    parts_list: List[PartInfo],
+    parts_list: List[ssc.PartInfo],
     output_file: str,
     encoding: str = 'utf-8'
 ) -> None:
@@ -589,7 +380,7 @@ def write_to_csv(
 
 def generate_files_for_series(
     series_name: str,
-    unified_parts_list: List[PartInfo]
+    unified_parts_list: List[ssc.PartInfo]
 ) -> None:
     """Generate CSV and KiCad files for a specific series.
 
@@ -607,10 +398,10 @@ def generate_files_for_series(
         Generated files are saved in 'data/' and 'series_kicad_sym/'
         directories. The directories must exist before running this function.
     """
-    if series_name not in SERIES_SPECS:
+    if series_name not in ssc.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = SERIES_SPECS[series_name]
+    specs = ssc.SERIES_SPECS[series_name]
     series_code = series_name.replace("-", "")
     csv_filename = f"{series_code}_part_numbers.csv"
     symbol_filename = f"CAPACITORS_{series_code}_DATA_BASE.kicad_sym"
@@ -637,7 +428,7 @@ def generate_files_for_series(
     unified_parts_list.extend(parts_list)
 
 
-def generate_unified_files(all_parts: List[PartInfo]) -> None:
+def generate_unified_files(all_parts: List[ssc.PartInfo]) -> None:
     """Generate unified CSV and KiCad files containing all series.
 
     Args:
@@ -677,10 +468,10 @@ def generate_unified_files(all_parts: List[PartInfo]) -> None:
 
 
 if __name__ == "__main__":
-    unified_parts: List[PartInfo] = []
+    unified_parts: List[ssc.PartInfo] = []
 
     # Generate individual series files and collect all parts
-    for current_series in SERIES_SPECS:
+    for current_series in ssc.SERIES_SPECS:
         try:
             generate_files_for_series(current_series, unified_parts)
         except ValueError as val_error:
