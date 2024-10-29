@@ -40,9 +40,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         datasheet="https://www.coilcraft.com/getmedia/" +
         "6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf",
         inductance_values=[
-            0.22, 0.4, 0.6,
-            1.0, 1.2, 1.5, 2.2, 3.3, 4.7, 6.8, 8.2,
-            10.0, 15.0
+            0.22, 0.4, 0.6, 1.0, 1.2, 1.5, 2.2
         ],
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
