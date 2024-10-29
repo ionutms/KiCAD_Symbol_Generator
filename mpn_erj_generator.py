@@ -20,170 +20,10 @@ Features:
 """
 
 import csv
-from typing import List, NamedTuple, Final, Iterator, Dict
-from enum import Enum
+from typing import List, Final, Iterator
 import kicad_resistor_symbol_generator as ki_rsg
+import series_specs_resistors as ssr
 
-
-class SeriesType(Enum):
-    """Enumeration for resistor series types."""
-    E96 = "E96"
-    E24 = "E24"
-
-
-class PartInfo(NamedTuple):
-    """Structure to hold component part information."""
-    symbol_name: str
-    reference: str
-    value: float
-    footprint: str
-    datasheet: str
-    description: str
-    manufacturer: str
-    mpn: str
-    tolerance: str
-    voltage_rating: str
-    case_code_in: str
-    case_code_mm: str
-    series: str
-    trustedparts_link: str
-
-
-class SeriesSpec(NamedTuple):
-    """Specifications for a resistor series."""
-    base_series: str
-    footprint: str
-    voltage_rating: str
-    case_code_in: str
-    case_code_mm: str
-    power_rating: str
-    max_resistance: int
-    packaging_options: List[str]
-    tolerance_map: Dict[SeriesType, Dict[str, str]]
-    datasheet: str
-    manufacturer: str
-    trustedparts_url: str
-    high_resistance_tolerance: Dict[str, str] | None = None
-
-
-# Series specifications
-SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
-    "ERJ-2RK": SeriesSpec(
-        base_series="ERJ-2RK",
-        footprint="footprints:R_0402_1005Metric",
-        voltage_rating="50V",
-        case_code_in="0402",
-        case_code_mm="1005",
-        power_rating="0.1W",
-        max_resistance=1_000_000,
-        packaging_options=['X'],
-        tolerance_map={
-            SeriesType.E96: {'F': '1%'},
-            SeriesType.E24: {'J': '5%'}
-        },
-        datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
-        "RDA0000/AOA0000C304.pdf",
-        manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/"
-    ),
-    "ERJ-3EK": SeriesSpec(
-        base_series="ERJ-3EK",
-        footprint="footprints:R_0603_1608Metric",
-        voltage_rating="75V",
-        case_code_in="0603",
-        case_code_mm="1608",
-        power_rating="0.1W",
-        max_resistance=1_000_000,
-        packaging_options=['V'],
-        tolerance_map={
-            SeriesType.E96: {'F': '1%'},
-            SeriesType.E24: {'J': '5%'}
-        },
-        datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
-        "RDA0000/AOA0000C304.pdf",
-        manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/"
-    ),
-    "ERJ-6EN": SeriesSpec(
-        base_series="ERJ-6EN",
-        footprint="footprints:R_0805_2012Metric",
-        voltage_rating="150V",
-        case_code_in="0805",
-        case_code_mm="2012",
-        power_rating="0.125W",
-        max_resistance=2_200_000,
-        packaging_options=['V'],
-        tolerance_map={
-            SeriesType.E96: {'F': '1%'},
-            SeriesType.E24: {'J': '5%'}
-        },
-        datasheet="https://industrial.panasonic.com/cdbs/www-data/pdf/" +
-        "RDA0000/AOA0000C304.pdf",
-        manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/",
-        high_resistance_tolerance={'F': '1%'}
-    ),
-    "ERJ-P08": SeriesSpec(
-        base_series="ERJ-P08",
-        footprint="footprints:R_1206_3216Metric",
-        voltage_rating="500V",
-        case_code_in="1206",
-        case_code_mm="3216",
-        power_rating="0.66W",
-        max_resistance=1_000_000,
-        packaging_options=['V'],
-        tolerance_map={
-            SeriesType.E96: {'F': '1%'},
-            SeriesType.E24: {'F': '1%'}
-        },
-        datasheet=(
-            "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDO0000/AOA0000C331.pdf"
-        ),
-        manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/"
-    ),
-    "ERJ-P06": SeriesSpec(
-        base_series="ERJ-P06",
-        footprint="footprints:R_0805_2012Metric",
-        voltage_rating="400V",
-        case_code_in="0805",
-        case_code_mm="2012",
-        power_rating="0.5W",
-        max_resistance=1_000_000,
-        packaging_options=['V'],
-        tolerance_map={
-            SeriesType.E96: {'F': '1%'},
-            SeriesType.E24: {'F': '1%'}
-        },
-        datasheet=(
-            "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDO0000/AOA0000C331.pdf"
-        ),
-        manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/"
-    ),
-    "ERJ-P03": SeriesSpec(
-        base_series="ERJ-P03",
-        footprint="footprints:R_0603_1608Metric",
-        voltage_rating="150V",
-        case_code_in="0603",
-        case_code_mm="1608",
-        power_rating="0.25W",
-        max_resistance=1_000_000,
-        packaging_options=['V'],
-        tolerance_map={
-            SeriesType.E96: {'F': '1%'},
-            SeriesType.E24: {'F': '1%'}
-        },
-        datasheet=(
-            "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDO0000/AOA0000C331.pdf"
-        ),
-        manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/"
-    ),
-}
 
 E96_BASE_VALUES: Final[List[float]] = [
     10.0, 10.2, 10.5, 10.7, 11.0, 11.3, 11.5, 11.8, 12.1, 12.4, 12.7, 13.0,
@@ -306,8 +146,8 @@ def create_part_info(
     tolerance_code: str,
     tolerance_value: str,
     packaging: str,
-    specs: SeriesSpec
-) -> PartInfo:
+    specs: ssr.SeriesSpec
+) -> ssr.PartInfo:
     """
     Create a PartInfo instance with complete component specifications.
 
@@ -332,7 +172,7 @@ def create_part_info(
     )
     trustedparts_link = f"{specs.trustedparts_url}{mpn}"
 
-    return PartInfo(
+    return ssr.PartInfo(
         symbol_name=symbol_name,
         reference="R",
         value=resistance,
@@ -350,7 +190,7 @@ def create_part_info(
     )
 
 
-def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
+def generate_part_numbers(specs: ssr.SeriesSpec) -> List[ssr.PartInfo]:
     """
     Generate all possible part numbers for a resistor series.
 
@@ -366,11 +206,11 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
     Returns:
         List of PartInfo instances for all valid combinations
     """
-    parts_list: List[PartInfo] = []
+    parts_list: List[ssr.PartInfo] = []
 
-    for series_type in SeriesType:
+    for series_type in ssr.SeriesType:
         base_values = (
-            E96_BASE_VALUES if series_type == SeriesType.E96
+            E96_BASE_VALUES if series_type == ssr.SeriesType.E96
             else E24_BASE_VALUES
         )
 
@@ -396,7 +236,7 @@ def generate_part_numbers(specs: SeriesSpec) -> List[PartInfo]:
 
 
 def write_to_csv(
-    parts_list: List[PartInfo],
+    parts_list: List[ssr.PartInfo],
     output_file: str,
     encoding: str = 'utf-8'
 ) -> None:
@@ -452,7 +292,7 @@ def write_to_csv(
 
 def generate_files_for_series(
     series_name: str,
-    unified_parts_list: List[PartInfo]
+    unified_parts_list: List[ssr.PartInfo]
 ) -> None:
     """
     Generate CSV and KiCad symbol files for a specific resistor series.
@@ -472,10 +312,10 @@ def generate_files_for_series(
         csv.Error: If CSV processing fails
         IOError: If file operations fail
     """
-    if series_name not in SERIES_SPECS:
+    if series_name not in ssr.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = SERIES_SPECS[series_name]
+    specs = ssr.SERIES_SPECS[series_name]
     series_code = series_name.replace("-", "")
     csv_filename = f"{series_code}_part_numbers.csv"
     symbol_filename = f"RESISTORS_{series_code}_DATA_BASE.kicad_sym"
@@ -502,7 +342,7 @@ def generate_files_for_series(
     unified_parts_list.extend(parts_list)
 
 
-def generate_unified_files(all_parts: List[PartInfo]) -> None:
+def generate_unified_files(all_parts: List[ssr.PartInfo]) -> None:
     """
     Generate unified component database files containing all series.
 
@@ -542,10 +382,10 @@ def generate_unified_files(all_parts: List[PartInfo]) -> None:
 
 
 if __name__ == "__main__":
-    unified_parts: List[PartInfo] = []
+    unified_parts: List[ssr.PartInfo] = []
 
     # Generate individual series files and collect all parts
-    for current_series in SERIES_SPECS:
+    for current_series in ssr.SERIES_SPECS:
         try:
             generate_files_for_series(current_series, unified_parts)
         except ValueError as val_error:
