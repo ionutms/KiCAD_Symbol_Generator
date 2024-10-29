@@ -32,6 +32,21 @@ class PartInfo(NamedTuple):
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
+    "XFL2010": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL2010",
+        footprint="footprints:XFL2010",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "50382b97-998f-4b75-b5ee-4a93b0ac4411/xfl2010.pdf",
+        inductance_values=[
+            0.04, 0.12, 0.22, 0.38, 0.6, 0.82,
+            1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 8.2,
+            10.0, 18.0, 22.0, 33.0, 47.0, 56.0, 68.0, 82.0,
+            100.0, 220.0
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
     "XFL3012": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL3012",

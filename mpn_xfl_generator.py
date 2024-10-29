@@ -50,6 +50,7 @@ def generate_value_code(
     if inductance < 1:
         nh_value = inductance * 1000
         value_codes = {
+            40: "400",
             120: "121",
             180: "181",
             220: "221",
@@ -57,6 +58,7 @@ def generate_value_code(
             250: "251",
             270: "271",
             330: "331",
+            380: "381",
             390: "391",
             420: "421",
             470: "471",
@@ -64,7 +66,8 @@ def generate_value_code(
             600: "601",
             680: "681",
             700: "701",
-            800: "801"
+            800: "801",
+            820: "821"
         }
         base_code = value_codes.get(int(nh_value))
         if base_code is None:
@@ -80,6 +83,7 @@ def generate_value_code(
             3.3: "332",
             4.7: "472",
             6.8: "682",
+            8.2: "822",
         }
         base_code = value_codes.get(inductance)
         if base_code is None:
@@ -88,6 +92,7 @@ def generate_value_code(
         value_codes = {
             10.0: "103",
             15.0: "153",
+            18.0: "183",
             22.0: "223",
             33.0: "333",
             39.0: "393",
