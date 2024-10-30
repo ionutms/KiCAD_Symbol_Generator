@@ -205,29 +205,30 @@ def generate_part_numbers(
     ]
 
 
-HEADERS: Final[List[str]] = [
-    'Symbol Name',
-    'Reference',
-    'Value',
-    'Footprint',
-    'Datasheet',
-    'Description',
-    'Manufacturer',
-    'MPN',
-    'Tolerance',
-    'Series',
-    'Trustedparts Search'
-]
+# Global header to attribute mapping
+HEADER_MAPPING: Final[dict] = {
+    'Symbol Name': lambda part: part.symbol_name,
+    'Reference': lambda part: part.reference,
+    'Value': lambda part: format_inductance_value(part.value),
+    'Footprint': lambda part: part.footprint,
+    'Datasheet': lambda part: part.datasheet,
+    'Description': lambda part: part.description,
+    'Manufacturer': lambda part: part.manufacturer,
+    'MPN': lambda part: part.mpn,
+    'Tolerance': lambda part: part.tolerance,
+    'Series': lambda part: part.series,
+    'Trustedparts Search': lambda part: part.trustedparts_link
+}
 
 
 def write_to_csv(
     parts_list: List[ssi.PartInfo],
     output_file: str,
-    headers: List[str],
+    header_mapping: List[str],
     encoding: str = 'utf-8'
 ) -> None:
     """
-    Write specifications to CSV file.
+    Write specifications to CSV file using global header mapping.
 
     Args:
         parts_list: List of parts to write
@@ -235,6 +236,15 @@ def write_to_csv(
         encoding: Character encoding
     """
 
+    # Prepare all rows before opening file
+    headers: Final[List[str]] = list(header_mapping.keys())
+    rows = [headers]
+    rows.extend([
+        [header_mapping[header](part) for header in headers]
+        for part in parts_list
+    ])
+
+    # Write all rows at once
     with open(
         f'data/{output_file}',
         'w',
@@ -242,22 +252,7 @@ def write_to_csv(
         encoding=encoding
     ) as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(headers)
-
-        for part in parts_list:
-            writer.writerow([
-                part.symbol_name,
-                part.reference,
-                format_inductance_value(part.value),
-                part.footprint,
-                part.datasheet,
-                part.description,
-                part.manufacturer,
-                part.mpn,
-                part.tolerance,
-                part.series,
-                part.trustedparts_link
-            ])
+        writer.writerows(rows)
 
 
 def generate_files_for_series(
@@ -282,7 +277,7 @@ def generate_files_for_series(
 
     try:
         parts_list = generate_part_numbers(specs, is_aec)
-        write_to_csv(parts_list, csv_filename, HEADERS)
+        write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
         print(
             f"Generated {len(parts_list)} part numbers "
             f"in '{csv_filename}'"
@@ -323,7 +318,7 @@ def generate_unified_files(all_parts: List[ssi.PartInfo]) -> None:
     unified_symbol = "UNITED_INDUCTORS_DATA_BASE.kicad_sym"
 
     # Write unified CSV file
-    write_to_csv(all_parts, unified_csv, HEADERS)
+    write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
     print(f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file

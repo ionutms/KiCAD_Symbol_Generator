@@ -81,7 +81,7 @@ CHARACTERISTIC_CONFIGS: Final[Dict[str, List[CharacteristicThreshold]]] = {
 }
 
 
-def format_capacitance(capacitance: float) -> str:
+def format_capacitance_value(capacitance: float) -> str:
     """Convert capacitance value to human-readable format with units.
 
     Args:
@@ -248,7 +248,7 @@ def create_part_info(params: PartParameters) -> ssc.PartInfo:
         params.capacitance,
         params.specs
     )
-    formatted_value = format_capacitance(params.capacitance)
+    formatted_value = format_capacitance_value(params.capacitance)
 
     mpn = (
         f"{params.specs.base_series}"
@@ -326,69 +326,58 @@ def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
     return sorted(parts_list, key=lambda x: (x.dielectric, x.value))
 
 
-HEADERS: Final[List[str]] = [
-    'Symbol Name',
-    'Reference',
-    'Value',
-    'Footprint',
-    'Datasheet',
-    'Description',
-    'Manufacturer',
-    'MPN', 'Dielectric',
-    'Tolerance',
-    'Voltage Rating',
-    'Case Code - in',
-    'Case Code - mm',
-    'Series',
-    'Trustedparts Search'
-]
+# Global header to attribute mapping
+HEADER_MAPPING: Final[dict] = {
+    'Symbol Name': lambda part: part.symbol_name,
+    'Reference': lambda part: part.reference,
+    'Value': lambda part: format_capacitance_value(part.value),
+    'Footprint': lambda part: part.footprint,
+    'Datasheet': lambda part: part.datasheet,
+    'Description': lambda part: part.description,
+    'Manufacturer': lambda part: part.manufacturer,
+    'MPN': lambda part: part.mpn,
+    'Dielectric': lambda part: part.dielectric,
+    'Tolerance': lambda part: part.tolerance,
+    'Voltage Rating': lambda part: part.voltage_rating,
+    'Case Code - in': lambda part: part.case_code_in,
+    'Case Code - mm': lambda part: part.case_code_mm,
+    'Series': lambda part: part.series,
+    'Trustedparts Search': lambda part: part.trustedparts_link
+}
 
 
 def write_to_csv(
     parts_list: List[ssc.PartInfo],
     output_file: str,
-    headers: List[str],
+    header_mapping: List[str],
     encoding: str = 'utf-8'
 ) -> None:
-    """Write part information to CSV file.
+    """
+    Write specifications to CSV file using global header mapping.
 
     Args:
         parts_list: List of parts to write
-        output_file: Output filename (will be created in 'data' subdirectory)
-        encoding: Character encoding for file (default: utf-8)
-
-    Raises:
-        IOError: If the data directory doesn't exist or isn't writable
-        csv.Error: If there are issues writing the CSV data
-
-    Note:
-        The file is created in the 'data' subdirectory, which must exist.
-        Existing files with the same name will be overwritten.
+        output_file: Output filename
+        encoding: Character encoding
     """
 
-    with open(f'data/{output_file}', 'w', newline='', encoding=encoding) \
-            as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(headers)
+    # Prepare all rows before opening file
+    headers: Final[List[str]] = list(header_mapping.keys())
+    rows = [headers]
+    rows.extend([
+        [header_mapping[header](part) for header in headers]
+        for part in parts_list
+    ])
 
-        for part_info in parts_list:
-            writer.writerow([
-                part_info.symbol_name,
-                part_info.reference,
-                part_info.formatted_value,
-                part_info.footprint,
-                part_info.datasheet,
-                part_info.description,
-                part_info.manufacturer,
-                part_info.mpn,
-                part_info.dielectric,
-                part_info.tolerance,
-                part_info.voltage_rating,
-                part_info.case_code_in,
-                part_info.case_code_mm,
-                part_info.series,
-                part_info.trustedparts_link
-            ])
+    # Write all rows at once
+    with open(
+        f'data/{output_file}',
+        'w',
+        newline='',
+        encoding=encoding
+    ) as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerows(rows)
 
 
 def generate_files_for_series(
@@ -421,7 +410,7 @@ def generate_files_for_series(
 
     # Generate part numbers and write to CSV
     parts_list = generate_part_numbers(specs)
-    write_to_csv(parts_list, csv_filename, HEADERS)
+    write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
     print(f"Generated {len(parts_list)} part numbers in '{csv_filename}'")
 
     # Generate KiCad symbol file
@@ -464,7 +453,7 @@ def generate_unified_files(all_parts: List[ssc.PartInfo]) -> None:
     unified_symbol = "UNITED_CAPACITORS_DATA_BASE.kicad_sym"
 
     # Write unified CSV file
-    write_to_csv(all_parts, unified_csv, HEADERS)
+    write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
     print(f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file
