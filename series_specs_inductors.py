@@ -32,6 +32,18 @@ class PartInfo(NamedTuple):
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
+    "XAL7020": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XAL7020",
+        footprint="footprints:XAL7020",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf",
+        inductance_values=[
+            0.15, 0.27, 0.33, 0.47, 0.68, 1.0, 1.2, 1.5, 2.2
+        ],
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
     "XAL6060": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XAL6060",
