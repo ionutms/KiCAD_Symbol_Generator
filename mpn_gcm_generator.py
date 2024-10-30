@@ -326,9 +326,28 @@ def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
     return sorted(parts_list, key=lambda x: (x.dielectric, x.value))
 
 
+HEADERS: Final[List[str]] = [
+    'Symbol Name',
+    'Reference',
+    'Value',
+    'Footprint',
+    'Datasheet',
+    'Description',
+    'Manufacturer',
+    'MPN', 'Dielectric',
+    'Tolerance',
+    'Voltage Rating',
+    'Case Code - in',
+    'Case Code - mm',
+    'Series',
+    'Trustedparts Search'
+]
+
+
 def write_to_csv(
     parts_list: List[ssc.PartInfo],
     output_file: str,
+    headers: List[str],
     encoding: str = 'utf-8'
 ) -> None:
     """Write part information to CSV file.
@@ -346,12 +365,6 @@ def write_to_csv(
         The file is created in the 'data' subdirectory, which must exist.
         Existing files with the same name will be overwritten.
     """
-    headers: Final[List[str]] = [
-        'Symbol Name', 'Reference', 'Value', 'Footprint', 'Datasheet',
-        'Description', 'Manufacturer', 'MPN', 'Dielectric', 'Tolerance',
-        'Voltage Rating', 'Case Code - in', 'Case Code - mm', 'Series',
-        'Trustedparts Search'
-    ]
 
     with open(f'data/{output_file}', 'w', newline='', encoding=encoding) \
             as csvfile:
@@ -408,7 +421,7 @@ def generate_files_for_series(
 
     # Generate part numbers and write to CSV
     parts_list = generate_part_numbers(specs)
-    write_to_csv(parts_list, csv_filename)
+    write_to_csv(parts_list, csv_filename, HEADERS)
     print(f"Generated {len(parts_list)} part numbers in '{csv_filename}'")
 
     # Generate KiCad symbol file
@@ -451,7 +464,7 @@ def generate_unified_files(all_parts: List[ssc.PartInfo]) -> None:
     unified_symbol = "UNITED_CAPACITORS_DATA_BASE.kicad_sym"
 
     # Write unified CSV file
-    write_to_csv(all_parts, unified_csv)
+    write_to_csv(all_parts, unified_csv, HEADERS)
     print(f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file
