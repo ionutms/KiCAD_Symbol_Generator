@@ -8,7 +8,7 @@ Generates both individual series files and unified component database.
 """
 
 import csv
-from typing import List
+from typing import Final, List
 import kicad_inductor_symbol_generator as ki_isg
 import series_specs_inductors as ssi
 
@@ -205,9 +205,25 @@ def generate_part_numbers(
     ]
 
 
+HEADERS: Final[List[str]] = [
+    'Symbol Name',
+    'Reference',
+    'Value',
+    'Footprint',
+    'Datasheet',
+    'Description',
+    'Manufacturer',
+    'MPN',
+    'Tolerance',
+    'Series',
+    'Trustedparts Search'
+]
+
+
 def write_to_csv(
     parts_list: List[ssi.PartInfo],
     output_file: str,
+    headers: List[str],
     encoding: str = 'utf-8'
 ) -> None:
     """
@@ -218,11 +234,6 @@ def write_to_csv(
         output_file: Output filename
         encoding: Character encoding
     """
-    headers = [
-        'Symbol Name', 'Reference', 'Value', 'Footprint',
-        'Datasheet', 'Description', 'Manufacturer', 'MPN',
-        'Tolerance', 'Series', 'Trustedparts Search'
-    ]
 
     with open(
         f'data/{output_file}',
@@ -271,7 +282,7 @@ def generate_files_for_series(
 
     try:
         parts_list = generate_part_numbers(specs, is_aec)
-        write_to_csv(parts_list, csv_filename)
+        write_to_csv(parts_list, csv_filename, HEADERS)
         print(
             f"Generated {len(parts_list)} part numbers "
             f"in '{csv_filename}'"
@@ -312,7 +323,7 @@ def generate_unified_files(all_parts: List[ssi.PartInfo]) -> None:
     unified_symbol = "UNITED_INDUCTORS_DATA_BASE.kicad_sym"
 
     # Write unified CSV file
-    write_to_csv(all_parts, unified_csv)
+    write_to_csv(all_parts, unified_csv, HEADERS)
     print(f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file
