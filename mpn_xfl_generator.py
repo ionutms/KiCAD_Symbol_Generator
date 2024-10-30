@@ -11,6 +11,7 @@ import csv
 from typing import Final, List
 import kicad_inductor_symbol_generator as ki_isg
 import series_specs_inductors as ssi
+import file_handler_utilities as utils
 
 
 def format_inductance_value(inductance: float) -> str:
@@ -221,40 +222,6 @@ HEADER_MAPPING: Final[dict] = {
 }
 
 
-def write_to_csv(
-    parts_list: List[ssi.PartInfo],
-    output_file: str,
-    header_mapping: List[str],
-    encoding: str = 'utf-8'
-) -> None:
-    """
-    Write specifications to CSV file using global header mapping.
-
-    Args:
-        parts_list: List of parts to write
-        output_file: Output filename
-        encoding: Character encoding
-    """
-
-    # Prepare all rows before opening file
-    headers: Final[List[str]] = list(header_mapping.keys())
-    rows = [headers]
-    rows.extend([
-        [header_mapping[header](part) for header in headers]
-        for part in parts_list
-    ])
-
-    # Write all rows at once
-    with open(
-        f'data/{output_file}',
-        'w',
-        newline='',
-        encoding=encoding
-    ) as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerows(rows)
-
-
 def generate_files_for_series(
     series_name: str,
     is_aec: bool,
@@ -277,7 +244,7 @@ def generate_files_for_series(
 
     try:
         parts_list = generate_part_numbers(specs, is_aec)
-        write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
+        utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
         print(
             f"Generated {len(parts_list)} part numbers "
             f"in '{csv_filename}'"
@@ -318,7 +285,7 @@ def generate_unified_files(all_parts: List[ssi.PartInfo]) -> None:
     unified_symbol = "UNITED_INDUCTORS_DATA_BASE.kicad_sym"
 
     # Write unified CSV file
-    write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
+    utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
     print(f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file
