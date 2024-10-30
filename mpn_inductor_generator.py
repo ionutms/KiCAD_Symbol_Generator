@@ -76,6 +76,7 @@ def generate_value_code(
             700: "701",
             800: "801",
             820: "821",
+            840: "841",
             900: "901",
         }
         base_code = value_codes.get(int(nh_value))
