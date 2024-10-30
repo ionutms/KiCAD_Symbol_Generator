@@ -33,9 +33,9 @@ def format_inductance_value(inductance: float) -> str:
 
 
 def generate_value_code(
-    inductance: float,
-    is_aec: bool = True,
-    value_suffix: str = "ME"
+        inductance: float,
+        is_aec: bool = True,
+        value_suffix: str = "ME"
 ) -> str:
     """
     Generate Coilcraft value code according to datasheet format.
@@ -48,73 +48,27 @@ def generate_value_code(
     Returns:
         Formatted value code string
     """
-    if inductance < 1:
-        nh_value = inductance * 1000
-        value_codes = {
-            40: "400",
-            120: "121",
-            150: "151",
-            160: "161",
-            180: "181",
-            220: "221",
-            240: "241",
-            250: "251",
-            270: "271",
-            330: "331",
-            380: "381",
-            390: "391",
-            400: "401",
-            420: "421",
-            450: "451",
-            470: "471",
-            560: "561",
-            600: "601",
-            680: "681",
-            700: "701",
-            800: "801",
-            820: "821",
-            900: "901",
-        }
-        base_code = value_codes.get(int(nh_value))
-        if base_code is None:
-            raise ValueError(f"Invalid inductance value: {inductance}µH")
-    elif inductance < 10:
-        value_codes = {
-            1.0: "102",
-            1.1: "112",
-            1.2: "122",
-            1.5: "152",
-            1.8: "182",
-            2.0: "202",
-            2.2: "222",
-            3.0: "302",
-            3.3: "332",
-            4.7: "472",
-            5.6: "562",
-            6.8: "682",
-            8.2: "822",
-        }
-        base_code = value_codes.get(inductance)
-        if base_code is None:
-            raise ValueError(f"Invalid inductance value: {inductance}µH")
-    else:
-        value_codes = {
-            10.0: "103",
-            15.0: "153",
-            18.0: "183",
-            22.0: "223",
-            33.0: "333",
-            39.0: "393",
-            47.0: "473",
-            56.0: "563",
-            68.0: "683",
-            82.0: "823",
-            100.0: "104",
-            220.0: "224",
-        }
-        base_code = value_codes.get(inductance)
-        if base_code is None:
-            raise ValueError(f"Invalid inductance value: {inductance}µH")
+    value_codes = {
+        # Values < 1µH
+        0.040: "400", 0.120: "121", 0.150: "151", 0.160: "161", 0.180: "181",
+        0.220: "221", 0.240: "241", 0.250: "251", 0.270: "271", 0.300: "301",
+        0.330: "331", 0.380: "381", 0.390: "391", 0.400: "401", 0.420: "421",
+        0.450: "451", 0.470: "471", 0.550: "551", 0.560: "561", 0.600: "601",
+        0.650: "651", 0.680: "681", 0.700: "701", 0.800: "801", 0.820: "821",
+        0.840: "841", 0.900: "901",
+        # Values 1-10µH
+        1.0: "102", 1.1: "112", 1.2: "122", 1.5: "152", 1.8: "182", 2.0: "202",
+        2.2: "222", 2.7: "272", 3.0: "302", 3.3: "332", 4.7: "472", 5.6: "562",
+        6.8: "682", 8.2: "822",
+        # Values ≥ 10µH
+        10.0: "103", 12.0: "123", 15.0: "153", 18.0: "183", 22.0: "223",
+        33.0: "333", 39.0: "393", 47.0: "473", 56.0: "563", 68.0: "683",
+        82.0: "823", 100.0: "104", 220.0: "224"
+    }
+
+    base_code = value_codes.get(inductance)
+    if base_code is None:
+        raise ValueError(f"Invalid inductance value: {inductance}µH")
 
     return f"{base_code}{value_suffix}" if is_aec else base_code
 
