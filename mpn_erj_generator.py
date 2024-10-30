@@ -23,6 +23,7 @@ import csv
 from typing import List, Final, Iterator
 import kicad_resistor_symbol_generator as ki_rsg
 import series_specs_resistors as ssr
+import file_handler_utilities as utils
 
 
 E96_BASE_VALUES: Final[List[float]] = [
@@ -235,72 +236,23 @@ def generate_part_numbers(specs: ssr.SeriesSpec) -> List[ssr.PartInfo]:
     return parts_list
 
 
-HEADERS: Final[List[str]] = [
-    'Symbol Name',
-    'Reference',
-    'Value',
-    'Footprint',
-    'Datasheet',
-    'Description',
-    'Manufacturer',
-    'MPN',
-    'Tolerance',
-    'Voltage Rating',
-    'Case Code - in',
-    'Case Code - mm',
-    'Series',
-    'Trustedparts Search'
-]
-
-
-def write_to_csv(
-    parts_list: List[ssr.PartInfo],
-    output_file: str,
-    headers: List[str],
-    encoding: str = 'utf-8'
-) -> None:
-    """
-    Write component specifications to a CSV file.
-
-    Creates a CSV file in the 'data' directory containing all component
-    specifications including:
-    - Symbol and reference designators
-    - Component values and tolerances
-    - Physical specifications (case size, voltage rating)
-    - Manufacturer information and part numbers
-    - Vendor links
-
-    Args:
-        parts_list: List of PartInfo instances to write
-        output_file: Name of the output file
-        encoding: Character encoding for the CSV file (default: utf-8)
-
-    Raises:
-        IOError: If unable to create or write to the output file
-    """
-
-    with open(f'data/{output_file}', 'w', newline='', encoding=encoding) \
-            as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(headers)
-
-        for part_info in parts_list:
-            writer.writerow([
-                part_info.symbol_name,
-                part_info.reference,
-                format_resistance_value(part_info.value),
-                part_info.footprint,
-                part_info.datasheet,
-                part_info.description,
-                part_info.manufacturer,
-                part_info.mpn,
-                part_info.tolerance,
-                part_info.voltage_rating,
-                part_info.case_code_in,
-                part_info.case_code_mm,
-                part_info.series,
-                part_info.trustedparts_link
-            ])
+# Global header to attribute mapping
+HEADER_MAPPING: Final[dict] = {
+    'Symbol Name': lambda part: part.symbol_name,
+    'Reference': lambda part: part.reference,
+    'Value': lambda part: format_resistance_value(part.value),
+    'Footprint': lambda part: part.footprint,
+    'Datasheet': lambda part: part.datasheet,
+    'Description': lambda part: part.description,
+    'Manufacturer': lambda part: part.manufacturer,
+    'MPN': lambda part: part.mpn,
+    'Tolerance': lambda part: part.tolerance,
+    'Voltage Rating': lambda part: part.voltage_rating,
+    'Case Code - in': lambda part: part.case_code_in,
+    'Case Code - mm': lambda part: part.case_code_mm,
+    'Series': lambda part: part.series,
+    'Trustedparts Search': lambda part: part.trustedparts_link
+}
 
 
 def generate_files_for_series(
@@ -335,7 +287,7 @@ def generate_files_for_series(
 
     # Generate part numbers and write to CSV
     parts_list = generate_part_numbers(specs)
-    write_to_csv(parts_list, csv_filename, HEADERS)
+    utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
     print(f"Generated {len(parts_list)} part numbers in '{csv_filename}'")
 
     # Generate KiCad symbol file
@@ -378,7 +330,7 @@ def generate_unified_files(all_parts: List[ssr.PartInfo]) -> None:
     unified_symbol = "UNITED_RESISTORS_DATA_BASE.kicad_sym"
 
     # Write unified CSV file
-    write_to_csv(all_parts, unified_csv, HEADERS)
+    utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
     print(f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file
