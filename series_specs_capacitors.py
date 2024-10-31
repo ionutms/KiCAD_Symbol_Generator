@@ -1,31 +1,48 @@
-"""todo"""
+"""
+Specifications and data structures for Murata GCM series ceramic capacitors.
+
+This module defines the data structures and specifications for various Murata
+GCM series ceramic capacitors, primarily focusing on X7R dielectric types.
+It provides comprehensive component information including physical dimensions,
+electrical characteristics, and packaging options.
+"""
+
 from typing import NamedTuple, Final, Dict, List, Set
 from enum import Enum
 
 
 class SeriesType(Enum):
-    """Enumeration of supported capacitor series dielectric types."""
+    """Defines supported dielectric types for capacitor series."""
     X7R = "X7R"
 
 
 class SeriesSpec(NamedTuple):
-    """Specifications defining a capacitor series.
+    """Detailed specifications for a capacitor series.
+
+    Contains all necessary parameters to define a specific capacitor series,
+    including physical characteristics, electrical ratings,
+    and available configurations.
 
     Attributes:
-        base_series: Base part number series
-        manufacturer: Component manufacturer name
-        footprint: PCB footprint identifier
-        voltage_rating: Maximum voltage specification
-        case_code_in: Package dimensions (inches)
-        case_code_mm: Package dimensions (millimeters)
-        packaging_options: Available packaging codes
-        tolerance_map: Mapping of series types to tolerance codes and values
-        value_range: Valid capacitance range per series type
-        voltage_code: Voltage rating code for part number
-        dielectric_code: Dielectric material codes per series type
-        excluded_values: Set of unsupported capacitance values
-        datasheet_url: Complete URL to the series datasheet
-        trustedparts_url: Base URL for component listing on Trustedparts
+        base_series: Part number series identifier (e.g., 'GCM155')
+        manufacturer: Name of the component manufacturer
+        footprint: PCB footprint ID for the component
+        voltage_rating: Maximum operating voltage specification
+        case_code_in: Package dimensions in inches (e.g., '0402')
+        case_code_mm: Package dimensions in millimeters (e.g., '1005')
+        packaging_options: List of available packaging codes (e.g., ['D', 'J'])
+        tolerance_map:
+            Maps series types to available tolerance codes and values
+            Format: {SeriesType: {code: value}}
+        value_range: Valid capacitance range for each series type
+            Format: {SeriesType: (min_value, max_value)}
+        voltage_code: Voltage rating code used in part numbering
+        dielectric_code: Maps series types to their dielectric material codes
+            Format: {SeriesType: code}
+        excluded_values: Set of unsupported capacitance values within range
+        datasheet_url: Complete URL to component datasheet
+        trustedparts_url:
+            Base URL for component listing on Trustedparts platform
     """
     base_series: str
     manufacturer: str
@@ -44,25 +61,29 @@ class SeriesSpec(NamedTuple):
 
 
 class PartInfo(NamedTuple):
-    """Container for capacitor part information.
+    """Container for detailed capacitor component information.
+
+    Stores comprehensive information about a specific capacitor part,
+    including its electrical characteristics, physical properties,
+    and documentation links.
 
     Attributes:
-        symbol_name: KiCad symbol identifier
-        reference: Component reference designator
-        value: Capacitance value in Farads
-        formatted_value: Human-readable capacitance value with units
-        footprint: PCB footprint reference
-        datasheet: URL to component datasheet
-        description: Component description text
+        symbol_name: KiCad schematic symbol identifier
+        reference: Component reference designator (e.g., 'C1')
+        value: Capacitance value in Farads (float)
+        formatted_value: Human-readable capacitance with units (e.g., '0.1 µF')
+        footprint: PCB footprint library reference
+        datasheet: URL to component documentation
+        description: Descriptive text about the component
         manufacturer: Component manufacturer name
-        mpn: Manufacturer part number
-        dielectric: Dielectric material type
-        tolerance: Component tolerance value
-        voltage_rating: Maximum voltage rating
-        case_code_in: Package size in inches
-        case_code_mm: Package size in millimeters
+        mpn: Manufacturer's part number
+        dielectric: Dielectric material type specification
+        tolerance: Component tolerance specification
+        voltage_rating: Maximum voltage specification
+        case_code_in: Package dimensions in inches
+        case_code_mm: Package dimensions in millimeters
         series: Component series identifier
-        trustedparts_link: URL to component listing
+        trustedparts_link: URL to component listing on Trustedparts
     """
     symbol_name: str
     reference: str

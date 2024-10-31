@@ -1,10 +1,33 @@
-"""todo"""
+"""
+Library for managing Coilcraft inductor series specifications and part info.
+
+This module provides data structures and definitions for various Coilcraft
+inductor series, including their specifications and individual component
+information. It is used to maintain a standardized database of inductor
+specifications and generate consistent part information.
+"""
 
 from typing import List, NamedTuple, Dict
 
 
 class SeriesSpec(NamedTuple):
-    """Inductor series specifications."""
+    """Inductor series specifications for Coilcraft components.
+
+    This class defines the complete specifications for a series of inductors,
+    including physical, electrical, and documentation characteristics.
+
+    Attributes:
+        manufacturer: Name of the component manufacturer (e.g., "Coilcraft")
+        base_series: Base model number for the series (e.g., "XAL1513")
+        footprint: PCB footprint identifier used in schematic/layout tools
+        tolerance: Component value tolerance (e.g., "±20%")
+        datasheet: URL to the manufacturer's datasheet
+        inductance_values: List of available inductance values in µH
+        trustedparts_link: URL to the component listing on Trusted Parts
+        value_suffix:
+            Manufacturer's suffix for the component value (e.g., "ME")
+        has_aec: Whether the series is AEC-Q200 qualified (defaults to True)
+    """
     manufacturer: str
     base_series: str
     footprint: str
@@ -17,7 +40,25 @@ class SeriesSpec(NamedTuple):
 
 
 class PartInfo(NamedTuple):
-    """Component part information structure."""
+    """Component part information structure for individual inductors.
+
+    This class contains all necessary information to fully specify a single
+    inductor component, including its specifications, documentation, and
+    sourcing information.
+
+    Attributes:
+        symbol_name: Schematic symbol identifier
+        reference: Component reference designator
+        value: Inductance value in µH
+        footprint: PCB footprint identifier
+        datasheet: URL to the manufacturer's datasheet
+        description: Human-readable component description
+        manufacturer: Component manufacturer name
+        mpn: Manufacturer part number
+        tolerance: Component value tolerance
+        series: Product series identifier
+        trustedparts_link: URL to component listing on Trusted Parts
+    """
     symbol_name: str
     reference: str
     value: float
