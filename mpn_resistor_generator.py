@@ -307,7 +307,11 @@ def generate_files_for_series(
     unified_parts_list.extend(parts_list)
 
 
-def generate_unified_files(all_parts: List[ssr.PartInfo]) -> None:
+def generate_unified_files(
+        all_parts: List[ssr.PartInfo],
+        unified_csv: str,
+        unified_symbol: str
+) -> None:
     """
     Generate unified component database files containing all series.
 
@@ -326,8 +330,6 @@ def generate_unified_files(all_parts: List[ssr.PartInfo]) -> None:
         csv.Error: If CSV processing fails
         IOError: If file operations fail
     """
-    unified_csv = "UNITED_RESISTORS_DATA_BASE.csv"
-    unified_symbol = "UNITED_RESISTORS_DATA_BASE.kicad_sym"
 
     # Write unified CSV file
     utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
@@ -347,21 +349,18 @@ def generate_unified_files(all_parts: List[ssr.PartInfo]) -> None:
 
 
 if __name__ == "__main__":
-    unified_parts: List[ssr.PartInfo] = []
-
-    # Generate individual series files and collect all parts
-    for current_series in ssr.SERIES_SPECS:
-        try:
-            generate_files_for_series(current_series, unified_parts)
-        except ValueError as val_error:
-            print(
-                "Invalid series specification for "
-                f"{current_series}: {val_error}")
-        except (csv.Error, IOError) as file_error:
-            print(f"File operation error for {current_series}: {file_error}")
-
-    # Generate unified files after all series are processed
     try:
-        generate_unified_files(unified_parts)
+        unified_parts: List[ssr.PartInfo] = []
+
+        for series in ssr.SERIES_SPECS:
+            print(f"\nGenerating files for {series} series:")
+            generate_files_for_series(series, unified_parts)
+
+        # Generate unified files after all series are processed
+        UNIFIED_CSV = "UNITED_RESISTORS_DATA_BASE.csv"
+        UNIFIED_SYMBOL = "UNITED_RESISTORS_DATA_BASE.kicad_sym"
+        print("\nGenerating unified files:")
+        generate_unified_files(unified_parts, UNIFIED_CSV, UNIFIED_SYMBOL)
+
     except (csv.Error, IOError) as file_error:
-        print(f"Error generating unified files: {file_error}")
+        print(f"Error generating files: {file_error}")
