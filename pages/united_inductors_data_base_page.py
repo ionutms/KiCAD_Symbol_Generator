@@ -74,7 +74,8 @@ hidden_columns = [
     'Reference',
     'Case Code - mm',
     'Case Code - in',
-    'Series'
+    'Series',
+    'Maximum DC Current (A)'
 ]
 
 visible_columns = [
