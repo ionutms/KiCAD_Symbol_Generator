@@ -34,8 +34,8 @@ def format_inductance_value(inductance: float) -> str:
 
 def generate_value_code(
     inductance: float,
+    value_suffix: str,
     is_aec: bool = True,
-    value_suffix: str = "ME"
 ) -> str:
     """
     Generate Coilcraft value code for inductance values according
@@ -145,8 +145,8 @@ def create_part_info(
     """
     value_code = generate_value_code(
         inductance,
+        specs.value_suffix,
         is_aec and specs.has_aec,
-        specs.value_suffix
     )
     mpn = f"{specs.base_series}-{value_code}"
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"

@@ -12,8 +12,8 @@ class SeriesSpec(NamedTuple):
     datasheet: str
     inductance_values: List[float]
     trustedparts_link: str
+    value_suffix: str
     has_aec: bool = True
-    value_suffix: str = "ME"
 
 
 class PartInfo(NamedTuple):
@@ -42,6 +42,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             15.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL1510": SeriesSpec(
@@ -54,6 +55,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             4.7, 6.8, 8.2, 10.0, 15.0, 22.0, 33.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL1580": SeriesSpec(
@@ -66,6 +68,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.4, 0.74, 1.0, 1.3, 1.8, 2.0, 3.0, 4.5, 5.3, 6.1
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL1350": SeriesSpec(
@@ -78,6 +81,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.63, 0.93, 1.3, 2.2, 3.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL1010": SeriesSpec(
@@ -91,6 +95,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.22, 0.45, 0.68, 1.0, 1.5, 2.2,
             3.3, 4.7, 5.6, 6.8, 8.2, 10.0, 15.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL1080": SeriesSpec(
@@ -103,6 +108,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             10.0, 12.0, 15.0, 18.0, 22.0, 33.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL1060": SeriesSpec(
@@ -115,6 +121,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.18, 0.4, 0.68, 1.2, 1.5, 2.2, 3.3, 4.7
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL1030": SeriesSpec(
@@ -127,6 +134,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.16, 0.3, 0.56, 1.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL8080": SeriesSpec(
@@ -140,6 +148,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.68, 0.84, 1.0, 2.2, 4.7, 6.8, 10.0, 12.0,
             15.0, 18.0, 22.0, 33.0, 47.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL8050": SeriesSpec(
@@ -152,6 +161,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             22.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL7070": SeriesSpec(
@@ -165,6 +175,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.16, 0.3, 0.55, 0.65, 0.8, 1.0, 1.2, 1.8, 2.2, 3.3, 4.7,
             5.6, 6.8, 10.0, 12.0, 15.0, 18.0, 22.0, 33.0, 47.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL7050": SeriesSpec(
@@ -177,6 +188,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             10.0, 15.0, 18.0, 22.0, 33.0, 47.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL7030": SeriesSpec(
@@ -190,6 +202,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.16, 0.3, 0.6, 1.0, 1.5, 2.2, 2.7,
             3.3, 4.7, 5.6, 6.8, 8.2, 10.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL7020": SeriesSpec(
@@ -202,6 +215,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.15, 0.27, 0.33, 0.47, 0.68, 1.0, 1.2, 1.5, 2.2
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL6060": SeriesSpec(
@@ -214,6 +228,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             4.7, 5.6, 6.8, 8.2, 10.0, 15.0, 22.0, 33.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL6030": SeriesSpec(
@@ -226,6 +241,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.18, 0.33, 0.56, 1.0, 1.2, 1.8, 2.2, 3.3
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL6020": SeriesSpec(
@@ -238,6 +254,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.12, 0.16, 0.27, 0.45, 0.6, 0.9, 1.1
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL5050": SeriesSpec(
@@ -250,6 +267,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             4.7, 5.6, 6.8, 8.2, 10.0, 15.0, 22.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL5030": SeriesSpec(
@@ -262,6 +280,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.16, 0.33, 0.6, 0.8, 1.0, 1.2, 2.2, 3.3, 4.7
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL5020": SeriesSpec(
@@ -274,6 +293,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.16, 0.33, 0.56, 0.8, 1.2
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL4040": SeriesSpec(
@@ -286,6 +306,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             8.2, 10.0, 15.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL4030": SeriesSpec(
@@ -298,6 +319,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             3.3, 4.7, 6.8
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XAL4020": SeriesSpec(
@@ -310,6 +332,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.22, 0.4, 0.6, 1.0, 1.2, 1.5, 2.2
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL2005": SeriesSpec(
@@ -324,6 +347,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             1.0, 1.5, 2.2, 3.3, 4.7, 5.6, 6.8, 8.2,
             10.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL2006": SeriesSpec(
@@ -338,6 +362,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             10.0, 15.0, 22.0, 33.0, 47.0, 56.0, 68.0, 82.0,
             100.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL2010": SeriesSpec(
@@ -353,6 +378,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             10.0, 18.0, 22.0, 33.0, 47.0, 56.0, 68.0, 82.0,
             100.0, 220.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL3012": SeriesSpec(
@@ -367,6 +393,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             10.0, 15.0, 22.0, 33.0, 39.0, 47.0, 56.0, 68.0,
             82.0, 100.0, 220.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL3010": SeriesSpec(
@@ -380,6 +407,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.60, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10.0, 15.0,
             22.0, 33.0, 47.0, 68.0, 82.0, 100.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL4012": SeriesSpec(
@@ -392,6 +420,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.12, 0.25, 0.47, 0.6
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL4015": SeriesSpec(
@@ -404,6 +433,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.18, 0.33, 0.47, 0.7, 1.2
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL4020": SeriesSpec(
@@ -416,6 +446,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.12, 0.24, 0.33, 0.47, 0.56, 1.0, 1.5, 2.2, 3.3, 4.7
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL4030": SeriesSpec(
@@ -428,6 +459,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.47, 1.0, 2.0, 3.0, 4.7
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL5015": SeriesSpec(
@@ -440,6 +472,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.22, 0.42, 0.68, 1.2, 1.5
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL5018": SeriesSpec(
@@ -452,6 +485,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             2.2, 3.3
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL5030": SeriesSpec(
@@ -464,6 +498,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.27, 0.56, 1.0, 2.2, 3.3, 4.7
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL6012": SeriesSpec(
@@ -476,6 +511,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.18, 0.39, 0.6, 0.8, 1.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL6060": SeriesSpec(
@@ -488,6 +524,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             47.0
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
     "XFL7015": SeriesSpec(
@@ -500,6 +537,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         inductance_values=[
             0.25, 0.47, 0.68, 1.0, 1.5
         ],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
 }
