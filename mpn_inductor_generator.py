@@ -33,43 +33,69 @@ def format_inductance_value(inductance: float) -> str:
 
 
 def generate_value_code(
-        inductance: float,
-        is_aec: bool = True,
-        value_suffix: str = "ME"
+    inductance: float,
+    is_aec: bool = True,
+    value_suffix: str = "ME"
 ) -> str:
     """
-    Generate Coilcraft value code according to datasheet format.
+    Generate Coilcraft value code for inductance values according
+    to their part numbering system.
+
+    The value code consists of:
+    1. Two digits representing the significant figures of the inductance value
+    2. A decimal position indicator (0-4)
+    3. Optional AEC qualification suffix
+
+    Decimal position indicators:
+    - 4: Multiply by 10 µH (100.0-999.99 µH)
+    - 3: Value is in µH (10.0-99.99 µH)
+    - 2: Divide by 10 µH (1.0-9.99 µH)
+    - 1: Divide by 100 µH (0.1-0.99 µH)
+    - 0: Divide by 1000 µH (0.01-0.099 µH)
 
     Args:
-        inductance: Value in µH
-        is_aec: If True, add AEC suffix
-        value_suffix: Suffix to use for AEC qualified parts
+        inductance: Value in µH (microhenries), must be between 0.01 and 999.99
+        is_aec: If True, append AEC qualification suffix to the value code
+        value_suffix: AEC qualification suffix to append when is_aec is True
 
     Returns:
-        Formatted value code string
+        str: Value code string.
+
+    Raises:
+        ValueError: If inductance is outside the valid range (0.01-999.99 µH)
+
+    Notes:
+        - Values are rounded to 2 significant digits before encoding
+        - For non-AEC parts, set is_aec=False to omit the suffix
+        - Custom AEC suffixes can be specified via value_suffix parameter
     """
-    value_codes = {
-        # Values < 1µH
-        0.040: "400", 0.120: "121", 0.150: "151", 0.160: "161", 0.180: "181",
-        0.220: "221", 0.240: "241", 0.250: "251", 0.270: "271", 0.300: "301",
-        0.330: "331", 0.380: "381", 0.390: "391", 0.400: "401", 0.420: "421",
-        0.450: "451", 0.470: "471", 0.550: "551", 0.560: "561", 0.600: "601",
-        0.650: "651", 0.680: "681", 0.700: "701", 0.800: "801", 0.820: "821",
-        0.840: "841", 0.900: "901",
-        # Values 1-10µH
-        1.0: "102", 1.1: "112", 1.2: "122", 1.5: "152", 1.8: "182", 2.0: "202",
-        2.2: "222", 2.7: "272", 3.0: "302", 3.3: "332", 4.7: "472", 5.6: "562",
-        6.8: "682", 8.2: "822",
-        # Values ≥ 10µH
-        10.0: "103", 12.0: "123", 15.0: "153", 18.0: "183", 22.0: "223",
-        33.0: "333", 39.0: "393", 47.0: "473", 56.0: "563", 68.0: "683",
-        82.0: "823", 100.0: "104", 220.0: "224"
-    }
+    if not 0.01 <= inductance <= 999.99:
+        raise ValueError(
+            f"Invalid inductance: {inductance}µH (0.01-999.99)"
+        )
 
-    base_code = value_codes.get(inductance)
-    if base_code is None:
-        raise ValueError(f"Invalid inductance value: {inductance}µH")
+    if inductance >= 100.0:
+        value = round(inductance / 10)
+        base_code = f"{value:02d}4"
+        return f"{base_code}{value_suffix}" if is_aec else base_code
 
+    if inductance >= 10.0:
+        value = round(inductance)
+        base_code = f"{value:02d}3"
+        return f"{base_code}{value_suffix}" if is_aec else base_code
+
+    if inductance >= 1.0:
+        value = round(inductance * 10)
+        base_code = f"{value:02d}2"
+        return f"{base_code}{value_suffix}" if is_aec else base_code
+
+    if inductance >= 0.1:
+        value = round(inductance * 100)
+        base_code = f"{value:02d}1"
+        return f"{base_code}{value_suffix}" if is_aec else base_code
+
+    value = round(inductance * 1000)
+    base_code = f"{value:02d}0"
     return f"{base_code}{value_suffix}" if is_aec else base_code
 
 
