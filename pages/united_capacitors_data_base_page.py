@@ -98,23 +98,11 @@ layout = dbc.Container([html.Div([
         f"{link_name.replace('_', ' ')}", style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
+
     dbc.Row([
         dbc.Col([
-            html.H6("Show/Hide Columns:", className="mb-2"),
-            dbc.Checklist(
-                id=f'{module_name}_column_toggle',
-                options=[
-                    {"label": " ".join(col.split()), "value": col}
-                    for col in dataframe.columns
-                ],
-                value=visible_columns,
-                inline=True,
-                style={"marginBottom": "1rem"}
-            )
-        ], xs=12, sm=11),
-        dbc.Col([
             html.Div([
-                html.H6("Items per page:", className="mb-2"),
+                html.H6("Items per page:", className="mb-1"),
                 dcc.Dropdown(
                     id=f'{module_name}_page_size',
                     options=[
@@ -122,11 +110,27 @@ layout = dbc.Container([html.Div([
                         for page_size in [10, 25, 50, 100]
                     ],
                     value=10,
-                    clearable=False
+                    clearable=False,
                 )
-            ], className="d-flex flex-column align-items-end")
-        ], xs=12, sm=1, className="d-flex justify-content-end")
-    ], className="g-0"),
+            ], className="d-flex flex-column align-items-start")
+        ], xs=12, sm=2),
+
+        dbc.Col([
+            html.Div([
+                html.H6("Show/Hide Columns:", className="mb-1"),
+                dbc.Checklist(
+                    id=f'{module_name}_column_toggle',
+                    options=[
+                        {"label": " ".join(col.split()), "value": col}
+                        for col in dataframe.columns
+                    ],
+                    value=visible_columns,
+                    inline=True,
+                    className="flex-wrap",
+                )
+            ])
+        ], xs=12, sm=10),
+    ], className="mb-1"),
 
     dash_table.DataTable(
         id=f'{module_name}_table',
