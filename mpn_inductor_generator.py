@@ -250,7 +250,11 @@ def generate_files_for_series(
         print(f"I/O error when generating files: {e}")
 
 
-def generate_unified_files(all_parts: List[ssi.PartInfo]) -> None:
+def generate_unified_files(
+        all_parts: List[ssi.PartInfo],
+        unified_csv: str,
+        unified_symbol: str
+) -> None:
     """
     Generate unified component database files containing all series.
 
@@ -261,9 +265,6 @@ def generate_unified_files(all_parts: List[ssi.PartInfo]) -> None:
     Args:
         all_parts: List of all PartInfo instances across all series
     """
-    unified_csv = "UNITED_INDUCTORS_DATA_BASE.csv"
-    unified_symbol = "UNITED_INDUCTORS_DATA_BASE.kicad_sym"
-
     # Write unified CSV file
     utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
     print(f"Generated unified CSV file with {len(all_parts)} part numbers")
@@ -284,14 +285,15 @@ if __name__ == "__main__":
     try:
         unified_parts: List[ssi.PartInfo] = []
 
-        # Generate files for both series
         for series in ssi.SERIES_SPECS:
             print(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, True, unified_parts)
 
         # Generate unified files after all series are processed
+        UNIFIED_CSV = "UNITED_INDUCTORS_DATA_BASE.csv"
+        UNIFIED_SYMBOL = "UNITED_INDUCTORS_DATA_BASE.kicad_sym"
         print("\nGenerating unified files:")
-        generate_unified_files(unified_parts)
+        generate_unified_files(unified_parts, UNIFIED_CSV, UNIFIED_SYMBOL)
 
     except (ValueError, csv.Error, IOError) as error:
         print(f"Error generating files: {error}")
