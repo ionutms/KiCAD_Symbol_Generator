@@ -1,16 +1,53 @@
-"""todo"""
+"""
+Specifications and data structures for Panasonic ERJ series resistors.
+
+This module defines the data structures and specifications for various
+Panasonic ERJ series resistors, supporting both E96 and E24 value series.
+It provides comprehensive component information including physical dimensions,
+electrical characteristics, and packaging options.
+"""
+
 from typing import List, NamedTuple, Final, Dict
 from enum import Enum
 
 
 class SeriesType(Enum):
-    """Enumeration for resistor series types."""
+    """Defines supported resistance value series types.
+
+    Values:
+        E96: 96 values per decade, typically 1% tolerance
+        E24: 24 values per decade, typically 5% tolerance
+    """
     E96 = "E96"
     E24 = "E24"
 
 
 class SeriesSpec(NamedTuple):
-    """Specifications for a resistor series."""
+    """Detailed specifications for a resistor series.
+
+    Contains all necessary parameters to define a specific resistor series,
+    including physical characteristics, electrical ratings,
+    and available configurations.
+
+    Attributes:
+        base_series: Part number series identifier (e.g., 'ERJ-2RK')
+        footprint: PCB footprint ID for the component
+        voltage_rating: Maximum operating voltage specification
+        case_code_in: Package dimensions in inches (e.g., '0402')
+        case_code_mm: Package dimensions in millimeters (e.g., '1005')
+        power_rating: Maximum power dissipation specification
+        max_resistance: Maximum resistance value in ohms
+        packaging_options: List of available packaging codes (e.g., ['V', 'X'])
+        tolerance_map:
+            Maps series types to available tolerance codes and values
+            Format: {SeriesType: {code: value}}
+        datasheet: Complete URL to component datasheet
+        manufacturer: Name of the component manufacturer
+        trustedparts_url:
+            Base URL for component listing on Trustedparts platform
+        high_resistance_tolerance: Optional special tolerances for high values
+            Format: {code: value} or None if not applicable
+    """
     base_series: str
     footprint: str
     voltage_rating: str
@@ -27,7 +64,28 @@ class SeriesSpec(NamedTuple):
 
 
 class PartInfo(NamedTuple):
-    """Structure to hold component part information."""
+    """Container for detailed resistor component information.
+
+    Stores comprehensive information about a specific resistor part,
+    including its electrical characteristics, physical properties,
+    and documentation links.
+
+    Attributes:
+        symbol_name: KiCad schematic symbol identifier
+        reference: Component reference designator (e.g., 'R1')
+        value: Resistance value in ohms (float)
+        footprint: PCB footprint library reference
+        datasheet: URL to component documentation
+        description: Descriptive text about the component
+        manufacturer: Component manufacturer name
+        mpn: Manufacturer's part number
+        tolerance: Component tolerance specification (e.g., '1%', '5%')
+        voltage_rating: Maximum voltage specification
+        case_code_in: Package dimensions in inches
+        case_code_mm: Package dimensions in millimeters
+        series: Component series identifier
+        trustedparts_link: URL to component listing on Trustedparts
+    """
     symbol_name: str
     reference: str
     value: float
