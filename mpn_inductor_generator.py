@@ -162,7 +162,8 @@ def create_part_info(
         mpn=mpn,
         tolerance=specs.tolerance,
         series=specs.base_series,
-        trustedparts_link=trustedparts_link
+        trustedparts_link=trustedparts_link,
+        max_dc_current=specs.max_dc_current
     )
 
 
@@ -198,7 +199,8 @@ HEADER_MAPPING: Final[dict] = {
     'MPN': lambda part: part.mpn,
     'Tolerance': lambda part: part.tolerance,
     'Series': lambda part: part.series,
-    'Trustedparts Search': lambda part: part.trustedparts_link
+    'Trustedparts Search': lambda part: part.trustedparts_link,
+    'Maximum DC Current (A)': lambda part: f"{part.max_dc_current:.1f}"
 }
 
 

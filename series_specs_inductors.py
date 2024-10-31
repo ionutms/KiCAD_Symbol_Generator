@@ -27,6 +27,7 @@ class SeriesSpec(NamedTuple):
         value_suffix:
             Manufacturer's suffix for the component value (e.g., "ME")
         has_aec: Whether the series is AEC-Q200 qualified (defaults to True)
+        max_dc_current: Maximum DC current rating in Amperes (A)
     """
     manufacturer: str
     base_series: str
@@ -37,6 +38,7 @@ class SeriesSpec(NamedTuple):
     trustedparts_link: str
     value_suffix: str
     has_aec: bool = True
+    max_dc_current: float = 0.0
 
 
 class PartInfo(NamedTuple):
@@ -58,6 +60,7 @@ class PartInfo(NamedTuple):
         tolerance: Component value tolerance
         series: Product series identifier
         trustedparts_link: URL to component listing on Trusted Parts
+        max_dc_current: Maximum DC current rating in Amperes (A)
     """
     symbol_name: str
     reference: str
@@ -70,6 +73,7 @@ class PartInfo(NamedTuple):
     tolerance: str
     series: str
     trustedparts_link: str
+    max_dc_current: float
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
