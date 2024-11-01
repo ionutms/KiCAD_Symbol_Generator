@@ -151,6 +151,20 @@ def create_part_info(
     mpn = f"{specs.base_series}-{value_code}"
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
+    try:
+        index = specs.inductance_values.index(inductance)
+        max_dc_current = float(specs.max_dc_current[index])
+    except ValueError:
+        print(
+            f"Error: Inductance value {inductance} µH "
+            f"not found in series {specs.base_series}")
+        max_dc_current = 0.0
+    except IndexError:
+        print(
+            f"Error: No DC current specified for inductance {inductance} µH "
+            f"in series {specs.base_series}")
+        max_dc_current = 0.0
+
     return ssi.PartInfo(
         symbol_name=f"L_{mpn}",
         reference="L",
@@ -163,7 +177,7 @@ def create_part_info(
         tolerance=specs.tolerance,
         series=specs.base_series,
         trustedparts_link=trustedparts_link,
-        max_dc_current=specs.max_dc_current
+        max_dc_current=max_dc_current
     )
 
 
