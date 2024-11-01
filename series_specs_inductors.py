@@ -276,9 +276,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "ea51f14b-7f32-4dc6-8dfe-d4b70549040f/xal60xx.pdf",
-        inductance_values=[
-            4.7, 5.6, 6.8, 8.2, 10.0, 15.0, 22.0, 33.0
-        ],
+        inductance_values=[4.7, 5.6, 6.8, 8.2, 10.0, 15.0, 22.0, 33.0],
+        max_dc_current=[11.0, 10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 3.6],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -289,9 +288,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "ea51f14b-7f32-4dc6-8dfe-d4b70549040f/xal60xx.pdf",
-        inductance_values=[
-            0.18, 0.33, 0.56, 1.0, 1.2, 1.8, 2.2, 3.3
-        ],
+        inductance_values=[0.18, 0.33, 0.56, 1.0, 1.2, 1.8, 2.2, 3.3],
+        max_dc_current=[32.0, 25.0, 22.0, 18.0, 16.0, 14.0, 10.0, 8.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -302,9 +300,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "467ff589-8942-4e57-92d0-5bef6e04ce09/xal6020.pdf",
-        inductance_values=[
-            0.12, 0.16, 0.27, 0.45, 0.6, 0.9, 1.1
-        ],
+        inductance_values=[0.12, 0.16, 0.27, 0.45, 0.6, 0.9, 1.1],
+        max_dc_current=[27.0, 26.0, 25.0, 22.0, 18.5, 15.2, 12.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
