@@ -108,7 +108,8 @@ layout = dbc.Container([html.Div([
                     ],
                     value=10,
                     clearable=False,
-                )
+                ),
+                html.Br()
             ], className="d-flex flex-column align-items-start")
         ], xs=12, sm=2),
 
@@ -124,7 +125,8 @@ layout = dbc.Container([html.Div([
                     value=visible_columns,
                     inline=True,
                     className="flex-wrap",
-                )
+                ),
+                html.Br()
             ])
         ], xs=12, sm=10),
     ], className="mb-1"),
