@@ -528,9 +528,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "5f7b596c-8f2f-415e-931e-74a5b6804936/xfl5015.pdf",
-        inductance_values=[
-            0.22, 0.42, 0.68, 1.2, 1.5
-        ],
+        inductance_values=[0.22, 0.42, 0.68, 1.2, 1.5],
+        max_dc_current=[16.2, 12.7, 11.3, 9.2, 8.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -541,9 +540,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "5f7b596c-8f2f-415e-931e-74a5b6804936/xfl5015.pdf",
-        inductance_values=[
-            2.2, 3.3
-        ],
+        inductance_values=[2.2, 3.3],
+        max_dc_current=[9.2, 8.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -554,9 +552,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "f01e4ccd-6be9-43eb-bb01-c23b4deeb2c5/xfl5030.pdf",
-        inductance_values=[
-            0.27, 0.56, 1.0, 2.2, 3.3, 4.7
-        ],
+        inductance_values=[0.27, 0.56, 1.0, 2.2, 3.3, 4.7],
+        max_dc_current=[25.5, 21.0, 18.0, 11.5, 10.0, 8.7],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -567,9 +564,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "ae4a44fc-deeb-45d7-81a6-abe1d0432add/xfl6012.pdf",
-        inductance_values=[
-            0.18, 0.39, 0.6, 0.8, 1.0
-        ],
+        inductance_values=[0.18, 0.39, 0.6, 0.8, 1.0],
+        max_dc_current=[13.2, 12.5, 11.2, 9.4, 8.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -580,9 +576,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "9e8cc1df-cee0-4215-90fb-b5193fa22761/xfl6060-473.pdf",
-        inductance_values=[
-            47.0
-        ],
+        inductance_values=[47.0],
+        max_dc_current=[3.7],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -593,9 +588,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "ccf09628-6e8c-462a-9dc9-fa4346e7cf0a/xfl7015.pdf",
-        inductance_values=[
-            0.25, 0.47, 0.68, 1.0, 1.5
-        ],
+        inductance_values=[0.25, 0.47, 0.68, 1.0, 1.5],
+        max_dc_current=[20.0, 17.0, 15.0, 10.5, 8.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
