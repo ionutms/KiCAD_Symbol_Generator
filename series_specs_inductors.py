@@ -77,15 +77,69 @@ class PartInfo(NamedTuple):
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
-    "XAL1513": SeriesSpec(
+    "XAL1010": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL1513",
-        footprint="footprints:XAL1513",
+        base_series="XAL1010",
+        footprint="footprints:XAL1010",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "129ad6f3-0445-47fd-a0b3-edeb49177c17/xal1513.pdf",
-        inductance_values=[15.0],
-        max_dc_current=[22.0],
+        "dd74e670-e705-456a-9a69-585fe02eaf3c/xal1010.pdf",
+        inductance_values=[
+            0.22, 0.45, 0.68, 1.0, 1.5, 2.2, 3.3,
+            4.7, 5.6, 6.8, 8.2, 10.0, 15.0
+        ],
+        max_dc_current=[
+            55.5, 53.0, 48.0, 43.5, 40.5, 32.0, 25.0,
+            24.0, 21.2, 18.5, 17.1, 15.5, 13.8
+        ],
+        value_suffix="ME",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XAL1030": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XAL1030",
+        footprint="footprints:XAL1030",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "7b108457-7731-456d-9256-ca72f2e1a551/xal1030.pdf",
+        inductance_values=[0.16, 0.3, 0.56, 1.0],
+        max_dc_current=[42.0, 35.0, 32.0, 23.0],
+        value_suffix="ME",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XAL1060": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XAL1060",
+        footprint="footprints:XAL1060",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "8909f858-b441-4d60-acff-8b8ca36f9ede/xal1060.pdf",
+        inductance_values=[0.18, 0.4, 0.68, 1.2, 1.5, 2.2, 3.3, 4.7],
+        max_dc_current=[46.0, 36.8, 33.9, 26.3, 24.4, 20.0, 16.8, 14.0],
+        value_suffix="ME",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XAL1080": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XAL1080",
+        footprint="footprints:XAL1080",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "18b60eaf-2c95-4723-8b7f-5f43f66ed007/xal1080.pdf",
+        inductance_values=[10.0, 12.0, 15.0, 18.0, 22.0, 33.0],
+        max_dc_current=[14.8, 13.9, 11.7, 10.8, 10.0, 7.5],
+        value_suffix="ME",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XAL1350": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XAL1350",
+        footprint="footprints:XAL1350",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "dc536f86-3a3b-454f-950e-8e153260e61c/xal1350.pdf",
+        inductance_values=[0.63, 0.93, 1.3, 2.2, 3.0],
+        max_dc_current=[38.0, 33.0, 32.0, 24.0, 21.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -98,6 +152,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         "cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf",
         inductance_values=[4.7, 6.8, 8.2, 10.0, 15.0, 22.0, 33.0],
         max_dc_current=[29.0, 26.0, 24.0, 22.0, 18.0, 14.0, 12.0],
+        value_suffix="ME",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XAL1513": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XAL1513",
+        footprint="footprints:XAL1513",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "129ad6f3-0445-47fd-a0b3-edeb49177c17/xal1513.pdf",
+        inductance_values=[15.0],
+        max_dc_current=[22.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -117,128 +183,123 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL1350": SeriesSpec(
+    "XAL4020": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL1350",
-        footprint="footprints:XAL1350",
+        base_series="XAL4020",
+        footprint="footprints:XAL4020",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "dc536f86-3a3b-454f-950e-8e153260e61c/xal1350.pdf",
-        inductance_values=[0.63, 0.93, 1.3, 2.2, 3.0],
-        max_dc_current=[38.0, 33.0, 32.0, 24.0, 21.0],
+        "6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf",
+        inductance_values=[0.22, 0.4, 0.6, 1.0, 1.2, 1.5, 2.2],
+        max_dc_current=[16.8, 14.0, 11.7, 9.6, 9.0, 7.5, 5.5],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL1010": SeriesSpec(
+    "XAL4030": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL1010",
-        footprint="footprints:XAL1010",
+        base_series="XAL4030",
+        footprint="footprints:XAL4030",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "dd74e670-e705-456a-9a69-585fe02eaf3c/xal1010.pdf",
-        inductance_values=[
-            0.22, 0.45, 0.68, 1.0, 1.5, 2.2, 3.3,
-            4.7, 5.6, 6.8, 8.2, 10.0, 15.0
-        ],
-        max_dc_current=[
-            55.5, 53.0, 48.0, 43.5, 40.5, 32.0, 25.0,
-            24.0, 21.2, 18.5, 17.1, 15.5, 13.8
-        ],
+        "6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf",
+        inductance_values=[3.3, 4.7, 6.8],
+        max_dc_current=[6.6, 5.1, 3.9],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL1080": SeriesSpec(
+    "XAL4040": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL1080",
-        footprint="footprints:XAL1080",
+        base_series="XAL4040",
+        footprint="footprints:XAL4040",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "18b60eaf-2c95-4723-8b7f-5f43f66ed007/xal1080.pdf",
-        inductance_values=[10.0, 12.0, 15.0, 18.0, 22.0, 33.0],
-        max_dc_current=[14.8, 13.9, 11.7, 10.8, 10.0, 7.5],
+        "6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf",
+        inductance_values=[8.2, 10.0, 15.0],
+        max_dc_current=[3.4, 3.1, 2.8],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL1060": SeriesSpec(
+    "XAL5020": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL1060",
-        footprint="footprints:XAL1060",
+        base_series="XAL5020",
+        footprint="footprints:XAL5020",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "8909f858-b441-4d60-acff-8b8ca36f9ede/xal1060.pdf",
-        inductance_values=[0.18, 0.4, 0.68, 1.2, 1.5, 2.2, 3.3, 4.7],
-        max_dc_current=[46.0, 36.8, 33.9, 26.3, 24.4, 20.0, 16.8, 14.0],
+        "1941eff1-c018-493c-8cd6-d88d2edf5029/xal5020.pdf",
+        inductance_values=[0.16, 0.33, 0.56, 0.8, 1.2],
+        max_dc_current=[18.8, 14.4, 13.9, 13.0, 9.4],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL1030": SeriesSpec(
+    "XAL5030": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL1030",
-        footprint="footprints:XAL1030",
+        base_series="XAL5030",
+        footprint="footprints:XAL5030",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "7b108457-7731-456d-9256-ca72f2e1a551/xal1030.pdf",
-        inductance_values=[0.16, 0.3, 0.56, 1.0],
-        max_dc_current=[42.0, 35.0, 32.0, 23.0],
+        "49bc46c8-4b2c-45b9-9b6c-2eaa235ea698/xal50xx.pdf",
+        inductance_values=[0.16, 0.33, 0.6, 0.8, 1.0, 1.2, 2.2, 3.3, 4.7],
+        max_dc_current=[22.2, 19.2, 17.7, 13.0, 11.1, 10.4, 9.7, 8.1, 5.9],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL8080": SeriesSpec(
+    "XAL5050": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL8080",
-        footprint="footprints:XAL8080",
+        base_series="XAL5050",
+        footprint="footprints:XAL5050",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf",
-        inductance_values=[
-            0.68, 0.84, 1.0, 2.2, 4.7, 6.8, 10.0,
-            12.0, 15.0, 18.0, 22.0, 33.0, 47.0
-        ],
-        max_dc_current=[
-            37.0, 35.0, 34.1, 21.5, 14.6, 11.3, 8.7,
-            10.5, 9.4, 8.3, 7.6, 6.0, 4.8
-        ],
+        "49bc46c8-4b2c-45b9-9b6c-2eaa235ea698/xal50xx.pdf",
+        inductance_values=[4.7, 5.6, 6.8, 8.2, 10.0, 15.0, 22.0],
+        max_dc_current=[8.2, 7.2, 6.4, 6.1, 4.9, 3.9, 3.4],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL8050": SeriesSpec(
+    "XAL6020": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL8050",
-        footprint="footprints:XAL8050",
+        base_series="XAL6020",
+        footprint="footprints:XAL6020",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "5885ede8-ea4f-464a-9dcb-18dbf143a845/xal8050.pdf",
-        inductance_values=[22.0],
-        max_dc_current=[5.2],
+        "467ff589-8942-4e57-92d0-5bef6e04ce09/xal6020.pdf",
+        inductance_values=[0.12, 0.16, 0.27, 0.45, 0.6, 0.9, 1.1],
+        max_dc_current=[27.0, 26.0, 25.0, 22.0, 18.5, 15.2, 12.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL7070": SeriesSpec(
+    "XAL6030": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL7070",
-        footprint="footprints:XAL7070",
+        base_series="XAL6030",
+        footprint="footprints:XAL6030",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf",
-        inductance_values=[
-            0.16, 0.3, 0.55, 0.65, 0.8, 1.0, 1.2, 1.8, 2.2, 3.3,
-            4.7, 5.6, 6.8, 10.0, 12.0, 15.0, 18.0, 22.0, 33.0, 47.0
-        ],
-        max_dc_current=[
-            36.1, 33.4, 29.0, 26.5, 25.8, 25.0, 21.6, 21.0, 17.8, 15.1,
-            13.6, 11.4, 9.2, 9.3, 8.2, 7.4, 6.8, 6.5, 4.9, 4.1],
+        "ea51f14b-7f32-4dc6-8dfe-d4b70549040f/xal60xx.pdf",
+        inductance_values=[0.18, 0.33, 0.56, 1.0, 1.2, 1.8, 2.2, 3.3],
+        max_dc_current=[32.0, 25.0, 22.0, 18.0, 16.0, 14.0, 10.0, 8.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL7050": SeriesSpec(
+    "XAL6060": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL7050",
-        footprint="footprints:XAL7050",
+        base_series="XAL6060",
+        footprint="footprints:XAL6060",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "13a991b3-4273-4be3-81ba-f3cf372b4691/xal7050.pdf",
-        inductance_values=[10.0, 15.0, 18.0, 22.0, 33.0, 47.0],
-        max_dc_current=[8.5, 7.0, 6.2, 5.0, 4.6, 3.5],
+        "ea51f14b-7f32-4dc6-8dfe-d4b70549040f/xal60xx.pdf",
+        inductance_values=[4.7, 5.6, 6.8, 8.2, 10.0, 15.0, 22.0, 33.0],
+        max_dc_current=[11.0, 10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 3.6],
+        value_suffix="ME",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XAL7020": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XAL7020",
+        footprint="footprints:XAL7020",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf",
+        inductance_values=[0.15, 0.27, 0.33, 0.47, 0.68, 1.0, 1.2, 1.5, 2.2],
+        max_dc_current=[24.0, 21.0, 20.0, 17.0, 13.0, 11.0, 10.0, 9.0, 7.0],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -260,123 +321,62 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL7020": SeriesSpec(
+    "XAL7050": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL7020",
-        footprint="footprints:XAL7020",
+        base_series="XAL7050",
+        footprint="footprints:XAL7050",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf",
-        inductance_values=[0.15, 0.27, 0.33, 0.47, 0.68, 1.0, 1.2, 1.5, 2.2],
-        max_dc_current=[24.0, 21.0, 20.0, 17.0, 13.0, 11.0, 10.0, 9.0, 7.0],
+        "13a991b3-4273-4be3-81ba-f3cf372b4691/xal7050.pdf",
+        inductance_values=[10.0, 15.0, 18.0, 22.0, 33.0, 47.0],
+        max_dc_current=[8.5, 7.0, 6.2, 5.0, 4.6, 3.5],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL6060": SeriesSpec(
+    "XAL7070": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL6060",
-        footprint="footprints:XAL6060",
+        base_series="XAL7070",
+        footprint="footprints:XAL7070",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "ea51f14b-7f32-4dc6-8dfe-d4b70549040f/xal60xx.pdf",
-        inductance_values=[4.7, 5.6, 6.8, 8.2, 10.0, 15.0, 22.0, 33.0],
-        max_dc_current=[11.0, 10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 3.6],
+        "1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf",
+        inductance_values=[
+            0.16, 0.3, 0.55, 0.65, 0.8, 1.0, 1.2, 1.8, 2.2, 3.3,
+            4.7, 5.6, 6.8, 10.0, 12.0, 15.0, 18.0, 22.0, 33.0, 47.0
+        ],
+        max_dc_current=[
+            36.1, 33.4, 29.0, 26.5, 25.8, 25.0, 21.6, 21.0, 17.8, 15.1,
+            13.6, 11.4, 9.2, 9.3, 8.2, 7.4, 6.8, 6.5, 4.9, 4.1],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL6030": SeriesSpec(
+    "XAL8050": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL6030",
-        footprint="footprints:XAL6030",
+        base_series="XAL8050",
+        footprint="footprints:XAL8050",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "ea51f14b-7f32-4dc6-8dfe-d4b70549040f/xal60xx.pdf",
-        inductance_values=[0.18, 0.33, 0.56, 1.0, 1.2, 1.8, 2.2, 3.3],
-        max_dc_current=[32.0, 25.0, 22.0, 18.0, 16.0, 14.0, 10.0, 8.0],
+        "5885ede8-ea4f-464a-9dcb-18dbf143a845/xal8050.pdf",
+        inductance_values=[22.0],
+        max_dc_current=[5.2],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XAL6020": SeriesSpec(
+    "XAL8080": SeriesSpec(
         manufacturer="Coilcraft",
-        base_series="XAL6020",
-        footprint="footprints:XAL6020",
+        base_series="XAL8080",
+        footprint="footprints:XAL8080",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
-        "467ff589-8942-4e57-92d0-5bef6e04ce09/xal6020.pdf",
-        inductance_values=[0.12, 0.16, 0.27, 0.45, 0.6, 0.9, 1.1],
-        max_dc_current=[27.0, 26.0, 25.0, 22.0, 18.5, 15.2, 12.0],
-        value_suffix="ME",
-        trustedparts_link="https://www.trustedparts.com/en/search"
-    ),
-    "XAL5050": SeriesSpec(
-        manufacturer="Coilcraft",
-        base_series="XAL5050",
-        footprint="footprints:XAL5050",
-        tolerance="±20%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "49bc46c8-4b2c-45b9-9b6c-2eaa235ea698/xal50xx.pdf",
-        inductance_values=[4.7, 5.6, 6.8, 8.2, 10.0, 15.0, 22.0],
-        max_dc_current=[8.2, 7.2, 6.4, 6.1, 4.9, 3.9, 3.4],
-        value_suffix="ME",
-        trustedparts_link="https://www.trustedparts.com/en/search"
-    ),
-    "XAL5030": SeriesSpec(
-        manufacturer="Coilcraft",
-        base_series="XAL5030",
-        footprint="footprints:XAL5030",
-        tolerance="±20%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "49bc46c8-4b2c-45b9-9b6c-2eaa235ea698/xal50xx.pdf",
-        inductance_values=[0.16, 0.33, 0.6, 0.8, 1.0, 1.2, 2.2, 3.3, 4.7],
-        max_dc_current=[22.2, 19.2, 17.7, 13.0, 11.1, 10.4, 9.7, 8.1, 5.9],
-        value_suffix="ME",
-        trustedparts_link="https://www.trustedparts.com/en/search"
-    ),
-    "XAL5020": SeriesSpec(
-        manufacturer="Coilcraft",
-        base_series="XAL5020",
-        footprint="footprints:XAL5020",
-        tolerance="±20%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "1941eff1-c018-493c-8cd6-d88d2edf5029/xal5020.pdf",
-        inductance_values=[0.16, 0.33, 0.56, 0.8, 1.2],
-        max_dc_current=[18.8, 14.4, 13.9, 13.0, 9.4],
-        value_suffix="ME",
-        trustedparts_link="https://www.trustedparts.com/en/search"
-    ),
-    "XAL4040": SeriesSpec(
-        manufacturer="Coilcraft",
-        base_series="XAL4040",
-        footprint="footprints:XAL4040",
-        tolerance="±20%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf",
-        inductance_values=[8.2, 10.0, 15.0],
-        max_dc_current=[3.4, 3.1, 2.8],
-        value_suffix="ME",
-        trustedparts_link="https://www.trustedparts.com/en/search"
-    ),
-    "XAL4030": SeriesSpec(
-        manufacturer="Coilcraft",
-        base_series="XAL4030",
-        footprint="footprints:XAL4030",
-        tolerance="±20%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf",
-        inductance_values=[3.3, 4.7, 6.8],
-        max_dc_current=[6.6, 5.1, 3.9],
-        value_suffix="ME",
-        trustedparts_link="https://www.trustedparts.com/en/search"
-    ),
-    "XAL4020": SeriesSpec(
-        manufacturer="Coilcraft",
-        base_series="XAL4020",
-        footprint="footprints:XAL4020",
-        tolerance="±20%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf",
-        inductance_values=[0.22, 0.4, 0.6, 1.0, 1.2, 1.5, 2.2],
-        max_dc_current=[16.8, 14.0, 11.7, 9.6, 9.0, 7.5, 5.5],
+        "345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf",
+        inductance_values=[
+            0.68, 0.84, 1.0, 2.2, 4.7, 6.8, 10.0,
+            12.0, 15.0, 18.0, 22.0, 33.0, 47.0
+        ],
+        max_dc_current=[
+            37.0, 35.0, 34.1, 21.5, 14.6, 11.3, 8.7,
+            10.5, 9.4, 8.3, 7.6, 6.0, 4.8
+        ],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -433,24 +433,6 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
-    "XFL3012": SeriesSpec(
-        manufacturer="Coilcraft",
-        base_series="XFL3012",
-        footprint="footprints:XFL3012",
-        tolerance="±20%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf",
-        inductance_values=[
-            0.33, 0.56, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10.0,
-            15.0, 22.0, 33.0, 39.0, 47.0, 56.0, 68.0, 82.0, 100.0, 220.0
-        ],
-        max_dc_current=[
-            3.5, 3.0, 2.8, 2.6, 2.2, 1.9, 1.6, 1.4, 1.3, 1.2,
-            1.0, 0.80, 0.57, 0.54, 0.46, 0.44, 0.42, 0.34, 0.39, 0.23
-        ],
-        value_suffix="ME",
-        trustedparts_link="https://www.trustedparts.com/en/search"
-    ),
     "XFL3010": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL3010",
@@ -465,6 +447,24 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         max_dc_current=[
             2.5, 2.3, 1.9, 1.3, 1.2, 1.1, 0.95, 0.82, 0.76,
             0.66, 0.56, 0.51, 0.44, 0.41, 0.36, 0.34, 0.29, 0.19
+        ],
+        value_suffix="ME",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "XFL3012": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="XFL3012",
+        footprint="footprints:XFL3012",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "f76a3c9b-4fff-4397-8028-ef8e043eb200/xfl3012.pdf",
+        inductance_values=[
+            0.33, 0.56, 0.68, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10.0,
+            15.0, 22.0, 33.0, 39.0, 47.0, 56.0, 68.0, 82.0, 100.0, 220.0
+        ],
+        max_dc_current=[
+            3.5, 3.0, 2.8, 2.6, 2.2, 1.9, 1.6, 1.4, 1.3, 1.2,
+            1.0, 0.80, 0.57, 0.54, 0.46, 0.44, 0.42, 0.34, 0.39, 0.23
         ],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
