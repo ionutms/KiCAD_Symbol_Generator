@@ -9,9 +9,27 @@ Generates both individual series files and unified component database.
 
 import csv
 from typing import Final, List
+from colorama import init, Fore, Style
 import kicad_inductor_symbol_generator as ki_isg
 import series_specs_inductors as ssi
 import file_handler_utilities as utils
+
+init(autoreset=True)
+
+
+def print_success(message: str) -> None:
+    """Print a success message in green."""
+    print(f"{Fore.GREEN}{message}{Style.RESET_ALL}")
+
+
+def print_error(message: str) -> None:
+    """Print an error message in red."""
+    print(f"{Fore.RED}{message}{Style.RESET_ALL}")
+
+
+def print_info(message: str) -> None:
+    """Print an info message in yellow."""
+    print(f"{Fore.YELLOW}{message}{Style.RESET_ALL}")
 
 
 def format_inductance_value(inductance: float) -> str:
@@ -63,11 +81,6 @@ def generate_value_code(
 
     Raises:
         ValueError: If inductance is outside the valid range (0.01-999.99 µH)
-
-    Notes:
-        - Values are rounded to 2 significant digits before encoding
-        - For non-AEC parts, set is_aec=False to omit the suffix
-        - Custom AEC suffixes can be specified via value_suffix parameter
     """
     if not 0.01 <= inductance <= 999.99:
         raise ValueError(
@@ -155,12 +168,12 @@ def create_part_info(
         index = specs.inductance_values.index(inductance)
         max_dc_current = float(specs.max_dc_current[index])
     except ValueError:
-        print(
+        print_error(
             f"Error: Inductance value {inductance} µH "
             f"not found in series {specs.base_series}")
         max_dc_current = 0.0
     except IndexError:
-        print(
+        print_error(
             f"Error: No DC current specified for inductance {inductance} µH "
             f"in series {specs.base_series}")
         max_dc_current = 0.0
@@ -241,7 +254,7 @@ def generate_files_for_series(
     try:
         parts_list = generate_part_numbers(specs, is_aec)
         utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
-        print(
+        print_success(
             f"Generated {len(parts_list)} part numbers "
             f"in '{csv_filename}'"
         )
@@ -250,7 +263,7 @@ def generate_files_for_series(
             f'data/{csv_filename}',
             f'series_kicad_sym/{symbol_filename}'
         )
-        print(
+        print_success(
             f"KiCad symbol file '{symbol_filename}' "
             "generated successfully."
         )
@@ -259,11 +272,11 @@ def generate_files_for_series(
         unified_parts_list.extend(parts_list)
 
     except FileNotFoundError as e:
-        print(f"CSV file not found: {e}")
+        print_error(f"CSV file not found: {e}")
     except csv.Error as e:
-        print(f"CSV processing error: {e}")
+        print_error(f"CSV processing error: {e}")
     except IOError as e:
-        print(f"I/O error when generating files: {e}")
+        print_error(f"I/O error when generating files: {e}")
 
 
 def generate_unified_files(
@@ -280,21 +293,25 @@ def generate_unified_files(
 
     Args:
         all_parts: List of all PartInfo instances across all series
+        unified_csv: Name of the unified CSV file to generate
+        unified_symbol: Name of the unified KiCad symbol file to generate
     """
     # Write unified CSV file
     utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
-    print(f"Generated unified CSV file with {len(all_parts)} part numbers")
+    print_success(
+        f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file
     try:
         ki_isg.generate_kicad_symbol(f'data/{unified_csv}', unified_symbol)
-        print("Unified KiCad symbol file generated successfully.")
+        print_success("Unified KiCad symbol file generated successfully.")
     except FileNotFoundError as e:
-        print(f"Unified CSV file not found: {e}")
+        print_error(f"Unified CSV file not found: {e}")
     except csv.Error as e:
-        print(f"CSV processing error for unified file: {e}")
+        print_error(f"CSV processing error for unified file: {e}")
     except IOError as e:
-        print(f"I/O error when generating unified KiCad symbol file: {e}")
+        print_error(
+            f"I/O error when generating unified KiCad symbol file: {e}")
 
 
 if __name__ == "__main__":
@@ -302,14 +319,14 @@ if __name__ == "__main__":
         unified_parts: List[ssi.PartInfo] = []
 
         for series in ssi.SERIES_SPECS:
-            print(f"\nGenerating files for {series} series:")
+            print_info(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, True, unified_parts)
 
         # Generate unified files after all series are processed
         UNIFIED_CSV = "UNITED_INDUCTORS_DATA_BASE.csv"
         UNIFIED_SYMBOL = "UNITED_INDUCTORS_DATA_BASE.kicad_sym"
-        print("\nGenerating unified files:")
+        print_info("\nGenerating unified files:")
         generate_unified_files(unified_parts, UNIFIED_CSV, UNIFIED_SYMBOL)
 
     except (ValueError, csv.Error, IOError) as error:
-        print(f"Error generating files: {error}")
+        print_error(f"Error generating files: {error}")
