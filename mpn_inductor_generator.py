@@ -167,16 +167,19 @@ def create_part_info(
     try:
         index = specs.inductance_values.index(inductance)
         max_dc_current = float(specs.max_dc_current[index])
+        max_dc_resistance = float(specs.max_dc_resistance[index])
     except ValueError:
         print_error(
             f"Error: Inductance value {inductance} µH "
             f"not found in series {specs.base_series}")
         max_dc_current = 0.0
+        max_dc_resistance = 0.0
     except IndexError:
         print_error(
-            f"Error: No DC current specified for inductance {inductance} µH "
-            f"in series {specs.base_series}")
+            "Error: No DC specifications found for inductance "
+            f"{inductance} µH in series {specs.base_series}")
         max_dc_current = 0.0
+        max_dc_resistance = 0.0
 
     return ssi.PartInfo(
         symbol_name=f"L_{mpn}",
@@ -190,7 +193,8 @@ def create_part_info(
         tolerance=specs.tolerance,
         series=specs.base_series,
         trustedparts_link=trustedparts_link,
-        max_dc_current=max_dc_current
+        max_dc_current=max_dc_current,
+        max_dc_resistance=max_dc_resistance
     )
 
 
@@ -227,7 +231,8 @@ HEADER_MAPPING: Final[dict] = {
     'Tolerance': lambda part: part.tolerance,
     'Series': lambda part: part.series,
     'Trustedparts Search': lambda part: part.trustedparts_link,
-    'Maximum DC Current (A)': lambda part: f"{part.max_dc_current:.1f}"
+    'Maximum DC Current (A)': lambda part: f"{part.max_dc_current:.1f}",
+    'Maximum DC Resistance (Ω)': lambda part: f"{part.max_dc_resistance:.3f}"
 }
 
 
