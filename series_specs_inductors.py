@@ -388,9 +388,12 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         datasheet="https://www.coilcraft.com/getmedia/" +
         "73b70df2-8cfe-46c3-92db-66951708f060/xfl2005.pdf",
         inductance_values=[
-            0.15, 0.22, 0.33, 0.47, 0.68,
-            1.0, 1.5, 2.2, 3.3, 4.7, 5.6, 6.8, 8.2,
-            10.0
+            0.15, 0.22, 0.33, 0.47, 0.68, 1.0, 1.5,
+            2.2, 3.3, 4.7, 5.6, 6.8, 8.2, 10.0
+        ],
+        max_dc_current=[
+            1.60, 1.48, 1.30, 1.25, 1.05, 0.84, 0.70,
+            0.66, 0.50, 0.41, 0.39, 0.38, 0.33, 0.29
         ],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
@@ -403,10 +406,12 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         datasheet="https://www.coilcraft.com/getmedia/" +
         "65419ba7-9eac-409b-830a-74bf182a8aca/xfl2006.pdf",
         inductance_values=[
-            1.0, 2.2, 3.3, 4.7, 5.6, 6.8, 8.2,
-            10.0, 15.0, 22.0, 33.0, 47.0, 56.0, 68.0, 82.0,
-            100.0
+            1.0, 2.2, 3.3, 4.7, 5.6, 6.8, 8.2, 10.0,
+            15.0, 22.0, 33.0, 47.0, 56.0, 68.0, 82.0, 100.0
         ],
+        max_dc_current=[
+            1.22, 0.950, 0.72, 0.66, 0.6, 0.52, 0.49, 0.44,
+            0.35, 0.305, 0.205, 0.205, 0.195, 0.155, 0.165, 0.135],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
@@ -418,10 +423,12 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         datasheet="https://www.coilcraft.com/getmedia/" +
         "50382b97-998f-4b75-b5ee-4a93b0ac4411/xfl2010.pdf",
         inductance_values=[
-            0.04, 0.12, 0.22, 0.38, 0.6, 0.82,
-            1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 8.2,
-            10.0, 18.0, 22.0, 33.0, 47.0, 56.0, 68.0, 82.0,
-            100.0, 220.0
+            0.04, 0.12, 0.22, 0.38, 0.6, 0.82, 1.0, 1.5, 2.2, 3.3, 4.7, 6.8,
+            8.2, 10.0, 18.0, 22.0, 33.0, 47.0, 56.0, 68.0, 82.0, 100.0, 220.0
+        ],
+        max_dc_current=[
+            4.8, 3.7, 3.1, 2.85, 2.35, 2.15, 1.8, 1.55, 1.35, 1.2, 0.91, 0.79,
+            0.76, 0.67, 0.46, 0.42, 0.35, 0.31, 0.27, 0.26, 0.21, 0.2, 0.14
         ],
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
