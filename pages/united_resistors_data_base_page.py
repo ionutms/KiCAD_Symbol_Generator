@@ -36,7 +36,7 @@ register_page(__name__, name=link_name, order=3)
 dataframe: pd.DataFrame = pd.read_csv('data/UNITED_RESISTORS_DATA_BASE.csv')
 total_rows = len(dataframe)
 
-TITLE = "Resistors Database"
+TITLE = f"Resistors Database ({total_rows:,} items)"
 ABOUT = (
     "The Resistors Database is an interactive web application that "
     "provides a comprehensive view of resistor specifications.",

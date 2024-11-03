@@ -2,11 +2,11 @@
 
 This module provides a Dash page for viewing and interacting with connector
 specifications. It allows users to browse, search, and filter through a
-database of resistors, with features for customizing the view and accessing
+database of connectors, with features for customizing the view and accessing
 detailed information.
 
 Key features:
-- Interactive DataTable displaying resistor specifications
+- Interactive DataTable displaying connector specifications
 - Column visibility controls for customizing the view
 - Dynamic filtering and multi-column sorting capabilities
 - Pagination with customizable page size
@@ -56,9 +56,9 @@ features = [
 ]
 
 usage_steps = [
-    "Navigate to the Resistors Database page",
+    "Navigate to the Connectors Database page",
     "Use the table's built-in search functionality "
-    "to find specific resistors",
+    "to find specific connectors",
     "Click on column headers to sort the data",
     "Use the filter action to narrow down the displayed results",
     "Toggle column visibility using the checkboxes above the table",
