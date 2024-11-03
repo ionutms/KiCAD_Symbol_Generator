@@ -97,7 +97,8 @@ def create_part_info(
         manufacturer=specs.manufacturer,
         mpn=mpn,
         series=specs.base_series,
-        trustedparts_link=trustedparts_link
+        trustedparts_link=trustedparts_link,
+        color=specs.color
     )
 
 
@@ -128,7 +129,8 @@ HEADER_MAPPING: Final[dict] = {
     'Manufacturer': lambda part: part.manufacturer,
     'MPN': lambda part: part.mpn,
     'Series': lambda part: part.series,
-    'Trustedparts Search': lambda part: part.trustedparts_link
+    'Trustedparts Search': lambda part: part.trustedparts_link,
+    'Color': lambda part: part.color
 }
 
 
