@@ -11,7 +11,7 @@ Key features:
 - Dynamic filtering and multi-column sorting capabilities
 - Pagination with customizable page size
 - Theme-aware styling with light/dark mode support
-- Direct links to resistor datasheets
+- Direct links to connector datasheets
 - Responsive design for various screen sizes
 
 The module uses Dash components and callbacks to create an interactive
@@ -36,22 +36,22 @@ register_page(__name__, name=link_name, order=6)
 dataframe: pd.DataFrame = pd.read_csv('data/UNITED_CONNECTORS_DATA_BASE.csv')
 total_rows = len(dataframe)
 
-TITLE = f"Resistors Database ({total_rows:,} items)"
+TITLE = f"Connectors Database ({total_rows:,} items)"
 ABOUT = (
-    "The Resistors Database is an interactive web application that "
-    "provides a comprehensive view of resistor specifications.",
+    "The Connectors Database is an interactive web application that "
+    "provides a comprehensive view of connector specifications.",
     "It allows users to easily browse, search, and filter "
     f"through a database of {total_rows:,} connectors, "
     "providing quick access to important information and datasheets."
 )
 
 features = [
-    "Interactive data table displaying resistor specifications",
+    "Interactive data table displaying connector specifications",
     "Dynamic filtering and multi-column sorting capabilities",
     "Customizable pagination with adjustable items per page",
-    "Direct links to resistor datasheets",
+    "Direct links to connector datasheets",
     "Responsive design adapting to light and dark themes",
-    "Easy-to-use interface for exploring resistor data",
+    "Easy-to-use interface for exploring connector data",
     "Customizable column visibility"
 ]
 
@@ -65,7 +65,7 @@ usage_steps = [
     "Adjust the number of items per page using the dropdown menu",
     "Navigate through pages using the pagination controls at "
     "the bottom of the table",
-    "Access resistor datasheets by clicking on the provided links in the "
+    "Access connector datasheets by clicking on the provided links in the "
     "'Datasheet' column",
     "Switch between light and dark themes for comfortable viewing in "
     "different environments"
