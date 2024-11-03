@@ -73,9 +73,6 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
 def generate_part_info(
     series_spec: SeriesSpec,
     pin_count: int,
-    color: str = "Green",
-    contact_material: str = "Tin",
-    temp_range: str = "-40°C to +105°C"
 ) -> PartInfo:
     """
     Generate a PartInfo instance for a specific connector configuration.
@@ -111,38 +108,4 @@ def generate_part_info(
         pitch=series_spec.pitch,
         current_rating=series_spec.current_rating,
         voltage_rating=series_spec.voltage_rating,
-        contact_material=contact_material,
-        color=color,
-        temperature_range=temp_range
     )
-
-
-def generate_series_parts(
-    series_name: str,
-    color: str = "Green",
-    contact_material: str = "Tin",
-    temp_range: str = "-40°C to +105°C"
-) -> List[PartInfo]:
-    """
-    Generate PartInfo instances for all pin configurations in a series.
-
-    Args:
-        series_name: Name of the connector series
-        color: Color of the connector housing
-        contact_material: Material of the contacts
-        temp_range: Operating temperature range
-
-    Returns:
-        List[PartInfo]: List of part information for all configurations
-    """
-    series_spec = SERIES_SPECS[series_name]
-    return [
-        generate_part_info(
-            series_spec,
-            pin_count,
-            color,
-            contact_material,
-            temp_range
-        )
-        for pin_count in series_spec.pin_counts
-    ]
