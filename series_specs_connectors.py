@@ -139,19 +139,22 @@ def create_description(
     specs: SeriesSpec,
 ) -> str:
     """
-    Create component description.
+    Create component description with comprehensive specifications.
 
     Args:
         pin_count: Number of pins
         specs: Series specifications
 
     Returns:
-        Formatted description string
+        Formatted description string including manufacturer, series, pins,
+        and pitch
     """
     parts = [
-        "CONNECTOR",
-        f"{pin_count}BE",
-        f"{specs.pitch}mm pitch"
+        f"{specs.manufacturer}",
+        f"{specs.base_series} series",
+        f"{pin_count}-position connector",
+        f"{specs.pitch}mm pitch",
+        f"{specs.color} housing"
     ]
 
     return " ".join(parts)
