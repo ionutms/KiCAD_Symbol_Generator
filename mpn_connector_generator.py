@@ -63,7 +63,6 @@ def generate_part_code(
 
 def create_description(
     pin_count: int,
-    specs: ssc.SeriesSpec,
 ) -> str:
     """
     Create component description.
@@ -77,10 +76,7 @@ def create_description(
     """
     parts = [
         "CONNECTOR",
-        specs.gender.upper(),
         f"{pin_count}P",
-        specs.orientation.upper(),
-        specs.mounting_type.upper()
     ]
 
     return " ".join(parts)
@@ -110,18 +106,11 @@ def create_part_info(
         value=format_pin_count(pin_count),
         footprint=footprint,
         datasheet=specs.datasheet,
-        description=create_description(pin_count, specs),
+        description=create_description(pin_count),
         manufacturer=specs.manufacturer,
         mpn=mpn,
         series=specs.base_series,
-        trustedparts_link=trustedparts_link,
-        pin_count=pin_count,
-        rated_current=specs.rated_current,
-        rated_voltage=specs.rated_voltage,
-        contact_resistance=specs.contact_resistance,
-        gender=specs.gender,
-        orientation=specs.orientation,
-        mounting_type=specs.mounting_type
+        trustedparts_link=trustedparts_link
     )
 
 
@@ -152,14 +141,7 @@ HEADER_MAPPING: Final[dict] = {
     'Manufacturer': lambda part: part.manufacturer,
     'MPN': lambda part: part.mpn,
     'Series': lambda part: part.series,
-    'Trustedparts Search': lambda part: part.trustedparts_link,
-    'Pin Count': lambda part: part.pin_count,
-    'Rated Current (A)': lambda part: f"{part.rated_current:.1f}",
-    'Rated Voltage (V)': lambda part: f"{part.rated_voltage:.1f}",
-    'Contact Resistance (Ω)': lambda part: f"{part.contact_resistance:.3f}",
-    'Gender': lambda part: part.gender,
-    'Orientation': lambda part: part.orientation,
-    'Mounting Type': lambda part: part.mounting_type
+    'Trustedparts Search': lambda part: part.trustedparts_link
 }
 
 
