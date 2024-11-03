@@ -71,7 +71,10 @@ usage_steps = [
     "different environments"
 ]
 
-hidden_columns = []
+hidden_columns = [
+    'Color',
+    'Pitch (mm)'
+]
 
 visible_columns = [
     col for col in dataframe.columns if col not in hidden_columns]

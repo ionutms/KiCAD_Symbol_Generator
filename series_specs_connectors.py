@@ -22,6 +22,7 @@ class SeriesSpec(NamedTuple):
         pin_counts: List of available pin configurations
         trustedparts_link: URL to the component listing on Trusted Parts
         color: Color of the connector housing
+        pitch: Pin-to-pin spacing in millimeters
     """
     manufacturer: str
     base_series: str
@@ -30,6 +31,7 @@ class SeriesSpec(NamedTuple):
     pin_counts: List[int]
     trustedparts_link: str
     color: str
+    pitch: float
 
 
 class PartInfo(NamedTuple):
@@ -47,6 +49,7 @@ class PartInfo(NamedTuple):
         series: Product series identifier
         trustedparts_link: URL to component listing on Trusted Parts
         color: Color of the connector housing
+        pitch: Pin-to-pin spacing in millimeters
     """
     symbol_name: str
     reference: str
@@ -59,6 +62,7 @@ class PartInfo(NamedTuple):
     series: str
     trustedparts_link: str
     color: str
+    pitch: float
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
@@ -70,7 +74,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         "product/resource/tbp02r2-381.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16],
         trustedparts_link="https://www.trustedparts.com/en/search",
-        color="Blue"
+        color="Blue",
+        pitch=3.81
     ),
 }
 
@@ -111,7 +116,5 @@ def generate_part_info(
         series=series_spec.base_series,
         trustedparts_link=f"{series_spec.trustedparts_link}/{mpn}",
         color=series_spec.color,
-        pitch=series_spec.pitch,
-        current_rating=series_spec.current_rating,
-        voltage_rating=series_spec.voltage_rating,
+        pitch=series_spec.pitch
     )

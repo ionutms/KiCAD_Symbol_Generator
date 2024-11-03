@@ -86,8 +86,9 @@ def update_graph_theme(
     Update the application theme based on the theme switch value.
 
     Args:
-        switch (bool): The current state of the theme switch
-                      (True for dark theme, False for light theme)
+        switch (bool):
+            The current state of the theme switch
+            (True for dark theme, False for light theme)
 
     Returns:
         bool: The same switch value, stored for persistence

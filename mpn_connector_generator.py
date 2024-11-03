@@ -50,6 +50,7 @@ def generate_part_code(
 
 def create_description(
     pin_count: int,
+    specs: ssc.SeriesSpec,
 ) -> str:
     """
     Create component description.
@@ -64,6 +65,7 @@ def create_description(
     parts = [
         "CONNECTOR",
         f"{pin_count}BE",
+        f"{specs.pitch}mm pitch"
     ]
 
     return " ".join(parts)
@@ -93,12 +95,13 @@ def create_part_info(
         value=mpn,
         footprint=footprint,
         datasheet=specs.datasheet,
-        description=create_description(pin_count),
+        description=create_description(pin_count, specs),
         manufacturer=specs.manufacturer,
         mpn=mpn,
         series=specs.base_series,
         trustedparts_link=trustedparts_link,
-        color=specs.color
+        color=specs.color,
+        pitch=specs.pitch
     )
 
 
@@ -130,7 +133,8 @@ HEADER_MAPPING: Final[dict] = {
     'MPN': lambda part: part.mpn,
     'Series': lambda part: part.series,
     'Trustedparts Search': lambda part: part.trustedparts_link,
-    'Color': lambda part: part.color
+    'Color': lambda part: part.color,
+    'Pitch (mm)': lambda part: part.pitch
 }
 
 
