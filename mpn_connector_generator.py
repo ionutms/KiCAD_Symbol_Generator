@@ -31,19 +31,6 @@ def print_info(message: str) -> None:
     print(f"{Fore.YELLOW}{message}{Style.RESET_ALL}")
 
 
-def format_pin_count(pin_count: int) -> str:
-    """
-    Format pin count value for display.
-
-    Args:
-        pin_count: Number of pins
-
-    Returns:
-        Formatted string with unit
-    """
-    return f"{pin_count}BE"
-
-
 def generate_part_code(
     pin_count: int,
     series_code: str,
@@ -63,6 +50,7 @@ def generate_part_code(
 
 def create_description(
     pin_count: int,
+    specs: ssc.SeriesSpec,
 ) -> str:
     """
     Create component description.
@@ -77,6 +65,7 @@ def create_description(
     parts = [
         "CONNECTOR",
         f"{pin_count}BE",
+        f"{specs.pitch}mm pitch"
     ]
 
     return " ".join(parts)
@@ -103,14 +92,16 @@ def create_part_info(
     return ssc.PartInfo(
         symbol_name=f"J_{mpn}",
         reference="J",
-        value=format_pin_count(pin_count),
+        value=mpn,
         footprint=footprint,
         datasheet=specs.datasheet,
-        description=create_description(pin_count),
+        description=create_description(pin_count, specs),
         manufacturer=specs.manufacturer,
         mpn=mpn,
         series=specs.base_series,
-        trustedparts_link=trustedparts_link
+        trustedparts_link=trustedparts_link,
+        color=specs.color,
+        pitch=specs.pitch
     )
 
 
@@ -141,7 +132,9 @@ HEADER_MAPPING: Final[dict] = {
     'Manufacturer': lambda part: part.manufacturer,
     'MPN': lambda part: part.mpn,
     'Series': lambda part: part.series,
-    'Trustedparts Search': lambda part: part.trustedparts_link
+    'Trustedparts Search': lambda part: part.trustedparts_link,
+    'Color': lambda part: part.color,
+    'Pitch (mm)': lambda part: part.pitch
 }
 
 
