@@ -50,11 +50,10 @@ def get_all_properties(
         *(component_data.keys() for component_data in component_data_list))
 
 
-def get_property_order(
-        all_properties: set
-) -> List[str]:
-    """Define the standard order of properties."""
-    common_properties = [
+def get_property_order(all_properties: set) -> List[str]:
+    """Define the standard order of properties with all fields included."""
+    # Primary properties that should appear first, in specific order
+    primary_properties = [
         "Symbol Name",
         "Reference",
         "Value",
@@ -62,8 +61,18 @@ def get_property_order(
         "Datasheet",
         "Description"
     ]
-    remaining_props = sorted(list(all_properties - set(common_properties)))
-    return common_properties + remaining_props
+    # Additional standardized properties
+    standard_properties = [
+        "Manufacturer",
+        "MPN",
+        "Series",
+        "Trustedparts Search"
+    ]
+    # Any remaining properties not in the standard lists
+    remaining_props = sorted(list(
+        all_properties - set(primary_properties) - set(standard_properties)))
+
+    return primary_properties + standard_properties + remaining_props
 
 
 def write_header(
@@ -113,7 +122,8 @@ def write_properties(
         component_data: Dict[str, str],
         property_order: List[str]
 ) -> None:
-    """Write symbol properties with specific positioning."""
+    """Write all symbol properties with specific positioning."""
+    # Base configurations for standard properties
     property_configs = {
         "Reference": (0, 5.08, 1.27, False, False, "J"),
         "Value": (3.81, 2.54, 1.27, True, True, None),
@@ -122,10 +132,14 @@ def write_properties(
         "Description": (3.81, -5.08, 1.27, True, True, None),
     }
 
+    # Current vertical position for dynamically positioned properties
+    current_y = -7.62  # Start below the standard properties
+
     for prop_name in property_order:
         if prop_name in component_data:
-            config = property_configs.get(prop_name)
-            if config:
+            if prop_name in property_configs:
+                # Use predefined configuration for standard properties
+                config = property_configs[prop_name]
                 value = config[5] or component_data[prop_name]
                 write_property(
                     symbol_file,
@@ -133,6 +147,20 @@ def write_properties(
                     value,
                     *config[:5]
                 )
+            else:
+                # Dynamic positioning for additional properties
+                if prop_name != "Symbol Name":
+                    write_property(
+                        symbol_file,
+                        prop_name,
+                        component_data[prop_name],
+                        3.81,  # Consistent x offset
+                        current_y,
+                        1.27,  # Consistent font size
+                        True,  # Show property name
+                        True   # Hidden by default
+                    )
+                    current_y -= 2.54  # Move down for next property
 
 
 def write_property(
