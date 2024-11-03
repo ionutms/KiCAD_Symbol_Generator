@@ -73,7 +73,8 @@ usage_steps = [
 
 hidden_columns = [
     'Color',
-    'Pitch (mm)'
+    'Pitch (mm)',
+    'Pin Count'
 ]
 
 visible_columns = [

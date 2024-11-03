@@ -50,6 +50,7 @@ class PartInfo(NamedTuple):
         trustedparts_link: URL to component listing on Trusted Parts
         color: Color of the connector housing
         pitch: Pin-to-pin spacing in millimeters
+        pin_count: Number of pins in the connector
     """
     symbol_name: str
     reference: str
@@ -63,6 +64,7 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
     color: str
     pitch: float
+    pin_count: int
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
@@ -80,41 +82,76 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
 }
 
 
-def generate_part_info(
-    series_spec: SeriesSpec,
+def create_part_info(
     pin_count: int,
+    specs: SeriesSpec,
 ) -> PartInfo:
     """
-    Generate a PartInfo instance for a specific connector configuration.
+    Create complete part information.
 
     Args:
-        series_spec: SeriesSpec instance containing series information
-        pin_count: Number of pins for this connector variant
-        color: Color of the connector housing
-        contact_material: Material of the contacts
-        temp_range: Operating temperature range
+        pin_count: Number of pins
+        specs: Series specifications
 
     Returns:
-        PartInfo: Complete part information for the specified connector
+        PartInfo instance with all specifications
     """
-    mpn = f"{series_spec.base_series}-{pin_count:02d}BE"
-    symbol_name = f"J_{mpn}"
-    description = (
-        f"Connector {pin_count}BE {series_spec.pitch}mm pitch, "
-        f"{series_spec.current_rating}A per contact"
-    )
+    mpn = generate_part_code(pin_count, specs.base_series)
+    footprint = specs.footprint_pattern.format(pin_count)
+    trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     return PartInfo(
-        symbol_name=symbol_name,
+        symbol_name=f"J_{mpn}",
         reference="J",
-        value=f"{mpn}",
-        footprint=series_spec.footprint_pattern.format(pin_count),
-        datasheet=series_spec.datasheet,
-        description=description,
-        manufacturer=series_spec.manufacturer,
+        value=mpn,
+        footprint=footprint,
+        datasheet=specs.datasheet,
+        description=create_description(pin_count, specs),
+        manufacturer=specs.manufacturer,
         mpn=mpn,
-        series=series_spec.base_series,
-        trustedparts_link=f"{series_spec.trustedparts_link}/{mpn}",
-        color=series_spec.color,
-        pitch=series_spec.pitch
+        series=specs.base_series,
+        trustedparts_link=trustedparts_link,
+        color=specs.color,
+        pitch=specs.pitch,
+        pin_count=pin_count
     )
+
+
+def generate_part_code(
+    pin_count: int,
+    series_code: str,
+) -> str:
+    """
+    Generate connector part code based on pin count.
+
+    Args:
+        pin_count: Number of pins
+        series_code: Base series code
+
+    Returns:
+        str: Part code string
+    """
+    return f"{series_code}-{pin_count:02d}BE"
+
+
+def create_description(
+    pin_count: int,
+    specs: SeriesSpec,
+) -> str:
+    """
+    Create component description.
+
+    Args:
+        pin_count: Number of pins
+        specs: Series specifications
+
+    Returns:
+        Formatted description string
+    """
+    parts = [
+        "CONNECTOR",
+        f"{pin_count}BE",
+        f"{specs.pitch}mm pitch"
+    ]
+
+    return " ".join(parts)

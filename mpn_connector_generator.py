@@ -31,80 +31,6 @@ def print_info(message: str) -> None:
     print(f"{Fore.YELLOW}{message}{Style.RESET_ALL}")
 
 
-def generate_part_code(
-    pin_count: int,
-    series_code: str,
-) -> str:
-    """
-    Generate connector part code based on pin count.
-
-    Args:
-        pin_count: Number of pins
-        series_code: Base series code
-
-    Returns:
-        str: Part code string
-    """
-    return f"{series_code}-{pin_count:02d}BE"
-
-
-def create_description(
-    pin_count: int,
-    specs: ssc.SeriesSpec,
-) -> str:
-    """
-    Create component description.
-
-    Args:
-        pin_count: Number of pins
-        specs: Series specifications
-
-    Returns:
-        Formatted description string
-    """
-    parts = [
-        "CONNECTOR",
-        f"{pin_count}BE",
-        f"{specs.pitch}mm pitch"
-    ]
-
-    return " ".join(parts)
-
-
-def create_part_info(
-    pin_count: int,
-    specs: ssc.SeriesSpec,
-) -> ssc.PartInfo:
-    """
-    Create complete part information.
-
-    Args:
-        pin_count: Number of pins
-        specs: Series specifications
-
-    Returns:
-        PartInfo instance with all specifications
-    """
-    mpn = generate_part_code(pin_count, specs.base_series)
-    footprint = specs.footprint_pattern.format(pin_count)
-    trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
-
-    return ssc.PartInfo(
-        symbol_name=f"J_{mpn}",
-        reference="J",
-        value=mpn,
-        footprint=footprint,
-        datasheet=specs.datasheet,
-        description=create_description(pin_count, specs),
-        manufacturer=specs.manufacturer,
-        mpn=mpn,
-        series=specs.base_series,
-        trustedparts_link=trustedparts_link,
-        color=specs.color,
-        pitch=specs.pitch
-    )
-
-
 def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
     """
     Generate all part numbers for the series.
@@ -116,7 +42,7 @@ def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
         List of PartInfo instances
     """
     return [
-        create_part_info(pin_count, specs)
+        ssc.create_part_info(pin_count, specs)
         for pin_count in specs.pin_counts
     ]
 
@@ -134,7 +60,8 @@ HEADER_MAPPING: Final[dict] = {
     'Series': lambda part: part.series,
     'Trustedparts Search': lambda part: part.trustedparts_link,
     'Color': lambda part: part.color,
-    'Pitch (mm)': lambda part: part.pitch
+    'Pitch (mm)': lambda part: part.pitch,
+    'Pin Count': lambda part: part.pin_count
 }
 
 
