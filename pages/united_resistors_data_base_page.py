@@ -33,12 +33,15 @@ module_name = __name__.rsplit(".", maxsplit=1)[-1]
 
 register_page(__name__, name=link_name, order=3)
 
+dataframe: pd.DataFrame = pd.read_csv('data/UNITED_RESISTORS_DATA_BASE.csv')
+total_rows = len(dataframe)
+
 TITLE = "Resistors Database"
 ABOUT = (
     "The Resistors Database is an interactive web application that "
     "provides a comprehensive view of resistor specifications.",
     "It allows users to easily browse, search, and filter "
-    "through a database of resistors, "
+    f"through a database of {total_rows:,} resistors, "
     "providing quick access to important information and datasheets."
 )
 
@@ -68,8 +71,6 @@ usage_steps = [
     "different environments"
 ]
 
-dataframe: pd.DataFrame = pd.read_csv('data/UNITED_RESISTORS_DATA_BASE.csv')
-
 hidden_columns = [
     'Reference',
     'Case Code - mm',
@@ -92,7 +93,8 @@ except KeyError:
 layout = dbc.Container([html.Div([
     dbc.Row([dbc.Col([dcc.Link("Go back Home", href="/")])]),
     dbc.Row([dbc.Col([html.H3(
-        f"{link_name.replace('_', ' ')}", style=styles.heading_3_style)])]),
+        f"{link_name.replace('_', ' ')} ({total_rows:,} items)",
+        style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
 
