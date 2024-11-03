@@ -122,18 +122,25 @@ def write_properties(
         component_data: Dict[str, str],
         property_order: List[str]
 ) -> None:
-    """Write all symbol properties with specific positioning."""
+    """
+    Write all symbol properties with positions adjusted for variable pin count.
+    """
+    pin_count = int(component_data.get('Value', '2P').rstrip('P'))
+
+    # Calculate vertical offset based on pin count
+    height_offset = max(7.62, (pin_count * 2.54) + 2.54) / 2
+
     # Base configurations for standard properties
     property_configs = {
-        "Reference": (0, 5.08, 1.27, False, False, "J"),
-        "Value": (3.81, 2.54, 1.27, True, True, None),
-        "Footprint": (3.81, 0, 1.27, True, True, None),
-        "Datasheet": (3.81, -2.54, 1.27, True, True, None),
-        "Description": (3.81, -5.08, 1.27, True, True, None),
+        "Reference": (0, height_offset + 2.54, 1.27, False, False, "J"),
+        "Value": (3.81, height_offset, 1.27, True, True, None),
+        "Footprint": (3.81, height_offset - 2.54, 1.27, True, True, None),
+        "Datasheet": (3.81, height_offset - 5.08, 1.27, True, True, None),
+        "Description": (3.81, height_offset - 7.62, 1.27, True, True, None),
     }
 
-    # Current vertical position for dynamically positioned properties
-    current_y = -7.62  # Start below the standard properties
+    # Current vertical position for additional properties
+    current_y = height_offset - 10.16
 
     for prop_name in property_order:
         if prop_name in component_data:
@@ -154,13 +161,13 @@ def write_properties(
                         symbol_file,
                         prop_name,
                         component_data[prop_name],
-                        3.81,  # Consistent x offset
+                        3.81,
                         current_y,
-                        1.27,  # Consistent font size
-                        True,  # Show property name
-                        True   # Hidden by default
+                        1.27,
+                        True,
+                        True
                     )
-                    current_y -= 2.54  # Move down for next property
+                    current_y -= 2.54
 
 
 def write_property(
@@ -197,19 +204,24 @@ def write_symbol_drawing(
         symbol_name: str,
         component_data: Dict[str, str]
 ) -> None:
-    """Write the symbol drawing with specific dimensions."""
-    num_pins = int(component_data.get('Pins', '2'))
+    """Write the symbol drawing with dimensions adjusted for pin count."""
+    # Extract pin count from the Value field (e.g., "4P" -> 4)
+    pin_count = int(component_data.get('Value', '2P').rstrip('P'))
     pin_spacing = 2.54  # Standard pin spacing in mm
-    # Dynamic height based on pins
-    rectangle_height = max(7.62, (num_pins * pin_spacing) + 2.54)
+
+    # Calculate rectangle dimensions based on pin count
+    min_height = 7.62  # Minimum rectangle height
+    calculated_height = (pin_count * pin_spacing) + 2.54  # Add margin
+    rectangle_height = max(min_height, calculated_height)
 
     # Write pins section
     symbol_file.write(f'\t\t(symbol "{symbol_name}_0_0"\n')
 
-    # Calculate starting position for first pin
-    start_y = (num_pins - 1) * pin_spacing / 2
+    # Calculate starting Y position for first pin
+    start_y = (pin_count - 1) * pin_spacing / 2
 
-    for pin_num in range(1, num_pins + 1):
+    # Generate pins
+    for pin_num in range(1, pin_count + 1):
         y_pos = start_y - (pin_num - 1) * pin_spacing
         write_pin(symbol_file, -5.08, y_pos, str(pin_num))
 
@@ -217,8 +229,9 @@ def write_symbol_drawing(
 
     # Write rectangle section
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
-    write_rectangle(symbol_file, -2.54, rectangle_height /
-                    2, 2.54, -rectangle_height/2)
+    write_rectangle(
+        symbol_file, -2.54, rectangle_height /
+        2, 2.54, -rectangle_height/2)
     symbol_file.write("\t\t)\n")
 
 

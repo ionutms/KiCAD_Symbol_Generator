@@ -33,10 +33,6 @@ class SeriesSpec(NamedTuple):
 class PartInfo(NamedTuple):
     """Component part information structure for individual connectors.
 
-    This class contains all necessary information to fully specify a single
-    connector component, including its specifications, documentation, and
-    sourcing information.
-
     Attributes:
         symbol_name: Schematic symbol identifier
         reference: Component reference designator (typically "J")
@@ -65,19 +61,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "TBP02R2-381": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP02R2",
-        # Pattern with placeholder for pin count
         footprint_pattern="footprints:TBP02R2-381-{:02d}P",
         datasheet="https://www.sameskydevices.com/" +
         "product/resource/tbp02r2-381.pdf",
-        pin_counts=[2, 3, 4, 5, 6, 8, 10, 12],
-        trustedparts_link="https://www.trustedparts.com/en/search"
+        pin_counts=list(range(2, 25)),
+        trustedparts_link="https://www.trustedparts.com/en/search",
     ),
-    # Add more connector series as needed
 }
 
 
 def generate_part_info(
     series_spec: SeriesSpec,
+    pin_count: int,
     color: str = "Green",
     contact_material: str = "Tin",
     temp_range: str = "-40°C to +105°C"
@@ -87,6 +82,7 @@ def generate_part_info(
 
     Args:
         series_spec: SeriesSpec instance containing series information
+        pin_count: Number of pins for this connector variant
         color: Color of the connector housing
         contact_material: Material of the contacts
         temp_range: Operating temperature range
@@ -94,29 +90,30 @@ def generate_part_info(
     Returns:
         PartInfo: Complete part information for the specified connector
     """
-    mpn = f"{series_spec.base_series}"
-    symbol_name = f"{mpn}"
+    mpn = f"{series_spec.base_series}-{pin_count:02d}P"
+    symbol_name = f"J_{mpn}"
     description = (
-        f"{series_spec.pitch}mm pitch, "
+        f"Connector {pin_count}P {series_spec.pitch}mm pitch, "
         f"{series_spec.current_rating}A per contact"
     )
 
     return PartInfo(
         symbol_name=symbol_name,
         reference="J",
-        footprint=f"{series_spec.footprint}",
+        value=f"{pin_count}P",
+        footprint=series_spec.footprint_pattern.format(pin_count),
         datasheet=series_spec.datasheet,
         description=description,
         manufacturer=series_spec.manufacturer,
         mpn=mpn,
         series=series_spec.base_series,
+        trustedparts_link=f"{series_spec.trustedparts_link}/{mpn}",
         pitch=series_spec.pitch,
         current_rating=series_spec.current_rating,
         voltage_rating=series_spec.voltage_rating,
         contact_material=contact_material,
         color=color,
-        temperature_range=temp_range,
-        trustedparts_link=series_spec.trustedparts_link
+        temperature_range=temp_range
     )
 
 
@@ -142,8 +139,10 @@ def generate_series_parts(
     return [
         generate_part_info(
             series_spec,
+            pin_count,
             color,
             contact_material,
             temp_range
         )
+        for pin_count in series_spec.pin_counts
     ]
