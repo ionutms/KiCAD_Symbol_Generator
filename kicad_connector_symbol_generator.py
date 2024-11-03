@@ -125,12 +125,14 @@ def write_properties(
     """
     Write all symbol properties with positions adjusted for variable pin count.
     """
-    pin_count = int(component_data.get('Value', '2P').rstrip('P'))
+    # Extract pin count from Value field by removing 'BE' and converting to int
+    value = component_data.get('Value', '2BE')
+    pin_count = int(value.rstrip('BE'))  # Modified this line
 
     # Calculate vertical offset based on pin count
     height_offset = max(7.62, (pin_count * 2.54) + 2.54) / 2
 
-    # Base configurations for standard properties
+    # Rest of the function remains the same...
     property_configs = {
         "Reference": (0, height_offset + 2.54, 1.27, False, False, "J"),
         "Value": (3.81, height_offset, 1.27, True, True, None),
@@ -139,13 +141,11 @@ def write_properties(
         "Description": (3.81, height_offset - 7.62, 1.27, True, True, None),
     }
 
-    # Current vertical position for additional properties
     current_y = height_offset - 10.16
 
     for prop_name in property_order:
         if prop_name in component_data:
             if prop_name in property_configs:
-                # Use predefined configuration for standard properties
                 config = property_configs[prop_name]
                 value = config[5] or component_data[prop_name]
                 write_property(
@@ -155,7 +155,6 @@ def write_properties(
                     *config[:5]
                 )
             else:
-                # Dynamic positioning for additional properties
                 if prop_name != "Symbol Name":
                     write_property(
                         symbol_file,
@@ -205,8 +204,10 @@ def write_symbol_drawing(
         component_data: Dict[str, str]
 ) -> None:
     """Write the symbol drawing with dimensions adjusted for pin count."""
-    # Extract pin count from the Value field (e.g., "4P" -> 4)
-    pin_count = int(component_data.get('Value', '2P').rstrip('P'))
+    # Modified pin count extraction
+    value = component_data.get('Value', '2BE')
+    pin_count = int(value.rstrip('BE'))  # Modified this line
+
     pin_spacing = 2.54  # Standard pin spacing in mm
 
     # Calculate rectangle dimensions based on pin count
@@ -214,24 +215,20 @@ def write_symbol_drawing(
     calculated_height = (pin_count * pin_spacing) + 2.54  # Add margin
     rectangle_height = max(min_height, calculated_height)
 
-    # Write pins section
+    # Rest of the function remains the same...
     symbol_file.write(f'\t\t(symbol "{symbol_name}_0_0"\n')
 
-    # Calculate starting Y position for first pin
     start_y = (pin_count - 1) * pin_spacing / 2
 
-    # Generate pins
     for pin_num in range(1, pin_count + 1):
         y_pos = start_y - (pin_num - 1) * pin_spacing
         write_pin(symbol_file, -5.08, y_pos, str(pin_num))
 
     symbol_file.write("\t\t)\n")
 
-    # Write rectangle section
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
     write_rectangle(
-        symbol_file, -2.54, rectangle_height /
-        2, 2.54, -rectangle_height/2)
+        symbol_file, -2.54, rectangle_height/2, 2.54, -rectangle_height/2)
     symbol_file.write("\t\t)\n")
 
 
