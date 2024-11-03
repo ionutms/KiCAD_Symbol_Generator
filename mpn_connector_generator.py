@@ -31,19 +31,6 @@ def print_info(message: str) -> None:
     print(f"{Fore.YELLOW}{message}{Style.RESET_ALL}")
 
 
-def format_pin_count(pin_count: int) -> str:
-    """
-    Format pin count value for display.
-
-    Args:
-        pin_count: Number of pins
-
-    Returns:
-        Formatted string with unit
-    """
-    return f"{pin_count}BE"
-
-
 def generate_part_code(
     pin_count: int,
     series_code: str,
@@ -103,7 +90,7 @@ def create_part_info(
     return ssc.PartInfo(
         symbol_name=f"J_{mpn}",
         reference="J",
-        value=format_pin_count(pin_count),
+        value=mpn,
         footprint=footprint,
         datasheet=specs.datasheet,
         description=create_description(pin_count),

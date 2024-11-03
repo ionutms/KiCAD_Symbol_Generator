@@ -4,6 +4,7 @@ Generates KiCad symbol files for connectors from CSV data.
 Modified to match specific pin and field positioning requirements.
 """
 
+import re
 import csv
 from typing import List, Dict, TextIO
 
@@ -125,14 +126,15 @@ def write_properties(
     """
     Write all symbol properties with positions adjusted for variable pin count.
     """
-    # Extract pin count from Value field by removing 'BE' and converting to int
-    value = component_data.get('Value', '2BE')
-    pin_count = int(value.rstrip('BE'))  # Modified this line
+    # Extract pin count from Value field using regex
+    value = component_data.get('Value', '')
+    pin_count_match = re.search(r'-(\d+)BE', value)
+    pin_count = int(pin_count_match.group(1)) if pin_count_match else 2
 
     # Calculate vertical offset based on pin count
     height_offset = max(7.62, (pin_count * 2.54) + 2.54) / 2
 
-    # Rest of the function remains the same...
+    # Property configurations
     property_configs = {
         "Reference": (0, height_offset + 2.54, 1.27, False, False, "J"),
         "Value": (3.81, height_offset, 1.27, True, True, None),
@@ -148,12 +150,7 @@ def write_properties(
             if prop_name in property_configs:
                 config = property_configs[prop_name]
                 value = config[5] or component_data[prop_name]
-                write_property(
-                    symbol_file,
-                    prop_name,
-                    value,
-                    *config[:5]
-                )
+                write_property(symbol_file, prop_name, value, *config[:5])
             else:
                 if prop_name != "Symbol Name":
                     write_property(
@@ -204,9 +201,10 @@ def write_symbol_drawing(
         component_data: Dict[str, str]
 ) -> None:
     """Write the symbol drawing with dimensions adjusted for pin count."""
-    # Modified pin count extraction
-    value = component_data.get('Value', '2BE')
-    pin_count = int(value.rstrip('BE'))  # Modified this line
+    # Extract pin count using regex
+    value = component_data.get('Value', '')
+    pin_count_match = re.search(r'-(\d+)BE', value)
+    pin_count = int(pin_count_match.group(1)) if pin_count_match else 2
 
     pin_spacing = 2.54  # Standard pin spacing in mm
 
@@ -215,7 +213,6 @@ def write_symbol_drawing(
     calculated_height = (pin_count * pin_spacing) + 2.54  # Add margin
     rectangle_height = max(min_height, calculated_height)
 
-    # Rest of the function remains the same...
     symbol_file.write(f'\t\t(symbol "{symbol_name}_0_0"\n')
 
     start_y = (pin_count - 1) * pin_spacing / 2
@@ -228,7 +225,7 @@ def write_symbol_drawing(
 
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
     write_rectangle(
-        symbol_file, -2.54, rectangle_height/2, 2.54, -rectangle_height/2)
+        symbol_file, -2.54, rectangle_height / 2, 2.54, -rectangle_height/2)
     symbol_file.write("\t\t)\n")
 
 

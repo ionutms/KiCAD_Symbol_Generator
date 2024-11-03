@@ -97,7 +97,7 @@ def generate_part_info(
     return PartInfo(
         symbol_name=symbol_name,
         reference="J",
-        value=f"{pin_count}BE",
+        value=f"{mpn}",
         footprint=series_spec.footprint_pattern.format(pin_count),
         datasheet=series_spec.datasheet,
         description=description,
