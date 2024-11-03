@@ -41,7 +41,7 @@ def format_pin_count(pin_count: int) -> str:
     Returns:
         Formatted string with unit
     """
-    return f"{pin_count}P"
+    return f"{pin_count}BE"
 
 
 def generate_part_code(
@@ -58,7 +58,7 @@ def generate_part_code(
     Returns:
         str: Part code string
     """
-    return f"{series_code}-{pin_count:02d}P"
+    return f"{series_code}-{pin_count:02d}BE"
 
 
 def create_description(
@@ -76,7 +76,7 @@ def create_description(
     """
     parts = [
         "CONNECTOR",
-        f"{pin_count}P",
+        f"{pin_count}BE",
     ]
 
     return " ".join(parts)

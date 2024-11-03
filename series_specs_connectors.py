@@ -60,8 +60,8 @@ class PartInfo(NamedTuple):
 SERIES_SPECS: Dict[str, SeriesSpec] = {
     "TBP02R2-381": SeriesSpec(
         manufacturer="Same Sky",
-        base_series="TBP02R2",
-        footprint_pattern="footprints:TBP02R2-381-{:02d}P",
+        base_series="TBP02R2-381",
+        footprint_pattern="footprints:TBP02R2-381-{:02d}BE",
         datasheet="https://www.sameskydevices.com/" +
         "product/resource/tbp02r2-381.pdf",
         pin_counts=list(range(2, 25)),
@@ -90,17 +90,17 @@ def generate_part_info(
     Returns:
         PartInfo: Complete part information for the specified connector
     """
-    mpn = f"{series_spec.base_series}-{pin_count:02d}P"
+    mpn = f"{series_spec.base_series}-{pin_count:02d}BE"
     symbol_name = f"J_{mpn}"
     description = (
-        f"Connector {pin_count}P {series_spec.pitch}mm pitch, "
+        f"Connector {pin_count}BE {series_spec.pitch}mm pitch, "
         f"{series_spec.current_rating}A per contact"
     )
 
     return PartInfo(
         symbol_name=symbol_name,
         reference="J",
-        value=f"{pin_count}P",
+        value=f"{pin_count}BE",
         footprint=series_spec.footprint_pattern.format(pin_count),
         datasheet=series_spec.datasheet,
         description=description,
