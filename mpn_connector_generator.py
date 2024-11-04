@@ -64,7 +64,9 @@ HEADER_MAPPING: Final[dict] = {
     'Pin Count': lambda part: part.pin_count,
     'Mounting Angle': lambda part: part.mounting_angle,
     'Current Rating (A)': lambda part: part.current_rating,
-    'Voltage Rating (V)': lambda part: part.voltage_rating
+    'Voltage Rating (V)': lambda part: part.voltage_rating,
+    'Mounting Style': lambda part: part.mounting_style,
+    'Contact Plating': lambda part: part.contact_plating
 }
 
 
