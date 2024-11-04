@@ -112,7 +112,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         "product/resource/tbp04r2-500.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
         trustedparts_link="https://www.trustedparts.com/en/search",
-        color="Green",
+        color="Blue",
         pitch=5.00,
         mounting_angle="Vertical",
         current_rating=15.0,
