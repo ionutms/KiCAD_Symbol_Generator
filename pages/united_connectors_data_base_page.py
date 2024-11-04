@@ -75,6 +75,7 @@ hidden_columns = [
     'Color',
     'Pitch (mm)',
     'Pin Count',
+    'Mounting Angle',
     'Current Rating (A)',
     'Voltage Rating (V)',
     'Mounting Style',
