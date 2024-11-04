@@ -110,7 +110,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         footprint_pattern="footprints:TBP04R2-500-{:02d}BE",
         datasheet="https://www.sameskydevices.com/" +
         "product/resource/tbp04r2-500.pdf",
-        pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
+        pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
         pitch=5.00,
