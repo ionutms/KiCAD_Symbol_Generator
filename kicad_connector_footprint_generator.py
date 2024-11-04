@@ -208,7 +208,8 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         model_offset = (17.145-step_offset, -6.477, 18.288)
         model_rotation = (90, 0, -90)
     elif part.series == "TBP04R2-500":
-        model_offset = (5, -0.75, -3.81)
+        step_offset = (part.pin_count - 2) * 2.5
+        model_offset = (5+step_offset, -0.75, -3.81)
         model_rotation = (-90, 0, 180)
     else:
         model_offset = (0, 0, 0)
