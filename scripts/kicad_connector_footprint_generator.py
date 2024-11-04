@@ -42,6 +42,16 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102
+    ),
+    "TBP04R3-500": FootprintDimensions(
+        width_per_pin=5.0,     # Pitch
+        base_width=5.2,        # Base enclosure width (half of total for 2-pin)
+        height_top=4.8,        # Height above center
+        height_bottom=4.0,     # Height below origin
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102
     )
 }
 
@@ -208,6 +218,10 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         model_offset = (17.145-step_offset, -6.477, 18.288)
         model_rotation = (90, 0, -90)
     elif part.series == "TBP04R2-500":
+        step_offset = (part.pin_count - 2) * 2.5
+        model_offset = (5+step_offset, -0.75, -3.81)
+        model_rotation = (-90, 0, 180)
+    elif part.series == "TBP04R3-500":
         step_offset = (part.pin_count - 2) * 2.5
         model_offset = (5+step_offset, -0.75, -3.81)
         model_rotation = (-90, 0, 180)
