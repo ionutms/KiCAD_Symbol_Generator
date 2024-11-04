@@ -204,7 +204,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
 
     # Add 3D model reference
     footprint += f'''
-    (model "${{KIPRJMOD}}/KiCad_Symbol_Generator/3D_models/CUI_DEVICES_{part.mpn}.step"
+    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_{part.mpn}.step"
         (offset
             (xyz {total_length/2 - start_pos:.3f} -0.75 -3.81)
         )
