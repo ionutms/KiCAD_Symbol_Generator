@@ -72,9 +72,17 @@ usage_steps = [
 ]
 
 hidden_columns = [
+    'Reference',
+    'Value',
+    'Series',
     'Color',
     'Pitch (mm)',
-    'Pin Count'
+    'Pin Count',
+    'Mounting Angle',
+    'Current Rating (A)',
+    'Voltage Rating (V)',
+    'Mounting Style',
+    'Contact Plating'
 ]
 
 visible_columns = [

@@ -23,6 +23,11 @@ class SeriesSpec(NamedTuple):
         trustedparts_link: URL to the component listing on Trusted Parts
         color: Color of the connector housing
         pitch: Pin-to-pin spacing in millimeters
+        mounting_angle: Mounting orientation of the connector
+        current_rating: Maximum current rating in amperes
+        voltage_rating: Maximum voltage rating in volts
+        mounting_style: Method of mounting (e.g., Through Hole, SMD)
+        contact_plating: Material used for contact plating
     """
     manufacturer: str
     base_series: str
@@ -32,6 +37,11 @@ class SeriesSpec(NamedTuple):
     trustedparts_link: str
     color: str
     pitch: float
+    mounting_angle: str
+    current_rating: float
+    voltage_rating: int
+    mounting_style: str
+    contact_plating: str
 
 
 class PartInfo(NamedTuple):
@@ -51,6 +61,11 @@ class PartInfo(NamedTuple):
         color: Color of the connector housing
         pitch: Pin-to-pin spacing in millimeters
         pin_count: Number of pins in the connector
+        mounting_angle: Mounting orientation of the connector
+        current_rating: Maximum current rating in amperes
+        voltage_rating: Maximum voltage rating in volts
+        mounting_style: Method of mounting (e.g., Through Hole, SMD)
+        contact_plating: Material used for contact plating
     """
     symbol_name: str
     reference: str
@@ -65,6 +80,11 @@ class PartInfo(NamedTuple):
     color: str
     pitch: float
     pin_count: int
+    mounting_angle: str
+    current_rating: float
+    voltage_rating: int
+    mounting_style: str
+    contact_plating: str
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
@@ -77,7 +97,12 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
-        pitch=3.81
+        pitch=3.81,
+        mounting_angle="Vertical",
+        current_rating=8.0,
+        voltage_rating=300,
+        mounting_style="Through Hole",
+        contact_plating="Tin"
     ),
 }
 
@@ -113,7 +138,12 @@ def create_part_info(
         trustedparts_link=trustedparts_link,
         color=specs.color,
         pitch=specs.pitch,
-        pin_count=pin_count
+        pin_count=pin_count,
+        mounting_angle=specs.mounting_angle,
+        current_rating=specs.current_rating,
+        voltage_rating=specs.voltage_rating,
+        mounting_style=specs.mounting_style,
+        contact_plating=specs.contact_plating
     )
 
 
@@ -146,15 +176,19 @@ def create_description(
         specs: Series specifications
 
     Returns:
-        Formatted description string including manufacturer, series, pins,
-        and pitch
+        Formatted description string including all relevant specifications
     """
     parts = [
         f"{specs.manufacturer}",
-        f"{specs.base_series} series",
-        f"{pin_count} positions connector",
-        f"{specs.pitch} mm pitch",
-        f"{specs.color}"
+        f"{specs.base_series} series, ",
+        f"{pin_count} positions connector, ",
+        f"{specs.pitch} mm pitch, ",
+        f"{specs.color}, ",
+        f"{specs.mounting_angle} mounting, ",
+        f"{specs.current_rating} A, ",
+        f"{specs.voltage_rating} V, ",
+        f"{specs.mounting_style}, ",
+        f"{specs.contact_plating} plated"
     ]
 
     return " ".join(parts)
