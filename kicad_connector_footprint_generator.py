@@ -214,7 +214,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         model_rotation = (0, 0, 0)
 
     footprint += f'''
-    (model "${{KIPRJMOD}}/KiCAD_Database_Library/3D_models/CUI_DEVICES_{part.mpn}.step"
+    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_{part.mpn}.step"
         (offset
             (xyz {model_offset[0]:.3f} {model_offset[1]} {model_offset[2]})
         )
