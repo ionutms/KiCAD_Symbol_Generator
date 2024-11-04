@@ -37,7 +37,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         width_per_pin=5.0,     # Pitch
         base_width=5.8,        # Base enclosure width (half of total for 2-pin)
         height_top=4.8,        # Height above center
-        height_bottom=4.0,     # Height below center
+        height_bottom=4.0,     # Height below origin
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -203,16 +203,26 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
     )'''
 
     # Add 3D model reference
+    if part.series == "TBP02R2-381":
+        model_offset = (15.24, -6.477, 18.288)
+        model_rotation = (-90, 0, -90)
+    elif part.series == "TBP04R2-500":
+        model_offset = (17.145, -6.477, 18.288)
+        model_rotation = (-90, 0, -90)
+    else:
+        model_offset = (0, 0, 0)
+        model_rotation = (0, 0, 0)
+
     footprint += f'''
-    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_{part.mpn}.step"
+    (model "${{KIPRJMOD}}/KiCad_Database_Library/3D_models/CUI_DEVICES_{part.mpn}.step"
         (offset
-            (xyz {total_length/2 - start_pos:.3f} -0.75 -3.81)
+            (xyz {model_offset[0]:.3f} {model_offset[1]} {model_offset[2]})
         )
         (scale
             (xyz 1 1 1)
         )
         (rotate
-            (xyz -90 0 180)
+            (xyz {model_rotation[0]} {model_rotation[1]} {model_rotation[2]})
         )
     )'''
 

@@ -6,7 +6,7 @@
     (property "Reference" "REF**"
         (at 0 -4.445 0)
         (layer "F.SilkS")
-        (uuid "ece03fdd-627f-4f66-af5b-a8c1575d0e25")
+        (uuid "a9c5aaf6-8ad3-4587-9c43-47d35d2a6c90")
         (effects
             (font
                 (size 0.762 0.762)
@@ -18,7 +18,7 @@
     (property "Value" "TBP02R2-381-04BE"
         (at 0 4.2932 0)
         (layer "F.Fab")
-        (uuid "4934c809-2d65-45c2-b7dd-383a6b46e2c7")
+        (uuid "f36ac855-4516-4f1f-8baf-3f1553f1f307")
         (effects
             (font
                 (size 0.762 0.762)
@@ -31,7 +31,7 @@
         (at -5.715 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "d282583e-4160-492e-8ce1-45ee91d2f917")
+        (uuid "6928be17-e779-493d-bfe6-743d034309c8")
         (effects
             (font
                 (size 1.27 1.27)
@@ -43,7 +43,7 @@
         (at -5.715 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "4afc4767-0879-4361-8c1b-3c367132c19d")
+        (uuid "44950f3d-3515-4106-a698-f52f89251ce3")
         (effects
             (font
                 (size 1.27 1.27)
@@ -55,7 +55,7 @@
         (at -5.715 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "730eac65-8bfb-4855-9bc7-1077321afe7a")
+        (uuid "d939323b-3551-47c5-b07e-bc3b6e5d11ce")
         (effects
             (font
                 (size 1.27 1.27)
@@ -73,7 +73,7 @@
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "dfa90e74-5941-4687-a577-d9c1e7d30e07")
+        (uuid "73e7ee7d-e528-4e5b-96f7-6b04545ac93d")
     )
     (fp_circle
         (center -8.865 0)
@@ -84,7 +84,7 @@
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "0d70fb23-e7db-4c3f-a5e6-c5a3b8d33601")
+        (uuid "0b4da24c-50b3-40c5-a11f-3f06a2167729")
     )
     (fp_rect
         (start -8.255 -4.445)
@@ -95,7 +95,7 @@
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "4cf58f06-f744-44d5-85a7-9d27c7480c73")
+        (uuid "eeaa8d15-d504-4296-8368-1f42cefb97b0")
     )
     (fp_rect
         (start -8.255 -4.445)
@@ -106,7 +106,7 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "a6e28957-6ec5-4dee-a20c-6389dbb1bedd")
+        (uuid "eb5f89a8-e255-4426-b189-038b2498e3be")
     )
     (fp_circle
         (center -8.865 0)
@@ -117,7 +117,7 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "4d76e6e7-6139-436d-aa16-3595c574805d")
+        (uuid "cf147661-4881-4b23-92b4-6c8a0537a3de")
     )
     (pad "1" thru_hole rect
         (at -5.715 0)
@@ -126,7 +126,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "d7a890ce-5cd6-42e9-a4bd-e8bf5154deb8")
+        (uuid "7fd795b7-56d2-4554-a81a-0b2eac2c0fd1")
     )
     (pad "2" thru_hole circle
         (at -1.905 0)
@@ -135,7 +135,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "0537b3dd-30a1-42ed-bdb0-118b841088bd")
+        (uuid "6eac33ce-4b31-44d7-a534-d797e20ce7f7")
     )
     (pad "3" thru_hole circle
         (at 1.905 0)
@@ -144,7 +144,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "7cf429ed-c297-4e8c-a7b1-1eb44ab71bd8")
+        (uuid "192cf812-e6ec-47e7-8bc4-802f1907eb10")
     )
     (pad "4" thru_hole circle
         (at 5.715 0)
@@ -153,17 +153,17 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "40030f87-6fdb-41d5-a5fc-171bbb4b55fb")
+        (uuid "09a817cf-0ac1-4a76-a6d5-f5cec44400ee")
     )
-    (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TBP02R2-381-04BE.step"
+    (model "${KIPRJMOD}/KiCad_Database_Library/3D_models/CUI_DEVICES_TBP02R2-381-04BE.step"
         (offset
-            (xyz 11.430 -0.75 -3.81)
+            (xyz 15.240 -6.477 18.288)
         )
         (scale
             (xyz 1 1 1)
         )
         (rotate
-            (xyz -90 0 180)
+            (xyz -90 0 -90)
         )
     )
 )
