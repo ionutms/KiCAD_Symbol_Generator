@@ -204,8 +204,8 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
 
     # Add 3D model reference
     if part.series == "TBP02R2-381":
-        model_offset = (15.24, -6.477, 18.288)
-        model_rotation = (-90, 0, -90)
+        model_offset = (17.145, -6.477, 18.288)
+        model_rotation = (90, 0, -90)
     elif part.series == "TBP04R2-500":
         model_offset = (17.145, -6.477, 18.288)
         model_rotation = (-90, 0, -90)
@@ -213,8 +213,10 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         model_offset = (0, 0, 0)
         model_rotation = (0, 0, 0)
 
+    step_path = f"KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_{part.mpn}.step"
+
     footprint += f'''
-    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_{part.mpn}.step"
+    (model "${{KIPRJMOD}}/{step_path}"
         (offset
             (xyz {model_offset[0]:.3f} {model_offset[1]} {model_offset[2]})
         )
