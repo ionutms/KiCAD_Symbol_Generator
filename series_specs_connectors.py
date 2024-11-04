@@ -91,7 +91,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "TBP02R2-381": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP02R2-381",
-        footprint_pattern="footprints:TBP02R2-381-{:02d}BE",
+        footprint_pattern="connector_footprints:TBP02R2-381-{:02d}BE",
         datasheet="https://www.sameskydevices.com/" +
         "product/resource/tbp02r2-381.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16],
@@ -107,7 +107,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "TBP04R2-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R2-500",
-        footprint_pattern="footprints:TBP04R2-500-{:02d}BE",
+        footprint_pattern="connector_footprints:TBP04R2-500-{:02d}BE",
         datasheet="https://www.sameskydevices.com/" +
         "product/resource/tbp04r2-500.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],

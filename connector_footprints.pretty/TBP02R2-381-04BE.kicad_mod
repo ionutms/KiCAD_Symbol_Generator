@@ -1,0 +1,169 @@
+(footprint "TBP02R2-381-04BE"
+    (version 20240108)
+    (generator "pcbnew")
+    (generator_version "8.0")
+    (layer "F.Cu")
+    (property "Reference" "REF**"
+        (at 0 -4.445 0)
+        (layer "F.SilkS")
+        (uuid "d80309d5-b142-4961-b77a-2ccf5441f7de")
+        (effects
+            (font
+                (size 0.762 0.762)
+                (thickness 0.1524)
+            )
+            (justify left)
+        )
+    )
+    (property "Value" "TBP02R2-381-04BE"
+        (at 0 4.2932 0)
+        (layer "F.Fab")
+        (uuid "3264da01-4317-4b79-8b7d-5ade3b4a1080")
+        (effects
+            (font
+                (size 0.762 0.762)
+                (thickness 0.1524)
+            )
+            (justify left)
+        )
+    )
+    (property "Footprint" ""
+        (at -5.715 0 0)
+        (layer "F.Fab")
+        (hide yes)
+        (uuid "be319d59-4dde-4309-97ab-2437d9dcc163")
+        (effects
+            (font
+                (size 1.27 1.27)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Datasheet" ""
+        (at -5.715 0 0)
+        (layer "F.Fab")
+        (hide yes)
+        (uuid "84b681ca-607a-420e-bbf3-48cb03486cb1")
+        (effects
+            (font
+                (size 1.27 1.27)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Description" ""
+        (at -5.715 0 0)
+        (layer "F.Fab")
+        (hide yes)
+        (uuid "72b98fc6-43aa-45ca-9f8a-140aaf569b37")
+        (effects
+            (font
+                (size 1.27 1.27)
+                (thickness 0.15)
+            )
+        )
+    )
+    (attr through_hole)
+    (fp_rect
+        (start -8.255 -4.445)
+        (end 8.255 3.2512)
+        (stroke
+            (width 0.1524)
+            (type default)
+        )
+        (fill none)
+        (layer "F.SilkS")
+        (uuid "8c8a2c9d-c596-4681-9485-12093205d496")
+    )
+    (fp_circle
+        (center -8.865 0)
+        (end -8.560 0)
+        (stroke
+            (width 0.1524)
+            (type solid)
+        )
+        (fill none)
+        (layer "F.SilkS")
+        (uuid "a7f51ba0-b0e8-4347-9804-506838910ebe")
+    )
+    (fp_rect
+        (start -8.255 -4.445)
+        (end 8.255 3.2512)
+        (stroke
+            (width 0.00635)
+            (type default)
+        )
+        (fill none)
+        (layer "F.CrtYd")
+        (uuid "bf752574-9289-441b-8773-a99f21c05257")
+    )
+    (fp_rect
+        (start -8.255 -4.445)
+        (end 8.255 3.2512)
+        (stroke
+            (width 0.1524)
+            (type default)
+        )
+        (fill none)
+        (layer "F.Fab")
+        (uuid "141d9e65-04bf-46cf-ace0-fd417cdfeed7")
+    )
+    (fp_circle
+        (center -8.865 0)
+        (end -8.560 0)
+        (stroke
+            (width 0.1524)
+            (type solid)
+        )
+        (fill none)
+        (layer "F.Fab")
+        (uuid "765310eb-ee5a-499f-a139-b3e08ae303c9")
+    )
+    (pad "1" thru_hole rect
+        (at -5.715 0)
+        (size 2.1 2.1)
+        (drill 1.4)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "be4bdcce-f85a-4802-92db-da33ebc58f1a")
+    )
+    (pad "2" thru_hole circle
+        (at -1.905 0)
+        (size 2.1 2.1)
+        (drill 1.4)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "a5dddb17-6454-4ef0-af5f-e37bf85af6c4")
+    )
+    (pad "3" thru_hole circle
+        (at 1.905 0)
+        (size 2.1 2.1)
+        (drill 1.4)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "8ad4fb4d-8cb7-414b-b800-5405cb8acb00")
+    )
+    (pad "4" thru_hole circle
+        (at 5.715 0)
+        (size 2.1 2.1)
+        (drill 1.4)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "189893bf-9d23-4b3e-ae11-4b8d2702ccec")
+    )
+    (model "${KIPRJMOD}/KiCad_Symbol_Generator/3D_models/SAME SKY_DEVICES_TBP02R2-381-04BE.step"
+        (offset
+            (xyz 11.430 -0.75 -3.81)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz -90 0 180)
+        )
+    )
+)
