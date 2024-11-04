@@ -152,9 +152,9 @@ def create_description(
     parts = [
         f"{specs.manufacturer}",
         f"{specs.base_series} series",
-        f"{pin_count}-position connector",
-        f"{specs.pitch}mm pitch",
-        f"{specs.color} housing"
+        f"{pin_count} positions connector",
+        f"{specs.pitch} mm pitch",
+        f"{specs.color}"
     ]
 
     return " ".join(parts)
