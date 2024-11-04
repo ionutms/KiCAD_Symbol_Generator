@@ -24,6 +24,8 @@ class SeriesSpec(NamedTuple):
         color: Color of the connector housing
         pitch: Pin-to-pin spacing in millimeters
         mounting_angle: Mounting orientation of the connector
+        current_rating: Maximum current rating in amperes
+        voltage_rating: Maximum voltage rating in volts
     """
     manufacturer: str
     base_series: str
@@ -34,6 +36,8 @@ class SeriesSpec(NamedTuple):
     color: str
     pitch: float
     mounting_angle: str
+    current_rating: float
+    voltage_rating: int
 
 
 class PartInfo(NamedTuple):
@@ -54,6 +58,8 @@ class PartInfo(NamedTuple):
         pitch: Pin-to-pin spacing in millimeters
         pin_count: Number of pins in the connector
         mounting_angle: Mounting orientation of the connector
+        current_rating: Maximum current rating in amperes
+        voltage_rating: Maximum voltage rating in volts
     """
     symbol_name: str
     reference: str
@@ -69,6 +75,8 @@ class PartInfo(NamedTuple):
     pitch: float
     pin_count: int
     mounting_angle: str
+    current_rating: float
+    voltage_rating: int
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
@@ -82,7 +90,9 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
         pitch=3.81,
-        mounting_angle="Vertical"
+        mounting_angle="Vertical",
+        current_rating=8.0,
+        voltage_rating=300
     ),
 }
 
@@ -119,7 +129,9 @@ def create_part_info(
         color=specs.color,
         pitch=specs.pitch,
         pin_count=pin_count,
-        mounting_angle=specs.mounting_angle
+        mounting_angle=specs.mounting_angle,
+        current_rating=specs.current_rating,
+        voltage_rating=specs.voltage_rating
     )
 
 
@@ -153,15 +165,17 @@ def create_description(
 
     Returns:
         Formatted description string including manufacturer, series, pins,
-        pitch, and mounting angle
+        pitch, mounting angle, and electrical ratings
     """
     parts = [
-        f"{specs.manufacturer}",
-        f"{specs.base_series} series",
-        f"{pin_count} positions connector",
-        f"{specs.pitch} mm pitch",
-        f"{specs.color}",
-        f"{specs.mounting_angle} mounting"
+        f"{specs.manufacturer},",
+        f"{specs.base_series} series, ",
+        f"{pin_count} positions connector, ",
+        f"{specs.pitch} mm pitch, ",
+        f"{specs.color}, ",
+        f"{specs.mounting_angle} mounting, ",
+        f"{specs.current_rating} A, ",
+        f"{specs.voltage_rating} V"
     ]
 
     return " ".join(parts)

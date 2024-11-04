@@ -62,7 +62,9 @@ HEADER_MAPPING: Final[dict] = {
     'Color': lambda part: part.color,
     'Pitch (mm)': lambda part: part.pitch,
     'Pin Count': lambda part: part.pin_count,
-    'Mounting Angle': lambda part: part.mounting_angle
+    'Mounting Angle': lambda part: part.mounting_angle,
+    'Current Rating (A)': lambda part: part.current_rating,
+    'Voltage Rating (V)': lambda part: part.voltage_rating
 }
 
 
