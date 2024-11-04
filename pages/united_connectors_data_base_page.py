@@ -73,6 +73,8 @@ usage_steps = [
 
 hidden_columns = [
     'Reference',
+    'Value',
+    'Series',
     'Color',
     'Pitch (mm)',
     'Pin Count',
