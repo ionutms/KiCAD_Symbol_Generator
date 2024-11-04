@@ -447,7 +447,8 @@ def generate_unified_files(
 
     # Generate unified KiCad symbol file
     try:
-        ki_csg.generate_kicad_symbol(f'data/{unified_csv}', unified_symbol)
+        ki_csg.generate_kicad_symbol(
+            f'data/{unified_csv}', f'symbols/{unified_symbol}')
         print_success("Unified KiCad symbol file generated successfully.")
     except FileNotFoundError as file_error:
         print_error(f"Unified CSV file not found: {file_error}")
