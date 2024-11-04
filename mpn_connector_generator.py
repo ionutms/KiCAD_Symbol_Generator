@@ -6,10 +6,12 @@ with different pin counts.
 Generates both individual series files and unified component database.
 """
 
+import os
 import csv
 from typing import Final, List
 from colorama import init, Fore, Style
 import kicad_connector_symbol_generator as kc_cosg
+import kicad_connector_footprint_generator as kco_fg
 import series_specs_connectors as ssc
 import file_handler_utilities as utils
 
@@ -70,6 +72,22 @@ HEADER_MAPPING: Final[dict] = {
 }
 
 
+def generate_footprints_for_series(parts_list: List[ssc.PartInfo]) -> None:
+    """Generate footprint files for all parts in a series."""
+    os.makedirs("connector_footprints.pretty", exist_ok=True)
+
+    for part in parts_list:
+        try:
+            kco_fg.generate_footprint_file(part)
+            print_success(
+                f"Generated footprint file for {part.mpn}"
+            )
+        except ValueError as e:
+            print_error(f"Error generating footprint: {e}")
+        except IOError as e:
+            print_error(f"I/O error generating footprint: {e}")
+
+
 def generate_files_for_series(
     series_name: str,
     unified_parts_list: List[ssc.PartInfo]
@@ -104,6 +122,7 @@ def generate_files_for_series(
             f"KiCad symbol file '{symbol_filename}' "
             "generated successfully."
         )
+        generate_footprints_for_series(parts_list)
 
         # Add parts to unified list
         unified_parts_list.extend(parts_list)
