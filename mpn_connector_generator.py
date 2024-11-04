@@ -61,7 +61,8 @@ HEADER_MAPPING: Final[dict] = {
     'Trustedparts Search': lambda part: part.trustedparts_link,
     'Color': lambda part: part.color,
     'Pitch (mm)': lambda part: part.pitch,
-    'Pin Count': lambda part: part.pin_count
+    'Pin Count': lambda part: part.pin_count,
+    'Mounting Angle': lambda part: part.mounting_angle
 }
 
 

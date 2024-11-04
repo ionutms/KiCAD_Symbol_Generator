@@ -23,6 +23,7 @@ class SeriesSpec(NamedTuple):
         trustedparts_link: URL to the component listing on Trusted Parts
         color: Color of the connector housing
         pitch: Pin-to-pin spacing in millimeters
+        mounting_angle: Mounting orientation of the connector
     """
     manufacturer: str
     base_series: str
@@ -32,6 +33,7 @@ class SeriesSpec(NamedTuple):
     trustedparts_link: str
     color: str
     pitch: float
+    mounting_angle: str
 
 
 class PartInfo(NamedTuple):
@@ -51,6 +53,7 @@ class PartInfo(NamedTuple):
         color: Color of the connector housing
         pitch: Pin-to-pin spacing in millimeters
         pin_count: Number of pins in the connector
+        mounting_angle: Mounting orientation of the connector
     """
     symbol_name: str
     reference: str
@@ -65,6 +68,7 @@ class PartInfo(NamedTuple):
     color: str
     pitch: float
     pin_count: int
+    mounting_angle: str
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
@@ -77,7 +81,8 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
-        pitch=3.81
+        pitch=3.81,
+        mounting_angle="Vertical"
     ),
 }
 
@@ -113,7 +118,8 @@ def create_part_info(
         trustedparts_link=trustedparts_link,
         color=specs.color,
         pitch=specs.pitch,
-        pin_count=pin_count
+        pin_count=pin_count,
+        mounting_angle=specs.mounting_angle
     )
 
 
@@ -147,14 +153,15 @@ def create_description(
 
     Returns:
         Formatted description string including manufacturer, series, pins,
-        and pitch
+        pitch, and mounting angle
     """
     parts = [
         f"{specs.manufacturer}",
         f"{specs.base_series} series",
         f"{pin_count} positions connector",
         f"{specs.pitch} mm pitch",
-        f"{specs.color}"
+        f"{specs.color}",
+        f"{specs.mounting_angle} mounting"
     ]
 
     return " ".join(parts)
