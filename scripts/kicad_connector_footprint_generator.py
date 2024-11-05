@@ -23,6 +23,16 @@ class FootprintDimensions(NamedTuple):
 
 # Connector series specific dimensions
 FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
+    "TBP02R1-381": FootprintDimensions(
+        width_per_pin=3.81,    # Pitch
+        base_width=4.445,      # Base enclosure width (half of total for 2-pin)
+        height_top=3.2512,     # Height above center
+        height_bottom=4.445,   # Height below center
+        pad_size=2.1,
+        drill_size=1.4,
+        silk_margin=0.1524,
+        mask_margin=0.102
+    ),
     "TBP02R2-381": FootprintDimensions(
         width_per_pin=3.81,    # Pitch
         base_width=4.445,      # Base enclosure width (half of total for 2-pin)

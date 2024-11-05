@@ -88,6 +88,22 @@ class PartInfo(NamedTuple):
 
 
 SERIES_SPECS: Dict[str, SeriesSpec] = {
+    "TBP02R1-381": SeriesSpec(
+        manufacturer="Same Sky",
+        base_series="TBP02R1-381",
+        footprint_pattern="connector_footprints:TBP02R1-381-{:02d}BE",
+        datasheet="https://www.sameskydevices.com/" +
+        "product/resource/tbp02r1-381.pdf",
+        pin_counts=[2],
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        color="Blue",
+        pitch=3.81,
+        mounting_angle="Vertical",
+        current_rating=8.0,
+        voltage_rating=300,
+        mounting_style="Through Hole",
+        contact_plating="Tin"
+    ),
     "TBP02R2-381": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP02R2-381",
