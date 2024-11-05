@@ -26,7 +26,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
     "TBP02R1-381": FootprintDimensions(
         width_per_pin=3.81,    # Pitch
         base_width=4.4,      # Base enclosure width (half of total for 2-pin)
-        height_top=7.9,     # Height above center
+        height_top=-7.9,     # Height above center
         height_bottom=1.4,   # Height below center
         pad_size=2.1,
         drill_size=1.4,
