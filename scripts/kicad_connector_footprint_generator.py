@@ -109,7 +109,6 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
                 (size 0.762 0.762)
                 (thickness 0.1524)
             )
-            (justify left)
         )
     )
     (property "Value" "{part.mpn}"
