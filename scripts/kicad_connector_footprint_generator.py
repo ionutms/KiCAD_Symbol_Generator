@@ -19,6 +19,8 @@ class FootprintDimensions(NamedTuple):
     drill_size: float   # Drill hole diameter
     silk_margin: float  # Margin for silkscreen
     mask_margin: float  # Solder mask margin
+    ref_x: float
+    ref_y: float
 
 
 # Connector series specific dimensions
@@ -31,7 +33,9 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
-        mask_margin=0.102
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=0.0,
     ),
     "TBP02R2-381": FootprintDimensions(
         width_per_pin=3.81,    # Pitch
@@ -41,7 +45,9 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
-        mask_margin=0.102
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=0.0,
     ),
     "TBP04R2-500": FootprintDimensions(
         width_per_pin=5.0,     # Pitch
@@ -51,7 +57,9 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
-        mask_margin=0.102
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=0.0,
     ),
     "TBP04R3-500": FootprintDimensions(
         width_per_pin=5.0,     # Pitch
@@ -61,7 +69,9 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
-        mask_margin=0.102
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=0.0,
     )
 }
 
@@ -91,7 +101,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
     (generator_version "8.0")
     (layer "F.Cu")
     (property "Reference" "REF**"
-        (at 0 {dims.height_bottom-0.826} 0)
+        (at 0 {dims.ref_x} {dims.ref_y})
         (layer "F.SilkS")
         (uuid "{uuid4()}")
         (effects
