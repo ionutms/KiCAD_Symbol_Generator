@@ -225,7 +225,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
     # Add 3D model reference
     if part.series == "TBP02R1-381":
         step_offset = (part.pin_count - 2) * 1.905
-        model_offset = (17.145-step_offset, -6.477, 18.288)
+        model_offset = (-17.15-step_offset, 17.000, -3.4)
         model_rotation = (0, 90, 180)
     elif part.series == "TBP02R2-381":
         step_offset = (part.pin_count - 2) * 1.905
