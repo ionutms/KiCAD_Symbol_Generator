@@ -35,7 +35,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
-        ref_y=0.0,
+        ref_y=2.4,
     ),
     "TBP02R2-381": FootprintDimensions(
         width_per_pin=3.81,    # Pitch
@@ -47,7 +47,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
-        ref_y=0.0,
+        ref_y=2.4,
     ),
     "TBP04R2-500": FootprintDimensions(
         width_per_pin=5.0,     # Pitch
@@ -59,7 +59,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
-        ref_y=0.0,
+        ref_y=4.0,
     ),
     "TBP04R3-500": FootprintDimensions(
         width_per_pin=5.0,     # Pitch
@@ -71,7 +71,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
-        ref_y=0.0,
+        ref_y=4.0,
     )
 }
 
@@ -109,7 +109,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
                 (size 0.762 0.762)
                 (thickness 0.1524)
             )
-            (justify left)
+            (justify center)
         )
     )
     (property "Value" "{part.mpn}"
