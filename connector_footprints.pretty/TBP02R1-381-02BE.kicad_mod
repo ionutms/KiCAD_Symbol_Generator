@@ -4,9 +4,9 @@
     (generator_version "8.0")
     (layer "F.Cu")
     (property "Reference" "REF**"
-        (at 0 -5.271 0)
+        (at 0 -2.226 0)
         (layer "F.SilkS")
-        (uuid "4028bcdf-818c-4b9d-b096-37ff653686f5")
+        (uuid "62445c3b-af1b-4bed-9d13-7aa91c5fdc57")
         (effects
             (font
                 (size 0.762 0.762)
@@ -16,9 +16,9 @@
         )
     )
     (property "Value" "TBP02R1-381-02BE"
-        (at 0 4.2932 0)
+        (at 0 8.942 0)
         (layer "F.Fab")
-        (uuid "d67cc667-caca-4dac-80bc-2aaaeddd87f1")
+        (uuid "9380f72a-196f-400e-900b-a1999be39fe8")
         (effects
             (font
                 (size 0.762 0.762)
@@ -31,7 +31,7 @@
         (at -1.905 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "8af774fc-d852-4512-81ae-494bd33ef7c4")
+        (uuid "7fa2da6e-2ed7-4306-a54a-7eacc1e0f2d8")
         (effects
             (font
                 (size 1.27 1.27)
@@ -43,7 +43,7 @@
         (at -1.905 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "58df101a-2250-4b1e-b28f-2b5df62e7fe6")
+        (uuid "2cb439e2-8ec3-40f0-a81b-deb5b34983fa")
         (effects
             (font
                 (size 1.27 1.27)
@@ -55,7 +55,7 @@
         (at -1.905 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "76932d2c-f184-4245-b5c5-734d3b32db23")
+        (uuid "8e207604-d5ac-4fbe-8922-28d4d8559ecf")
         (effects
             (font
                 (size 1.27 1.27)
@@ -65,59 +65,59 @@
     )
     (attr through_hole)
     (fp_rect
-        (start -4.445 -4.445)
-        (end 4.445 3.2512)
+        (start -4.400 -1.4)
+        (end 4.400 7.9)
         (stroke
             (width 0.1524)
             (type default)
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "f21d880c-3059-40d0-8a29-40cef88f09e4")
+        (uuid "ab526f6d-a10d-4949-82dd-a2d6a3d6421b")
     )
     (fp_circle
-        (center -5.055 0)
-        (end -4.750 0)
+        (center -5.010 0)
+        (end -4.705 0)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "db6b9f80-2c0c-4193-b500-45f709586e88")
+        (uuid "f1c3accf-8483-4b3e-8c67-58b6ae23c7a2")
     )
     (fp_rect
-        (start -4.445 -4.445)
-        (end 4.445 3.2512)
+        (start -4.400 -1.4)
+        (end 4.400 7.9)
         (stroke
             (width 0.00635)
             (type default)
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "8829e15f-707a-4e5b-8373-a8e19813ad7c")
+        (uuid "b29fe879-ddf8-46cd-8996-877010a65a12")
     )
     (fp_rect
-        (start -4.445 -4.445)
-        (end 4.445 3.2512)
+        (start -4.400 -1.4)
+        (end 4.400 7.9)
         (stroke
             (width 0.1524)
             (type default)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "cf3f189c-0143-4aff-a4e8-54e0ff5e50ce")
+        (uuid "ecc2d87e-8715-4a10-b649-0fdaf21d7a21")
     )
     (fp_circle
-        (center -5.055 0)
-        (end -4.750 0)
+        (center -5.010 0)
+        (end -4.705 0)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "88463c42-7f1b-46f1-875b-0ec76a6d60ba")
+        (uuid "53907920-f6bd-4243-b03a-76ee5baa7013")
     )
     (pad "1" thru_hole rect
         (at -1.905 0)
@@ -126,7 +126,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "df567271-d709-4604-b318-5112ddd46d0d")
+        (uuid "ec2b03ab-f226-40d7-bd7b-157394bb9cde")
     )
     (pad "2" thru_hole circle
         (at 1.905 0)
@@ -135,7 +135,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "d98758c2-0e8a-49f4-b5a4-f70ff854b12c")
+        (uuid "154af4f0-ba32-4c05-9b57-4de61b3b49a8")
     )
     (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TBP02R1-381-02BE.step"
         (offset
