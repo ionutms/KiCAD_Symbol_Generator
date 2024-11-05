@@ -27,7 +27,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         width_per_pin=3.81,    # Pitch
         base_width=4.4,      # Base enclosure width (half of total for 2-pin)
         height_top=-7.9,     # Height above center
-        height_bottom=1.4,   # Height below center
+        height_bottom=-1.4,   # Height below center
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
@@ -37,7 +37,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         width_per_pin=3.81,    # Pitch
         base_width=4.445,      # Base enclosure width (half of total for 2-pin)
         height_top=3.2512,     # Height above center
-        height_bottom=4.445,   # Height below center
+        height_bottom=-4.445,   # Height below center
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
@@ -47,7 +47,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         width_per_pin=5.0,     # Pitch
         base_width=5.8,        # Base enclosure width (half of total for 2-pin)
         height_top=4.8,        # Height above center
-        height_bottom=4.0,     # Height below origin
+        height_bottom=-4.0,     # Height below origin
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -57,7 +57,7 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         width_per_pin=5.0,     # Pitch
         base_width=5.2,        # Base enclosure width (half of total for 2-pin)
         height_top=4.8,        # Height above center
-        height_bottom=4.0,     # Height below origin
+        height_bottom=-4.0,     # Height below origin
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -91,7 +91,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
     (generator_version "8.0")
     (layer "F.Cu")
     (property "Reference" "REF**"
-        (at 0 {-dims.height_bottom-0.826} 0)
+        (at 0 {dims.height_bottom-0.826} 0)
         (layer "F.SilkS")
         (uuid "{uuid4()}")
         (effects
@@ -152,7 +152,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
     )
     (attr through_hole)
     (fp_rect
-        (start {-total_half_width:.3f} {-dims.height_bottom})
+        (start {-total_half_width:.3f} {dims.height_bottom})
         (end {total_half_width:.3f} {dims.height_top})
         (stroke
             (width {dims.silk_margin})
@@ -174,7 +174,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         (uuid "{uuid4()}")
     )
     (fp_rect
-        (start {-total_half_width:.3f} {-dims.height_bottom})
+        (start {-total_half_width:.3f} {dims.height_bottom})
         (end {total_half_width:.3f} {dims.height_top})
         (stroke
             (width 0.00635)
@@ -185,7 +185,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         (uuid "{uuid4()}")
     )
     (fp_rect
-        (start {-total_half_width:.3f} {-dims.height_bottom})
+        (start {-total_half_width:.3f} {dims.height_bottom})
         (end {total_half_width:.3f} {dims.height_top})
         (stroke
             (width {dims.silk_margin})
