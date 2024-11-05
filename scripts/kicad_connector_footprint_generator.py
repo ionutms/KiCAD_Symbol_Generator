@@ -101,7 +101,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
     (generator_version "8.0")
     (layer "F.Cu")
     (property "Reference" "REF**"
-        (at 0 {dims.ref_x} {dims.ref_y})
+        (at {dims.ref_x} {dims.ref_y} 0)
         (layer "F.SilkS")
         (uuid "{uuid4()}")
         (effects
