@@ -172,7 +172,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         ref_y=6.096,
         model_offset_base=(7.62, -5.08, 0.0),
         model_rotation=(-90, 0, -90),
-        step_multiplier=2.54,
+        step_multiplier=5.08,
         model_offset_func=offset_sub
     ),
 }
