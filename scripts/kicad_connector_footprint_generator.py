@@ -4,128 +4,200 @@ KiCad Footprint Generator Module
 Generates .kicad_mod files for connector series based on specifications.
 """
 
-from typing import Dict, NamedTuple
+from typing import Dict, NamedTuple, Callable, Tuple
 from uuid import uuid4
 import series_specs_connectors as ssc
 
 
-class FootprintDimensions(NamedTuple):
-    """Physical dimensions for footprint generation."""
-    width_per_pin: float  # Width contribution per pin
-    base_width: float    # Base width for enclosure
-    height_top: float    # Height above origin
-    height_bottom: float  # Height below origin
-    pad_size: float     # Pad diameter/size
-    drill_size: float   # Drill hole diameter
-    silk_margin: float  # Margin for silkscreen
-    mask_margin: float  # Solder mask margin
-    ref_x: float
-    ref_y: float
+class ConnectorSpecs(NamedTuple):
+    """Complete specifications for footprint generation."""
+    width_per_pin: float      # Width contribution per pin
+    base_width: float         # Base width for enclosure
+    height_top: float         # Height above origin
+    height_bottom: float      # Height below origin
+    pad_size: float          # Pad diameter/size
+    drill_size: float        # Drill hole diameter
+    silk_margin: float       # Margin for silkscreen
+    mask_margin: float       # Solder mask margin
+    ref_x: float            # Reference X position
+    ref_y: float            # Reference Y position
+    model_offset_base: tuple[float, float, float]  # Base 3D model offset
+    model_rotation: tuple[float, float, float]     # 3D model rotation
+    step_multiplier: float   # Multiplier for step offset calculation
+    model_offset_func: Callable  # Function to calculate model offset
 
 
-# Connector series specific dimensions
-FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
-    "TBP02R1-381": FootprintDimensions(
-        width_per_pin=3.81,    # Pitch
-        base_width=4.4,      # Base enclosure width (half of total for 2-pin)
-        height_top=-7.9,     # Height above center
-        height_bottom=1.4,   # Height below center
+def offset_add(
+        base: Tuple[float, float, float],
+        step: float
+) -> Tuple[float, float, float]:
+    """
+    Calculate offset by adding step to base X coordinate.
+
+    Args:
+        base: Base offset coordinates (x, y, z)
+        step: Step value to add to x coordinate
+
+    Returns:
+        Tuple containing updated (x, y, z) coordinates with modified x value
+    """
+    return (base[0] + step, base[1], base[2])
+
+
+def offset_sub(
+        base: Tuple[float, float, float],
+        step: float
+) -> Tuple[float, float, float]:
+    """
+    Calculate offset by subtracting step from base X coordinate.
+
+    Args:
+        base: Base offset coordinates (x, y, z)
+        step: Step value to subtract from x coordinate
+
+    Returns:
+        Tuple containing updated (x, y, z) coordinates with modified x value
+    """
+    return (base[0] - step, base[1], base[2])
+
+
+# Consolidated connector series specifications using common offset patterns
+CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
+    "TBP02R1-381": ConnectorSpecs(
+        width_per_pin=3.81,
+        base_width=4.4,
+        height_top=-7.9,
+        height_bottom=1.4,
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
         ref_y=2.4,
+        model_offset_base=(-17.15, 17.000, -3.4),
+        model_rotation=(0, 90, 180),
+        step_multiplier=1.905,
+        model_offset_func=offset_add
     ),
-    "TBP02R2-381": FootprintDimensions(
-        width_per_pin=3.81,    # Pitch
-        base_width=4.445,      # Base enclosure width (half of total for 2-pin)
-        height_top=3.2512,     # Height above center
-        height_bottom=-4.445,   # Height below center
+    "TBP02R2-381": ConnectorSpecs(
+        width_per_pin=3.81,
+        base_width=4.445,
+        height_top=3.2512,
+        height_bottom=-4.445,
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
         ref_y=4.2,
+        model_offset_base=(17.145, -6.477, 18.288),
+        model_rotation=(90, 0, -90),
+        step_multiplier=1.905,
+        model_offset_func=offset_sub
     ),
-    "TBP04R1-500": FootprintDimensions(
-        width_per_pin=5.0,     # Pitch
-        base_width=5.2,        # Base enclosure width (half of total for 2-pin)
-        height_top=-2.2,        # Height above center
-        height_bottom=9.9,     # Height below origin
+    "TBP04R1-500": ConnectorSpecs(
+        width_per_pin=5.0,
+        base_width=5.2,
+        height_top=-2.2,
+        height_bottom=9.9,
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
         ref_y=-3.0,
+        model_offset_base=(-1.65, 1.0, -3.81),
+        model_rotation=(-90, 0, 90),
+        step_multiplier=2.5,
+        model_offset_func=offset_add
     ),
-    "TBP04R12-500": FootprintDimensions(
-        width_per_pin=5.0,     # Pitch
-        base_width=5.8,        # Base enclosure width (half of total for 2-pin)
-        height_top=-2.2,        # Height above center
-        height_bottom=9.9,     # Height below origin
+    "TBP04R12-500": ConnectorSpecs(
+        width_per_pin=5.0,
+        base_width=5.8,
+        height_top=-2.2,
+        height_bottom=9.9,
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
         ref_y=-3.0,
+        model_offset_base=(-5, -5.6, -3.81),
+        model_rotation=(-90, 0, 0),
+        step_multiplier=2.5,
+        model_offset_func=offset_sub
     ),
-    "TBP04R2-500": FootprintDimensions(
-        width_per_pin=5.0,     # Pitch
-        base_width=5.8,        # Base enclosure width (half of total for 2-pin)
-        height_top=4.8,        # Height above center
-        height_bottom=-4.0,     # Height below origin
+    "TBP04R2-500": ConnectorSpecs(
+        width_per_pin=5.0,
+        base_width=5.8,
+        height_top=4.8,
+        height_bottom=-4.0,
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
         ref_y=5.8,
+        model_offset_base=(5, -0.75, -3.81),
+        model_rotation=(-90, 0, 180),
+        step_multiplier=2.5,
+        model_offset_func=offset_add
     ),
-    "TBP04R3-500": FootprintDimensions(
-        width_per_pin=5.0,     # Pitch
-        base_width=5.2,        # Base enclosure width (half of total for 2-pin)
-        height_top=4.8,        # Height above center
-        height_bottom=-4.0,     # Height below origin
+    "TBP04R3-500": ConnectorSpecs(
+        width_per_pin=5.0,
+        base_width=5.2,
+        height_top=4.8,
+        height_bottom=-4.0,
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
         ref_y=5.8,
+        model_offset_base=(5, -0.75, -3.81),
+        model_rotation=(-90, 0, 180),
+        step_multiplier=2.5,
+        model_offset_func=offset_add
     )
 }
 
 
-def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
+def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     """
     Generate KiCad footprint file content for a connector.
 
+    This function creates a complete KiCad footprint definition including:
+    - Component properties and metadata
+    - Silkscreen and fabrication layer shapes
+    - Through-hole pad definitions
+    - 3D model references
+
     Args:
-        part: Component specifications
-        dims: Physical dimensions for the footprint
+        part: Component specifications including MPN, pin count, and pitch
+        specs:
+            Complete connector specifications defining
+            physical dimensions and properties
 
     Returns:
-        String containing the .kicad_mod file content
+        String containing the complete .kicad_mod file content in KiCad format
     """
     # Calculate enclosure width based on pin count
-    extra_width_per_side = (part.pin_count - 2) * dims.width_per_pin / 2
-    total_half_width = dims.base_width + extra_width_per_side
+    extra_width_per_side = (part.pin_count - 2) * specs.width_per_pin / 2
+    total_half_width = specs.base_width + extra_width_per_side
 
     # Calculate pin positions
     total_length = (part.pin_count - 1) * part.pitch
     start_pos = -total_length / 2
 
-    footprint = f'''(footprint "{part.mpn}"
+    header = f'''(footprint "{part.mpn}"
     (version 20240108)
     (generator "pcbnew")
     (generator_version "8.0")
-    (layer "F.Cu")
-    (property "Reference" "REF**"
-        (at {dims.ref_x} {dims.ref_y} 0)
+    (layer "F.Cu")'''
+
+    # Properties section
+    properties = f'''    (property "Reference" "REF**"
+        (at {specs.ref_x} {specs.ref_y} 0)
         (layer "F.SilkS")
         (uuid "{uuid4()}")
         (effects
@@ -136,7 +208,7 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         )
     )
     (property "Value" "{part.mpn}"
-        (at 0 {dims.height_top + 1.042} 0)
+        (at 0 {specs.height_top + 1.042} 0)
         (layer "F.Fab")
         (uuid "{uuid4()}")
         (effects
@@ -182,13 +254,15 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
                 (thickness 0.15)
             )
         )
-    )
-    (attr through_hole)
+    )'''
+
+    # Shape definitions
+    shapes = f'''    (attr through_hole)
     (fp_rect
-        (start {-total_half_width:.3f} {dims.height_bottom})
-        (end {total_half_width:.3f} {dims.height_top})
+        (start {-total_half_width:.3f} {specs.height_bottom})
+        (end {total_half_width:.3f} {specs.height_top})
         (stroke
-            (width {dims.silk_margin})
+            (width {specs.silk_margin})
             (type default)
         )
         (fill none)
@@ -196,10 +270,10 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {-(total_half_width + dims.silk_margin*4):.3f} 0)
-        (end {-(total_half_width + dims.silk_margin*2):.3f} 0)
+        (center {-(total_half_width + specs.silk_margin*4):.3f} 0)
+        (end {-(total_half_width + specs.silk_margin*2):.3f} 0)
         (stroke
-            (width {dims.silk_margin})
+            (width {specs.silk_margin})
             (type solid)
         )
         (fill none)
@@ -207,8 +281,8 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         (uuid "{uuid4()}")
     )
     (fp_rect
-        (start {-total_half_width:.3f} {dims.height_bottom})
-        (end {total_half_width:.3f} {dims.height_top})
+        (start {-total_half_width:.3f} {specs.height_bottom})
+        (end {total_half_width:.3f} {specs.height_top})
         (stroke
             (width 0.00635)
             (type default)
@@ -218,10 +292,10 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         (uuid "{uuid4()}")
     )
     (fp_rect
-        (start {-total_half_width:.3f} {dims.height_bottom})
-        (end {total_half_width:.3f} {dims.height_top})
+        (start {-total_half_width:.3f} {specs.height_bottom})
+        (end {total_half_width:.3f} {specs.height_top})
         (stroke
-            (width {dims.silk_margin})
+            (width {specs.silk_margin})
             (type default)
         )
         (fill none)
@@ -229,16 +303,19 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {-(total_half_width + dims.silk_margin*4):.3f} 0)
-        (end {-(total_half_width + dims.silk_margin*2):.3f} 0)
+        (center {-(total_half_width + specs.silk_margin*4):.3f} 0)
+        (end {-(total_half_width + specs.silk_margin*2):.3f} 0)
         (stroke
-            (width {dims.silk_margin})
+            (width {specs.silk_margin})
             (type solid)
         )
         (fill none)
         (layer "F.Fab")
         (uuid "{uuid4()}")
     )'''
+
+    # Combine initial sections
+    footprint = f"{header}\n{properties}\n{shapes}"
 
     # Add pads
     for pin in range(part.pin_count):
@@ -247,47 +324,25 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         footprint += f'''
     (pad "{pin + 1}" thru_hole {pad_type}
         (at {x_pos:.3f} 0)
-        (size {dims.pad_size} {dims.pad_size})
-        (drill {dims.drill_size})
+        (size {specs.pad_size} {specs.pad_size})
+        (drill {specs.drill_size})
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
-        (solder_mask_margin {dims.mask_margin})
+        (solder_mask_margin {specs.mask_margin})
         (uuid "{uuid4()}")
     )'''
 
-    # Add 3D model reference
-    if part.series == "TBP02R1-381":
-        step_offset = (part.pin_count - 2) * 1.905
-        model_offset = (-17.15+step_offset, 17.000, -3.4)
-        model_rotation = (0, 90, 180)
-    elif part.series == "TBP02R2-381":
-        step_offset = (part.pin_count - 2) * 1.905
-        model_offset = (17.145-step_offset, -6.477, 18.288)
-        model_rotation = (90, 0, -90)
-    elif part.series == "TBP04R1-500":
-        step_offset = (part.pin_count - 2) * 2.5
-        model_offset = (-1.65+step_offset, 1.0, -3.81)
-        model_rotation = (-90, 0, 90)
-    elif part.series == "TBP04R12-500":
-        step_offset = (part.pin_count - 2) * 2.5
-        model_offset = (-5-step_offset, -5.6, -3.81)
-        model_rotation = (-90, 0, 0)
-    elif part.series == "TBP04R2-500":
-        step_offset = (part.pin_count - 2) * 2.5
-        model_offset = (5+step_offset, -0.75, -3.81)
-        model_rotation = (-90, 0, 180)
-    elif part.series == "TBP04R3-500":
-        step_offset = (part.pin_count - 2) * 2.5
-        model_offset = (5+step_offset, -0.75, -3.81)
-        model_rotation = (-90, 0, 180)
-    else:
-        model_offset = (0, 0, 0)
-        model_rotation = (0, 0, 0)
+    # Calculate 3D model position
+    step_offset = (part.pin_count - 2) * specs.step_multiplier
+    model_offset = specs.model_offset_func(
+        specs.model_offset_base, step_offset)
 
-    step_path = f"KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_{part.mpn}.step"
+    # Add 3D model reference
+    model_path = (f"KiCAD_Symbol_Generator/3D_models/"
+                  f"CUI_DEVICES_{part.mpn}.step")
 
     footprint += f'''
-    (model "${{KIPRJMOD}}/{step_path}"
+    (model "${{KIPRJMOD}}/{model_path}"
         (offset
             (xyz {model_offset[0]:.3f} {model_offset[1]} {model_offset[2]})
         )
@@ -295,7 +350,8 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
             (xyz 1 1 1)
         )
         (rotate
-            (xyz {model_rotation[0]} {model_rotation[1]} {model_rotation[2]})
+            (xyz {specs.model_rotation[0]} {specs.model_rotation[1]} '''
+    footprint += f'''{specs.model_rotation[2]})
         )
     )'''
 
@@ -309,17 +365,25 @@ def generate_footprint_file(part: ssc.PartInfo) -> None:
     """
     Generate and save a .kicad_mod file for a connector part.
 
+    This function takes a part specification, generates the appropriate
+    footprint content, and saves it to a file in the
+    connector_footprints.pretty directory.
+
     Args:
-        part: Component specifications
+        part:
+            Component specifications including MPN, series, pin count,
+            and pitch
+
+    Raises:
+        ValueError:
+            If the specified connector series is not found in CONNECTOR_SPECS
+        IOError: If there are issues writing to the output file
     """
-    # Get base series from MPN
-    base_series = part.series
+    if part.series not in CONNECTOR_SPECS:
+        raise ValueError(f"Unknown series: {part.series}")
 
-    if base_series not in FOOTPRINT_SPECS:
-        raise ValueError(f"Unknown series: {base_series}")
-
-    dims = FOOTPRINT_SPECS[base_series]
-    footprint_content = generate_footprint(part, dims)
+    specs = CONNECTOR_SPECS[part.series]
+    footprint_content = generate_footprint(part, specs)
 
     # Save to file
     filename = f"connector_footprints.pretty/{part.mpn}.kicad_mod"
