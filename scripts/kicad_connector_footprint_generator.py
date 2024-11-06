@@ -4,7 +4,7 @@ KiCad Footprint Generator Module
 Generates .kicad_mod files for connector series based on specifications.
 """
 
-from typing import Dict, NamedTuple, Callable
+from typing import Dict, NamedTuple, Callable, Tuple
 from uuid import uuid4
 import series_specs_connectors as ssc
 
@@ -27,37 +27,41 @@ class ConnectorSpecs(NamedTuple):
     model_offset_func: Callable  # Function to calculate model offset
 
 
-def tbp02r1_offset(base: tuple[float, float, float],
-                   step: float) -> tuple[float, float, float]:
-    """Calculate model offset for TBP02R1 series."""
+def offset_add(
+        base: Tuple[float, float, float],
+        step: float
+) -> Tuple[float, float, float]:
+    """
+    Calculate offset by adding step to base X coordinate.
+
+    Args:
+        base: Base offset coordinates (x, y, z)
+        step: Step value to add to x coordinate
+
+    Returns:
+        Tuple containing updated (x, y, z) coordinates with modified x value
+    """
     return (base[0] + step, base[1], base[2])
 
 
-def tbp02r2_offset(base: tuple[float, float, float],
-                   step: float) -> tuple[float, float, float]:
-    """Calculate model offset for TBP02R2 series."""
+def offset_sub(
+        base: Tuple[float, float, float],
+        step: float
+) -> Tuple[float, float, float]:
+    """
+    Calculate offset by subtracting step from base X coordinate.
+
+    Args:
+        base: Base offset coordinates (x, y, z)
+        step: Step value to subtract from x coordinate
+
+    Returns:
+        Tuple containing updated (x, y, z) coordinates with modified x value
+    """
     return (base[0] - step, base[1], base[2])
 
 
-def tbp04r1_offset(base: tuple[float, float, float],
-                   step: float) -> tuple[float, float, float]:
-    """Calculate model offset for TBP04R1 series."""
-    return (base[0] + step, base[1], base[2])
-
-
-def tbp04r12_offset(base: tuple[float, float, float],
-                    step: float) -> tuple[float, float, float]:
-    """Calculate model offset for TBP04R12 series."""
-    return (base[0] - step, base[1], base[2])
-
-
-def tbp04r2_offset(base: tuple[float, float, float],
-                   step: float) -> tuple[float, float, float]:
-    """Calculate model offset for TBP04R2 series."""
-    return (base[0] + step, base[1], base[2])
-
-
-# Consolidated connector series specifications
+# Consolidated connector series specifications using common offset patterns
 CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     "TBP02R1-381": ConnectorSpecs(
         width_per_pin=3.81,
@@ -73,7 +77,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_offset_base=(-17.15, 17.000, -3.4),
         model_rotation=(0, 90, 180),
         step_multiplier=1.905,
-        model_offset_func=tbp02r1_offset
+        model_offset_func=offset_add
     ),
     "TBP02R2-381": ConnectorSpecs(
         width_per_pin=3.81,
@@ -89,7 +93,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_offset_base=(17.145, -6.477, 18.288),
         model_rotation=(90, 0, -90),
         step_multiplier=1.905,
-        model_offset_func=tbp02r2_offset
+        model_offset_func=offset_sub
     ),
     "TBP04R1-500": ConnectorSpecs(
         width_per_pin=5.0,
@@ -105,7 +109,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_offset_base=(-1.65, 1.0, -3.81),
         model_rotation=(-90, 0, 90),
         step_multiplier=2.5,
-        model_offset_func=tbp04r1_offset
+        model_offset_func=offset_add
     ),
     "TBP04R12-500": ConnectorSpecs(
         width_per_pin=5.0,
@@ -121,7 +125,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_offset_base=(-5, -5.6, -3.81),
         model_rotation=(-90, 0, 0),
         step_multiplier=2.5,
-        model_offset_func=tbp04r12_offset
+        model_offset_func=offset_sub
     ),
     "TBP04R2-500": ConnectorSpecs(
         width_per_pin=5.0,
@@ -137,7 +141,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_offset_base=(5, -0.75, -3.81),
         model_rotation=(-90, 0, 180),
         step_multiplier=2.5,
-        model_offset_func=tbp04r2_offset
+        model_offset_func=offset_add
     ),
     "TBP04R3-500": ConnectorSpecs(
         width_per_pin=5.0,
@@ -153,7 +157,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_offset_base=(5, -0.75, -3.81),
         model_rotation=(-90, 0, 180),
         step_multiplier=2.5,
-        model_offset_func=tbp04r2_offset  # Same as TBP04R2
+        model_offset_func=offset_add
     )
 }
 
@@ -162,12 +166,20 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     """
     Generate KiCad footprint file content for a connector.
 
+    This function creates a complete KiCad footprint definition including:
+    - Component properties and metadata
+    - Silkscreen and fabrication layer shapes
+    - Through-hole pad definitions
+    - 3D model references
+
     Args:
-        part: Component specifications
-        specs: Complete connector specifications
+        part: Component specifications including MPN, pin count, and pitch
+        specs:
+            Complete connector specifications defining
+            physical dimensions and properties
 
     Returns:
-        String containing the .kicad_mod file content
+        String containing the complete .kicad_mod file content in KiCad format
     """
     # Calculate enclosure width based on pin count
     extra_width_per_side = (part.pin_count - 2) * specs.width_per_pin / 2
@@ -353,8 +365,19 @@ def generate_footprint_file(part: ssc.PartInfo) -> None:
     """
     Generate and save a .kicad_mod file for a connector part.
 
+    This function takes a part specification, generates the appropriate
+    footprint content, and saves it to a file in the
+    connector_footprints.pretty directory.
+
     Args:
-        part: Component specifications
+        part:
+            Component specifications including MPN, series, pin count,
+            and pitch
+
+    Raises:
+        ValueError:
+            If the specified connector series is not found in CONNECTOR_SPECS
+        IOError: If there are issues writing to the output file
     """
     if part.series not in CONNECTOR_SPECS:
         raise ValueError(f"Unknown series: {part.series}")
