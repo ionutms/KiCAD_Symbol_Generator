@@ -49,6 +49,30 @@ FOOTPRINT_SPECS: Dict[str, FootprintDimensions] = {
         ref_x=0.0,
         ref_y=4.2,
     ),
+    "TBP04R1-500": FootprintDimensions(
+        width_per_pin=5.0,     # Pitch
+        base_width=5.2,        # Base enclosure width (half of total for 2-pin)
+        height_top=-2.2,        # Height above center
+        height_bottom=9.9,     # Height below origin
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=-3.0,
+    ),
+    "TBP04R12-500": FootprintDimensions(
+        width_per_pin=5.0,     # Pitch
+        base_width=5.8,        # Base enclosure width (half of total for 2-pin)
+        height_top=-2.2,        # Height above center
+        height_bottom=9.9,     # Height below origin
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=-3.0,
+    ),
     "TBP04R2-500": FootprintDimensions(
         width_per_pin=5.0,     # Pitch
         base_width=5.8,        # Base enclosure width (half of total for 2-pin)
@@ -240,6 +264,14 @@ def generate_footprint(part: ssc.PartInfo, dims: FootprintDimensions) -> str:
         step_offset = (part.pin_count - 2) * 1.905
         model_offset = (17.145-step_offset, -6.477, 18.288)
         model_rotation = (90, 0, -90)
+    elif part.series == "TBP04R1-500":
+        step_offset = (part.pin_count - 2) * 2.5
+        model_offset = (-1.65+step_offset, 1.0, -3.81)
+        model_rotation = (-90, 0, 90)
+    elif part.series == "TBP04R12-500":
+        step_offset = (part.pin_count - 2) * 2.5
+        model_offset = (-5-step_offset, -5.6, -3.81)
+        model_rotation = (-90, 0, 0)
     elif part.series == "TBP04R2-500":
         step_offset = (part.pin_count - 2) * 2.5
         model_offset = (5+step_offset, -0.75, -3.81)
