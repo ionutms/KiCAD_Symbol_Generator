@@ -158,7 +158,23 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_rotation=(-90, 0, 180),
         step_multiplier=2.5,
         model_offset_func=offset_add
-    )
+    ),
+    "TB004-508": ConnectorSpecs(
+        width_per_pin=5.08,
+        base_width=5.2,
+        height_top=4.8,
+        height_bottom=-4.0,
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=5.8,
+        model_offset_base=(5, -0.75, -3.81),
+        model_rotation=(-90, 0, 180),
+        step_multiplier=2.5,
+        model_offset_func=offset_add
+    ),
 }
 
 
