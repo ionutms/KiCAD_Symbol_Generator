@@ -1,12 +1,12 @@
-(footprint "TBP04R3-500-05BE"
+(footprint "TB004-508-06BE"
     (version 20240108)
     (generator "pcbnew")
     (generator_version "8.0")
     (layer "F.Cu")
     (property "Reference" "REF**"
-        (at 0.0 5.8 0)
+        (at 0.0 6.096 0)
         (layer "F.SilkS")
-        (uuid "5ddee5f7-99d5-4398-832d-f8b29ec5ad64")
+        (uuid "c1246b48-20c4-4f8f-ae06-fd6db34b6f53")
         (effects
             (font
                 (size 0.762 0.762)
@@ -14,10 +14,10 @@
             )
         )
     )
-    (property "Value" "TBP04R3-500-05BE"
-        (at 0 5.842 0)
+    (property "Value" "TB004-508-06BE"
+        (at 0 6.242 0)
         (layer "F.Fab")
-        (uuid "23bd3272-e2cd-45a5-a7e9-49bb48a7c7cb")
+        (uuid "28f61536-6178-4df9-92d3-d05052625b35")
         (effects
             (font
                 (size 0.762 0.762)
@@ -27,10 +27,10 @@
         )
     )
     (property "Footprint" ""
-        (at -10.0 0 0)
+        (at -12.7 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "5cfa910e-7537-49fb-b68a-f089baa018e3")
+        (uuid "7cc8f92c-95a9-418a-8fef-9e1f83203910")
         (effects
             (font
                 (size 1.27 1.27)
@@ -39,10 +39,10 @@
         )
     )
     (property "Datasheet" ""
-        (at -10.0 0 0)
+        (at -12.7 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "9322fe0d-5267-4c22-a363-279e93a26c04")
+        (uuid "40942e8c-ac9e-4519-ad7a-623948e556b0")
         (effects
             (font
                 (size 1.27 1.27)
@@ -51,10 +51,10 @@
         )
     )
     (property "Description" ""
-        (at -10.0 0 0)
+        (at -12.7 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "d62ff00f-9091-444e-8a93-e384e872c7e0")
+        (uuid "7c65a436-8627-41a3-9cec-dc46db7eb77a")
         (effects
             (font
                 (size 1.27 1.27)
@@ -64,114 +64,123 @@
     )
     (attr through_hole)
     (fp_rect
-        (start -12.700 -4.0)
-        (end 12.700 4.8)
+        (start -15.360 -5.2)
+        (end 15.360 5.2)
         (stroke
             (width 0.1524)
             (type default)
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "2dc82124-6a76-441a-ba54-8a9d6b31f901")
+        (uuid "6f06c458-029f-4855-806e-59f693271585")
     )
     (fp_circle
-        (center -13.310 0)
-        (end -13.005 0)
+        (center -15.970 0)
+        (end -15.665 0)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "fd6c9c91-8091-42e0-9b5b-c4286cdec57b")
+        (uuid "5a9d0e7c-59dd-43d8-a9f9-a41bb2ae059b")
     )
     (fp_rect
-        (start -12.700 -4.0)
-        (end 12.700 4.8)
+        (start -15.360 -5.2)
+        (end 15.360 5.2)
         (stroke
             (width 0.00635)
             (type default)
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "83d79a9e-81ed-4b5b-9baa-bf09606445be")
+        (uuid "9ccc422a-f090-46df-a3af-6c5e2f27b328")
     )
     (fp_rect
-        (start -12.700 -4.0)
-        (end 12.700 4.8)
+        (start -15.360 -5.2)
+        (end 15.360 5.2)
         (stroke
             (width 0.1524)
             (type default)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "6daf9b06-74f4-414c-a889-1eb90286d1f4")
+        (uuid "055c9fd6-5d9f-4383-92ad-00c5bb92ed44")
     )
     (fp_circle
-        (center -13.310 0)
-        (end -13.005 0)
+        (center -15.970 0)
+        (end -15.665 0)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "8f4a4202-695a-4cfa-be34-a7843aff1577")
+        (uuid "8d3ebfb8-7f15-4510-b057-2e04207f76ee")
     )
     (pad "1" thru_hole rect
-        (at -10.000 0)
+        (at -12.700 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "8c303246-5c19-4d2b-92a6-f2d595f1dd19")
+        (uuid "797904f4-c849-41c2-9f80-f67af0635a64")
     )
     (pad "2" thru_hole circle
-        (at -5.000 0)
+        (at -7.620 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "245c8032-4842-48b5-bcc7-2056bd8948ce")
+        (uuid "b5a96980-fab2-4d58-bca3-ef4dc509df27")
     )
     (pad "3" thru_hole circle
-        (at 0.000 0)
+        (at -2.540 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "e0ff63ce-4921-4fc5-af29-57a1f9ce64fe")
+        (uuid "17fe0817-1d55-43ee-9137-fdbf1cb7bc74")
     )
     (pad "4" thru_hole circle
-        (at 5.000 0)
+        (at 2.540 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "a3926308-186f-41e8-ae4f-6ecdddaf0c2f")
+        (uuid "61740081-2f35-44d3-9496-c85035de02da")
     )
     (pad "5" thru_hole circle
-        (at 10.000 0)
+        (at 7.620 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "8ffa43b8-1552-4571-b9f4-98da3c6575e0")
+        (uuid "89b500f4-8eb5-44c5-ac7b-1bad71824720")
     )
-    (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TBP04R3-500-05BE.step"
+    (pad "6" thru_hole circle
+        (at 12.700 0)
+        (size 2.55 2.55)
+        (drill 1.7)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "5a101cd4-d2ac-45fa-a1d0-6f71887a1fce")
+    )
+    (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TB004-508-06BE.step"
         (offset
-            (xyz 12.500 -0.75 -3.81)
+            (xyz 0.000 0.0 0.0)
         )
         (scale
             (xyz 1 1 1)
         )
         (rotate
-            (xyz -90 0 180)
+            (xyz 0.0 0.0 0.0)
         )
     )
 )
