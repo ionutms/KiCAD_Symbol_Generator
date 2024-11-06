@@ -184,6 +184,22 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         mounting_style="Through Hole",
         contact_plating="Tin"
     ),
+    "TB004-508": SeriesSpec(
+        manufacturer="Same Sky",
+        base_series="TB004-508",
+        footprint_pattern="connector_footprints:TB004-508-{:02d}BE",
+        datasheet="https://www.sameskydevices.com/" +
+        "product/resource/tb004-508.pdf",
+        pin_counts=[2],
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        color="Blue",
+        pitch=5.08,
+        mounting_angle="Vertical",
+        current_rating=16.0,
+        voltage_rating=300,
+        mounting_style="Through Hole",
+        contact_plating="Tin"
+    ),
 }
 
 
