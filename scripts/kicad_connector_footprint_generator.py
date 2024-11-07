@@ -178,8 +178,8 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     "TB006-508": ConnectorSpecs(
         width_per_pin=5.08,
         base_width=5.2,
-        height_top=5.2,
-        height_bottom=-5.2,
+        height_top=4.2,
+        height_bottom=-4.2,
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,

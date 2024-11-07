@@ -1,12 +1,12 @@
-(footprint "TBP04R12-500-06BE"
+(footprint "TB006-508-04BE"
     (version 20240108)
     (generator "pcbnew")
     (generator_version "8.0")
     (layer "F.Cu")
     (property "Reference" "REF**"
-        (at 0.0 -3.0 0)
+        (at 0.0 6.096 0)
         (layer "F.SilkS")
-        (uuid "5269685e-370e-4b98-82e8-b812b7ae3222")
+        (uuid "c3134422-188f-426c-934b-4f419b937b68")
         (effects
             (font
                 (size 0.762 0.762)
@@ -14,10 +14,10 @@
             )
         )
     )
-    (property "Value" "TBP04R12-500-06BE"
-        (at 0 -1.1580000000000001 0)
+    (property "Value" "TB006-508-04BE"
+        (at 0 5.242 0)
         (layer "F.Fab")
-        (uuid "c057f72c-4f9f-4c68-bbf9-e8b6b5b7ac33")
+        (uuid "40a37f1d-0202-4c58-8d04-3e1d3d54a227")
         (effects
             (font
                 (size 0.762 0.762)
@@ -27,10 +27,10 @@
         )
     )
     (property "Footprint" ""
-        (at -12.5 0 0)
+        (at -7.62 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "cf522805-e8f1-4f71-b4bf-f1936b80176c")
+        (uuid "ade07784-cf7d-45c4-94a4-9150a23cdf0e")
         (effects
             (font
                 (size 1.27 1.27)
@@ -39,10 +39,10 @@
         )
     )
     (property "Datasheet" ""
-        (at -12.5 0 0)
+        (at -7.62 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "7e3e7156-ef03-4eb5-a8f1-c57f907ed799")
+        (uuid "440ff6be-746e-449c-9cd1-7e29f4ee347b")
         (effects
             (font
                 (size 1.27 1.27)
@@ -51,10 +51,10 @@
         )
     )
     (property "Description" ""
-        (at -12.5 0 0)
+        (at -7.62 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "75d339b3-b0ab-42cd-8f90-f82cdde1afdd")
+        (uuid "bd1faf95-e7eb-4016-acfe-26804b285e38")
         (effects
             (font
                 (size 1.27 1.27)
@@ -64,123 +64,105 @@
     )
     (attr through_hole)
     (fp_rect
-        (start -15.800 9.9)
-        (end 15.800 -2.2)
+        (start -10.280 -4.2)
+        (end 10.280 4.2)
         (stroke
             (width 0.1524)
             (type default)
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "8d41e21a-efa6-49c8-bb65-62109aa43eba")
+        (uuid "0c727878-09f1-4673-9bd0-479948c6c81c")
     )
     (fp_circle
-        (center -16.410 0)
-        (end -16.105 0)
+        (center -10.890 0)
+        (end -10.585 0)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "1a13a7db-5e90-4650-8cc5-1cee153b603d")
+        (uuid "0d7105cb-4d86-45eb-bcc7-bc26acae8ace")
     )
     (fp_rect
-        (start -15.800 9.9)
-        (end 15.800 -2.2)
+        (start -10.280 -4.2)
+        (end 10.280 4.2)
         (stroke
             (width 0.00635)
             (type default)
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "ec17143d-d378-4b76-9423-73d86f30291c")
+        (uuid "e1ec4eef-c6dc-4dc8-84f7-989e8b17aa00")
     )
     (fp_rect
-        (start -15.800 9.9)
-        (end 15.800 -2.2)
+        (start -10.280 -4.2)
+        (end 10.280 4.2)
         (stroke
             (width 0.1524)
             (type default)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "5dadd14e-ccd8-48e3-9295-7bfe96be905c")
+        (uuid "ca5a24b7-7d61-4b3e-a321-43988efe28d9")
     )
     (fp_circle
-        (center -16.410 0)
-        (end -16.105 0)
+        (center -10.890 0)
+        (end -10.585 0)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "bbe00e03-042b-47fa-b333-e0600604ddb2")
+        (uuid "30b717ed-a329-43d1-a374-3d75e85a5083")
     )
     (pad "1" thru_hole rect
-        (at -12.500 0)
+        (at -7.620 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "70d5dd47-160b-495b-9e0c-645db346362c")
+        (uuid "31651949-52d0-4b1b-b28c-dabe857b7f29")
     )
     (pad "2" thru_hole circle
-        (at -7.500 0)
+        (at -2.540 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "eb1931d9-b997-4bbc-843c-4e007fe3c328")
+        (uuid "bad006b2-d24a-477c-a573-97a56ec38c9b")
     )
     (pad "3" thru_hole circle
-        (at -2.500 0)
+        (at 2.540 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "cf50c7ba-05e1-4cb5-910d-ba12aab36896")
+        (uuid "dccf5421-47bf-4593-a8ed-605d65955aff")
     )
     (pad "4" thru_hole circle
-        (at 2.500 0)
+        (at 7.620 0)
         (size 2.55 2.55)
         (drill 1.7)
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "34c39225-f86b-43c7-8a5c-ea42e0310df4")
+        (uuid "4177c33b-404a-4ff8-a1ab-f9c17cefe051")
     )
-    (pad "5" thru_hole circle
-        (at 7.500 0)
-        (size 2.55 2.55)
-        (drill 1.7)
-        (layers "*.Cu" "*.Mask")
-        (remove_unused_layers no)
-        (solder_mask_margin 0.102)
-        (uuid "1a21bae8-a256-4a87-975a-c1c84ae8c630")
-    )
-    (pad "6" thru_hole circle
-        (at 12.500 0)
-        (size 2.55 2.55)
-        (drill 1.7)
-        (layers "*.Cu" "*.Mask")
-        (remove_unused_layers no)
-        (solder_mask_margin 0.102)
-        (uuid "3ef4774d-5493-4517-97be-306a72868335")
-    )
-    (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TBP04R12-500-06BE.step"
+    (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TB006-508-04BE.step"
         (offset
-            (xyz -15.000 -5.6 -3.81)
+            (xyz 0.000 0.0 0.0)
         )
         (scale
             (xyz 1 1 1)
         )
         (rotate
-            (xyz -90 0 0)
+            (xyz 0.0 0.0 0.0)
         )
     )
 )
