@@ -63,6 +63,38 @@ def offset_sub(
 
 # Consolidated connector series specifications using common offset patterns
 CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
+    "TB004-508": ConnectorSpecs(
+        width_per_pin=5.08,
+        base_width=5.2,
+        height_top=5.2,
+        height_bottom=-5.2,
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=6.096,
+        model_offset_base=(0.0, 0.0, 0.0),
+        model_rotation=(0.0, 0.0, 0.0),
+        step_multiplier=0.0,
+        model_offset_func=offset_sub
+    ),
+    "TB006-508": ConnectorSpecs(
+        width_per_pin=5.08,
+        base_width=5.2,
+        height_top=4.2,
+        height_bottom=-4.2,
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=5.334,
+        model_offset_base=(0.0, 0.0, 0.0),
+        model_rotation=(0.0, 0.0, 0.0),
+        step_multiplier=0.0,
+        model_offset_func=offset_sub
+    ),
     "TBP02R1-381": ConnectorSpecs(
         width_per_pin=3.81,
         base_width=4.4,
@@ -111,22 +143,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         step_multiplier=2.5,
         model_offset_func=offset_add
     ),
-    "TBP04R12-500": ConnectorSpecs(
-        width_per_pin=5.0,
-        base_width=5.8,
-        height_top=-2.2,
-        height_bottom=9.9,
-        pad_size=2.55,
-        drill_size=1.7,
-        silk_margin=0.1524,
-        mask_margin=0.102,
-        ref_x=0.0,
-        ref_y=-3.0,
-        model_offset_base=(-5, -5.6, -3.81),
-        model_rotation=(-90, 0, 0),
-        step_multiplier=2.5,
-        model_offset_func=offset_sub
-    ),
     "TBP04R2-500": ConnectorSpecs(
         width_per_pin=5.0,
         base_width=5.8,
@@ -159,36 +175,20 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         step_multiplier=2.5,
         model_offset_func=offset_add
     ),
-    "TB004-508": ConnectorSpecs(
-        width_per_pin=5.08,
-        base_width=5.2,
-        height_top=5.2,
-        height_bottom=-5.2,
+    "TBP04R12-500": ConnectorSpecs(
+        width_per_pin=5.0,
+        base_width=5.8,
+        height_top=-2.2,
+        height_bottom=9.9,
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
         ref_x=0.0,
-        ref_y=6.096,
-        model_offset_base=(0.0, 0.0, 0.0),
-        model_rotation=(0.0, 0.0, 0.0),
-        step_multiplier=0.0,
-        model_offset_func=offset_sub
-    ),
-    "TB006-508": ConnectorSpecs(
-        width_per_pin=5.08,
-        base_width=5.2,
-        height_top=4.2,
-        height_bottom=-4.2,
-        pad_size=2.55,
-        drill_size=1.7,
-        silk_margin=0.1524,
-        mask_margin=0.102,
-        ref_x=0.0,
-        ref_y=5.334,
-        model_offset_base=(0.0, 0.0, 0.0),
-        model_rotation=(0.0, 0.0, 0.0),
-        step_multiplier=0.0,
+        ref_y=-3.0,
+        model_offset_base=(-5, -5.6, -3.81),
+        model_rotation=(-90, 0, 0),
+        step_multiplier=2.5,
         model_offset_func=offset_sub
     ),
 }
