@@ -267,6 +267,7 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     """
     # Calculate enclosure width based on pin count
     extra_width_per_side = (part.pin_count - 2) * specs.width_per_pin / 2
+    # total_half_width = specs.width_left + extra_width_per_side
     total_left_half_width = specs.width_left + extra_width_per_side
     total_right_half_width = specs.width_right + extra_width_per_side
 
@@ -355,8 +356,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {specs.circle_x-extra_width_per_side} {specs.circle_y})
-        (end {specs.circle_x-specs.circle_radius} {specs.circle_y})
+        (start {-total_left_half_width:.3f} {specs.height_bottom})
+        (end {total_left_half_width:.3f} {specs.height_top})
         (stroke
             (width {specs.silk_margin})
             (type solid)
@@ -388,8 +389,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {specs.circle_x-extra_width_per_side} {specs.circle_y})
-        (end {specs.circle_x-specs.circle_radius} {specs.circle_y})
+        (start {-total_left_half_width:.3f} {specs.height_bottom})
+        (end {total_left_half_width:.3f} {specs.height_top})
         (stroke
             (width {specs.silk_margin})
             (type solid)
