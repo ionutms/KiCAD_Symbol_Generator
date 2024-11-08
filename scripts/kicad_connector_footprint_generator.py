@@ -355,7 +355,7 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {specs.circle_x} {specs.circle_y})
+        (center {specs.circle_x-extra_width_per_side} {specs.circle_y})
         (end {specs.circle_x-specs.circle_radius} {specs.circle_y})
         (stroke
             (width {specs.silk_margin})
@@ -388,7 +388,7 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {specs.circle_x} {specs.circle_y})
+        (center {specs.circle_x-extra_width_per_side} {specs.circle_y})
         (end {specs.circle_x-specs.circle_radius} {specs.circle_y})
         (stroke
             (width {specs.silk_margin})
