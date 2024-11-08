@@ -101,7 +101,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP02R1-381": ConnectorSpecs(
         width_per_pin=3.81,
-        # base_width=4.4,
         width_left=4.4,
         width_right=4.4,
         height_top=-7.9,
@@ -119,7 +118,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP02R2-381": ConnectorSpecs(
         width_per_pin=3.81,
-        # base_width=4.445,
         width_left=4.445,
         width_right=4.445,
         height_top=3.2512,
@@ -137,7 +135,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R1-500": ConnectorSpecs(
         width_per_pin=5.0,
-        # base_width=5.2,
         width_left=5.2,
         width_right=5.2,
         height_top=-2.2,
@@ -153,27 +150,8 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         step_multiplier=2.5,
         model_offset_func=offset_add
     ),
-    "TBP04R12-500": ConnectorSpecs(
-        width_per_pin=5.0,
-        # base_width=5.8,
-        width_left=5.8,
-        width_right=5.8,
-        height_top=-2.2,
-        height_bottom=9.9,
-        pad_size=2.55,
-        drill_size=1.7,
-        silk_margin=0.1524,
-        mask_margin=0.102,
-        ref_x=0.0,
-        ref_y=-3.0,
-        model_offset_base=(-5, -5.6, -3.81),
-        model_rotation=(-90, 0, 0),
-        step_multiplier=2.5,
-        model_offset_func=offset_sub
-    ),
     "TBP04R2-500": ConnectorSpecs(
         width_per_pin=5.0,
-        # base_width=5.8,
         width_left=5.8,
         width_right=5.8,
         height_top=4.8,
@@ -191,7 +169,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R3-500": ConnectorSpecs(
         width_per_pin=5.0,
-        # base_width=5.2,
         width_left=5.2,
         width_right=5.2,
         height_top=4.8,
@@ -206,6 +183,23 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_rotation=(-90, 0, 180),
         step_multiplier=2.5,
         model_offset_func=offset_add
+    ),
+    "TBP04R12-500": ConnectorSpecs(
+        width_per_pin=5.0,
+        width_left=5.8,
+        width_right=5.8,
+        height_top=-2.2,
+        height_bottom=9.9,
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=-3.0,
+        model_offset_base=(-5, -5.6, -3.81),
+        model_rotation=(-90, 0, 0),
+        step_multiplier=2.5,
+        model_offset_func=offset_sub
     ),
 }
 
