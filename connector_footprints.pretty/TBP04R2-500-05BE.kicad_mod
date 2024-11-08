@@ -4,9 +4,9 @@
     (generator_version "8.0")
     (layer "F.Cu")
     (property "Reference" "REF**"
-        (at 0.0 5.8 0)
+        (at 0 5.8 0)
         (layer "F.SilkS")
-        (uuid "87ede1dc-d68e-4b2f-8dcb-9725206f9889")
+        (uuid "5f9242a9-3bf9-481a-9f84-90892f06a80a")
         (effects
             (font
                 (size 0.762 0.762)
@@ -15,22 +15,21 @@
         )
     )
     (property "Value" "TBP04R2-500-05BE"
-        (at 0 5.842 0)
+        (at 0 -4.8 0)
         (layer "F.Fab")
-        (uuid "5f89792e-7f09-465c-9665-bc08260f6f75")
+        (uuid "bd24592a-3135-4989-8ca7-e55d44dc5f18")
         (effects
             (font
                 (size 0.762 0.762)
                 (thickness 0.1524)
             )
-            (justify left)
         )
     )
     (property "Footprint" ""
         (at -10.0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "bc7f6458-cbd5-4a90-aa25-36c1f916d543")
+        (uuid "e9939bc9-20b2-4bd2-963b-c79727d0218f")
         (effects
             (font
                 (size 1.27 1.27)
@@ -42,7 +41,7 @@
         (at -10.0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "aa0da6ee-a165-442f-af3c-0e5dcbe9c6fc")
+        (uuid "ae4d579b-9ccb-4bfc-90e0-5babb94ae03f")
         (effects
             (font
                 (size 1.27 1.27)
@@ -54,7 +53,7 @@
         (at -10.0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "38c778a4-db66-49f1-a98c-f5123cdba3be")
+        (uuid "a17a2aa3-309e-4139-bab6-02bf0e5a0aac")
         (effects
             (font
                 (size 1.27 1.27)
@@ -72,7 +71,7 @@
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "cabda0ba-7c0f-4c31-8d94-9800f9fd0af4")
+        (uuid "075f5a6c-9575-4fba-9e3b-7d4c0cb7ec59")
     )
     (fp_circle
         (center -14.214 0)
@@ -83,7 +82,7 @@
         )
         (fill solid)
         (layer "F.SilkS")
-        (uuid "ea209f69-a5e8-4466-86b6-40a98e6ed31f")
+        (uuid "808c6465-5b1d-4541-9fa7-0611a3fe48ef")
     )
     (fp_rect
         (start -13.300 -4.0)
@@ -94,7 +93,7 @@
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "22529725-0c14-4536-ad2b-8e39de4e5359")
+        (uuid "3110a205-a3da-4ae7-b77d-9b5f984e80ab")
     )
     (fp_rect
         (start -13.300 -4.0)
@@ -105,7 +104,7 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "832cc828-b2f7-454c-ad10-d8eb152beb7f")
+        (uuid "1a56ad46-c0f7-49d1-aa84-bbdf3cae0f5a")
     )
     (fp_circle
         (center -14.214 0)
@@ -116,7 +115,7 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "8cadc1ee-3175-4df8-beb8-475b1e6155e1")
+        (uuid "ba3b4d21-5ad8-4b52-be2c-b3d74d35ea33")
     )
     (pad "1" thru_hole rect
         (at -10.000 0)
@@ -125,7 +124,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "e8c57583-dc66-4149-8763-c8207a0a3585")
+        (uuid "de8654be-d235-426f-90c1-9509c6373f2f")
     )
     (pad "2" thru_hole circle
         (at -5.000 0)
@@ -134,7 +133,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "7a1031f5-b042-47c6-b23c-b33b7fb12050")
+        (uuid "e18533e1-407d-44f6-8259-2e572f13be28")
     )
     (pad "3" thru_hole circle
         (at 0.000 0)
@@ -143,7 +142,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "e4563062-0c01-47df-83f9-b476af7d240e")
+        (uuid "98d08206-4b0f-4d33-a681-67b0ff9dd530")
     )
     (pad "4" thru_hole circle
         (at 5.000 0)
@@ -152,7 +151,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "cfe73394-6985-4de8-93d7-3a95b07894b9")
+        (uuid "c9a9025d-3b54-4a97-80c4-542079ff98e1")
     )
     (pad "5" thru_hole circle
         (at 10.000 0)
@@ -161,7 +160,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "24a011f0-4b82-44c4-9da9-0bb70f5ff8a5")
+        (uuid "fd3c181a-168d-4cb9-acb2-54b77d0cf196")
     )
     (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TBP04R2-500-05BE.step"
         (offset

@@ -20,7 +20,7 @@ class ConnectorSpecs(NamedTuple):
     drill_size: float        # Drill hole diameter
     silk_margin: float       # Margin for silkscreen
     mask_margin: float       # Solder mask margin
-    ref_x: float            # Reference X position
+    mpn_y: float            # Reference X position
     ref_y: float            # Reference Y position
     model_offset_base: tuple[float, float, float]  # Base 3D model offset
     model_rotation: tuple[float, float, float]     # 3D model rotation
@@ -74,7 +74,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
-        ref_x=0.0,
+        mpn_y=6.096,
         ref_y=-6.096,
         model_offset_base=(0.0, 0.0, 0.0),
         model_rotation=(0.0, 0.0, 0.0),
@@ -91,7 +91,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
-        ref_x=0.0,
+        mpn_y=5.334,
         ref_y=-5.334,
         model_offset_base=(0.0, 0.0, 0.0),
         model_rotation=(0.0, 0.0, 0.0),
@@ -108,7 +108,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         drill_size=1.4,
         silk_margin=0.1524,
         mask_margin=0.102,
-        ref_x=0.0,
+        mpn_y=-8.8,
         ref_y=2.4,
         model_offset_base=(-17.15, 17.000, -3.4),
         model_rotation=(0, 90, 180),
@@ -125,7 +125,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         drill_size=1.4,
         silk_margin=0.1524,
         mask_margin=0.102,
-        ref_x=0.0,
+        mpn_y=-5.4,
         ref_y=4.2,
         model_offset_base=(17.145, -6.477, 18.288),
         model_rotation=(90, 0, -90),
@@ -142,7 +142,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
-        ref_x=0.0,
+        mpn_y=10.8,
         ref_y=-3.0,
         model_offset_base=(-1.65, 1.0, -3.81),
         model_rotation=(-90, 0, 90),
@@ -159,7 +159,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
-        ref_x=0.0,
+        mpn_y=-4.8,
         ref_y=5.8,
         model_offset_base=(5, -0.75, -3.81),
         model_rotation=(-90, 0, 180),
@@ -176,7 +176,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
-        ref_x=0.0,
+        mpn_y=-4.8,
         ref_y=5.8,
         model_offset_base=(5, -0.75, -3.81),
         model_rotation=(-90, 0, 180),
@@ -193,7 +193,7 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         drill_size=1.7,
         silk_margin=0.1524,
         mask_margin=0.102,
-        ref_x=0.0,
+        mpn_y=10.8,
         ref_y=-3.0,
         model_offset_base=(-5, -5.6, -3.81),
         model_rotation=(-90, 0, 0),
@@ -239,7 +239,7 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
 
     # Properties section
     properties = f'''    (property "Reference" "REF**"
-        (at {specs.ref_x} {specs.ref_y} 0)
+        (at 0 {specs.ref_y} 0)
         (layer "F.SilkS")
         (uuid "{uuid4()}")
         (effects
@@ -250,7 +250,7 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         )
     )
     (property "Value" "{part.mpn}"
-        (at 0 {specs.height_top + 1.042} 0)
+        (at 0 {specs.mpn_y} 0)
         (layer "F.Fab")
         (uuid "{uuid4()}")
         (effects
@@ -258,7 +258,6 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
                 (size 0.762 0.762)
                 (thickness 0.1524)
             )
-            (justify left)
         )
     )
     (property "Footprint" ""
