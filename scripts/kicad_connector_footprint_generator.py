@@ -12,9 +12,11 @@ import series_specs_connectors as ssc
 class ConnectorSpecs(NamedTuple):
     """Complete specifications for footprint generation."""
     width_per_pin: float      # Width contribution per pin
-    # base_width: float         # Base width for enclosure
     width_left: float
     width_right: float
+    circle_x: float
+    circle_y: float
+    circle_radius: float
     height_top: float         # Height above origin
     height_bottom: float      # Height below origin
     pad_size: float          # Pad diameter/size
@@ -71,6 +73,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=5.2,
         height_top=5.2,
         height_bottom=-5.2,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -88,6 +95,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=5.2,
         height_top=4.2,
         height_bottom=-4.2,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -105,6 +117,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=4.4,
         height_top=-7.9,
         height_bottom=1.4,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
@@ -122,6 +139,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=4.445,
         height_top=3.2512,
         height_bottom=-4.445,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
@@ -139,6 +161,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=5.2,
         height_top=-2.2,
         height_bottom=9.9,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -156,6 +183,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=5.8,
         height_top=4.8,
         height_bottom=-4.0,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -173,6 +205,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=5.2,
         height_top=4.8,
         height_bottom=-4.0,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -190,6 +227,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=5.8,
         height_top=-2.2,
         height_bottom=9.9,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -313,8 +355,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {-(total_left_half_width + specs.silk_margin*4):.3f} 0)
-        (end {-(total_right_half_width + specs.silk_margin*2):.3f} 0)
+        (center {specs.circle_x} {specs.circle_y})
+        (end {specs.circle_radius} 0)
         (stroke
             (width {specs.silk_margin})
             (type solid)
@@ -346,8 +388,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {-(total_left_half_width + specs.silk_margin*4):.3f} 0)
-        (end {-(total_right_half_width + specs.silk_margin*2):.3f} 0)
+        (center {specs.circle_x} {specs.circle_y})
+        (end {specs.circle_radius} 0)
         (stroke
             (width {specs.silk_margin})
             (type solid)
