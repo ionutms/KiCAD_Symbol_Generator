@@ -65,6 +65,23 @@ def offset_sub(
 
 # Consolidated connector series specifications using common offset patterns
 CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
+    "TB004-508": ConnectorSpecs(
+        width_per_pin=5.08,
+        width_left=5.8,
+        width_right=5.2,
+        height_top=5.2,
+        height_bottom=-5.2,
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=6.096,
+        model_offset_base=(0.0, 0.0, 0.0),
+        model_rotation=(0.0, 0.0, 0.0),
+        step_multiplier=0.0,
+        model_offset_func=offset_sub
+    ),
     "TBP02R1-381": ConnectorSpecs(
         width_per_pin=3.81,
         # base_width=4.4,
@@ -172,24 +189,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_rotation=(-90, 0, 180),
         step_multiplier=2.5,
         model_offset_func=offset_add
-    ),
-    "TB004-508": ConnectorSpecs(
-        width_per_pin=5.08,
-        # base_width=5.2,
-        width_left=5.2,
-        width_right=5.2,
-        height_top=5.2,
-        height_bottom=-5.2,
-        pad_size=2.55,
-        drill_size=1.7,
-        silk_margin=0.1524,
-        mask_margin=0.102,
-        ref_x=0.0,
-        ref_y=6.096,
-        model_offset_base=(0.0, 0.0, 0.0),
-        model_rotation=(0.0, 0.0, 0.0),
-        step_multiplier=0.0,
-        model_offset_func=offset_sub
     ),
     "TB006-508": ConnectorSpecs(
         width_per_pin=5.08,
