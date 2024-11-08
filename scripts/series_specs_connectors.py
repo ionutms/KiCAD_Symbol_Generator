@@ -206,8 +206,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         footprint_pattern="connector_footprints:TB006-508-{:02d}BE",
         datasheet="https://www.sameskydevices.com/" +
         "product/resource/tb006-508.pdf",
-        # pin_counts=list(range(2, 25)),
-        pin_counts=list(range(2, 19)),
+        pin_counts=list(range(2, 25)),
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
         pitch=5.08,
