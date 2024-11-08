@@ -12,7 +12,9 @@ import series_specs_connectors as ssc
 class ConnectorSpecs(NamedTuple):
     """Complete specifications for footprint generation."""
     width_per_pin: float      # Width contribution per pin
-    base_width: float         # Base width for enclosure
+    # base_width: float         # Base width for enclosure
+    width_left: float
+    width_right: float
     height_top: float         # Height above origin
     height_bottom: float      # Height below origin
     pad_size: float          # Pad diameter/size
@@ -65,7 +67,9 @@ def offset_sub(
 CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     "TBP02R1-381": ConnectorSpecs(
         width_per_pin=3.81,
-        base_width=4.4,
+        # base_width=4.4,
+        width_left=4.4,
+        width_right=4.4,
         height_top=-7.9,
         height_bottom=1.4,
         pad_size=2.1,
@@ -81,7 +85,9 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP02R2-381": ConnectorSpecs(
         width_per_pin=3.81,
-        base_width=4.445,
+        # base_width=4.445,
+        width_left=4.445,
+        width_right=4.445,
         height_top=3.2512,
         height_bottom=-4.445,
         pad_size=2.1,
@@ -97,7 +103,9 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R1-500": ConnectorSpecs(
         width_per_pin=5.0,
-        base_width=5.2,
+        # base_width=5.2,
+        width_left=5.2,
+        width_right=5.2,
         height_top=-2.2,
         height_bottom=9.9,
         pad_size=2.55,
@@ -113,7 +121,9 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R12-500": ConnectorSpecs(
         width_per_pin=5.0,
-        base_width=5.8,
+        # base_width=5.8,
+        width_left=5.8,
+        width_right=5.8,
         height_top=-2.2,
         height_bottom=9.9,
         pad_size=2.55,
@@ -129,7 +139,9 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R2-500": ConnectorSpecs(
         width_per_pin=5.0,
-        base_width=5.8,
+        # base_width=5.8,
+        width_left=5.8,
+        width_right=5.8,
         height_top=4.8,
         height_bottom=-4.0,
         pad_size=2.55,
@@ -145,7 +157,9 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R3-500": ConnectorSpecs(
         width_per_pin=5.0,
-        base_width=5.2,
+        # base_width=5.2,
+        width_left=5.2,
+        width_right=5.2,
         height_top=4.8,
         height_bottom=-4.0,
         pad_size=2.55,
@@ -161,7 +175,9 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TB004-508": ConnectorSpecs(
         width_per_pin=5.08,
-        base_width=5.2,
+        # base_width=5.2,
+        width_left=5.2,
+        width_right=5.2,
         height_top=5.2,
         height_bottom=-5.2,
         pad_size=2.55,
@@ -177,7 +193,9 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TB006-508": ConnectorSpecs(
         width_per_pin=5.08,
-        base_width=5.2,
+        # base_width=5.2,
+        width_left=5.2,
+        width_right=5.2,
         height_top=4.2,
         height_bottom=-4.2,
         pad_size=2.55,
@@ -215,7 +233,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     """
     # Calculate enclosure width based on pin count
     extra_width_per_side = (part.pin_count - 2) * specs.width_per_pin / 2
-    total_half_width = specs.base_width + extra_width_per_side
+    total_left_half_width = specs.width_left + extra_width_per_side
+    total_right_half_width = specs.width_right + extra_width_per_side
 
     # Calculate pin positions
     total_length = (part.pin_count - 1) * part.pitch
@@ -291,8 +310,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     # Shape definitions
     shapes = f'''    (attr through_hole)
     (fp_rect
-        (start {-total_half_width:.3f} {specs.height_bottom})
-        (end {total_half_width:.3f} {specs.height_top})
+        (start {-total_left_half_width:.3f} {specs.height_bottom})
+        (end {total_right_half_width:.3f} {specs.height_top})
         (stroke
             (width {specs.silk_margin})
             (type default)
@@ -302,8 +321,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {-(total_half_width + specs.silk_margin*4):.3f} 0)
-        (end {-(total_half_width + specs.silk_margin*2):.3f} 0)
+        (center {-(total_left_half_width + specs.silk_margin*4):.3f} 0)
+        (end {-(total_right_half_width + specs.silk_margin*2):.3f} 0)
         (stroke
             (width {specs.silk_margin})
             (type solid)
@@ -313,8 +332,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_rect
-        (start {-total_half_width:.3f} {specs.height_bottom})
-        (end {total_half_width:.3f} {specs.height_top})
+        (start {-total_left_half_width:.3f} {specs.height_bottom})
+        (end {total_right_half_width:.3f} {specs.height_top})
         (stroke
             (width 0.00635)
             (type default)
@@ -324,8 +343,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_rect
-        (start {-total_half_width:.3f} {specs.height_bottom})
-        (end {total_half_width:.3f} {specs.height_top})
+        (start {-total_left_half_width:.3f} {specs.height_bottom})
+        (end {total_right_half_width:.3f} {specs.height_top})
         (stroke
             (width {specs.silk_margin})
             (type default)
@@ -335,8 +354,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {-(total_half_width + specs.silk_margin*4):.3f} 0)
-        (end {-(total_half_width + specs.silk_margin*2):.3f} 0)
+        (center {-(total_left_half_width + specs.silk_margin*4):.3f} 0)
+        (end {-(total_right_half_width + specs.silk_margin*2):.3f} 0)
         (stroke
             (width {specs.silk_margin})
             (type solid)
