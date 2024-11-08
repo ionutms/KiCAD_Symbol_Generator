@@ -207,7 +207,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         datasheet="https://www.sameskydevices.com/" +
         "product/resource/tb006-508.pdf",
         # pin_counts=list(range(2, 25)),
-        pin_counts=list(range(2, 8)),
+        pin_counts=list(range(2, 13)),
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
         pitch=5.08,
