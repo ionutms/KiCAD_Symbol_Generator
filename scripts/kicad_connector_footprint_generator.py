@@ -215,191 +215,218 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
 
     Args:
         part: Component specifications including MPN, pin count, and pitch
-        specs:
-            Complete connector specifications defining
-            physical dimensions and properties
+        specs: Complete connector specifications defining physical dimensions
 
     Returns:
         String containing the complete .kicad_mod file content in KiCad format
     """
-    # Calculate enclosure width based on pin count
-    extra_width_per_side = (part.pin_count - 2) * specs.width_per_pin / 2
+    dimensions = calculate_dimensions(part, specs)
+    sections = [
+        generate_header(part.mpn),
+        generate_properties(part, specs, dimensions),
+        generate_shapes(dimensions, specs),
+        generate_pads(part, specs, dimensions),
+        generate_3d_model(part, specs),
+        ")"  # Close the footprint
+    ]
+    return "\n".join(sections)
+
+
+def calculate_dimensions(part: ssc.PartInfo, specs: ConnectorSpecs) -> dict:
+    """Calculate all required dimensions for the footprint."""
+    extra_width_per_side = (
+        (part.pin_count - 2) * specs.width_per_pin / 2
+    )
     total_half_width_left = specs.width_left + extra_width_per_side
     total_half_width_right = specs.width_right + extra_width_per_side
-
-    # Calculate pin positions
     total_length = (part.pin_count - 1) * part.pitch
     start_pos = -total_length / 2
 
-    header = f'''(footprint "{part.mpn}"
-    (version 20240108)
-    (generator "pcbnew")
-    (generator_version "8.0")
-    (layer "F.Cu")'''
+    return {
+        "total_half_width_left": total_half_width_left,
+        "total_half_width_right": total_half_width_right,
+        "total_length": total_length,
+        "start_pos": start_pos
+    }
 
-    # Properties section
-    properties = f'''    (property "Reference" "REF**"
-        (at 0 {specs.ref_y} 0)
-        (layer "F.SilkS")
-        (uuid "{uuid4()}")
-        (effects
-            (font
-                (size 0.762 0.762)
-                (thickness 0.1524)
-            )
-        )
-    )
-    (property "Value" "{part.mpn}"
-        (at 0 {specs.mpn_y} 0)
-        (layer "F.Fab")
-        (uuid "{uuid4()}")
-        (effects
-            (font
-                (size 0.762 0.762)
-                (thickness 0.1524)
-            )
-        )
-    )
-    (property "Footprint" ""
-        (at {start_pos} 0 0)
-        (layer "F.Fab")
-        (hide yes)
-        (uuid "{uuid4()}")
-        (effects
-            (font
-                (size 1.27 1.27)
-                (thickness 0.15)
-            )
-        )
-    )
-    (property "Datasheet" ""
-        (at {start_pos} 0 0)
-        (layer "F.Fab")
-        (hide yes)
-        (uuid "{uuid4()}")
-        (effects
-            (font
-                (size 1.27 1.27)
-                (thickness 0.15)
-            )
-        )
-    )
-    (property "Description" ""
-        (at {start_pos} 0 0)
-        (layer "F.Fab")
-        (hide yes)
-        (uuid "{uuid4()}")
-        (effects
-            (font
-                (size 1.27 1.27)
-                (thickness 0.15)
-            )
-        )
-    )'''
 
-    # Shape definitions
-    shapes = f'''    (attr through_hole)
-    (fp_rect
-        (start {-total_half_width_left:.3f} {specs.height_bottom})
-        (end {total_half_width_right:.3f} {specs.height_top})
-        (stroke
-            (width {specs.silk_margin})
-            (type default)
-        )
-        (fill none)
-        (layer "F.SilkS")
-        (uuid "{uuid4()}")
+def generate_header(mpn: str) -> str:
+    """Generate the footprint header section."""
+    return (
+        f'(footprint "{mpn}"\n'
+        f'    (version 20240108)\n'
+        f'    (generator "pcbnew")\n'
+        f'    (generator_version "8.0")\n'
+        f'    (layer "F.Cu")'
     )
-    (fp_circle
-        (center {-(total_half_width_left + specs.silk_margin*6):.3f} 0)
-        (end {-(total_half_width_left + specs.silk_margin*2):.3f} 0)
-        (stroke
-            (width {specs.silk_margin})
-            (type solid)
-        )
-        (fill solid)
-        (layer "F.SilkS")
-        (uuid "{uuid4()}")
-    )
-    (fp_rect
-        (start {-total_half_width_left:.3f} {specs.height_bottom})
-        (end {total_half_width_right:.3f} {specs.height_top})
-        (stroke
-            (width 0.00635)
-            (type default)
-        )
-        (fill none)
-        (layer "F.CrtYd")
-        (uuid "{uuid4()}")
-    )
-    (fp_rect
-        (start {-total_half_width_left:.3f} {specs.height_bottom})
-        (end {total_half_width_right:.3f} {specs.height_top})
-        (stroke
-            (width {specs.silk_margin})
-            (type default)
-        )
-        (fill none)
-        (layer "F.Fab")
-        (uuid "{uuid4()}")
-    )
-    (fp_circle
-        (center {-(total_half_width_left + specs.silk_margin*6):.3f} 0)
-        (end {-(total_half_width_left + specs.silk_margin*2):.3f} 0)
-        (stroke
-            (width {specs.silk_margin})
-            (type solid)
-        )
-        (fill none)
-        (layer "F.Fab")
-        (uuid "{uuid4()}")
-    )'''
 
-    # Combine initial sections
-    footprint = f"{header}\n{properties}\n{shapes}"
 
-    # Add pads
+def generate_properties(
+    part: ssc.PartInfo,
+    specs: ConnectorSpecs,
+    dimensions: dict
+) -> str:
+    """Generate the properties section of the footprint."""
+    font_effects = (
+        '        (effects\n'
+        '            (font\n'
+        '                (size 0.762 0.762)\n'
+        '                (thickness 0.1524)\n'
+        '            )\n'
+        '        )'
+    )
+
+    hidden_font_effects = (
+        '        (effects\n'
+        '            (font\n'
+        '                (size 1.27 1.27)\n'
+        '                (thickness 0.15)\n'
+        '            )\n'
+        '        )'
+    )
+
+    return (
+        f'    (property "Reference" "REF**"\n'
+        f'        (at 0 {specs.ref_y} 0)\n'
+        f'        (layer "F.SilkS")\n'
+        f'        (uuid "{uuid4()}")\n'
+        f'{font_effects}\n'
+        f'    )\n'
+        f'    (property "Value" "{part.mpn}"\n'
+        f'        (at 0 {specs.mpn_y} 0)\n'
+        f'        (layer "F.Fab")\n'
+        f'        (uuid "{uuid4()}")\n'
+        f'{font_effects}\n'
+        f'    )\n'
+        f'    (property "Footprint" ""\n'
+        f'        (at {dimensions["start_pos"]} 0 0)\n'
+        f'        (layer "F.Fab")\n'
+        f'        (hide yes)\n'
+        f'        (uuid "{uuid4()}")\n'
+        f'{hidden_font_effects}\n'
+        f'    )\n'
+        f'    (property "Datasheet" ""\n'
+        f'        (at {dimensions["start_pos"]} 0 0)\n'
+        f'        (layer "F.Fab")\n'
+        f'        (hide yes)\n'
+        f'        (uuid "{uuid4()}")\n'
+        f'{hidden_font_effects}\n'
+        f'    )\n'
+        f'    (property "Description" ""\n'
+        f'        (at {dimensions["start_pos"]} 0 0)\n'
+        f'        (layer "F.Fab")\n'
+        f'        (hide yes)\n'
+        f'        (uuid "{uuid4()}")\n'
+        f'{hidden_font_effects}\n'
+        f'    )'
+    )
+
+
+def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
+    """Generate the shapes section of the footprint."""
+    circle_center = -(
+        dimensions["total_half_width_left"] + specs.silk_margin * 6
+    )
+    circle_end = -(
+        dimensions["total_half_width_left"] + specs.silk_margin * 2
+    )
+
+    rect_start = -dimensions["total_half_width_left"]
+    rect_end = dimensions["total_half_width_right"]
+
+    def generate_rect(layer: str, stroke_width: str) -> str:
+        return (
+            f'    (fp_rect\n'
+            f'        (start {rect_start:.3f} {specs.height_bottom})\n'
+            f'        (end {rect_end:.3f} {specs.height_top})\n'
+            f'        (stroke\n'
+            f'            (width {stroke_width})\n'
+            f'            (type default)\n'
+            f'        )\n'
+            f'        (fill none)\n'
+            f'        (layer "{layer}")\n'
+            f'        (uuid "{uuid4()}")\n'
+            f'    )'
+        )
+
+    def generate_circle(layer: str, fill: str) -> str:
+        return (
+            f'    (fp_circle\n'
+            f'        (center {circle_center:.3f} 0)\n'
+            f'        (end {circle_end:.3f} 0)\n'
+            f'        (stroke\n'
+            f'            (width {specs.silk_margin})\n'
+            f'            (type solid)\n'
+            f'        )\n'
+            f'        (fill {fill})\n'
+            f'        (layer "{layer}")\n'
+            f'        (uuid "{uuid4()}")\n'
+            f'    )'
+        )
+
+    shapes = [
+        '    (attr through_hole)',
+        generate_rect("F.SilkS", specs.silk_margin),
+        generate_circle("F.SilkS", "solid"),
+        generate_rect("F.CrtYd", "0.00635"),
+        generate_rect("F.Fab", specs.silk_margin),
+        generate_circle("F.Fab", "none")
+    ]
+
+    return "\n".join(shapes)
+
+
+def generate_pads(
+    part: ssc.PartInfo,
+    specs: ConnectorSpecs,
+    dimensions: dict
+) -> str:
+    """Generate the pads section of the footprint."""
+    pads = []
     for pin in range(part.pin_count):
-        x_pos = start_pos + (pin * part.pitch)
+        x_pos = dimensions["start_pos"] + (pin * part.pitch)
         pad_type = "rect" if pin == 0 else "circle"
-        footprint += f'''
-    (pad "{pin + 1}" thru_hole {pad_type}
-        (at {x_pos:.3f} 0)
-        (size {specs.pad_size} {specs.pad_size})
-        (drill {specs.drill_size})
-        (layers "*.Cu" "*.Mask")
-        (remove_unused_layers no)
-        (solder_mask_margin {specs.mask_margin})
-        (uuid "{uuid4()}")
-    )'''
+        pad = (
+            f'    (pad "{pin + 1}" thru_hole {pad_type}\n'
+            f'        (at {x_pos:.3f} 0)\n'
+            f'        (size {specs.pad_size} {specs.pad_size})\n'
+            f'        (drill {specs.drill_size})\n'
+            f'        (layers "*.Cu" "*.Mask")\n'
+            f'        (remove_unused_layers no)\n'
+            f'        (solder_mask_margin {specs.mask_margin})\n'
+            f'        (uuid "{uuid4()}")\n'
+            f'    )'
+        )
+        pads.append(pad)
+    return "\n".join(pads)
 
-    # Calculate 3D model position
+
+def generate_3d_model(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
+    """Generate the 3D model section of the footprint."""
     step_offset = (part.pin_count - 2) * specs.step_multiplier
     model_offset = specs.model_offset_func(
         specs.model_offset_base, step_offset)
 
-    # Add 3D model reference
-    model_path = (f"KiCAD_Symbol_Generator/3D_models/"
-                  f"CUI_DEVICES_{part.mpn}.step")
+    model_path = (
+        f'KiCAD_Symbol_Generator/3D_models/'
+        f'CUI_DEVICES_{part.mpn}.step'
+    )
 
-    footprint += f'''
-    (model "${{KIPRJMOD}}/{model_path}"
-        (offset
-            (xyz {model_offset[0]:.3f} {model_offset[1]} {model_offset[2]})
-        )
-        (scale
-            (xyz 1 1 1)
-        )
-        (rotate
-            (xyz {specs.model_rotation[0]} {specs.model_rotation[1]} '''
-    footprint += f'''{specs.model_rotation[2]})
-        )
-    )'''
-
-    # Close the footprint
-    footprint += "\n)"
-
-    return footprint
+    return (
+        f'    (model "${{KIPRJMOD}}/{model_path}"\n'
+        f'        (offset\n'
+        f'            (xyz {model_offset[0]:.3f} '
+        f'{model_offset[1]} {model_offset[2]})\n'
+        f'        )\n'
+        f'        (scale\n'
+        f'            (xyz 1 1 1)\n'
+        f'        )\n'
+        f'        (rotate\n'
+        f'            (xyz {specs.model_rotation[0]} '
+        f'{specs.model_rotation[1]} {specs.model_rotation[2]})\n'
+        f'        )\n'
+        f'    )'
+    )
 
 
 def generate_footprint_file(part: ssc.PartInfo) -> None:
