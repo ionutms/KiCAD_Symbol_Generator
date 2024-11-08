@@ -12,9 +12,11 @@ import series_specs_connectors as ssc
 class ConnectorSpecs(NamedTuple):
     """Complete specifications for footprint generation."""
     width_per_pin: float      # Width contribution per pin
-    # base_width: float         # Base width for enclosure
     width_left: float
     width_right: float
+    circle_x: float
+    circle_y: float
+    circle_radius: float
     height_top: float         # Height above origin
     height_bottom: float      # Height below origin
     pad_size: float          # Pad diameter/size
@@ -71,6 +73,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=5.2,
         height_top=5.2,
         height_bottom=-5.2,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -88,6 +95,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         width_right=5.2,
         height_top=4.2,
         height_bottom=-4.2,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -101,11 +113,15 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP02R1-381": ConnectorSpecs(
         width_per_pin=3.81,
-        # base_width=4.4,
         width_left=4.4,
         width_right=4.4,
         height_top=-7.9,
         height_bottom=1.4,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
@@ -119,11 +135,15 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP02R2-381": ConnectorSpecs(
         width_per_pin=3.81,
-        # base_width=4.445,
         width_left=4.445,
         width_right=4.445,
         height_top=3.2512,
         height_bottom=-4.445,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
@@ -137,11 +157,15 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R1-500": ConnectorSpecs(
         width_per_pin=5.0,
-        # base_width=5.2,
         width_left=5.2,
         width_right=5.2,
         height_top=-2.2,
         height_bottom=9.9,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -153,31 +177,17 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         step_multiplier=2.5,
         model_offset_func=offset_add
     ),
-    "TBP04R12-500": ConnectorSpecs(
-        width_per_pin=5.0,
-        # base_width=5.8,
-        width_left=5.8,
-        width_right=5.8,
-        height_top=-2.2,
-        height_bottom=9.9,
-        pad_size=2.55,
-        drill_size=1.7,
-        silk_margin=0.1524,
-        mask_margin=0.102,
-        ref_x=0.0,
-        ref_y=-3.0,
-        model_offset_base=(-5, -5.6, -3.81),
-        model_rotation=(-90, 0, 0),
-        step_multiplier=2.5,
-        model_offset_func=offset_sub
-    ),
     "TBP04R2-500": ConnectorSpecs(
         width_per_pin=5.0,
-        # base_width=5.8,
         width_left=5.8,
         width_right=5.8,
         height_top=4.8,
         height_bottom=-4.0,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -191,11 +201,15 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R3-500": ConnectorSpecs(
         width_per_pin=5.0,
-        # base_width=5.2,
         width_left=5.2,
         width_right=5.2,
         height_top=4.8,
         height_bottom=-4.0,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -206,6 +220,28 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         model_rotation=(-90, 0, 180),
         step_multiplier=2.5,
         model_offset_func=offset_add
+    ),
+    "TBP04R12-500": ConnectorSpecs(
+        width_per_pin=5.0,
+        width_left=5.8,
+        width_right=5.8,
+        height_top=-2.2,
+        height_bottom=9.9,
+
+        circle_x=-7.0,
+        circle_y=0.0,
+        circle_radius=0.5,
+
+        pad_size=2.55,
+        drill_size=1.7,
+        silk_margin=0.1524,
+        mask_margin=0.102,
+        ref_x=0.0,
+        ref_y=-3.0,
+        model_offset_base=(-5, -5.6, -3.81),
+        model_rotation=(-90, 0, 0),
+        step_multiplier=2.5,
+        model_offset_func=offset_sub
     ),
 }
 
@@ -319,8 +355,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {-(total_left_half_width + specs.silk_margin*4):.3f} 0)
-        (end {-(total_right_half_width + specs.silk_margin*2):.3f} 0)
+        (center {specs.circle_x} {specs.circle_y})
+        (end {specs.circle_radius} 0)
         (stroke
             (width {specs.silk_margin})
             (type solid)
@@ -352,8 +388,8 @@ def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         (uuid "{uuid4()}")
     )
     (fp_circle
-        (center {-(total_left_half_width + specs.silk_margin*4):.3f} 0)
-        (end {-(total_right_half_width + specs.silk_margin*2):.3f} 0)
+        (center {specs.circle_x} {specs.circle_y})
+        (end {specs.circle_radius} 0)
         (stroke
             (width {specs.silk_margin})
             (type solid)
