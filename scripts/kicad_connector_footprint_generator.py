@@ -9,22 +9,27 @@ from uuid import uuid4
 import series_specs_connectors as ssc
 
 
+class RectangleSpecs(NamedTuple):
+    """Rectangle dimensions for footprint."""
+    width_left: float     # Width from origin to left edge
+    width_right: float    # Width from origin to right edge
+    height_top: float     # Height from origin to top edge
+    height_bottom: float  # Height from origin to bottom edge
+
+
 class ConnectorSpecs(NamedTuple):
     """Complete specifications for footprint generation."""
-    width_per_pin: float      # Width contribution per pin
-    width_left: float         # Base width for enclosure
-    width_right: float         # Base width for enclosure
-    height_top: float         # Height above origin
-    height_bottom: float      # Height below origin
-    pad_size: float          # Pad diameter/size
-    drill_size: float        # Drill hole diameter
-    silk_margin: float       # Margin for silkscreen
-    mask_margin: float       # Solder mask margin
-    mpn_y: float            # Reference X position
-    ref_y: float            # Reference Y position
+    width_per_pin: float   # Width contribution per pin
+    rect_dims: RectangleSpecs  # Rectangle dimensions
+    pad_size: float       # Pad diameter/size
+    drill_size: float     # Drill hole diameter
+    silk_margin: float    # Margin for silkscreen
+    mask_margin: float    # Solder mask margin
+    mpn_y: float         # Reference X position
+    ref_y: float         # Reference Y position
     model_offset_base: tuple[float, float, float]  # Base 3D model offset
     model_rotation: tuple[float, float, float]     # 3D model rotation
-    step_multiplier: float   # Multiplier for step offset calculation
+    step_multiplier: float  # Multiplier for step offset calculation
     model_offset_func: Callable  # Function to calculate model offset
 
 
@@ -66,10 +71,12 @@ def offset_sub(
 CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     "TB004-508": ConnectorSpecs(
         width_per_pin=5.08,
-        width_left=5.8,
-        width_right=5.2,
-        height_top=5.2,
-        height_bottom=-5.2,
+        rect_dims=RectangleSpecs(
+            width_left=5.8,
+            width_right=5.2,
+            height_top=5.2,
+            height_bottom=-5.2
+        ),
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -83,10 +90,12 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TB006-508": ConnectorSpecs(
         width_per_pin=5.08,
-        width_left=5.8,
-        width_right=5.2,
-        height_top=4.2,
-        height_bottom=-4.2,
+        rect_dims=RectangleSpecs(
+            width_left=5.8,
+            width_right=5.2,
+            height_top=4.2,
+            height_bottom=-4.2
+        ),
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -100,10 +109,12 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP02R1-381": ConnectorSpecs(
         width_per_pin=3.81,
-        width_left=4.4,
-        width_right=4.4,
-        height_top=-7.9,
-        height_bottom=1.4,
+        rect_dims=RectangleSpecs(
+            width_left=4.4,
+            width_right=4.4,
+            height_top=-7.9,
+            height_bottom=1.4
+        ),
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
@@ -117,10 +128,12 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP02R2-381": ConnectorSpecs(
         width_per_pin=3.81,
-        width_left=4.445,
-        width_right=4.445,
-        height_top=3.2512,
-        height_bottom=-4.445,
+        rect_dims=RectangleSpecs(
+            width_left=4.445,
+            width_right=4.445,
+            height_top=3.2512,
+            height_bottom=-4.445
+        ),
         pad_size=2.1,
         drill_size=1.4,
         silk_margin=0.1524,
@@ -134,10 +147,12 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R1-500": ConnectorSpecs(
         width_per_pin=5.0,
-        width_left=5.2,
-        width_right=5.2,
-        height_top=-2.2,
-        height_bottom=9.9,
+        rect_dims=RectangleSpecs(
+            width_left=5.2,
+            width_right=5.2,
+            height_top=-2.2,
+            height_bottom=9.9
+        ),
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -151,10 +166,12 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R2-500": ConnectorSpecs(
         width_per_pin=5.0,
-        width_left=5.8,
-        width_right=5.8,
-        height_top=4.8,
-        height_bottom=-4.0,
+        rect_dims=RectangleSpecs(
+            width_left=5.8,
+            width_right=5.8,
+            height_top=4.8,
+            height_bottom=-4.0
+        ),
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -168,10 +185,12 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R3-500": ConnectorSpecs(
         width_per_pin=5.0,
-        width_left=5.2,
-        width_right=5.2,
-        height_top=4.8,
-        height_bottom=-4.0,
+        rect_dims=RectangleSpecs(
+            width_left=5.2,
+            width_right=5.2,
+            height_top=4.8,
+            height_bottom=-4.0
+        ),
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -185,10 +204,12 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     ),
     "TBP04R12-500": ConnectorSpecs(
         width_per_pin=5.0,
-        width_left=5.8,
-        width_right=5.8,
-        height_top=-2.2,
-        height_bottom=9.9,
+        rect_dims=RectangleSpecs(
+            width_left=5.8,
+            width_right=5.8,
+            height_top=-2.2,
+            height_bottom=9.9
+        ),
         pad_size=2.55,
         drill_size=1.7,
         silk_margin=0.1524,
@@ -237,8 +258,12 @@ def calculate_dimensions(part: ssc.PartInfo, specs: ConnectorSpecs) -> dict:
     extra_width_per_side = (
         (part.pin_count - 2) * specs.width_per_pin / 2
     )
-    total_half_width_left = specs.width_left + extra_width_per_side
-    total_half_width_right = specs.width_right + extra_width_per_side
+    total_half_width_left = (
+        specs.rect_dims.width_left + extra_width_per_side
+    )
+    total_half_width_right = (
+        specs.rect_dims.width_right + extra_width_per_side
+    )
     total_length = (part.pin_count - 1) * part.pitch
     start_pos = -total_length / 2
 
@@ -337,8 +362,9 @@ def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
     def generate_rect(layer: str, stroke_width: str) -> str:
         return (
             f'    (fp_rect\n'
-            f'        (start {rect_start:.3f} {specs.height_bottom})\n'
-            f'        (end {rect_end:.3f} {specs.height_top})\n'
+            f'        (start {rect_start:.3f} '
+            f'{specs.rect_dims.height_bottom})\n'
+            f'        (end {rect_end:.3f} {specs.rect_dims.height_top})\n'
             f'        (stroke\n'
             f'            (width {stroke_width})\n'
             f'            (type default)\n'
