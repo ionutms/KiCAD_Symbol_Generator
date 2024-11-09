@@ -1,70 +1,90 @@
 """
 KiCad Footprint Generator Module
 
-Generates .kicad_mod files for connector series based on specifications.
+Generates standardized KiCad footprint files (.kicad_mod) for various connector
+series. Handles pad placement, silkscreen generation, and 3D model alignment
+based on manufacturer specifications.
+
+The module supports multiple connector series with different pin counts and
+pitches, generating complete footprint definitions including:
+- Through-hole pad layouts
+- Silkscreen outlines
+- Component identifiers
+- 3D model references
 """
 
-from typing import Dict, NamedTuple, Callable, Tuple
+from typing import Callable, Dict, NamedTuple, Tuple
 from uuid import uuid4
 import series_specs_connectors as ssc
 
 
 class RectangleSpecs(NamedTuple):
-    """Rectangle dimensions for footprint."""
-    width_left: float     # Width from origin to left edge
-    width_right: float    # Width from origin to right edge
-    height_top: float     # Height from origin to top edge
-    height_bottom: float  # Height from origin to bottom edge
+    """
+    Defines rectangular dimensions for component footprint outlines.
+
+    All measurements are in millimeters relative to the origin point (0,0).
+    Positive values extend right/up, negative values extend left/down.
+    """
+    width_left: float     # Distance from origin to left edge
+    width_right: float    # Distance from origin to right edge
+    height_top: float     # Distance from origin to top edge
+    height_bottom: float  # Distance from origin to bottom edge
 
 
 class ConnectorSpecs(NamedTuple):
-    """Complete specifications for footprint generation."""
-    width_per_pin: float   # Width contribution per pin
-    rect_dims: RectangleSpecs  # Rectangle dimensions
-    pad_size: float       # Pad diameter/size
-    drill_size: float     # Drill hole diameter
-    silk_margin: float    # Margin for silkscreen
-    mask_margin: float    # Solder mask margin
-    mpn_y: float         # Reference X position
-    ref_y: float         # Reference Y position
+    """
+    Complete specifications for generating a connector footprint.
+
+    Defines all physical dimensions, pad properties, reference designator
+    positions, and 3D model alignment parameters needed to generate a complete
+    KiCad footprint file.
+    """
+    width_per_pin: float   # Additional width needed per pin
+    rect_dims: RectangleSpecs  # Basic rectangle dimensions
+    pad_size: float       # Diameter/size of through-hole pads
+    drill_size: float     # Diameter of drill holes
+    silk_margin: float    # Clearance for silkscreen outlines
+    mask_margin: float    # Solder mask clearance around pads
+    mpn_y: float         # Y position for manufacturer part number
+    ref_y: float         # Y position for reference designator
     model_offset_base: tuple[float, float, float]  # Base 3D model offset
-    model_rotation: tuple[float, float, float]     # 3D model rotation
-    step_multiplier: float  # Multiplier for step offset calculation
-    model_offset_func: Callable  # Function to calculate model offset
+    model_rotation: tuple[float, float, float]     # 3D model rotation angles
+    step_multiplier: float  # Step value for offset calculations
+    model_offset_func: Callable  # Function to calculate model offsets
 
 
 def offset_add(
-        base: Tuple[float, float, float],
-        step: float
+        base_offset: Tuple[float, float, float],
+        step_value: float
 ) -> Tuple[float, float, float]:
     """
-    Calculate offset by adding step to base X coordinate.
+    Calculate 3D model offset by adding step to base X coordinate.
 
     Args:
-        base: Base offset coordinates (x, y, z)
-        step: Step value to add to x coordinate
+        base_offset: Starting (x, y, z) coordinates
+        step_value: Value to add to x coordinate
 
     Returns:
-        Tuple containing updated (x, y, z) coordinates with modified x value
+        Updated (x, y, z) coordinates with modified x value
     """
-    return (base[0] + step, base[1], base[2])
+    return (base_offset[0] + step_value, base_offset[1], base_offset[2])
 
 
 def offset_sub(
-        base: Tuple[float, float, float],
-        step: float
+        base_offset: Tuple[float, float, float],
+        step_value: float
 ) -> Tuple[float, float, float]:
     """
-    Calculate offset by subtracting step from base X coordinate.
+    Calculate 3D model offset by subtracting step from base X coordinate.
 
     Args:
-        base: Base offset coordinates (x, y, z)
-        step: Step value to subtract from x coordinate
+        base_offset: Starting (x, y, z) coordinates
+        step_value: Value to subtract from x coordinate
 
     Returns:
-        Tuple containing updated (x, y, z) coordinates with modified x value
+        Updated (x, y, z) coordinates with modified x value
     """
-    return (base[0] - step, base[1], base[2])
+    return (base_offset[0] - step_value, base_offset[1], base_offset[2])
 
 
 # Consolidated connector series specifications using common offset patterns
@@ -224,61 +244,67 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
 }
 
 
-def generate_footprint(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
+def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     """
-    Generate KiCad footprint file content for a connector.
+    Generate complete KiCad footprint file content for a connector.
 
-    This function creates a complete KiCad footprint definition including:
-    - Component properties and metadata
-    - Silkscreen and fabrication layer shapes
-    - Through-hole pad definitions
-    - 3D model references
+    Creates all required sections of a .kicad_mod file including component
+    outline, pad definitions, text elements, and 3D model references.
 
     Args:
-        part: Component specifications including MPN, pin count, and pitch
-        specs: Complete connector specifications defining physical dimensions
+        part_info: Component specifications (MPN, pin count, pitch)
+        specs: Physical specifications for the connector series
 
     Returns:
-        String containing the complete .kicad_mod file content in KiCad format
+        Complete .kicad_mod file content as formatted string
     """
-    dimensions = calculate_dimensions(part, specs)
+    dimensions = calculate_dimensions(part_info, specs)
     sections = [
-        generate_header(part.mpn),
-        generate_properties(part, specs, dimensions),
+        generate_header(part_info.mpn),
+        generate_properties(part_info, specs, dimensions),
         generate_shapes(dimensions, specs),
-        generate_pads(part, specs, dimensions),
-        generate_3d_model(part, specs),
+        generate_pads(part_info, specs, dimensions),
+        generate_3d_model(part_info, specs),
         ")"  # Close the footprint
     ]
     return "\n".join(sections)
 
 
-def calculate_dimensions(part: ssc.PartInfo, specs: ConnectorSpecs) -> dict:
-    """Calculate all required dimensions for the footprint."""
-    extra_width_per_side = (
-        (part.pin_count - 2) * specs.width_per_pin / 2
-    )
-    total_half_width_left = (
-        specs.rect_dims.width_left + extra_width_per_side
-    )
-    total_half_width_right = (
-        specs.rect_dims.width_right + extra_width_per_side
-    )
-    total_length = (part.pin_count - 1) * part.pitch
-    start_pos = -total_length / 2
+def calculate_dimensions(
+        part_info: ssc.PartInfo,
+        specs: ConnectorSpecs
+) -> dict:
+    """
+    Calculate key dimensions for footprint generation.
+
+    Determines total width, length, and starting positions based on the
+    connector's pin count and physical specifications.
+
+    Args:
+        part_info: Component specifications (pin count, pitch)
+        specs: Physical specifications for the connector series
+
+    Returns:
+        Dictionary containing calculated dimensions and positions
+    """
+    extra_width_per_side = (part_info.pin_count - 2) * specs.width_per_pin / 2
+    total_half_width_left = specs.rect_dims.width_left + extra_width_per_side
+    total_half_width_right = specs.rect_dims.width_right + extra_width_per_side
+    total_length = (part_info.pin_count - 1) * part_info.pitch
+    start_position = -total_length / 2
 
     return {
         "total_half_width_left": total_half_width_left,
         "total_half_width_right": total_half_width_right,
         "total_length": total_length,
-        "start_pos": start_pos
+        "start_pos": start_position
     }
 
 
-def generate_header(mpn: str) -> str:
+def generate_header(model_name: str) -> str:
     """Generate the footprint header section."""
     return (
-        f'(footprint "{mpn}"\n'
+        f'(footprint "{model_name}"\n'
         f'    (version 20240108)\n'
         f'    (generator "pcbnew")\n'
         f'    (generator_version "8.0")\n'
@@ -287,12 +313,12 @@ def generate_header(mpn: str) -> str:
 
 
 def generate_properties(
-    part: ssc.PartInfo,
+    part_info: ssc.PartInfo,
     specs: ConnectorSpecs,
     dimensions: dict
 ) -> str:
     """Generate the properties section of the footprint."""
-    font_effects = (
+    font_props = (
         '        (effects\n'
         '            (font\n'
         '                (size 0.762 0.762)\n'
@@ -301,7 +327,7 @@ def generate_properties(
         '        )'
     )
 
-    hidden_font_effects = (
+    hidden_font_props = (
         '        (effects\n'
         '            (font\n'
         '                (size 1.27 1.27)\n'
@@ -315,34 +341,34 @@ def generate_properties(
         f'        (at 0 {specs.ref_y} 0)\n'
         f'        (layer "F.SilkS")\n'
         f'        (uuid "{uuid4()}")\n'
-        f'{font_effects}\n'
+        f'{font_props}\n'
         f'    )\n'
-        f'    (property "Value" "{part.mpn}"\n'
+        f'    (property "Value" "{part_info.mpn}"\n'
         f'        (at 0 {specs.mpn_y} 0)\n'
         f'        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
-        f'{font_effects}\n'
+        f'{font_props}\n'
         f'    )\n'
         f'    (property "Footprint" ""\n'
         f'        (at {dimensions["start_pos"]} 0 0)\n'
         f'        (layer "F.Fab")\n'
         f'        (hide yes)\n'
         f'        (uuid "{uuid4()}")\n'
-        f'{hidden_font_effects}\n'
+        f'{hidden_font_props}\n'
         f'    )\n'
         f'    (property "Datasheet" ""\n'
         f'        (at {dimensions["start_pos"]} 0 0)\n'
         f'        (layer "F.Fab")\n'
         f'        (hide yes)\n'
         f'        (uuid "{uuid4()}")\n'
-        f'{hidden_font_effects}\n'
+        f'{hidden_font_props}\n'
         f'    )\n'
         f'    (property "Description" ""\n'
         f'        (at {dimensions["start_pos"]} 0 0)\n'
         f'        (layer "F.Fab")\n'
         f'        (hide yes)\n'
         f'        (uuid "{uuid4()}")\n'
-        f'{hidden_font_effects}\n'
+        f'{hidden_font_props}\n'
         f'    )'
     )
 
@@ -359,7 +385,7 @@ def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
     rect_start = -dimensions["total_half_width_left"]
     rect_end = dimensions["total_half_width_right"]
 
-    def generate_rect(layer: str, stroke_width: str) -> str:
+    def generate_rect(layer_name: str, stroke_width: str) -> str:
         return (
             f'    (fp_rect\n'
             f'        (start {rect_start:.3f} '
@@ -370,12 +396,12 @@ def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
             f'            (type default)\n'
             f'        )\n'
             f'        (fill none)\n'
-            f'        (layer "{layer}")\n'
+            f'        (layer "{layer_name}")\n'
             f'        (uuid "{uuid4()}")\n'
             f'    )'
         )
 
-    def generate_circle(layer: str, fill: str) -> str:
+    def generate_circle(layer_name: str, fill_type: str) -> str:
         return (
             f'    (fp_circle\n'
             f'        (center {circle_center:.3f} 0)\n'
@@ -384,8 +410,8 @@ def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
             f'            (width {specs.silk_margin})\n'
             f'            (type solid)\n'
             f'        )\n'
-            f'        (fill {fill})\n'
-            f'        (layer "{layer}")\n'
+            f'        (fill {fill_type})\n'
+            f'        (layer "{layer_name}")\n'
             f'        (uuid "{uuid4()}")\n'
             f'    )'
         )
@@ -403,18 +429,18 @@ def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
 
 
 def generate_pads(
-    part: ssc.PartInfo,
+    part_info: ssc.PartInfo,
     specs: ConnectorSpecs,
     dimensions: dict
 ) -> str:
     """Generate the pads section of the footprint."""
     pads = []
-    for pin in range(part.pin_count):
-        x_pos = dimensions["start_pos"] + (pin * part.pitch)
-        pad_type = "rect" if pin == 0 else "circle"
+    for pin_num in range(part_info.pin_count):
+        xpos = dimensions["start_pos"] + (pin_num * part_info.pitch)
+        pad_type = "rect" if pin_num == 0 else "circle"
         pad = (
-            f'    (pad "{pin + 1}" thru_hole {pad_type}\n'
-            f'        (at {x_pos:.3f} 0)\n'
+            f'    (pad "{pin_num + 1}" thru_hole {pad_type}\n'
+            f'        (at {xpos:.3f} 0)\n'
             f'        (size {specs.pad_size} {specs.pad_size})\n'
             f'        (drill {specs.drill_size})\n'
             f'        (layers "*.Cu" "*.Mask")\n'
@@ -427,15 +453,17 @@ def generate_pads(
     return "\n".join(pads)
 
 
-def generate_3d_model(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
+def generate_3d_model(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     """Generate the 3D model section of the footprint."""
-    step_offset = (part.pin_count - 2) * specs.step_multiplier
+    step_offset = (part_info.pin_count - 2) * specs.step_multiplier
     model_offset = specs.model_offset_func(
-        specs.model_offset_base, step_offset)
+        specs.model_offset_base,
+        step_offset
+    )
 
     model_path = (
         f'KiCAD_Symbol_Generator/3D_models/'
-        f'CUI_DEVICES_{part.mpn}.step'
+        f'CUI_DEVICES_{part_info.mpn}.step'
     )
 
     return (
@@ -455,31 +483,27 @@ def generate_3d_model(part: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     )
 
 
-def generate_footprint_file(part: ssc.PartInfo) -> None:
+def generate_footprint_file(part_info: ssc.PartInfo) -> None:
     """
-    Generate and save a .kicad_mod file for a connector part.
+    Generate and save a complete .kicad_mod file for a connector.
 
-    This function takes a part specification, generates the appropriate
-    footprint content, and saves it to a file in the
-    connector_footprints.pretty directory.
+    Creates a KiCad footprint file in the connector_footprints.pretty
+    directory using the specified part information and
+    corresponding series specifications.
 
     Args:
-        part:
-            Component specifications including MPN, series, pin count,
-            and pitch
+        part_info: Component specifications including MPN and series
 
     Raises:
-        ValueError:
-            If the specified connector series is not found in CONNECTOR_SPECS
-        IOError: If there are issues writing to the output file
+        ValueError: If the specified connector series is not supported
+        IOError: If there are problems writing the output file
     """
-    if part.series not in CONNECTOR_SPECS:
-        raise ValueError(f"Unknown series: {part.series}")
+    if part_info.series not in CONNECTOR_SPECS:
+        raise ValueError(f"Unknown series: {part_info.series}")
 
-    specs = CONNECTOR_SPECS[part.series]
-    footprint_content = generate_footprint(part, specs)
+    specs = CONNECTOR_SPECS[part_info.series]
+    footprint_content = generate_footprint(part_info, specs)
 
-    # Save to file
-    filename = f"connector_footprints.pretty/{part.mpn}.kicad_mod"
-    with open(filename, 'w', encoding='utf-8') as f:
-        f.write(footprint_content)
+    filename = f"connector_footprints.pretty/{part_info.mpn}.kicad_mod"
+    with open(filename, 'w', encoding='utf-8') as output_file:
+        output_file.write(footprint_content)
