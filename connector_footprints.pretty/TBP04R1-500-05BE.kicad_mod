@@ -6,7 +6,7 @@
     (property "Reference" "REF**"
         (at 0 -3.0 0)
         (layer "F.SilkS")
-        (uuid "169d755b-ab30-45cf-a4b9-6f72e2f22ef8")
+        (uuid "e11a5adc-28de-47b7-b237-4b5b4fb43008")
         (effects
             (font
                 (size 0.762 0.762)
@@ -17,7 +17,7 @@
     (property "Value" "TBP04R1-500-05BE"
         (at 0 10.8 0)
         (layer "F.Fab")
-        (uuid "2360a22c-6027-4168-98fa-6c61a54d64c0")
+        (uuid "4f051662-0b09-47d7-80e9-8a40b4ee5774")
         (effects
             (font
                 (size 0.762 0.762)
@@ -29,7 +29,7 @@
         (at -10.0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "402a4f00-6bad-4196-b40b-a43461bf8249")
+        (uuid "791e5fd3-1d40-43bf-bdaa-822005cd4c33")
         (effects
             (font
                 (size 1.27 1.27)
@@ -41,7 +41,7 @@
         (at -10.0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "ebdfdb1f-19cb-4bcf-abac-2bff4354a863")
+        (uuid "0980f748-2c5f-4c5a-be84-4591215c69c8")
         (effects
             (font
                 (size 1.27 1.27)
@@ -53,7 +53,7 @@
         (at -10.0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "dbd855fd-a7c7-4132-a2de-171500ed7765")
+        (uuid "35b2fed3-25d9-4bee-983f-b1bae1667ac4")
         (effects
             (font
                 (size 1.27 1.27)
@@ -71,7 +71,7 @@
         )
         (fill none)
         (layer "F.SilkS")
-        (uuid "0e5e5d23-7de0-4e38-9987-23a788fd3bc6")
+        (uuid "e3b259a7-0b54-41bd-bfd2-28326f852ce9")
     )
     (fp_circle
         (center -13.614 0)
@@ -82,7 +82,7 @@
         )
         (fill solid)
         (layer "F.SilkS")
-        (uuid "47168ef0-5ab2-4c54-a13f-a7c9bc18a5dd")
+        (uuid "960310f6-9210-47fa-8ab2-413ad8fca32b")
     )
     (fp_rect
         (start -12.700 9.9)
@@ -93,7 +93,7 @@
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "b78044c2-d311-4b82-bea4-c51818e2d055")
+        (uuid "2df59488-5ec9-4454-b8d9-0c038a1180a9")
     )
     (fp_rect
         (start -12.700 9.9)
@@ -104,7 +104,7 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "872aa5c6-1ff2-490a-80ff-6c07c7bbf165")
+        (uuid "7d3232d3-fd2d-4b3b-8f84-97c5bd460aec")
     )
     (fp_circle
         (center -13.614 0)
@@ -115,7 +115,7 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "79ed181b-a819-45e4-bc6c-636cb98c1da5")
+        (uuid "02da5dce-52e1-4318-b1e3-5475d68bfa92")
     )
     (pad "1" thru_hole rect
         (at -10.000 0)
@@ -124,7 +124,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "7e9cd64e-f853-41d8-8811-2f22facf9ed0")
+        (uuid "cfca357c-2e20-4bc4-bd3a-34f86c8b2374")
     )
     (pad "2" thru_hole circle
         (at -5.000 0)
@@ -133,7 +133,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "09236188-331e-4052-baba-b10b8016466f")
+        (uuid "b08d0d34-5c1a-428a-8b74-06c06b68eec8")
     )
     (pad "3" thru_hole circle
         (at 0.000 0)
@@ -142,7 +142,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "6d4d347a-d8ed-46a0-885f-b0ed188bcc0e")
+        (uuid "d30453b4-bacc-4cc4-943b-5ca0630c3796")
     )
     (pad "4" thru_hole circle
         (at 5.000 0)
@@ -151,7 +151,7 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "1ab4fb32-ccf0-41b7-ae5a-3f8c8f2a4275")
+        (uuid "629024b9-aea6-430d-aa32-11ff6f5d8c44")
     )
     (pad "5" thru_hole circle
         (at 10.000 0)
@@ -160,17 +160,17 @@
         (layers "*.Cu" "*.Mask")
         (remove_unused_layers no)
         (solder_mask_margin 0.102)
-        (uuid "809d24d8-3e4f-4201-ba63-dadf881a078e")
+        (uuid "b5c176ef-33b8-43b0-ac8d-5fa23cce363f")
     )
     (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TBP04R1-500-05BE.step"
         (offset
-            (xyz 5.850 1.0 -3.81)
+            (xyz 7.500 0 0)
         )
         (scale
             (xyz 1 1 1)
         )
         (rotate
-            (xyz -90 0 90)
+            (xyz 0 0 0)
         )
     )
 )
