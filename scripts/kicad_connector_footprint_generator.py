@@ -236,8 +236,8 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=10.8,
         ref_y=-3.0,
-        model_offset_base=(-5, -5.6, -3.81),
-        model_rotation=(-90, 0, 0),
+        model_offset_base=(0, 0, 0),
+        model_rotation=(0, 0, 0),
         step_multiplier=2.5,
         model_offset_func=offset_sub
     ),
