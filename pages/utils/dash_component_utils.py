@@ -2,7 +2,7 @@
 """
 
 from typing import Any, List, Dict, Tuple
-from dash import html, callback
+from dash import html, callback, dcc
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 
@@ -313,3 +313,45 @@ def callback_update_dropdown_style(dropdown_id: str) -> None:
                 "color": "#334455",
             }
         return base_style
+
+
+def table_controls_row(
+        module_name: str,
+        dataframe: pd.DataFrame,
+        visible_columns: List[str]
+) -> dbc.Col:
+    """TODO"""
+    col_left = dbc.Col([
+        html.Div([
+            html.H6("Items per page:", className="mb-1"),
+            dcc.Dropdown(
+                id=f'{module_name}_page_size',
+                options=[
+                    {'label': str(page_size), 'value': page_size}
+                    for page_size in [10, 25, 50, 100]
+                ],
+                value=10,
+                clearable=False,
+            ),
+            html.Br()
+        ], className="d-flex flex-column align-items-start")
+    ], xs=12, sm=2)
+
+    col_right = dbc.Col([
+        html.Div([
+            html.H6("Show/Hide Columns:", className="mb-1"),
+            dbc.Checklist(
+                id=f'{module_name}_column_toggle',
+                options=[
+                    {"label": " ".join(col.split()), "value": col}
+                    for col in dataframe.columns
+                ],
+                value=visible_columns,
+                inline=True,
+                className="flex-wrap",
+            ),
+            html.Br()
+        ])
+    ], xs=12, sm=10)
+
+    return dbc.Row([col_left, col_right], className="mb-1")

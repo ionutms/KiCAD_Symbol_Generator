@@ -99,40 +99,7 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
-    dbc.Row([
-        dbc.Col([
-            html.Div([
-                html.H6("Items per page:", className="mb-1"),
-                dcc.Dropdown(
-                    id=f'{module_name}_page_size',
-                    options=[
-                        {'label': str(page_size), 'value': page_size}
-                        for page_size in [10, 25, 50, 100]
-                    ],
-                    value=10,
-                    clearable=False,
-                ),
-                html.Br()
-            ], className="d-flex flex-column align-items-start")
-        ], xs=12, sm=2),
-
-        dbc.Col([
-            html.Div([
-                html.H6("Show/Hide Columns:", className="mb-1"),
-                dbc.Checklist(
-                    id=f'{module_name}_column_toggle',
-                    options=[
-                        {"label": " ".join(col.split()), "value": col}
-                        for col in dataframe.columns
-                    ],
-                    value=visible_columns,
-                    inline=True,
-                    className="flex-wrap",
-                ),
-                html.Br()
-            ])
-        ], xs=12, sm=10),
-    ], className="mb-1"),
+    dcu.table_controls_row(module_name, dataframe, visible_columns),
 
     dash_table.DataTable(
         id=f'{module_name}_table',
