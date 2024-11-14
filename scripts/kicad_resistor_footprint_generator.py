@@ -318,6 +318,7 @@ def generate_fab_layer(specs: ResistorSpecs) -> str:
         f'                (size 0.762 0.762)\n'
         f'                (thickness 0.1524)\n'
         f'            )\n'
+        f'            (justify left)\n'
         f'        )\n'
         f'    )'
     )
