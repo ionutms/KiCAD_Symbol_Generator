@@ -8,6 +8,7 @@ with appropriate pad dimensions and clearances.
 
 from typing import Dict, NamedTuple
 from uuid import uuid4
+from series_specs_capacitors import SERIES_SPECS, SeriesSpec
 
 
 class PadDimensions(NamedTuple):
@@ -20,13 +21,6 @@ class PadDimensions(NamedTuple):
     height: float     # Height of each pad
     center_x: float   # Distance from origin to pad center
     roundrect_ratio: float  # Corner radius ratio for roundrect pads
-
-
-class SeriesSpec(NamedTuple):
-    """Basic specifications for a capacitor series."""
-    case_code_in: str    # Imperial size code (e.g., "0402")
-    case_code_mm: str    # Metric size code (e.g., "1005")
-    height: float        # Maximum component height
 
 
 class CapacitorSpecs(NamedTuple):
@@ -48,14 +42,6 @@ class CapacitorSpecs(NamedTuple):
     value_y: float             # Y position for value text
     fab_reference_y: float     # Y position for fab layer reference
 
-
-# Common capacitor series specifications
-SERIES_SPECS: Dict[str, SeriesSpec] = {
-    "C0402": SeriesSpec(case_code_in="0402", case_code_mm="1005", height=0.5),
-    "C0603": SeriesSpec(case_code_in="0603", case_code_mm="1608", height=0.8),
-    "C0805": SeriesSpec(case_code_in="0805", case_code_mm="2012", height=1.25),
-    "C1206": SeriesSpec(case_code_in="1206", case_code_mm="3216", height=1.6),
-}
 
 # Mapping of case codes to physical dimensions
 CASE_DIMENSIONS: Dict[str, Dict[str, float]] = {
