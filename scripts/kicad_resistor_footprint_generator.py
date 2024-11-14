@@ -164,16 +164,8 @@ def generate_footprint(specs: ResistorSpecs) -> str:
 
 def generate_header(specs: ResistorSpecs) -> str:
     """Generate the footprint header section with ERJ-specific details."""
-    series = specs.series_spec.base_series
     case_in = specs.series_spec.case_code_in
     case_mm = specs.series_spec.case_code_mm
-    power = specs.series_spec.power_rating
-    voltage = specs.series_spec.voltage_rating
-
-    description = (
-        f"Panasonic {series} series resistor, {case_in} ({case_mm} Metric), "
-        f"{power}, {voltage}, square end terminal"
-    )
 
     footprint_name = f"R_{case_in}_{case_mm}Metric"
 
@@ -183,8 +175,8 @@ def generate_header(specs: ResistorSpecs) -> str:
         f'    (generator "pcbnew")\n'
         f'    (generator_version "8.0")\n'
         f'    (layer "F.Cu")\n'
-        f'    (descr "{description}")\n'
-        f'    (tags "resistor panasonic erj")\n'
+        f'    (descr "")\n'
+        f'    (tags "")\n'
         f'    (attr smd)'
     )
 
