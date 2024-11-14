@@ -225,14 +225,24 @@ def generate_properties(specs: ResistorSpecs) -> str:
 
 def generate_silkscreen(specs: ResistorSpecs) -> str:
     """Generate silkscreen elements with ERJ-specific clearances."""
-    half_height = specs.body_height / 2
     silkscreen = []
+
+    # Calculate silk line positions based on case size
+    silk_positions = {
+        "0402": {"y": 0.38, "ext": 0.153641},
+        "0603": {"y": 0.5225, "ext": 0.237258},
+        "0805": {"y": 0.735, "ext": 0.227064},
+        "1206": {"y": 0.91, "ext": 0.727064}
+    }
+
+    case_code = specs.series_spec.case_code_in
+    silk_pos = silk_positions[case_code]
 
     # Top silkscreen line
     silkscreen.append(
         f'    (fp_line\n'
-        f'        (start -{specs.silk_inset} -{half_height})\n'
-        f'        (end {specs.silk_inset} -{half_height})\n'
+        f'        (start -{silk_pos["ext"]} -{silk_pos["y"]})\n'
+        f'        (end {silk_pos["ext"]} -{silk_pos["y"]})\n'
         f'        (stroke\n'
         f'            (width 0.1524)\n'
         f'            (type solid)\n'
@@ -245,8 +255,8 @@ def generate_silkscreen(specs: ResistorSpecs) -> str:
     # Bottom silkscreen line
     silkscreen.append(
         f'    (fp_line\n'
-        f'        (start -{specs.silk_inset} {half_height})\n'
-        f'        (end {specs.silk_inset} {half_height})\n'
+        f'        (start -{silk_pos["ext"]} {silk_pos["y"]})\n'
+        f'        (end {silk_pos["ext"]} {silk_pos["y"]})\n'
         f'        (stroke\n'
         f'            (width 0.1524)\n'
         f'            (type solid)\n'
