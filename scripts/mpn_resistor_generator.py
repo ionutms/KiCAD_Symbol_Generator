@@ -19,10 +19,12 @@ Features:
 - Exports in industry-standard formats (CSV, KiCad)
 """
 
+import os
 import csv
 from typing import List, Final, Iterator
 from colorama import init, Fore, Style
 import kicad_resistor_symbol_generator as ki_rsg
+import kicad_resistor_footprint_generator as ki_rfg
 import series_specs_resistors as ssr
 import file_handler_utilities as utils
 
@@ -273,17 +275,26 @@ HEADER_MAPPING: Final[dict] = {
 }
 
 
+def ensure_directory_exists(directory: str) -> None:
+    """Create directory if it doesn't exist."""
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        print_info(f"Created directory: {directory}")
+
+
 def generate_files_for_series(
     series_name: str,
     unified_parts_list: List[ssr.PartInfo]
 ) -> None:
     """
-    Generate CSV and KiCad symbol files for a specific resistor series.
+    Generate CSV, KiCad symbol, and footprint files
+    for a specific resistor series.
 
     Creates:
     1. A CSV file containing all component specifications
     2. A KiCad symbol file for use in electronic design
-    3. Adds generated parts to the unified parts list
+    3. A KiCad footprint file for PCB layout
+    4. Adds generated parts to the unified parts list
 
     Args:
         series_name: Name of the resistor series (e.g., 'ERJ-2RK')
@@ -300,6 +311,15 @@ def generate_files_for_series(
 
     specs = ssr.SERIES_SPECS[series_name]
     series_code = series_name.replace("-", "")
+
+    # Ensure required directories exist
+    ensure_directory_exists('data')
+    ensure_directory_exists('series_kicad_sym')
+    ensure_directory_exists('symbols')
+    ensure_directory_exists('resistor_footprints.pretty')
+    footprint_dir = "/resistor_footprints.pretty"
+    ensure_directory_exists(footprint_dir)
+
     csv_filename = f"{series_code}_part_numbers.csv"
     symbol_filename = f"RESISTORS_{series_code}_DATA_BASE.kicad_sym"
 
@@ -323,6 +343,17 @@ def generate_files_for_series(
     except IOError as io_error:
         print_error(f"I/O error when generating KiCad symbol file: {io_error}")
 
+    # Generate KiCad footprint file
+    try:
+        ki_rfg.generate_footprint_file(series_name, footprint_dir)
+        footprint_name = f"{series_name}_{specs.case_code_in}.kicad_mod"
+        print_success(
+            f"KiCad footprint file '{footprint_name}' generated successfully.")
+    except KeyError as key_error:
+        print_error(f"Invalid series specification: {key_error}")
+    except IOError as io_error:
+        print_error(f"I/O error when generating footprint file: {io_error}")
+
     # Add parts to unified list
     unified_parts_list.extend(parts_list)
 
@@ -338,19 +369,18 @@ def generate_unified_files(
     Creates:
     1. A unified CSV file containing all component specifications
     2. A unified KiCad symbol file containing all components
-
-    These files combine data from all series into single reference files
-    for easier component selection and management.
+    3. A complete footprint library for all series
 
     Args:
         all_parts: List of all PartInfo instances across all series
+        unified_csv: Name of the unified CSV file
+        unified_symbol: Name of the unified symbol file
 
     Raises:
         FileNotFoundError: If unified CSV file cannot be found
         csv.Error: If CSV processing fails
         IOError: If file operations fail
     """
-
     # Write unified CSV file
     utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
     print_success(
@@ -368,6 +398,19 @@ def generate_unified_files(
     except IOError as io_error:
         print_error(
             f"I/O error when generating unified KiCad symbol file: {io_error}")
+
+    # Generate footprints for all series
+    print_info("\nGenerating footprints for all series:")
+    footprint_dir = "resistor_footprints.pretty"
+    ensure_directory_exists(footprint_dir)
+
+    for part_series in ssr.SERIES_SPECS:
+        try:
+            ki_rfg.generate_footprint_file(part_series, footprint_dir)
+            print_success(f"Generated footprint for {part_series}")
+        except (KeyError, IOError) as error:
+            print_error(
+                f"Error generating footprint for {part_series}: {error}")
 
 
 if __name__ == "__main__":
