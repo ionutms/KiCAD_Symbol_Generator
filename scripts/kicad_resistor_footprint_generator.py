@@ -155,7 +155,7 @@ def generate_header(specs: ResistorSpecs) -> str:
         f"{power}, {voltage}, square end terminal"
     )
 
-    footprint_name = f"{series}_{case_in}"
+    footprint_name = f"R_{case_in}_{case_mm}Metric"
 
     return (
         f'(footprint "{footprint_name}"\n'
@@ -171,8 +171,11 @@ def generate_header(specs: ResistorSpecs) -> str:
 
 def generate_properties(specs: ResistorSpecs) -> str:
     """Generate properties section with ERJ-specific information."""
-    series = specs.series_spec.base_series
-    footprint_name = f"{series}_{specs.series_spec.case_code_in}"
+    footprint_name = \
+        "R_" + \
+        f"{specs.series_spec.case_code_in}_" + \
+        f"{specs.series_spec.case_code_mm}" + \
+        "Metric"
 
     font_props = (
         '        (effects\n'
