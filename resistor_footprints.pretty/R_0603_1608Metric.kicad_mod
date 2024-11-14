@@ -7,9 +7,9 @@
     (tags "resistor panasonic erj")
     (attr smd)
     (property "Reference" "REF**"
-        (at 0 -1.905 0)
+        (at 0 -1.524 0)
         (layer "F.SilkS")
-        (uuid "198a26d9-e551-4143-968c-322600b24012")
+        (uuid "594c360b-adac-4cb6-950b-82d1928c2d71")
         (effects
             (font
                 (size 0.762 0.762)
@@ -20,9 +20,9 @@
         )
     )
     (property "Value" "R_0603_1608Metric"
-        (at 0 1.905 0)
+        (at 0 1.524 0)
         (layer "F.Fab")
-        (uuid "3ef8b346-0e47-4b1c-92a9-48ed61eeda36")
+        (uuid "6f470d4c-07d6-4a71-8ad6-0e1801818bb1")
         (effects
             (font
                 (size 0.762 0.762)
@@ -36,7 +36,7 @@
         (at 0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "7a5e2085-c918-4b7f-aab5-948615fe04a8")
+        (uuid "524becdf-235a-4257-9e62-dbad5d4095f0")
         (effects
             (font
                 (size 0.762 0.762)
@@ -54,7 +54,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "f8b20611-15ca-4eba-bd18-523e88045a86")
+        (uuid "61096d2a-80d7-4aae-afbb-84afe4d4ea8d")
     )
     (fp_line
         (start -0.237258 0.5225)
@@ -64,7 +64,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "35cac7b7-bdf7-4bc8-828c-9e312b9fb899")
+        (uuid "f919f7dd-fbf2-40b4-81f8-08bc143bcc7a")
     )
     (fp_poly
         (pts
@@ -76,7 +76,7 @@
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "952832f4-aff0-4340-907d-be2f763dd8ae")
+        (uuid "8b4c7190-b72d-4799-b31f-3c65214a0f46")
     )
     (fp_rect
         (start -0.8 -0.4)
@@ -87,12 +87,12 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "784f775b-106c-41f5-8b9c-5f4f35fd461e")
+        (uuid "b41baa0e-43a4-4638-bc4e-6891a448e86c")
     )
     (fp_text user "${REFERENCE}"
-        (at 0 3.81 0)
+        (at 0 2.794 0)
         (layer "F.Fab")
-        (uuid "f916f3f9-8604-4722-9c72-29d3792a5259")
+        (uuid "ab3c6a29-97d1-4d9e-b11c-a7ec49c39605")
         (effects
             (font
                 (size 0.762 0.762)
@@ -106,14 +106,14 @@
         (size 0.8 0.95)
         (layers "F.Cu" "F.Paste" "F.Mask")
         (roundrect_rratio 0.25)
-        (uuid "5106adb6-498a-428f-92ae-6195cc1f8302")
+        (uuid "ca9d79a2-be71-48d0-8b02-8e4707840427")
     )
     (pad "2" smd roundrect
         (at 0.825 0)
         (size 0.8 0.95)
         (layers "F.Cu" "F.Paste" "F.Mask")
         (roundrect_rratio 0.25)
-        (uuid "c99a90dd-27dd-425e-b0d0-889d251235ab")
+        (uuid "1cbebce2-4219-4087-8042-f9031b3e6892")
     )
     (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/R_0603.step"
         (offset (xyz 0 0 0))
