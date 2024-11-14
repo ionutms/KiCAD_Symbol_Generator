@@ -105,7 +105,7 @@ class PartInfo(NamedTuple):
 SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "ERJ-2RK": SeriesSpec(
         base_series="ERJ-2RK",
-        footprint="footprints:R_0402_1005Metric",
+        footprint="resistor_footprints:R_0402_1005Metric",
         voltage_rating="50V",
         case_code_in="0402",
         case_code_mm="1005",
@@ -123,7 +123,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "ERJ-3EK": SeriesSpec(
         base_series="ERJ-3EK",
-        footprint="footprints:R_0603_1608Metric",
+        footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="75V",
         case_code_in="0603",
         case_code_mm="1608",
@@ -141,7 +141,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "ERJ-6EN": SeriesSpec(
         base_series="ERJ-6EN",
-        footprint="footprints:R_0805_2012Metric",
+        footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
@@ -160,7 +160,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "ERJ-P08": SeriesSpec(
         base_series="ERJ-P08",
-        footprint="footprints:R_1206_3216Metric",
+        footprint="resistor_footprints:R_1206_3216Metric",
         voltage_rating="500V",
         case_code_in="1206",
         case_code_mm="3216",
@@ -180,7 +180,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "ERJ-P06": SeriesSpec(
         base_series="ERJ-P06",
-        footprint="footprints:R_0805_2012Metric",
+        footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="400V",
         case_code_in="0805",
         case_code_mm="2012",
@@ -200,7 +200,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     ),
     "ERJ-P03": SeriesSpec(
         base_series="ERJ-P03",
-        footprint="footprints:R_0603_1608Metric",
+        footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="150V",
         case_code_in="0603",
         case_code_mm="1608",
