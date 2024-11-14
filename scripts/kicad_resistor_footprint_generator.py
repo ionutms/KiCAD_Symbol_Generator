@@ -119,10 +119,6 @@ def create_resistor_specs(series_spec: SeriesSpec) -> ResistorSpecs:
     """
     case_dims = CASE_DIMENSIONS[series_spec.case_code_in]
 
-    # Scale text positions based on body size
-    size_factor = float(series_spec.case_code_in[:2]) / 4.0
-    base_text_offset = 1.27
-
     return ResistorSpecs(
         series_spec=series_spec,
         body_width=case_dims["body_width"],
@@ -137,9 +133,9 @@ def create_resistor_specs(series_spec: SeriesSpec) -> ResistorSpecs:
         silk_extension=case_dims["silk_extension"],
         silk_inset=case_dims["silk_inset"],
         courtyard_margin=case_dims["courtyard_margin"],
-        ref_y=-base_text_offset * size_factor,
-        value_y=base_text_offset * size_factor,
-        fab_reference_y=2.0 * base_text_offset * size_factor
+        ref_y=case_dims["ref_y"],
+        value_y=case_dims["value_y"],
+        fab_reference_y=case_dims["fab_reference_y"],
     )
 
 
