@@ -30,15 +30,17 @@ class ResistorSpecs(NamedTuple):
     Combines physical dimensions with series-specific properties for
     generating accurate KiCad footprints.
     """
-    series_spec: SeriesSpec    # Original series specifications
-    body_width: float         # Width of resistor body
-    body_height: float        # Height of resistor body
-    pad_dims: PadDimensions   # Pad specifications
-    silk_inset: float        # Distance silk extends from body
-    courtyard_margin: float  # Courtyard margin beyond pads
-    ref_y: float            # Y position for reference designator
-    value_y: float          # Y position for value text
-    fab_reference_y: float  # Y position for fab layer reference
+    series_spec: SeriesSpec     # Original series specifications
+    body_width: float           # Width of resistor body
+    body_height: float          # Height of resistor body
+    pad_dims: PadDimensions     # Pad specifications
+    silk_y: float               # Y-coordinate of silkscreen lines
+    silk_extension: float       # X-extension of silkscreen lines from center
+    silk_inset: float           # Distance silk extends from body
+    courtyard_margin: float     # Courtyard margin beyond pads
+    ref_y: float                # Y position for reference designator
+    value_y: float              # Y position for value text
+    fab_reference_y: float      # Y position for fab layer reference
 
 
 # Mapping of case codes to physical dimensions
@@ -49,6 +51,8 @@ CASE_DIMENSIONS: Dict[str, Dict[str, float]] = {
         "pad_width": 0.54,
         "pad_height": 0.64,
         "pad_center_x": 0.51,
+        "silk_y": 0.38,
+        "silk_extension": 0.153641,
         "silk_inset": 0.15,
         "courtyard_margin": 0.91,
         "ref_y": -1.27,
@@ -61,6 +65,8 @@ CASE_DIMENSIONS: Dict[str, Dict[str, float]] = {
         "pad_width": 0.8,
         "pad_height": 0.95,
         "pad_center_x": 0.825,
+        "silk_y": 0.5225,
+        "silk_extension": 0.237258,
         "silk_inset": 0.24,
         "courtyard_margin": 1.48,
         "ref_y": -1.524,
@@ -73,6 +79,8 @@ CASE_DIMENSIONS: Dict[str, Dict[str, float]] = {
         "pad_width": 1.025,
         "pad_height": 1.4,
         "pad_center_x": 0.9125,
+        "silk_y": 0.735,
+        "silk_extension": 0.227064,
         "silk_inset": 0.23,
         "courtyard_margin": 1.68,
         "ref_y": -1.778,
@@ -85,6 +93,8 @@ CASE_DIMENSIONS: Dict[str, Dict[str, float]] = {
         "pad_width": 1.125,
         "pad_height": 1.75,
         "pad_center_x": 1.4625,
+        "silk_y": 0.91,
+        "silk_extension": 0.727064,
         "silk_inset": 0.25,
         "courtyard_margin": 2.28,
         "ref_y": -2.032,
@@ -123,6 +133,8 @@ def create_resistor_specs(series_spec: SeriesSpec) -> ResistorSpecs:
             center_x=case_dims["pad_center_x"],
             roundrect_ratio=0.25
         ),
+        silk_y=case_dims["silk_y"],
+        silk_extension=case_dims["silk_extension"],
         silk_inset=case_dims["silk_inset"],
         courtyard_margin=case_dims["courtyard_margin"],
         ref_y=-base_text_offset * size_factor,
@@ -227,22 +239,11 @@ def generate_silkscreen(specs: ResistorSpecs) -> str:
     """Generate silkscreen elements with ERJ-specific clearances."""
     silkscreen = []
 
-    # Calculate silk line positions based on case size
-    silk_positions = {
-        "0402": {"y": 0.38, "ext": 0.153641},
-        "0603": {"y": 0.5225, "ext": 0.237258},
-        "0805": {"y": 0.735, "ext": 0.227064},
-        "1206": {"y": 0.91, "ext": 0.727064}
-    }
-
-    case_code = specs.series_spec.case_code_in
-    silk_pos = silk_positions[case_code]
-
     # Top silkscreen line
     silkscreen.append(
         f'    (fp_line\n'
-        f'        (start -{silk_pos["ext"]} -{silk_pos["y"]})\n'
-        f'        (end {silk_pos["ext"]} -{silk_pos["y"]})\n'
+        f'        (start -{specs.silk_extension} -{specs.silk_y})\n'
+        f'        (end {specs.silk_extension} -{specs.silk_y})\n'
         f'        (stroke\n'
         f'            (width 0.1524)\n'
         f'            (type solid)\n'
@@ -255,8 +256,8 @@ def generate_silkscreen(specs: ResistorSpecs) -> str:
     # Bottom silkscreen line
     silkscreen.append(
         f'    (fp_line\n'
-        f'        (start -{silk_pos["ext"]} {silk_pos["y"]})\n'
-        f'        (end {silk_pos["ext"]} {silk_pos["y"]})\n'
+        f'        (start -{specs.silk_extension} {specs.silk_y})\n'
+        f'        (end {specs.silk_extension} {specs.silk_y})\n'
         f'        (stroke\n'
         f'            (width 0.1524)\n'
         f'            (type solid)\n'
