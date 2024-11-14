@@ -12,13 +12,16 @@ Features:
     - Creates individual series and unified output files
     - Produces both CSV and KiCad symbol format outputs
     - Handles standard E12 series values with exclusions
+    - Generates KiCad footprint files for each series
 """
 
+import os
 import csv
 from dataclasses import dataclass
 from typing import List, Final, Iterator, Dict, Set
 from colorama import init, Fore, Style
 import kicad_capacitor_symbol_generator as ki_csg
+import kicad_capacitor_footprint_generator as ki_cfg
 import series_specs_capacitors as ssc
 import file_handler_utilities as utils
 
@@ -58,6 +61,13 @@ class PartParameters:
     packaging: str
     series_type: ssc.SeriesType
     specs: ssc.SeriesSpec
+
+
+def ensure_directory_exists(directory: str) -> None:
+    """Create directory if it doesn't exist."""
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        print_info(f"Created directory: {directory}")
 
 
 @dataclass(frozen=True)
@@ -369,7 +379,7 @@ def generate_files_for_series(
     series_name: str,
     unified_parts_list: List[ssc.PartInfo]
 ) -> None:
-    """Generate CSV and KiCad files for a specific series.
+    """Generate CSV, KiCad symbol, and footprint files for a specific series.
 
     Args:
         series_name: Series identifier (must exist in SERIES_SPECS)
@@ -382,14 +392,22 @@ def generate_files_for_series(
         IOError: If file operations fail due to permissions or disk space
 
     Note:
-        Generated files are saved in 'data/' and 'series_kicad_sym/'
-        directories. The directories must exist before running this function.
+        Generated files are saved in 'data/', 'series_kicad_sym/', and
+        'capacitor_footprints.pretty/' directories.
     """
     if series_name not in ssc.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
     specs = ssc.SERIES_SPECS[series_name]
     series_code = series_name.replace("-", "")
+
+    # Ensure required directories exist
+    ensure_directory_exists('data')
+    ensure_directory_exists('series_kicad_sym')
+    ensure_directory_exists('symbols')
+    ensure_directory_exists('capacitor_footprints.pretty')
+    footprint_dir = "capacitor_footprints.pretty"
+
     csv_filename = f"{series_code}_part_numbers.csv"
     symbol_filename = f"CAPACITORS_{series_code}_DATA_BASE.kicad_sym"
 
@@ -413,32 +431,43 @@ def generate_files_for_series(
     except IOError as io_error:
         print_error(f"I/O error when generating KiCad symbol file: {io_error}")
 
+    # Generate KiCad footprint file
+    try:
+        ki_cfg.generate_footprint_file(series_name, footprint_dir)
+        footprint_name = f"{series_name}_{specs.case_code_in}.kicad_mod"
+        print_success(
+            f"KiCad footprint file '{footprint_name}' generated successfully.")
+    except KeyError as key_error:
+        print_error(f"Invalid series specification: {key_error}")
+    except IOError as io_error:
+        print_error(f"I/O error when generating footprint file: {io_error}")
+
     # Add parts to unified list
     unified_parts_list.extend(parts_list)
 
 
 def generate_unified_files(
     all_parts: List[ssc.PartInfo],
-        unified_csv: str,
-        unified_symbol: str
+    unified_csv: str,
+    unified_symbol: str
 ) -> None:
-    """Generate unified CSV and KiCad files containing all series.
+    """Generate unified component database files containing all series.
 
     Args:
         all_parts: Complete list of parts to include in unified files
+        unified_csv: Name of the unified CSV file
+        unified_symbol: Name of the unified symbol file
 
     Raises:
-        FileNotFoundError: If CSV file creation fails
+        FileNotFoundError: If unified CSV file creation fails
         csv.Error: If CSV processing fails or data formatting is invalid
         IOError: If file operations fail due to permissions or disk space
 
     Note:
-        Creates two files:
-        - data/UNITED_CAPACITORS_DATA_BASE.csv
-        - UNITED_CAPACITORS_DATA_BASE.kicad_sym
-
-        The 'data' directory must exist before running this function.
-        Existing files will be overwritten.
+        Creates:
+        1. A unified CSV file containing all component specifications
+        2. A unified KiCad symbol file containing all components
+        3. A complete footprint library for all series
     """
     # Write unified CSV file
     utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
@@ -457,6 +486,19 @@ def generate_unified_files(
     except IOError as io_error:
         print_error(
             f"I/O error when generating unified KiCad symbol file: {io_error}")
+
+    # Generate footprints for all series
+    print_info("\nGenerating footprints for all series:")
+    footprint_dir = "capacitor_footprints.pretty"
+    ensure_directory_exists(footprint_dir)
+
+    for part_series in ssc.SERIES_SPECS:
+        try:
+            ki_cfg.generate_footprint_file(part_series, footprint_dir)
+            print_success(f"Generated footprint for {part_series}")
+        except (KeyError, IOError) as error:
+            print_error(
+                f"Error generating footprint for {part_series}: {error}")
 
 
 if __name__ == "__main__":

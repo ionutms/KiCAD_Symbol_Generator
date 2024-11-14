@@ -107,7 +107,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM155": SeriesSpec(
         base_series="GCM155",
         manufacturer="Murata Electronics",
-        footprint="footprints:C_0402_1005Metric",
+        footprint="capacitor_footprints:C_0402_1005Metric",
         voltage_rating="50V",
         case_code_in="0402",
         case_code_mm="1005",
@@ -135,7 +135,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM188": SeriesSpec(
         base_series="GCM188",
         manufacturer="Murata Electronics",
-        footprint="footprints:C_0603_1608Metric",
+        footprint="capacitor_footprints:C_0603_1608Metric",
         voltage_rating="50V",
         case_code_in="0603",
         case_code_mm="1608",
@@ -161,7 +161,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM216": SeriesSpec(
         base_series="GCM216",
         manufacturer="Murata Electronics",
-        footprint="footprints:C_0805_2012Metric",
+        footprint="capacitor_footprints:C_0805_2012Metric",
         voltage_rating="50V",
         case_code_in="0805",
         case_code_mm="2012",
@@ -184,7 +184,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM31M": SeriesSpec(
         base_series="GCM31M",
         manufacturer="Murata Electronics",
-        footprint="footprints:C_1206_3216Metric",
+        footprint="capacitor_footprints:C_1206_3216Metric",
         voltage_rating="50V",
         case_code_in="1206",
         case_code_mm="3216",
@@ -210,7 +210,7 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
     "GCM31C": SeriesSpec(
         base_series="GCM31C",
         manufacturer="Murata Electronics",
-        footprint="footprints:C_1206_3216Metric",
+        footprint="capacitor_footprints:C_1206_3216Metric",
         voltage_rating="25V",
         case_code_in="1206",
         case_code_mm="3216",
