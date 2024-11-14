@@ -257,20 +257,6 @@ def generate_silkscreen(specs: CapacitorSpecs) -> str:
         f'    )'
     )
 
-    # Add polarity marking on negative side (left)
-    silkscreen.append(
-        f'    (fp_line\n'
-        f'        (start -{specs.body_width/2 - 0.1} -{specs.body_height/2})\n'
-        f'        (end -{specs.body_width/2 - 0.1} {specs.body_height/2})\n'
-        f'        (stroke\n'
-        f'            (width 0.1524)\n'
-        f'            (type solid)\n'
-        f'        )\n'
-        f'        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
-
     return "\n".join(silkscreen)
 
 
