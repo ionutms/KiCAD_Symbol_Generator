@@ -330,7 +330,7 @@ def generate_3d_model(specs: ResistorSpecs) -> str:
     """Generate 3D model reference for ERJ series."""
     case_code = specs.series_spec.case_code_in
     return (
-        f'    (model "${{KIPRJMOD}}/3D_models/'
+        f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
         f'R_{case_code}.step"\n'
         f'        (offset (xyz 0 0 0))\n'
         f'        (scale (xyz 1 1 1))\n'
