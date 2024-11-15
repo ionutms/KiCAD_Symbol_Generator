@@ -120,7 +120,7 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
         Complete .kicad_mod file content as formatted string
     """
     sections = [
-        generate_header(part_info.mpn),
+        generate_header(part_info.series),
         generate_properties(part_info, specs),
         generate_shapes(specs),
         generate_pads(specs),
@@ -169,7 +169,7 @@ def generate_properties(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
         f'        (uuid "{uuid4()}")\n'
         f'{font_props}\n'
         f'    )\n'
-        f'    (property "Value" "{part_info.mpn}"\n'
+        f'    (property "Value" "{part_info.series}"\n'
         f'        (at 0 {specs.fab_ref_y} 0)\n'
         f'        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
@@ -268,7 +268,7 @@ def generate_3d_model(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
     """Generate the 3D model section of the footprint."""
     model_path = (
         f'KiCAD_Symbol_Generator/3D_models/'
-        f'{part_info.manufacturer}_{part_info.mpn}.step'
+        f'{part_info.series}.step'
     )
 
     return (
@@ -308,6 +308,6 @@ def generate_footprint_file(part_info: ssi.PartInfo) -> None:
     specs = INDUCTOR_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
 
-    filename = f"inductor_footprints.pretty/{part_info.mpn}.kicad_mod"
+    filename = f"inductor_footprints.pretty/{part_info.series}.kicad_mod"
     with open(filename, 'w', encoding='utf-8') as output_file:
         output_file.write(footprint_content)
