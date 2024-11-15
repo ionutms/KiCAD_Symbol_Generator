@@ -264,7 +264,7 @@ def generate_pads(specs: InductorSpecs) -> str:
 
 def generate_3d_model(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
     """Generate the 3D model section of the footprint."""
-    model_path = f'KiCad_Database_Library/3D_models/{part_info.series}.step'
+    model_path = f'KiCAD_Symbol_Generator/3D_models//{part_info.series}.step'
 
     return (
         f'    (model "${{KIPRJMOD}}/{model_path}"\n'
