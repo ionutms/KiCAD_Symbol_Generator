@@ -7,10 +7,12 @@ Supports both standard and AEC-Q200 qualified parts.
 Generates both individual series files and unified component database.
 """
 
+import os
 import csv
 from typing import Final, List
 from colorama import init, Fore, Style
 import kicad_inductor_symbol_generator as ki_isg
+import kicad_inductor_footprint_generator as ki_ifg
 import series_specs_inductors as ssi
 import file_handler_utilities as utils
 
@@ -218,6 +220,22 @@ def generate_part_numbers(
     ]
 
 
+def generate_footprints_for_series(parts_list: List[ssi.PartInfo]) -> None:
+    """Generate footprint files for all parts in a series."""
+    os.makedirs("inductor_footprints.pretty", exist_ok=True)
+
+    for part in parts_list:
+        try:
+            ki_ifg.generate_footprint_file(part)
+            print_success(
+                f"Generated footprint file for {part.mpn}"
+            )
+        except ValueError as e:
+            print_error(f"Error generating footprint: {e}")
+        except IOError as e:
+            print_error(f"I/O error generating footprint: {e}")
+
+
 # Global header to attribute mapping
 HEADER_MAPPING: Final[dict] = {
     'Symbol Name': lambda part: part.symbol_name,
@@ -272,6 +290,9 @@ def generate_files_for_series(
             f"KiCad symbol file '{symbol_filename}' "
             "generated successfully."
         )
+
+        # Generate footprints for the series
+        generate_footprints_for_series(parts_list)
 
         # Add parts to unified list
         unified_parts_list.extend(parts_list)
