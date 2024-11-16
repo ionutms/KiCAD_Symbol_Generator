@@ -21,6 +21,12 @@ class PadDimensions(NamedTuple):
     center_x: float   # Distance from origin to pad center
 
 
+class BodyDimensions(NamedTuple):
+    "TODO"
+    width: float
+    height: float
+
+
 class InductorSpecs(NamedTuple):
     """
     Complete specifications for generating an inductor footprint.
@@ -29,8 +35,7 @@ class InductorSpecs(NamedTuple):
     generating accurate KiCad footprints.
     """
     series_name: str          # Inductor series name
-    body_width: float         # Width of inductor body
-    body_height: float        # Height of inductor body
+    body_dims: BodyDimensions
     pad_dims: PadDimensions  # Pad specifications
     silk_y: float            # Y-coordinate of silkscreen lines
     ref_y: float             # Y position for reference designator
@@ -41,12 +46,12 @@ class InductorSpecs(NamedTuple):
 # Mapping of inductor series to physical dimensions
 INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
     "XAL1010": {
-        "body_width": 10.922,  # Total width (2 * 5.461)
-        "body_height": 12.192,  # Total height (2 * 6.096)
-        "pad_width": 2.3876,
-        "pad_height": 8.9916,
-        "pad_center_x": 3.3274,
-        "silk_y": 6.096,
+        "body": {"width": 10.922, "height": 12.192},
+        "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
+        # "pad_width": 2.3876,
+        # "pad_height": 8.9916,
+        # "pad_center_x": 3.3274,
+        "silk_y": 6.858,
         "ref_y": -6.858,
         "value_y": 8.128,
         "fab_reference_y": 6.858,
@@ -71,13 +76,8 @@ def create_inductor_specs(series_name: str) -> InductorSpecs:
 
     return InductorSpecs(
         series_name=series_name,
-        body_width=dims["body_width"],
-        body_height=dims["body_height"],
-        pad_dims=PadDimensions(
-            width=dims["pad_width"],
-            height=dims["pad_height"],
-            center_x=dims["pad_center_x"]
-        ),
+        body_dims=dims["body"],
+        pad_dims=dims["pad"],
         silk_y=dims["silk_y"],
         ref_y=dims["ref_y"],
         value_y=dims["value_y"],
@@ -166,7 +166,7 @@ def generate_properties(specs: InductorSpecs) -> str:
 
 def generate_silkscreen(specs: InductorSpecs) -> str:
     """Generate silkscreen elements with inductor-specific clearances."""
-    half_width = specs.body_width / 2
+    half_width = specs.body_dims["width"] / 2
     silkscreen_x = half_width * 0.372  # Adjust silk line length
 
     silkscreen = []
@@ -204,8 +204,8 @@ def generate_silkscreen(specs: InductorSpecs) -> str:
 
 def generate_courtyard(specs: InductorSpecs) -> str:
     """Generate courtyard outline with inductor-specific clearances."""
-    half_width = specs.body_width / 2
-    half_height = specs.body_height / 2
+    half_width = specs.body_dims["width"] / 2
+    half_height = specs.body_dims["height"] / 2
 
     return (
         f'    (fp_rect\n'
@@ -224,8 +224,8 @@ def generate_courtyard(specs: InductorSpecs) -> str:
 
 def generate_fab_layer(specs: InductorSpecs) -> str:
     """Generate fabrication layer with inductor-specific markings."""
-    half_width = specs.body_width / 2
-    half_height = specs.body_height / 2
+    half_width = specs.body_dims["width"] / 2
+    half_height = specs.body_dims["height"] / 2
 
     fab_elements = []
 
@@ -247,8 +247,8 @@ def generate_fab_layer(specs: InductorSpecs) -> str:
     # Polarity marker
     fab_elements.append(
         f'    (fp_circle\n'
-        f'        (center -{specs.pad_dims.center_x} 0)\n'
-        f'        (end -{specs.pad_dims.center_x - 0.0762} 0)\n'
+        f'        (center -{specs.pad_dims["center_x"]} 0)\n'
+        f'        (end -{specs.pad_dims["center_x"] - 0.0762} 0)\n'
         f'        (stroke\n'
         f'            (width 0.0254)\n'
         f'            (type solid)\n'
@@ -286,8 +286,10 @@ def generate_pads(specs: InductorSpecs) -> str:
     # Left pad (1)
     pads.append(
         f'    (pad "1" smd rect\n'
-        f'        (at -{specs.pad_dims.center_x} 0)\n'
-        f'        (size {specs.pad_dims.width} {specs.pad_dims.height})\n'
+        f'        (at -{specs.pad_dims["center_x"]} 0)\n'
+        f'        (size '
+        f'{specs.pad_dims["width"]} '
+        f'{specs.pad_dims["height"]})\n'
         f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
         f'        (uuid "{uuid4()}")\n'
         f'    )'
@@ -296,8 +298,10 @@ def generate_pads(specs: InductorSpecs) -> str:
     # Right pad (2)
     pads.append(
         f'    (pad "2" smd rect\n'
-        f'        (at {specs.pad_dims.center_x} 0)\n'
-        f'        (size {specs.pad_dims.width} {specs.pad_dims.height})\n'
+        f'        (at {specs.pad_dims["center_x"]} 0)\n'
+        f'        (size '
+        f'{specs.pad_dims["width"]} '
+        f'{specs.pad_dims["height"]})\n'
         f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
         f'        (uuid "{uuid4()}")\n'
         f'    )'
