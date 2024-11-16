@@ -1,9 +1,18 @@
 """
 KiCad Footprint Generator for Power Inductors
 
-Generates standardized KiCad footprint files (.kicad_mod) for power inductors.
-Uses manufacturer specifications to create accurate footprints with appropriate
-pad dimensions and clearances.
+Generates standardized KiCad footprint files (.kicad_mod) for power inductors
+based on manufacturer specifications.
+Creates accurate footprints with appropriate pad dimensions, clearances,
+and silkscreen markings for surface mount power inductors.
+
+The generator supports multiple inductor series with predefined
+specifications and produces KiCad-compatible footprint files that include:
+- SMD pads with correct dimensions and spacing
+- Silk screen markings for part outline
+- Fabrication layer markings including polarity indicators
+- Courtyard definitions
+- 3D model references
 """
 
 from typing import Dict, NamedTuple
@@ -13,20 +22,31 @@ import series_specs_inductors as ssi
 
 class PadDimensions(NamedTuple):
     """
-    Defines SMD pad dimensions and positioning.
+    Defines SMD pad dimensions and positioning for power inductors.
 
-    All measurements in millimeters.
+    All measurements are in millimeters and follow the KiCad
+    coordinate system where positive X is right and positive Y is up.
+
+    Attributes:
+        width: Width of each SMD pad
+        height: Height of each pad
+        center_x: Distance from origin to pad center on X-axis
     """
-    width: float      # Width of each pad
-    height: float     # Height of each pad
-    center_x: float   # Distance from origin to pad center
+    width: float
+    height: float
+    center_x: float
 
 
 class BodyDimensions(NamedTuple):
     """
-    Defines part body dimensions.
+    Defines physical dimensions of the inductor body.
 
-    All measurements in millimeters.
+    All measurements are in millimeters and represent the maximum extents
+    of the component body.
+
+    Attributes:
+        width: Width of inductor body (X dimension)
+        height: Height of inductor body (Y dimension)
     """
     width: float
     height: float
@@ -36,16 +56,21 @@ class InductorSpecs(NamedTuple):
     """
     Complete specifications for generating an inductor footprint.
 
-    Combines physical dimensions with series-specific properties for
-    generating accurate KiCad footprints.
+    Combines series identification, physical dimensions,
+    and placement parameters needed to generate accurate KiCad footprints.
+
+    Attributes:
+        series_name: Manufacturer's series identifier
+        body_dims: Physical dimensions of the inductor body
+        pad_dims: SMD pad specifications
+        ref_offset_y: Y-axis offset for reference designator placement
     """
-    series_name: str          # Inductor series name
+    series_name: str
     body_dims: BodyDimensions
-    pad_dims: PadDimensions  # Pad specifications
+    pad_dims: PadDimensions
     ref_offset_y: float
 
 
-# Mapping of inductor series to physical dimensions
 INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
     "XAL1010": {
         "body": {"width": 10.922, "height": 12.192}, "ref_offset_y": -6.858,
@@ -204,19 +229,23 @@ INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
 
 def create_inductor_specs(series_name: str) -> InductorSpecs:
     """
-    Create complete inductor specifications from series name.
+    Create complete inductor specifications from a series name.
+
+    Looks up physical dimensions and parameters for the specified inductor
+    series and returns a complete specification object for footprint
+    generation.
 
     Args:
-        series_name: Name of the inductor series (e.g., "XAL1010")
+        series_name: Manufacturer's series identifier
 
     Returns:
-        InductorSpecs object with complete physical dimensions
+        InductorSpecs object containing complete physical dimensions and
+        parameters
 
     Raises:
-        KeyError: If series name is not found in INDUCTOR_DIMENSIONS
+        KeyError: If series_name is not found in INDUCTOR_SPECS dictionary
     """
     dims = INDUCTOR_SPECS[series_name]
-
     return InductorSpecs(
         series_name=series_name,
         body_dims=dims["body"],
@@ -229,11 +258,15 @@ def generate_footprint(specs: InductorSpecs) -> str:
     """
     Generate complete KiCad footprint file content for an inductor.
 
+    Creates a KiCad-compatible footprint file (.kicad_mod) containing all
+    necessary elements including pads, silkscreen, fabrication layer, and
+    3D model references.
+
     Args:
-        specs: Physical specifications for the inductor
+        specs: Complete physical specifications for the inductor
 
     Returns:
-        Complete .kicad_mod file content as formatted string
+        Formatted string containing complete .kicad_mod file content
     """
     sections = [
         generate_header(specs),
