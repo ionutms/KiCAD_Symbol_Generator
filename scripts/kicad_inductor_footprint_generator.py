@@ -322,7 +322,7 @@ def generate_properties(specs: InductorSpecs) -> str:
         f'{font_props}\n'
         '    )\n'
         f'    (property "Value" "{specs.series_name}"\n'
-        f'        (at 0 {specs.text_offset_y["ref"]*-1} 0)\n'
+        f'        (at 0 {-1 * specs.text_offset_y["ref"]} 0)\n'
         '        (unlocked yes)\n'
         '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
@@ -430,7 +430,7 @@ def generate_fab_layer(specs: InductorSpecs) -> str:
     # Reference on fab layer
     fab_elements.append(
         f'    (fp_text user "${{REFERENCE}}"\n'
-        f'        (at 0 {specs.text_offset_y["fab"]} 0)\n'
+        f'        (at 0 {-1 * specs.text_offset_y["ref"] + 1.27} 0)\n'
         '        (unlocked yes)\n'
         '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
