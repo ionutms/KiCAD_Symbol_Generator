@@ -48,9 +48,6 @@ INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
     "XAL1010": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        # "pad_width": 2.3876,
-        # "pad_height": 8.9916,
-        # "pad_center_x": 3.3274,
         "silk_y": 6.096,
         "ref_y": -6.858,
         "value_y": 8.128,
@@ -166,38 +163,23 @@ def generate_properties(specs: InductorSpecs) -> str:
 
 def generate_silkscreen(specs: InductorSpecs) -> str:
     """Generate silkscreen elements with inductor-specific clearances."""
-    # half_width = specs.body_dims["width"] / 2
     silkscreen_x = specs.pad_dims["center_x"] - specs.pad_dims["width"] / 2
 
     silkscreen = []
 
-    # Top silkscreen line
-    silkscreen.append(
-        f'    (fp_line\n'
-        f'        (start {silkscreen_x} -{specs.silk_y})\n'
-        f'        (end -{silkscreen_x} -{specs.silk_y})\n'
-        f'        (stroke\n'
-        f'            (width 0.1524)\n'
-        f'            (type solid)\n'
-        f'        )\n'
-        f'        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
-
-    # Bottom silkscreen line
-    silkscreen.append(
-        f'    (fp_line\n'
-        f'        (start {silkscreen_x} {specs.silk_y})\n'
-        f'        (end -{silkscreen_x} {specs.silk_y})\n'
-        f'        (stroke\n'
-        f'            (width 0.1524)\n'
-        f'            (type solid)\n'
-        f'        )\n'
-        f'        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
+    for symbol in ['-', '']:
+        silkscreen.append(
+            f'    (fp_line\n'
+            f'        (start {silkscreen_x} {symbol}{specs.silk_y})\n'
+            f'        (end -{silkscreen_x} {symbol}{specs.silk_y})\n'
+            f'        (stroke\n'
+            f'            (width 0.1524)\n'
+            f'            (type solid)\n'
+            f'        )\n'
+            f'        (layer "F.SilkS")\n'
+            f'        (uuid "{uuid4()}")\n'
+            f'    )'
+        )
 
     return "\n".join(silkscreen)
 
