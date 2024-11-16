@@ -54,7 +54,7 @@ INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
         "silk_y": 6.858,
         "ref_y": -6.858,
         "value_y": 8.128,
-        "fab_reference_y": 6.858,
+        "fab_reference_y": 6.096,
     },
 }
 
