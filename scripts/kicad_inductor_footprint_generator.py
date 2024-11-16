@@ -98,6 +98,24 @@ INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
         "silk_line_y": 8.382,
         "text_offset_y": {"ref": -9.144, "value": 9.144, "fab": 10.414},
     },
+    "XAL4020": {
+        "body": {"width": 4.4704, "height": 4.4704},
+        "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
+        "silk_line_y": 2.2352,
+        "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
+    },
+    "XAL4030": {
+        "body": {"width": 4.4704, "height": 4.4704},
+        "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
+        "silk_line_y": 2.2352,
+        "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
+    },
+    "XAL4040": {
+        "body": {"width": 4.4704, "height": 4.4704},
+        "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
+        "silk_line_y": 2.2352,
+        "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
+    },
 }
 
 
