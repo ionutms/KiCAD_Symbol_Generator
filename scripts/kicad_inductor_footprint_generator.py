@@ -188,6 +188,24 @@ INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
         "silk_line_y": 4.572,
         "text_offset_y": {"ref": -5.588, "value": 5.588, "fab": 6.858},
     },
+    "XFL2005": {
+        "body": {"width": 2.6924, "height": 2.3876},
+        "pad": {"width": 1.0414, "height": 2.2098, "center_x": 0.7239},
+        "silk_line_y": 1.1938,
+        "text_offset_y": {"ref": -2.032, "value": 2.032, "fab": 3.302},
+    },
+    "XFL2006": {
+        "body": {"width": 2.286, "height": 2.3876},
+        "pad": {"width": 0.6096, "height": 1.8034, "center_x": 0.6731},
+        "silk_line_y": 1.1938,
+        "text_offset_y": {"ref": -2.032, "value": 2.032, "fab": 3.302},
+    },
+    "XFL2010": {
+        "body": {"width": 2.286, "height": 2.3876},
+        "pad": {"width": 0.6096, "height": 1.8034, "center_x": 0.6731},
+        "silk_line_y": 1.1938,
+        "text_offset_y": {"ref": -2.032, "value": 2.032, "fab": 3.302},
+    },
 }
 
 
