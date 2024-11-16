@@ -166,8 +166,8 @@ def generate_properties(specs: InductorSpecs) -> str:
 
 def generate_silkscreen(specs: InductorSpecs) -> str:
     """Generate silkscreen elements with inductor-specific clearances."""
-    half_width = specs.body_dims["width"] / 2
-    silkscreen_x = half_width  # Adjust silk line length
+    # half_width = specs.body_dims["width"] / 2
+    silkscreen_x = specs.pad_dims["center_x"] - specs.pad_dims["width"] / 2
 
     silkscreen = []
 
