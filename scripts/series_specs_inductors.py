@@ -542,7 +542,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL4012": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL4012",
-        footprint="footprints:XFL4012",
+        footprint="inductor_footprints:XFL4012",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "2d7c4d90-1677-4c05-9569-33b6dc7153e7/xfl4012.pdf",
@@ -555,7 +555,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL4015": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL4015",
-        footprint="footprints:XFL4015",
+        footprint="inductor_footprints:XFL4015",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "84927b8b-f089-421b-a7f4-a0fa23afe908/xfl4015.pdf",
@@ -568,7 +568,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL4020": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL4020",
-        footprint="footprints:XFL4020",
+        footprint="inductor_footprints:XFL4020",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "50632d43-da1b-4cdb-8ab4-3029cab51df3/xfl4020.pdf",
@@ -587,7 +587,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL4030": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL4030",
-        footprint="footprints:XFL4030",
+        footprint="inductor_footprints:XFL4030",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "d12f7f67-cfc1-404a-9993-f09a1451b0a9/xfl4030.pdf",

@@ -218,6 +218,30 @@ INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
         "silk_line_y": 1.6764,
         "text_offset_y": {"ref": -2.54, "value": 2.54, "fab": 3.81},
     },
+    "XFL4012": {
+        "body": {"width": 4.4704, "height": 4.4704},
+        "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
+        "silk_line_y": 2.2352,
+        "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
+    },
+    "XFL4015": {
+        "body": {"width": 4.4704, "height": 4.4704},
+        "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
+        "silk_line_y": 2.2352,
+        "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
+    },
+    "XFL4020": {
+        "body": {"width": 4.4704, "height": 4.4704},
+        "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
+        "silk_line_y": 2.2352,
+        "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
+    },
+    "XFL4030": {
+        "body": {"width": 4.4704, "height": 4.4704},
+        "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
+        "silk_line_y": 2.2352,
+        "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
+    },
 }
 
 
