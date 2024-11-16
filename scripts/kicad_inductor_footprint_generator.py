@@ -176,6 +176,18 @@ INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
         "silk_line_y": 4.191,
         "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
     },
+    "XAL8050": {
+        "body": {"width": 8.636, "height": 9.144},
+        "pad": {"width": 1.778, "height": 7.0104, "center_x": 2.5781},
+        "silk_line_y": 4.572,
+        "text_offset_y": {"ref": -5.588, "value": 5.588, "fab": 6.858},
+    },
+    "XAL8080": {
+        "body": {"width": 8.636, "height": 9.144},
+        "pad": {"width": 1.778, "height": 7.0104, "center_x": 2.5781},
+        "silk_line_y": 4.572,
+        "text_offset_y": {"ref": -5.588, "value": 5.588, "fab": 6.858},
+    },
 }
 
 
