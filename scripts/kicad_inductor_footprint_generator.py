@@ -51,10 +51,10 @@ INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
         # "pad_width": 2.3876,
         # "pad_height": 8.9916,
         # "pad_center_x": 3.3274,
-        "silk_y": 6.858,
+        "silk_y": 6.096,
         "ref_y": -6.858,
         "value_y": 8.128,
-        "fab_reference_y": 6.096,
+        "fab_reference_y": 6.858,
     },
 }
 
