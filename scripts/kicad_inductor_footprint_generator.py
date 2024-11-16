@@ -44,7 +44,6 @@ class InductorSpecs(NamedTuple):
     series_name: str          # Inductor series name
     body_dims: BodyDimensions
     pad_dims: PadDimensions  # Pad specifications
-    silk_line_y: float       # Y-coordinate of silkscreen lines
     text_offset_y: TextOffsetY
 
 
@@ -53,229 +52,191 @@ INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
     "XAL1010": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        "silk_line_y": 6.096,
         "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
     "XAL1030": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        "silk_line_y": 6.096,
         "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
     "XAL1060": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        "silk_line_y": 6.096,
         "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
     "XAL1080": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        "silk_line_y": 6.096,
         "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
     "XAL1350": {
         "body": {"width": 13.716, "height": 14.732},
         "pad": {"width": 2.9718, "height": 11.9888, "center_x": 4.3053},
-        "silk_line_y": 7.366,
         "text_offset_y": {"ref": -8.128, "value": 8.128, "fab": 9.398},
     },
     "XAL1510": {
         "body": {"width": 15.748, "height": 16.764},
         "pad": {"width": 3.175, "height": 13.208, "center_x": 5.2959},
-        "silk_line_y": 8.382,
         "text_offset_y": {"ref": -9.144, "value": 9.144, "fab": 10.414},
     },
     "XAL1513": {
         "body": {"width": 15.748, "height": 16.764},
         "pad": {"width": 3.175, "height": 13.208, "center_x": 5.2959},
-        "silk_line_y": 8.382,
         "text_offset_y": {"ref": -9.144, "value": 9.144, "fab": 10.414},
     },
     "XAL1580": {
         "body": {"width": 15.748, "height": 16.764},
         "pad": {"width": 3.175, "height": 13.208, "center_x": 5.2959},
-        "silk_line_y": 8.382,
         "text_offset_y": {"ref": -9.144, "value": 9.144, "fab": 10.414},
     },
     "XAL4020": {
         "body": {"width": 4.4704, "height": 4.4704},
         "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
-        "silk_line_y": 2.2352,
         "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
     },
     "XAL4030": {
         "body": {"width": 4.4704, "height": 4.4704},
         "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
-        "silk_line_y": 2.2352,
         "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
     },
     "XAL4040": {
         "body": {"width": 4.4704, "height": 4.4704},
         "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
-        "silk_line_y": 2.2352,
         "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
     },
     "XAL5020": {
         "body": {"width": 5.6896, "height": 5.9436},
         "pad": {"width": 1.1684, "height": 4.699, "center_x": 1.651},
-        "silk_line_y": 2.9718,
         "text_offset_y": {"ref": -3.81, "value": 3.81, "fab": 5.08},
     },
     "XAL5030": {
         "body": {"width": 5.6896, "height": 5.9436},
         "pad": {"width": 1.1684, "height": 4.699, "center_x": 1.651},
-        "silk_line_y": 2.9718,
         "text_offset_y": {"ref": -3.81, "value": 3.81, "fab": 5.08},
     },
     "XAL5050": {
         "body": {"width": 5.6896, "height": 5.9436},
         "pad": {"width": 1.1684, "height": 4.699, "center_x": 1.651},
-        "silk_line_y": 2.9718,
         "text_offset_y": {"ref": -3.81, "value": 3.81, "fab": 5.08},
     },
     "XAL6020": {
         "body": {"width": 6.858, "height": 7.112},
         "pad": {"width": 1.4224, "height": 5.4864, "center_x": 2.0193},
-        "silk_line_y": 3.556,
         "text_offset_y": {"ref": -4.572, "value": 4.572, "fab": 5.842},
     },
     "XAL6030": {
         "body": {"width": 6.858, "height": 7.112},
         "pad": {"width": 1.4224, "height": 5.4864, "center_x": 2.0193},
-        "silk_line_y": 3.556,
         "text_offset_y": {"ref": -4.572, "value": 4.572, "fab": 5.842},
     },
     "XAL6060": {
         "body": {"width": 6.858, "height": 7.112},
         "pad": {"width": 1.4224, "height": 5.4864, "center_x": 2.0193},
-        "silk_line_y": 3.556,
         "text_offset_y": {"ref": -4.572, "value": 4.572, "fab": 5.842},
     },
     "XAL7020": {
         "body": {"width": 8.382, "height": 8.382},
         "pad": {"width": 1.778, "height": 6.5024, "center_x": 2.3622},
-        "silk_line_y": 4.191,
         "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
     },
     "XAL7030": {
         "body": {"width": 8.382, "height": 8.382},
         "pad": {"width": 1.778, "height": 6.5024, "center_x": 2.3622},
-        "silk_line_y": 4.191,
         "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
     },
     "XAL7050": {
         "body": {"width": 8.382, "height": 8.382},
         "pad": {"width": 1.778, "height": 6.5024, "center_x": 2.3622},
-        "silk_line_y": 4.191,
         "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
     },
     "XAL7070": {
         "body": {"width": 8.0264, "height": 8.382},
         "pad": {"width": 1.9304, "height": 6.5024, "center_x": 2.413},
-        "silk_line_y": 4.191,
         "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
     },
     "XAL8050": {
         "body": {"width": 8.636, "height": 9.144},
         "pad": {"width": 1.778, "height": 7.0104, "center_x": 2.5781},
-        "silk_line_y": 4.572,
         "text_offset_y": {"ref": -5.588, "value": 5.588, "fab": 6.858},
     },
     "XAL8080": {
         "body": {"width": 8.636, "height": 9.144},
         "pad": {"width": 1.778, "height": 7.0104, "center_x": 2.5781},
-        "silk_line_y": 4.572,
         "text_offset_y": {"ref": -5.588, "value": 5.588, "fab": 6.858},
     },
     "XFL2005": {
         "body": {"width": 2.6924, "height": 2.3876},
         "pad": {"width": 1.0414, "height": 2.2098, "center_x": 0.7239},
-        "silk_line_y": 1.1938,
         "text_offset_y": {"ref": -2.032, "value": 2.032, "fab": 3.302},
     },
     "XFL2006": {
         "body": {"width": 2.286, "height": 2.3876},
         "pad": {"width": 0.6096, "height": 1.8034, "center_x": 0.6731},
-        "silk_line_y": 1.1938,
         "text_offset_y": {"ref": -2.032, "value": 2.032, "fab": 3.302},
     },
     "XFL2010": {
         "body": {"width": 2.286, "height": 2.3876},
         "pad": {"width": 0.6096, "height": 1.8034, "center_x": 0.6731},
-        "silk_line_y": 1.1938,
         "text_offset_y": {"ref": -2.032, "value": 2.032, "fab": 3.302},
     },
     "XFL3010": {
         "body": {"width": 3.3528, "height": 3.3528},
         "pad": {"width": 0.9906, "height": 2.8956, "center_x": 1.016},
-        "silk_line_y": 1.6764,
         "text_offset_y": {"ref": -2.54, "value": 2.54, "fab": 3.81},
     },
     "XFL3012": {
         "body": {"width": 3.3528, "height": 3.3528},
         "pad": {"width": 0.9906, "height": 2.8956, "center_x": 1.016},
-        "silk_line_y": 1.6764,
         "text_offset_y": {"ref": -2.54, "value": 2.54, "fab": 3.81},
     },
     "XFL4012": {
         "body": {"width": 4.4704, "height": 4.4704},
         "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
-        "silk_line_y": 2.2352,
         "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
     },
     "XFL4015": {
         "body": {"width": 4.4704, "height": 4.4704},
         "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
-        "silk_line_y": 2.2352,
         "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
     },
     "XFL4020": {
         "body": {"width": 4.4704, "height": 4.4704},
         "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
-        "silk_line_y": 2.2352,
         "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
     },
     "XFL4030": {
         "body": {"width": 4.4704, "height": 4.4704},
         "pad": {"width": 0.9652, "height": 3.4036, "center_x": 1.1811},
-        "silk_line_y": 2.2352,
         "text_offset_y": {"ref": -3.048, "value": 3.048, "fab": 4.318},
     },
     "XFL5015": {
         "body": {"width": 5.6896, "height": 5.9436},
         "pad": {"width": 1.1684, "height": 4.699, "center_x": 1.651},
-        "silk_line_y": 2.9718,
         "text_offset_y": {"ref": -3.81, "value": 3.81, "fab": 5.08},
     },
     "XFL5018": {
         "body": {"width": 5.6896, "height": 5.9436},
         "pad": {"width": 1.1684, "height": 4.699, "center_x": 1.651},
-        "silk_line_y": 2.9718,
         "text_offset_y": {"ref": -3.81, "value": 3.81, "fab": 5.08},
     },
     "XFL5030": {
         "body": {"width": 5.6896, "height": 5.9436},
         "pad": {"width": 1.1684, "height": 4.699, "center_x": 1.651},
-        "silk_line_y": 2.9718,
         "text_offset_y": {"ref": -3.81, "value": 3.81, "fab": 5.08},
     },
     "XFL6012": {
         "body": {"width": 6.858, "height": 7.112},
         "pad": {"width": 1.4224, "height": 5.4864, "center_x": 2.0193},
-        "silk_line_y": 3.556,
         "text_offset_y": {"ref": -4.572, "value": 4.572, "fab": 5.842},
     },
     "XFL6060": {
         "body": {"width": 6.858, "height": 7.112},
         "pad": {"width": 1.4224, "height": 5.4864, "center_x": 2.0193},
-        "silk_line_y": 3.556,
         "text_offset_y": {"ref": -4.572, "value": 4.572, "fab": 5.842},
     },
     "XFL7015": {
         "body": {"width": 8.382, "height": 8.382},
         "pad": {"width": 1.778, "height": 6.223, "center_x": 2.286},
-        "silk_line_y": 4.191,
         "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
     },
 }
@@ -300,7 +261,6 @@ def create_inductor_specs(series_name: str) -> InductorSpecs:
         series_name=series_name,
         body_dims=dims["body"],
         pad_dims=dims["pad"],
-        silk_line_y=dims["silk_line_y"],
         text_offset_y=dims["text_offset_y"]
     )
 
@@ -363,7 +323,7 @@ def generate_properties(specs: InductorSpecs) -> str:
         f'{font_props}\n'
         '    )\n'
         f'    (property "Value" "{specs.series_name}"\n'
-        f'        (at 0 {specs.text_offset_y["value"]} 0)\n'
+        f'        (at 0 {specs.text_offset_y["ref"]*-1} 0)\n'
         '        (unlocked yes)\n'
         '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
@@ -393,8 +353,12 @@ def generate_silkscreen(specs: InductorSpecs) -> str:
     for symbol in ['-', '']:
         silkscreen.append(
             '    (fp_line\n'
-            f'        (start {silkscreen_x} {symbol}{specs.silk_line_y})\n'
-            f'        (end -{silkscreen_x} {symbol}{specs.silk_line_y})\n'
+            '        (start '
+            f'{silkscreen_x} '
+            f'{symbol}{specs.body_dims["height"]/2})\n'
+            '        (end '
+            f'-{silkscreen_x} '
+            f'{symbol}{specs.body_dims["height"]/2})\n'
             '        (stroke\n'
             '            (width 0.1524)\n'
             '            (type solid)\n'
