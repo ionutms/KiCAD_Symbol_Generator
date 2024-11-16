@@ -2,12 +2,12 @@
 KiCad Footprint Generator for Power Inductors
 
 Generates standardized KiCad footprint files (.kicad_mod) for power inductors
-based on manufacturer specifications.
-Creates accurate footprints with appropriate pad dimensions, clearances,
-and silkscreen markings for surface mount power inductors.
+based on manufacturer specifications. Creates accurate footprints with
+appropriate pad dimensions, clearances, and silkscreen markings for surface
+mount power inductors.
 
-The generator supports multiple inductor series with predefined
-specifications and produces KiCad-compatible footprint files that include:
+The generator supports multiple inductor series with predefined specifications
+and produces KiCad-compatible footprint files that include:
 - SMD pads with correct dimensions and spacing
 - Silk screen markings for part outline
 - Fabrication layer markings including polarity indicators
@@ -24,8 +24,8 @@ class PadDimensions(NamedTuple):
     """
     Defines SMD pad dimensions and positioning for power inductors.
 
-    All measurements are in millimeters and follow the KiCad
-    coordinate system where positive X is right and positive Y is up.
+    All measurements are in millimeters and follow the KiCad coordinate
+    system where positive X is right and positive Y is up.
 
     Attributes:
         width: Width of each SMD pad
@@ -56,8 +56,8 @@ class InductorSpecs(NamedTuple):
     """
     Complete specifications for generating an inductor footprint.
 
-    Combines series identification, physical dimensions,
-    and placement parameters needed to generate accurate KiCad footprints.
+    Combines series identification, physical dimensions, and placement
+    parameters needed to generate accurate KiCad footprints.
 
     Attributes:
         series_name: Manufacturer's series identifier
@@ -282,7 +282,15 @@ def generate_footprint(specs: InductorSpecs) -> str:
 
 
 def generate_header(specs: InductorSpecs) -> str:
-    """Generate the footprint header section."""
+    """
+    Generate the footprint header section.
+
+    Args:
+        specs: Complete physical specifications for the inductor
+
+    Returns:
+        Formatted string containing the footprint header section
+    """
     return (
         f'(footprint "{specs.series_name}"\n'
         '    (version 20240108)\n'
@@ -296,7 +304,15 @@ def generate_header(specs: InductorSpecs) -> str:
 
 
 def generate_properties(specs: InductorSpecs) -> str:
-    """Generate properties section with inductor-specific information."""
+    """
+    Generate properties section with inductor-specific information.
+
+    Args:
+        specs: Complete physical specifications for the inductor
+
+    Returns:
+        Formatted string containing the properties section
+    """
     font_props = (
         '        (effects\n'
         '            (font\n'
@@ -338,7 +354,15 @@ def generate_properties(specs: InductorSpecs) -> str:
 
 
 def generate_silkscreen(specs: InductorSpecs) -> str:
-    """Generate silkscreen elements with inductor-specific clearances."""
+    """
+    Generate silkscreen elements with inductor-specific clearances.
+
+    Args:
+        specs: Complete physical specifications for the inductor
+
+    Returns:
+        Formatted string containing silkscreen elements
+    """
     silkscreen_x = specs.pad_dims["center_x"] - specs.pad_dims["width"] / 2
 
     silkscreen = []
@@ -365,7 +389,15 @@ def generate_silkscreen(specs: InductorSpecs) -> str:
 
 
 def generate_courtyard(specs: InductorSpecs) -> str:
-    """Generate courtyard outline with inductor-specific clearances."""
+    """
+    Generate courtyard outline with inductor-specific clearances.
+
+    Args:
+        specs: Complete physical specifications for the inductor
+
+    Returns:
+        Formatted string containing courtyard outline elements
+    """
     half_width = specs.body_dims["width"] / 2
     half_height = specs.body_dims["height"] / 2
 
@@ -385,7 +417,15 @@ def generate_courtyard(specs: InductorSpecs) -> str:
 
 
 def generate_fab_layer(specs: InductorSpecs) -> str:
-    """Generate fabrication layer with inductor-specific markings."""
+    """
+    Generate fabrication layer with inductor-specific markings.
+
+    Args:
+        specs: Complete physical specifications for the inductor
+
+    Returns:
+        Formatted string containing fabrication layer elements
+    """
     half_width = specs.body_dims["width"] / 2
     half_height = specs.body_dims["height"] / 2
 
@@ -442,7 +482,15 @@ def generate_fab_layer(specs: InductorSpecs) -> str:
 
 
 def generate_pads(specs: InductorSpecs) -> str:
-    """Generate SMD pads with inductor-specific dimensions."""
+    """
+    Generate SMD pads with inductor-specific dimensions.
+
+    Args:
+        specs: Complete physical specifications for the inductor
+
+    Returns:
+        Formatted string containing pad definitions
+    """
     pads = []
 
     for pad_number, symbol in enumerate(['-', ''], start=1):
@@ -461,7 +509,15 @@ def generate_pads(specs: InductorSpecs) -> str:
 
 
 def generate_3d_model(specs: InductorSpecs) -> str:
-    """Generate 3D model reference for the inductor."""
+    """
+    Generate 3D model reference for the inductor.
+
+    Args:
+        specs: Complete physical specifications for the inductor
+
+    Returns:
+        Formatted string containing 3D model reference
+    """
     return (
         f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
         f'{specs.series_name}.step"\n'
@@ -488,7 +544,6 @@ def generate_footprint_file(
 
     Raises:
         ValueError: If the specified series is not found in INDUCTOR_SPECS
-        IOError: If there are problems writing the output file
     """
     if part_info.series not in INDUCTOR_SPECS:
         raise ValueError(f"Unknown series: {part_info.series}")
