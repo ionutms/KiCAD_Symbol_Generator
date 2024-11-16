@@ -169,16 +169,16 @@ def generate_silkscreen(specs: InductorSpecs) -> str:
 
     for symbol in ['-', '']:
         silkscreen.append(
-            f'    (fp_line\n'
+            '    (fp_line\n'
             f'        (start {silkscreen_x} {symbol}{specs.silk_y})\n'
             f'        (end -{silkscreen_x} {symbol}{specs.silk_y})\n'
-            f'        (stroke\n'
-            f'            (width 0.1524)\n'
-            f'            (type solid)\n'
-            f'        )\n'
-            f'        (layer "F.SilkS")\n'
+            '        (stroke\n'
+            '            (width 0.1524)\n'
+            '            (type solid)\n'
+            '        )\n'
+            '        (layer "F.SilkS")\n'
             f'        (uuid "{uuid4()}")\n'
-            f'    )'
+            '    )'
         )
 
     return "\n".join(silkscreen)
