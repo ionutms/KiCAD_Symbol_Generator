@@ -36,7 +36,6 @@ class InductorSpecs(NamedTuple):
     ref_y: float             # Y position for reference designator
     value_y: float           # Y position for value text
     fab_reference_y: float   # Y position for fab layer reference
-    model_offset_z: float    # Z offset for 3D model
 
 
 # Mapping of inductor series to physical dimensions
@@ -51,7 +50,6 @@ INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
         "ref_y": -6.858,
         "value_y": 8.128,
         "fab_reference_y": 6.858,
-        "model_offset_z": 0.1016
     },
 }
 
@@ -84,7 +82,6 @@ def create_inductor_specs(series_name: str) -> InductorSpecs:
         ref_y=dims["ref_y"],
         value_y=dims["value_y"],
         fab_reference_y=dims["fab_reference_y"],
-        model_offset_z=dims["model_offset_z"]
     )
 
 
@@ -315,13 +312,13 @@ def generate_3d_model(specs: InductorSpecs) -> str:
         f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
         f'{specs.series_name}.step"\n'
         f'        (offset\n'
-        f'            (xyz 0 0 {specs.model_offset_z})\n'
+        f'            (xyz 0 0 0)\n'
         f'        )\n'
         f'        (scale\n'
         f'            (xyz 1 1 1)\n'
         f'        )\n'
         f'        (rotate\n'
-        f'            (xyz -90 0 0)\n'
+        f'            (xyz 0 0 0)\n'
         f'        )\n'
         f'    )'
     )
