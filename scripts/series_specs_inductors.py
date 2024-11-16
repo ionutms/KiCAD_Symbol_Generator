@@ -600,7 +600,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL5015": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL5015",
-        footprint="footprints:XFL5015",
+        footprint="inductor_footprints:XFL5015",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "5f7b596c-8f2f-415e-931e-74a5b6804936/xfl5015.pdf",
@@ -613,7 +613,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL5018": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL5018",
-        footprint="footprints:XFL5018",
+        footprint="inductor_footprints:XFL5018",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "5f7b596c-8f2f-415e-931e-74a5b6804936/xfl5015.pdf",
@@ -626,7 +626,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XFL5030": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XFL5030",
-        footprint="footprints:XFL5030",
+        footprint="inductor_footprints:XFL5030",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "f01e4ccd-6be9-43eb-bb01-c23b4deeb2c5/xfl5030.pdf",
