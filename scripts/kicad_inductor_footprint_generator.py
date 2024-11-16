@@ -61,6 +61,22 @@ INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
         "value_y": 8.128,
         "fab_reference_y": 6.858,
     },
+    "XAL1060": {
+        "body": {"width": 10.922, "height": 12.192},
+        "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
+        "silk_y": 6.096,
+        "ref_y": -6.858,
+        "value_y": 8.128,
+        "fab_reference_y": 6.858,
+    },
+    "XAL1080": {
+        "body": {"width": 10.922, "height": 12.192},
+        "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
+        "silk_y": 6.096,
+        "ref_y": -6.858,
+        "value_y": 8.128,
+        "fab_reference_y": 6.858,
+    },
 }
 
 
