@@ -84,7 +84,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XAL1010": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XAL1010",
-        footprint="footprints:XAL1010",
+        footprint="inductor_footprints:XAL1010",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "dd74e670-e705-456a-9a69-585fe02eaf3c/xal1010.pdf",
@@ -106,7 +106,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XAL1030": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XAL1030",
-        footprint="footprints:XAL1030",
+        footprint="inductor_footprints:XAL1030",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "7b108457-7731-456d-9256-ca72f2e1a551/xal1030.pdf",
