@@ -152,6 +152,30 @@ INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
         "silk_line_y": 3.556,
         "text_offset_y": {"ref": -4.572, "value": 4.572, "fab": 5.842},
     },
+    "XAL7020": {
+        "body": {"width": 8.382, "height": 8.382},
+        "pad": {"width": 1.778, "height": 6.5024, "center_x": 2.3622},
+        "silk_line_y": 4.191,
+        "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
+    },
+    "XAL7030": {
+        "body": {"width": 8.382, "height": 8.382},
+        "pad": {"width": 1.778, "height": 6.5024, "center_x": 2.3622},
+        "silk_line_y": 4.191,
+        "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
+    },
+    "XAL7050": {
+        "body": {"width": 8.382, "height": 8.382},
+        "pad": {"width": 1.778, "height": 6.5024, "center_x": 2.3622},
+        "silk_line_y": 4.191,
+        "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
+    },
+    "XAL7070": {
+        "body": {"width": 8.0264, "height": 8.382},
+        "pad": {"width": 1.9304, "height": 6.5024, "center_x": 2.413},
+        "silk_line_y": 4.191,
+        "text_offset_y": {"ref": -5.08, "value": 5.08, "fab": 6.35},
+    },
 }
 
 

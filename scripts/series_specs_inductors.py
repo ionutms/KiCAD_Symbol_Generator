@@ -326,7 +326,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XAL7020": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XAL7020",
-        footprint="footprints:XAL7020",
+        footprint="inductor_footprints:XAL7020",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf",
@@ -339,7 +339,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XAL7030": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XAL7030",
-        footprint="footprints:XAL7030",
+        footprint="inductor_footprints:XAL7030",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf",
@@ -361,7 +361,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XAL7050": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XAL7050",
-        footprint="footprints:XAL7050",
+        footprint="inductor_footprints:XAL7050",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "13a991b3-4273-4be3-81ba-f3cf372b4691/xal7050.pdf",
@@ -374,7 +374,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
     "XAL7070": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="XAL7070",
-        footprint="footprints:XAL7070",
+        footprint="inductor_footprints:XAL7070",
         tolerance="±20%",
         datasheet="https://www.coilcraft.com/getmedia/" +
         "1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf",
