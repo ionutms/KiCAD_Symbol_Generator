@@ -8,6 +8,7 @@ pad dimensions and clearances.
 
 from typing import Dict, NamedTuple
 from uuid import uuid4
+import series_specs_inductors as ssi
 
 
 class PadDimensions(NamedTuple):
@@ -22,7 +23,11 @@ class PadDimensions(NamedTuple):
 
 
 class BodyDimensions(NamedTuple):
-    "TODO"
+    """
+    Defines part body dimensions.
+
+    All measurements in millimeters.
+    """
     width: float
     height: float
 
@@ -427,44 +432,39 @@ def generate_3d_model(specs: InductorSpecs) -> str:
     return (
         f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
         f'{specs.series_name}.step"\n'
-        '        (offset\n'
-        '            (xyz 0 0 0)\n'
-        '        )\n'
-        '        (scale\n'
-        '            (xyz 1 1 1)\n'
-        '        )\n'
-        '        (rotate\n'
-        '            (xyz 0 0 0)\n'
-        '        )\n'
+        '        (offset (xyz 0 0 0))\n'
+        '        (scale (xyz 1 1 1))\n'
+        '        (rotate (xyz 0 0 0))\n'
         '    )'
     )
 
 
 def generate_footprint_file(
-        part_info,  # Can be str or PartInfo
+        part_info: ssi.PartInfo,
         output_dir: str) -> None:
     """
     Generate and save a complete .kicad_mod file for an inductor.
 
+    Creates a KiCad footprint file in the specified directory using the
+    provided PartInfo object containing series information.
+
     Args:
-        part_info:
-            Either series name string (e.g., "XAL1010") or PartInfo object
-        output_dir: Directory to save the generated footprint file
+        part_info: PartInfo object containing the inductor series name
+        output_dir:
+            Directory path where the generated footprint file will be saved
 
     Raises:
-        KeyError: If series_name is not found in INDUCTOR_DIMENSIONS
+        ValueError: If the specified series is not found in INDUCTOR_SPECS
         IOError: If there are problems writing the output file
     """
-
     if part_info.series not in INDUCTOR_SPECS:
         raise ValueError(f"Unknown series: {part_info.series}")
-    # Extract series name if PartInfo object is provided
-    series_name = \
-        part_info.series if hasattr(part_info, 'series') else part_info
 
-    inductor_specs = create_inductor_specs(series_name)
+    filename = part_info.series
+
+    inductor_specs = create_inductor_specs(filename)
     footprint_content = generate_footprint(inductor_specs)
 
-    filename = f"{output_dir}/{series_name}.kicad_mod"
-    with open(filename, 'w', encoding='utf-8') as f:
-        f.write(footprint_content)
+    filename = f"{output_dir}/{filename}.kicad_mod"
+    with open(filename, 'w', encoding='utf-8') as file_handle:
+        file_handle.write(footprint_content)
