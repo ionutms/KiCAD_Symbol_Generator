@@ -224,9 +224,14 @@ def generate_footprints_for_series(parts_list: List[ssi.PartInfo]) -> None:
     """Generate footprint files for all parts in a series."""
     os.makedirs("inductor_footprints.pretty", exist_ok=True)
 
+    # Generate footprints for all series
+    print_info("\nGenerating footprints for all series:")
+    footprint_dir = "inductor_footprints.pretty"
+    ensure_directory_exists(footprint_dir)
+
     for part in parts_list:
         try:
-            ki_ifg.generate_footprint_file(part)
+            ki_ifg.generate_footprint_file(part, footprint_dir)
             print_success(
                 f"Generated footprint file for {part.mpn}"
             )
@@ -252,6 +257,13 @@ HEADER_MAPPING: Final[dict] = {
     'Maximum DC Current (A)': lambda part: f"{part.max_dc_current:.1f}",
     'Maximum DC Resistance (Ω)': lambda part: f"{part.max_dc_resistance:.3f}"
 }
+
+
+def ensure_directory_exists(directory: str) -> None:
+    """Create directory if it doesn't exist."""
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        print_info(f"Created directory: {directory}")
 
 
 def generate_files_for_series(
