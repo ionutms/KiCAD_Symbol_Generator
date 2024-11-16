@@ -27,6 +27,13 @@ class BodyDimensions(NamedTuple):
     height: float
 
 
+class TextOffsetY(NamedTuple):
+    "TODO"
+    ref: float
+    value: float
+    fab: float
+
+
 class InductorSpecs(NamedTuple):
     """
     Complete specifications for generating an inductor footprint.
@@ -37,10 +44,8 @@ class InductorSpecs(NamedTuple):
     series_name: str          # Inductor series name
     body_dims: BodyDimensions
     pad_dims: PadDimensions  # Pad specifications
-    silk_y: float            # Y-coordinate of silkscreen lines
-    ref_y: float             # Y position for reference designator
-    value_y: float           # Y position for value text
-    fab_reference_y: float   # Y position for fab layer reference
+    silk_line_y: float       # Y-coordinate of silkscreen lines
+    text_offset_y: TextOffsetY
 
 
 # Mapping of inductor series to physical dimensions
@@ -48,34 +53,26 @@ INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
     "XAL1010": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        "silk_y": 6.096,
-        "ref_y": -6.858,
-        "value_y": 8.128,
-        "fab_reference_y": 6.858,
+        "silk_line_y": 6.096,
+        "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
     "XAL1030": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        "silk_y": 6.096,
-        "ref_y": -6.858,
-        "value_y": 8.128,
-        "fab_reference_y": 6.858,
+        "silk_line_y": 6.096,
+        "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
     "XAL1060": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        "silk_y": 6.096,
-        "ref_y": -6.858,
-        "value_y": 8.128,
-        "fab_reference_y": 6.858,
+        "silk_line_y": 6.096,
+        "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
     "XAL1080": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
-        "silk_y": 6.096,
-        "ref_y": -6.858,
-        "value_y": 8.128,
-        "fab_reference_y": 6.858,
+        "silk_line_y": 6.096,
+        "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
 }
 
@@ -99,10 +96,8 @@ def create_inductor_specs(series_name: str) -> InductorSpecs:
         series_name=series_name,
         body_dims=dims["body"],
         pad_dims=dims["pad"],
-        silk_y=dims["silk_y"],
-        ref_y=dims["ref_y"],
-        value_y=dims["value_y"],
-        fab_reference_y=dims["fab_reference_y"],
+        silk_line_y=dims["silk_line_y"],
+        text_offset_y=dims["text_offset_y"]
     )
 
 
@@ -133,13 +128,13 @@ def generate_header(specs: InductorSpecs) -> str:
     """Generate the footprint header section."""
     return (
         f'(footprint "{specs.series_name}"\n'
-        f'    (version 20240108)\n'
-        f'    (generator "pcbnew")\n'
-        f'    (generator_version "8.0")\n'
-        f'    (layer "F.Cu")\n'
-        f'    (descr "")\n'
-        f'    (tags "")\n'
-        f'    (attr smd)'
+        '    (version 20240108)\n'
+        '    (generator "pcbnew")\n'
+        '    (generator_version "8.0")\n'
+        '    (layer "F.Cu")\n'
+        '    (descr "")\n'
+        '    (tags "")\n'
+        '    (attr smd)'
     )
 
 
@@ -156,32 +151,32 @@ def generate_properties(specs: InductorSpecs) -> str:
     )
 
     return (
-        f'    (property "Reference" "REF**"\n'
-        f'        (at 0 {specs.ref_y} 0)\n'
-        f'        (unlocked yes)\n'
-        f'        (layer "F.SilkS")\n'
+        '    (property "Reference" "REF**"\n'
+        f'        (at 0 {specs.text_offset_y["ref"]} 0)\n'
+        '        (unlocked yes)\n'
+        '        (layer "F.SilkS")\n'
         f'        (uuid "{uuid4()}")\n'
         f'{font_props}\n'
-        f'    )\n'
+        '    )\n'
         f'    (property "Value" "{specs.series_name}"\n'
-        f'        (at 0 {specs.value_y} 0)\n'
-        f'        (unlocked yes)\n'
-        f'        (layer "F.Fab")\n'
+        f'        (at 0 {specs.text_offset_y["value"]} 0)\n'
+        '        (unlocked yes)\n'
+        '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
         f'{font_props}\n'
-        f'    )\n'
-        f'    (property "Footprint" ""\n'
-        f'        (at 0 0 0)\n'
-        f'        (layer "F.Fab")\n'
-        f'        (hide yes)\n'
+        '    )\n'
+        '    (property "Footprint" ""\n'
+        '        (at 0 0 0)\n'
+        '        (layer "F.Fab")\n'
+        '        (hide yes)\n'
         f'        (uuid "{uuid4()}")\n'
-        f'        (effects\n'
-        f'            (font\n'
-        f'                (size 1.27 1.27)\n'
-        f'                (thickness 0.15)\n'
-        f'            )\n'
-        f'        )\n'
-        f'    )'
+        '        (effects\n'
+        '            (font\n'
+        '                (size 1.27 1.27)\n'
+        '                (thickness 0.15)\n'
+        '            )\n'
+        '        )\n'
+        '    )'
     )
 
 
@@ -194,8 +189,8 @@ def generate_silkscreen(specs: InductorSpecs) -> str:
     for symbol in ['-', '']:
         silkscreen.append(
             '    (fp_line\n'
-            f'        (start {silkscreen_x} {symbol}{specs.silk_y})\n'
-            f'        (end -{silkscreen_x} {symbol}{specs.silk_y})\n'
+            f'        (start {silkscreen_x} {symbol}{specs.silk_line_y})\n'
+            f'        (end -{silkscreen_x} {symbol}{specs.silk_line_y})\n'
             '        (stroke\n'
             '            (width 0.1524)\n'
             '            (type solid)\n'
@@ -214,17 +209,17 @@ def generate_courtyard(specs: InductorSpecs) -> str:
     half_height = specs.body_dims["height"] / 2
 
     return (
-        f'    (fp_rect\n'
+        '    (fp_rect\n'
         f'        (start -{half_width} -{half_height})\n'
         f'        (end {half_width} {half_height})\n'
-        f'        (stroke\n'
-        f'            (width 0.00635)\n'
-        f'            (type default)\n'
-        f'        )\n'
-        f'        (fill none)\n'
-        f'        (layer "F.CrtYd")\n'
+        '        (stroke\n'
+        '            (width 0.00635)\n'
+        '            (type default)\n'
+        '        )\n'
+        '        (fill none)\n'
+        '        (layer "F.CrtYd")\n'
         f'        (uuid "{uuid4()}")\n'
-        f'    )'
+        '    )'
     )
 
 
@@ -237,49 +232,49 @@ def generate_fab_layer(specs: InductorSpecs) -> str:
 
     # Main body outline
     fab_elements.append(
-        f'    (fp_rect\n'
+        '    (fp_rect\n'
         f'        (start -{half_width} -{half_height})\n'
         f'        (end {half_width} {half_height})\n'
-        f'        (stroke\n'
-        f'            (width 0.0254)\n'
-        f'            (type default)\n'
-        f'        )\n'
-        f'        (fill none)\n'
-        f'        (layer "F.Fab")\n'
+        '        (stroke\n'
+        '            (width 0.0254)\n'
+        '            (type default)\n'
+        '        )\n'
+        '        (fill none)\n'
+        '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
-        f'    )'
+        '    )'
     )
 
     # Polarity marker
     fab_elements.append(
-        f'    (fp_circle\n'
+        '    (fp_circle\n'
         f'        (center -{specs.pad_dims["center_x"]} 0)\n'
         f'        (end -{specs.pad_dims["center_x"] - 0.0762} 0)\n'
-        f'        (stroke\n'
-        f'            (width 0.0254)\n'
-        f'            (type solid)\n'
-        f'        )\n'
-        f'        (fill none)\n'
-        f'        (layer "F.Fab")\n'
+        '        (stroke\n'
+        '            (width 0.0254)\n'
+        '            (type solid)\n'
+        '        )\n'
+        '        (fill none)\n'
+        '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
-        f'    )'
+        '    )'
     )
 
     # Reference on fab layer
     fab_elements.append(
         f'    (fp_text user "${{REFERENCE}}"\n'
-        f'        (at 0 {specs.fab_reference_y} 0)\n'
-        f'        (unlocked yes)\n'
-        f'        (layer "F.Fab")\n'
+        f'        (at 0 {specs.text_offset_y["fab"]} 0)\n'
+        '        (unlocked yes)\n'
+        '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
-        f'        (effects\n'
-        f'            (font\n'
-        f'                (size 0.762 0.762)\n'
-        f'                (thickness 0.1524)\n'
-        f'            )\n'
-        f'            (justify left)\n'
-        f'        )\n'
-        f'    )'
+        '        (effects\n'
+        '            (font\n'
+        '                (size 0.762 0.762)\n'
+        '                (thickness 0.1524)\n'
+        '            )\n'
+        '            (justify left)\n'
+        '        )\n'
+        '    )'
     )
 
     return "\n".join(fab_elements)
@@ -289,29 +284,17 @@ def generate_pads(specs: InductorSpecs) -> str:
     """Generate SMD pads with inductor-specific dimensions."""
     pads = []
 
-    # Left pad (1)
-    pads.append(
-        f'    (pad "1" smd rect\n'
-        f'        (at -{specs.pad_dims["center_x"]} 0)\n'
-        f'        (size '
-        f'{specs.pad_dims["width"]} '
-        f'{specs.pad_dims["height"]})\n'
-        f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
-
-    # Right pad (2)
-    pads.append(
-        f'    (pad "2" smd rect\n'
-        f'        (at {specs.pad_dims["center_x"]} 0)\n'
-        f'        (size '
-        f'{specs.pad_dims["width"]} '
-        f'{specs.pad_dims["height"]})\n'
-        f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
+    for pad_number, symbol in enumerate(['-', ''], start=1):
+        pads.append(
+            f'    (pad "{pad_number}" smd rect\n'
+            f'        (at {symbol}{specs.pad_dims["center_x"]} 0)\n'
+            '        (size '
+            f'{specs.pad_dims["width"]} '
+            f'{specs.pad_dims["height"]})\n'
+            '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
+            f'        (uuid "{uuid4()}")\n'
+            '    )'
+        )
 
     return "\n".join(pads)
 
@@ -321,16 +304,16 @@ def generate_3d_model(specs: InductorSpecs) -> str:
     return (
         f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
         f'{specs.series_name}.step"\n'
-        f'        (offset\n'
-        f'            (xyz 0 0 0)\n'
-        f'        )\n'
-        f'        (scale\n'
-        f'            (xyz 1 1 1)\n'
-        f'        )\n'
-        f'        (rotate\n'
-        f'            (xyz 0 0 0)\n'
-        f'        )\n'
-        f'    )'
+        '        (offset\n'
+        '            (xyz 0 0 0)\n'
+        '        )\n'
+        '        (scale\n'
+        '            (xyz 1 1 1)\n'
+        '        )\n'
+        '        (rotate\n'
+        '            (xyz 0 0 0)\n'
+        '        )\n'
+        '    )'
     )
 
 
