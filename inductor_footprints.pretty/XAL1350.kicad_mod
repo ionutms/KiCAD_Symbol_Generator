@@ -1,4 +1,4 @@
-(footprint "XAL1060"
+(footprint "XAL1350"
     (version 20240108)
     (generator "pcbnew")
     (generator_version "8.0")
@@ -7,10 +7,10 @@
     (tags "")
     (attr smd)
     (property "Reference" "REF**"
-        (at 0 -6.858 0)
+        (at 0 -8.128 0)
         (unlocked yes)
         (layer "F.SilkS")
-        (uuid "629339ea-9ccb-41cd-8693-373df264a275")
+        (uuid "e77c277e-4479-46e2-aecd-0437d5eba750")
         (effects
             (font
                 (size 0.762 0.762)
@@ -19,11 +19,11 @@
             (justify left)
         )
     )
-    (property "Value" "XAL1060"
+    (property "Value" "XAL1350"
         (at 0 8.128 0)
         (unlocked yes)
         (layer "F.Fab")
-        (uuid "e80268b2-361a-41d8-9bfd-86a4c9c99640")
+        (uuid "eab39296-e293-4b02-b8c6-c78e8335e097")
         (effects
             (font
                 (size 0.762 0.762)
@@ -36,7 +36,7 @@
         (at 0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "b4f7c6fd-e74c-4b33-a036-b63b53627769")
+        (uuid "85674601-2d25-446c-996c-8982f0737f60")
         (effects
             (font
                 (size 1.27 1.27)
@@ -45,63 +45,63 @@
         )
     )
     (fp_line
-        (start 2.1336 -6.096)
-        (end -2.1336 -6.096)
+        (start 2.8194 -7.366)
+        (end -2.8194 -7.366)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "8e81a4b8-6fb8-4a72-846e-4685d9cbeea1")
+        (uuid "c7e5a195-7dc1-4954-bc9c-3e1f82fd3f12")
     )
     (fp_line
-        (start 2.1336 6.096)
-        (end -2.1336 6.096)
+        (start 2.8194 7.366)
+        (end -2.8194 7.366)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "8f316a81-a620-45ab-8fa4-15b50e59cd4d")
+        (uuid "9646e488-2995-417a-9f51-973f688eec03")
     )
     (fp_rect
-        (start -5.461 -6.096)
-        (end 5.461 6.096)
+        (start -6.858 -7.366)
+        (end 6.858 7.366)
         (stroke
             (width 0.00635)
             (type default)
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "2e493763-a82b-4546-b648-4df11db69a20")
+        (uuid "2e40bfa5-8f8c-45b6-96f2-cbabff225c8e")
     )
     (fp_rect
-        (start -5.461 -6.096)
-        (end 5.461 6.096)
+        (start -6.858 -7.366)
+        (end 6.858 7.366)
         (stroke
             (width 0.0254)
             (type default)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "a3df029b-c6ed-48ee-9299-c3be3e3811e0")
+        (uuid "1c2f1e4e-e4b0-401e-8091-c5feee2e0a2e")
     )
     (fp_circle
-        (center -3.3274 0)
-        (end -3.2512 0)
+        (center -4.3053 0)
+        (end -4.2291 0)
         (stroke
             (width 0.0254)
             (type solid)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "0a891640-0901-4381-a98d-a599853f928a")
+        (uuid "9efd1b61-fcc9-4933-983e-5c8b1a87a75d")
     )
     (fp_text user "${REFERENCE}"
-        (at 0 6.858 0)
+        (at 0 9.398 0)
         (unlocked yes)
         (layer "F.Fab")
-        (uuid "bcd19fb1-f575-4552-bfc4-bf17aa099621")
+        (uuid "3af8561a-be50-4b65-a1be-d79c16f02c7b")
         (effects
             (font
                 (size 0.762 0.762)
@@ -111,18 +111,18 @@
         )
     )
     (pad "1" smd rect
-        (at -3.3274 0)
-        (size 2.3876 8.9916)
+        (at -4.3053 0)
+        (size 2.9718 11.9888)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "29a34ab2-5f68-4b79-89a1-e764a5fa26c8")
+        (uuid "e5c1147c-908e-4402-8375-43775686ff7b")
     )
     (pad "2" smd rect
-        (at 3.3274 0)
-        (size 2.3876 8.9916)
+        (at 4.3053 0)
+        (size 2.9718 11.9888)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "e0a506de-542d-4aae-80ec-1b6764d126f1")
+        (uuid "5daa6590-d4cc-470e-b41b-104dcdcae833")
     )
-    (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/XAL1060.step"
+    (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/XAL1350.step"
         (offset
             (xyz 0 0 0)
         )

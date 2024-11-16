@@ -49,7 +49,7 @@ class InductorSpecs(NamedTuple):
 
 
 # Mapping of inductor series to physical dimensions
-INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
+INDUCTOR_SPECS: Dict[str, Dict[str, float]] = {
     "XAL1010": {
         "body": {"width": 10.922, "height": 12.192},
         "pad": {"width": 2.3876, "height": 8.9916, "center_x": 3.3274},
@@ -74,6 +74,12 @@ INDUCTOR_DIMENSIONS: Dict[str, Dict[str, float]] = {
         "silk_line_y": 6.096,
         "text_offset_y": {"ref": -6.858, "value": 8.128, "fab": 6.858},
     },
+    "XAL1350": {
+        "body": {"width": 13.716, "height": 14.732},
+        "pad": {"width": 2.9718, "height": 11.9888, "center_x": 4.3053},
+        "silk_line_y": 7.366,
+        "text_offset_y": {"ref": -8.128, "value": 8.128, "fab": 9.398},
+    },
 }
 
 
@@ -90,7 +96,7 @@ def create_inductor_specs(series_name: str) -> InductorSpecs:
     Raises:
         KeyError: If series name is not found in INDUCTOR_DIMENSIONS
     """
-    dims = INDUCTOR_DIMENSIONS[series_name]
+    dims = INDUCTOR_SPECS[series_name]
 
     return InductorSpecs(
         series_name=series_name,
@@ -333,7 +339,7 @@ def generate_footprint_file(
         IOError: If there are problems writing the output file
     """
 
-    if part_info.series not in INDUCTOR_DIMENSIONS:
+    if part_info.series not in INDUCTOR_SPECS:
         raise ValueError(f"Unknown series: {part_info.series}")
     # Extract series name if PartInfo object is provided
     series_name = \
