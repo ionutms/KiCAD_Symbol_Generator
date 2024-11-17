@@ -18,7 +18,7 @@ from uuid import uuid4
 import series_specs_connectors as ssc
 
 
-class RectangleSpecs(NamedTuple):
+class BodyDimensions(NamedTuple):
     """
     Defines rectangular dimensions for component footprint outlines.
 
@@ -39,15 +39,14 @@ class ConnectorSpecs(NamedTuple):
     positions, and 3D model alignment parameters needed to generate a complete
     KiCad footprint file.
     """
-    width_per_pin: float   # Additional width needed per pin
-    rect_dims: RectangleSpecs  # Basic rectangle dimensions
+    pitch: float   # Additional width needed per pin
+    body_dimensions: BodyDimensions  # Basic rectangle dimensions
     pad_size: float       # Diameter/size of through-hole pads
     drill_size: float     # Diameter of drill holes
     silk_margin: float    # Clearance for silkscreen outlines
     mask_margin: float    # Solder mask clearance around pads
     mpn_y: float         # Y position for manufacturer part number
     ref_y: float         # Y position for reference designator
-    step_multiplier: float  # Step value for offset calculations
     model_offset_func: Callable  # Function to calculate model offsets
 
 
@@ -88,8 +87,8 @@ def offset_sub(
 # Consolidated connector series specifications using common offset patterns
 CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
     "TB004-508": ConnectorSpecs(
-        width_per_pin=5.08,
-        rect_dims=RectangleSpecs(
+        pitch=5.08,
+        body_dimensions=BodyDimensions(
             width_left=5.8,
             width_right=5.2,
             height_top=5.2,
@@ -101,12 +100,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=6.096,
         ref_y=-6.096,
-        step_multiplier=0.0,
         model_offset_func=offset_sub
     ),
     "TB006-508": ConnectorSpecs(
-        width_per_pin=5.08,
-        rect_dims=RectangleSpecs(
+        pitch=5.08,
+        body_dimensions=BodyDimensions(
             width_left=5.8,
             width_right=5.2,
             height_top=4.2,
@@ -118,12 +116,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=5.334,
         ref_y=-5.334,
-        step_multiplier=0.0,
         model_offset_func=offset_sub
     ),
     "TBP02R1-381": ConnectorSpecs(
-        width_per_pin=3.81,
-        rect_dims=RectangleSpecs(
+        pitch=3.81,
+        body_dimensions=BodyDimensions(
             width_left=4.4,
             width_right=4.4,
             height_top=-7.9,
@@ -135,12 +132,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-8.8,
         ref_y=2.4,
-        step_multiplier=1.905,
         model_offset_func=offset_add
     ),
     "TBP02R2-381": ConnectorSpecs(
-        width_per_pin=3.81,
-        rect_dims=RectangleSpecs(
+        pitch=3.81,
+        body_dimensions=BodyDimensions(
             width_left=4.445,
             width_right=4.445,
             height_top=3.2512,
@@ -152,12 +148,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-5.4,
         ref_y=4.2,
-        step_multiplier=1.905,
         model_offset_func=offset_sub
     ),
     "TBP04R1-500": ConnectorSpecs(
-        width_per_pin=5.0,
-        rect_dims=RectangleSpecs(
+        pitch=5.0,
+        body_dimensions=BodyDimensions(
             width_left=5.2,
             width_right=5.2,
             height_top=-2.2,
@@ -169,12 +164,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=10.8,
         ref_y=-3.0,
-        step_multiplier=2.5,
         model_offset_func=offset_add
     ),
     "TBP04R2-500": ConnectorSpecs(
-        width_per_pin=5.0,
-        rect_dims=RectangleSpecs(
+        pitch=5.0,
+        body_dimensions=BodyDimensions(
             width_left=5.8,
             width_right=5.8,
             height_top=4.8,
@@ -186,12 +180,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-4.8,
         ref_y=5.8,
-        step_multiplier=2.5,
         model_offset_func=offset_add
     ),
     "TBP04R3-500": ConnectorSpecs(
-        width_per_pin=5.0,
-        rect_dims=RectangleSpecs(
+        pitch=5.0,
+        body_dimensions=BodyDimensions(
             width_left=5.2,
             width_right=5.2,
             height_top=4.8,
@@ -203,12 +196,11 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-4.8,
         ref_y=5.8,
-        step_multiplier=2.5,
         model_offset_func=offset_add
     ),
     "TBP04R12-500": ConnectorSpecs(
-        width_per_pin=5.0,
-        rect_dims=RectangleSpecs(
+        pitch=5.0,
+        body_dimensions=BodyDimensions(
             width_left=5.8,
             width_right=5.8,
             height_top=-2.2,
@@ -220,7 +212,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=10.8,
         ref_y=-3.0,
-        step_multiplier=2.5,
         model_offset_func=offset_sub
     ),
 }
@@ -269,9 +260,11 @@ def calculate_dimensions(
     Returns:
         Dictionary containing calculated dimensions and positions
     """
-    extra_width_per_side = (part_info.pin_count - 2) * specs.width_per_pin / 2
-    total_half_width_left = specs.rect_dims.width_left + extra_width_per_side
-    total_half_width_right = specs.rect_dims.width_right + extra_width_per_side
+    extra_width_per_side = (part_info.pin_count - 2) * specs.pitch / 2
+    total_half_width_left = \
+        specs.body_dimensions.width_left + extra_width_per_side
+    total_half_width_right = \
+        specs.body_dimensions.width_right + extra_width_per_side
     total_length = (part_info.pin_count - 1) * part_info.pitch
     start_position = -total_length / 2
 
@@ -371,8 +364,9 @@ def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
         return (
             f'    (fp_rect\n'
             f'        (start {rect_start:.3f} '
-            f'{specs.rect_dims.height_bottom})\n'
-            f'        (end {rect_end:.3f} {specs.rect_dims.height_top})\n'
+            f'{specs.body_dimensions.height_bottom})\n'
+            f'        (end {rect_end:.3f} '
+            f'{specs.body_dimensions.height_top})\n'
             f'        (stroke\n'
             f'            (width {stroke_width})\n'
             f'            (type default)\n'
