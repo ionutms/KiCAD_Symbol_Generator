@@ -12,7 +12,7 @@ from typing import Final, List
 from colorama import init, Fore, Style
 import kicad_connector_symbol_generator as kc_cosg
 import kicad_connector_footprint_generator as kco_fg
-import series_specs_connectors as ssc
+import symbol_connectors_specs as sym_con_spec
 import file_handler_utilities as utils
 
 init(autoreset=True)
@@ -33,7 +33,9 @@ def print_info(message: str) -> None:
     print(f"{Fore.YELLOW}{message}{Style.RESET_ALL}")
 
 
-def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
+def generate_part_numbers(
+        specs: sym_con_spec.SeriesSpec
+) -> List[sym_con_spec.PartInfo]:
     """
     Generate all part numbers for the series.
 
@@ -44,7 +46,7 @@ def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
         List of PartInfo instances
     """
     return [
-        ssc.create_part_info(pin_count, specs)
+        sym_con_spec.create_part_info(pin_count, specs)
         for pin_count in specs.pin_counts
     ]
 
@@ -72,7 +74,9 @@ HEADER_MAPPING: Final[dict] = {
 }
 
 
-def generate_footprints_for_series(parts_list: List[ssc.PartInfo]) -> None:
+def generate_footprints_for_series(
+        parts_list: List[sym_con_spec.PartInfo]
+) -> None:
     """Generate footprint files for all parts in a series."""
     os.makedirs("connector_footprints.pretty", exist_ok=True)
 
@@ -90,7 +94,7 @@ def generate_footprints_for_series(parts_list: List[ssc.PartInfo]) -> None:
 
 def generate_files_for_series(
     series_name: str,
-    unified_parts_list: List[ssc.PartInfo]
+    unified_parts_list: List[sym_con_spec.PartInfo]
 ) -> None:
     """
     Generate CSV and KiCad symbol files for specified series.
@@ -99,10 +103,10 @@ def generate_files_for_series(
         series_name: Name of the series to generate files for
         unified_parts_list: List to store generated parts for unified database
     """
-    if series_name not in ssc.SERIES_SPECS:
+    if series_name not in sym_con_spec.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = ssc.SERIES_SPECS[series_name]
+    specs = sym_con_spec.SERIES_SPECS[series_name]
     csv_filename = f"{specs.base_series}_part_numbers.csv"
     symbol_filename = f"CONNECTORS_{specs.base_series}_DATA_BASE.kicad_sym"
 
@@ -136,7 +140,7 @@ def generate_files_for_series(
 
 
 def generate_unified_files(
-        all_parts: List[ssc.PartInfo],
+        all_parts: List[sym_con_spec.PartInfo],
         unified_csv: str,
         unified_symbol: str
 ) -> None:
@@ -173,9 +177,9 @@ def generate_unified_files(
 
 if __name__ == "__main__":
     try:
-        unified_parts: List[ssc.PartInfo] = []
+        unified_parts: List[sym_con_spec.PartInfo] = []
 
-        for series in ssc.SERIES_SPECS:
+        for series in sym_con_spec.SERIES_SPECS:
             print_info(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, unified_parts)
 

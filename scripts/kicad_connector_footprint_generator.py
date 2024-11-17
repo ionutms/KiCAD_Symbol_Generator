@@ -15,7 +15,7 @@ pitches, generating complete footprint definitions including:
 
 from typing import Callable, Dict, NamedTuple, Tuple
 from uuid import uuid4
-import series_specs_connectors as ssc
+import symbol_connectors_specs as ssc
 
 
 class BodyDimensions(NamedTuple):
