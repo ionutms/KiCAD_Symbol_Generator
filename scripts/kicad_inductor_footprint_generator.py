@@ -17,7 +17,7 @@ and produces KiCad-compatible footprint files that include:
 
 from typing import Dict, NamedTuple
 from uuid import uuid4
-import series_specs_inductors as ssi
+import symbol_inductors_specs as ssi
 
 
 class PadDimensions(NamedTuple):
