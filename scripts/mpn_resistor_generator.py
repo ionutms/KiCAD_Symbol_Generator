@@ -24,7 +24,7 @@ import csv
 from typing import List, Final, Iterator
 from colorama import init, Fore, Style
 import symbol_resistor_generator as sym_res_gen
-import kicad_resistor_footprint_generator as ki_rfg
+import footprint_resistor_generator as ftp_res_gen
 import symbol_resistors_specs as sym_res_spec
 import file_handler_utilities as utils
 
@@ -347,7 +347,7 @@ def generate_files_for_series(
 
     # Generate KiCad footprint file
     try:
-        ki_rfg.generate_footprint_file(series_name, footprint_dir)
+        ftp_res_gen.generate_footprint_file(series_name, footprint_dir)
         footprint_name = f"{series_name}_{specs.case_code_in}.kicad_mod"
         print_success(
             f"KiCad footprint file '{footprint_name}' generated successfully.")
@@ -408,7 +408,7 @@ def generate_unified_files(
 
     for part_series in sym_res_spec.SERIES_SPECS:
         try:
-            ki_rfg.generate_footprint_file(part_series, footprint_dir)
+            ftp_res_gen.generate_footprint_file(part_series, footprint_dir)
             print_success(f"Generated footprint for {part_series}")
         except (KeyError, IOError) as error:
             print_error(

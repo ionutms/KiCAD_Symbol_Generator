@@ -11,7 +11,7 @@ import csv
 from typing import Final, List
 from colorama import init, Fore, Style
 import symbol_connector_generator as sym_con_gen
-import kicad_connector_footprint_generator as kco_fg
+import footprint_connector_generator as ftp_con_gen
 import symbol_connectors_specs as sym_con_spec
 import file_handler_utilities as utils
 
@@ -82,7 +82,7 @@ def generate_footprints_for_series(
 
     for part in parts_list:
         try:
-            kco_fg.generate_footprint_file(part)
+            ftp_con_gen.generate_footprint_file(part)
             print_success(
                 f"Generated footprint file for {part.mpn}"
             )

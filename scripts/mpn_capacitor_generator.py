@@ -21,7 +21,7 @@ from dataclasses import dataclass
 from typing import List, Final, Iterator, Dict, Set
 from colorama import init, Fore, Style
 import symbol_capacitor_generator as sym_cap_gen
-import kicad_capacitor_footprint_generator as ki_cfg
+import footprint_capacitor_generator as ftp_cap_gen
 import symbol_capacitors_specs as sym_cap_spec
 import file_handler_utilities as utils
 
@@ -445,7 +445,7 @@ def generate_files_for_series(
 
     # Generate KiCad footprint file
     try:
-        ki_cfg.generate_footprint_file(series_name, footprint_dir)
+        ftp_cap_gen.generate_footprint_file(series_name, footprint_dir)
         footprint_name = f"{series_name}_{specs.case_code_in}.kicad_mod"
         print_success(
             f"KiCad footprint file '{footprint_name}' generated successfully.")
@@ -506,7 +506,7 @@ def generate_unified_files(
 
     for part_series in sym_cap_spec.SERIES_SPECS:
         try:
-            ki_cfg.generate_footprint_file(part_series, footprint_dir)
+            ftp_cap_gen.generate_footprint_file(part_series, footprint_dir)
             print_success(f"Generated footprint for {part_series}")
         except (KeyError, IOError) as error:
             print_error(
