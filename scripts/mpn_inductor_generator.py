@@ -11,7 +11,7 @@ import os
 import csv
 from typing import Final, List
 from colorama import init, Fore, Style
-import kicad_inductor_symbol_generator as ki_isg
+import symbol_inductor_generator as sym_ind_gen
 import kicad_inductor_footprint_generator as ki_ifg
 import symbol_inductors_specs as sym_ind_spec
 import file_handler_utilities as utils
@@ -296,7 +296,7 @@ def generate_files_for_series(
             f"in '{csv_filename}'"
         )
 
-        ki_isg.generate_kicad_symbol(
+        sym_ind_gen.generate_kicad_symbol(
             f'data/{csv_filename}',
             f'series_kicad_sym/{symbol_filename}'
         )
@@ -343,7 +343,7 @@ def generate_unified_files(
 
     # Generate unified KiCad symbol file
     try:
-        ki_isg.generate_kicad_symbol(
+        sym_ind_gen.generate_kicad_symbol(
             f'data/{unified_csv}', f'symbols/{unified_symbol}')
         print_success("Unified KiCad symbol file generated successfully.")
     except FileNotFoundError as e:
