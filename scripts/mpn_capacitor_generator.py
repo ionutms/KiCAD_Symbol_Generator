@@ -22,7 +22,7 @@ from typing import List, Final, Iterator, Dict, Set
 from colorama import init, Fore, Style
 import kicad_capacitor_symbol_generator as ki_csg
 import kicad_capacitor_footprint_generator as ki_cfg
-import series_specs_capacitors as ssc
+import symbol_capacitors_specs as sym_cap_spec
 import file_handler_utilities as utils
 
 init(autoreset=True)
@@ -59,8 +59,8 @@ class PartParameters:
     tolerance_code: str
     tolerance_value: str
     packaging: str
-    series_type: ssc.SeriesType
-    specs: ssc.SeriesSpec
+    series_type: sym_cap_spec.SeriesType
+    specs: sym_cap_spec.SeriesSpec
 
 
 def ensure_directory_exists(directory: str) -> None:
@@ -140,7 +140,9 @@ def format_capacitance_value(capacitance: float) -> str:
     return f"{formatted} {unit}"
 
 
-def generate_capacitance_code(capacitance: float) -> str:
+def generate_capacitance_code(
+        capacitance: float
+) -> str:
     """Generate the capacitance portion of Murata part number.
 
     Args:
@@ -181,7 +183,10 @@ def generate_capacitance_code(capacitance: float) -> str:
     return f"{first_two}{zero_count}"
 
 
-def get_characteristic_code(capacitance: float, specs: ssc.SeriesSpec) -> str:
+def get_characteristic_code(
+        capacitance: float,
+        specs: sym_cap_spec.SeriesSpec
+) -> str:
     """Determine characteristic code based on series and capacitance.
 
     Args:
@@ -245,7 +250,10 @@ def generate_standard_values(
         decade *= 10
 
 
-def generate_datasheet_url(mpn: str, specs: ssc.SeriesSpec) -> str:
+def generate_datasheet_url(
+        mpn: str,
+        specs: sym_cap_spec.SeriesSpec
+) -> str:
     """Generate the datasheet URL for a given Murata part number.
 
     Args:
@@ -263,7 +271,9 @@ def generate_datasheet_url(mpn: str, specs: ssc.SeriesSpec) -> str:
     return f"{specs.datasheet_url}{specific_part}-01.pdf"
 
 
-def create_part_info(params: PartParameters) -> ssc.PartInfo:
+def create_part_info(
+        params: PartParameters
+) -> sym_cap_spec.PartInfo:
     """Create complete part information from component parameters.
 
     Args:
@@ -298,7 +308,7 @@ def create_part_info(params: PartParameters) -> ssc.PartInfo:
     trustedparts_link = f"{params.specs.trustedparts_url}/{mpn}"
     datasheet_url = generate_datasheet_url(mpn, params.specs)
 
-    return ssc.PartInfo(
+    return sym_cap_spec.PartInfo(
         symbol_name=symbol_name,
         reference="C",
         value=params.capacitance,
@@ -318,7 +328,9 @@ def create_part_info(params: PartParameters) -> ssc.PartInfo:
     )
 
 
-def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
+def generate_part_numbers(
+        specs: sym_cap_spec.SeriesSpec
+) -> List[sym_cap_spec.PartInfo]:
     """Generate all valid part numbers for a series specification.
 
     Args:
@@ -328,9 +340,9 @@ def generate_part_numbers(specs: ssc.SeriesSpec) -> List[ssc.PartInfo]:
         List of PartInfo objects for all valid component combinations,
         sorted by dielectric type and capacitance value
     """
-    parts_list: List[ssc.PartInfo] = []
+    parts_list: List[sym_cap_spec.PartInfo] = []
 
-    for series_type in ssc.SeriesType:
+    for series_type in sym_cap_spec.SeriesType:
         if series_type in specs.value_range:
             min_val, max_val = specs.value_range[series_type]
 
@@ -377,7 +389,7 @@ HEADER_MAPPING: Final[dict] = {
 
 def generate_files_for_series(
     series_name: str,
-    unified_parts_list: List[ssc.PartInfo]
+    unified_parts_list: List[sym_cap_spec.PartInfo]
 ) -> None:
     """Generate CSV, KiCad symbol, and footprint files for a specific series.
 
@@ -395,10 +407,10 @@ def generate_files_for_series(
         Generated files are saved in 'data/', 'series_kicad_sym/', and
         'capacitor_footprints.pretty/' directories.
     """
-    if series_name not in ssc.SERIES_SPECS:
+    if series_name not in sym_cap_spec.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = ssc.SERIES_SPECS[series_name]
+    specs = sym_cap_spec.SERIES_SPECS[series_name]
     series_code = series_name.replace("-", "")
 
     # Ensure required directories exist
@@ -447,7 +459,7 @@ def generate_files_for_series(
 
 
 def generate_unified_files(
-    all_parts: List[ssc.PartInfo],
+    all_parts: List[sym_cap_spec.PartInfo],
     unified_csv: str,
     unified_symbol: str
 ) -> None:
@@ -492,7 +504,7 @@ def generate_unified_files(
     footprint_dir = "capacitor_footprints.pretty"
     ensure_directory_exists(footprint_dir)
 
-    for part_series in ssc.SERIES_SPECS:
+    for part_series in sym_cap_spec.SERIES_SPECS:
         try:
             ki_cfg.generate_footprint_file(part_series, footprint_dir)
             print_success(f"Generated footprint for {part_series}")
@@ -503,9 +515,9 @@ def generate_unified_files(
 
 if __name__ == "__main__":
     try:
-        unified_parts: List[ssc.PartInfo] = []
+        unified_parts: List[sym_cap_spec.PartInfo] = []
 
-        for series in ssc.SERIES_SPECS:
+        for series in sym_cap_spec.SERIES_SPECS:
             print_info(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, unified_parts)
 

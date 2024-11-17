@@ -8,7 +8,7 @@ with appropriate pad dimensions and clearances.
 
 from typing import Dict, NamedTuple
 from uuid import uuid4
-from series_specs_capacitors import SERIES_SPECS, SeriesSpec
+from symbol_capacitors_specs import SERIES_SPECS, SeriesSpec
 
 
 class PadDimensions(NamedTuple):
