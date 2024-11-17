@@ -23,7 +23,7 @@ import os
 import csv
 from typing import List, Final, Iterator
 from colorama import init, Fore, Style
-import kicad_resistor_symbol_generator as ki_rsg
+import symbol_resistor_generator as sym_res_gen
 import kicad_resistor_footprint_generator as ki_rfg
 import symbol_resistors_specs as sym_res_spec
 import file_handler_utilities as utils
@@ -333,7 +333,7 @@ def generate_files_for_series(
 
     # Generate KiCad symbol file
     try:
-        ki_rsg.generate_kicad_symbol(
+        sym_res_gen.generate_kicad_symbol(
             f'data/{csv_filename}',
             f'series_kicad_sym/{symbol_filename}')
         print_success(
@@ -390,7 +390,7 @@ def generate_unified_files(
 
     # Generate unified KiCad symbol file
     try:
-        ki_rsg.generate_kicad_symbol(
+        sym_res_gen.generate_kicad_symbol(
             f'data/{unified_csv}', f'symbols/{unified_symbol}')
         print_success("Unified KiCad symbol file generated successfully.")
     except FileNotFoundError as file_error:
