@@ -8,7 +8,7 @@ footprints with appropriate pad dimensions and clearances.
 
 from typing import Dict, NamedTuple
 from uuid import uuid4
-from series_specs_resistors import SERIES_SPECS, SeriesSpec
+from symbol_resistors_specs import SERIES_SPECS, SeriesSpec
 
 
 class PadDimensions(NamedTuple):

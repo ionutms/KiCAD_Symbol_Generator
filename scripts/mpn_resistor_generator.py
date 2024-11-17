@@ -25,7 +25,7 @@ from typing import List, Final, Iterator
 from colorama import init, Fore, Style
 import kicad_resistor_symbol_generator as ki_rsg
 import kicad_resistor_footprint_generator as ki_rfg
-import series_specs_resistors as ssr
+import symbol_resistors_specs as sym_res_spec
 import file_handler_utilities as utils
 
 init(autoreset=True)
@@ -167,8 +167,8 @@ def create_part_info(
     tolerance_code: str,
     tolerance_value: str,
     packaging: str,
-    specs: ssr.SeriesSpec
-) -> ssr.PartInfo:
+    specs: sym_res_spec.SeriesSpec
+) -> sym_res_spec.PartInfo:
     """
     Create a PartInfo instance with complete component specifications.
 
@@ -193,7 +193,7 @@ def create_part_info(
     )
     trustedparts_link = f"{specs.trustedparts_url}{mpn}"
 
-    return ssr.PartInfo(
+    return sym_res_spec.PartInfo(
         symbol_name=symbol_name,
         reference="R",
         value=resistance,
@@ -211,7 +211,9 @@ def create_part_info(
     )
 
 
-def generate_part_numbers(specs: ssr.SeriesSpec) -> List[ssr.PartInfo]:
+def generate_part_numbers(
+        specs: sym_res_spec.SeriesSpec
+) -> List[sym_res_spec.PartInfo]:
     """
     Generate all possible part numbers for a resistor series.
 
@@ -227,11 +229,11 @@ def generate_part_numbers(specs: ssr.SeriesSpec) -> List[ssr.PartInfo]:
     Returns:
         List of PartInfo instances for all valid combinations
     """
-    parts_list: List[ssr.PartInfo] = []
+    parts_list: List[sym_res_spec.PartInfo] = []
 
-    for series_type in ssr.SeriesType:
+    for series_type in sym_res_spec.SeriesType:
         base_values = (
-            E96_BASE_VALUES if series_type == ssr.SeriesType.E96
+            E96_BASE_VALUES if series_type == sym_res_spec.SeriesType.E96
             else E24_BASE_VALUES
         )
 
@@ -284,7 +286,7 @@ def ensure_directory_exists(directory: str) -> None:
 
 def generate_files_for_series(
     series_name: str,
-    unified_parts_list: List[ssr.PartInfo]
+    unified_parts_list: List[sym_res_spec.PartInfo]
 ) -> None:
     """
     Generate CSV, KiCad symbol, and footprint files
@@ -306,10 +308,10 @@ def generate_files_for_series(
         csv.Error: If CSV processing fails
         IOError: If file operations fail
     """
-    if series_name not in ssr.SERIES_SPECS:
+    if series_name not in sym_res_spec.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = ssr.SERIES_SPECS[series_name]
+    specs = sym_res_spec.SERIES_SPECS[series_name]
     series_code = series_name.replace("-", "")
 
     # Ensure required directories exist
@@ -359,7 +361,7 @@ def generate_files_for_series(
 
 
 def generate_unified_files(
-        all_parts: List[ssr.PartInfo],
+        all_parts: List[sym_res_spec.PartInfo],
         unified_csv: str,
         unified_symbol: str
 ) -> None:
@@ -404,7 +406,7 @@ def generate_unified_files(
     footprint_dir = "resistor_footprints.pretty"
     ensure_directory_exists(footprint_dir)
 
-    for part_series in ssr.SERIES_SPECS:
+    for part_series in sym_res_spec.SERIES_SPECS:
         try:
             ki_rfg.generate_footprint_file(part_series, footprint_dir)
             print_success(f"Generated footprint for {part_series}")
@@ -415,9 +417,9 @@ def generate_unified_files(
 
 if __name__ == "__main__":
     try:
-        unified_parts: List[ssr.PartInfo] = []
+        unified_parts: List[sym_res_spec.PartInfo] = []
 
-        for series in ssr.SERIES_SPECS:
+        for series in sym_res_spec.SERIES_SPECS:
             print_info(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, unified_parts)
 
