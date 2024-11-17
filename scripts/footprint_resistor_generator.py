@@ -159,15 +159,12 @@ def generate_courtyard(specs: FootprintSpecs) -> str:
     res_specs = specs.resistor_specs
     half_height = \
         res_specs.body_dimensions.height / 2 + res_specs.courtyard_margin/4
+    half_width = res_specs.courtyard_margin
 
     return (
-        f'    (fp_poly\n'
-        f'        (pts\n'
-        f'            (xy -{res_specs.courtyard_margin} -{half_height}) '
-        f'(xy {res_specs.courtyard_margin} -{half_height}) '
-        f'(xy {res_specs.courtyard_margin} {half_height}) '
-        f'(xy -{res_specs.courtyard_margin} {half_height})\n'
-        f'        )\n'
+        f'    (fp_rect\n'
+        f'        (start -{half_width} -{half_height})\n'
+        f'        (end {half_width} {half_height})\n'
         f'        (stroke\n'
         f'            (width 0.00635)\n'
         f'            (type solid)\n'
