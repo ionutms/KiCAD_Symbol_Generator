@@ -159,15 +159,12 @@ def generate_courtyard(specs: FootprintSpecs) -> str:
     cap_specs = specs.capacitor_specs
     half_height = \
         cap_specs.body_dimensions.height / 2 + cap_specs.courtyard_margin/4
+    half_width = cap_specs.courtyard_margin
 
     return (
-        f'    (fp_poly\n'
-        f'        (pts\n'
-        f'            (xy -{cap_specs.courtyard_margin} -{half_height}) '
-        f'(xy {cap_specs.courtyard_margin} -{half_height}) '
-        f'(xy {cap_specs.courtyard_margin} {half_height}) '
-        f'(xy -{cap_specs.courtyard_margin} {half_height})\n'
-        f'        )\n'
+        f'    (fp_rect\n'
+        f'        (start -{half_width} -{half_height})\n'
+        f'        (end {half_width} {half_height})\n'
         f'        (stroke\n'
         f'            (width 0.00635)\n'
         f'            (type solid)\n'
