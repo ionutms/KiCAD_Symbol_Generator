@@ -7,37 +7,9 @@ appropriate pad dimensions, clearances, and silkscreen markings for surface
 mount power inductors.
 """
 
-from typing import NamedTuple
 from uuid import uuid4
 import symbol_inductors_specs as ssi
-from footprint_inductor_specs import INDUCTOR_SPECS
-
-
-class InductorSpecs(NamedTuple):
-    """Complete specifications for generating an inductor footprint."""
-    series_name: str
-    body_width: float
-    body_height: float
-    pad_width: float
-    pad_height: float
-    pad_center_x: float
-    ref_offset_y: float
-
-
-def create_inductor_specs(series_name: str) -> InductorSpecs:
-    """Create complete inductor specifications from a series name."""
-    dims = INDUCTOR_SPECS[series_name]
-    body_dims, pad_dims, ref_offset = dims  # Unpack the tuple
-
-    return InductorSpecs(
-        series_name=series_name,
-        body_width=body_dims.width,
-        body_height=body_dims.height,
-        pad_width=pad_dims.width,
-        pad_height=pad_dims.height,
-        pad_center_x=pad_dims.center_x,
-        ref_offset_y=ref_offset
-    )
+from footprint_inductor_specs import INDUCTOR_SPECS, InductorSpecs
 
 
 def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
@@ -46,7 +18,8 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
 
     Args:
         part_info: Component specifications
-        specs: Physical specifications for the inductor series
+        specs:
+            Physical specifications for the inductor series from INDUCTOR_SPECS
 
     Returns:
         Complete .kicad_mod file content as formatted string
@@ -88,16 +61,18 @@ def generate_properties(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
         '        )'
     )
 
+    ref_offset_y = specs.ref_offset_y
+
     return (
         '    (property "Reference" "REF**"\n'
-        f'        (at 0 {specs.ref_offset_y} 0)\n'
+        f'        (at 0 {ref_offset_y} 0)\n'
         '        (unlocked yes)\n'
         '        (layer "F.SilkS")\n'
         f'        (uuid "{uuid4()}")\n'
         f'{font_props}\n'
         '    )\n'
         f'    (property "Value" "{part_info.series}"\n'
-        f'        (at 0 {-1 * specs.ref_offset_y} 0)\n'
+        f'        (at 0 {-1 * ref_offset_y} 0)\n'
         '        (unlocked yes)\n'
         '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
@@ -120,9 +95,10 @@ def generate_properties(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
 
 def generate_shapes(specs: InductorSpecs) -> str:
     """Generate the shapes section of the footprint."""
-    half_width = specs.body_width / 2
-    half_height = specs.body_height / 2
-    silkscreen_x = specs.pad_center_x - specs.pad_width / 2
+    half_width = specs.body_dimensions.width / 2
+    half_height = specs.body_dimensions.height / 2
+    silkscreen_x = \
+        specs.pad_dimensions.center_x - specs.pad_dimensions.width / 2
 
     shapes = []
 
@@ -178,9 +154,9 @@ def generate_shapes(specs: InductorSpecs) -> str:
     # Polarity marker
     shapes.append(
         '    (fp_circle\n'
-        f'        (center -{specs.pad_center_x} 0)\n'
+        f'        (center -{specs.pad_dimensions.center_x} 0)\n'
         '        (end '
-        f'-{specs.pad_center_x - 0.0762} 0)\n'
+        f'-{specs.pad_dimensions.center_x - 0.0762} 0)\n'
         '        (stroke\n'
         '            (width 0.0254)\n'
         '            (type solid)\n'
@@ -218,8 +194,9 @@ def generate_pads(specs: InductorSpecs) -> str:
     for pad_number, symbol in enumerate(['-', ''], start=1):
         pads.append(
             f'    (pad "{pad_number}" smd rect\n'
-            f'        (at {symbol}{specs.pad_center_x} 0)\n'
-            f'        (size {specs.pad_width} {specs.pad_height})\n'
+            f'        (at {symbol}{specs.pad_dimensions.center_x} 0)\n'
+            '        (size '
+            f'{specs.pad_dimensions.width} {specs.pad_dimensions.height})\n'
             '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
             f'        (uuid "{uuid4()}")\n'
             '    )'
@@ -255,7 +232,7 @@ def generate_footprint_file(part_info: ssi.PartInfo, output_dir: str) -> None:
     if part_info.series not in INDUCTOR_SPECS:
         raise ValueError(f"Unknown series: {part_info.series}")
 
-    specs = create_inductor_specs(part_info.series)
+    specs = INDUCTOR_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
 
     filename = f"{output_dir}/{part_info.series}.kicad_mod"
