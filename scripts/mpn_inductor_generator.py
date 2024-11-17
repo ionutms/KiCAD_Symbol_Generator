@@ -12,7 +12,7 @@ import csv
 from typing import Final, List
 from colorama import init, Fore, Style
 import symbol_inductor_generator as sym_ind_gen
-import kicad_inductor_footprint_generator as ki_ifg
+import footprint_inductor_generator as ftp_ind_gen
 import symbol_inductors_specs as sym_ind_spec
 import file_handler_utilities as utils
 
@@ -233,7 +233,7 @@ def generate_footprints_for_series(
 
     for part in parts_list:
         try:
-            ki_ifg.generate_footprint_file(part, footprint_dir)
+            ftp_ind_gen.generate_footprint_file(part, footprint_dir)
             print_success(
                 f"Generated footprint file for {part.mpn}"
             )
