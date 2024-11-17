@@ -74,69 +74,84 @@ HEADER_MAPPING: Final[dict] = {
 }
 
 
-def generate_footprints_for_series(
-        parts_list: List[sym_con_spec.PartInfo]
-) -> None:
-    """Generate footprint files for all parts in a series."""
-    os.makedirs("connector_footprints.pretty", exist_ok=True)
-
-    for part in parts_list:
-        try:
-            ftp_con_gen.generate_footprint_file(part)
-            print_success(
-                f"Generated footprint file for {part.mpn}"
-            )
-        except ValueError as e:
-            print_error(f"Error generating footprint: {e}")
-        except IOError as e:
-            print_error(f"I/O error generating footprint: {e}")
+def ensure_directory_exists(directory: str) -> None:
+    """Create directory if it doesn't exist."""
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        print_info(f"Created directory: {directory}")
 
 
 def generate_files_for_series(
     series_name: str,
     unified_parts_list: List[sym_con_spec.PartInfo]
 ) -> None:
-    """
-    Generate CSV and KiCad symbol files for specified series.
+    """Generate CSV, KiCad symbol, and footprint files for a specific series.
 
     Args:
-        series_name: Name of the series to generate files for
-        unified_parts_list: List to store generated parts for unified database
+        series_name: Series identifier (must exist in SERIES_SPECS)
+        unified_parts_list: List to append generated parts to
+
+    Raises:
+        ValueError: If series_name is not found in SERIES_SPECS
+        FileNotFoundError: If CSV file creation fails
+        csv.Error: If CSV processing fails or data formatting is invalid
+        IOError: If file operations fail due to permissions or disk space
+
+    Note:
+        Generated files are saved in 'data/', 'series_kicad_sym/', and
+        'connector_footprints.pretty/' directories.
     """
     if series_name not in sym_con_spec.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
     specs = sym_con_spec.SERIES_SPECS[series_name]
-    csv_filename = f"{specs.base_series}_part_numbers.csv"
-    symbol_filename = f"CONNECTORS_{specs.base_series}_DATA_BASE.kicad_sym"
+    series_code = specs.base_series
 
+    # Ensure required directories exist
+    ensure_directory_exists('data')
+    ensure_directory_exists('series_kicad_sym')
+    ensure_directory_exists('symbols')
+    footprint_dir = "connector_footprints.pretty"
+    ensure_directory_exists(footprint_dir)
+
+    csv_filename = f"{series_code}_part_numbers.csv"
+    symbol_filename = f"CONNECTORS_{series_code}_DATA_BASE.kicad_sym"
+
+    # Generate part numbers and write to CSV
+    parts_list = generate_part_numbers(specs)
+    utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
+    print_success(
+        f"Generated {len(parts_list)} part numbers in '{csv_filename}'")
+
+    # Generate KiCad symbol file
     try:
-        parts_list = generate_part_numbers(specs)
-        utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
-        print_success(
-            f"Generated {len(parts_list)} part numbers "
-            f"in '{csv_filename}'"
-        )
-
         sym_con_gen.generate_kicad_symbol(
             f'data/{csv_filename}',
-            f'series_kicad_sym/{symbol_filename}'
-        )
+            f'series_kicad_sym/{symbol_filename}')
         print_success(
-            f"KiCad symbol file '{symbol_filename}' "
-            "generated successfully."
-        )
-        generate_footprints_for_series(parts_list)
+            f"KiCad symbol file '{symbol_filename}' generated successfully.")
+    except FileNotFoundError as file_error:
+        print_error(f"CSV file not found: {file_error}")
+    except csv.Error as csv_error:
+        print_error(f"CSV processing error: {csv_error}")
+    except IOError as io_error:
+        print_error(f"I/O error when generating KiCad symbol file: {io_error}")
 
-        # Add parts to unified list
-        unified_parts_list.extend(parts_list)
+    # Generate KiCad footprint files
+    try:
+        for part in parts_list:
+            ftp_con_gen.generate_footprint_file(part)
+            footprint_name = f"{part.mpn}.kicad_mod"
+            print_success(
+                "KiCad footprint file "
+                f"{footprint_name}' generated successfully.")
+    except ValueError as val_error:
+        print_error(f"Invalid connector specification: {val_error}")
+    except IOError as io_error:
+        print_error(f"I/O error when generating footprint file: {io_error}")
 
-    except FileNotFoundError as e:
-        print_error(f"CSV file not found: {e}")
-    except csv.Error as e:
-        print_error(f"CSV processing error: {e}")
-    except IOError as e:
-        print_error(f"I/O error when generating files: {e}")
+    # Add parts to unified list
+    unified_parts_list.extend(parts_list)
 
 
 def generate_unified_files(
