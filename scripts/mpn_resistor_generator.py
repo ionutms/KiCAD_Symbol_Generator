@@ -318,8 +318,7 @@ def generate_files_for_series(
     ensure_directory_exists('data')
     ensure_directory_exists('series_kicad_sym')
     ensure_directory_exists('symbols')
-    ensure_directory_exists('resistor_footprints.pretty')
-    footprint_dir = "/resistor_footprints.pretty"
+    footprint_dir = "resistor_footprints.pretty"
     ensure_directory_exists(footprint_dir)
 
     csv_filename = f"{series_code}_part_numbers.csv"
@@ -400,19 +399,6 @@ def generate_unified_files(
     except IOError as io_error:
         print_error(
             f"I/O error when generating unified KiCad symbol file: {io_error}")
-
-    # Generate footprints for all series
-    print_info("\nGenerating footprints for all series:")
-    footprint_dir = "resistor_footprints.pretty"
-    ensure_directory_exists(footprint_dir)
-
-    for part_series in sym_res_spec.SERIES_SPECS:
-        try:
-            ftp_res_gen.generate_footprint_file(part_series, footprint_dir)
-            print_success(f"Generated footprint for {part_series}")
-        except (KeyError, IOError) as error:
-            print_error(
-                f"Error generating footprint for {part_series}: {error}")
 
 
 if __name__ == "__main__":
