@@ -227,7 +227,6 @@ def generate_pads(specs: FootprintSpecs) -> str:
     pads = []
     res_specs = specs.resistor_specs
     pad = res_specs.pad_dimensions
-    roundrect_ratio = 0.25  # Constant value for pad corner rounding
 
     for pad_number, symbol in enumerate(['-', ''], start=1):
         pads.append(
@@ -235,7 +234,7 @@ def generate_pads(specs: FootprintSpecs) -> str:
             f'        (at {symbol}{pad.center_x} 0)\n'
             f'        (size {pad.width} {pad.height})\n'
             f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-            f'        (roundrect_rratio {roundrect_ratio})\n'
+            f'        (roundrect_rratio {pad.roundrect_ratio})\n'
             f'        (uuid "{uuid4()}")\n'
             f'    )'
         )
