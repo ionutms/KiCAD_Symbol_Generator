@@ -9,22 +9,10 @@ with appropriate pad dimensions and clearances.
 from typing import NamedTuple
 from uuid import uuid4
 from symbol_capacitors_specs import SERIES_SPECS, SeriesSpec
-from footprint_capacitor_specs import CASE_DIMENSIONS
+from footprint_capacitor_specs import CAPACITOR_SPECS, CapacitorSpecs
 
 
-class PadDimensions(NamedTuple):
-    """
-    Defines SMD pad dimensions and positioning.
-
-    All measurements are in millimeters.
-    """
-    width: float      # Width of each pad
-    height: float     # Height of each pad
-    center_x: float   # Distance from origin to pad center
-    roundrect_ratio: float  # Corner radius ratio for roundrect pads
-
-
-class CapacitorSpecs(NamedTuple):
+class FootprintSpecs(NamedTuple):
     """
     Complete specifications for generating a capacitor footprint.
 
@@ -32,59 +20,34 @@ class CapacitorSpecs(NamedTuple):
     generating accurate KiCad footprints.
     """
     series_spec: SeriesSpec     # Original series specifications
-    body_width: float           # Width of capacitor body
-    body_height: float          # Height of capacitor body
-    pad_dims: PadDimensions     # Pad specifications
-    silk_y: float               # Y-coordinate of silkscreen lines
-    silk_extension: float       # X-extension of silkscreen lines from center
-    silk_inset: float          # Distance silk extends from body
-    courtyard_margin: float     # Courtyard margin beyond pads
-    ref_y: float               # Y position for reference designator
-    value_y: float             # Y position for value text
-    fab_reference_y: float     # Y position for fab layer reference
+    capacitor_specs: CapacitorSpecs  # Physical specifications
 
 
-def create_capacitor_specs(series_spec: SeriesSpec) -> CapacitorSpecs:
+def create_footprint_specs(series_spec: SeriesSpec) -> FootprintSpecs:
     """
-    Create complete capacitor specifications from series specifications.
+    Create complete footprint specifications from series specifications.
 
     Args:
         series_spec: SeriesSpec object containing basic specifications
 
     Returns:
-        CapacitorSpecs object with complete physical dimensions
+        FootprintSpecs object with complete physical dimensions
 
     Raises:
-        KeyError: If case code is not found in CASE_DIMENSIONS
+        KeyError: If case code is not found in CAPACITOR_SPECS
     """
-    case_dims = CASE_DIMENSIONS[series_spec.case_code_in]
-
-    return CapacitorSpecs(
+    return FootprintSpecs(
         series_spec=series_spec,
-        body_width=case_dims["body_width"],
-        body_height=case_dims["body_height"],
-        pad_dims=PadDimensions(
-            width=case_dims["pad_width"],
-            height=case_dims["pad_height"],
-            center_x=case_dims["pad_center_x"],
-            roundrect_ratio=0.25
-        ),
-        silk_y=case_dims["silk_y"],
-        silk_extension=case_dims["silk_extension"],
-        silk_inset=case_dims["silk_inset"],
-        courtyard_margin=case_dims["courtyard_margin"],
-        ref_y=case_dims["ref_y"],
-        value_y=case_dims["value_y"],
-        fab_reference_y=case_dims["fab_reference_y"],
+        capacitor_specs=CAPACITOR_SPECS[series_spec.case_code_in]
     )
 
 
-def generate_footprint(specs: CapacitorSpecs) -> str:
+def generate_footprint(specs: FootprintSpecs) -> str:
     """
     Generate complete KiCad footprint file content for a capacitor.
 
     Args:
-        specs: Physical specifications for the capacitor
+        specs: Combined specifications for the capacitor
 
     Returns:
         Complete .kicad_mod file content as formatted string
@@ -102,7 +65,7 @@ def generate_footprint(specs: CapacitorSpecs) -> str:
     return "\n".join(sections)
 
 
-def generate_header(specs: CapacitorSpecs) -> str:
+def generate_header(specs: FootprintSpecs) -> str:
     """
     Generate the footprint header section with capacitor-specific details.
     """
@@ -123,13 +86,16 @@ def generate_header(specs: CapacitorSpecs) -> str:
     )
 
 
-def generate_properties(specs: CapacitorSpecs) -> str:
+def generate_properties(specs: FootprintSpecs) -> str:
     """Generate properties section with capacitor-specific information."""
     footprint_name = \
         "C_" + \
         f"{specs.series_spec.case_code_in}_" + \
         f"{specs.series_spec.case_code_mm}" + \
         "Metric"
+
+    cap_specs = specs.capacitor_specs
+    text_pos = cap_specs.text_positions
 
     font_props = (
         '        (effects\n'
@@ -144,13 +110,13 @@ def generate_properties(specs: CapacitorSpecs) -> str:
 
     return (
         f'    (property "Reference" "C**"\n'
-        f'        (at 0 {specs.ref_y} 0)\n'
+        f'        (at 0 {text_pos.reference} 0)\n'
         f'        (layer "F.SilkS")\n'
         f'        (uuid "{uuid4()}")\n'
         f'{font_props}\n'
         f'    )\n'
         f'    (property "Value" "{footprint_name}"\n'
-        f'        (at 0 {specs.value_y} 0)\n'
+        f'        (at 0 {text_pos.value} 0)\n'
         f'        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
         f'{font_props}\n'
@@ -165,51 +131,42 @@ def generate_properties(specs: CapacitorSpecs) -> str:
     )
 
 
-def generate_silkscreen(specs: CapacitorSpecs) -> str:
+def generate_silkscreen(specs: FootprintSpecs) -> str:
     """Generate silkscreen elements with capacitor-specific markings."""
     silkscreen = []
+    cap_specs = specs.capacitor_specs
+    silk = cap_specs.silkscreen
 
-    # Top silkscreen line
-    silkscreen.append(
-        f'    (fp_line\n'
-        f'        (start -{specs.silk_extension} -{specs.silk_y})\n'
-        f'        (end {specs.silk_extension} -{specs.silk_y})\n'
-        f'        (stroke\n'
-        f'            (width 0.1524)\n'
-        f'            (type solid)\n'
-        f'        )\n'
-        f'        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
-
-    # Bottom silkscreen line
-    silkscreen.append(
-        f'    (fp_line\n'
-        f'        (start -{specs.silk_extension} {specs.silk_y})\n'
-        f'        (end {specs.silk_extension} {specs.silk_y})\n'
-        f'        (stroke\n'
-        f'            (width 0.1524)\n'
-        f'            (type solid)\n'
-        f'        )\n'
-        f'        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
+    for symbol in ['-', '']:
+        silkscreen.append(
+            f'    (fp_line\n'
+            f'        (start -{silk.extension} {symbol}{silk.y_position})\n'
+            f'        (end {silk.extension} {symbol}{silk.y_position})\n'
+            f'        (stroke\n'
+            f'            (width 0.1524)\n'
+            f'            (type solid)\n'
+            f'        )\n'
+            f'        (layer "F.SilkS")\n'
+            f'        (uuid "{uuid4()}")\n'
+            f'    )'
+        )
 
     return "\n".join(silkscreen)
 
 
-def generate_courtyard(specs: CapacitorSpecs) -> str:
+def generate_courtyard(specs: FootprintSpecs) -> str:
     """Generate courtyard outline with capacitor-specific clearances."""
-    half_height = specs.body_height / 2 + specs.courtyard_margin/4
+    cap_specs = specs.capacitor_specs
+    half_height = \
+        cap_specs.body_dimensions.height / 2 + cap_specs.courtyard_margin/4
+
     return (
         f'    (fp_poly\n'
         f'        (pts\n'
-        f'            (xy -{specs.courtyard_margin} -{half_height}) '
-        f'(xy {specs.courtyard_margin} -{half_height}) '
-        f'(xy {specs.courtyard_margin} {half_height}) '
-        f'(xy -{specs.courtyard_margin} {half_height})\n'
+        f'            (xy -{cap_specs.courtyard_margin} -{half_height}) '
+        f'(xy {cap_specs.courtyard_margin} -{half_height}) '
+        f'(xy {cap_specs.courtyard_margin} {half_height}) '
+        f'(xy -{cap_specs.courtyard_margin} {half_height})\n'
         f'        )\n'
         f'        (stroke\n'
         f'            (width 0.00635)\n'
@@ -222,10 +179,12 @@ def generate_courtyard(specs: CapacitorSpecs) -> str:
     )
 
 
-def generate_fab_layer(specs: CapacitorSpecs) -> str:
+def generate_fab_layer(specs: FootprintSpecs) -> str:
     """Generate fabrication layer with capacitor-specific markings."""
-    half_width = specs.body_width / 2
-    half_height = specs.body_height / 2
+    cap_specs = specs.capacitor_specs
+    body = cap_specs.body_dimensions
+    half_width = body.width / 2
+    half_height = body.height / 2
 
     fab_layer = []
 
@@ -244,24 +203,10 @@ def generate_fab_layer(specs: CapacitorSpecs) -> str:
         f'    )'
     )
 
-    # Polarity marking on negative side (left)
-    fab_layer.append(
-        f'    (fp_line\n'
-        f'        (start -{half_width + 0.1} -{half_height})\n'
-        f'        (end -{half_width + 0.1} {half_height})\n'
-        f'        (stroke\n'
-        f'            (width 0.0254)\n'
-        f'            (type default)\n'
-        f'        )\n'
-        f'        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
-
     # Reference designator
     fab_layer.append(
         f'    (fp_text user "${{REFERENCE}}"\n'
-        f'        (at 0 {specs.fab_reference_y} 0)\n'
+        f'        (at 0 {cap_specs.text_positions.fab_reference} 0)\n'
         f'        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
         f'        (effects\n'
@@ -277,36 +222,28 @@ def generate_fab_layer(specs: CapacitorSpecs) -> str:
     return "\n".join(fab_layer)
 
 
-def generate_pads(specs: CapacitorSpecs) -> str:
+def generate_pads(specs: FootprintSpecs) -> str:
     """Generate SMD pads with capacitor-specific dimensions."""
     pads = []
+    cap_specs = specs.capacitor_specs
+    pad = cap_specs.pad_dimensions
+    roundrect_ratio = 0.25  # Constant value for pad corner rounding
 
-    # Negative pad (1) - Left pad
-    pads.append(
-        f'    (pad "1" smd roundrect\n'
-        f'        (at -{specs.pad_dims.center_x} 0)\n'
-        f'        (size {specs.pad_dims.width} {specs.pad_dims.height})\n'
-        f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-        f'        (roundrect_rratio {specs.pad_dims.roundrect_ratio})\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
-
-    # Positive pad (2) - Right pad
-    pads.append(
-        f'    (pad "2" smd roundrect\n'
-        f'        (at {specs.pad_dims.center_x} 0)\n'
-        f'        (size {specs.pad_dims.width} {specs.pad_dims.height})\n'
-        f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-        f'        (roundrect_rratio {specs.pad_dims.roundrect_ratio})\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'    )'
-    )
+    for pad_number, symbol in enumerate(['-', ''], start=1):
+        pads.append(
+            f'    (pad "{pad_number}" smd roundrect\n'
+            f'        (at {symbol}{pad.center_x} 0)\n'
+            f'        (size {pad.width} {pad.height})\n'
+            f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
+            f'        (roundrect_rratio {roundrect_ratio})\n'
+            f'        (uuid "{uuid4()}")\n'
+            f'    )'
+        )
 
     return "\n".join(pads)
 
 
-def generate_3d_model(specs: CapacitorSpecs) -> str:
+def generate_3d_model(specs: FootprintSpecs) -> str:
     """Generate 3D model reference for the capacitor."""
     case_code = specs.series_spec.case_code_in
     return (
@@ -334,8 +271,8 @@ def generate_footprint_file(
         IOError: If there are problems writing the output file
     """
     series_spec = SERIES_SPECS[series_name]
-    capacitor_specs = create_capacitor_specs(series_spec)
-    footprint_content = generate_footprint(capacitor_specs)
+    footprint_specs = create_footprint_specs(series_spec)
+    footprint_content = generate_footprint(footprint_specs)
 
     filename = \
         f"{output_dir}/" + \
