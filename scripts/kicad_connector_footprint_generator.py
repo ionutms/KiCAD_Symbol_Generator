@@ -47,8 +47,6 @@ class ConnectorSpecs(NamedTuple):
     mask_margin: float    # Solder mask clearance around pads
     mpn_y: float         # Y position for manufacturer part number
     ref_y: float         # Y position for reference designator
-    model_offset_base: tuple[float, float, float]  # Base 3D model offset
-    model_rotation: tuple[float, float, float]     # 3D model rotation angles
     step_multiplier: float  # Step value for offset calculations
     model_offset_func: Callable  # Function to calculate model offsets
 
@@ -103,8 +101,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=6.096,
         ref_y=-6.096,
-        model_offset_base=(0.0, 0.0, 0.0),
-        model_rotation=(0.0, 0.0, 0.0),
         step_multiplier=0.0,
         model_offset_func=offset_sub
     ),
@@ -122,8 +118,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=5.334,
         ref_y=-5.334,
-        model_offset_base=(0.0, 0.0, 0.0),
-        model_rotation=(0.0, 0.0, 0.0),
         step_multiplier=0.0,
         model_offset_func=offset_sub
     ),
@@ -141,8 +135,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-8.8,
         ref_y=2.4,
-        model_offset_base=(0, 0, 0),
-        model_rotation=(0, 0, 0),
         step_multiplier=1.905,
         model_offset_func=offset_add
     ),
@@ -160,8 +152,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-5.4,
         ref_y=4.2,
-        model_offset_base=(0, 0, 0),
-        model_rotation=(0, 0, 0),
         step_multiplier=1.905,
         model_offset_func=offset_sub
     ),
@@ -179,8 +169,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=10.8,
         ref_y=-3.0,
-        model_offset_base=(0, 0, 0),
-        model_rotation=(0, 0, 0),
         step_multiplier=2.5,
         model_offset_func=offset_add
     ),
@@ -198,8 +186,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-4.8,
         ref_y=5.8,
-        model_offset_base=(0, 0, 0),
-        model_rotation=(0, 0, 0),
         step_multiplier=2.5,
         model_offset_func=offset_add
     ),
@@ -217,8 +203,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-4.8,
         ref_y=5.8,
-        model_offset_base=(0, 0, 0),
-        model_rotation=(0, 0, 0),
         step_multiplier=2.5,
         model_offset_func=offset_add
     ),
@@ -236,8 +220,6 @@ CONNECTOR_SPECS: Dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=10.8,
         ref_y=-3.0,
-        model_offset_base=(0, 0, 0),
-        model_rotation=(0, 0, 0),
         step_multiplier=2.5,
         model_offset_func=offset_sub
     ),
@@ -264,7 +246,7 @@ def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         generate_properties(part_info, specs, dimensions),
         generate_shapes(dimensions, specs),
         generate_pads(part_info, specs, dimensions),
-        generate_3d_model(part_info, specs),
+        generate_3d_model(part_info),
         ")"  # Close the footprint
     ]
     return "\n".join(sections)
@@ -453,14 +435,8 @@ def generate_pads(
     return "\n".join(pads)
 
 
-def generate_3d_model(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
+def generate_3d_model(part_info: ssc.PartInfo) -> str:
     """Generate the 3D model section of the footprint."""
-    step_offset = (part_info.pin_count - 2) * specs.step_multiplier
-    model_offset = specs.model_offset_func(
-        specs.model_offset_base,
-        step_offset
-    )
-
     model_path = (
         f'KiCAD_Symbol_Generator/3D_models/'
         f'CUI_DEVICES_{part_info.mpn}.step'
@@ -468,18 +444,10 @@ def generate_3d_model(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
 
     return (
         f'    (model "${{KIPRJMOD}}/{model_path}"\n'
-        f'        (offset\n'
-        f'            (xyz {model_offset[0]:.3f} '
-        f'{model_offset[1]} {model_offset[2]})\n'
-        f'        )\n'
-        f'        (scale\n'
-        f'            (xyz 1 1 1)\n'
-        f'        )\n'
-        f'        (rotate\n'
-        f'            (xyz {specs.model_rotation[0]} '
-        f'{specs.model_rotation[1]} {specs.model_rotation[2]})\n'
-        f'        )\n'
-        f'    )'
+        '        (offset (xyz 0 0 0))\n'
+        '        (scale (xyz 1 1 1))\n'
+        '        (rotate (xyz 0 0 0))\n'
+        '    )'
     )
 
 
