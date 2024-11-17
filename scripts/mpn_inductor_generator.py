@@ -13,7 +13,7 @@ from typing import Final, List
 from colorama import init, Fore, Style
 import kicad_inductor_symbol_generator as ki_isg
 import kicad_inductor_footprint_generator as ki_ifg
-import series_specs_inductors as ssi
+import symbol_inductors_specs as sym_ind_spec
 import file_handler_utilities as utils
 
 init(autoreset=True)
@@ -116,7 +116,7 @@ def generate_value_code(
 
 def create_description(
     inductance: float,
-    specs: ssi.SeriesSpec,
+    specs: sym_ind_spec.SeriesSpec,
     is_aec: bool
 ) -> str:
     """
@@ -144,9 +144,9 @@ def create_description(
 
 def create_part_info(
     inductance: float,
-    specs: ssi.SeriesSpec,
+    specs: sym_ind_spec.SeriesSpec,
     is_aec: bool = True
-) -> ssi.PartInfo:
+) -> sym_ind_spec.PartInfo:
     """
     Create complete part information.
 
@@ -183,7 +183,7 @@ def create_part_info(
         max_dc_current = 0.0
         max_dc_resistance = 0.0
 
-    return ssi.PartInfo(
+    return sym_ind_spec.PartInfo(
         symbol_name=f"L_{mpn}",
         reference="L",
         value=inductance,
@@ -201,9 +201,9 @@ def create_part_info(
 
 
 def generate_part_numbers(
-    specs: ssi.SeriesSpec,
+    specs: sym_ind_spec.SeriesSpec,
     is_aec: bool = True
-) -> List[ssi.PartInfo]:
+) -> List[sym_ind_spec.PartInfo]:
     """
     Generate all part numbers for the series.
 
@@ -220,7 +220,9 @@ def generate_part_numbers(
     ]
 
 
-def generate_footprints_for_series(parts_list: List[ssi.PartInfo]) -> None:
+def generate_footprints_for_series(
+        parts_list: List[sym_ind_spec.PartInfo]
+) -> None:
     """Generate footprint files for all parts in a series."""
     os.makedirs("inductor_footprints.pretty", exist_ok=True)
 
@@ -269,7 +271,7 @@ def ensure_directory_exists(directory: str) -> None:
 def generate_files_for_series(
     series_name: str,
     is_aec: bool,
-    unified_parts_list: List[ssi.PartInfo]
+    unified_parts_list: List[sym_ind_spec.PartInfo]
 ) -> None:
     """
     Generate CSV and KiCad symbol files for specified series.
@@ -279,10 +281,10 @@ def generate_files_for_series(
         is_aec: If True, generate AEC-Q200 qualified parts
         unified_parts_list: List to store generated parts for unified database
     """
-    if series_name not in ssi.SERIES_SPECS:
+    if series_name not in sym_ind_spec.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = ssi.SERIES_SPECS[series_name]
+    specs = sym_ind_spec.SERIES_SPECS[series_name]
     csv_filename = f"{specs.base_series}_part_numbers.csv"
     symbol_filename = f"INDUCTORS_{specs.base_series}_DATA_BASE.kicad_sym"
 
@@ -318,7 +320,7 @@ def generate_files_for_series(
 
 
 def generate_unified_files(
-        all_parts: List[ssi.PartInfo],
+        all_parts: List[sym_ind_spec.PartInfo],
         unified_csv: str,
         unified_symbol: str
 ) -> None:
@@ -355,9 +357,9 @@ def generate_unified_files(
 
 if __name__ == "__main__":
     try:
-        unified_parts: List[ssi.PartInfo] = []
+        unified_parts: List[sym_ind_spec.PartInfo] = []
 
-        for series in ssi.SERIES_SPECS:
+        for series in sym_ind_spec.SERIES_SPECS:
             print_info(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, True, unified_parts)
 
