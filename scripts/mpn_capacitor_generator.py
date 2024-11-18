@@ -19,28 +19,11 @@ import os
 import csv
 from dataclasses import dataclass
 from typing import List, Final, Iterator, Dict, Set
-from colorama import init, Fore, Style
+from print_message_utilities import print_error, print_info, print_success
 import symbol_capacitor_generator as sym_cap_gen
 import footprint_capacitor_generator as ftp_cap_gen
 import symbol_capacitors_specs as sym_cap_spec
 import file_handler_utilities as utils
-
-init(autoreset=True)
-
-
-def print_success(message: str) -> None:
-    """Print a success message in green."""
-    print(f"{Fore.GREEN}{message}{Style.RESET_ALL}")
-
-
-def print_error(message: str) -> None:
-    """Print an error message in red."""
-    print(f"{Fore.RED}{message}{Style.RESET_ALL}")
-
-
-def print_info(message: str) -> None:
-    """Print an info message in yellow."""
-    print(f"{Fore.YELLOW}{message}{Style.RESET_ALL}")
 
 
 @dataclass
