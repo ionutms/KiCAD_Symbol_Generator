@@ -180,8 +180,12 @@ def get_characteristic_code(
     if specs.base_series not in CHARACTERISTIC_CONFIGS:
         raise ValueError(f"Unknown series: {specs.base_series}")
 
-    thresholds = CHARACTERISTIC_CONFIGS[specs.base_series]
+    # For Samsung series, just return X7R directly
+    if specs.base_series.startswith("CL"):
+        return "X7R"
 
+    # Original Murata logic
+    thresholds = CHARACTERISTIC_CONFIGS[specs.base_series]
     for threshold in thresholds:
         if capacitance > threshold.threshold:
             return threshold.code
@@ -267,15 +271,28 @@ def create_part_info(
     )
     formatted_value = format_capacitance_value(params.capacitance)
 
-    mpn = (
-        f"{params.specs.base_series}"
-        f"{params.specs.dielectric_code[params.series_type]}"
-        f"{params.specs.voltage_code}"
-        f"{capacitance_code}"
-        f"{params.tolerance_code}"
-        f"{characteristic_code}"
-        f"{params.packaging}"
-    )
+    # Handle different part number formats for different manufacturers
+    if params.specs.base_series.startswith("GCM"):
+        # Murata format
+        mpn = (
+            f"{params.specs.base_series}"
+            f"{params.specs.dielectric_code[params.series_type]}"
+            f"{params.specs.voltage_code}"
+            f"{capacitance_code}"
+            f"{params.tolerance_code}"
+            f"{characteristic_code}"
+            f"{params.packaging}"
+        )
+    else:
+        # Samsung format - note characteristic code isn't used in the MPN
+        mpn = (
+            f"{params.specs.base_series}"
+            f"{params.specs.dielectric_code[params.series_type]}"
+            f"{capacitance_code}"
+            f"{params.specs.voltage_code}"
+            f"{params.tolerance_code}"
+            f"{params.packaging}"
+        )
 
     symbol_name = f"C_{mpn}"
     description = (
