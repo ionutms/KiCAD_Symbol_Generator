@@ -81,6 +81,9 @@ CHARACTERISTIC_CONFIGS: Final[Dict[str, List[CharacteristicThreshold]]] = {
     "GCM31C": [
         CharacteristicThreshold(4.7e-6, "A55"),
         CharacteristicThreshold(0, "A55")
+    ],
+    "CL31": [
+        CharacteristicThreshold(0, "X7R")
     ]
 }
 
