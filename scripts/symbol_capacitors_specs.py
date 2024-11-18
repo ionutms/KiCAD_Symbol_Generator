@@ -1,10 +1,11 @@
 """
-Specifications and data structures for Murata GCM series ceramic capacitors.
+Specifications and data structures for Murata GCM and Samsung CL series
+ceramic capacitors.
 
-This module defines the data structures and specifications for various Murata
-GCM series ceramic capacitors, primarily focusing on X7R dielectric types.
-It provides comprehensive component information including physical dimensions,
-electrical characteristics, and packaging options.
+This module defines the data structures and specifications for various ceramic
+capacitors, including Murata GCM series and Samsung CL series, focusing on X7R
+dielectric types. It provides comprehensive component information including
+physical dimensions, electrical characteristics, and packaging options.
 """
 
 from typing import NamedTuple, Final, Dict, List, Set
@@ -24,25 +25,20 @@ class SeriesSpec(NamedTuple):
     and available configurations.
 
     Attributes:
-        base_series: Part number series identifier (e.g., 'GCM155')
-        manufacturer: Name of the component manufacturer
+        base_series: Part number series identifier (e.g., 'GCM155', 'CL31')
+        manufacturer: Name of the component manufacturer (enum)
         footprint: PCB footprint ID for the component
         voltage_rating: Maximum operating voltage specification
         case_code_in: Package dimensions in inches (e.g., '0402')
         case_code_mm: Package dimensions in millimeters (e.g., '1005')
-        packaging_options: List of available packaging codes (e.g., ['D', 'J'])
-        tolerance_map:
-            Maps series types to available tolerance codes and values
-            Format: {SeriesType: {code: value}}
+        packaging_options: List of available packaging codes
+        tolerance_map: Maps series types to tolerance codes and values
         value_range: Valid capacitance range for each series type
-            Format: {SeriesType: (min_value, max_value)}
         voltage_code: Voltage rating code used in part numbering
         dielectric_code: Maps series types to their dielectric material codes
-            Format: {SeriesType: code}
         excluded_values: Set of unsupported capacitance values within range
         datasheet_url: Complete URL to component datasheet
-        trustedparts_url:
-            Base URL for component listing on Trustedparts platform
+        trustedparts_url: Base URL for component listing on Trustedparts
     """
     base_series: str
     manufacturer: str
@@ -61,30 +57,7 @@ class SeriesSpec(NamedTuple):
 
 
 class PartInfo(NamedTuple):
-    """Container for detailed capacitor component information.
-
-    Stores comprehensive information about a specific capacitor part,
-    including its electrical characteristics, physical properties,
-    and documentation links.
-
-    Attributes:
-        symbol_name: KiCad schematic symbol identifier
-        reference: Component reference designator (e.g., 'C1')
-        value: Capacitance value in Farads (float)
-        formatted_value: Human-readable capacitance with units (e.g., '0.1 µF')
-        footprint: PCB footprint library reference
-        datasheet: URL to component documentation
-        description: Descriptive text about the component
-        manufacturer: Component manufacturer name
-        mpn: Manufacturer's part number
-        dielectric: Dielectric material type specification
-        tolerance: Component tolerance specification
-        voltage_rating: Maximum voltage specification
-        case_code_in: Package dimensions in inches
-        case_code_mm: Package dimensions in millimeters
-        series: Component series identifier
-        trustedparts_link: URL to component listing on Trustedparts
-    """
+    """Container for detailed capacitor component information."""
     symbol_name: str
     reference: str
     value: float
@@ -103,7 +76,16 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
+# Base URLs for documentation
+MURATA_DOC_BASE = (
+    "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
+)
+SAMSUNG_DOC_BASE = (
+    "https://www.samsungsem.com/resources/file/global/support"
+)
+
+# Original Murata specifications
+MURATA_SPECS = {
     "GCM155": SeriesSpec(
         base_series="GCM155",
         manufacturer="Murata Electronics",
@@ -122,14 +104,8 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        excluded_values={
-            27e-9,  # 27 nF
-            39e-9,  # 39 nF
-            56e-9,  # 56 nF
-            82e-9   # 82 nF
-        },
-        datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM155",
+        excluded_values={27e-9, 39e-9, 56e-9, 82e-9},
+        datasheet_url=f"{MURATA_DOC_BASE}/GCM155",
         trustedparts_url="https://www.trustedparts.com/en/search"
     ),
     "GCM188": SeriesSpec(
@@ -144,18 +120,14 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
             SeriesType.X7R: {'K': '10%'}
         },
         value_range={
-            SeriesType.X7R: (1e-9, 220e-9)  # Updated: 1nF to 220nF
+            SeriesType.X7R: (1e-9, 220e-9)  # 1nF to 220nF
         },
         voltage_code="1H",
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        excluded_values={
-            120e-9,  # 120 nF
-            180e-9,  # 180 nF,
-        },
-        datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM188",
+        excluded_values={120e-9, 180e-9},
+        datasheet_url=f"{MURATA_DOC_BASE}/GCM188",
         trustedparts_url="https://www.trustedparts.com/en/search"
     ),
     "GCM216": SeriesSpec(
@@ -176,9 +148,8 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        excluded_values={},
-        datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM216",
+        excluded_values=set(),
+        datasheet_url=f"{MURATA_DOC_BASE}/GCM216",
         trustedparts_url="https://www.trustedparts.com/en/search"
     ),
     "GCM31M": SeriesSpec(
@@ -199,12 +170,8 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         dielectric_code={
             SeriesType.X7R: "R7"
         },
-        excluded_values={
-            180e-9,  # 180 nF
-            560e-9,  # 560 nF,
-        },
-        datasheet_url="https://search.murata.co.jp/Ceramy/"
-        "image/img/A01X/G101/ENG/GCM31M",
+        excluded_values={180e-9, 560e-9},
+        datasheet_url=f"{MURATA_DOC_BASE}/GCM31M",
         trustedparts_url="https://www.trustedparts.com/en/search"
     ),
     "GCM31C": SeriesSpec(
@@ -221,13 +188,44 @@ SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
         value_range={
             SeriesType.X7R: (4.7e-6, 4.7e-6)  # Only 4.7µF
         },
-        voltage_code="1E",  # 25V code
+        voltage_code="1E",
         dielectric_code={
             SeriesType.X7R: "R7"
         },
         excluded_values=set(),
-        datasheet_url="https://search.murata.co.jp/Ceramy/" +
-        "image/img/A01X/G101/ENG/GCM31C",
+        datasheet_url=f"{MURATA_DOC_BASE}/GCM31C",
         trustedparts_url="https://www.trustedparts.com/en/search"
     ),
+}
+
+# Samsung specifications (X7R only)
+SAMSUNG_SPECS = {
+    "CL31": SeriesSpec(
+        base_series="CL31",
+        manufacturer="Samsung Electro-Mechanics",
+        footprint="capacitor_footprints:C_1206_3216Metric",
+        voltage_rating="50V",
+        case_code_in="1206",
+        case_code_mm="3216",
+        packaging_options=['N'],  # Packaging code for 13" reel
+        tolerance_map={
+            SeriesType.X7R: {'K': '10%'}
+        },
+        value_range={
+            SeriesType.X7R: (100e-9, 10e-6)  # 100nF to 10µF
+        },
+        voltage_code="B",  # 50V code for Samsung
+        dielectric_code={
+            SeriesType.X7R: "B"
+        },
+        excluded_values=set(),
+        datasheet_url=f"{SAMSUNG_DOC_BASE}/product_catalog/MLCC.pdf",
+        trustedparts_url="https://www.trustedparts.com/en/search/CL31"
+    ),
+}
+
+# Combined specifications dictionary
+SERIES_SPECS: Final[Dict[str, SeriesSpec]] = {
+    **MURATA_SPECS,
+    **SAMSUNG_SPECS
 }
