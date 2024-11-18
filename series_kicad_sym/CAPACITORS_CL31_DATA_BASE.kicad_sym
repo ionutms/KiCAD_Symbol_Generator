@@ -1,0 +1,5955 @@
+(kicad_symbol_lib
+	(version 20231120)
+	(generator "kicad_symbol_editor")
+	(generator_version "8.0")
+	(symbol "C_CL31BB104KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB104KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "100 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB104KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 100 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB104KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB104KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB104KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB104KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB124KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB124KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "120 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB124KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 120 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB124KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB124KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB124KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB124KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB154KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB154KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "150 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB154KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 150 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB154KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB154KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB154KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB154KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB184KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB184KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "180 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB184KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 180 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB184KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB184KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB184KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB184KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB224KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB224KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "220 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB224KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 220 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB224KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB224KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB224KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB224KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB274KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB274KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "270 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB274KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 270 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB274KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB274KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB274KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB274KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB334KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB334KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "330 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB334KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 330 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB334KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB334KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB334KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB334KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB394KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB394KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "390 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB394KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 390 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB394KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB394KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB394KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB394KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB474KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB474KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "470 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB474KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 470 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB474KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB474KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB474KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB474KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB564KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB564KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "560 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB564KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 560 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB564KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB564KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB564KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB564KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB684KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB684KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "680 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB684KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 680 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB684KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB684KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB684KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB684KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB824KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB824KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "820 nF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB824KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 820 nF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB824KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB824KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB824KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB824KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB105KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB105KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "1 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB105KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 1 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB105KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB105KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB105KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB105KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB125KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB125KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "1.2 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB125KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 1.2 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB125KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB125KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB125KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB125KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB155KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB155KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "1.5 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB155KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 1.5 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB155KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB155KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB155KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB155KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB185KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB185KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "1.8 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB185KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 1.8 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB185KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB185KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB185KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB185KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB225KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB225KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "2.2 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB225KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 2.2 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB225KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB225KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB225KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB225KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB275KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB275KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "2.7 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB275KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 2.7 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB275KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB275KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB275KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB275KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB335KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB335KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "3.3 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB335KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 3.3 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB335KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB335KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB335KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB335KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB395KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB395KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "3.9 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB395KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 3.9 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB395KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB395KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB395KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB395KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB475KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB475KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "4.7 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB475KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 4.7 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB475KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB475KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB475KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB475KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB565KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB565KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "5.6 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB565KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 5.6 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB565KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB565KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB565KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB565KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB685KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB685KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "6.8 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB685KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 6.8 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB685KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB685KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB685KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB685KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB825KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB825KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "8.2 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB825KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 8.2 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB825KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB825KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB825KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB825KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "C_CL31BB106KX7RN"
+		(pin_numbers hide)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Symbol Name" "C_CL31BB106KX7RN"
+			(at 2.54 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Reference" "C"
+			(at 2.54 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Value" "10 µF"
+			(at 2.54 -6.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				
+			)
+			(show_name no)
+		)
+		(property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+			(at 2.54 -8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Datasheet" "https://www.samsungsem.com/resources/file/global/support/product_catalog/MLCC.pdfBB106KX7R-01.pdf"
+			(at 2.54 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - in" "1206"
+			(at 2.54 -13.969999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Case Code - mm" "3216"
+			(at 2.54 -16.509999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Description" "CAP SMD 10 µF X7R 10% 1206 50V"
+			(at 2.54 -19.049999999999997 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Dielectric" "X7R"
+			(at 2.54 -21.589999999999996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "MPN" "CL31BB106KX7RN"
+			(at 2.54 -24.129999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 2.54 -26.669999999999995 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Series" "CL31"
+			(at 2.54 -29.209999999999994 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Tolerance" "10%"
+			(at 2.54 -31.749999999999993 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31BB106KX7RN"
+			(at 2.54 -34.28999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(property "Voltage Rating" "50V"
+			(at 2.54 -36.82999999999999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+			(show_name yes)
+		)
+		(symbol "C_CL31BB106KX7RN_0_1"
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_CL31BB106KX7RN_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name "~"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+)
