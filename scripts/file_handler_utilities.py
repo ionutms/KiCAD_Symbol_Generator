@@ -1,6 +1,10 @@
 """TODO"""
+
+import os
 import csv
 from typing import List, Final, NamedTuple
+
+from print_message_utilities import print_info
 
 
 def write_to_csv(
@@ -31,3 +35,10 @@ def write_to_csv(
             csvfile:
         writer = csv.writer(csvfile)
         writer.writerows(rows)
+
+
+def ensure_directory_exists(directory: str) -> None:
+    """Create directory if it doesn't exist."""
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        print_info(f"Created directory: {directory}")

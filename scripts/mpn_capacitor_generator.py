@@ -15,7 +15,6 @@ Features:
     - Generates KiCad footprint files for each series
 """
 
-import os
 import csv
 from dataclasses import dataclass
 from typing import List, Final, Iterator, Dict, Set
@@ -44,13 +43,6 @@ class PartParameters:
     packaging: str
     series_type: sym_cap_spec.SeriesType
     specs: sym_cap_spec.SeriesSpec
-
-
-def ensure_directory_exists(directory: str) -> None:
-    """Create directory if it doesn't exist."""
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-        print_info(f"Created directory: {directory}")
 
 
 @dataclass(frozen=True)
@@ -397,11 +389,11 @@ def generate_files_for_series(
     series_code = series_name.replace("-", "")
 
     # Ensure required directories exist
-    ensure_directory_exists('data')
-    ensure_directory_exists('series_kicad_sym')
-    ensure_directory_exists('symbols')
+    utils.ensure_directory_exists('data')
+    utils.ensure_directory_exists('series_kicad_sym')
+    utils.ensure_directory_exists('symbols')
     footprint_dir = "capacitor_footprints.pretty"
-    ensure_directory_exists(footprint_dir)
+    utils.ensure_directory_exists(footprint_dir)
 
     csv_filename = f"{series_code}_part_numbers.csv"
     symbol_filename = f"CAPACITORS_{series_code}_DATA_BASE.kicad_sym"

@@ -19,7 +19,6 @@ Features:
 - Exports in industry-standard formats (CSV, KiCad)
 """
 
-import os
 import csv
 from typing import List, Final, Iterator
 from print_message_utilities import print_error, print_info, print_success
@@ -260,13 +259,6 @@ HEADER_MAPPING: Final[dict] = {
 }
 
 
-def ensure_directory_exists(directory: str) -> None:
-    """Create directory if it doesn't exist."""
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-        print_info(f"Created directory: {directory}")
-
-
 def generate_files_for_series(
     series_name: str,
     unified_parts_list: List[sym_res_spec.PartInfo]
@@ -298,11 +290,11 @@ def generate_files_for_series(
     series_code = series_name.replace("-", "")
 
     # Ensure required directories exist
-    ensure_directory_exists('data')
-    ensure_directory_exists('series_kicad_sym')
-    ensure_directory_exists('symbols')
+    utils.ensure_directory_exists('data')
+    utils.ensure_directory_exists('series_kicad_sym')
+    utils.ensure_directory_exists('symbols')
     footprint_dir = "resistor_footprints.pretty"
-    ensure_directory_exists(footprint_dir)
+    utils.ensure_directory_exists(footprint_dir)
 
     csv_filename = f"{series_code}_part_numbers.csv"
     symbol_filename = f"RESISTORS_{series_code}_DATA_BASE.kicad_sym"
