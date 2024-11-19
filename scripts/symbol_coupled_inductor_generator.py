@@ -274,28 +274,6 @@ def write_symbol_drawing(
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
     """
-    def write_arc(
-            file: TextIO,
-            start_x: float,
-            mid_x: float,
-            end_x: float
-    ) -> None:
-        """Write a single arc of the inductor symbol."""
-        arc_lines = [
-            "\t\t\t(arc",
-            f"\t\t\t\t(start {start_x} 0.0056)",
-            f"\t\t\t\t(mid {mid_x} 1.27)",
-            f"\t\t\t\t(end {end_x} 0.0056)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.2032)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)"
-        ]
-        file.write('\n'.join(arc_lines) + '\n')
 
     def write_pin(
             file: TextIO,
@@ -329,16 +307,6 @@ def write_symbol_drawing(
 
     # Write symbol drawing section
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_1"\n')
-
-    # Write arcs
-    arc_params = [
-        (-2.54, -3.81, -5.08),
-        (0, -1.27, -2.54),
-        (2.54, 1.27, 0),
-        (5.08, 3.81, 2.54)
-    ]
-    for start_x, mid_x, end_x in arc_params:
-        write_arc(symbol_file, start_x, mid_x, end_x)
 
     # Write pins
     write_pin(symbol_file, -7.62, 5.08, 0, "1")
