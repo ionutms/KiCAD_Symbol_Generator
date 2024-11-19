@@ -207,7 +207,7 @@ SAMSUNG_SPECS = {
         voltage_rating="50V",
         case_code_in="1206",
         case_code_mm="3216",
-        packaging_options=['NNN#'],
+        packaging_options=['HNNN#'],
         tolerance_map={
             SeriesType.X7R: {'K': '10%'}
         },
@@ -218,8 +218,10 @@ SAMSUNG_SPECS = {
         dielectric_code={
             SeriesType.X7R: "B"
         },
-        # Only allow specific values
-        excluded_values=set(),
+        excluded_values={
+            0.56e-6, 0.68e-6, 0.82e-6, 1.2e-6, 1.5e-6, 1.8e-6,
+            2.7e-6, 3.3e-6, 3.9e-6, 5.6e-6, 6.8e-6, 8.2e-6
+        },
         datasheet_url=f"{SAMSUNG_DOC_BASE}/product_catalog/MLCC.pdf",
         trustedparts_url="https://www.trustedparts.com/en/search/CL31"
     ),

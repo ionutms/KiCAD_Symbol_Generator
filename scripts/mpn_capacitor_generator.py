@@ -271,7 +271,7 @@ def create_part_info(
     )
     formatted_value = format_capacitance_value(params.capacitance)
 
-    if params.specs.base_series.startswith("GCM"):
+    if params.specs.manufacturer == "Murata Electronics":
         mpn = (
             f"{params.specs.base_series}"
             f"{params.specs.dielectric_code[params.series_type]}"
@@ -282,14 +282,12 @@ def create_part_info(
             f"{params.packaging}"
         )
     else:
-        # Samsung format for specific MPNs
         mpn = (
             f"{params.specs.base_series}"
             f"{params.specs.dielectric_code[params.series_type]}"
             f"{capacitance_code}"
             f"{params.tolerance_code}"
             f"{params.specs.voltage_code}"
-            f"H"
             f"{params.packaging}"
         )
 
