@@ -12,7 +12,7 @@ from typing import Final, List
 from print_message_utilities import print_error, print_info, print_success
 import symbol_coupled_inductor_generator as sym_ind_gen
 import symbol_coupled_inductors_specs as sym_cou_ind_spec
-import footprint_inductor_generator as ftp_ind_gen
+import footprint_coupled_inductor_generator as ftp_cou_ind_gen
 import file_handler_utilities as utils
 
 
@@ -278,7 +278,7 @@ def generate_files_for_series(
         # Generate KiCad footprint files
         for part in parts_list:
             try:
-                ftp_ind_gen.generate_footprint_file(part, footprint_dir)
+                ftp_cou_ind_gen.generate_footprint_file(part, footprint_dir)
                 print_success(
                     f"Generated footprint file for {part.mpn}"
                 )
