@@ -197,14 +197,16 @@ def write_properties(
     """
     property_configs = {
         "Reference": (0, 2.54, 1.27, False, False, "L"),
-        "Value": (0, -2.54, 1.524, False, False,
-                  component_data.get('Inductance', '')),
-        "Footprint": (0, -5.08, 1.27, True, True, None),
-        "Datasheet": (0.254, -7.62, 1.27, True, True, None),
-        "Description": (0, -10.16, 1.27, True, True, None)
+        "Value": (
+            0, -2.54, 1.524, False, False,
+            component_data.get('Inductance', '')
+            ),
+        "Footprint": (0, -7.62, 1.27, True, True, None),
+        "Datasheet": (0.254, -10.16, 1.27, True, True, None),
+        "Description": (0, -12.7, 1.27, True, True, None)
     }
 
-    y_offset = -12.7
+    y_offset = -15.24
     for prop_name in property_order:
         if prop_name in component_data:
             config = property_configs.get(
@@ -298,13 +300,14 @@ def write_symbol_drawing(
     def write_pin(
             file: TextIO,
             x_pos: float,
+            y_pos: float,
             angle: int,
             number: str
     ) -> None:
         """Write a single pin of the inductor symbol."""
         pin_lines = [
             "\t\t\t(pin unspecified line",
-            f"\t\t\t\t(at {x_pos} 0 {angle})",
+            f"\t\t\t\t(at {x_pos} {y_pos} {angle})",
             "\t\t\t\t(length 2.54)",
             '\t\t\t\t(name ""',
             "\t\t\t\t\t(effects",
@@ -338,7 +341,9 @@ def write_symbol_drawing(
         write_arc(symbol_file, start_x, mid_x, end_x)
 
     # Write pins
-    write_pin(symbol_file, -7.62, 0, "1")
-    write_pin(symbol_file, 7.62, 180, "2")
+    write_pin(symbol_file, -7.62, 5.08, 0, "1")
+    write_pin(symbol_file, 7.62, 5.08, 180, "4")
+    write_pin(symbol_file, -7.62, -5.08, 0, "3")
+    write_pin(symbol_file, 7.62, -5.08, 180, "2")
 
     symbol_file.write("\t\t)\n")

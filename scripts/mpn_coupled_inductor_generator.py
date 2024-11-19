@@ -10,9 +10,9 @@ Generates both individual series files and unified component database.
 import csv
 from typing import Final, List
 from print_message_utilities import print_error, print_info, print_success
-import symbol_inductor_generator as sym_ind_gen
-import footprint_inductor_generator as ftp_ind_gen
+import symbol_coupled_inductor_generator as sym_ind_gen
 import symbol_coupled_inductors_specs as sym_cou_ind_spec
+import footprint_inductor_generator as ftp_ind_gen
 import file_handler_utilities as utils
 
 
