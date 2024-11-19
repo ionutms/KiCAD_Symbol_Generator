@@ -133,9 +133,9 @@ def write_header(
     """
     symbol_file.write(
         "(kicad_symbol_lib\n"
-        "\t(version 20231120)\n"
-        "\t(generator \"kicad_symbol_editor\")\n"
-        "\t(generator_version \"8.0\")\n"
+        "    (version 20231120)\n"
+        "    (generator \"kicad_symbol_editor\")\n"
+        "    (generator_version \"8.0\")\n"
     )
 
 
@@ -156,7 +156,7 @@ def write_component(
     write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
     write_symbol_drawing(symbol_file, symbol_name)
-    symbol_file.write("\t)\n")
+    symbol_file.write("    )\n")
 
 
 def write_symbol_header(
@@ -171,13 +171,13 @@ def write_symbol_header(
         symbol_name (str): Name of the symbol.
     """
     header_lines = [
-        f'\t(symbol "{symbol_name}"',
-        "\t\t(pin_names",
-        "\t\t\t(offset 0.254)",
-        "\t\t)",
-        "\t\t(exclude_from_sim no)",
-        "\t\t(in_bom yes)",
-        "\t\t(on_board yes)"
+        f'    (symbol "{symbol_name}"',
+        "        (pin_names",
+        "            (offset 0.254)",
+        "        )",
+        "        (exclude_from_sim no)",
+        "        (in_bom yes)",
+        "        (on_board yes)"
     ]
     symbol_file.write('\n'.join(header_lines) + '\n')
 
@@ -248,17 +248,17 @@ def write_property(
         hide (bool): Whether to hide the property.
     """
     property_lines = [
-        f'\t\t(property "{property_name}" "{property_value}"',
-        f"\t\t\t(at {x_offset} {y_offset} 0)",
-        f"\t\t\t{('(show_name)' if show_name else '')}",
-        "\t\t\t(effects",
-        "\t\t\t\t(font",
-        f"\t\t\t\t\t(size {font_size} {font_size})",
-        "\t\t\t\t)",
-        "\t\t\t\t(justify left)",
-        f"\t\t\t\t{('(hide yes)' if hide else '')}",
-        "\t\t\t)",
-        "\t\t)"
+        f'        (property "{property_name}" "{property_value}"',
+        f"            (at {x_offset} {y_offset} 0)",
+        f"            {('(show_name)' if show_name else '')}",
+        "            (effects",
+        "                (font",
+        f"                    (size {font_size} {font_size})",
+        "                )",
+        "                (justify left)",
+        f"                {('(hide yes)' if hide else '')}",
+        "            )",
+        "        )"
     ]
     symbol_file.write('\n'.join(property_lines) + '\n')
 
@@ -284,93 +284,93 @@ def write_symbol_drawing(
     ) -> None:
         """Write a single pin of the inductor symbol."""
         pin_lines = [
-            "\t\t\t(pin unspecified line",
-            f"\t\t\t\t(at {x_pos} {y_pos} {angle})",
-            "\t\t\t\t(length 5.08)",
-            '\t\t\t\t(name ""',
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            f'\t\t\t\t(number "{number}"',
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t)"
+            "            (pin unspecified line",
+            f"                (at {x_pos} {y_pos} {angle})",
+            "                (length 5.08)",
+            '                (name ""',
+            "                    (effects",
+            "                        (font",
+            "                            (size 1.27 1.27)",
+            "                        )",
+            "                    )",
+            "                )",
+            f'                (number "{number}"',
+            "                    (effects",
+            "                        (font",
+            "                            (size 1.27 1.27)",
+            "                        )",
+            "                    )",
+            "                )",
+            "            )"
         ]
         file.write('\n'.join(pin_lines) + '\n')
 
     # Write symbol drawing section
-    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_1"\n')
+    symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
 
     # Write left inductor arcs
     for y_start in range(0, 4):
         symbol_file.write(
-            '\t\t\t(arc'
-            f'\t\t\t\t\t(start -2.54 {-5.08 + (y_start * 2.54)})'
-            f'\t\t\t\t\t(mid -1.27 {-3.81 + (y_start * 2.54)})'
-            f'\t\t\t\t\t(end -2.54 {-2.54 + (y_start * 2.54)})'
-            '\t\t\t\t\t(stroke'
-            '\t\t\t\t\t\t\t(width 0)'
-            '\t\t\t\t\t\t\t(type default)'
-            '\t\t\t\t\t)'
-            '\t\t\t\t\t(fill'
-            '\t\t\t\t\t\t\t(type none)'
-            '\t\t\t\t\t)'
-            '\t\t\t)'
+            '            (arc'
+            f'                (start -2.54 {-5.08 + (y_start * 2.54)})'
+            f'                (mid -1.27 {-3.81 + (y_start * 2.54)})'
+            f'                (end -2.54 {-2.54 + (y_start * 2.54)})'
+            '                (stroke'
+            '                    (width 0)'
+            '                    (type default)'
+            '                )'
+            '                (fill'
+            '                    (type none)'
+            '                )'
+            '            )'
         )
 
     # Write right inductor arcs
     for y_start in range(0, 4):
         symbol_file.write(f"""
-        \t\t\t(arc
-        \t\t\t\t\t(start 2.54 {5.08 - (y_start * 2.54)})
-        \t\t\t\t\t(mid 1.27 {3.81 - (y_start * 2.54)})
-        \t\t\t\t\t(end 2.54 {2.54 - (y_start * 2.54)})
-        \t\t\t\t\t(stroke
-        \t\t\t\t\t\t\t(width 0)
-        \t\t\t\t\t\t\t(type default)
-        \t\t\t\t\t)
-        \t\t\t\t\t(fill
-        \t\t\t\t\t\t\t(type none)
-        \t\t\t\t\t)
-        \t\t\t)""")
+            (arc
+                (start 2.54 {5.08 - (y_start * 2.54)})
+                (mid 1.27 {3.81 - (y_start * 2.54)})
+                (end 2.54 {2.54 - (y_start * 2.54)})
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )""")
 
     # Write polarity dots
     for x, y in [(-2.54, 3.81), (2.54, -3.81)]:
         symbol_file.write(f"""
-        \t\t\t(circle
-        \t\t\t\t\t(center {x} {y})
-        \t\t\t\t\t(radius 0.508)
-        \t\t\t\t\t(stroke
-        \t\t\t\t\t\t\t(width 0)
-        \t\t\t\t\t\t\t(type default)
-        \t\t\t\t\t)
-        \t\t\t\t\t(fill
-        \t\t\t\t\t\t\t(type none)
-        \t\t\t\t\t)
-        \t\t\t)""")
+            (circle
+                (center {x} {y})
+                (radius 0.508)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )""")
 
     # Write coupling lines
     for x in [-0.254, 0.254]:
         symbol_file.write(f"""
-        \t\t\t(polyline
-        \t\t\t\t\t(pts
-        \t\t\t\t\t\t\t(xy {x} 5.08) (xy {x} -5.08)
-        \t\t\t\t\t)
-        \t\t\t\t\t(stroke
-        \t\t\t\t\t\t\t(width 0)
-        \t\t\t\t\t\t\t(type default)
-        \t\t\t\t\t)
-        \t\t\t\t\t(fill
-        \t\t\t\t\t\t\t(type none)
-        \t\t\t\t\t)
-        \t\t\t)""")
+            (polyline
+                (pts
+                    (xy {x} 5.08) (xy {x} -5.08)
+                )
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )""")
 
     # Write pins
     write_pin(symbol_file, -7.62, 5.08, 0, "1")
@@ -378,4 +378,4 @@ def write_symbol_drawing(
     write_pin(symbol_file, -7.62, -5.08, 0, "3")
     write_pin(symbol_file, 7.62, -5.08, 180, "2")
 
-    symbol_file.write("\t\t)\n")
+    symbol_file.write("        )\n")
