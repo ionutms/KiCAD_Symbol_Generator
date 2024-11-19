@@ -207,18 +207,21 @@ SAMSUNG_SPECS = {
         voltage_rating="50V",
         case_code_in="1206",
         case_code_mm="3216",
-        packaging_options=['N'],  # Packaging code for 13" reel
+        packaging_options=['HNNN#'],
         tolerance_map={
             SeriesType.X7R: {'K': '10%'}
         },
         value_range={
-            SeriesType.X7R: (100e-9, 10e-6)  # 100nF to 10µF
+            SeriesType.X7R: (0.47e-6, 10e-6)
         },
-        voltage_code="B",  # 50V code for Samsung
+        voltage_code="B",
         dielectric_code={
             SeriesType.X7R: "B"
         },
-        excluded_values=set(),
+        excluded_values={
+            0.56e-6, 0.68e-6, 0.82e-6, 1.2e-6, 1.5e-6, 1.8e-6,
+            2.7e-6, 3.3e-6, 3.9e-6, 5.6e-6, 6.8e-6, 8.2e-6
+        },
         datasheet_url=f"{SAMSUNG_DOC_BASE}/product_catalog/MLCC.pdf",
         trustedparts_url="https://www.trustedparts.com/en/search/CL31"
     ),
