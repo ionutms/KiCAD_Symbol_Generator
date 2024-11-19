@@ -22,6 +22,7 @@ class PadDimensions(NamedTuple):
     width: float        # Width of each pad
     height: float       # Height of each pad
     center_x: float     # Distance from origin to pad center on X axis
+    pitch_y: float      # Vertical distance between pads
 
 
 class InductorSpecs(NamedTuple):
@@ -37,16 +38,17 @@ class InductorSpecs(NamedTuple):
 
 
 INDUCTOR_SPECS: Dict[str, InductorSpecs] = {
-    "XAL1010": InductorSpecs(
+    "MSD7342": InductorSpecs(
         body_dimensions=BodyDimensions(
-            width=10.922,
-            height=12.192
+            width=10.5664,
+            height=10.5664
         ),
         pad_dimensions=PadDimensions(
             width=2.3876,
-            height=8.9916,
-            center_x=3.3274
+            height=1.2446,
+            center_x=3.8989,
+            pitch_y=2.0574,
         ),
-        ref_offset_y=-6.858
-    ),
+        ref_offset_y=-6.4262,
+    )
 }

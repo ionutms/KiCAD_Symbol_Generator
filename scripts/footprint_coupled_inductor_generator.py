@@ -191,10 +191,17 @@ def generate_pads(specs: InductorSpecs) -> str:
     """Generate the pads section of the footprint."""
     pads = []
 
-    for pad_number, symbol in enumerate(['-', ''], start=1):
+    pad_positions = [
+        (-specs.pad_dimensions.center_x, -specs.pad_dimensions.pitch_y/2),
+        (-specs.pad_dimensions.center_x, specs.pad_dimensions.pitch_y/2),
+        (specs.pad_dimensions.center_x, specs.pad_dimensions.pitch_y/2),
+        (specs.pad_dimensions.center_x, -specs.pad_dimensions.pitch_y/2)
+    ]
+
+    for pad_number, (x_pos, y_pos) in enumerate(pad_positions, 1):
         pads.append(
             f'    (pad "{pad_number}" smd rect\n'
-            f'        (at {symbol}{specs.pad_dimensions.center_x} 0)\n'
+            f'        (at {x_pos} {y_pos})\n'
             '        (size '
             f'{specs.pad_dimensions.width} {specs.pad_dimensions.height})\n'
             '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
