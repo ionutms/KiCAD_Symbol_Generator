@@ -81,7 +81,7 @@ MURATA_DOC_BASE = (
     "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
 )
 SAMSUNG_DOC_BASE = (
-    "https://www.samsungsem.com/resources/file/global/support"
+    "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber="
 )
 
 # Original Murata specifications
@@ -222,7 +222,7 @@ SAMSUNG_SPECS = {
             0.56e-6, 0.68e-6, 0.82e-6, 1.2e-6, 1.5e-6, 1.8e-6,
             2.7e-6, 3.3e-6, 3.9e-6, 5.6e-6, 6.8e-6, 8.2e-6
         },
-        datasheet_url=f"{SAMSUNG_DOC_BASE}/product_catalog/MLCC.pdf",
+        datasheet_url=f"{SAMSUNG_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search/CL31"
     ),
 }

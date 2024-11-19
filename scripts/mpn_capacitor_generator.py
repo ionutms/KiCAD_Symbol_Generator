@@ -245,12 +245,14 @@ def generate_datasheet_url(
     Returns:
         URL to the appropriate datasheet for the series and specific part
     """
-    # Remove the last character (packaging code) from MPN
-    base_mpn = mpn[:-1]
-    # Get specific series characteristics (voltage code, dielectric code)
-    specific_part = base_mpn[len(specs.base_series):]
-    # Combine base URL with specific part characteristics
-    return f"{specs.datasheet_url}{specific_part}-01.pdf"
+    if specs.manufacturer == "Murata Electronics":
+        # Remove the last character (packaging code) from MPN
+        base_mpn = mpn[:-1]
+        # Get specific series characteristics (voltage code, dielectric code)
+        specific_part = base_mpn[len(specs.base_series):]
+        # Combine base URL with specific part characteristics
+        return f"{specs.datasheet_url}{specific_part}-01.pdf"
+    return f"{specs.datasheet_url}{mpn}"
 
 
 def create_part_info(
