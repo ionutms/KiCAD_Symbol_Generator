@@ -271,9 +271,7 @@ def create_part_info(
     )
     formatted_value = format_capacitance_value(params.capacitance)
 
-    # Handle different part number formats for different manufacturers
     if params.specs.base_series.startswith("GCM"):
-        # Murata format
         mpn = (
             f"{params.specs.base_series}"
             f"{params.specs.dielectric_code[params.series_type]}"
@@ -284,13 +282,14 @@ def create_part_info(
             f"{params.packaging}"
         )
     else:
-        # Samsung format - note characteristic code isn't used in the MPN
+        # Samsung format for specific MPNs
         mpn = (
             f"{params.specs.base_series}"
             f"{params.specs.dielectric_code[params.series_type]}"
             f"{capacitance_code}"
-            f"{params.specs.voltage_code}"
             f"{params.tolerance_code}"
+            f"{params.specs.voltage_code}"
+            f"H"
             f"{params.packaging}"
         )
 
@@ -300,6 +299,7 @@ def create_part_info(
         f"{params.series_type.value} {params.tolerance_value} "
         f"{params.specs.case_code_in} {params.specs.voltage_rating}"
     )
+
     trustedparts_link = f"{params.specs.trustedparts_url}/{mpn}"
     datasheet_url = generate_datasheet_url(mpn, params.specs)
 
