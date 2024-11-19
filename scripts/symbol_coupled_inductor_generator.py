@@ -196,17 +196,17 @@ def write_properties(
         property_order (List[str]): Ordered list of property names.
     """
     property_configs = {
-        "Reference": (0, 2.54, 1.27, False, False, "L"),
+        "Reference": (0, 7.62, 1.27, False, False, "L"),
         "Value": (
-            0, -2.54, 1.524, False, False,
+            0, -7.62, 1.524, False, False,
             component_data.get('Inductance', '')
             ),
-        "Footprint": (0, -7.62, 1.27, True, True, None),
-        "Datasheet": (0.254, -10.16, 1.27, True, True, None),
-        "Description": (0, -12.7, 1.27, True, True, None)
+        "Footprint": (0, -10.16, 1.27, True, True, None),
+        "Datasheet": (0.254, -12.7, 1.27, True, True, None),
+        "Description": (0, -15.24, 1.27, True, True, None)
     }
 
-    y_offset = -15.24
+    y_offset = -17.78
     for prop_name in property_order:
         if prop_name in component_data:
             config = property_configs.get(
@@ -286,7 +286,7 @@ def write_symbol_drawing(
         pin_lines = [
             "\t\t\t(pin unspecified line",
             f"\t\t\t\t(at {x_pos} {y_pos} {angle})",
-            "\t\t\t\t(length 2.54)",
+            "\t\t\t\t(length 5.08)",
             '\t\t\t\t(name ""',
             "\t\t\t\t\t(effects",
             "\t\t\t\t\t\t(font",
@@ -307,6 +307,70 @@ def write_symbol_drawing(
 
     # Write symbol drawing section
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_1"\n')
+
+    # Write left inductor arcs
+    for y_start in range(0, 4):
+        symbol_file.write(
+            '\t\t\t(arc'
+            f'\t\t\t\t\t(start -2.54 {-5.08 + (y_start * 2.54)})'
+            f'\t\t\t\t\t(mid -1.27 {-3.81 + (y_start * 2.54)})'
+            f'\t\t\t\t\t(end -2.54 {-2.54 + (y_start * 2.54)})'
+            '\t\t\t\t\t(stroke'
+            '\t\t\t\t\t\t\t(width 0)'
+            '\t\t\t\t\t\t\t(type default)'
+            '\t\t\t\t\t)'
+            '\t\t\t\t\t(fill'
+            '\t\t\t\t\t\t\t(type none)'
+            '\t\t\t\t\t)'
+            '\t\t\t)'
+        )
+
+    # Write right inductor arcs
+    for y_start in range(0, 4):
+        symbol_file.write(f"""
+        \t\t\t(arc
+        \t\t\t\t\t(start 2.54 {5.08 - (y_start * 2.54)})
+        \t\t\t\t\t(mid 1.27 {3.81 - (y_start * 2.54)})
+        \t\t\t\t\t(end 2.54 {2.54 - (y_start * 2.54)})
+        \t\t\t\t\t(stroke
+        \t\t\t\t\t\t\t(width 0)
+        \t\t\t\t\t\t\t(type default)
+        \t\t\t\t\t)
+        \t\t\t\t\t(fill
+        \t\t\t\t\t\t\t(type none)
+        \t\t\t\t\t)
+        \t\t\t)""")
+
+    # Write polarity dots
+    for x, y in [(-2.54, 3.81), (2.54, -3.81)]:
+        symbol_file.write(f"""
+        \t\t\t(circle
+        \t\t\t\t\t(center {x} {y})
+        \t\t\t\t\t(radius 0.508)
+        \t\t\t\t\t(stroke
+        \t\t\t\t\t\t\t(width 0)
+        \t\t\t\t\t\t\t(type default)
+        \t\t\t\t\t)
+        \t\t\t\t\t(fill
+        \t\t\t\t\t\t\t(type none)
+        \t\t\t\t\t)
+        \t\t\t)""")
+
+    # Write coupling lines
+    for x in [-0.254, 0.254]:
+        symbol_file.write(f"""
+        \t\t\t(polyline
+        \t\t\t\t\t(pts
+        \t\t\t\t\t\t\t(xy {x} 5.08) (xy {x} -5.08)
+        \t\t\t\t\t)
+        \t\t\t\t\t(stroke
+        \t\t\t\t\t\t\t(width 0)
+        \t\t\t\t\t\t\t(type default)
+        \t\t\t\t\t)
+        \t\t\t\t\t(fill
+        \t\t\t\t\t\t\t(type none)
+        \t\t\t\t\t)
+        \t\t\t)""")
 
     # Write pins
     write_pin(symbol_file, -7.62, 5.08, 0, "1")
