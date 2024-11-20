@@ -121,6 +121,28 @@ def generate_shapes(specs: InductorSpecs) -> str:
             '    )'
         )
 
+    # Calculate pin 1 circle position
+    circle_x = -(specs.pad_dimensions.center_x + specs.pad_dimensions.width)
+    circle_y = -specs.pad_dimensions.pitch_y / 2
+    radius = specs.pad_dimensions.height / 4
+
+    # Pin 1 indicator on silkscreen
+    shapes.append(
+        '    (fp_circle\n'
+        '        (center '
+        f'{circle_x} {circle_y})\n'
+        '        (end '
+        f'{circle_x - radius} {circle_y})\n'
+        '        (stroke\n'
+        '            (width 0.1524)\n'
+        '            (type solid)\n'
+        '        )\n'
+        '        (fill solid)\n'
+        '        (layer "F.SilkS")\n'
+        f'        (uuid "{uuid4()}")\n'
+        '    )'
+    )
+
     # Courtyard
     shapes.append(
         '    (fp_rect\n'
@@ -154,9 +176,12 @@ def generate_shapes(specs: InductorSpecs) -> str:
     # Polarity marker
     shapes.append(
         '    (fp_circle\n'
-        f'        (center -{specs.pad_dimensions.center_x} 0)\n'
+        '        (center '
+        f'-{specs.pad_dimensions.center_x} '
+        f'-{specs.pad_dimensions.pitch_y/2})\n'
         '        (end '
-        f'-{specs.pad_dimensions.center_x - 0.0762} 0)\n'
+        f'-{specs.pad_dimensions.center_x - specs.pad_dimensions.height/2} '
+        f'-{specs.pad_dimensions.pitch_y/2})\n'
         '        (stroke\n'
         '            (width 0.0254)\n'
         '            (type solid)\n'
