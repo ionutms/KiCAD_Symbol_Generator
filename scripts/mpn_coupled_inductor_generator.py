@@ -64,12 +64,17 @@ def generate_value_code(
         str: Value code string.
 
     Raises:
-        ValueError: If inductance is outside the valid range (0.01-999.99 µH)
+        ValueError: If inductance is outside the valid range (0.01-9999.99 µH)
     """
-    if not 0.01 <= inductance <= 999.99:
+    if not 0.01 <= inductance <= 9999.99:
         raise ValueError(
-            f"Invalid inductance: {inductance}µH (0.01-999.99)"
+            f"Invalid inductance: {inductance}µH (0.01-9999.99)"
         )
+
+    if inductance >= 1000.0:
+        value = round(inductance / 100)
+        base_code = f"{value:02d}5"
+        return f"{base_code}{value_suffix}" if is_aec else base_code
 
     if inductance >= 100.0:
         value = round(inductance / 10)
