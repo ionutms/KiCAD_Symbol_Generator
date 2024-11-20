@@ -20,6 +20,7 @@ Dependencies:
 
 import csv
 from typing import List, Dict, TextIO
+from symbol_transformer_specs import SERIES_SPECS, SidePinConfig
 
 
 def generate_kicad_symbol(
@@ -139,6 +140,42 @@ def write_header(
     )
 
 
+def convert_pin_config(
+        spec_config: SidePinConfig
+) -> Dict[str, List[Dict[str, float | bool]]]:
+    """
+    Convert a SidePinConfig from specs into the format expected
+    by the symbol generator.
+
+    Args:
+        spec_config: Optional[SidePinConfig] from SERIES_SPECS
+
+    Returns:
+        Optional[Dict]:
+            Pin configuration in the format expected by write_symbol_drawing
+    """
+    return {
+        "left": [
+            {
+                "number": pin.number,
+                "y_pos": pin.y_pos,
+                "type": pin.type,
+                "hide": pin.hide
+            }
+            for pin in spec_config.left
+        ],
+        "right": [
+            {
+                "number": pin.number,
+                "y_pos": pin.y_pos,
+                "type": pin.type,
+                "hide": pin.hide
+            }
+            for pin in spec_config.right
+        ]
+    }
+
+
 def write_component(
         symbol_file: TextIO,
         component_data: Dict[str, str],
@@ -153,9 +190,15 @@ def write_component(
         property_order (List[str]): Ordered list of property names.
     """
     symbol_name = component_data.get('Symbol Name', '')
+    series = component_data.get('Series', '')
+
+    # Get pin configuration from SERIES_SPECS if available
+    series_spec = SERIES_SPECS.get(series)
+    pin_config = convert_pin_config(series_spec.pin_config)
+
     write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
-    write_symbol_drawing(symbol_file, symbol_name)
+    write_symbol_drawing(symbol_file, symbol_name, pin_config)
     symbol_file.write("    )\n")
 
 
