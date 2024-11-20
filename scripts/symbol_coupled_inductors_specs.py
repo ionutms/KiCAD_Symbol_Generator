@@ -106,8 +106,22 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.033, 0.037, 0.051, 0.063, 0.070, 0.075, 0.100, 0.120, 0.130,
             0.170, 0.220, 0.250, 0.270, 0.380, 0.420, 0.460, 0.600, 0.680,
             0.770, 1.030, 1.350, 1.520, 1.720, 2.410, 2.700, 3.050, 4.000,
-            4.430, 5.000, 6.800, 7.800],
+            4.430, 5.000, 6.800, 7.800
+        ],
         value_suffix="ML",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
+    "MSD1048": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="MSD1048",
+        footprint="coupled_inductor_footprints:MSD1048",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "2945f640-8140-48a6-993e-28832f57720a/msd1048.pdf",
+        inductance_values=[10.0, 22.0, 47.0, 68.0, 100.0],
+        max_dc_current=[2.1, 1.9, 1.6, 1.4, 1.2],
+        max_dc_resistance=[0.053, 0.098, 0.208, 0.297, 0.387],
+        value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
 }
