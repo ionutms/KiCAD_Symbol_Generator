@@ -196,7 +196,7 @@ def write_properties(
         property_order (List[str]): Ordered list of property names.
     """
     property_configs = {
-        "Reference": (0, 7.62, 1.27, False, False, "L"),
+        "Reference": (0, 7.62, 1.27, False, False, "T"),
         "Value": (
             0, -7.62, 1.524, False, False,
             component_data.get('Inductance', '')
@@ -265,28 +265,53 @@ def write_property(
 
 def write_symbol_drawing(
         symbol_file: TextIO,
-        symbol_name: str
+        symbol_name: str,
+        pin_config: dict = None
 ) -> None:
     """
-    Write the horizontal graphical representation of an inductor symbol.
+    Write the horizontal graphical representation of a transformer symbol.
 
     Args:
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
+        pin_config (dict, optional): Dictionary defining pin configuration.
     """
+    # Default 8-pin configuration if none provided
+    if pin_config is None:
+        pin_config = {
+            "left": [
+                {"number": "1", "y_pos": 5.08, "type": "unspecified"},
+                {"number": "2", "y_pos": 2.54, "type": "no_connect",
+                 "hide": True},
+                {"number": "3", "y_pos": -2.54, "type": "no_connect",
+                 "hide": True},
+                {"number": "4", "y_pos": -5.08, "type": "unspecified"}
+            ],
+            "right": [
+                {"number": "5", "y_pos": 5.08, "type": "unspecified"},
+                {"number": "6", "y_pos": 2.54, "type": "no_connect",
+                 "hide": True},
+                {"number": "7", "y_pos": -2.54, "type": "no_connect",
+                 "hide": True},
+                {"number": "8", "y_pos": -5.08, "type": "unspecified"}
+            ]
+        }
 
     def write_pin(
             file: TextIO,
             x_pos: float,
             y_pos: float,
             angle: int,
-            number: str
+            number: str,
+            pin_type: str = "unspecified",
+            hide: bool = False,
+            length: float = 2.54
     ) -> None:
-        """Write a single pin of the inductor symbol."""
+        """Write a single pin of the transformer symbol."""
         pin_lines = [
-            "            (pin unspecified line",
+            f"            (pin {pin_type} line",
             f"                (at {x_pos} {y_pos} {angle})",
-            "                (length 5.08)",
+            f"                (length {length})",
             '                (name ""',
             "                    (effects",
             "                        (font",
@@ -301,12 +326,26 @@ def write_symbol_drawing(
             "                        )",
             "                    )",
             "                )",
+            f"                {('hide' if hide else '')}",
             "            )"
         ]
         file.write('\n'.join(pin_lines) + '\n')
 
-    # Write symbol drawing section
-    symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
+    def get_symbol_bounds(pin_config):
+        """Calculate symbol bounds based on pin configuration."""
+        y_positions = (
+            [pin["y_pos"] for pin in pin_config["left"]] +
+            [pin["y_pos"] for pin in pin_config["right"]]
+        )
+        max_y = max(y_positions)
+        min_y = min(y_positions)
+        return min_y, max_y
+
+    # Calculate symbol bounds
+    min_y, max_y = get_symbol_bounds(pin_config)
+
+    # Write symbol drawing section - split into two units
+    symbol_file.write(f'        (symbol "{symbol_name}_0_1"\n')
 
     # Write left inductor arcs
     for y_start in range(0, 4):
@@ -361,7 +400,7 @@ def write_symbol_drawing(
         symbol_file.write(f"""
             (polyline
                 (pts
-                    (xy {x} 5.08) (xy {x} -5.08)
+                    (xy {x} {max_y}) (xy {x} {min_y})
                 )
                 (stroke
                     (width 0)
@@ -372,10 +411,56 @@ def write_symbol_drawing(
                 )
             )""")
 
-    # Write pins
-    write_pin(symbol_file, -7.62, 5.08, 0, "1")
-    write_pin(symbol_file, 7.62, 5.08, 180, "4")
-    write_pin(symbol_file, -7.62, -5.08, 0, "3")
-    write_pin(symbol_file, 7.62, -5.08, 180, "2")
+    # Write connection lines for active pins
+    active_pins = {
+        "left": [p for p in pin_config["left"] if p["type"] == "unspecified"],
+        "right": [p for p in pin_config["right"] if p["type"] == "unspecified"]
+    }
+
+    for side, pins in active_pins.items():
+        x1, x2 = (-2.54, -5.08) if side == "left" else (2.54, 5.08)
+        for pin in pins:
+            symbol_file.write(f"""
+                (polyline
+                    (pts
+                        (xy {x1} {pin["y_pos"]}) (xy {x2} {pin["y_pos"]})
+                    )
+                    (stroke
+                        (width 0)
+                        (type default)
+                    )
+                    (fill
+                        (type none)
+                    )
+                )""")
+
+    symbol_file.write("        )\n")
+
+    # Write second unit with pins
+    symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
+
+    # Write left side pins
+    for pin in pin_config["left"]:
+        write_pin(
+            symbol_file,
+            -7.62,
+            pin["y_pos"],
+            0,
+            pin["number"],
+            pin["type"],
+            pin.get("hide", False)
+        )
+
+    # Write right side pins
+    for pin in pin_config["right"]:
+        write_pin(
+            symbol_file,
+            7.62,
+            pin["y_pos"],
+            180,
+            pin["number"],
+            pin["type"],
+            pin.get("hide", False)
+        )
 
     symbol_file.write("        )\n")
