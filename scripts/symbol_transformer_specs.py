@@ -133,16 +133,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         trustedparts_link="https://www.trustedparts.com/en/search",
         pin_config=SidePinConfig(
             left=[
-                PinConfig("1", 5.08, "no_connect", True),
-                PinConfig("2", 2.54, "unspecified"),
-                PinConfig("3", -2.54, "no_connect", True),
-                PinConfig("4", -5.08, "unspecified")
+                PinConfig("4", 5.08, "unspecified"),
+                PinConfig("5", 2.54, "no_connect", True),
+                PinConfig("3", 0.0, "no_connect", True),
+                PinConfig("1", -2.54, "no_connect", True),
+                PinConfig("2", -5.08, "unspecified")
             ],
             right=[
-                PinConfig("5", 5.08, "unspecified"),
-                PinConfig("6", 2.54, "no_connect", True),
-                PinConfig("7", -2.54, "no_connect", True),
-                PinConfig("8", -5.08, "unspecified")
+                PinConfig("6", 5.08, "unspecified"),
+                PinConfig("7", 2.54, "no_connect", True),
+                PinConfig("8", 0.0, "no_connect", True),
+                PinConfig("9", -2.54, "no_connect", True),
+                PinConfig("10", -5.08, "unspecified")
             ]
         )
     ),
