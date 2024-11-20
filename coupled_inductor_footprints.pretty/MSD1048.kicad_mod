@@ -7,10 +7,10 @@
     (tags "")
     (attr smd)
     (property "Reference" "REF**"
-        (at 0 -5.08 0)
+        (at 0 -6.096 0)
         (unlocked yes)
         (layer "F.SilkS")
-        (uuid "681d855b-34d6-4861-891f-bace47e0205d")
+        (uuid "c6d5d27a-fad5-4b9a-86b7-8f044be3aaae")
         (effects
             (font
                 (size 0.762 0.762)
@@ -20,10 +20,10 @@
         )
     )
     (property "Value" "MSD1048"
-        (at 0 5.08 0)
+        (at 0 6.096 0)
         (unlocked yes)
         (layer "F.Fab")
-        (uuid "721b3a6b-2bcc-4601-9238-d63444cc583a")
+        (uuid "956dc778-934b-4ba0-bfda-c7579426650a")
         (effects
             (font
                 (size 0.762 0.762)
@@ -36,7 +36,7 @@
         (at 0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "77e5fd98-5834-47b5-b7a3-fc08ba103e81")
+        (uuid "aed22659-b25e-4867-86b0-9d51a798c980")
         (effects
             (font
                 (size 1.27 1.27)
@@ -45,24 +45,24 @@
         )
     )
     (fp_line
-        (start 2.0999999999999996 -5.25)
-        (end -2.0999999999999996 -5.25)
+        (start 2.7 -5.25)
+        (end -2.7 -5.25)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "7c894664-50ee-4d00-9bc2-e6a7a22a3799")
+        (uuid "65665ece-8ed7-48e2-8e06-ef9e40d8d1e3")
     )
     (fp_line
-        (start 2.0999999999999996 5.25)
-        (end -2.0999999999999996 5.25)
+        (start 2.7 5.25)
+        (end -2.7 5.25)
         (stroke
             (width 0.1524)
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "9beb1b1a-e76c-44ee-bd1d-8a89b5a76d69")
+        (uuid "48b1f4d5-249f-4dfe-83e4-8b2b8b4450fd")
     )
     (fp_rect
         (start -5.25 -5.25)
@@ -73,7 +73,7 @@
         )
         (fill none)
         (layer "F.CrtYd")
-        (uuid "948102c3-ec5f-40a9-9c52-6dcf9158a8e3")
+        (uuid "4d233bcb-7358-4e96-951a-d1e30ec10a9a")
     )
     (fp_rect
         (start -5.25 -5.25)
@@ -84,24 +84,24 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "1455a59a-4a3d-4774-80af-948abe7a74ae")
+        (uuid "42f8f62f-3e97-4361-825a-dac6f84677ca")
     )
     (fp_circle
-        (center -3.3 0)
-        (end -3.2237999999999998 0)
+        (center -3.9 0)
+        (end -3.8238 0)
         (stroke
             (width 0.0254)
             (type solid)
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "4f7f6f31-6846-4b31-a2c4-428e82f78deb")
+        (uuid "70c713aa-f84d-4632-9969-af8daca053ff")
     )
     (fp_text user "${REFERENCE}"
-        (at 0 6.35 0)
+        (at 0 7.366 0)
         (unlocked yes)
         (layer "F.Fab")
-        (uuid "aabd4478-a33e-4327-b175-8b5fb661bb04")
+        (uuid "26f459ea-b448-4171-b6c5-942d307b14e4")
         (effects
             (font
                 (size 0.762 0.762)
@@ -111,28 +111,28 @@
         )
     )
     (pad "1" smd rect
-        (at -3.3 -0.825)
+        (at -3.9 -1.025)
         (size 2.4 1.25)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "3bf8e2f8-7379-45f6-bff9-259aed57ac8e")
+        (uuid "9c1dbd04-bc5a-4519-8e42-b3c4dcd210f9")
     )
     (pad "2" smd rect
-        (at -3.3 0.825)
+        (at -3.9 1.025)
         (size 2.4 1.25)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "4f14edc0-7c81-4e27-8878-c90703ad03d0")
+        (uuid "d9984184-4074-4174-92e4-c27d5ba77510")
     )
     (pad "3" smd rect
-        (at 3.3 0.825)
+        (at 3.9 1.025)
         (size 2.4 1.25)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "aeff89ee-1234-4c2b-a34e-4464d113ef6d")
+        (uuid "88ba7459-f51a-4700-bb62-04b505defa96")
     )
     (pad "4" smd rect
-        (at 3.3 -0.825)
+        (at 3.9 -1.025)
         (size 2.4 1.25)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "fcd10719-826e-45ae-a5d6-ac2073a90bcc")
+        (uuid "16a3ed66-20f0-47f0-bebb-f1134653d1a2")
     )
     (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/MSD1048.step"
         (offset (xyz 0 0 0))
