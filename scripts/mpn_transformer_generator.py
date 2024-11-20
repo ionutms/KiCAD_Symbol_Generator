@@ -10,9 +10,9 @@ Generates both individual series files and unified component database.
 import csv
 from typing import Final, List
 from print_message_utilities import print_error, print_info, print_success
-import symbol_transformer_generator as sym_ind_gen
-import symbol_transformer_specs as sym_cou_ind_spec
-import footprint_transformer_generator as ftp_cou_ind_gen
+import symbol_transformer_generator as sym_tra_gen
+import symbol_transformer_specs as sym_tra_spec
+import footprint_transformer_generator as ftp_tra_gen
 import file_handler_utilities as utils
 
 
@@ -103,7 +103,7 @@ def generate_value_code(
 
 def create_description(
     inductance: float,
-    specs: sym_cou_ind_spec.SeriesSpec,
+    specs: sym_tra_spec.SeriesSpec,
     is_aec: bool
 ) -> str:
     """
@@ -131,9 +131,9 @@ def create_description(
 
 def create_part_info(
     inductance: float,
-    specs: sym_cou_ind_spec.SeriesSpec,
+    specs: sym_tra_spec.SeriesSpec,
     is_aec: bool = True
-) -> sym_cou_ind_spec.PartInfo:
+) -> sym_tra_spec.PartInfo:
     """
     Create complete part information.
 
@@ -170,7 +170,7 @@ def create_part_info(
         max_dc_current = 0.0
         max_dc_resistance = 0.0
 
-    return sym_cou_ind_spec.PartInfo(
+    return sym_tra_spec.PartInfo(
         symbol_name=f"L_{mpn}",
         reference="L",
         value=inductance,
@@ -188,9 +188,9 @@ def create_part_info(
 
 
 def generate_part_numbers(
-    specs: sym_cou_ind_spec.SeriesSpec,
+    specs: sym_tra_spec.SeriesSpec,
     is_aec: bool = True
-) -> List[sym_cou_ind_spec.PartInfo]:
+) -> List[sym_tra_spec.PartInfo]:
     """
     Generate all part numbers for the series.
 
@@ -228,7 +228,7 @@ HEADER_MAPPING: Final[dict] = {
 def generate_files_for_series(
     series_name: str,
     is_aec: bool,
-    unified_parts_list: List[sym_cou_ind_spec.PartInfo]
+    unified_parts_list: List[sym_tra_spec.PartInfo]
 ) -> None:
     """Generate CSV, KiCad symbol, and footprint files for a specific series.
 
@@ -247,10 +247,10 @@ def generate_files_for_series(
         Generated files are saved in 'data/', 'series_kicad_sym/', and
         'transformer_footprints.pretty/' directories.
     """
-    if series_name not in sym_cou_ind_spec.SERIES_SPECS:
+    if series_name not in sym_tra_spec.SERIES_SPECS:
         raise ValueError(f"Unknown series: {series_name}")
 
-    specs = sym_cou_ind_spec.SERIES_SPECS[series_name]
+    specs = sym_tra_spec.SERIES_SPECS[series_name]
 
     # Ensure required directories exist
     utils.ensure_directory_exists('data')
@@ -272,7 +272,7 @@ def generate_files_for_series(
         )
 
         # Generate KiCad symbol file
-        sym_ind_gen.generate_kicad_symbol(
+        sym_tra_gen.generate_kicad_symbol(
             f'data/{csv_filename}',
             f'series_kicad_sym/{symbol_filename}'
         )
@@ -283,7 +283,7 @@ def generate_files_for_series(
         # Generate KiCad footprint files
         for part in parts_list:
             try:
-                ftp_cou_ind_gen.generate_footprint_file(part, footprint_dir)
+                ftp_tra_gen.generate_footprint_file(part, footprint_dir)
                 print_success(
                     f"Generated footprint file for {part.mpn}"
                 )
@@ -308,7 +308,7 @@ def generate_files_for_series(
 
 
 def generate_unified_files(
-        all_parts: List[sym_cou_ind_spec.PartInfo],
+        all_parts: List[sym_tra_spec.PartInfo],
         unified_csv: str,
         unified_symbol: str
 ) -> None:
@@ -331,7 +331,7 @@ def generate_unified_files(
 
     # Generate unified KiCad symbol file
     try:
-        sym_ind_gen.generate_kicad_symbol(
+        sym_tra_gen.generate_kicad_symbol(
             f'data/{unified_csv}', f'symbols/{unified_symbol}')
         print_success("Unified KiCad symbol file generated successfully.")
     except FileNotFoundError as e:
@@ -345,9 +345,9 @@ def generate_unified_files(
 
 if __name__ == "__main__":
     try:
-        unified_parts: List[sym_cou_ind_spec.PartInfo] = []
+        unified_parts: List[sym_tra_spec.PartInfo] = []
 
-        for series in sym_cou_ind_spec.SERIES_SPECS:
+        for series in sym_tra_spec.SERIES_SPECS:
             print_info(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, True, unified_parts)
 
