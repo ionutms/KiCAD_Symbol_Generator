@@ -8,11 +8,11 @@ mount power inductors.
 """
 
 from uuid import uuid4
-import symbol_inductors_specs as ssi
+import symbol_coupled_inductors_specs as scis
 from footprint_coupled_inductor_specs import INDUCTOR_SPECS, InductorSpecs
 
 
-def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
+def generate_footprint(part_info: scis.PartInfo, specs: InductorSpecs) -> str:
     """
     Generate complete KiCad footprint file content for an inductor.
 
@@ -49,7 +49,7 @@ def generate_header(model_name: str) -> str:
     )
 
 
-def generate_properties(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
+def generate_properties(part_info: scis.PartInfo, specs: InductorSpecs) -> str:
     """Generate the properties section of the footprint."""
     font_props = (
         '        (effects\n'
@@ -121,6 +121,28 @@ def generate_shapes(specs: InductorSpecs) -> str:
             '    )'
         )
 
+    # Calculate pin 1 circle position
+    circle_x = -(specs.pad_dimensions.center_x + specs.pad_dimensions.width)
+    circle_y = -specs.pad_dimensions.pitch_y / 2
+    radius = specs.pad_dimensions.height / 4
+
+    # Pin 1 indicator on silkscreen
+    shapes.append(
+        '    (fp_circle\n'
+        '        (center '
+        f'{circle_x} {circle_y})\n'
+        '        (end '
+        f'{circle_x - radius} {circle_y})\n'
+        '        (stroke\n'
+        '            (width 0.1524)\n'
+        '            (type solid)\n'
+        '        )\n'
+        '        (fill solid)\n'
+        '        (layer "F.SilkS")\n'
+        f'        (uuid "{uuid4()}")\n'
+        '    )'
+    )
+
     # Courtyard
     shapes.append(
         '    (fp_rect\n'
@@ -154,9 +176,12 @@ def generate_shapes(specs: InductorSpecs) -> str:
     # Polarity marker
     shapes.append(
         '    (fp_circle\n'
-        f'        (center -{specs.pad_dimensions.center_x} 0)\n'
+        '        (center '
+        f'-{specs.pad_dimensions.center_x} '
+        f'-{specs.pad_dimensions.pitch_y/2})\n'
         '        (end '
-        f'-{specs.pad_dimensions.center_x - 0.0762} 0)\n'
+        f'-{specs.pad_dimensions.center_x - specs.pad_dimensions.height/2} '
+        f'-{specs.pad_dimensions.pitch_y/2})\n'
         '        (stroke\n'
         '            (width 0.0254)\n'
         '            (type solid)\n'
@@ -212,7 +237,7 @@ def generate_pads(specs: InductorSpecs) -> str:
     return "\n".join(pads)
 
 
-def generate_3d_model(part_info: ssi.PartInfo) -> str:
+def generate_3d_model(part_info: scis.PartInfo) -> str:
     """Generate the 3D model section of the footprint."""
     return (
         f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
@@ -224,7 +249,7 @@ def generate_3d_model(part_info: ssi.PartInfo) -> str:
     )
 
 
-def generate_footprint_file(part_info: ssi.PartInfo, output_dir: str) -> None:
+def generate_footprint_file(part_info: scis.PartInfo, output_dir: str) -> None:
     """
     Generate and save a complete .kicad_mod file for an inductor.
 
