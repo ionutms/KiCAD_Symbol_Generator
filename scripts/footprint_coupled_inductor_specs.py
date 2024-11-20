@@ -40,15 +40,15 @@ class InductorSpecs(NamedTuple):
 INDUCTOR_SPECS: Dict[str, InductorSpecs] = {
     "MSD7342": InductorSpecs(
         body_dimensions=BodyDimensions(
-            width=10.5664,
-            height=10.5664
+            width=7.7,
+            height=7.7
         ),
         pad_dimensions=PadDimensions(
-            width=2.3876,
-            height=1.2446,
-            center_x=3.8989,
-            pitch_y=2.0574,
+            width=2.1,
+            height=1.1,
+            center_x=2.7,
+            pitch_y=1.7,
         ),
-        ref_offset_y=-6.4262,
+        ref_offset_y=-4.826,
     )
 }
