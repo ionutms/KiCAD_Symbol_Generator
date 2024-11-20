@@ -1,36 +1,70 @@
-"""
-Library for managing Coilcraft coupled coupled inductor series specifications
-and part info.
+"""Module for defining and managing transformer component specifications.
 
-This module provides data structures and definitions for various Coilcraft
-coupled coupled inductor series, including their specifications and individual
-component information.
-It is used to maintain a standardized database of coupled coupled inductor
-specifications and generate consistent part information.
+This module provides data structures and configurations
+for managing transformer and coupled inductor specifications,
+particularly for Coilcraftcomponents.
+It includes definitions for pin layouts, series specifications,
+and individual component details used in electronic design.
+
+The module supports:
+- Pin configuration management for transformer components
+- Series specifications for different transformer families
+- Detailed part information tracking for individual components
+- Standard configurations for common transformer layouts
 """
 
-from typing import List, NamedTuple, Dict
+from typing import List, NamedTuple, Dict, Optional
+
+
+class PinConfig(NamedTuple):
+    """Configuration specification for a single transformer pin.
+
+    Attributes:
+        number: Pin identifier/number as string (e.g., "1", "2")
+        y_pos: Vertical position of the pin in millimeters relative to center
+        type: Pin type specification (e.g., "unspecified", "no_connect")
+        hide: Boolean flag indicating if pin should be hidden in schematic
+    """
+    number: str
+    y_pos: float
+    type: str
+    hide: bool = False
+
+
+class SidePinConfig(NamedTuple):
+    """Pin configuration specification for both sides of a transformer.
+
+    Defines the complete pin layout for a transformer by specifying pins
+    on both the left and right sides of the component.
+
+    Attributes:
+        left: List of PinConfig objects for the left side pins
+        right: List of PinConfig objects for the right side pins
+    """
+    left: List[PinConfig]
+    right: List[PinConfig]
 
 
 class SeriesSpec(NamedTuple):
-    """coupled coupled inductor series specifications for Coilcraft components.
+    """Specifications for a series of coupled inductors.
 
-    This class defines the complete specifications for a series of inductors,
-    including physical, electrical, and documentation characteristics.
+    Comprehensive specification for a transformer series, including electrical
+    characteristics, documentation references, and mechanical specifications.
 
     Attributes:
-        manufacturer: Name of the component manufacturer (e.g., "Coilcraft")
-        base_series: Base model number for the series (e.g., "XAL1513")
-        footprint: PCB footprint identifier used in schematic/layout tools
-        tolerance: Component value tolerance (e.g., "±20%")
+        manufacturer: Name of the component manufacturer
+        base_series: Base series identifier for the component family
+        footprint: PCB footprint identifier for the component series
+        tolerance: Component value tolerance specification
         datasheet: URL to the manufacturer's datasheet
         inductance_values: List of available inductance values in µH
-        trustedparts_link: URL to the component listing on Trusted Parts
-        value_suffix:
-            Manufacturer's suffix for the component value (e.g., "ME")
-        has_aec: Whether the series is AEC-Q200 qualified (defaults to True)
-        max_dc_current: Maximum DC current rating in Amperes (A)
-        max_dc_resistance: Maximum DC resistance in milliohms (mΩ)
+        trustedparts_link: URL to component listing on Trusted Parts
+        value_suffix: Suffix used in part numbering for the series
+        has_aec: Boolean indicating AEC-Q200 qualification status
+        max_dc_current: List of maximum DC current ratings in Amperes (A)
+        max_dc_resistance:
+            List of maximum DC resistance values in milliohms (mΩ)
+        pin_config: Optional pin configuration specification
     """
     manufacturer: str
     base_series: str
@@ -43,25 +77,26 @@ class SeriesSpec(NamedTuple):
     has_aec: bool = True
     max_dc_current: List[float] = []
     max_dc_resistance: List[float] = []
+    pin_config: Optional[SidePinConfig] = None
 
 
 class PartInfo(NamedTuple):
-    """Component part information structure for individual inductors.
+    """Detailed specification for an individual transformer component.
 
-    This class contains all necessary information to fully specify a single
-    coupled inductor component, including its specifications, documentation,
+    Provides a complete description of a single transformer or coupled inductor
+    component, including electrical specifications, documentation references,
     and sourcing information.
 
     Attributes:
-        symbol_name: Schematic symbol identifier
-        reference: Component reference designator
-        value: Inductance value in µH
+        symbol_name: Schematic symbol identifier for the component
+        reference: Component reference designator used in schematics
+        value: Inductance value in microhenries (µH)
         footprint: PCB footprint identifier
-        datasheet: URL to the manufacturer's datasheet
+        datasheet: URL to component datasheet
         description: Human-readable component description
-        manufacturer: Component manufacturer name
+        manufacturer: Name of component manufacturer
         mpn: Manufacturer part number
-        tolerance: Component value tolerance
+        tolerance: Component value tolerance specification
         series: Product series identifier
         trustedparts_link: URL to component listing on Trusted Parts
         max_dc_current: Maximum DC current rating in Amperes (A)
@@ -82,6 +117,7 @@ class PartInfo(NamedTuple):
     max_dc_resistance: float
 
 
+# Series specifications for supported transformer families
 SERIES_SPECS: Dict[str, SeriesSpec] = {
     "ZA9384": SeriesSpec(
         manufacturer="Coilcraft",
@@ -94,7 +130,21 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         max_dc_current=[0.80],
         max_dc_resistance=[1.1],
         value_suffix="ALD",
-        trustedparts_link="https://www.trustedparts.com/en/search"
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        pin_config=SidePinConfig(
+            left=[
+                PinConfig("1", 5.08, "no_connect", True),
+                PinConfig("2", 2.54, "unspecified"),
+                PinConfig("3", -2.54, "no_connect", True),
+                PinConfig("4", -5.08, "unspecified")
+            ],
+            right=[
+                PinConfig("5", 5.08, "unspecified"),
+                PinConfig("6", 2.54, "no_connect", True),
+                PinConfig("7", -2.54, "no_connect", True),
+                PinConfig("8", -5.08, "unspecified")
+            ]
+        )
     ),
     "ZA9644": SeriesSpec(
         manufacturer="Coilcraft",
@@ -107,6 +157,20 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         max_dc_current=[0.49],
         max_dc_resistance=[1.8],
         value_suffix="AED",
-        trustedparts_link="https://www.trustedparts.com/en/search"
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        pin_config=SidePinConfig(
+            left=[
+                PinConfig("1", 5.08, "unspecified"),
+                PinConfig("2", 2.54, "no_connect", True),
+                PinConfig("3", -2.54, "no_connect", True),
+                PinConfig("4", -5.08, "unspecified")
+            ],
+            right=[
+                PinConfig("5", 5.08, "unspecified"),
+                PinConfig("6", 2.54, "no_connect", True),
+                PinConfig("7", -2.54, "no_connect", True),
+                PinConfig("8", -5.08, "unspecified")
+            ]
+        )
     ),
 }
