@@ -59,9 +59,9 @@ INDUCTOR_SPECS: Dict[str, InductorSpecs] = {
         pad_dimensions=PadDimensions(
             width=2.4,
             height=1.25,
-            center_x=3.3,
-            pitch_y=1.65,
+            center_x=3.9,
+            pitch_y=2.05,
         ),
-        ref_offset_y=-5.08,
+        ref_offset_y=-6.096,
     ),
 }
