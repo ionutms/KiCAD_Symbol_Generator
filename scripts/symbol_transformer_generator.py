@@ -309,7 +309,7 @@ def write_property(
 def write_symbol_drawing(
         symbol_file: TextIO,
         symbol_name: str,
-        pin_config: dict = None
+        pin_config: dict
 ) -> None:
     """
     Write the horizontal graphical representation of a transformer symbol.
@@ -319,27 +319,6 @@ def write_symbol_drawing(
         symbol_name (str): Name of the symbol.
         pin_config (dict, optional): Dictionary defining pin configuration.
     """
-    # Default 8-pin configuration if none provided
-    if pin_config is None:
-        pin_config = {
-            "left": [
-                {"number": "1", "y_pos": 5.08, "type": "unspecified"},
-                {"number": "2", "y_pos": 2.54, "type": "no_connect",
-                 "hide": True},
-                {"number": "3", "y_pos": -2.54, "type": "no_connect",
-                 "hide": True},
-                {"number": "4", "y_pos": -5.08, "type": "unspecified"}
-            ],
-            "right": [
-                {"number": "5", "y_pos": 5.08, "type": "unspecified"},
-                {"number": "6", "y_pos": 2.54, "type": "no_connect",
-                 "hide": True},
-                {"number": "7", "y_pos": -2.54, "type": "no_connect",
-                 "hide": True},
-                {"number": "8", "y_pos": -5.08, "type": "unspecified"}
-            ]
-        }
-
     def write_pin(
             file: TextIO,
             x_pos: float,
