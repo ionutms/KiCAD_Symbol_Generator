@@ -8,11 +8,11 @@ mount power inductors.
 """
 
 from uuid import uuid4
-import symbol_inductors_specs as ssi
+import symbol_coupled_inductors_specs as scis
 from footprint_coupled_inductor_specs import INDUCTOR_SPECS, InductorSpecs
 
 
-def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
+def generate_footprint(part_info: scis.PartInfo, specs: InductorSpecs) -> str:
     """
     Generate complete KiCad footprint file content for an inductor.
 
@@ -49,7 +49,7 @@ def generate_header(model_name: str) -> str:
     )
 
 
-def generate_properties(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
+def generate_properties(part_info: scis.PartInfo, specs: InductorSpecs) -> str:
     """Generate the properties section of the footprint."""
     font_props = (
         '        (effects\n'
@@ -237,7 +237,7 @@ def generate_pads(specs: InductorSpecs) -> str:
     return "\n".join(pads)
 
 
-def generate_3d_model(part_info: ssi.PartInfo) -> str:
+def generate_3d_model(part_info: scis.PartInfo) -> str:
     """Generate the 3D model section of the footprint."""
     return (
         f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
@@ -249,7 +249,7 @@ def generate_3d_model(part_info: ssi.PartInfo) -> str:
     )
 
 
-def generate_footprint_file(part_info: ssi.PartInfo, output_dir: str) -> None:
+def generate_footprint_file(part_info: scis.PartInfo, output_dir: str) -> None:
     """
     Generate and save a complete .kicad_mod file for an inductor.
 
