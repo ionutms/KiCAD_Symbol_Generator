@@ -64,4 +64,17 @@ INDUCTOR_SPECS: Dict[str, InductorSpecs] = {
         ),
         ref_offset_y=-6.096,
     ),
+    "MSD1260": InductorSpecs(
+        body_dimensions=BodyDimensions(
+            width=12.5,
+            height=12.5
+        ),
+        pad_dimensions=PadDimensions(
+            width=4.0,
+            height=2.0,
+            center_x=4.25,
+            pitch_y=3.5,
+        ),
+        ref_offset_y=-7.112,
+    ),
 }

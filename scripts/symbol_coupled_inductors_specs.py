@@ -124,4 +124,26 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         value_suffix="ME",
         trustedparts_link="https://www.trustedparts.com/en/search"
     ),
+    "MSD1260": SeriesSpec(
+        manufacturer="Coilcraft",
+        base_series="MSD1260",
+        footprint="coupled_inductor_footprints:MSD1260",
+        tolerance="±20%",
+        datasheet="https://www.coilcraft.com/getmedia/" +
+        "79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf",
+        inductance_values=[
+            4.7, 5.6, 6.8, 8.2, 10.0, 12.0, 15.0, 18.0, 22.0,
+            27.0, 33.0, 39.0, 47.0, 56.0, 68.0, 82.0, 100.0
+        ],
+        max_dc_current=[
+            4.47, 4.24, 3.88, 3.72, 3.46, 3.12, 2.92, 2.73, 2.49,
+            2.41, 2.32, 2.25, 2.03, 1.91, 1.83, 1.62, 1.50
+        ],
+        max_dc_resistance=[
+            0.036, 0.040, 0.048, 0.052, 0.060, 0.074, 0.085, 0.097, 0.116,
+            0.124, 0.134, 0.142, 0.174, 0.198, 0.216, 0.274, 0.322
+        ],
+        value_suffix="ML",
+        trustedparts_link="https://www.trustedparts.com/en/search"
+    ),
 }
