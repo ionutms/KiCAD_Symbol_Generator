@@ -34,73 +34,6 @@ def format_inductance_value(inductance: float) -> str:
     return f"{inductance:.1f} µH"
 
 
-def generate_value_code(
-    inductance: float,
-    value_suffix: str,
-    is_aec: bool = True,
-) -> str:
-    """
-    Generate Coilcraft value code for inductance values according
-    to their part numbering system.
-
-    The value code consists of:
-    1. Two digits representing the significant figures of the inductance value
-    2. A decimal position indicator (0-4)
-    3. Optional AEC qualification suffix
-
-    Decimal position indicators:
-    - 4: Multiply by 10 µH (100.0-999.99 µH)
-    - 3: Value is in µH (10.0-99.99 µH)
-    - 2: Divide by 10 µH (1.0-9.99 µH)
-    - 1: Divide by 100 µH (0.1-0.99 µH)
-    - 0: Divide by 1000 µH (0.01-0.099 µH)
-
-    Args:
-        inductance: Value in µH (microhenries), must be between 0.01 and 999.99
-        is_aec: If True, append AEC qualification suffix to the value code
-        value_suffix: AEC qualification suffix to append when is_aec is True
-
-    Returns:
-        str: Value code string.
-
-    Raises:
-        ValueError: If inductance is outside the valid range (0.01-9999.99 µH)
-    """
-    if not 0.01 <= inductance <= 9999.99:
-        raise ValueError(
-            f"Invalid inductance: {inductance}µH (0.01-9999.99)"
-        )
-
-    if inductance >= 1000.0:
-        value = round(inductance / 100)
-        base_code = f"{value:02d}5"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
-
-    if inductance >= 100.0:
-        value = round(inductance / 10)
-        base_code = f"{value:02d}4"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
-
-    if inductance >= 10.0:
-        value = round(inductance)
-        base_code = f"{value:02d}3"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
-
-    if inductance >= 1.0:
-        value = round(inductance * 10)
-        base_code = f"{value:02d}2"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
-
-    if inductance >= 0.1:
-        value = round(inductance * 100)
-        base_code = f"{value:02d}1"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
-
-    value = round(inductance * 1000)
-    base_code = f"{value:02d}0"
-    return f"{base_code}{value_suffix}" if is_aec else base_code
-
-
 def create_description(
     inductance: float,
     specs: sym_tra_spec.SeriesSpec,
@@ -145,12 +78,7 @@ def create_part_info(
     Returns:
         PartInfo instance with all specifications
     """
-    value_code = generate_value_code(
-        inductance,
-        specs.value_suffix,
-        is_aec and specs.has_aec,
-    )
-    mpn = f"{specs.base_series}-{value_code}"
+    mpn = f"{specs.base_series}-{specs.value_suffix}"
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     try:
