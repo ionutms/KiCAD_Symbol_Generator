@@ -79,13 +79,18 @@ def get_property_order(all_properties: set) -> List[str]:
 def write_header(
         symbol_file: TextIO
 ) -> None:
-    """Write the KiCad symbol file header."""
-    symbol_file.write(
-        "(kicad_symbol_lib\n"
-        "\t(version 20231120)\n"
-        "\t(generator \"kicad_symbol_editor\")\n"
-        "\t(generator_version \"8.0\")\n"
-    )
+    """
+    Write the header of the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+    """
+    symbol_file.write("""
+        (kicad_symbol_lib
+            (version 20231120)
+            (generator \"kicad_symbol_editor\")
+            (generator_version \"8.0\")
+        """)
 
 
 def write_component(
@@ -105,17 +110,22 @@ def write_symbol_header(
         symbol_file: TextIO,
         symbol_name: str
 ) -> None:
-    """Write the symbol header section."""
-    header_lines = [
-        f'\t(symbol "{symbol_name}"',
-        "\t\t(pin_names",
-        "\t\t\t(offset 1.016)",
-        "\t\t)",
-        "\t\t(exclude_from_sim no)",
-        "\t\t(in_bom yes)",
-        "\t\t(on_board yes)"
-    ]
-    symbol_file.write('\n'.join(header_lines) + '\n')
+    """
+    Write the header for a single symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+    """
+    symbol_file.write(f"""
+        (symbol "{symbol_name}"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        """)
 
 
 def write_properties(
@@ -281,21 +291,3 @@ def write_rectangle(
         "\t\t\t)"
     ]
     file.write('\n'.join(rectangle_lines) + '\n')
-
-
-if __name__ == "__main__":
-    file_pairs = [
-        ('connectors.csv', 'CONNECTORS_DATA_BASE.kicad_sym'),
-    ]
-
-    for input_csv, output_symbol in file_pairs:
-        try:
-            generate_kicad_symbol(input_csv, output_symbol)
-            print(
-                f"KiCad symbol file '{output_symbol}' generated successfully.")
-        except FileNotFoundError:
-            print(f"Error: Input CSV file '{input_csv}' not found.")
-        except csv.Error as e:
-            print(f"Error reading CSV file '{input_csv}': {e}")
-        except IOError as e:
-            print(f"Error writing to output file '{output_symbol}': {e}")
