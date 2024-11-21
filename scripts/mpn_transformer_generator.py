@@ -101,7 +101,7 @@ def create_part_info(
     return sym_tra_spec.PartInfo(
         symbol_name=f"T_{mpn}",
         reference="T",
-        value=inductance,
+        value=mpn,
         footprint=specs.footprint,
         datasheet=specs.datasheet,
         description=create_description(inductance, specs, is_aec),
@@ -139,7 +139,7 @@ def generate_part_numbers(
 HEADER_MAPPING: Final[dict] = {
     'Symbol Name': lambda part: part.symbol_name,
     'Reference': lambda part: part.reference,
-    'Value': lambda part: format_inductance_value(part.value),
+    'Value': lambda part: part.mpn,
     'Footprint': lambda part: part.footprint,
     'Datasheet': lambda part: part.datasheet,
     'Description': lambda part: part.description,
