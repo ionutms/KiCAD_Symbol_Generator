@@ -44,12 +44,11 @@ def generate_kicad_symbol(
     """
     component_data_list = read_csv_data(input_csv_file, encoding)
     all_properties = get_all_properties(component_data_list)
-    property_order = get_property_order(all_properties)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         write_header(symbol_file)
         for component_data in component_data_list:
-            write_component(symbol_file, component_data, property_order)
+            write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
 
 
@@ -85,31 +84,6 @@ def get_all_properties(
     """
     return set().union(
         *(component_data.keys() for component_data in component_data_list))
-
-
-def get_property_order(
-        all_properties: set
-) -> List[str]:
-    """
-    Determine the order of properties for symbol generation.
-
-    Args:
-        all_properties (set): Set of all unique property names.
-
-    Returns:
-        List[str]: Ordered list of property names.
-    """
-    # Define the order of common properties
-    common_properties = [
-        "Symbol Name",
-        "Reference",
-        "Value",
-        "Footprint",
-        "Datasheet",
-    ]
-    # Return ordered properties list
-    remaining_props = sorted(list(all_properties - set(common_properties)))
-    return common_properties + remaining_props
 
 
 def write_header(
