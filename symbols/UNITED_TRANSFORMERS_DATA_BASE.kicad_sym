@@ -23,30 +23,6 @@
             )
         )
         
-        (property "Reference" "T"
-            (at 0 7.62 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Value" "ZA9384-ALD"
-            (at 0 -7.62 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
         (property "Footprint" "transformer_footprints:ZA9384"
             (at 0 -10.16 0)
             (show_name)
@@ -71,6 +47,66 @@
             )
         )
         
+        (property "Maximum DC Current (A)" "0.8"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.100"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Reference" "T"
+            (at 0 7.62 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (property "Series" "ZA9384"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ZA9384-ALD"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
         (property "Description" "POWER TRANSFORMER SMD 470 µH ±10% AEC-Q200"
             (at 0 -15.24 0)
             (show_name)
@@ -83,55 +119,7 @@
             )
         )
         
-        (property "MPN" "ZA9384-ALD"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Current (A)" "0.8"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "1.100"
-            (at 0 -27.939999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "ZA9384"
+        (property "Tolerance" "±10%"
             (at 0 -30.479999999999997 0)
             (show_name)
             (effects
@@ -143,7 +131,7 @@
             )
         )
         
-        (property "Tolerance" "±10%"
+        (property "MPN" "ZA9384-ALD"
             (at 0 -33.019999999999996 0)
             (show_name)
             (effects
@@ -155,7 +143,7 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ZA9384-ALD"
+        (property "Manufacturer" "Coilcraft"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -164,6 +152,18 @@
                 )
                 (justify left)
                 (hide yes)
+            )
+        )
+        
+        (property "Value" "ZA9384-ALD"
+            (at 0 -7.62 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
             )
         )
                 (symbol "T_ZA9384-ALD_0_1"
@@ -598,30 +598,6 @@
             )
         )
         
-        (property "Reference" "T"
-            (at 0 7.62 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Value" "ZA9644-AED"
-            (at 0 -7.62 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
         (property "Footprint" "transformer_footprints:ZA9644"
             (at 0 -10.16 0)
             (show_name)
@@ -646,6 +622,66 @@
             )
         )
         
+        (property "Maximum DC Current (A)" "0.5"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.800"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Reference" "T"
+            (at 0 7.62 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (property "Series" "ZA9644"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ZA9644-AED"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
         (property "Description" "POWER TRANSFORMER SMD 470 µH ±10% AEC-Q200"
             (at 0 -15.24 0)
             (show_name)
@@ -658,55 +694,7 @@
             )
         )
         
-        (property "MPN" "ZA9644-AED"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Current (A)" "0.5"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "1.800"
-            (at 0 -27.939999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "ZA9644"
+        (property "Tolerance" "±10%"
             (at 0 -30.479999999999997 0)
             (show_name)
             (effects
@@ -718,7 +706,7 @@
             )
         )
         
-        (property "Tolerance" "±10%"
+        (property "MPN" "ZA9644-AED"
             (at 0 -33.019999999999996 0)
             (show_name)
             (effects
@@ -730,7 +718,7 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ZA9644-AED"
+        (property "Manufacturer" "Coilcraft"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -739,6 +727,18 @@
                 )
                 (justify left)
                 (hide yes)
+            )
+        )
+        
+        (property "Value" "ZA9644-AED"
+            (at 0 -7.62 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
             )
         )
                 (symbol "T_ZA9644-AED_0_1"
