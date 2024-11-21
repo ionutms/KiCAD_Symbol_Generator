@@ -99,8 +99,8 @@ def create_part_info(
         max_dc_resistance = 0.0
 
     return sym_tra_spec.PartInfo(
-        symbol_name=f"L_{mpn}",
-        reference="L",
+        symbol_name=f"T_{mpn}",
+        reference="T",
         value=inductance,
         footprint=specs.footprint,
         datasheet=specs.datasheet,
