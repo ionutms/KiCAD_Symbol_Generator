@@ -19,7 +19,7 @@ Dependencies:
 """
 
 import csv
-from typing import List, Tuple, Dict, TextIO
+from typing import List, Dict, TextIO
 
 
 def generate_kicad_symbol(
@@ -43,12 +43,12 @@ def generate_kicad_symbol(
     """
     component_data_list = read_csv_data(input_csv_file, encoding)
     all_properties = get_all_properties(component_data_list)
-    property_order = get_property_order(all_properties)
+    # property_order = get_property_order(all_properties)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         write_header(symbol_file)
         for component_data in component_data_list:
-            write_component(symbol_file, component_data, property_order)
+            write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
 
 
@@ -90,25 +90,6 @@ def get_all_properties(
         *(component_data.keys() for component_data in component_data_list))
 
 
-def get_property_order(
-        all_properties: set
-) -> List[str]:
-    """
-    Determine the order of properties for symbol generation.
-
-    Args:
-        all_properties (set): Set of all unique property names.
-
-    Returns:
-        List[str]: Ordered list of property names.
-    """
-    common_properties = [
-        "Symbol Name", "Reference", "Value", "Footprint", "Datasheet"
-    ]
-    return common_properties + \
-        sorted(list(all_properties - set(common_properties)))
-
-
 def write_header(
         symbol_file: TextIO
 ) -> None:
@@ -118,15 +99,12 @@ def write_header(
     Args:
         symbol_file (TextIO): File object for writing the symbol file.
     """
-    symbol_file.write(
-        '\n'.join([
-            "(kicad_symbol_lib",
-            "\t(version 20231120)",
-            "\t(generator \"kicad_symbol_editor\")",
-            "\t(generator_version \"8.0\")",
-            ""
-        ])
-    )
+    symbol_file.write("""
+        (kicad_symbol_lib
+            (version 20231120)
+            (generator \"kicad_symbol_editor\")
+            (generator_version \"8.0\")
+        """)
 
 
 def write_component(
@@ -159,19 +137,15 @@ def write_symbol_header(
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
     """
-    symbol_file.write(
-        '\n'.join([
-            f"\t(symbol \"{symbol_name}\"",
-            "\t\t(pin_numbers hide)",
-            "\t\t(pin_names",
-            "\t\t\t(offset 0)",
-            "\t\t)",
-            "\t\t(exclude_from_sim no)",
-            "\t\t(in_bom yes)",
-            "\t\t(on_board yes)",
-            ""
-        ])
-    )
+    symbol_file.write(f"""
+        (symbol "{symbol_name}"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        """)
 
 
 def write_properties(
@@ -187,61 +161,70 @@ def write_properties(
         component_data (Dict[str, str]): Data for a single component.
         property_order (List[str]): Ordered list of property names.
     """
-    common_properties = [
-        ("Symbol Name", True),
-        ("Reference", False),
-        ("Value", False),
-        ("Footprint", True),
-        ("Datasheet", True),
-    ]
-    y_offset = 1.27
-    for property_name in property_order:
-        if property_name in component_data:
+    property_configs = {
+        "Reference": (2.54, 2.54, 1.27, False, False, "R"),
+        "Value": (
+            2.54, 0, 1.27, False, False,
+            component_data.get('Resistance', '')),
+        "Footprint": (2.54, -2.54, 1.27, True, True, None),
+        "Datasheet": (2.54, -5.08, 1.27, True, True, None),
+        "Description": (2.54, -7.62, 1.27, True, True, None)
+    }
+
+    y_offset = -10.16
+    for prop_name in property_order:
+        if prop_name in component_data:
+            config = property_configs.get(
+                prop_name,
+                (2.54, y_offset, 1.27, True, True, None)
+            )
+            value = config[5] or component_data[prop_name]
             write_property(
                 symbol_file,
-                property_name,
-                component_data[property_name],
-                y_offset,
-                common_properties)
-            y_offset += 2.54
+                prop_name,
+                value,
+                *config[:5]
+            )
+            if prop_name not in property_configs:
+                y_offset -= 2.54
 
 
 def write_property(
     symbol_file: TextIO,
     property_name: str,
     property_value: str,
+    x_offset: float,
     y_offset: float,
-    common_properties: List[Tuple[str, bool]]
+    font_size: float,
+    show_name: bool,
+    hide: bool
 ) -> None:
     """
-    Write a single property for a symbol in the KiCad symbol file.
+    Write a single property for a symbol.
 
     Args:
         symbol_file (TextIO): File object for writing the symbol file.
         property_name (str): Name of the property.
         property_value (str): Value of the property.
+        x_offset (float): Horizontal offset for property placement.
         y_offset (float): Vertical offset for property placement.
-        common_properties (List[Tuple[str, bool]]): List of common properties.
+        font_size (float): Size of the font.
+        show_name (bool): Whether to show the property name.
+        hide (bool): Whether to hide the property.
     """
-    is_common = any(prop == property_name for prop, _ in common_properties)
-    hidden = not is_common or any(
-        prop == property_name and hide for prop, hide in common_properties)
-    symbol_file.write(
-        '\n'.join([
-            f"\t\t(property \"{property_name}\" \"{property_value}\"",
-            f"\t\t\t(at 2.54 {-y_offset} 0)",
-            "\t\t\t(effects",
-            "\t\t\t\t(font",
-            "\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t)",
-            "\t\t\t\t(justify left)",
-            f"\t\t\t\t{('(hide yes)' if hidden else '')}",
-            "\t\t\t)",
-            f"\t\t\t(show_name {'yes' if hidden else 'no'})",
-            "\t\t)",
-            ""
-        ])
-    )
+    symbol_file.write(f"""
+        (property "{property_name}" "{property_value}"
+            (at {x_offset} {y_offset} 0)
+            {('(show_name)' if show_name else '')}
+            (effects
+                (font
+                    (size {font_size} {font_size})
+                )
+                (justify left)
+                {('(hide yes)' if hide else '')}
+            )
+        )
+        """)
 
 
 def write_symbol_drawing(
@@ -311,24 +294,3 @@ def write_symbol_drawing(
             ""
         ])
     )
-
-
-if __name__ == "__main__":
-    file_pairs = [
-        ('resistor.csv', 'RESISTORS_DATA_BASE.kicad_sym'),
-        ('ERJ2RK_part_numbers.csv', 'RESISTORS_ERJ2RK_DATA_BASE.kicad_sym'),
-        ('ERJ3EK_part_numbers.csv', 'RESISTORS_ERJ3EK_DATA_BASE.kicad_sym'),
-        ('ERJ6EN_part_numbers.csv', 'RESISTORS_ERJ6EN_DATA_BASE.kicad_sym')
-    ]
-
-    for input_csv, output_symbol in file_pairs:
-        try:
-            generate_kicad_symbol(input_csv, output_symbol)
-            print(
-                f"KiCad symbol file '{output_symbol}' generated successfully.")
-        except FileNotFoundError:
-            print(f"Error: Input CSV file '{input_csv}' not found.")
-        except csv.Error as e:
-            print(f"Error reading CSV file '{input_csv}': {e}")
-        except IOError as e:
-            print(f"Error writing to output file '{output_symbol}': {e}")
