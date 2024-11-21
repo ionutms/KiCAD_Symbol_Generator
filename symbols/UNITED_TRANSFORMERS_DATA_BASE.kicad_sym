@@ -2,13 +2,15 @@
     (version 20231120)
     (generator "kicad_symbol_editor")
     (generator_version "8.0")
-    (symbol "T_ZA9384-ALD"
-        (pin_names
-            (offset 0.254)
-        )
-        (exclude_from_sim no)
-        (in_bom yes)
-        (on_board yes)
+
+        (symbol "T_ZA9384-ALD"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
         (property "Symbol Name" "T_ZA9384-ALD"
             (at 0 -17.78 0)
             (show_name)
@@ -20,6 +22,7 @@
                 (hide yes)
             )
         )
+        
         (property "Reference" "T"
             (at 0 7.62 0)
             
@@ -31,17 +34,19 @@
                 
             )
         )
+        
         (property "Value" "ZA9384-ALD"
             (at 0 -7.62 0)
             
             (effects
                 (font
-                    (size 1.524 1.524)
+                    (size 1.27 1.27)
                 )
                 (justify left)
                 
             )
         )
+        
         (property "Footprint" "transformer_footprints:ZA9384"
             (at 0 -10.16 0)
             (show_name)
@@ -53,6 +58,7 @@
                 (hide yes)
             )
         )
+        
         (property "Datasheet" "https://www.coilcraft.com/getmedia/cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf"
             (at 0.254 -12.7 0)
             (show_name)
@@ -64,6 +70,7 @@
                 (hide yes)
             )
         )
+        
         (property "Description" "POWER TRANSFORMER SMD 470 µH ±10% AEC-Q200"
             (at 0 -15.24 0)
             (show_name)
@@ -75,6 +82,7 @@
                 (hide yes)
             )
         )
+        
         (property "MPN" "ZA9384-ALD"
             (at 0 -20.32 0)
             (show_name)
@@ -86,6 +94,7 @@
                 (hide yes)
             )
         )
+        
         (property "Manufacturer" "Coilcraft"
             (at 0 -22.86 0)
             (show_name)
@@ -97,6 +106,7 @@
                 (hide yes)
             )
         )
+        
         (property "Maximum DC Current (A)" "0.8"
             (at 0 -25.4 0)
             (show_name)
@@ -108,6 +118,7 @@
                 (hide yes)
             )
         )
+        
         (property "Maximum DC Resistance (Ω)" "1.100"
             (at 0 -27.939999999999998 0)
             (show_name)
@@ -119,6 +130,7 @@
                 (hide yes)
             )
         )
+        
         (property "Series" "ZA9384"
             (at 0 -30.479999999999997 0)
             (show_name)
@@ -130,6 +142,7 @@
                 (hide yes)
             )
         )
+        
         (property "Tolerance" "±10%"
             (at 0 -33.019999999999996 0)
             (show_name)
@@ -141,6 +154,7 @@
                 (hide yes)
             )
         )
+        
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ZA9384-ALD"
             (at 0 -35.559999999999995 0)
             (show_name)
@@ -152,8 +166,60 @@
                 (hide yes)
             )
         )
-        (symbol "T_ZA9384-ALD_0_1"
-            (arc                (start -2.54 -5.08)                (mid -1.27 -3.81)                (end -2.54 -2.54)                (stroke                    (width 0)                    (type default)                )                (fill                    (type none)                )            )            (arc                (start -2.54 -2.54)                (mid -1.27 -1.27)                (end -2.54 0.0)                (stroke                    (width 0)                    (type default)                )                (fill                    (type none)                )            )            (arc                (start -2.54 0.0)                (mid -1.27 1.27)                (end -2.54 2.54)                (stroke                    (width 0)                    (type default)                )                (fill                    (type none)                )            )            (arc                (start -2.54 2.54)                (mid -1.27 3.81)                (end -2.54 5.08)                (stroke                    (width 0)                    (type default)                )                (fill                    (type none)                )            )
+                (symbol "T_ZA9384-ALD_0_1"
+
+            (arc
+                (start -2.54 -5.08)
+                (mid -1.27 -3.81)
+                (end -2.54 -2.54)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            
+            (arc
+                (start -2.54 -2.54)
+                (mid -1.27 -1.27)
+                (end -2.54 0.0)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            
+            (arc
+                (start -2.54 0.0)
+                (mid -1.27 1.27)
+                (end -2.54 2.54)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            
+            (arc
+                (start -2.54 2.54)
+                (mid -1.27 3.81)
+                (end -2.54 5.08)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            
             (arc
                 (start 2.54 5.08)
                 (mid 1.27 3.81)
@@ -166,6 +232,7 @@
                     (type none)
                 )
             )
+            
             (arc
                 (start 2.54 2.54)
                 (mid 1.27 1.27)
@@ -178,6 +245,7 @@
                     (type none)
                 )
             )
+            
             (arc
                 (start 2.54 0.0)
                 (mid 1.27 -1.27)
@@ -190,6 +258,7 @@
                     (type none)
                 )
             )
+            
             (arc
                 (start 2.54 -2.54)
                 (mid 1.27 -3.81)
@@ -202,6 +271,7 @@
                     (type none)
                 )
             )
+            
             (circle
                 (center -2.54 3.81)
                 (radius 0.508)
@@ -213,6 +283,7 @@
                     (type none)
                 )
             )
+            
             (circle
                 (center 2.54 -3.81)
                 (radius 0.508)
@@ -224,6 +295,7 @@
                     (type none)
                 )
             )
+            
             (polyline
                 (pts
                     (xy -0.254 5.08) (xy -0.254 -5.08)
@@ -236,6 +308,7 @@
                     (type none)
                 )
             )
+            
             (polyline
                 (pts
                     (xy 0.254 5.08) (xy 0.254 -5.08)
@@ -248,6 +321,7 @@
                     (type none)
                 )
             )
+            
                 (polyline
                     (pts
                         (xy -2.54 5.08) (xy -5.08 5.08)
@@ -260,6 +334,7 @@
                         (type none)
                     )
                 )
+                
                 (polyline
                     (pts
                         (xy -2.54 -5.08) (xy -5.08 -5.08)
@@ -272,6 +347,7 @@
                         (type none)
                     )
                 )
+                
                 (polyline
                     (pts
                         (xy 2.54 5.08) (xy 5.08 5.08)
@@ -284,6 +360,7 @@
                         (type none)
                     )
                 )
+                
                 (polyline
                     (pts
                         (xy 2.54 -5.08) (xy 5.08 -5.08)
@@ -295,8 +372,10 @@
                     (fill
                         (type none)
                     )
-                )        )
+                )
+                        )
         (symbol "T_ZA9384-ALD_1_1"
+
             (pin unspecified line
                 (at -7.62 5.08 0)
                 (length 2.54)
@@ -316,6 +395,7 @@
                 )
                 
             )
+            
             (pin no_connect line
                 (at -7.62 2.54 0)
                 (length 2.54)
@@ -335,6 +415,7 @@
                 )
                 hide
             )
+            
             (pin no_connect line
                 (at -7.62 0.0 0)
                 (length 2.54)
@@ -354,6 +435,7 @@
                 )
                 hide
             )
+            
             (pin no_connect line
                 (at -7.62 -2.54 0)
                 (length 2.54)
@@ -373,6 +455,7 @@
                 )
                 hide
             )
+            
             (pin unspecified line
                 (at -7.62 -5.08 0)
                 (length 2.54)
@@ -392,6 +475,7 @@
                 )
                 
             )
+            
             (pin unspecified line
                 (at 7.62 5.08 180)
                 (length 2.54)
@@ -411,6 +495,7 @@
                 )
                 
             )
+            
             (pin no_connect line
                 (at 7.62 2.54 180)
                 (length 2.54)
@@ -430,6 +515,7 @@
                 )
                 hide
             )
+            
             (pin no_connect line
                 (at 7.62 0.0 180)
                 (length 2.54)
@@ -449,6 +535,7 @@
                 )
                 hide
             )
+            
             (pin no_connect line
                 (at 7.62 -2.54 180)
                 (length 2.54)
@@ -468,6 +555,7 @@
                 )
                 hide
             )
+            
             (pin unspecified line
                 (at 7.62 -5.08 180)
                 (length 2.54)
@@ -487,15 +575,17 @@
                 )
                 
             )
-        )
+                    )
     )
-    (symbol "T_ZA9644-AED"
-        (pin_names
-            (offset 0.254)
-        )
-        (exclude_from_sim no)
-        (in_bom yes)
-        (on_board yes)
+
+        (symbol "T_ZA9644-AED"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
         (property "Symbol Name" "T_ZA9644-AED"
             (at 0 -17.78 0)
             (show_name)
@@ -507,6 +597,7 @@
                 (hide yes)
             )
         )
+        
         (property "Reference" "T"
             (at 0 7.62 0)
             
@@ -518,17 +609,19 @@
                 
             )
         )
+        
         (property "Value" "ZA9644-AED"
             (at 0 -7.62 0)
             
             (effects
                 (font
-                    (size 1.524 1.524)
+                    (size 1.27 1.27)
                 )
                 (justify left)
                 
             )
         )
+        
         (property "Footprint" "transformer_footprints:ZA9644"
             (at 0 -10.16 0)
             (show_name)
@@ -540,6 +633,7 @@
                 (hide yes)
             )
         )
+        
         (property "Datasheet" "https://www.coilcraft.com/getmedia/cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf"
             (at 0.254 -12.7 0)
             (show_name)
@@ -551,6 +645,7 @@
                 (hide yes)
             )
         )
+        
         (property "Description" "POWER TRANSFORMER SMD 470 µH ±10% AEC-Q200"
             (at 0 -15.24 0)
             (show_name)
@@ -562,6 +657,7 @@
                 (hide yes)
             )
         )
+        
         (property "MPN" "ZA9644-AED"
             (at 0 -20.32 0)
             (show_name)
@@ -573,6 +669,7 @@
                 (hide yes)
             )
         )
+        
         (property "Manufacturer" "Coilcraft"
             (at 0 -22.86 0)
             (show_name)
@@ -584,6 +681,7 @@
                 (hide yes)
             )
         )
+        
         (property "Maximum DC Current (A)" "0.5"
             (at 0 -25.4 0)
             (show_name)
@@ -595,6 +693,7 @@
                 (hide yes)
             )
         )
+        
         (property "Maximum DC Resistance (Ω)" "1.800"
             (at 0 -27.939999999999998 0)
             (show_name)
@@ -606,6 +705,7 @@
                 (hide yes)
             )
         )
+        
         (property "Series" "ZA9644"
             (at 0 -30.479999999999997 0)
             (show_name)
@@ -617,6 +717,7 @@
                 (hide yes)
             )
         )
+        
         (property "Tolerance" "±10%"
             (at 0 -33.019999999999996 0)
             (show_name)
@@ -628,6 +729,7 @@
                 (hide yes)
             )
         )
+        
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ZA9644-AED"
             (at 0 -35.559999999999995 0)
             (show_name)
@@ -639,8 +741,60 @@
                 (hide yes)
             )
         )
-        (symbol "T_ZA9644-AED_0_1"
-            (arc                (start -2.54 -5.08)                (mid -1.27 -3.81)                (end -2.54 -2.54)                (stroke                    (width 0)                    (type default)                )                (fill                    (type none)                )            )            (arc                (start -2.54 -2.54)                (mid -1.27 -1.27)                (end -2.54 0.0)                (stroke                    (width 0)                    (type default)                )                (fill                    (type none)                )            )            (arc                (start -2.54 0.0)                (mid -1.27 1.27)                (end -2.54 2.54)                (stroke                    (width 0)                    (type default)                )                (fill                    (type none)                )            )            (arc                (start -2.54 2.54)                (mid -1.27 3.81)                (end -2.54 5.08)                (stroke                    (width 0)                    (type default)                )                (fill                    (type none)                )            )
+                (symbol "T_ZA9644-AED_0_1"
+
+            (arc
+                (start -2.54 -5.08)
+                (mid -1.27 -3.81)
+                (end -2.54 -2.54)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            
+            (arc
+                (start -2.54 -2.54)
+                (mid -1.27 -1.27)
+                (end -2.54 0.0)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            
+            (arc
+                (start -2.54 0.0)
+                (mid -1.27 1.27)
+                (end -2.54 2.54)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            
+            (arc
+                (start -2.54 2.54)
+                (mid -1.27 3.81)
+                (end -2.54 5.08)
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            
             (arc
                 (start 2.54 5.08)
                 (mid 1.27 3.81)
@@ -653,6 +807,7 @@
                     (type none)
                 )
             )
+            
             (arc
                 (start 2.54 2.54)
                 (mid 1.27 1.27)
@@ -665,6 +820,7 @@
                     (type none)
                 )
             )
+            
             (arc
                 (start 2.54 0.0)
                 (mid 1.27 -1.27)
@@ -677,6 +833,7 @@
                     (type none)
                 )
             )
+            
             (arc
                 (start 2.54 -2.54)
                 (mid 1.27 -3.81)
@@ -689,6 +846,7 @@
                     (type none)
                 )
             )
+            
             (circle
                 (center -2.54 3.81)
                 (radius 0.508)
@@ -700,6 +858,7 @@
                     (type none)
                 )
             )
+            
             (circle
                 (center 2.54 -3.81)
                 (radius 0.508)
@@ -711,6 +870,7 @@
                     (type none)
                 )
             )
+            
             (polyline
                 (pts
                     (xy -0.254 5.08) (xy -0.254 -5.08)
@@ -723,6 +883,7 @@
                     (type none)
                 )
             )
+            
             (polyline
                 (pts
                     (xy 0.254 5.08) (xy 0.254 -5.08)
@@ -735,6 +896,7 @@
                     (type none)
                 )
             )
+            
                 (polyline
                     (pts
                         (xy -2.54 5.08) (xy -5.08 5.08)
@@ -747,6 +909,7 @@
                         (type none)
                     )
                 )
+                
                 (polyline
                     (pts
                         (xy -2.54 -5.08) (xy -5.08 -5.08)
@@ -759,6 +922,7 @@
                         (type none)
                     )
                 )
+                
                 (polyline
                     (pts
                         (xy 2.54 5.08) (xy 5.08 5.08)
@@ -771,6 +935,7 @@
                         (type none)
                     )
                 )
+                
                 (polyline
                     (pts
                         (xy 2.54 -5.08) (xy 5.08 -5.08)
@@ -782,8 +947,10 @@
                     (fill
                         (type none)
                     )
-                )        )
+                )
+                        )
         (symbol "T_ZA9644-AED_1_1"
+
             (pin unspecified line
                 (at -7.62 5.08 0)
                 (length 2.54)
@@ -803,6 +970,7 @@
                 )
                 
             )
+            
             (pin no_connect line
                 (at -7.62 2.54 0)
                 (length 2.54)
@@ -822,6 +990,7 @@
                 )
                 hide
             )
+            
             (pin no_connect line
                 (at -7.62 -2.54 0)
                 (length 2.54)
@@ -841,6 +1010,7 @@
                 )
                 hide
             )
+            
             (pin unspecified line
                 (at -7.62 -5.08 0)
                 (length 2.54)
@@ -860,6 +1030,7 @@
                 )
                 
             )
+            
             (pin unspecified line
                 (at 7.62 5.08 180)
                 (length 2.54)
@@ -879,6 +1050,7 @@
                 )
                 
             )
+            
             (pin no_connect line
                 (at 7.62 2.54 180)
                 (length 2.54)
@@ -898,6 +1070,7 @@
                 )
                 hide
             )
+            
             (pin no_connect line
                 (at 7.62 -2.54 180)
                 (length 2.54)
@@ -917,6 +1090,7 @@
                 )
                 hide
             )
+            
             (pin unspecified line
                 (at 7.62 -5.08 180)
                 (length 2.54)
@@ -936,6 +1110,6 @@
                 )
                 
             )
-        )
+                    )
     )
 )

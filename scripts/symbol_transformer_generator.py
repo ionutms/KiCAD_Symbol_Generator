@@ -202,16 +202,15 @@ def write_symbol_header(
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
     """
-    header_lines = [
-        f'    (symbol "{symbol_name}"',
-        "        (pin_names",
-        "            (offset 0.254)",
-        "        )",
-        "        (exclude_from_sim no)",
-        "        (in_bom yes)",
-        "        (on_board yes)"
-    ]
-    symbol_file.write('\n'.join(header_lines) + '\n')
+    symbol_file.write(f"""
+        (symbol "{symbol_name}"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        """)
 
 
 def write_properties(
@@ -229,8 +228,7 @@ def write_properties(
     """
     property_configs = {
         "Reference": (0, 7.62, 1.27, False, False, "T"),
-        "Value": (
-            0, -7.62, 1.524, False, False, component_data.get('MPN', '')),
+        "Value": (0, -7.62, 1.27, False, False, component_data.get('MPN', '')),
         "Footprint": (0, -10.16, 1.27, True, True, None),
         "Datasheet": (0.254, -12.7, 1.27, True, True, None),
         "Description": (0, -15.24, 1.27, True, True, None)
@@ -277,20 +275,19 @@ def write_property(
         show_name (bool): Whether to show the property name.
         hide (bool): Whether to hide the property.
     """
-    property_lines = [
-        f'        (property "{property_name}" "{property_value}"',
-        f"            (at {x_offset} {y_offset} 0)",
-        f"            {('(show_name)' if show_name else '')}",
-        "            (effects",
-        "                (font",
-        f"                    (size {font_size} {font_size})",
-        "                )",
-        "                (justify left)",
-        f"                {('(hide yes)' if hide else '')}",
-        "            )",
-        "        )"
-    ]
-    symbol_file.write('\n'.join(property_lines) + '\n')
+    symbol_file.write(f"""
+        (property "{property_name}" "{property_value}"
+            (at {x_offset} {y_offset} 0)
+            {('(show_name)' if show_name else '')}
+            (effects
+                (font
+                    (size {font_size} {font_size})
+                )
+                (justify left)
+                {('(hide yes)' if hide else '')}
+            )
+        )
+        """)
 
 
 def write_symbol_drawing(
@@ -307,7 +304,7 @@ def write_symbol_drawing(
         pin_config (dict, optional): Dictionary defining pin configuration.
     """
     def write_pin(
-            file: TextIO,
+            symbol_file: TextIO,
             x_pos: float,
             y_pos: float,
             angle: int,
@@ -317,28 +314,27 @@ def write_symbol_drawing(
             length: float = 2.54
     ) -> None:
         """Write a single pin of the transformer symbol."""
-        pin_lines = [
-            f"            (pin {pin_type} line",
-            f"                (at {x_pos} {y_pos} {angle})",
-            f"                (length {length})",
-            '                (name ""',
-            "                    (effects",
-            "                        (font",
-            "                            (size 1.27 1.27)",
-            "                        )",
-            "                    )",
-            "                )",
-            f'                (number "{number}"',
-            "                    (effects",
-            "                        (font",
-            "                            (size 1.27 1.27)",
-            "                        )",
-            "                    )",
-            "                )",
-            f"                {('hide' if hide else '')}",
-            "            )"
-        ]
-        file.write('\n'.join(pin_lines) + '\n')
+        symbol_file.write(f"""
+            (pin {pin_type} line
+                (at {x_pos} {y_pos} {angle})
+                (length {length})
+                (name ""
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                    )
+                )
+                (number "{number}"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                    )
+                )
+                {('hide' if hide else '')}
+            )
+            """)
 
     def get_symbol_bounds(pin_config):
         """Calculate symbol bounds based on pin configuration."""
@@ -358,20 +354,20 @@ def write_symbol_drawing(
 
     # Write left inductor arcs
     for y_start in range(0, 4):
-        symbol_file.write(
-            '            (arc'
-            f'                (start -2.54 {-5.08 + (y_start * 2.54)})'
-            f'                (mid -1.27 {-3.81 + (y_start * 2.54)})'
-            f'                (end -2.54 {-2.54 + (y_start * 2.54)})'
-            '                (stroke'
-            '                    (width 0)'
-            '                    (type default)'
-            '                )'
-            '                (fill'
-            '                    (type none)'
-            '                )'
-            '            )'
-        )
+        symbol_file.write(f"""
+            (arc
+                (start -2.54 {-5.08 + (y_start * 2.54)})
+                (mid -1.27 {-3.81 + (y_start * 2.54)})
+                (end -2.54 {-2.54 + (y_start * 2.54)})
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            """)
 
     # Write right inductor arcs
     for y_start in range(0, 4):
@@ -387,7 +383,8 @@ def write_symbol_drawing(
                 (fill
                     (type none)
                 )
-            )""")
+            )
+            """)
 
     # Write polarity dots
     for x, y in [(-2.54, 3.81), (2.54, -3.81)]:
@@ -402,7 +399,8 @@ def write_symbol_drawing(
                 (fill
                     (type none)
                 )
-            )""")
+            )
+            """)
 
     # Write coupling lines
     for x in [-0.254, 0.254]:
@@ -418,12 +416,17 @@ def write_symbol_drawing(
                 (fill
                     (type none)
                 )
-            )""")
+            )
+            """)
 
     # Write connection lines for active pins
     active_pins = {
-        "left": [p for p in pin_config["left"] if p["type"] == "unspecified"],
-        "right": [p for p in pin_config["right"] if p["type"] == "unspecified"]
+        "left": [
+            active_pin for active_pin in pin_config["left"]
+            if active_pin["type"] == "unspecified"],
+        "right": [
+            active_pin for active_pin in pin_config["right"]
+            if active_pin["type"] == "unspecified"]
     }
 
     for side, pins in active_pins.items():
@@ -441,7 +444,8 @@ def write_symbol_drawing(
                     (fill
                         (type none)
                     )
-                )""")
+                )
+                """)
 
     symbol_file.write("        )\n")
 
