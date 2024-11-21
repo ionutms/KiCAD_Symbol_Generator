@@ -51,7 +51,7 @@ def create_description(
         Formatted description string
     """
     parts = [
-        "COUPLED INDUCTOR SMD",
+        "POWER TRANSFORMER SMD",
         format_inductance_value(inductance),
         specs.tolerance
     ]
