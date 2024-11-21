@@ -43,12 +43,11 @@ def generate_kicad_symbol(
     """
     component_data_list = read_csv_data(input_csv_file, encoding)
     all_properties = get_all_properties(component_data_list)
-    property_order = get_property_order(all_properties)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         write_header(symbol_file)
         for component_data in component_data_list:
-            write_component(symbol_file, component_data, property_order)
+            write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
 
 
@@ -84,42 +83,6 @@ def get_all_properties(
     """
     return set().union(
         *(component_data.keys() for component_data in component_data_list))
-
-
-def get_property_order(
-        all_properties: set
-) -> List[str]:
-    """
-    Determine the order of properties for symbol generation.
-
-    Args:
-        all_properties (set): Set of all unique property names.
-
-    Returns:
-        List[str]: Ordered list of property names.
-    """
-    # Define the order of common properties
-    common_properties = [
-        "Symbol Name",
-        "Reference",
-        "Value",
-        "Footprint",
-        "Datasheet",
-        "Description",
-        "Octopart Search",
-        "MPN",
-        "Manufacturer",
-        "DCR Max",
-        "Series",
-        "Height",
-        "Tolerance",
-        "Idc Rated",
-        "Idc Saturated",
-        "Inductance"
-    ]
-    # Return ordered properties list
-    remaining_props = sorted(list(all_properties - set(common_properties)))
-    return common_properties + remaining_props
 
 
 def write_header(
@@ -170,16 +133,15 @@ def write_symbol_header(
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
     """
-    header_lines = [
-        f'    (symbol "{symbol_name}"',
-        "        (pin_names",
-        "            (offset 0.254)",
-        "        )",
-        "        (exclude_from_sim no)",
-        "        (in_bom yes)",
-        "        (on_board yes)"
-    ]
-    symbol_file.write('\n'.join(header_lines) + '\n')
+    symbol_file.write(f"""
+        (symbol "{symbol_name}"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        """)
 
 
 def write_properties(
@@ -198,7 +160,7 @@ def write_properties(
     property_configs = {
         "Reference": (0, 7.62, 1.27, False, False, "L"),
         "Value": (
-            0, -7.62, 1.524, False, False,
+            0, -7.62, 1.27, False, False,
             component_data.get('Inductance', '')
             ),
         "Footprint": (0, -10.16, 1.27, True, True, None),
@@ -247,20 +209,19 @@ def write_property(
         show_name (bool): Whether to show the property name.
         hide (bool): Whether to hide the property.
     """
-    property_lines = [
-        f'        (property "{property_name}" "{property_value}"',
-        f"            (at {x_offset} {y_offset} 0)",
-        f"            {('(show_name)' if show_name else '')}",
-        "            (effects",
-        "                (font",
-        f"                    (size {font_size} {font_size})",
-        "                )",
-        "                (justify left)",
-        f"                {('(hide yes)' if hide else '')}",
-        "            )",
-        "        )"
-    ]
-    symbol_file.write('\n'.join(property_lines) + '\n')
+    symbol_file.write(f"""
+        (property "{property_name}" "{property_value}"
+            (at {x_offset} {y_offset} 0)
+            {('(show_name)' if show_name else '')}
+            (effects
+                (font
+                    (size {font_size} {font_size})
+                )
+                (justify left)
+                {('(hide yes)' if hide else '')}
+            )
+        )
+        """)
 
 
 def write_symbol_drawing(
@@ -276,54 +237,53 @@ def write_symbol_drawing(
     """
 
     def write_pin(
-            file: TextIO,
+            symbol_file: TextIO,
             x_pos: float,
             y_pos: float,
             angle: int,
             number: str
     ) -> None:
         """Write a single pin of the inductor symbol."""
-        pin_lines = [
-            "            (pin unspecified line",
-            f"                (at {x_pos} {y_pos} {angle})",
-            "                (length 5.08)",
-            '                (name ""',
-            "                    (effects",
-            "                        (font",
-            "                            (size 1.27 1.27)",
-            "                        )",
-            "                    )",
-            "                )",
-            f'                (number "{number}"',
-            "                    (effects",
-            "                        (font",
-            "                            (size 1.27 1.27)",
-            "                        )",
-            "                    )",
-            "                )",
-            "            )"
-        ]
-        file.write('\n'.join(pin_lines) + '\n')
+        symbol_file.write(f"""
+            (pin unspecified line
+                (at {x_pos} {y_pos} {angle})
+                (length 5.08)
+                (name ""
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                    )
+                )
+                (number "{number}"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                    )
+                )
+            )
+            """)
 
     # Write symbol drawing section
     symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
 
     # Write left inductor arcs
     for y_start in range(0, 4):
-        symbol_file.write(
-            '            (arc'
-            f'                (start -2.54 {-5.08 + (y_start * 2.54)})'
-            f'                (mid -1.27 {-3.81 + (y_start * 2.54)})'
-            f'                (end -2.54 {-2.54 + (y_start * 2.54)})'
-            '                (stroke'
-            '                    (width 0)'
-            '                    (type default)'
-            '                )'
-            '                (fill'
-            '                    (type none)'
-            '                )'
-            '            )'
-        )
+        symbol_file.write(f"""
+            (arc
+                (start -2.54 {-5.08 + (y_start * 2.54)})
+                (mid -1.27 {-3.81 + (y_start * 2.54)})
+                (end -2.54 {-2.54 + (y_start * 2.54)})
+                (stroke
+                    (width 0)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            """)
 
     # Write right inductor arcs
     for y_start in range(0, 4):
