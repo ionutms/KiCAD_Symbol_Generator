@@ -106,17 +106,6 @@ def get_property_order(
         "Value",
         "Footprint",
         "Datasheet",
-        "Description",
-        "Octopart Search",
-        "MPN",
-        "Manufacturer",
-        "DCR Max",
-        "Series",
-        "Height",
-        "Tolerance",
-        "Idc Rated",
-        "Idc Saturated",
-        "Inductance"
     ]
     # Return ordered properties list
     remaining_props = sorted(list(all_properties - set(common_properties)))
@@ -241,9 +230,7 @@ def write_properties(
     property_configs = {
         "Reference": (0, 7.62, 1.27, False, False, "T"),
         "Value": (
-            0, -7.62, 1.524, False, False,
-            component_data.get('Inductance', '')
-            ),
+            0, -7.62, 1.524, False, False, component_data.get('MPN', '')),
         "Footprint": (0, -10.16, 1.27, True, True, None),
         "Datasheet": (0.254, -12.7, 1.27, True, True, None),
         "Description": (0, -15.24, 1.27, True, True, None)
