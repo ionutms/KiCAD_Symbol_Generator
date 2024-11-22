@@ -5,9 +5,9 @@ Modified to match specific pin and field positioning requirements.
 """
 
 import re
-import csv
 from typing import List, Dict, TextIO
 import symbol_utils as su
+import file_handler_utilities as fhu
 
 
 def generate_kicad_symbol(
@@ -24,32 +24,15 @@ def generate_kicad_symbol(
         encoding (str, optional):
             Character encoding to use. Defaults to 'utf-8'.
     """
-    component_data_list = read_csv_data(input_csv_file, encoding)
-    all_properties = get_all_properties(component_data_list)
+    component_data_list = fhu.read_csv_data(input_csv_file, encoding)
+    all_properties = su.get_all_properties(component_data_list)
     property_order = get_property_order(all_properties)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
-        write_header(symbol_file)
+        su.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, property_order)
         symbol_file.write(")")
-
-
-def read_csv_data(
-        input_csv_file: str,
-        encoding: str
-) -> List[Dict[str, str]]:
-    """Read component data from a CSV file."""
-    with open(input_csv_file, 'r', encoding=encoding) as csv_file:
-        return list(csv.DictReader(csv_file))
-
-
-def get_all_properties(
-        component_data_list: List[Dict[str, str]]
-) -> set:
-    """Get all unique properties from the component data."""
-    return set().union(
-        *(component_data.keys() for component_data in component_data_list))
 
 
 def get_property_order(all_properties: set) -> List[str]:
@@ -75,23 +58,6 @@ def get_property_order(all_properties: set) -> List[str]:
         all_properties - set(primary_properties) - set(standard_properties)))
 
     return primary_properties + standard_properties + remaining_props
-
-
-def write_header(
-        symbol_file: TextIO
-) -> None:
-    """
-    Write the header of the KiCad symbol file.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-    """
-    symbol_file.write("""
-        (kicad_symbol_lib
-            (version 20231120)
-            (generator \"kicad_symbol_editor\")
-            (generator_version \"8.0\")
-        """)
 
 
 def write_component(
