@@ -124,6 +124,7 @@ def write_component(
     write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
     write_symbol_drawing(symbol_file, symbol_name)
+    symbol_file.write("    )")
 
 
 def write_symbol_header(
@@ -162,21 +163,21 @@ def write_properties(
         property_order (List[str]): Ordered list of property names.
     """
     property_configs = {
-        "Reference": (2.54, 2.54, 1.27, False, False, "C"),
+        "Reference": (0, 5.08, 1.27, False, False, "C"),
         "Value": (
-            2.54, 0, 1.27, False, False,
+            0, -5.08, 1.27, False, False,
             component_data.get('Resistance', '')),
-        "Footprint": (2.54, -2.54, 1.27, True, True, None),
-        "Datasheet": (2.54, -5.08, 1.27, True, True, None),
-        "Description": (2.54, -7.62, 1.27, True, True, None)
+        "Footprint": (0, -7.62, 1.27, True, True, None),
+        "Datasheet": (0, -10.16, 1.27, True, True, None),
+        "Description": (0, -12.7, 1.27, True, True, None)
     }
 
-    y_offset = -10.16
+    y_offset = -15.24
     for prop_name in property_order:
         if prop_name in component_data:
             config = property_configs.get(
                 prop_name,
-                (2.54, y_offset, 1.27, True, True, None)
+                (0, y_offset, 1.27, True, True, None)
             )
             value = config[5] or component_data[prop_name]
             write_property(
@@ -238,73 +239,51 @@ def write_symbol_drawing(
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
     """
-    symbol_file.write(
-        '\n'.join([
-            f"\t\t(symbol \"{symbol_name}_0_1\"",
-            "\t\t\t(polyline",
-            "\t\t\t\t(pts",
-            "\t\t\t\t\t(xy -2.032 -0.762) (xy 2.032 -0.762)",
-            "\t\t\t\t)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.508)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(polyline",
-            "\t\t\t\t(pts",
-            "\t\t\t\t\t(xy -2.032 0.762) (xy 2.032 0.762)",
-            "\t\t\t\t)",
-            "\t\t\t\t(stroke",
-            "\t\t\t\t\t(width 0.508)",
-            "\t\t\t\t\t(type default)",
-            "\t\t\t\t)",
-            "\t\t\t\t(fill",
-            "\t\t\t\t\t(type none)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t)",
-            f"\t\t(symbol \"{symbol_name}_1_1\"",
-            "\t\t\t(pin passive line",
-            "\t\t\t\t(at 0 3.81 270)",
-            "\t\t\t\t(length 2.794)",
-            "\t\t\t\t(name \"~\"",
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t\t(number \"1\"",
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t\t(pin passive line",
-            "\t\t\t\t(at 0 -3.81 90)",
-            "\t\t\t\t(length 2.794)",
-            "\t\t\t\t(name \"~\"",
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t\t(number \"2\"",
-            "\t\t\t\t\t(effects",
-            "\t\t\t\t\t\t(font",
-            "\t\t\t\t\t\t\t(size 1.27 1.27)",
-            "\t\t\t\t\t\t)",
-            "\t\t\t\t\t)",
-            "\t\t\t\t)",
-            "\t\t\t)",
-            "\t\t)",
-            "\t)",
-            ""
-        ])
-    )
+    def write_pin(
+            symbol_file: TextIO,
+            x_pos: float,
+            y_pos: float,
+            angle: int,
+            number: str
+    ) -> None:
+        """Write a single pin of the inductor symbol."""
+        symbol_file.write(f"""
+            (pin unspecified line
+                (at {x_pos} {y_pos} {angle})
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "{number}"(effects(font(size 1.27 1.27))))
+            )
+            """)
+    symbol_file.write(f"""
+        (symbol "{symbol_name}_0_1"
+            (polyline
+                (pts
+                    (xy -0.762 -2.032) (xy -0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            (polyline
+                (pts
+                    (xy 0.762 -2.032) (xy 0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+        )
+    """)
+
+    # Write pins
+    write_pin(symbol_file, -3.81, 0, 0, "1")
+    write_pin(symbol_file, 3.81, 0, 180, "2")
