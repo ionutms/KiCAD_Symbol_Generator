@@ -5,92 +5,46 @@
             (generator_version "8.0")
         
         (symbol "L_XAL7070-161ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-161ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.830"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 160 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-161ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "160 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-161ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -100,21 +54,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "160 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -124,47 +94,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-161ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.830"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-161ME_1_1"
@@ -221,133 +193,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-301ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-301ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.170"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 300 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-301ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "300 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-301ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -357,21 +261,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "300 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -381,47 +301,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-301ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "1.170"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-301ME_1_1"
@@ -478,133 +400,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-551ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-551ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.560"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 550 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-551ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "550 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-551ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -614,21 +468,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "550 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -638,47 +508,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-551ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "1.560"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-551ME_1_1"
@@ -735,133 +607,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-651ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-651ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.930"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 650 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-651ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "650 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-651ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -871,21 +675,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "650 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -895,47 +715,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-651ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "1.930"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-651ME_1_1"
@@ -992,133 +814,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-801ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-801ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "2.290"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 800 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-801ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "800 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-801ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1128,21 +882,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "800 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1152,47 +922,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-801ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "2.290"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-801ME_1_1"
@@ -1249,133 +1021,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-102ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-102ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "2.810"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 1 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-102ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-102ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1385,21 +1089,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "1 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1409,47 +1129,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-102ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "2.810"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-102ME_1_1"
@@ -1506,133 +1228,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-122ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-122ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "3.410"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 1.2 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-122ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-122ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1642,21 +1296,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "1.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1666,47 +1336,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-122ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "3.410"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-122ME_1_1"
@@ -1763,133 +1435,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-182ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-182ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "4.460"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 1.8 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-182ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.8 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-182ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1899,21 +1503,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "1.8 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1923,47 +1543,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-182ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "4.460"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-182ME_1_1"
@@ -2020,133 +1642,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-222ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-222ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "6.330"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 2.2 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-222ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "2.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-222ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2156,21 +1710,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "2.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2180,47 +1750,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-222ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "6.330"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-222ME_1_1"
@@ -2277,133 +1849,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-332ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-332ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "9.420"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 3.3 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-332ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "3.3 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-332ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2413,21 +1917,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "3.3 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2437,47 +1957,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-332ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "9.420"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-332ME_1_1"
@@ -2534,133 +2056,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-472ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-472ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "14.260"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 4.7 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-472ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "4.7 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-472ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2670,21 +2124,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "4.7 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2694,47 +2164,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-472ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "14.260"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-472ME_1_1"
@@ -2791,133 +2263,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-562ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-562ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "15.030"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 5.6 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-562ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "5.6 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-562ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2927,21 +2331,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "5.6 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2951,47 +2371,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-562ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "15.030"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-562ME_1_1"
@@ -3048,133 +2470,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-682ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-682ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "19.620"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 6.8 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-682ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "6.8 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-682ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3184,21 +2538,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "6.8 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3208,47 +2578,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-682ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "19.620"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-682ME_1_1"
@@ -3305,133 +2677,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-103ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-103ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "20.170"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 10 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-103ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "10 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-103ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3441,21 +2745,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "10 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3465,47 +2785,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-103ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "20.170"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-103ME_1_1"
@@ -3562,133 +2884,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-123ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-123ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "22.230"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 12 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-123ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "12 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-123ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3698,21 +2952,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "12 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3722,47 +2992,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-123ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "22.230"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-123ME_1_1"
@@ -3819,133 +3091,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-153ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-153ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "29.520"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 15 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-153ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "15 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-153ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3955,21 +3159,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "15 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3979,47 +3199,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-153ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "29.520"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-153ME_1_1"
@@ -4076,133 +3298,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-183ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-183ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "32.820"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 18 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-183ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "18 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-183ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -4212,21 +3366,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "18 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -4236,47 +3406,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-183ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "32.820"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-183ME_1_1"
@@ -4333,133 +3505,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-223ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-223ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "39.690"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 22 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-223ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "22 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-223ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -4469,21 +3573,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "22 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -4493,47 +3613,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-223ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "39.690"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-223ME_1_1"
@@ -4590,133 +3712,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-333ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-333ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "62.080"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 33 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-333ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "33 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-333ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -4726,21 +3780,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "33 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -4750,47 +3820,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-333ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "62.080"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-333ME_1_1"
@@ -4847,133 +3919,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL7070-473ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-473ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "97.070"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 47 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL7070"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL7070-473ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL7070"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "47 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7070-473ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -4983,21 +3987,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "47 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL7070"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -5007,47 +4027,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL7070"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL7070-473ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "97.070"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL7070-473ME_1_1"
@@ -5104,43 +4126,21 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 )

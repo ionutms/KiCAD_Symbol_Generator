@@ -21,6 +21,7 @@ Dependencies:
 
 import csv
 from typing import List, Dict, TextIO
+import symbol_utils as su
 
 
 def generate_kicad_symbol(
@@ -121,32 +122,10 @@ def write_component(
         property_order (List[str]): Ordered list of property names.
     """
     symbol_name = component_data['Symbol Name']
-    write_symbol_header(symbol_file, symbol_name)
+    su.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
     write_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("    )")
-
-
-def write_symbol_header(
-        symbol_file: TextIO,
-        symbol_name: str
-) -> None:
-    """
-    Write the header for a single symbol in the KiCad symbol file.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
-    """
-    symbol_file.write(f"""
-        (symbol "{symbol_name}"
-            (pin_names
-                (offset 0.254)
-            )
-            (exclude_from_sim no)
-            (in_bom yes)
-            (on_board yes)
-        """)
 
 
 def write_properties(
@@ -180,7 +159,7 @@ def write_properties(
                 (0, y_offset, 1.27, True, True, None)
             )
             value = config[5] or component_data[prop_name]
-            write_property(
+            su.write_property(
                 symbol_file,
                 prop_name,
                 value,
@@ -188,44 +167,6 @@ def write_properties(
             )
             if prop_name not in property_configs:
                 y_offset -= 2.54
-
-
-def write_property(
-    symbol_file: TextIO,
-    property_name: str,
-    property_value: str,
-    x_offset: float,
-    y_offset: float,
-    font_size: float,
-    show_name: bool,
-    hide: bool
-) -> None:
-    """
-    Write a single property for a symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        property_name (str): Name of the property.
-        property_value (str): Value of the property.
-        x_offset (float): Horizontal offset for property placement.
-        y_offset (float): Vertical offset for property placement.
-        font_size (float): Size of the font.
-        show_name (bool): Whether to show the property name.
-        hide (bool): Whether to hide the property.
-    """
-    symbol_file.write(f"""
-        (property "{property_name}" "{property_value}"
-            (at {x_offset} {y_offset} 0)
-            {('(show_name)' if show_name else '')}
-            (effects
-                (font
-                    (size {font_size} {font_size})
-                )
-                (justify left)
-                {('(hide yes)' if hide else '')}
-            )
-        )
-        """)
 
 
 def write_symbol_drawing(
@@ -239,22 +180,6 @@ def write_symbol_drawing(
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
     """
-    def write_pin(
-            symbol_file: TextIO,
-            x_pos: float,
-            y_pos: float,
-            angle: int,
-            number: str
-    ) -> None:
-        """Write a single pin of the inductor symbol."""
-        symbol_file.write(f"""
-            (pin unspecified line
-                (at {x_pos} {y_pos} {angle})
-                (length 2.8)
-                (name ""(effects(font(size 1.27 1.27))))
-                (number "{number}"(effects(font(size 1.27 1.27))))
-            )
-            """)
     symbol_file.write(f"""
         (symbol "{symbol_name}_0_1"
             (polyline
@@ -285,5 +210,5 @@ def write_symbol_drawing(
     """)
 
     # Write pins
-    write_pin(symbol_file, -3.81, 0, 0, "1")
-    write_pin(symbol_file, 3.81, 0, 180, "2")
+    su.write_pin(symbol_file, -3.81, 0, 0, "1", length=2.8)
+    su.write_pin(symbol_file, 3.81, 0, 180, "2", length=2.8)

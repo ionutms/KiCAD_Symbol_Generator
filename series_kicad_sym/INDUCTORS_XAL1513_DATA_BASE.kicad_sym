@@ -5,92 +5,46 @@
             (generator_version "8.0")
         
         (symbol "L_XAL1513-153ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1513-153ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "7.500"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 15 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL1513"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL1513-153ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1513"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "15 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1513-153ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -100,21 +54,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "15 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/129ad6f3-0445-47fd-a0b3-edeb49177c17/xal1513.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1513"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -124,47 +94,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/129ad6f3-0445-47fd-a0b3-edeb49177c17/xal1513.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL1513"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL1513-153ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "7.500"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL1513-153ME_1_1"
@@ -221,43 +193,21 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 )
