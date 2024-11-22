@@ -21,6 +21,7 @@ Dependencies:
 import csv
 from typing import List, Dict, TextIO
 from symbol_transformer_specs import SERIES_SPECS, SidePinConfig
+import symbol_utils as su
 
 
 def generate_kicad_symbol(
@@ -159,32 +160,10 @@ def write_component(
     series_spec = SERIES_SPECS.get(series)
     pin_config = convert_pin_config(series_spec.pin_config)
 
-    write_symbol_header(symbol_file, symbol_name)
+    su.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
     write_symbol_drawing(symbol_file, symbol_name, pin_config)
     symbol_file.write("    )\n")
-
-
-def write_symbol_header(
-        symbol_file: TextIO,
-        symbol_name: str
-) -> None:
-    """
-    Write the header for a single symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
-    """
-    symbol_file.write(f"""
-        (symbol "{symbol_name}"
-            (pin_names
-                (offset 0.254)
-            )
-            (exclude_from_sim no)
-            (in_bom yes)
-            (on_board yes)
-        """)
 
 
 def write_properties(

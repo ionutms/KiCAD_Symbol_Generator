@@ -7,6 +7,7 @@ Modified to match specific pin and field positioning requirements.
 import re
 import csv
 from typing import List, Dict, TextIO
+import symbol_utils as su
 
 
 def generate_kicad_symbol(
@@ -100,32 +101,10 @@ def write_component(
 ) -> None:
     """Write a complete component definition."""
     symbol_name = component_data.get('Symbol Name', '')
-    write_symbol_header(symbol_file, symbol_name)
+    su.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
     write_symbol_drawing(symbol_file, symbol_name, component_data)
     symbol_file.write("\t)\n")
-
-
-def write_symbol_header(
-        symbol_file: TextIO,
-        symbol_name: str
-) -> None:
-    """
-    Write the header for a single symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
-    """
-    symbol_file.write(f"""
-        (symbol "{symbol_name}"
-            (pin_names
-                (offset 0.254)
-            )
-            (exclude_from_sim no)
-            (in_bom yes)
-            (on_board yes)
-        """)
 
 
 def write_properties(
