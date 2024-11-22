@@ -195,7 +195,7 @@ def write_properties(
                 (0, y_offset, 1.27, True, True, None)
             )
             value = config[5] or component_data[prop_name]
-            write_property(
+            su.write_property(
                 symbol_file,
                 prop_name,
                 value,
@@ -203,44 +203,6 @@ def write_properties(
             )
             if prop_name not in property_configs:
                 y_offset -= 2.54
-
-
-def write_property(
-    symbol_file: TextIO,
-    property_name: str,
-    property_value: str,
-    x_offset: float,
-    y_offset: float,
-    font_size: float,
-    show_name: bool,
-    hide: bool
-) -> None:
-    """
-    Write a single property for a symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        property_name (str): Name of the property.
-        property_value (str): Value of the property.
-        x_offset (float): Horizontal offset for property placement.
-        y_offset (float): Vertical offset for property placement.
-        font_size (float): Size of the font.
-        show_name (bool): Whether to show the property name.
-        hide (bool): Whether to hide the property.
-    """
-    symbol_file.write(f"""
-        (property "{property_name}" "{property_value}"
-            (at {x_offset} {y_offset} 0)
-            {('(show_name)' if show_name else '')}
-            (effects
-                (font
-                    (size {font_size} {font_size})
-                )
-                (justify left)
-                {('(hide yes)' if hide else '')}
-            )
-        )
-        """)
 
 
 def write_symbol_drawing(

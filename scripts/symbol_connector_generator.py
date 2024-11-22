@@ -139,10 +139,10 @@ def write_properties(
             if prop_name in property_configs:
                 config = property_configs[prop_name]
                 value = config[5] or component_data[prop_name]
-                write_property(symbol_file, prop_name, value, *config[:5])
+                su.write_property(symbol_file, prop_name, value, *config[:5])
             else:
                 if prop_name != "Symbol Name":
-                    write_property(
+                    su.write_property(
                         symbol_file,
                         prop_name,
                         component_data[prop_name],
@@ -153,35 +153,6 @@ def write_properties(
                         True
                     )
                     current_y -= 2.54
-
-
-def write_property(
-        symbol_file: TextIO,
-        property_name: str,
-        property_value: str,
-        x_offset: float,
-        y_offset: float,
-        font_size: float,
-        show_name: bool,
-        hide: bool
-) -> None:
-    """Write a property definition with specific formatting."""
-    justify = "left bottom" if property_name == "Reference" else "left"
-
-    property_lines = [
-        f'\t\t(property "{property_name}" "{property_value}"',
-        f"\t\t\t(at {x_offset} {y_offset} 0)",
-        f"\t\t\t{('(show_name)' if show_name else '')}",
-        "\t\t\t(effects",
-        "\t\t\t\t(font",
-        f"\t\t\t\t\t(size {font_size} {font_size})",
-        "\t\t\t\t)",
-        f"\t\t\t\t(justify {justify})",
-        f"\t\t\t\t{('(hide yes)' if hide else '')}",
-        "\t\t\t)",
-        "\t\t)"
-    ]
-    symbol_file.write('\n'.join(property_lines) + '\n')
 
 
 def write_symbol_drawing(
