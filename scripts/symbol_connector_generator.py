@@ -25,7 +25,7 @@ def generate_kicad_symbol(
             Character encoding to use. Defaults to 'utf-8'.
     """
     component_data_list = fhu.read_csv_data(input_csv_file, encoding)
-    all_properties = get_all_properties(component_data_list)
+    all_properties = su.get_all_properties(component_data_list)
     property_order = get_property_order(all_properties)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
@@ -33,14 +33,6 @@ def generate_kicad_symbol(
         for component_data in component_data_list:
             write_component(symbol_file, component_data, property_order)
         symbol_file.write(")")
-
-
-def get_all_properties(
-        component_data_list: List[Dict[str, str]]
-) -> set:
-    """Get all unique properties from the component data."""
-    return set().union(
-        *(component_data.keys() for component_data in component_data_list))
 
 
 def get_property_order(all_properties: set) -> List[str]:

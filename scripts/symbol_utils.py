@@ -1,6 +1,6 @@
 """TODO"""
 
-from typing import TextIO
+from typing import Dict, List, TextIO
 
 
 def write_header(
@@ -38,6 +38,22 @@ def write_symbol_header(
             (in_bom yes)
             (on_board yes)
         """)
+
+
+def get_all_properties(
+        component_data_list: List[Dict[str, str]]
+) -> set:
+    """
+    Get all unique properties from the component data.
+
+    Args:
+        component_data_list (List[Dict[str, str]]): List of component data.
+
+    Returns:
+        set: Set of all unique property names.
+    """
+    return set().union(
+        *(component_data.keys() for component_data in component_data_list))
 
 
 def write_property(

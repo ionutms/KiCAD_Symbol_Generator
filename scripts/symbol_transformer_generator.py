@@ -44,29 +44,13 @@ def generate_kicad_symbol(
         IOError: If there's an error writing to the output file.
     """
     component_data_list = fhu.read_csv_data(input_csv_file, encoding)
-    all_properties = get_all_properties(component_data_list)
+    all_properties = su.get_all_properties(component_data_list)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         su.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
-
-
-def get_all_properties(
-        component_data_list: List[Dict[str, str]]
-) -> set:
-    """
-    Get all unique properties from the component data.
-
-    Args:
-        component_data_list (List[Dict[str, str]]): List of component data.
-
-    Returns:
-        set: Set of all unique property names.
-    """
-    return set().union(
-        *(component_data.keys() for component_data in component_data_list))
 
 
 def convert_pin_config(
@@ -84,24 +68,18 @@ def convert_pin_config(
             Pin configuration in the format expected by write_symbol_drawing
     """
     return {
-        "left": [
-            {
-                "number": pin.number,
-                "y_pos": pin.y_pos,
-                "type": pin.type,
-                "hide": pin.hide
-            }
-            for pin in spec_config.left
-        ],
-        "right": [
-            {
-                "number": pin.number,
-                "y_pos": pin.y_pos,
-                "type": pin.type,
-                "hide": pin.hide
-            }
-            for pin in spec_config.right
-        ]
+        "left": [{
+            "number": pin.number,
+            "y_pos": pin.y_pos,
+            "type": pin.type,
+            "hide": pin.hide
+        } for pin in spec_config.left],
+        "right": [{
+            "number": pin.number,
+            "y_pos": pin.y_pos,
+            "type": pin.type,
+            "hide": pin.hide
+        } for pin in spec_config.right]
     }
 
 
@@ -206,13 +184,8 @@ def write_symbol_drawing(
                 (start -2.54 {-5.08 + (y_start * 2.54)})
                 (mid -1.27 {-3.81 + (y_start * 2.54)})
                 (end -2.54 {-2.54 + (y_start * 2.54)})
-                (stroke
-                    (width 0)
-                    (type default)
-                )
-                (fill
-                    (type none)
-                )
+                (stroke (width 0) (type default) )
+                (fill (type none) )
             )
             """)
 
@@ -223,13 +196,8 @@ def write_symbol_drawing(
                 (start 2.54 {5.08 - (y_start * 2.54)})
                 (mid 1.27 {3.81 - (y_start * 2.54)})
                 (end 2.54 {2.54 - (y_start * 2.54)})
-                (stroke
-                    (width 0)
-                    (type default)
-                )
-                (fill
-                    (type none)
-                )
+                (stroke (width 0) (type default) )
+                (fill (type none) )
             )
             """)
 
@@ -239,13 +207,8 @@ def write_symbol_drawing(
             (circle
                 (center {x} {y})
                 (radius 0.508)
-                (stroke
-                    (width 0)
-                    (type default)
-                )
-                (fill
-                    (type none)
-                )
+                (stroke (width 0) (type default) )
+                (fill (type none) )
             )
             """)
 
@@ -253,16 +216,9 @@ def write_symbol_drawing(
     for x in [-0.254, 0.254]:
         symbol_file.write(f"""
             (polyline
-                (pts
-                    (xy {x} {max_y}) (xy {x} {min_y})
-                )
-                (stroke
-                    (width 0)
-                    (type default)
-                )
-                (fill
-                    (type none)
-                )
+                (pts (xy {x} {max_y}) (xy {x} {min_y}) )
+                (stroke (width 0) (type default) )
+                (fill (type none) )
             )
             """)
 
@@ -281,16 +237,9 @@ def write_symbol_drawing(
         for pin in pins:
             symbol_file.write(f"""
                 (polyline
-                    (pts
-                        (xy {x1} {pin["y_pos"]}) (xy {x2} {pin["y_pos"]})
-                    )
-                    (stroke
-                        (width 0)
-                        (type default)
-                    )
-                    (fill
-                        (type none)
-                    )
+                    (pts (xy {x1} {pin["y_pos"]}) (xy {x2} {pin["y_pos"]}))
+                    (stroke (width 0) (type default))
+                    (fill (type none))
                 )
                 """)
 
@@ -302,25 +251,13 @@ def write_symbol_drawing(
     # Write left side pins
     for pin in pin_config["left"]:
         su.write_pin(
-            symbol_file,
-            -7.62,
-            pin["y_pos"],
-            0,
-            pin["number"],
-            pin["type"],
-            pin.get("hide", False)
-        )
+            symbol_file, -7.62, pin["y_pos"], 0, pin["number"],
+            pin["type"], pin.get("hide", False))
 
     # Write right side pins
     for pin in pin_config["right"]:
         su.write_pin(
-            symbol_file,
-            7.62,
-            pin["y_pos"],
-            180,
-            pin["number"],
-            pin["type"],
-            pin.get("hide", False)
-        )
+            symbol_file, 7.62, pin["y_pos"], 180, pin["number"],
+            pin["type"], pin.get("hide", False))
 
     symbol_file.write("        )\n")

@@ -43,29 +43,13 @@ def generate_kicad_symbol(
         IOError: If there's an error writing to the output file.
     """
     component_data_list = fhu.read_csv_data(input_csv_file, encoding)
-    all_properties = get_all_properties(component_data_list)
+    all_properties = su.get_all_properties(component_data_list)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         su.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
-
-
-def get_all_properties(
-        component_data_list: List[Dict[str, str]]
-) -> set:
-    """
-    Get all unique properties from the component data.
-
-    Args:
-        component_data_list (List[Dict[str, str]]): List of component data.
-
-    Returns:
-        set: Set of all unique property names.
-    """
-    return set().union(
-        *(component_data.keys() for component_data in component_data_list))
 
 
 def write_component(
@@ -209,9 +193,9 @@ def write_symbol_drawing(
             )""")
 
     # Write pins
-    su.write_pin(symbol_file, -7.62, 5.08, 0, "1")
-    su.write_pin(symbol_file, 7.62, 5.08, 180, "4")
-    su.write_pin(symbol_file, -7.62, -5.08, 0, "3")
-    su.write_pin(symbol_file, 7.62, -5.08, 180, "2")
+    su.write_pin(symbol_file, -7.62, 5.08, 0, "1", length=5.08)
+    su.write_pin(symbol_file, 7.62, 5.08, 180, "4", length=5.08)
+    su.write_pin(symbol_file, -7.62, -5.08, 0, "3", length=5.08)
+    su.write_pin(symbol_file, 7.62, -5.08, 180, "2", length=5.08)
 
     symbol_file.write("        )\n")
