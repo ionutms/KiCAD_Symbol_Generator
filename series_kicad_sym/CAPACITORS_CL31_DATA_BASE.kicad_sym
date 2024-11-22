@@ -12,152 +12,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Description" "CAP SMD 470 nF X7R 10% 1206 50V"
-            (at 2.54 -7.62 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 2.54 -10.16 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 2.54 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 2.54 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Reference" "C"
-            (at 2.54 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Symbol Name" "C_CL31B474KBHNNN#"
-            (at 2.54 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - in" "1206"
-            (at 2.54 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 2.54 -2.54 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B474KBHNNN#"
-            (at 2.54 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B474KBHNNN#"
-            (at 2.54 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "470 nF"
-            (at 2.54 0 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
         (property "Voltage Rating" "50V"
-            (at 2.54 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "CL31"
-            (at 2.54 -27.939999999999994 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font
@@ -169,7 +25,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31B474KBHNNN#"
-            (at 2.54 -30.479999999999993 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font
@@ -181,224 +37,7 @@
         )
         
         (property "Case Code - mm" "3216"
-            (at 2.54 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        		(symbol "C_CL31B474KBHNNN#_0_1"
-			(polyline
-				(pts
-					(xy -2.032 -0.762) (xy 2.032 -0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy -2.032 0.762) (xy 2.032 0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-		)
-		(symbol "C_CL31B474KBHNNN#_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-	)
-
-        (symbol "C_CL31B105KBHNNN#"
-            (pin_names
-                (offset 0.254)
-            )
-            (exclude_from_sim no)
-            (in_bom yes)
-            (on_board yes)
-        
-        (property "Description" "CAP SMD 1 µF X7R 10% 1206 50V"
-            (at 2.54 -7.62 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 2.54 -10.16 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 2.54 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 2.54 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Reference" "C"
-            (at 2.54 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Symbol Name" "C_CL31B105KBHNNN#"
-            (at 2.54 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - in" "1206"
-            (at 2.54 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 2.54 -2.54 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B105KBHNNN#"
-            (at 2.54 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B105KBHNNN#"
-            (at 2.54 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1 µF"
-            (at 2.54 0 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 2.54 -25.399999999999995 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font
@@ -410,7 +49,200 @@
         )
         
         (property "Series" "CL31"
-            (at 2.54 -27.939999999999994 0)
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_CL31B474KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "CL31B474KBHNNN#"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B474KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "CAP SMD 470 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Dielectric" "X7R"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "470 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (symbol "C_CL31B474KBHNNN#_0_1"
+            (polyline
+                (pts
+                    (xy -0.762 -2.032) (xy -0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            (polyline
+                (pts
+                    (xy 0.762 -2.032) (xy 0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+        )
+    
+            (pin unspecified line
+                (at -3.81 0 0)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "1"(effects(font(size 1.27 1.27))))
+            )
+            
+            (pin unspecified line
+                (at 3.81 0 180)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "2"(effects(font(size 1.27 1.27))))
+            )
+                )
+        (symbol "C_CL31B105KBHNNN#"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Voltage Rating" "50V"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font
@@ -422,7 +254,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31B105KBHNNN#"
-            (at 2.54 -30.479999999999993 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font
@@ -434,224 +266,7 @@
         )
         
         (property "Case Code - mm" "3216"
-            (at 2.54 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        		(symbol "C_CL31B105KBHNNN#_0_1"
-			(polyline
-				(pts
-					(xy -2.032 -0.762) (xy 2.032 -0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy -2.032 0.762) (xy 2.032 0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-		)
-		(symbol "C_CL31B105KBHNNN#_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-	)
-
-        (symbol "C_CL31B225KBHNNN#"
-            (pin_names
-                (offset 0.254)
-            )
-            (exclude_from_sim no)
-            (in_bom yes)
-            (on_board yes)
-        
-        (property "Description" "CAP SMD 2.2 µF X7R 10% 1206 50V"
-            (at 2.54 -7.62 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 2.54 -10.16 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 2.54 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 2.54 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Reference" "C"
-            (at 2.54 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Symbol Name" "C_CL31B225KBHNNN#"
-            (at 2.54 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - in" "1206"
-            (at 2.54 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 2.54 -2.54 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B225KBHNNN#"
-            (at 2.54 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B225KBHNNN#"
-            (at 2.54 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "2.2 µF"
-            (at 2.54 0 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 2.54 -25.399999999999995 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font
@@ -663,7 +278,200 @@
         )
         
         (property "Series" "CL31"
-            (at 2.54 -27.939999999999994 0)
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_CL31B105KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "CL31B105KBHNNN#"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B105KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "CAP SMD 1 µF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Dielectric" "X7R"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "1 µF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (symbol "C_CL31B105KBHNNN#_0_1"
+            (polyline
+                (pts
+                    (xy -0.762 -2.032) (xy -0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            (polyline
+                (pts
+                    (xy 0.762 -2.032) (xy 0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+        )
+    
+            (pin unspecified line
+                (at -3.81 0 0)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "1"(effects(font(size 1.27 1.27))))
+            )
+            
+            (pin unspecified line
+                (at 3.81 0 180)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "2"(effects(font(size 1.27 1.27))))
+            )
+                )
+        (symbol "C_CL31B225KBHNNN#"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Voltage Rating" "50V"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font
@@ -675,7 +483,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31B225KBHNNN#"
-            (at 2.54 -30.479999999999993 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font
@@ -687,224 +495,7 @@
         )
         
         (property "Case Code - mm" "3216"
-            (at 2.54 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        		(symbol "C_CL31B225KBHNNN#_0_1"
-			(polyline
-				(pts
-					(xy -2.032 -0.762) (xy 2.032 -0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy -2.032 0.762) (xy 2.032 0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-		)
-		(symbol "C_CL31B225KBHNNN#_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-	)
-
-        (symbol "C_CL31B475KBHNNN#"
-            (pin_names
-                (offset 0.254)
-            )
-            (exclude_from_sim no)
-            (in_bom yes)
-            (on_board yes)
-        
-        (property "Description" "CAP SMD 4.7 µF X7R 10% 1206 50V"
-            (at 2.54 -7.62 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 2.54 -10.16 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 2.54 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 2.54 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Reference" "C"
-            (at 2.54 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Symbol Name" "C_CL31B475KBHNNN#"
-            (at 2.54 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - in" "1206"
-            (at 2.54 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 2.54 -2.54 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B475KBHNNN#"
-            (at 2.54 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B475KBHNNN#"
-            (at 2.54 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "4.7 µF"
-            (at 2.54 0 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 2.54 -25.399999999999995 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font
@@ -916,7 +507,200 @@
         )
         
         (property "Series" "CL31"
-            (at 2.54 -27.939999999999994 0)
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_CL31B225KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "CL31B225KBHNNN#"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B225KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "CAP SMD 2.2 µF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Dielectric" "X7R"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "2.2 µF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (symbol "C_CL31B225KBHNNN#_0_1"
+            (polyline
+                (pts
+                    (xy -0.762 -2.032) (xy -0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            (polyline
+                (pts
+                    (xy 0.762 -2.032) (xy 0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+        )
+    
+            (pin unspecified line
+                (at -3.81 0 0)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "1"(effects(font(size 1.27 1.27))))
+            )
+            
+            (pin unspecified line
+                (at 3.81 0 180)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "2"(effects(font(size 1.27 1.27))))
+            )
+                )
+        (symbol "C_CL31B475KBHNNN#"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Voltage Rating" "50V"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font
@@ -928,7 +712,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31B475KBHNNN#"
-            (at 2.54 -30.479999999999993 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font
@@ -940,224 +724,7 @@
         )
         
         (property "Case Code - mm" "3216"
-            (at 2.54 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        		(symbol "C_CL31B475KBHNNN#_0_1"
-			(polyline
-				(pts
-					(xy -2.032 -0.762) (xy 2.032 -0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy -2.032 0.762) (xy 2.032 0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-		)
-		(symbol "C_CL31B475KBHNNN#_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-	)
-
-        (symbol "C_CL31B106KBHNNN#"
-            (pin_names
-                (offset 0.254)
-            )
-            (exclude_from_sim no)
-            (in_bom yes)
-            (on_board yes)
-        
-        (property "Description" "CAP SMD 10 µF X7R 10% 1206 50V"
-            (at 2.54 -7.62 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 2.54 -10.16 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 2.54 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 2.54 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Reference" "C"
-            (at 2.54 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Symbol Name" "C_CL31B106KBHNNN#"
-            (at 2.54 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - in" "1206"
-            (at 2.54 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 2.54 -2.54 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B106KBHNNN#"
-            (at 2.54 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B106KBHNNN#"
-            (at 2.54 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "10 µF"
-            (at 2.54 0 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 2.54 -25.399999999999995 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font
@@ -1169,7 +736,200 @@
         )
         
         (property "Series" "CL31"
-            (at 2.54 -27.939999999999994 0)
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_CL31B475KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "CL31B475KBHNNN#"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B475KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "CAP SMD 4.7 µF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Dielectric" "X7R"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "4.7 µF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (symbol "C_CL31B475KBHNNN#_0_1"
+            (polyline
+                (pts
+                    (xy -0.762 -2.032) (xy -0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            (polyline
+                (pts
+                    (xy 0.762 -2.032) (xy 0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+        )
+    
+            (pin unspecified line
+                (at -3.81 0 0)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "1"(effects(font(size 1.27 1.27))))
+            )
+            
+            (pin unspecified line
+                (at 3.81 0 180)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "2"(effects(font(size 1.27 1.27))))
+            )
+                )
+        (symbol "C_CL31B106KBHNNN#"
+            (pin_names
+                (offset 0.254)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Voltage Rating" "50V"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font
@@ -1181,7 +941,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/CL31/CL31B106KBHNNN#"
-            (at 2.54 -30.479999999999993 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font
@@ -1193,7 +953,7 @@
         )
         
         (property "Case Code - mm" "3216"
-            (at 2.54 -33.019999999999996 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font
@@ -1203,69 +963,189 @@
                 (hide yes)
             )
         )
-        		(symbol "C_CL31B106KBHNNN#_0_1"
-			(polyline
-				(pts
-					(xy -2.032 -0.762) (xy 2.032 -0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy -2.032 0.762) (xy 2.032 0.762)
-				)
-				(stroke
-					(width 0.508)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-		)
-		(symbol "C_CL31B106KBHNNN#_1_1"
-			(pin passive line
-				(at 0 3.81 270)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -3.81 90)
-				(length 2.794)
-				(name "~"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-	)
-)
+        
+        (property "Series" "CL31"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_CL31B106KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "CL31B106KBHNNN#"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B106KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "CAP SMD 10 µF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Dielectric" "X7R"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "10 µF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (justify left)
+                
+            )
+        )
+        
+        (symbol "C_CL31B106KBHNNN#_0_1"
+            (polyline
+                (pts
+                    (xy -0.762 -2.032) (xy -0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            (polyline
+                (pts
+                    (xy 0.762 -2.032) (xy 0.762 2.032)
+                )
+                (stroke
+                    (width 0.508)
+                    (type default)
+                )
+                (fill
+                    (type none)
+                )
+            )
+        )
+    
+            (pin unspecified line
+                (at -3.81 0 0)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "1"(effects(font(size 1.27 1.27))))
+            )
+            
+            (pin unspecified line
+                (at 3.81 0 180)
+                (length 2.8)
+                (name ""(effects(font(size 1.27 1.27))))
+                (number "2"(effects(font(size 1.27 1.27))))
+            )
+                ))
