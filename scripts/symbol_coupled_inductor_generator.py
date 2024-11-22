@@ -46,7 +46,7 @@ def generate_kicad_symbol(
     all_properties = get_all_properties(component_data_list)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
-        write_header(symbol_file)
+        su.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
@@ -84,23 +84,6 @@ def get_all_properties(
     """
     return set().union(
         *(component_data.keys() for component_data in component_data_list))
-
-
-def write_header(
-        symbol_file: TextIO
-) -> None:
-    """
-    Write the header of the KiCad symbol file.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-    """
-    symbol_file.write(
-        "(kicad_symbol_lib\n"
-        "    (version 20231120)\n"
-        "    (generator \"kicad_symbol_editor\")\n"
-        "    (generator_version \"8.0\")\n"
-    )
 
 
 def write_component(
@@ -176,36 +159,6 @@ def write_symbol_drawing(
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
     """
-
-    # def write_pin(
-    #         symbol_file: TextIO,
-    #         x_pos: float,
-    #         y_pos: float,
-    #         angle: int,
-    #         number: str
-    # ) -> None:
-    #     """Write a single pin of the inductor symbol."""
-    #     symbol_file.write(f"""
-    #         (pin unspecified line
-    #             (at {x_pos} {y_pos} {angle})
-    #             (length 5.08)
-    #             (name ""
-    #                 (effects
-    #                     (font
-    #                         (size 1.27 1.27)
-    #                     )
-    #                 )
-    #             )
-    #             (number "{number}"
-    #                 (effects
-    #                     (font
-    #                         (size 1.27 1.27)
-    #                     )
-    #                 )
-    #             )
-    #         )
-    #         """)
-
     # Write symbol drawing section
     symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
 

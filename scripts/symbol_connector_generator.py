@@ -29,7 +29,7 @@ def generate_kicad_symbol(
     property_order = get_property_order(all_properties)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
-        write_header(symbol_file)
+        su.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, property_order)
         symbol_file.write(")")
@@ -75,23 +75,6 @@ def get_property_order(all_properties: set) -> List[str]:
         all_properties - set(primary_properties) - set(standard_properties)))
 
     return primary_properties + standard_properties + remaining_props
-
-
-def write_header(
-        symbol_file: TextIO
-) -> None:
-    """
-    Write the header of the KiCad symbol file.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-    """
-    symbol_file.write("""
-        (kicad_symbol_lib
-            (version 20231120)
-            (generator \"kicad_symbol_editor\")
-            (generator_version \"8.0\")
-        """)
 
 
 def write_component(
