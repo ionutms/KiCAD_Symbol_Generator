@@ -1,66 +1,17 @@
-(kicad_symbol_lib
-    (version 20231120)
-    (generator "kicad_symbol_editor")
-    (generator_version "8.0")
 
+        (kicad_symbol_lib
+            (version 20231120)
+            (generator kicad_symbol_editor)
+            (generator_version 8.0)
+        
         (symbol "L_MSD1260-472ML"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "4.5"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-472ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 4.7 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -79,8 +30,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-472ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.036"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-472ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -99,8 +80,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.036"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -109,8 +90,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-472ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "4.5"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -129,8 +110,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-472ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-472ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 4.7 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -288,7 +289,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -296,7 +297,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -304,7 +305,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -312,7 +313,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -326,58 +327,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "4.2"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-562ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 5.6 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -396,8 +347,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-562ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.040"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-562ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -416,8 +397,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.040"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -426,8 +407,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-562ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "4.2"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -446,8 +427,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-562ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-562ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 5.6 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -605,7 +606,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -613,7 +614,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -621,7 +622,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -629,7 +630,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -643,58 +644,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "3.9"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-682ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 6.8 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -713,8 +664,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-682ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.048"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-682ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -733,8 +714,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.048"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -743,8 +724,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-682ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "3.9"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -763,8 +744,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-682ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-682ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 6.8 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -922,7 +923,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -930,7 +931,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -938,7 +939,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -946,7 +947,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -960,58 +961,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "3.7"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-822ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 8.2 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1030,8 +981,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-822ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.052"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-822ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1050,8 +1031,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.052"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1060,8 +1041,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-822ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "3.7"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1080,8 +1061,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-822ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-822ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 8.2 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1239,7 +1240,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -1247,7 +1248,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -1255,7 +1256,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -1263,7 +1264,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -1277,58 +1278,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "3.5"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-103ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 10 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1347,8 +1298,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-103ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.060"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-103ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1367,8 +1348,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.060"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1377,8 +1358,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-103ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "3.5"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1397,8 +1378,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-103ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-103ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 10 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1556,7 +1557,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -1564,7 +1565,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -1572,7 +1573,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -1580,7 +1581,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -1594,58 +1595,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "3.1"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-123ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 12 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1664,8 +1615,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-123ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.074"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-123ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1684,8 +1665,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.074"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1694,8 +1675,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-123ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "3.1"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1714,8 +1695,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-123ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-123ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 12 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1873,7 +1874,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -1881,7 +1882,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -1889,7 +1890,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -1897,7 +1898,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -1911,58 +1912,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "2.9"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-153ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 15 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1981,8 +1932,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-153ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.085"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-153ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2001,8 +1982,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.085"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2011,8 +1992,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-153ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "2.9"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2031,8 +2012,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-153ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-153ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 15 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2190,7 +2191,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -2198,7 +2199,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -2206,7 +2207,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -2214,7 +2215,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -2228,58 +2229,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "2.7"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-183ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 18 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2298,8 +2249,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-183ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.097"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-183ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2318,8 +2299,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.097"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2328,8 +2309,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-183ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "2.7"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2348,8 +2329,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-183ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-183ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 18 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2507,7 +2508,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -2515,7 +2516,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -2523,7 +2524,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -2531,7 +2532,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -2545,58 +2546,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "2.5"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-223ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 22 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2615,8 +2566,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-223ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.116"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-223ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2635,8 +2616,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.116"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2645,8 +2626,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-223ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "2.5"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2665,8 +2646,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-223ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-223ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 22 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2824,7 +2825,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -2832,7 +2833,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -2840,7 +2841,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -2848,7 +2849,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -2862,58 +2863,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "2.4"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-273ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 27 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2932,8 +2883,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-273ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.124"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-273ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2952,8 +2933,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.124"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2962,8 +2943,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-273ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "2.4"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2982,8 +2963,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-273ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-273ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 27 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3141,7 +3142,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -3149,7 +3150,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -3157,7 +3158,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -3165,7 +3166,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -3179,58 +3180,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "2.3"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-333ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 33 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3249,8 +3200,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-333ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.134"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-333ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3269,8 +3250,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.134"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3279,8 +3260,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-333ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "2.3"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3299,8 +3280,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-333ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-333ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 33 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3458,7 +3459,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -3466,7 +3467,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -3474,7 +3475,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -3482,7 +3483,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -3496,58 +3497,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "2.2"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-393ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 39 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3566,8 +3517,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-393ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.142"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-393ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3586,8 +3567,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.142"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3596,8 +3577,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-393ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "2.2"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3616,8 +3597,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-393ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-393ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 39 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3775,7 +3776,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -3783,7 +3784,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -3791,7 +3792,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -3799,7 +3800,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -3813,58 +3814,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "2.0"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-473ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 47 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3883,8 +3834,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-473ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.174"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-473ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3903,8 +3884,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.174"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3913,8 +3894,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-473ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "2.0"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3933,8 +3914,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-473ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-473ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 47 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4092,7 +4093,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -4100,7 +4101,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -4108,7 +4109,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -4116,7 +4117,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -4130,58 +4131,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "1.9"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-563ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 56 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4200,8 +4151,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-563ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.198"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-563ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4220,8 +4201,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.198"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4230,8 +4211,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-563ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "1.9"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4250,8 +4231,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-563ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-563ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 56 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4409,7 +4410,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -4417,7 +4418,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -4425,7 +4426,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -4433,7 +4434,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -4447,58 +4448,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "1.8"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-683ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 68 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4517,8 +4468,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-683ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.216"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-683ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4537,8 +4518,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.216"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4547,8 +4528,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-683ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "1.8"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4567,8 +4548,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-683ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-683ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 68 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4726,7 +4727,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -4734,7 +4735,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -4742,7 +4743,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -4750,7 +4751,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -4764,58 +4765,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "1.6"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-823ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 82 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4834,8 +4785,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-823ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.274"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-823ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4854,8 +4835,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.274"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4864,8 +4845,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-823ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "1.6"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4884,8 +4865,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-823ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-823ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 82 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5043,7 +5044,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -5051,7 +5052,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -5059,7 +5060,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -5067,7 +5068,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             
@@ -5081,58 +5082,8 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "1.5"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_MSD1260-104ML"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
-            (at 0.254 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "COUPLED INDUCTOR SMD 100 µH ±20% AEC-Q200"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "MSD1260"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5151,8 +5102,38 @@
             )
         )
         
-        (property "Footprint" "coupled_inductor_footprints:MSD1260"
-            (at 0 -10.16 0)
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/79bacbf1-ec2a-4e20-9b30-12448424231b/msd1260.pdf"
+            (at 0.254 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-104ML"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.322"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "MSD1260-104ML"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5171,8 +5152,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.322"
-            (at 0 -30.479999999999997 0)
+        (property "Footprint" "coupled_inductor_footprints:MSD1260"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5181,8 +5162,8 @@
             )
         )
         
-        (property "MPN" "MSD1260-104ML"
-            (at 0 -33.019999999999996 0)
+        (property "Maximum DC Current (A)" "1.5"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5201,8 +5182,28 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MSD1260-104ML"
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "L_MSD1260-104ML"
             (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "COUPLED INDUCTOR SMD 100 µH ±20% AEC-Q200"
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5360,7 +5361,7 @@
             )
         (pin unspecified line
             (at -7.62 5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "1"(effects(font(size 1.27 1.27))))
             
@@ -5368,7 +5369,7 @@
         
         (pin unspecified line
             (at 7.62 5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "4"(effects(font(size 1.27 1.27))))
             
@@ -5376,7 +5377,7 @@
         
         (pin unspecified line
             (at -7.62 -5.08 0)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "3"(effects(font(size 1.27 1.27))))
             
@@ -5384,7 +5385,7 @@
         
         (pin unspecified line
             (at 7.62 -5.08 180)
-            (length 2.54)
+            (length 5.08)
             (name ""(effects(font(size 1.27 1.27))))
             (number "2"(effects(font(size 1.27 1.27))))
             

@@ -1,8 +1,8 @@
 
         (kicad_symbol_lib
             (version 20231120)
-            (generator "kicad_symbol_editor")
-            (generator_version "8.0")
+            (generator kicad_symbol_editor)
+            (generator_version 8.0)
         
         (symbol "L_XAL7020-151ME"
             (pin_names(offset 0.254))
@@ -10,7 +10,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-151ME"
+        (property "Symbol Name" "L_XAL7020-151ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -20,53 +20,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "2.500"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 150 nH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-151ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "150 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -80,8 +40,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -90,8 +50,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "24.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "2.500"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -110,7 +70,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-151ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "24.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "150 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-151ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -120,8 +120,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 150 nH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -130,13 +130,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-151ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-151ME_1_1"
@@ -217,7 +217,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-271ME"
+        (property "Symbol Name" "L_XAL7020-271ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -227,53 +227,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "3.800"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 270 nH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-271ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "270 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -287,8 +247,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -297,8 +257,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "21.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "3.800"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -317,7 +277,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-271ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "21.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "270 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-271ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -327,8 +327,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 270 nH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -337,13 +337,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-271ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-271ME_1_1"
@@ -424,7 +424,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-331ME"
+        (property "Symbol Name" "L_XAL7020-331ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -434,53 +434,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "5.200"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 330 nH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-331ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "330 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -494,8 +454,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -504,8 +464,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "20.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "5.200"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -524,7 +484,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-331ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "20.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "330 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-331ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -534,8 +534,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 330 nH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -544,13 +544,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-331ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-331ME_1_1"
@@ -631,7 +631,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-471ME"
+        (property "Symbol Name" "L_XAL7020-471ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -641,53 +641,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "6.400"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 470 nH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-471ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "470 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -701,8 +661,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -711,8 +671,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "17.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "6.400"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -731,7 +691,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-471ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "17.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "470 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-471ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -741,8 +741,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 470 nH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -751,13 +751,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-471ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-471ME_1_1"
@@ -838,7 +838,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-681ME"
+        (property "Symbol Name" "L_XAL7020-681ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -848,53 +848,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "9.500"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 680 nH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-681ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "680 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -908,8 +868,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -918,8 +878,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "13.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "9.500"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -938,7 +898,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-681ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "13.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "680 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-681ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -948,8 +948,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 680 nH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -958,13 +958,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-681ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-681ME_1_1"
@@ -1045,7 +1045,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-102ME"
+        (property "Symbol Name" "L_XAL7020-102ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -1055,53 +1055,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "10.800"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 1 µH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-102ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1115,8 +1075,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1125,8 +1085,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "11.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "10.800"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1145,7 +1105,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-102ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "11.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "1 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-102ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1155,8 +1155,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 1 µH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1165,13 +1165,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-102ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-102ME_1_1"
@@ -1252,7 +1252,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-122ME"
+        (property "Symbol Name" "L_XAL7020-122ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -1262,53 +1262,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "12.800"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 1.2 µH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-122ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1322,8 +1282,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1332,8 +1292,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "10.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "12.800"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1352,7 +1312,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-122ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "10.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "1.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-122ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1362,8 +1362,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 1.2 µH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1372,13 +1372,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-122ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-122ME_1_1"
@@ -1459,7 +1459,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-152ME"
+        (property "Symbol Name" "L_XAL7020-152ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -1469,53 +1469,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "19.300"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 1.5 µH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-152ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.5 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1529,8 +1489,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1539,8 +1499,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "9.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "19.300"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1559,7 +1519,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-152ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "9.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "1.5 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-152ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1569,8 +1569,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 1.5 µH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1579,13 +1579,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-152ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-152ME_1_1"
@@ -1666,7 +1666,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-222ME"
+        (property "Symbol Name" "L_XAL7020-222ME"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -1676,53 +1676,13 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Series" "XAL7020"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Maximum DC Resistance (Ω)" "31.600"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 2.2 µH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "L_XAL7020-222ME"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "2.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1736,8 +1696,8 @@
             )
         )
         
-        (property "Series" "XAL7020"
-            (at 0 -22.859999999999996 0)
+        (property "Tolerance" "±20%"
+            (at 0 -17.779999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1746,8 +1706,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "7.0"
-            (at 0 -25.399999999999995 0)
+        (property "Maximum DC Resistance (Ω)" "31.600"
+            (at 0 -20.319999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1766,7 +1726,47 @@
             )
         )
         
-        (property "MPN" "XAL7020-222ME"
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "7.0"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Value" "2.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL7020-222ME"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1776,8 +1776,8 @@
             )
         )
         
-        (property "Tolerance" "±20%"
-            (at 0 -30.479999999999993 0)
+        (property "Description" "INDUCTOR SMD 2.2 µH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1786,13 +1786,13 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "MPN" "XAL7020-222ME"
+            (at 0 -30.479999999999993 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         		(symbol "L_XAL7020-222ME_1_1"
