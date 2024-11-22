@@ -5,92 +5,46 @@
             (generator_version "8.0")
         
         (symbol "L_XAL8080-681ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-681ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.650"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 680 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-681ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "680 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-681ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -100,21 +54,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "680 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -124,47 +94,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-681ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "1.650"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-681ME_1_1"
@@ -221,133 +193,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-841ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-841ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.900"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 840 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-841ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "840 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-841ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -357,21 +261,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "840 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -381,47 +301,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-841ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "1.900"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-841ME_1_1"
@@ -478,133 +400,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-102ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-102ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "2.330"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 1 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-102ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-102ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -614,21 +468,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "1 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -638,47 +508,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-102ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "2.330"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-102ME_1_1"
@@ -735,133 +607,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-222ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-222ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "4.490"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 2.2 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-222ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "2.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-222ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -871,21 +675,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "2.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -895,47 +715,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-222ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "4.490"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-222ME_1_1"
@@ -992,133 +814,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-472ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-472ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "9.770"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 4.7 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-472ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "4.7 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-472ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1128,21 +882,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "4.7 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1152,47 +922,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-472ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "9.770"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-472ME_1_1"
@@ -1249,133 +1021,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-682ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-682ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "14.500"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 6.8 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-682ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "6.8 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-682ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1385,21 +1089,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "6.8 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1409,47 +1129,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-682ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "14.500"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-682ME_1_1"
@@ -1506,133 +1228,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-103ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-103ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "23.100"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 10 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-103ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "10 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-103ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1642,21 +1296,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "10 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1666,47 +1336,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-103ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "23.100"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-103ME_1_1"
@@ -1763,133 +1435,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-123ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-123ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "18.200"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 12 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-123ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "12 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-123ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1899,21 +1503,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "12 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -1923,47 +1543,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-123ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "18.200"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-123ME_1_1"
@@ -2020,133 +1642,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-153ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-153ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "22.500"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 15 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-153ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "15 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-153ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2156,21 +1710,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "15 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2180,47 +1750,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-153ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "22.500"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-153ME_1_1"
@@ -2277,133 +1849,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-183ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-183ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "28.000"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 18 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-183ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "18 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-183ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2413,21 +1917,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "18 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2437,47 +1957,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-183ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "28.000"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-183ME_1_1"
@@ -2534,133 +2056,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-223ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-223ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "32.900"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 22 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-223ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "22 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-223ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2670,21 +2124,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "22 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2694,47 +2164,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-223ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "32.900"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-223ME_1_1"
@@ -2791,133 +2263,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-333ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-333ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "48.500"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 33 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-333ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "33 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-333ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2927,21 +2331,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "33 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -2951,47 +2371,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-333ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "48.500"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-333ME_1_1"
@@ -3048,133 +2470,65 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 
         (symbol "L_XAL8080-473ME"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-473ME"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "71.800"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
         
         (property "Description" "INDUCTOR SMD 47 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "XAL8080"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "XAL8080-473ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL8080"
-            (at 0 -5.08 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "47 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL8080-473ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3184,21 +2538,37 @@
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Value" "47 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL8080"
             (at 0 -22.859999999999996 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -3208,47 +2578,49 @@
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf"
-            (at 0.254 -7.62 0)
+        (property "Footprint" "inductor_footprints:XAL8080"
+            (at 0 -5.08 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL8080-473ME"
+            (at 0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Tolerance" "±20%"
-            (at 0 -27.939999999999994 0)
+            (at 0 -30.479999999999993 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "71.800"
-            (at 0 -30.479999999999993 0)
-            (show_name)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         		(symbol "L_XAL8080-473ME_1_1"
@@ -3305,43 +2677,21 @@
                 )
             )
             
-            (pin unspecified line
-                (at -7.62 0 0)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
+        (pin unspecified line
+            (at -7.62 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 7.62 0 180)
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "2"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            		)
+        )
+        
+        (pin unspecified line
+            (at 7.62 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        		)
 	)
 )

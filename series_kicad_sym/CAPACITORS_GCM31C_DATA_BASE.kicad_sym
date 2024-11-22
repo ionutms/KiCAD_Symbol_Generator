@@ -5,68 +5,16 @@
             (generator_version "8.0")
         
         (symbol "C_GCM31CR71E475KA55K"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
         
-        (property "Voltage Rating" "25V"
+        (property "Manufacturer" "Murata Electronics"
             (at 0 -15.24 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31CR71E475KA55K"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "GCM31C"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -76,9 +24,7 @@
             (at 0 -7.62 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -88,59 +34,9 @@
             (at 0 5.08 0)
             
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 
-            )
-        )
-        
-        (property "Case Code - in" "1206"
-            (at 0 -27.939999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM31CR71E475KA55K"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "GCM31CR71E475KA55K"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
             )
         )
         
@@ -148,9 +44,7 @@
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -160,21 +54,97 @@
             (at 0 -12.7 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31CR71E475KA55K"
+            (at 0 -17.78 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "25V"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31CR71E475KA55K"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31CR71E475KA55K"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "GCM31C"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
             (at 0 -38.099999999999994 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -184,9 +154,7 @@
             (at 0 -5.08 0)
             
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 
             )
@@ -219,83 +187,33 @@
             )
         )
     
-            (pin unspecified line
-                (at -3.81 0 0)
-                (length 2.8)
-                (name ""(effects(font(size 1.27 1.27))))
-                (number "1"(effects(font(size 1.27 1.27))))
-            )
+        (pin unspecified line
+            (at -3.81 0 0)
+            (length 2.8)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 3.81 0 180)
-                (length 2.8)
-                (name ""(effects(font(size 1.27 1.27))))
-                (number "2"(effects(font(size 1.27 1.27))))
+        )
+        
+        (pin unspecified line
+            (at 3.81 0 180)
+            (length 2.8)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
             )
-                )
         (symbol "C_GCM31CR71E475KA55L"
-            (pin_names
-                (offset 0.254)
-            )
+            (pin_names(offset 0.254))
             (exclude_from_sim no)
             (in_bom yes)
             (on_board yes)
         
-        (property "Voltage Rating" "25V"
+        (property "Manufacturer" "Murata Electronics"
             (at 0 -15.24 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31CR71E475KA55L"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "GCM31C"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -305,9 +223,7 @@
             (at 0 -7.62 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -317,59 +233,9 @@
             (at 0 5.08 0)
             
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 
-            )
-        )
-        
-        (property "Case Code - in" "1206"
-            (at 0 -27.939999999999998 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM31CR71E475KA55L"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "GCM31CR71E475KA55L"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (justify left)
-                (hide yes)
             )
         )
         
@@ -377,9 +243,7 @@
             (at 0 -10.16 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -389,21 +253,97 @@
             (at 0 -12.7 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31CR71E475KA55L"
+            (at 0 -17.78 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "25V"
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31CR71E475KA55L"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31CR71E475KA55L"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
         )
         
         (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "GCM31C"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
             (at 0 -38.099999999999994 0)
             (show_name)
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
             )
@@ -413,9 +353,7 @@
             (at 0 -5.08 0)
             
             (effects
-                (font
-                    (size 1.27 1.27)
-                )
+                (font(size 1.27 1.27))
                 (justify left)
                 
             )
@@ -448,17 +386,19 @@
             )
         )
     
-            (pin unspecified line
-                (at -3.81 0 0)
-                (length 2.8)
-                (name ""(effects(font(size 1.27 1.27))))
-                (number "1"(effects(font(size 1.27 1.27))))
-            )
+        (pin unspecified line
+            (at -3.81 0 0)
+            (length 2.8)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
             
-            (pin unspecified line
-                (at 3.81 0 180)
-                (length 2.8)
-                (name ""(effects(font(size 1.27 1.27))))
-                (number "2"(effects(font(size 1.27 1.27))))
-            )
-                ))
+        )
+        
+        (pin unspecified line
+            (at 3.81 0 180)
+            (length 2.8)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+            ))
