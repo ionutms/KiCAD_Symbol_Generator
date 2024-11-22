@@ -26,38 +26,12 @@ def generate_kicad_symbol(
     """
     component_data_list = fhu.read_csv_data(input_csv_file, encoding)
     all_properties = su.get_all_properties(component_data_list)
-    property_order = get_property_order(all_properties)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
         su.write_header(symbol_file)
         for component_data in component_data_list:
-            write_component(symbol_file, component_data, property_order)
+            write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
-
-
-def get_property_order(all_properties: set) -> List[str]:
-    """Define the standard order of properties with all fields included."""
-    # Primary properties that should appear first, in specific order
-    primary_properties = [
-        "Symbol Name",
-        "Reference",
-        "Value",
-        "Footprint",
-        "Datasheet",
-        "Description"
-    ]
-    # Additional standardized properties
-    standard_properties = [
-        "Manufacturer",
-        "MPN",
-        "Series",
-        "Trustedparts Search"
-    ]
-    # Any remaining properties not in the standard lists
-    remaining_props = sorted(list(
-        all_properties - set(primary_properties) - set(standard_properties)))
-
-    return primary_properties + standard_properties + remaining_props
 
 
 def write_component(
@@ -81,44 +55,30 @@ def write_properties(
     """
     Write all symbol properties with positions adjusted for variable pin count.
     """
-    # Extract pin count from Value field using regex
-    value = component_data.get('Value', '')
-    pin_count_match = re.search(r'-(\d+)BE', value)
-    pin_count = int(pin_count_match.group(1)) if pin_count_match else 2
-
-    # Calculate vertical offset based on pin count
-    height_offset = max(7.62, (pin_count * 2.54) + 2.54) / 2
-
-    # Property configurations
     property_configs = {
-        "Reference": (0, height_offset + 2.54, 1.27, False, False, "J"),
-        "Value": (3.81, height_offset, 1.27, True, True, None),
-        "Footprint": (3.81, height_offset - 2.54, 1.27, True, True, None),
-        "Datasheet": (3.81, height_offset - 5.08, 1.27, True, True, None),
-        "Description": (3.81, height_offset - 7.62, 1.27, True, True, None),
+        "Reference": (0, 7.62, 1.27, False, False, "J"),
+        "Value": (5.08, 5.08, 1.27, True, True, component_data.get('MPN', '')),
+        "Footprint": (5.08, 2.54, 1.27, True, True, None),
+        "Datasheet": (5.08, 0, 1.27, True, True, None),
+        "Description": (5.08, -2.54, 1.27, True, True, None),
     }
 
-    current_y = height_offset - 10.16
-
+    y_offset = -5.08
     for prop_name in property_order:
         if prop_name in component_data:
-            if prop_name in property_configs:
-                config = property_configs[prop_name]
-                value = config[5] or component_data[prop_name]
-                su.write_property(symbol_file, prop_name, value, *config[:5])
-            else:
-                if prop_name != "Symbol Name":
-                    su.write_property(
-                        symbol_file,
-                        prop_name,
-                        component_data[prop_name],
-                        3.81,
-                        current_y,
-                        1.27,
-                        True,
-                        True
-                    )
-                    current_y -= 2.54
+            config = property_configs.get(
+                prop_name,
+                (5.08, y_offset, 1.27, True, True, None)
+            )
+            value = config[5] or component_data[prop_name]
+            su.write_property(
+                symbol_file,
+                prop_name,
+                value,
+                *config[:5]
+            )
+            if prop_name not in property_configs:
+                y_offset -= 2.54
 
 
 def write_symbol_drawing(
@@ -156,24 +116,18 @@ def write_symbol_drawing(
 
 
 def write_rectangle(
-        file: TextIO,
+        symbol_file: TextIO,
         start_x: float,
         start_y: float,
         end_x: float,
         end_y: float
 ) -> None:
     """Write a rectangle definition with specific formatting."""
-    rectangle_lines = [
-        "\t\t\t(rectangle",
-        f"\t\t\t\t(start {start_x} {start_y})",
-        f"\t\t\t\t(end {end_x} {end_y})",
-        "\t\t\t\t(stroke",
-        "\t\t\t\t\t(width 0.254)",
-        "\t\t\t\t\t(type solid)",
-        "\t\t\t\t)",
-        "\t\t\t\t(fill",
-        "\t\t\t\t\t(type none)",
-        "\t\t\t\t)",
-        "\t\t\t)"
-    ]
-    file.write('\n'.join(rectangle_lines) + '\n')
+    symbol_file.write(f"""
+        (rectangle
+            (start {start_x} {start_y})
+            (end {end_x} {end_y})
+            (stroke (width 0.254) (type solid) )
+            (fill (type none) )
+        )
+        """)
