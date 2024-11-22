@@ -177,34 +177,34 @@ def write_symbol_drawing(
         symbol_name (str): Name of the symbol.
     """
 
-    def write_pin(
-            symbol_file: TextIO,
-            x_pos: float,
-            y_pos: float,
-            angle: int,
-            number: str
-    ) -> None:
-        """Write a single pin of the inductor symbol."""
-        symbol_file.write(f"""
-            (pin unspecified line
-                (at {x_pos} {y_pos} {angle})
-                (length 5.08)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "{number}"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            """)
+    # def write_pin(
+    #         symbol_file: TextIO,
+    #         x_pos: float,
+    #         y_pos: float,
+    #         angle: int,
+    #         number: str
+    # ) -> None:
+    #     """Write a single pin of the inductor symbol."""
+    #     symbol_file.write(f"""
+    #         (pin unspecified line
+    #             (at {x_pos} {y_pos} {angle})
+    #             (length 5.08)
+    #             (name ""
+    #                 (effects
+    #                     (font
+    #                         (size 1.27 1.27)
+    #                     )
+    #                 )
+    #             )
+    #             (number "{number}"
+    #                 (effects
+    #                     (font
+    #                         (size 1.27 1.27)
+    #                     )
+    #                 )
+    #             )
+    #         )
+    #         """)
 
     # Write symbol drawing section
     symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
@@ -274,9 +274,9 @@ def write_symbol_drawing(
             )""")
 
     # Write pins
-    write_pin(symbol_file, -7.62, 5.08, 0, "1")
-    write_pin(symbol_file, 7.62, 5.08, 180, "4")
-    write_pin(symbol_file, -7.62, -5.08, 0, "3")
-    write_pin(symbol_file, 7.62, -5.08, 180, "2")
+    su.write_pin(symbol_file, -7.62, 5.08, 0, "1")
+    su.write_pin(symbol_file, 7.62, 5.08, 180, "4")
+    su.write_pin(symbol_file, -7.62, -5.08, 0, "3")
+    su.write_pin(symbol_file, 7.62, -5.08, 180, "2")
 
     symbol_file.write("        )\n")

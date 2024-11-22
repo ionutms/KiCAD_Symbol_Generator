@@ -179,7 +179,7 @@ def write_symbol_drawing(
 
     for pin_num in range(1, pin_count + 1):
         y_pos = start_y - (pin_num - 1) * pin_spacing
-        write_pin(symbol_file, -5.08, y_pos, str(pin_num))
+        su.write_pin(symbol_file, -5.08, y_pos, 0, str(pin_num))
 
     symbol_file.write("\t\t)\n")
 
@@ -187,36 +187,6 @@ def write_symbol_drawing(
     write_rectangle(
         symbol_file, -2.54, rectangle_height / 2, 2.54, -rectangle_height/2)
     symbol_file.write("\t\t)\n")
-
-
-def write_pin(
-        file: TextIO,
-        x_pos: float,
-        y_pos: float,
-        number: str
-) -> None:
-    """Write a pin definition with specific formatting."""
-    pin_lines = [
-        "\t\t\t(pin passive line",
-        f"\t\t\t\t(at {x_pos} {y_pos} 0)",
-        "\t\t\t\t(length 2.54)",
-        f'\t\t\t\t(name "{number}"',
-        "\t\t\t\t\t(effects",
-        "\t\t\t\t\t\t(font",
-        "\t\t\t\t\t\t\t(size 1.016 1.016)",
-        "\t\t\t\t\t\t)",
-        "\t\t\t\t\t)",
-        "\t\t\t\t)",
-        f'\t\t\t\t(number "{number}"',
-        "\t\t\t\t\t(effects",
-        "\t\t\t\t\t\t(font",
-        "\t\t\t\t\t\t\t(size 1.016 1.016)",
-        "\t\t\t\t\t\t)",
-        "\t\t\t\t\t)",
-        "\t\t\t\t)",
-        "\t\t\t)"
-    ]
-    file.write('\n'.join(pin_lines) + '\n')
 
 
 def write_rectangle(

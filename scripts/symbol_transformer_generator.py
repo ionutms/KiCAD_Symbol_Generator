@@ -218,39 +218,6 @@ def write_symbol_drawing(
         symbol_name (str): Name of the symbol.
         pin_config (dict, optional): Dictionary defining pin configuration.
     """
-    def write_pin(
-            symbol_file: TextIO,
-            x_pos: float,
-            y_pos: float,
-            angle: int,
-            number: str,
-            pin_type: str = "unspecified",
-            hide: bool = False,
-            length: float = 2.54
-    ) -> None:
-        """Write a single pin of the transformer symbol."""
-        symbol_file.write(f"""
-            (pin {pin_type} line
-                (at {x_pos} {y_pos} {angle})
-                (length {length})
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "{number}"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                {('hide' if hide else '')}
-            )
-            """)
-
     def get_symbol_bounds(pin_config):
         """Calculate symbol bounds based on pin configuration."""
         y_positions = (
@@ -369,7 +336,7 @@ def write_symbol_drawing(
 
     # Write left side pins
     for pin in pin_config["left"]:
-        write_pin(
+        su.write_pin(
             symbol_file,
             -7.62,
             pin["y_pos"],
@@ -381,7 +348,7 @@ def write_symbol_drawing(
 
     # Write right side pins
     for pin in pin_config["right"]:
-        write_pin(
+        su.write_pin(
             symbol_file,
             7.62,
             pin["y_pos"],

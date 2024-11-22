@@ -197,34 +197,6 @@ def write_symbol_drawing(
             )
             """)
 
-    def write_pin(
-            symbol_file: TextIO,
-            x_pos: float,
-            angle: int,
-            number: str
-    ) -> None:
-        """Write a single pin of the inductor symbol."""
-        symbol_file.write(f"""
-            (pin unspecified line
-                (at {x_pos} 0 {angle})
-                (length 2.54)
-                (name ""
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-                (number "{number}"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                    )
-                )
-            )
-            """)
-
     # Write symbol drawing section
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_1"\n')
 
@@ -239,7 +211,7 @@ def write_symbol_drawing(
         write_arc(symbol_file, start_x, mid_x, end_x)
 
     # Write pins
-    write_pin(symbol_file, -7.62, 0, "1")
-    write_pin(symbol_file, 7.62, 180, "2")
+    su.write_pin(symbol_file, -7.62, 0, 0, "1")
+    su.write_pin(symbol_file, 7.62, 0, 180, "2")
 
     symbol_file.write("\t\t)\n")
