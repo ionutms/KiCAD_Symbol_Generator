@@ -5,9 +5,9 @@ Modified to match specific pin and field positioning requirements.
 """
 
 import re
-import csv
 from typing import List, Dict, TextIO
 import symbol_utils as su
+import file_handler_utilities as fhu
 
 
 def generate_kicad_symbol(
@@ -24,7 +24,7 @@ def generate_kicad_symbol(
         encoding (str, optional):
             Character encoding to use. Defaults to 'utf-8'.
     """
-    component_data_list = read_csv_data(input_csv_file, encoding)
+    component_data_list = fhu.read_csv_data(input_csv_file, encoding)
     all_properties = get_all_properties(component_data_list)
     property_order = get_property_order(all_properties)
 
@@ -33,15 +33,6 @@ def generate_kicad_symbol(
         for component_data in component_data_list:
             write_component(symbol_file, component_data, property_order)
         symbol_file.write(")")
-
-
-def read_csv_data(
-        input_csv_file: str,
-        encoding: str
-) -> List[Dict[str, str]]:
-    """Read component data from a CSV file."""
-    with open(input_csv_file, 'r', encoding=encoding) as csv_file:
-        return list(csv.DictReader(csv_file))
 
 
 def get_all_properties(

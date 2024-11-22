@@ -18,10 +18,10 @@ Dependencies:
     - csv (Python standard library)
 """
 
-import csv
 from typing import List, Dict, TextIO
 from symbol_transformer_specs import SERIES_SPECS, SidePinConfig
 import symbol_utils as su
+import file_handler_utilities as fhu
 
 
 def generate_kicad_symbol(
@@ -43,7 +43,7 @@ def generate_kicad_symbol(
         csv.Error: If there's an error reading the CSV file.
         IOError: If there's an error writing to the output file.
     """
-    component_data_list = read_csv_data(input_csv_file, encoding)
+    component_data_list = fhu.read_csv_data(input_csv_file, encoding)
     all_properties = get_all_properties(component_data_list)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
@@ -51,24 +51,6 @@ def generate_kicad_symbol(
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
-
-
-def read_csv_data(
-        input_csv_file: str,
-        encoding: str
-) -> List[Dict[str, str]]:
-    """
-    Read component data from a CSV file.
-
-    Args:
-        input_csv_file (str): Path to the input CSV file.
-        encoding (str): Character encoding of the CSV file.
-
-    Returns:
-        List[Dict[str, str]]: List of dictionaries containing component data.
-    """
-    with open(input_csv_file, 'r', encoding=encoding) as csv_file:
-        return list(csv.DictReader(csv_file))
 
 
 def get_all_properties(
