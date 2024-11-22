@@ -7,6 +7,7 @@ Modified to match specific pin and field positioning requirements.
 import re
 import csv
 from typing import List, Dict, TextIO
+import symbol_utils as su
 
 
 def generate_kicad_symbol(
@@ -100,32 +101,10 @@ def write_component(
 ) -> None:
     """Write a complete component definition."""
     symbol_name = component_data.get('Symbol Name', '')
-    write_symbol_header(symbol_file, symbol_name)
+    su.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
     write_symbol_drawing(symbol_file, symbol_name, component_data)
     symbol_file.write("\t)\n")
-
-
-def write_symbol_header(
-        symbol_file: TextIO,
-        symbol_name: str
-) -> None:
-    """
-    Write the header for a single symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
-    """
-    symbol_file.write(f"""
-        (symbol "{symbol_name}"
-            (pin_names
-                (offset 0.254)
-            )
-            (exclude_from_sim no)
-            (in_bom yes)
-            (on_board yes)
-        """)
 
 
 def write_properties(
@@ -160,10 +139,10 @@ def write_properties(
             if prop_name in property_configs:
                 config = property_configs[prop_name]
                 value = config[5] or component_data[prop_name]
-                write_property(symbol_file, prop_name, value, *config[:5])
+                su.write_property(symbol_file, prop_name, value, *config[:5])
             else:
                 if prop_name != "Symbol Name":
-                    write_property(
+                    su.write_property(
                         symbol_file,
                         prop_name,
                         component_data[prop_name],
@@ -174,35 +153,6 @@ def write_properties(
                         True
                     )
                     current_y -= 2.54
-
-
-def write_property(
-        symbol_file: TextIO,
-        property_name: str,
-        property_value: str,
-        x_offset: float,
-        y_offset: float,
-        font_size: float,
-        show_name: bool,
-        hide: bool
-) -> None:
-    """Write a property definition with specific formatting."""
-    justify = "left bottom" if property_name == "Reference" else "left"
-
-    property_lines = [
-        f'\t\t(property "{property_name}" "{property_value}"',
-        f"\t\t\t(at {x_offset} {y_offset} 0)",
-        f"\t\t\t{('(show_name)' if show_name else '')}",
-        "\t\t\t(effects",
-        "\t\t\t\t(font",
-        f"\t\t\t\t\t(size {font_size} {font_size})",
-        "\t\t\t\t)",
-        f"\t\t\t\t(justify {justify})",
-        f"\t\t\t\t{('(hide yes)' if hide else '')}",
-        "\t\t\t)",
-        "\t\t)"
-    ]
-    symbol_file.write('\n'.join(property_lines) + '\n')
 
 
 def write_symbol_drawing(
@@ -229,7 +179,7 @@ def write_symbol_drawing(
 
     for pin_num in range(1, pin_count + 1):
         y_pos = start_y - (pin_num - 1) * pin_spacing
-        write_pin(symbol_file, -5.08, y_pos, str(pin_num))
+        su.write_pin(symbol_file, -5.08, y_pos, 0, str(pin_num))
 
     symbol_file.write("\t\t)\n")
 
@@ -237,36 +187,6 @@ def write_symbol_drawing(
     write_rectangle(
         symbol_file, -2.54, rectangle_height / 2, 2.54, -rectangle_height/2)
     symbol_file.write("\t\t)\n")
-
-
-def write_pin(
-        file: TextIO,
-        x_pos: float,
-        y_pos: float,
-        number: str
-) -> None:
-    """Write a pin definition with specific formatting."""
-    pin_lines = [
-        "\t\t\t(pin passive line",
-        f"\t\t\t\t(at {x_pos} {y_pos} 0)",
-        "\t\t\t\t(length 2.54)",
-        f'\t\t\t\t(name "{number}"',
-        "\t\t\t\t\t(effects",
-        "\t\t\t\t\t\t(font",
-        "\t\t\t\t\t\t\t(size 1.016 1.016)",
-        "\t\t\t\t\t\t)",
-        "\t\t\t\t\t)",
-        "\t\t\t\t)",
-        f'\t\t\t\t(number "{number}"',
-        "\t\t\t\t\t(effects",
-        "\t\t\t\t\t\t(font",
-        "\t\t\t\t\t\t\t(size 1.016 1.016)",
-        "\t\t\t\t\t\t)",
-        "\t\t\t\t\t)",
-        "\t\t\t\t)",
-        "\t\t\t)"
-    ]
-    file.write('\n'.join(pin_lines) + '\n')
 
 
 def write_rectangle(
