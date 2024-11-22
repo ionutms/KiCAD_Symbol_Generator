@@ -18,9 +18,9 @@ Dependencies:
     - csv (Python standard library)
 """
 
-import csv
 from typing import List, Dict, TextIO
 import symbol_utils as su
+import file_handler_utilities as fhu
 
 
 def generate_kicad_symbol(
@@ -42,65 +42,14 @@ def generate_kicad_symbol(
         csv.Error: If there's an error reading the CSV file.
         IOError: If there's an error writing to the output file.
     """
-    component_data_list = read_csv_data(input_csv_file, encoding)
-    all_properties = get_all_properties(component_data_list)
+    component_data_list = fhu.read_csv_data(input_csv_file, encoding)
+    all_properties = su.get_all_properties(component_data_list)
 
     with open(output_symbol_file, 'w', encoding=encoding) as symbol_file:
-        write_header(symbol_file)
+        su.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
-
-
-def read_csv_data(
-        input_csv_file: str,
-        encoding: str
-) -> List[Dict[str, str]]:
-    """
-    Read component data from a CSV file.
-
-    Args:
-        input_csv_file (str): Path to the input CSV file.
-        encoding (str): Character encoding of the CSV file.
-
-    Returns:
-        List[Dict[str, str]]: List of dictionaries containing component data.
-    """
-    with open(input_csv_file, 'r', encoding=encoding) as csv_file:
-        return list(csv.DictReader(csv_file))
-
-
-def get_all_properties(
-        component_data_list: List[Dict[str, str]]
-) -> set:
-    """
-    Get all unique properties from the component data.
-
-    Args:
-        component_data_list (List[Dict[str, str]]): List of component data.
-
-    Returns:
-        set: Set of all unique property names.
-    """
-    return set().union(
-        *(component_data.keys() for component_data in component_data_list))
-
-
-def write_header(
-        symbol_file: TextIO
-) -> None:
-    """
-    Write the header of the KiCad symbol file.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-    """
-    symbol_file.write(
-        "(kicad_symbol_lib\n"
-        "    (version 20231120)\n"
-        "    (generator \"kicad_symbol_editor\")\n"
-        "    (generator_version \"8.0\")\n"
-    )
 
 
 def write_component(
@@ -176,36 +125,6 @@ def write_symbol_drawing(
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
     """
-
-    # def write_pin(
-    #         symbol_file: TextIO,
-    #         x_pos: float,
-    #         y_pos: float,
-    #         angle: int,
-    #         number: str
-    # ) -> None:
-    #     """Write a single pin of the inductor symbol."""
-    #     symbol_file.write(f"""
-    #         (pin unspecified line
-    #             (at {x_pos} {y_pos} {angle})
-    #             (length 5.08)
-    #             (name ""
-    #                 (effects
-    #                     (font
-    #                         (size 1.27 1.27)
-    #                     )
-    #                 )
-    #             )
-    #             (number "{number}"
-    #                 (effects
-    #                     (font
-    #                         (size 1.27 1.27)
-    #                     )
-    #                 )
-    #             )
-    #         )
-    #         """)
-
     # Write symbol drawing section
     symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
 
@@ -274,9 +193,9 @@ def write_symbol_drawing(
             )""")
 
     # Write pins
-    su.write_pin(symbol_file, -7.62, 5.08, 0, "1")
-    su.write_pin(symbol_file, 7.62, 5.08, 180, "4")
-    su.write_pin(symbol_file, -7.62, -5.08, 0, "3")
-    su.write_pin(symbol_file, 7.62, -5.08, 180, "2")
+    su.write_pin(symbol_file, -7.62, 5.08, 0, "1", length=5.08)
+    su.write_pin(symbol_file, 7.62, 5.08, 180, "4", length=5.08)
+    su.write_pin(symbol_file, -7.62, -5.08, 0, "3", length=5.08)
+    su.write_pin(symbol_file, 7.62, -5.08, 180, "2", length=5.08)
 
     symbol_file.write("        )\n")

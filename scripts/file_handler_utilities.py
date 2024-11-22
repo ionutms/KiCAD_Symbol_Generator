@@ -2,7 +2,7 @@
 
 import os
 import csv
-from typing import List, Final, NamedTuple
+from typing import Dict, List, Final, NamedTuple
 
 from print_message_utilities import print_info
 
@@ -42,3 +42,21 @@ def ensure_directory_exists(directory: str) -> None:
     if not os.path.exists(directory):
         os.makedirs(directory)
         print_info(f"Created directory: {directory}")
+
+
+def read_csv_data(
+        input_csv_file: str,
+        encoding: str
+) -> List[Dict[str, str]]:
+    """
+    Read component data from a CSV file.
+
+    Args:
+        input_csv_file (str): Path to the input CSV file.
+        encoding (str): Character encoding of the CSV file.
+
+    Returns:
+        List[Dict[str, str]]: List of dictionaries containing component data.
+    """
+    with open(input_csv_file, 'r', encoding=encoding) as csv_file:
+        return list(csv.DictReader(csv_file))

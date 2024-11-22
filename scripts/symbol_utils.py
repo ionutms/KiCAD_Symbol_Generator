@@ -1,6 +1,23 @@
 """TODO"""
 
-from typing import TextIO
+from typing import Dict, List, TextIO
+
+
+def write_header(
+        symbol_file: TextIO
+) -> None:
+    """
+    Write the header of the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+    """
+    symbol_file.write("""
+        (kicad_symbol_lib
+            (version 20231120)
+            (generator kicad_symbol_editor)
+            (generator_version 8.0)
+        """)
 
 
 def write_symbol_header(
@@ -21,6 +38,22 @@ def write_symbol_header(
             (in_bom yes)
             (on_board yes)
         """)
+
+
+def get_all_properties(
+        component_data_list: List[Dict[str, str]]
+) -> set:
+    """
+    Get all unique properties from the component data.
+
+    Args:
+        component_data_list (List[Dict[str, str]]): List of component data.
+
+    Returns:
+        set: Set of all unique property names.
+    """
+    return set().union(
+        *(component_data.keys() for component_data in component_data_list))
 
 
 def write_property(
