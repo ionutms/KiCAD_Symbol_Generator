@@ -23,9 +23,10 @@ from typing import List, Final, Iterator, Dict, Set
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import symbol_capacitors_specs as sym_cap_spec
 import symbol_capacitor_generator as sym_cap_gen
 import footprint_capacitor_generator as ftp_cap_gen
-import symbol_capacitors_specs as sym_cap_spec
+
 from utilities import print_message_utilities as pmu
 from utilities import file_handler_utilities as utils
 
