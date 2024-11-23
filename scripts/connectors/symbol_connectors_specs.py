@@ -1,11 +1,10 @@
-"""
-Connector Series Specifications Module
+"""Connector Series Specifications Module.
 
 This module defines data structures and specifications for connector series,
 providing a framework for managing connector component information.
 """
 
-from typing import List, NamedTuple, Dict
+from typing import NamedTuple
 
 
 class SeriesSpec(NamedTuple):
@@ -28,12 +27,14 @@ class SeriesSpec(NamedTuple):
         voltage_rating: Maximum voltage rating in volts
         mounting_style: Method of mounting (e.g., Through Hole, SMD)
         contact_plating: Material used for contact plating
+
     """
+
     manufacturer: str
     base_series: str
     footprint_pattern: str
     datasheet: str
-    pin_counts: List[int]
+    pin_counts: list[int]
     trustedparts_link: str
     color: str
     pitch: float
@@ -66,7 +67,9 @@ class PartInfo(NamedTuple):
         voltage_rating: Maximum voltage rating in volts
         mounting_style: Method of mounting (e.g., Through Hole, SMD)
         contact_plating: Material used for contact plating
+
     """
+
     symbol_name: str
     reference: str
     value: str
@@ -87,13 +90,13 @@ class PartInfo(NamedTuple):
     contact_plating: str
 
 
-SERIES_SPECS: Dict[str, SeriesSpec] = {
+SERIES_SPECS: dict[str, SeriesSpec] = {
     "TBP02R1-381": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP02R1-381",
         footprint_pattern="connector_footprints:TBP02R1-381-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/" +
-        "product/resource/tbp02r1-381.pdf",
+        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
+        + "product/resource/tbp02r1-381.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -102,14 +105,14 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         current_rating=8.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin"
+        contact_plating="Tin",
     ),
     "TBP02R2-381": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP02R2-381",
         footprint_pattern="connector_footprints:TBP02R2-381-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/" +
-        "product/resource/tbp02r2-381.pdf",
+        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
+        + "product/resource/tbp02r2-381.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -118,14 +121,14 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         current_rating=8.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin"
+        contact_plating="Tin",
     ),
     "TBP04R1-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R1-500",
         footprint_pattern="connector_footprints:TBP04R1-500-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/" +
-        "product/resource/tbp04r1-500.pdf",
+        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
+        + "product/resource/tbp04r1-500.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -134,14 +137,14 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         current_rating=15.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin"
+        contact_plating="Tin",
     ),
     "TBP04R12-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R12-500",
         footprint_pattern="connector_footprints:TBP04R12-500-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/" +
-        "product/resource/tbp04r12-500.pdf",
+        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
+        + "product/resource/tbp04r12-500.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -150,14 +153,14 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         current_rating=15.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin"
+        contact_plating="Tin",
     ),
     "TBP04R2-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R2-500",
         footprint_pattern="connector_footprints:TBP04R2-500-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/" +
-        "product/resource/tbp04r2-500.pdf",
+        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
+        + "product/resource/tbp04r2-500.pdf",
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -166,14 +169,14 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         current_rating=15.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin"
+        contact_plating="Tin",
     ),
     "TBP04R3-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R3-500",
         footprint_pattern="connector_footprints:TBP04R3-500-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/" +
-        "product/resource/tbp04r3-500.pdf",
+        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
+        + "product/resource/tbp04r3-500.pdf",
         pin_counts=[2, 3, 4, 5, 6],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -182,14 +185,14 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         current_rating=15.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin"
+        contact_plating="Tin",
     ),
     "TB004-508": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TB004-508",
         footprint_pattern="connector_footprints:TB004-508-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/" +
-        "product/resource/tb004-508.pdf",
+        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
+        + "product/resource/tb004-508.pdf",
         pin_counts=list(range(2, 25)),
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -198,14 +201,14 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         current_rating=16.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin"
+        contact_plating="Tin",
     ),
     "TB006-508": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TB006-508",
         footprint_pattern="connector_footprints:TB006-508-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/" +
-        "product/resource/tb006-508.pdf",
+        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
+        + "product/resource/tb006-508.pdf",
         pin_counts=list(range(2, 25)),
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -214,7 +217,7 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         current_rating=12.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin"
+        contact_plating="Tin",
     ),
 }
 
@@ -223,8 +226,7 @@ def create_part_info(
     pin_count: int,
     specs: SeriesSpec,
 ) -> PartInfo:
-    """
-    Create complete part information.
+    """Create complete part information.
 
     Args:
         pin_count: Number of pins
@@ -232,6 +234,7 @@ def create_part_info(
 
     Returns:
         PartInfo instance with all specifications
+
     """
     mpn = generate_part_code(pin_count, specs.base_series)
     footprint = specs.footprint_pattern.format(pin_count)
@@ -255,7 +258,7 @@ def create_part_info(
         current_rating=specs.current_rating,
         voltage_rating=specs.voltage_rating,
         mounting_style=specs.mounting_style,
-        contact_plating=specs.contact_plating
+        contact_plating=specs.contact_plating,
     )
 
 
@@ -263,8 +266,7 @@ def generate_part_code(
     pin_count: int,
     series_code: str,
 ) -> str:
-    """
-    Generate connector part code based on pin count.
+    """Generate connector part code based on pin count.
 
     Args:
         pin_count: Number of pins
@@ -272,6 +274,7 @@ def generate_part_code(
 
     Returns:
         str: Part code string
+
     """
     return f"{series_code}-{pin_count:02d}BE"
 
@@ -280,8 +283,7 @@ def create_description(
     pin_count: int,
     specs: SeriesSpec,
 ) -> str:
-    """
-    Create component description with comprehensive specifications.
+    """Create component description with comprehensive specifications.
 
     Args:
         pin_count: Number of pins
@@ -289,6 +291,7 @@ def create_description(
 
     Returns:
         Formatted description string including all relevant specifications
+
     """
     parts = [
         f"{specs.manufacturer}",
@@ -300,7 +303,7 @@ def create_description(
         f"{specs.current_rating} A, ",
         f"{specs.voltage_rating} V, ",
         f"{specs.mounting_style}, ",
-        f"{specs.contact_plating} plated"
+        f"{specs.contact_plating} plated",
     ]
 
     return " ".join(parts)
