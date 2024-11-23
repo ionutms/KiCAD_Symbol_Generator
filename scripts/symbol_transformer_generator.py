@@ -71,13 +71,15 @@ def convert_pin_config(
         "left": [{
             "number": pin.number,
             "y_pos": pin.y_pos,
-            "type": pin.type,
+            "pin_type": pin.pin_type,
+            "lenght": pin.lenght,
             "hide": pin.hide
         } for pin in spec_config.left],
         "right": [{
             "number": pin.number,
             "y_pos": pin.y_pos,
-            "type": pin.type,
+            "pin_type": pin.pin_type,
+            "lenght": pin.lenght,
             "hide": pin.hide
         } for pin in spec_config.right]
     }
@@ -196,8 +198,8 @@ def write_symbol_drawing(
                 (start 2.54 {5.08 - (y_start * 2.54)})
                 (mid 1.27 {3.81 - (y_start * 2.54)})
                 (end 2.54 {2.54 - (y_start * 2.54)})
-                (stroke (width 0) (type default) )
-                (fill (type none) )
+                (stroke (width 0) (type default))
+                (fill (type none))
             )
             """)
 
@@ -207,8 +209,8 @@ def write_symbol_drawing(
             (circle
                 (center {x} {y})
                 (radius 0.508)
-                (stroke (width 0) (type default) )
-                (fill (type none) )
+                (stroke (width 0) (type default))
+                (fill (type none))
             )
             """)
 
@@ -216,48 +218,22 @@ def write_symbol_drawing(
     for x in [-0.254, 0.254]:
         symbol_file.write(f"""
             (polyline
-                (pts (xy {x} {max_y}) (xy {x} {min_y}) )
-                (stroke (width 0) (type default) )
-                (fill (type none) )
+                (pts (xy {x} {max_y}) (xy {x} {min_y}))
+                (stroke (width 0) (type default))
+                (fill (type none))
             )
             """)
-
-    # Write connection lines for active pins
-    active_pins = {
-        "left": [
-            active_pin for active_pin in pin_config["left"]
-            if active_pin["type"] == "unspecified"],
-        "right": [
-            active_pin for active_pin in pin_config["right"]
-            if active_pin["type"] == "unspecified"]
-    }
-
-    for side, pins in active_pins.items():
-        x1, x2 = (-2.54, -5.08) if side == "left" else (2.54, 5.08)
-        for pin in pins:
-            symbol_file.write(f"""
-                (polyline
-                    (pts (xy {x1} {pin["y_pos"]}) (xy {x2} {pin["y_pos"]}))
-                    (stroke (width 0) (type default))
-                    (fill (type none))
-                )
-                """)
-
-    symbol_file.write("        )\n")
-
-    # Write second unit with pins
-    symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
 
     # Write left side pins
     for pin in pin_config["left"]:
         su.write_pin(
             symbol_file, -7.62, pin["y_pos"], 0, pin["number"],
-            pin["type"], pin.get("hide", False))
+            pin["pin_type"], pin.get("hide", False), pin["lenght"])
 
     # Write right side pins
     for pin in pin_config["right"]:
         su.write_pin(
             symbol_file, 7.62, pin["y_pos"], 180, pin["number"],
-            pin["type"], pin.get("hide", False))
+            pin["pin_type"], pin.get("hide", False), pin["lenght"])
 
     symbol_file.write("        )\n")

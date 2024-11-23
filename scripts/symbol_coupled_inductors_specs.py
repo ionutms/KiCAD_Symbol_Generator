@@ -9,7 +9,37 @@ It is used to maintain a standardized database of coupled coupled inductor
 specifications and generate consistent part information.
 """
 
-from typing import List, NamedTuple, Dict
+from typing import List, NamedTuple, Dict, Optional
+
+
+class PinConfig(NamedTuple):
+    """Configuration specification for a single transformer pin.
+
+    Attributes:
+        number: Pin identifier/number as string (e.g., "1", "2")
+        y_pos: Vertical position of the pin in millimeters relative to center
+        pin_type: Pin type specification (e.g., "unspecified", "no_connect")
+        hide: Boolean flag indicating if pin should be hidden in schematic
+    """
+    number: str
+    y_pos: float
+    pin_type: str
+    lenght: float
+    hide: bool = False
+
+
+class SidePinConfig(NamedTuple):
+    """Pin configuration specification for both sides of a transformer.
+
+    Defines the complete pin layout for a transformer by specifying pins
+    on both the left and right sides of the component.
+
+    Attributes:
+        left: List of PinConfig objects for the left side pins
+        right: List of PinConfig objects for the right side pins
+    """
+    left: List[PinConfig]
+    right: List[PinConfig]
 
 
 class SeriesSpec(NamedTuple):
@@ -43,6 +73,7 @@ class SeriesSpec(NamedTuple):
     has_aec: bool = True
     max_dc_current: List[float] = []
     max_dc_resistance: List[float] = []
+    pin_config: Optional[SidePinConfig] = None
 
 
 class PartInfo(NamedTuple):
@@ -109,7 +140,17 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             4.430, 5.000, 6.800, 7.800
         ],
         value_suffix="ML",
-        trustedparts_link="https://www.trustedparts.com/en/search"
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        pin_config=SidePinConfig(
+            left=[
+                PinConfig("1", 5.08, "unspecified", 5.08),
+                PinConfig("4", -5.08, "unspecified", 5.08)
+            ],
+            right=[
+                PinConfig("3", 5.08, "unspecified", 5.08),
+                PinConfig("2", -5.08, "unspecified", 5.08)
+            ]
+        )
     ),
     "MSD1048": SeriesSpec(
         manufacturer="Coilcraft",
@@ -122,7 +163,17 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         max_dc_current=[2.1, 1.9, 1.6, 1.4, 1.2],
         max_dc_resistance=[0.053, 0.098, 0.208, 0.297, 0.387],
         value_suffix="ME",
-        trustedparts_link="https://www.trustedparts.com/en/search"
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        pin_config=SidePinConfig(
+            left=[
+                PinConfig("1", 5.08, "unspecified", 5.08),
+                PinConfig("4", -5.08, "unspecified", 5.08)
+            ],
+            right=[
+                PinConfig("3", 5.08, "unspecified", 5.08),
+                PinConfig("2", -5.08, "unspecified", 5.08)
+            ]
+        )
     ),
     "MSD1260": SeriesSpec(
         manufacturer="Coilcraft",
@@ -144,6 +195,16 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
             0.124, 0.134, 0.142, 0.174, 0.198, 0.216, 0.274, 0.322
         ],
         value_suffix="ML",
-        trustedparts_link="https://www.trustedparts.com/en/search"
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        pin_config=SidePinConfig(
+            left=[
+                PinConfig("1", 5.08, "unspecified", 5.08),
+                PinConfig("4", -5.08, "unspecified", 5.08)
+            ],
+            right=[
+                PinConfig("3", 5.08, "unspecified", 5.08),
+                PinConfig("2", -5.08, "unspecified", 5.08)
+            ]
+        )
     ),
 }
