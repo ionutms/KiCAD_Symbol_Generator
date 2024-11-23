@@ -22,12 +22,13 @@ class PinConfig(NamedTuple):
     Attributes:
         number: Pin identifier/number as string (e.g., "1", "2")
         y_pos: Vertical position of the pin in millimeters relative to center
-        type: Pin type specification (e.g., "unspecified", "no_connect")
+        pin_type: Pin type specification (e.g., "unspecified", "no_connect")
         hide: Boolean flag indicating if pin should be hidden in schematic
     """
     number: str
     y_pos: float
-    type: str
+    pin_type: str
+    lenght: float
     hide: bool = False
 
 
@@ -133,18 +134,18 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         trustedparts_link="https://www.trustedparts.com/en/search",
         pin_config=SidePinConfig(
             left=[
-                PinConfig("4", 5.08, "unspecified"),
-                PinConfig("5", 2.54, "no_connect", True),
-                PinConfig("3", 0.0, "no_connect", True),
-                PinConfig("1", -2.54, "no_connect", True),
-                PinConfig("2", -5.08, "unspecified")
+                PinConfig("4", 5.08, "unspecified", 5.08),
+                PinConfig("5", 2.54, "no_connect", 2.54, True),
+                PinConfig("3", 0.0, "no_connect", 2.54, True),
+                PinConfig("1", -2.54, "no_connect", 2.54, True),
+                PinConfig("2", -5.08, "unspecified", 5.08)
             ],
             right=[
-                PinConfig("6", 5.08, "unspecified"),
-                PinConfig("7", 2.54, "no_connect", True),
-                PinConfig("8", 0.0, "no_connect", True),
-                PinConfig("9", -2.54, "no_connect", True),
-                PinConfig("10", -5.08, "unspecified")
+                PinConfig("6", 5.08, "unspecified", 5.08),
+                PinConfig("7", 2.54, "no_connect", 2.54, True),
+                PinConfig("8", 0.0, "no_connect", 2.54, True),
+                PinConfig("9", -2.54, "no_connect", 2.54, True),
+                PinConfig("10", -5.08, "unspecified", 5.08)
             ]
         )
     ),
@@ -162,16 +163,16 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         trustedparts_link="https://www.trustedparts.com/en/search",
         pin_config=SidePinConfig(
             left=[
-                PinConfig("1", 5.08, "unspecified"),
-                PinConfig("2", 2.54, "no_connect", True),
-                PinConfig("3", -2.54, "no_connect", True),
-                PinConfig("4", -5.08, "unspecified")
+                PinConfig("1", 5.08, "unspecified", 5.08),
+                PinConfig("2", 2.54, "no_connect", 2.54, True),
+                PinConfig("3", -2.54, "no_connect", 2.54, True),
+                PinConfig("4", -5.08, "unspecified", 5.08)
             ],
             right=[
-                PinConfig("5", 5.08, "unspecified"),
-                PinConfig("6", 2.54, "no_connect", True),
-                PinConfig("7", -2.54, "no_connect", True),
-                PinConfig("8", -5.08, "unspecified")
+                PinConfig("5", 5.08, "unspecified", 5.08),
+                PinConfig("6", 2.54, "no_connect", 2.54, True),
+                PinConfig("7", -2.54, "no_connect", 2.54, True),
+                PinConfig("8", -5.08, "unspecified", 5.08)
             ]
         )
     ),
