@@ -10,8 +10,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H104KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 100 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -21,7 +41,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H104KA37K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H104KA37K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H104KA37K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -40,53 +100,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "100 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -100,47 +120,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H104KA37K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "100 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 100 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -150,8 +140,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H104KA37K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H104KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -209,8 +209,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H104KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 100 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -220,7 +240,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H104KA37L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H104KA37L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H104KA37L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -239,53 +299,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "100 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -299,47 +319,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H104KA37L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "100 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 100 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -349,8 +339,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H104KA37L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H104KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -408,8 +408,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H124KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 120 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -419,7 +439,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H124KA37K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H124KA37K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H124KA37K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -438,53 +498,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "120 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -498,47 +518,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H124KA37K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "120 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 120 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -548,8 +538,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H124KA37K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H124KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -607,8 +607,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H124KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 120 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -618,7 +638,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H124KA37L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H124KA37L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H124KA37L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -637,53 +697,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "120 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -697,47 +717,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H124KA37L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "120 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 120 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -747,8 +737,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H124KA37L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H124KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -806,8 +806,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H154KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 150 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -817,7 +837,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H154KA37K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H154KA37K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H154KA37K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -836,53 +896,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "150 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -896,47 +916,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H154KA37K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "150 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 150 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -946,8 +936,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H154KA37K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H154KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1005,8 +1005,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H154KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 150 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1016,7 +1036,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H154KA37L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H154KA37L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H154KA37L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1035,53 +1095,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "150 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1095,47 +1115,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H154KA37L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "150 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 150 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -1145,8 +1135,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H154KA37L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H154KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1204,8 +1204,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H224KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 220 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1215,7 +1235,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H224KA37K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H224KA37K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H224KA37K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1234,53 +1294,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "220 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1294,47 +1314,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H224KA37K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "220 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 220 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -1344,8 +1334,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H224KA37K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H224KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1403,8 +1403,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H224KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 220 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1414,7 +1434,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H224KA37L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H224KA37L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H224KA37L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1433,53 +1493,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "220 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1493,47 +1513,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H224KA37L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "220 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 220 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -1543,8 +1533,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H224KA37L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H224KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1602,8 +1602,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H274KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 270 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1613,7 +1633,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H274KA37K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H274KA37K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H274KA37K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1632,53 +1692,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "270 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1692,47 +1712,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H274KA37K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "270 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 270 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -1742,8 +1732,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H274KA37K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H274KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1801,8 +1801,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H274KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 270 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1812,7 +1832,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H274KA37L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H274KA37L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H274KA37L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1831,53 +1891,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "270 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -1891,47 +1911,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H274KA37L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "270 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 270 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -1941,8 +1931,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H274KA37L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H274KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2000,8 +2000,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H334KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 330 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2011,7 +2031,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H334KA37K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H334KA37K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H334KA37K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2030,53 +2090,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "330 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -2090,47 +2110,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H334KA37K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "330 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 330 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -2140,8 +2130,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H334KA37K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H334KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2199,8 +2199,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H334KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 330 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2210,7 +2230,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H334KA37L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H334KA37L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H334KA37L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2229,53 +2289,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "330 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -2289,47 +2309,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H334KA37L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "330 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 330 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -2339,8 +2329,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H334KA37L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H334KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2398,8 +2398,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H394KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 390 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2409,7 +2429,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H394KA37K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H394KA37K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H394KA37K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2428,53 +2488,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "390 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -2488,47 +2508,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H394KA37K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "390 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 390 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -2538,8 +2528,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H394KA37K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H394KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2597,8 +2597,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H394KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 390 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2608,7 +2628,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H394KA37L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H394KA37L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H394KA37L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2627,53 +2687,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "390 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -2687,47 +2707,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H394KA37L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "390 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 390 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -2737,8 +2727,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H394KA37L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H394KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2796,8 +2796,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H474KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 470 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2807,7 +2827,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H474KA37K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H474KA37K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H474KA37K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2826,53 +2886,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "470 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -2886,47 +2906,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H474KA37K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "470 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 470 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -2936,8 +2926,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H474KA37K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H474KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2995,8 +2995,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H474KA37-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 470 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3006,7 +3026,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H474KA37L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H474KA37L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H474KA37L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3025,53 +3085,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "470 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -3085,47 +3105,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H474KA37L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "470 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 470 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -3135,8 +3125,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H474KA37L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H474KA37-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3194,8 +3194,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H684KA55-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 680 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3205,7 +3225,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H684KA55K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H684KA55K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H684KA55K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3224,53 +3284,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "680 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -3284,47 +3304,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H684KA55K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "680 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 680 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -3334,8 +3324,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H684KA55K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H684KA55-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3393,8 +3393,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H684KA55-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 680 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3404,7 +3424,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H684KA55L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H684KA55L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H684KA55L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3423,53 +3483,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "680 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -3483,47 +3503,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H684KA55L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "680 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 680 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -3533,8 +3523,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H684KA55L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H684KA55-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3592,8 +3592,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H824KA55-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 820 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3603,7 +3623,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H824KA55K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H824KA55K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H824KA55K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3622,53 +3682,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "820 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -3682,47 +3702,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H824KA55K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "820 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 820 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -3732,8 +3722,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H824KA55K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H824KA55-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3791,8 +3791,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H824KA55-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 820 nF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3802,7 +3822,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H824KA55L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H824KA55L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H824KA55L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3821,53 +3881,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "820 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -3881,47 +3901,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H824KA55L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "820 nF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 820 nF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -3931,8 +3921,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H824KA55L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H824KA55-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3990,8 +3990,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H105KA55-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 1 µF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4001,7 +4021,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H105KA55K"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H105KA55K"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H105KA55K"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4020,53 +4080,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "1 µF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -4080,47 +4100,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H105KA55K"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "1 µF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 1 µF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -4130,8 +4120,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H105KA55K"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H105KA55-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4189,8 +4189,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H105KA55-01.pdf"
-            (at 0 -10.16 0)
+        (property "Description" "CAP SMD 1 µF X7R 10% 1206 50V"
+            (at 0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "3216"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4200,7 +4220,47 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM31MR71H105KA55L"
-            (at 0 -15.24 0)
+            (at 0 -20.32 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -22.86 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -25.4 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM31MR71H105KA55L"
+            (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "GCM31MR71H105KA55L"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4219,53 +4279,13 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "3216"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Series" "GCM31M"
-            (at 0 -25.4 0)
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
                 (hide yes)
-            )
-        )
-        
-        (property "Value" "1 µF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
             )
         )
         
@@ -4279,47 +4299,17 @@
             )
         )
         
-        (property "MPN" "GCM31MR71H105KA55L"
-            (at 0 -27.939999999999998 0)
-            (show_name)
+        (property "Value" "1 µF"
+            (at 0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
-        (property "Description" "CAP SMD 1 µF X7R 10% 1206 50V"
-            (at 0 -12.7 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Dielectric" "X7R"
-            (at 0 -30.479999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Murata Electronics"
+        (property "Voltage Rating" "50V"
             (at 0 -35.559999999999995 0)
             (show_name)
             (effects
@@ -4329,8 +4319,18 @@
             )
         )
         
-        (property "Symbol Name" "C_GCM31MR71H105KA55L"
+        (property "Dielectric" "X7R"
             (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM31MR71H105KA55-01.pdf"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
