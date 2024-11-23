@@ -10,46 +10,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H102KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H102KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -61,7 +21,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H102KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -80,18 +40,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H102KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -101,7 +51,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -110,8 +60,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -121,7 +71,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -130,8 +80,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "1 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H102KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -150,13 +120,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H102KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -209,46 +209,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H102KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H102KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -260,7 +220,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H102KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -279,18 +239,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H102KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -300,7 +250,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -309,8 +259,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -320,7 +270,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -329,8 +279,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "1 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H102KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -349,13 +319,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H102KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -408,46 +408,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H122KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.2 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H122KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -459,7 +419,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H122KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -478,18 +438,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H122KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -499,7 +449,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -508,8 +458,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -519,7 +469,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -528,8 +478,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "1.2 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H122KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -548,13 +518,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H122KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -607,46 +607,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H122KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.2 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H122KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -658,7 +618,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H122KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -677,18 +637,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H122KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -698,7 +648,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -707,8 +657,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -718,7 +668,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -727,8 +677,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "1.2 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H122KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -747,13 +717,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H122KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -806,46 +806,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H152KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.5 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H152KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -857,7 +817,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H152KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -876,18 +836,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H152KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -897,7 +847,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -906,8 +856,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -917,7 +867,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -926,8 +876,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "1.5 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H152KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -946,13 +916,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H152KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1005,46 +1005,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H152KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.5 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H152KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -1056,7 +1016,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H152KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1075,18 +1035,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H152KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1096,7 +1046,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1105,8 +1055,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1116,7 +1066,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1125,8 +1075,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "1.5 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H152KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1145,13 +1115,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H152KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1204,46 +1204,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H182KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.8 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H182KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -1255,7 +1215,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H182KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1274,18 +1234,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H182KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1295,7 +1245,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1304,8 +1254,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1315,7 +1265,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1324,8 +1274,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "1.8 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H182KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1344,13 +1314,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H182KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1403,46 +1403,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H182KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "1.8 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H182KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -1454,7 +1414,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H182KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1473,18 +1433,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H182KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1494,7 +1444,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1503,8 +1453,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1514,7 +1464,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1523,8 +1473,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "1.8 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H182KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1543,13 +1513,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H182KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1602,46 +1602,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H222KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "2.2 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H222KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -1653,7 +1613,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H222KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1672,18 +1632,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H222KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1693,7 +1643,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1702,8 +1652,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1713,7 +1663,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1722,8 +1672,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "2.2 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H222KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1742,13 +1712,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H222KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1801,46 +1801,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H222KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "2.2 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H222KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -1852,7 +1812,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H222KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1871,18 +1831,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H222KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1892,7 +1842,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1901,8 +1851,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1912,7 +1862,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1921,8 +1871,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "2.2 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H222KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1941,13 +1911,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H222KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2000,46 +2000,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H272KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "2.7 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H272KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -2051,7 +2011,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H272KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2070,18 +2030,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H272KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2091,7 +2041,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2100,8 +2050,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2111,7 +2061,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2120,8 +2070,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "2.7 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H272KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2140,13 +2110,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H272KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2199,46 +2199,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H272KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "2.7 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H272KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -2250,7 +2210,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H272KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2269,18 +2229,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H272KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2290,7 +2240,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2299,8 +2249,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2310,7 +2260,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2319,8 +2269,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "2.7 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H272KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2339,13 +2309,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H272KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2398,46 +2398,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H332KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "3.3 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H332KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -2449,7 +2409,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H332KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2468,18 +2428,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H332KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2489,7 +2439,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2498,8 +2448,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2509,7 +2459,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2518,8 +2468,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "3.3 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H332KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2538,13 +2508,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H332KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2597,46 +2597,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H332KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "3.3 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H332KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -2648,7 +2608,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H332KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2667,18 +2627,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H332KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2688,7 +2638,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2697,8 +2647,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2708,7 +2658,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2717,8 +2667,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "3.3 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H332KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2737,13 +2707,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H332KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2796,46 +2796,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H392KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "3.9 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H392KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -2847,7 +2807,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H392KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2866,18 +2826,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H392KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2887,7 +2837,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2896,8 +2846,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2907,7 +2857,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2916,8 +2866,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "3.9 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H392KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2936,13 +2906,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H392KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2995,46 +2995,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H392KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "3.9 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H392KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -3046,7 +3006,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H392KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3065,18 +3025,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H392KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3086,7 +3036,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3095,8 +3045,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3106,7 +3056,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3115,8 +3065,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "3.9 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H392KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3135,13 +3105,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H392KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3194,46 +3194,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H472KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "4.7 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H472KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -3245,7 +3205,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H472KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3264,18 +3224,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H472KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3285,7 +3235,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3294,8 +3244,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3305,7 +3255,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3314,8 +3264,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "4.7 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H472KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3334,13 +3304,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H472KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3393,46 +3393,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H472KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "4.7 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H472KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -3444,7 +3404,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H472KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3463,18 +3423,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H472KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3484,7 +3434,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3493,8 +3443,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3504,7 +3454,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3513,8 +3463,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "4.7 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H472KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3533,13 +3503,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H472KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3592,46 +3592,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H562KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "5.6 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H562KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -3643,7 +3603,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H562KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3662,18 +3622,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H562KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3683,7 +3633,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3692,8 +3642,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3703,7 +3653,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3712,8 +3662,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "5.6 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H562KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3732,13 +3702,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H562KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3791,46 +3791,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H562KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "5.6 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H562KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -3842,7 +3802,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H562KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3861,18 +3821,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H562KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3882,7 +3832,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3891,8 +3841,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3902,7 +3852,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3911,8 +3861,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "5.6 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H562KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3931,13 +3901,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H562KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3990,46 +3990,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H682KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "6.8 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H682KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -4041,7 +4001,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H682KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4060,18 +4020,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H682KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4081,7 +4031,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4090,8 +4040,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4101,7 +4051,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4110,8 +4060,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "6.8 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H682KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4130,13 +4100,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H682KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4189,46 +4189,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H682KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "6.8 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H682KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -4240,7 +4200,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H682KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4259,18 +4219,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H682KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4280,7 +4230,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4289,8 +4239,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4300,7 +4250,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4309,8 +4259,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "6.8 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H682KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4329,13 +4299,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H682KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4388,46 +4388,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H822KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "8.2 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H822KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -4439,7 +4399,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H822KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4458,18 +4418,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H822KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4479,7 +4429,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4488,8 +4438,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4499,7 +4449,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4508,8 +4458,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "8.2 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H822KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4528,13 +4498,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H822KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4587,46 +4587,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H822KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "8.2 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H822KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -4638,7 +4598,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H822KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4657,18 +4617,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H822KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4678,7 +4628,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4687,8 +4637,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4698,7 +4648,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4707,8 +4657,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "8.2 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H822KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4727,13 +4697,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H822KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4786,46 +4786,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H103KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "10 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H103KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -4837,7 +4797,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H103KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4856,18 +4816,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H103KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4877,7 +4827,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4886,8 +4836,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4897,7 +4847,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4906,8 +4856,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "10 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H103KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4926,13 +4896,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H103KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4985,46 +4985,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H103KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "10 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H103KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -5036,7 +4996,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H103KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5055,18 +5015,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H103KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5076,7 +5026,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5085,8 +5035,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5096,7 +5046,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5105,8 +5055,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "10 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H103KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5125,13 +5095,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H103KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -5184,46 +5184,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H123KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "12 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H123KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -5235,7 +5195,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H123KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5254,18 +5214,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H123KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5275,7 +5225,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5284,8 +5234,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5295,7 +5245,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5304,8 +5254,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "12 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H123KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5324,13 +5294,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H123KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -5383,46 +5383,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H123KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "12 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H123KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -5434,7 +5394,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H123KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5453,18 +5413,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H123KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5474,7 +5424,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5483,8 +5433,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5494,7 +5444,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5503,8 +5453,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "12 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H123KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5523,13 +5493,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H123KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -5582,46 +5582,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H153KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "15 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H153KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -5633,7 +5593,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H153KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5652,18 +5612,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H153KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5673,7 +5623,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5682,8 +5632,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5693,7 +5643,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5702,8 +5652,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "15 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H153KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5722,13 +5692,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H153KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -5781,46 +5781,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H153KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "15 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H153KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -5832,7 +5792,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H153KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5851,18 +5811,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H153KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5872,7 +5822,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5881,8 +5831,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5892,7 +5842,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5901,8 +5851,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "15 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H153KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5921,13 +5891,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H153KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -5980,46 +5980,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H183KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "18 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H183KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -6031,7 +5991,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H183KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6050,18 +6010,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H183KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6071,7 +6021,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6080,8 +6030,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6091,7 +6041,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6100,8 +6050,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "18 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H183KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6120,13 +6090,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H183KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -6179,46 +6179,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H183KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "18 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H183KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -6230,7 +6190,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H183KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6249,18 +6209,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H183KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6270,7 +6220,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6279,8 +6229,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6290,7 +6240,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6299,8 +6249,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "18 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H183KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6319,13 +6289,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H183KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -6378,46 +6378,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H223KA37D"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "22 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H223KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -6429,7 +6389,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H223KA37D"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6448,18 +6408,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H223KA37D"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6469,7 +6419,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6478,8 +6428,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6489,7 +6439,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6498,8 +6448,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "22 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H223KA37D"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6518,13 +6488,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H223KA37D"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -6577,46 +6577,6 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Dielectric" "X7R"
-            (at 0 -15.24 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Case Code - mm" "2012"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "C_GCM216R71H223KA37J"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Value" "22 nF"
-            (at 0 -5.08 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
         (property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM216R71H223KA37-01.pdf"
             (at 0 -10.16 0)
             (show_name)
@@ -6628,7 +6588,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/GCM216R71H223KA37J"
-            (at 0 -22.86 0)
+            (at 0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6647,18 +6607,8 @@
             )
         )
         
-        (property "MPN" "GCM216R71H223KA37J"
-            (at 0 -25.4 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "10%"
-            (at 0 -27.939999999999998 0)
+        (property "Case Code - in" "0805"
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6668,7 +6618,7 @@
         )
         
         (property "Voltage Rating" "50V"
-            (at 0 -30.479999999999997 0)
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6677,8 +6627,8 @@
             )
         )
         
-        (property "Manufacturer" "Murata Electronics"
-            (at 0 -33.019999999999996 0)
+        (property "Case Code - mm" "2012"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6688,7 +6638,7 @@
         )
         
         (property "Series" "GCM216"
-            (at 0 -35.559999999999995 0)
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6697,8 +6647,28 @@
             )
         )
         
-        (property "Case Code - in" "0805"
-            (at 0 -38.099999999999994 0)
+        (property "Value" "22 nF"
+            (at 0 -5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "MPN" "GCM216R71H223KA37J"
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6717,13 +6687,43 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Dielectric" "X7R"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Murata Electronics"
+            (at 0 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "C_GCM216R71H223KA37J"
+            (at 0 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
