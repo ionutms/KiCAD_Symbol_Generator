@@ -5,14 +5,20 @@ Generates part numbers and specifications for connector series
 with different pin counts.
 Generates both individual series files and unified component database.
 """
+import sys
+import os
 
 import csv
 from typing import Final, List
-from print_message_utilities import print_error, print_info, print_success
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import symbol_connector_generator as sym_con_gen
 import footprint_connector_generator as ftp_con_gen
 import symbol_connectors_specs as sym_con_spec
-import file_handler_utilities as utils
+
+from utilities import print_message_utilities as pmu
+from utilities import file_handler_utilities as utils
 
 
 def generate_part_numbers(
@@ -95,7 +101,7 @@ def generate_files_for_series(
     # Generate part numbers and write to CSV
     parts_list = generate_part_numbers(specs)
     utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
-    print_success(
+    pmu.print_success(
         f"Generated {len(parts_list)} part numbers in '{csv_filename}'")
 
     # Generate KiCad symbol file
@@ -103,27 +109,27 @@ def generate_files_for_series(
         sym_con_gen.generate_kicad_symbol(
             f'data/{csv_filename}',
             f'series_kicad_sym/{symbol_filename}')
-        print_success(
+        pmu.print_success(
             f"KiCad symbol file '{symbol_filename}' generated successfully.")
     except FileNotFoundError as file_error:
-        print_error(f"CSV file not found: {file_error}")
+        pmu.print_error(f"CSV file not found: {file_error}")
     except csv.Error as csv_error:
-        print_error(f"CSV processing error: {csv_error}")
+        pmu.print_error(f"CSV processing error: {csv_error}")
     except IOError as io_error:
-        print_error(f"I/O error when generating KiCad symbol file: {io_error}")
+        pmu.print_error(f"I/O error when generating KiCad symbol file: {io_error}")
 
     # Generate KiCad footprint files
     try:
         for part in parts_list:
             ftp_con_gen.generate_footprint_file(part)
             footprint_name = f"{part.mpn}.kicad_mod"
-            print_success(
+            pmu.print_success(
                 "KiCad footprint file "
                 f"{footprint_name}' generated successfully.")
     except ValueError as val_error:
-        print_error(f"Invalid connector specification: {val_error}")
+        pmu.print_error(f"Invalid connector specification: {val_error}")
     except IOError as io_error:
-        print_error(f"I/O error when generating footprint file: {io_error}")
+        pmu.print_error(f"I/O error when generating footprint file: {io_error}")
 
     # Add parts to unified list
     unified_parts_list.extend(parts_list)
@@ -148,20 +154,20 @@ def generate_unified_files(
     """
     # Write unified CSV file
     utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
-    print_success(
+    pmu.print_success(
         f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file
     try:
         sym_con_gen.generate_kicad_symbol(
             f'data/{unified_csv}', f'symbols/{unified_symbol}')
-        print_success("Unified KiCad symbol file generated successfully.")
+        pmu.print_success("Unified KiCad symbol file generated successfully.")
     except FileNotFoundError as e:
-        print_error(f"Unified CSV file not found: {e}")
+        pmu.print_error(f"Unified CSV file not found: {e}")
     except csv.Error as e:
-        print_error(f"CSV processing error for unified file: {e}")
+        pmu.print_error(f"CSV processing error for unified file: {e}")
     except IOError as e:
-        print_error(
+        pmu.print_error(
             f"I/O error when generating unified KiCad symbol file: {e}")
 
 
@@ -170,14 +176,14 @@ if __name__ == "__main__":
         unified_parts: List[sym_con_spec.PartInfo] = []
 
         for series in sym_con_spec.SERIES_SPECS:
-            print_info(f"\nGenerating files for {series} series:")
+            pmu.print_info(f"\nGenerating files for {series} series:")
             generate_files_for_series(series, unified_parts)
 
         # Generate unified files after all series are processed
         UNIFIED_CSV = "UNITED_CONNECTORS_DATA_BASE.csv"
         UNIFIED_SYMBOL = "UNITED_CONNECTORS_DATA_BASE.kicad_sym"
-        print_info("\nGenerating unified files:")
+        pmu.print_info("\nGenerating unified files:")
         generate_unified_files(unified_parts, UNIFIED_CSV, UNIFIED_SYMBOL)
 
     except (ValueError, csv.Error, IOError) as error:
-        print_error(f"Error generating files: {error}")
+        pmu.print_error(f"Error generating files: {error}")
