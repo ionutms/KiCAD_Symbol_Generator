@@ -5,8 +5,9 @@ Modified to match specific pin and field positioning requirements.
 """
 
 from typing import List, Dict, TextIO
-import symbol_utils as su
-import file_handler_utilities as fhu
+
+from utilities import symbol_utils as su
+from utilities import file_handler_utilities as fhu
 
 
 def generate_kicad_symbol(
