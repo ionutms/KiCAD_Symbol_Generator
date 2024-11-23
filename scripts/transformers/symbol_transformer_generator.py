@@ -20,8 +20,9 @@ Dependencies:
 
 from typing import List, Dict, TextIO
 from symbol_transformer_specs import SERIES_SPECS, SidePinConfig
-import symbol_utils as su
-import file_handler_utilities as fhu
+
+from utilities import symbol_utils as su
+from utilities import file_handler_utilities as fhu
 
 
 def generate_kicad_symbol(
