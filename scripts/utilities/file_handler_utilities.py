@@ -4,7 +4,7 @@ import os
 import csv
 from typing import Dict, List, Final, NamedTuple
 
-from print_message_utilities import print_info
+from .print_message_utilities import print_info
 
 
 def write_to_csv(
