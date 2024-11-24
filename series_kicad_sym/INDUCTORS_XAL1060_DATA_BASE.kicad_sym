@@ -10,8 +10,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "180 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1060"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -30,36 +50,6 @@
             )
         )
         
-        (property "MPN" "XAL1060-181ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-181ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 180 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -70,8 +60,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "46.0"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL1060-181ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -80,13 +70,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "46.0"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.550"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1060"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -100,17 +120,7 @@
             )
         )
         
-        (property "Value" "180 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL1060"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -120,18 +130,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.550"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-181ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1060"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -217,8 +217,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "400 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1060"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -237,36 +257,6 @@
             )
         )
         
-        (property "MPN" "XAL1060-401ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-401ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 400 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -277,8 +267,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "36.8"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL1060-401ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -287,13 +277,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "36.8"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.880"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1060"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -307,17 +327,7 @@
             )
         )
         
-        (property "Value" "400 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL1060"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -327,18 +337,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.880"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-401ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1060"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -424,8 +424,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "680 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1060"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -444,36 +464,6 @@
             )
         )
         
-        (property "MPN" "XAL1060-681ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-681ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 680 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -484,8 +474,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "33.9"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL1060-681ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -494,13 +484,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "33.9"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.500"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1060"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -514,17 +534,7 @@
             )
         )
         
-        (property "Value" "680 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL1060"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -534,18 +544,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "1.500"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-681ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1060"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -631,8 +631,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1060"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -651,36 +671,6 @@
             )
         )
         
-        (property "MPN" "XAL1060-122ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-122ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 1.2 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -691,8 +681,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "26.3"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL1060-122ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -701,13 +691,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "26.3"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "2.750"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1060"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -721,17 +741,7 @@
             )
         )
         
-        (property "Value" "1.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL1060"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -741,18 +751,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "2.750"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-122ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1060"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -838,8 +838,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.5 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1060"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -858,36 +878,6 @@
             )
         )
         
-        (property "MPN" "XAL1060-152ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-152ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 1.5 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -898,8 +888,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "24.4"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL1060-152ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -908,13 +898,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "24.4"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "3.300"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1060"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -928,17 +948,7 @@
             )
         )
         
-        (property "Value" "1.5 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL1060"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -948,18 +958,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "3.300"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-152ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1060"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1045,8 +1045,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "2.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1060"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1065,36 +1085,6 @@
             )
         )
         
-        (property "MPN" "XAL1060-222ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-222ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 2.2 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -1105,8 +1095,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "20.0"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL1060-222ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1115,13 +1105,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "20.0"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "4.950"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1060"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1135,17 +1155,7 @@
             )
         )
         
-        (property "Value" "2.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL1060"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1155,18 +1165,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "4.950"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-222ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1060"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1252,8 +1252,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "3.3 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1060"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1272,36 +1292,6 @@
             )
         )
         
-        (property "MPN" "XAL1060-332ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-332ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 3.3 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -1312,8 +1302,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "16.8"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL1060-332ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1322,13 +1312,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "16.8"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "7.920"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1060"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1342,17 +1362,7 @@
             )
         )
         
-        (property "Value" "3.3 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL1060"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1362,18 +1372,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "7.920"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-332ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1060"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1459,8 +1459,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "4.7 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1060"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1479,36 +1499,6 @@
             )
         )
         
-        (property "MPN" "XAL1060-472ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-472ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 4.7 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -1519,8 +1509,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "14.0"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL1060-472ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1529,13 +1519,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "14.0"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "10.720"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL1060"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1549,17 +1569,7 @@
             )
         )
         
-        (property "Value" "4.7 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL1060"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1569,18 +1579,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "10.720"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL1060-472ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL1060"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))

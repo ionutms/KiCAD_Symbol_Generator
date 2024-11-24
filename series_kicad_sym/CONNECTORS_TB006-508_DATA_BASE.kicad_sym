@@ -10,88 +10,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-02BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-02BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-02BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -110,36 +40,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  2 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-02BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -150,8 +50,8 @@
             )
         )
         
-        (property "Pin Count" "2"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -161,6 +61,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  2 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-02BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "2"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-02BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-02BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -170,17 +180,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -223,88 +223,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-03BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-03BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-03BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -323,36 +253,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  3 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-03BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -363,8 +263,8 @@
             )
         )
         
-        (property "Pin Count" "3"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -374,6 +274,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  3 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-03BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "3"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-03BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-03BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -383,17 +393,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -444,88 +444,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-04BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-04BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-04BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -544,36 +474,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  4 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-04BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -584,8 +484,8 @@
             )
         )
         
-        (property "Pin Count" "4"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -595,6 +495,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  4 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-04BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "4"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-04BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-04BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -604,17 +614,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -673,88 +673,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-05BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-05BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-05BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -773,36 +703,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  5 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-05BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -813,8 +713,8 @@
             )
         )
         
-        (property "Pin Count" "5"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -824,6 +724,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  5 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-05BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "5"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-05BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-05BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -833,17 +843,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -910,88 +910,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-06BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-06BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-06BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1010,36 +940,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  6 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-06BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -1050,8 +950,8 @@
             )
         )
         
-        (property "Pin Count" "6"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1061,6 +961,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  6 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-06BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "6"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-06BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-06BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -1070,17 +1080,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -1155,88 +1155,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-07BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-07BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-07BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1255,36 +1185,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  7 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-07BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -1295,8 +1195,8 @@
             )
         )
         
-        (property "Pin Count" "7"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1306,6 +1206,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  7 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-07BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "7"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-07BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-07BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -1315,17 +1325,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -1408,88 +1408,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-08BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-08BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-08BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1508,36 +1438,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  8 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-08BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -1548,8 +1448,8 @@
             )
         )
         
-        (property "Pin Count" "8"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1559,6 +1459,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  8 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-08BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "8"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-08BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-08BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -1568,17 +1578,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -1669,88 +1669,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-09BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-09BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-09BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1769,36 +1699,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  9 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-09BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -1809,8 +1709,8 @@
             )
         )
         
-        (property "Pin Count" "9"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1820,6 +1720,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  9 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-09BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "9"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-09BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-09BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -1829,17 +1839,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -1938,88 +1938,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-10BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-10BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-10BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2038,36 +1968,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  10 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-10BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -2078,8 +1978,8 @@
             )
         )
         
-        (property "Pin Count" "10"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2089,6 +1989,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  10 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-10BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "10"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-10BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-10BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -2098,17 +2108,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -2215,88 +2215,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-11BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-11BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-11BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2315,36 +2245,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  11 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-11BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -2355,8 +2255,8 @@
             )
         )
         
-        (property "Pin Count" "11"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2366,6 +2266,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  11 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-11BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "11"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-11BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-11BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -2375,17 +2385,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -2500,88 +2500,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-12BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-12BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-12BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2600,36 +2530,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  12 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-12BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -2640,8 +2540,8 @@
             )
         )
         
-        (property "Pin Count" "12"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2651,6 +2551,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  12 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-12BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "12"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-12BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-12BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -2660,17 +2670,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -2793,88 +2793,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-13BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-13BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-13BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2893,36 +2823,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  13 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-13BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -2933,8 +2833,8 @@
             )
         )
         
-        (property "Pin Count" "13"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2944,6 +2844,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  13 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-13BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "13"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-13BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-13BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -2953,17 +2963,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -3094,88 +3094,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-14BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-14BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-14BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3194,36 +3124,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  14 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-14BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -3234,8 +3134,8 @@
             )
         )
         
-        (property "Pin Count" "14"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3245,6 +3145,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  14 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-14BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "14"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-14BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-14BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -3254,17 +3264,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -3403,88 +3403,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-15BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-15BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-15BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3503,36 +3433,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  15 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-15BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -3543,8 +3443,8 @@
             )
         )
         
-        (property "Pin Count" "15"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3554,6 +3454,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  15 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-15BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "15"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-15BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-15BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -3563,17 +3573,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -3720,88 +3720,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-16BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-16BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-16BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3820,36 +3750,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  16 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-16BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -3860,8 +3760,8 @@
             )
         )
         
-        (property "Pin Count" "16"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3871,6 +3771,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  16 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-16BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "16"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-16BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-16BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -3880,17 +3890,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -4045,88 +4045,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-17BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-17BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-17BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4145,36 +4075,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  17 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-17BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -4185,8 +4085,8 @@
             )
         )
         
-        (property "Pin Count" "17"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4196,6 +4096,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  17 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-17BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "17"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-17BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-17BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -4205,17 +4215,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -4378,88 +4378,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-18BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-18BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-18BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4478,36 +4408,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  18 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-18BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -4518,8 +4418,8 @@
             )
         )
         
-        (property "Pin Count" "18"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4529,6 +4429,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  18 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-18BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "18"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-18BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-18BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -4538,17 +4548,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -4719,88 +4719,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-19BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-19BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-19BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4819,36 +4749,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  19 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-19BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -4859,8 +4759,8 @@
             )
         )
         
-        (property "Pin Count" "19"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4870,6 +4770,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  19 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-19BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "19"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-19BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-19BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -4879,17 +4889,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -5068,88 +5068,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-20BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-20BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-20BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5168,36 +5098,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  20 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-20BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -5208,8 +5108,8 @@
             )
         )
         
-        (property "Pin Count" "20"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5219,6 +5119,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  20 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-20BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "20"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-20BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-20BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -5228,17 +5238,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -5425,88 +5425,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-21BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-21BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-21BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5525,36 +5455,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  21 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-21BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -5565,8 +5465,8 @@
             )
         )
         
-        (property "Pin Count" "21"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5576,6 +5476,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  21 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-21BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "21"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-21BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-21BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -5585,17 +5595,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -5790,88 +5790,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-22BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-22BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-22BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5890,36 +5820,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  22 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-22BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -5930,8 +5830,8 @@
             )
         )
         
-        (property "Pin Count" "22"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -5941,6 +5841,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  22 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-22BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "22"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-22BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-22BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -5950,17 +5960,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -6163,88 +6163,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-23BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-23BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-23BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6263,36 +6193,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  23 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-23BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -6303,8 +6203,8 @@
             )
         )
         
-        (property "Pin Count" "23"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6314,6 +6214,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  23 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-23BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "23"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-23BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-23BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -6323,17 +6333,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -6544,88 +6544,18 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Same Sky"
-            (at 5.08 -12.7 0)
-            (show_name)
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "5.08"
-            (at 5.08 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Series" "TB006-508"
-            (at 5.08 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
-            (at 5.08 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Angle" "Vertical"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating (V)" "300"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Value" "TB006-508-24BE"
             (at 5.08 -2.54 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-24BE"
-            (at 5.08 -27.939999999999994 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "TB006-508-24BE"
-            (at 5.08 -30.479999999999993 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6644,36 +6574,6 @@
             )
         )
         
-        (property "Description" "Same Sky TB006-508 series,  24 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Symbol Name" "J_TB006-508-24BE"
-            (at 5.08 -33.019999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "12.0"
-            (at 5.08 -35.559999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Datasheet" "https://www.sameskydevices.com/product/resource/tb006-508.pdf"
             (at 5.08 -7.62 0)
             (show_name)
@@ -6684,8 +6584,8 @@
             )
         )
         
-        (property "Pin Count" "24"
-            (at 5.08 -38.099999999999994 0)
+        (property "Color" "Blue"
+            (at 5.08 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -6695,6 +6595,116 @@
         )
         
         (property "Contact Plating" "Tin"
+            (at 5.08 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "12.0"
+            (at 5.08 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TB006-508 series,  24 positions connector,  5.08 mm pitch,  Blue,  Vertical mounting,  12.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "TB006-508-24BE"
+            (at 5.08 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Same Sky"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Mounting Style" "Through Hole"
+            (at 5.08 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pin Count" "24"
+            (at 5.08 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Pitch (mm)" "5.08"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "TB006-508"
+            (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "J_TB006-508-24BE"
+            (at 5.08 -38.099999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TB006-508-24BE"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -6704,17 +6714,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Color" "Blue"
+        (property "Voltage Rating (V)" "300"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects

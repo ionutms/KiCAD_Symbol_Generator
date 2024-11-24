@@ -10,8 +10,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "8.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL4040"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -30,36 +50,6 @@
             )
         )
         
-        (property "MPN" "XAL4040-822ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL4040-822ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 8.2 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -70,8 +60,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "3.4"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL4040-822ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -80,13 +70,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "3.4"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "66.900"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL4040"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -100,17 +120,7 @@
             )
         )
         
-        (property "Value" "8.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL4040"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -120,18 +130,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "66.900"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL4040-822ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL4040"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -217,8 +217,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "10 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL4040"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -237,36 +257,6 @@
             )
         )
         
-        (property "MPN" "XAL4040-103ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL4040-103ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 10 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -277,8 +267,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "3.1"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL4040-103ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -287,13 +277,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "3.1"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "92.400"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL4040"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -307,17 +327,7 @@
             )
         )
         
-        (property "Value" "10 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL4040"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -327,18 +337,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "92.400"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL4040-103ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL4040"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -424,8 +424,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "15 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL4040"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -444,36 +464,6 @@
             )
         )
         
-        (property "MPN" "XAL4040-153ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL4040-153ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 15 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -484,8 +474,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "2.8"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XAL4040-153ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -494,13 +484,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "2.8"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "120.000"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XAL4040"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -514,17 +534,7 @@
             )
         )
         
-        (property "Value" "15 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XAL4040"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -534,18 +544,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "120.000"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XAL4040-153ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XAL4040"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))

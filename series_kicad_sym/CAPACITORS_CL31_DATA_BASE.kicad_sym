@@ -10,23 +10,13 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Tolerance" "10%"
-            (at 0 -15.24 0)
-            (show_name)
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
@@ -40,28 +30,38 @@
             )
         )
         
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B474KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
         (property "Case Code - mm" "3216"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B474KBHNNN#"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -80,8 +80,8 @@
             )
         )
         
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 0 -7.62 0)
+        (property "Dielectric" "X7R"
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -90,8 +90,8 @@
             )
         )
         
-        (property "Symbol Name" "C_CL31B474KBHNNN#"
-            (at 0 -27.939999999999998 0)
+        (property "MPN" "CL31B474KBHNNN#"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -100,8 +100,8 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -30.479999999999997 0)
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -111,7 +111,7 @@
         )
         
         (property "Series" "CL31"
-            (at 0 -33.019999999999996 0)
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -120,18 +120,18 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Symbol Name" "C_CL31B474KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B474KBHNNN#"
-            (at 0 -10.16 0)
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -150,7 +150,7 @@
             )
         )
         
-        (property "Dielectric" "X7R"
+        (property "Voltage Rating" "50V"
             (at 0 -38.099999999999994 0)
             (show_name)
             (effects
@@ -209,23 +209,13 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Tolerance" "10%"
-            (at 0 -15.24 0)
-            (show_name)
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
@@ -239,28 +229,38 @@
             )
         )
         
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B105KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
         (property "Case Code - mm" "3216"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B105KBHNNN#"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -279,8 +279,8 @@
             )
         )
         
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 0 -7.62 0)
+        (property "Dielectric" "X7R"
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -289,8 +289,8 @@
             )
         )
         
-        (property "Symbol Name" "C_CL31B105KBHNNN#"
-            (at 0 -27.939999999999998 0)
+        (property "MPN" "CL31B105KBHNNN#"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -299,8 +299,8 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -30.479999999999997 0)
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -310,7 +310,7 @@
         )
         
         (property "Series" "CL31"
-            (at 0 -33.019999999999996 0)
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -319,18 +319,18 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Symbol Name" "C_CL31B105KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B105KBHNNN#"
-            (at 0 -10.16 0)
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -349,7 +349,7 @@
             )
         )
         
-        (property "Dielectric" "X7R"
+        (property "Voltage Rating" "50V"
             (at 0 -38.099999999999994 0)
             (show_name)
             (effects
@@ -408,23 +408,13 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Tolerance" "10%"
-            (at 0 -15.24 0)
-            (show_name)
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
@@ -438,28 +428,38 @@
             )
         )
         
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B225KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
         (property "Case Code - mm" "3216"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B225KBHNNN#"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -478,8 +478,8 @@
             )
         )
         
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 0 -7.62 0)
+        (property "Dielectric" "X7R"
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -488,8 +488,8 @@
             )
         )
         
-        (property "Symbol Name" "C_CL31B225KBHNNN#"
-            (at 0 -27.939999999999998 0)
+        (property "MPN" "CL31B225KBHNNN#"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -498,8 +498,8 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -30.479999999999997 0)
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -509,7 +509,7 @@
         )
         
         (property "Series" "CL31"
-            (at 0 -33.019999999999996 0)
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -518,18 +518,18 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Symbol Name" "C_CL31B225KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B225KBHNNN#"
-            (at 0 -10.16 0)
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -548,7 +548,7 @@
             )
         )
         
-        (property "Dielectric" "X7R"
+        (property "Voltage Rating" "50V"
             (at 0 -38.099999999999994 0)
             (show_name)
             (effects
@@ -607,23 +607,13 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Tolerance" "10%"
-            (at 0 -15.24 0)
-            (show_name)
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
@@ -637,28 +627,38 @@
             )
         )
         
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B475KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
         (property "Case Code - mm" "3216"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B475KBHNNN#"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -677,8 +677,8 @@
             )
         )
         
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 0 -7.62 0)
+        (property "Dielectric" "X7R"
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -687,8 +687,8 @@
             )
         )
         
-        (property "Symbol Name" "C_CL31B475KBHNNN#"
-            (at 0 -27.939999999999998 0)
+        (property "MPN" "CL31B475KBHNNN#"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -697,8 +697,8 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -30.479999999999997 0)
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -708,7 +708,7 @@
         )
         
         (property "Series" "CL31"
-            (at 0 -33.019999999999996 0)
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -717,18 +717,18 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Symbol Name" "C_CL31B475KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B475KBHNNN#"
-            (at 0 -10.16 0)
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -747,7 +747,7 @@
             )
         )
         
-        (property "Dielectric" "X7R"
+        (property "Voltage Rating" "50V"
             (at 0 -38.099999999999994 0)
             (show_name)
             (effects
@@ -806,23 +806,13 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Tolerance" "10%"
-            (at 0 -15.24 0)
-            (show_name)
+        (property "Reference" "C"
+            (at 0 5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Voltage Rating" "50V"
-            (at 0 -17.78 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
+                
             )
         )
         
@@ -836,28 +826,38 @@
             )
         )
         
+        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
+            (at 0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B106KBHNNN#"
+            (at 0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "1206"
+            (at 0 -15.24 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
         (property "Case Code - mm" "3216"
-            (at 0 -20.32 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Manufacturer" "Samsung Electro-Mechanics"
-            (at 0 -22.86 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "MPN" "CL31B106KBHNNN#"
-            (at 0 -25.4 0)
+            (at 0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -876,8 +876,8 @@
             )
         )
         
-        (property "Footprint" "capacitor_footprints:C_1206_3216Metric"
-            (at 0 -7.62 0)
+        (property "Dielectric" "X7R"
+            (at 0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -886,8 +886,8 @@
             )
         )
         
-        (property "Symbol Name" "C_CL31B106KBHNNN#"
-            (at 0 -27.939999999999998 0)
+        (property "MPN" "CL31B106KBHNNN#"
+            (at 0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -896,8 +896,8 @@
             )
         )
         
-        (property "Case Code - in" "1206"
-            (at 0 -30.479999999999997 0)
+        (property "Manufacturer" "Samsung Electro-Mechanics"
+            (at 0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -907,7 +907,7 @@
         )
         
         (property "Series" "CL31"
-            (at 0 -33.019999999999996 0)
+            (at 0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -916,18 +916,18 @@
             )
         )
         
-        (property "Reference" "C"
-            (at 0 5.08 0)
-            
+        (property "Symbol Name" "C_CL31B106KBHNNN#"
+            (at 0 -30.479999999999997 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
             )
         )
         
-        (property "Datasheet" "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=CL31B106KBHNNN#"
-            (at 0 -10.16 0)
+        (property "Tolerance" "10%"
+            (at 0 -33.019999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -946,7 +946,7 @@
             )
         )
         
-        (property "Dielectric" "X7R"
+        (property "Voltage Rating" "50V"
             (at 0 -38.099999999999994 0)
             (show_name)
             (effects
