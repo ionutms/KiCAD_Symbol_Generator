@@ -32,7 +32,7 @@ def generate_footprint(part_info: scis.PartInfo, specs: InductorSpecs) -> str:
         generate_properties(part_info, specs),
         generate_shapes(specs),
         generate_pads(specs),
-        generate_3d_model(part_info),
+        fu.associate_3d_model(part_info.series),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
@@ -227,18 +227,6 @@ def generate_pads(specs: InductorSpecs) -> str:
         )
 
     return "\n".join(pads)
-
-
-def generate_3d_model(part_info: scis.PartInfo) -> str:
-    """Generate the 3D model section of the footprint."""
-    return (
-        f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
-        f'{part_info.series}.step"\n'
-        "        (offset (xyz 0 0 0))\n"
-        "        (scale (xyz 1 1 1))\n"
-        "        (rotate (xyz 0 0 0))\n"
-        "    )"
-    )
 
 
 def generate_footprint_file(
