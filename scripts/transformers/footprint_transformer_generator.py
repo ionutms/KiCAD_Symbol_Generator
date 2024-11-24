@@ -1,5 +1,4 @@
-"""
-KiCad Footprint Generator for Power Transformers
+"""KiCad Footprint Generator for Power Transformers.
 
 Generates standardized KiCad footprint files (.kicad_mod) for power
 transformers based on manufacturer specifications.
@@ -7,14 +6,15 @@ Creates accurate footprints with appropriate pad dimensions, clearances, and
 silkscreen markings for surface mount power transformers with multiple pins.
 """
 
-from typing import List, Tuple
+from pathlib import Path
 from uuid import uuid4
+
 import symbol_transformer_specs as sti
 from footprint_transformer_specs import TRANSFORMER_SPECS, TransformerSpecs
 
 
 def generate_footprint(
-        part_info: sti.PartInfo, specs: TransformerSpecs
+        part_info: sti.PartInfo, specs: TransformerSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a transformer."""
     sections = [
@@ -23,7 +23,7 @@ def generate_footprint(
         generate_shapes(specs),
         generate_pads(specs),
         generate_3d_model(part_info),
-        ")"  # Close the footprint
+        ")",  # Close the footprint
     ]
     return "\n".join(sections)
 
@@ -43,17 +43,17 @@ def generate_header(model_name: str) -> str:
 
 
 def generate_properties(
-        part_info: sti.PartInfo, specs: TransformerSpecs
+        part_info: sti.PartInfo, specs: TransformerSpecs,
 ) -> str:
     """Generate the properties section of the footprint."""
     font_props = (
-        '        (effects\n'
-        '            (font\n'
-        '                (size 0.762 0.762)\n'
-        '                (thickness 0.1524)\n'
-        '            )\n'
-        '            (justify left)\n'
-        '        )'
+        "        (effects\n"
+        "            (font\n"
+        "                (size 0.762 0.762)\n"
+        "                (thickness 0.1524)\n"
+        "            )\n"
+        "            (justify left)\n"
+        "        )"
     )
 
     ref_offset_y = specs.ref_offset_y
@@ -98,8 +98,8 @@ def generate_shapes(specs: TransformerSpecs) -> str:
     shapes = []
 
     # Silkscreen lines
-    for symbol in ['-', '']:
-        shapes.append(
+    for symbol in ["-", ""]:
+        shapes.append(  # noqa: PERF401
             '    (fp_line\n'
             '        (start '
             f'{silkscreen_x} '
@@ -113,7 +113,7 @@ def generate_shapes(specs: TransformerSpecs) -> str:
             '        )\n'
             '        (layer "F.SilkS")\n'
             f'        (uuid "{uuid4()}")\n'
-            '    )'
+            '    )',
         )
 
     # Pin 1 indicator position
@@ -137,7 +137,7 @@ def generate_shapes(specs: TransformerSpecs) -> str:
         '        (fill solid)\n'
         '        (layer "F.SilkS")\n'
         f'        (uuid "{uuid4()}")\n'
-        '    )'
+        '    )',
     )
 
     # Courtyard and fabrication layer shapes
@@ -163,15 +163,15 @@ def generate_shapes(specs: TransformerSpecs) -> str:
         '        (fill none)\n'
         '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
-        '    )'
+        '    )',
     ])
 
     return "\n".join(shapes)
 
 
 def calculate_pad_positions(
-        specs: TransformerSpecs
-) -> List[Tuple[float, float]]:
+        specs: TransformerSpecs,
+) -> list[tuple[float, float]]:
     """Calculate positions for all pads based on pin count."""
     pins_per_side = specs.pad_dimensions.pin_count // 2
     total_height = specs.pad_dimensions.pitch_y * (pins_per_side - 1)
@@ -203,7 +203,7 @@ def generate_pads(specs: TransformerSpecs) -> str:
             f'{specs.pad_dimensions.width} {specs.pad_dimensions.height})\n'
             '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
             f'        (uuid "{uuid4()}")\n'
-            '    )'
+            '    )',
         )
 
     return "\n".join(pads)
@@ -224,14 +224,16 @@ def generate_3d_model(part_info: sti.PartInfo) -> str:
 def generate_footprint_file(part_info: sti.PartInfo, output_dir: str) -> None:
     """Generate and save a complete .kicad_mod file for a transformer."""
     if part_info.series not in TRANSFORMER_SPECS:
-        raise ValueError(f"Unknown series: {part_info.series}")
+        msg = f"Unknown series: {part_info.series}"
+        raise ValueError(msg)
 
     specs = TRANSFORMER_SPECS[part_info.series]
     if specs.pad_dimensions.pin_count % 2 != 0:
-        raise ValueError("Pin count must be even")
+        msg = "Pin count must be even"
+        raise ValueError(msg)
 
     footprint_content = generate_footprint(part_info, specs)
 
     filename = f"{output_dir}/{part_info.series}.kicad_mod"
-    with open(filename, 'w', encoding='utf-8') as file_handle:
+    with Path.open(filename, "w", encoding="utf-8") as file_handle:
         file_handle.write(footprint_content)
