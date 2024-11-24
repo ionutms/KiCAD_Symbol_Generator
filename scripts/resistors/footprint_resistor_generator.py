@@ -11,6 +11,7 @@ from uuid import uuid4
 
 from footprint_resistor_specs import RESISTOR_SPECS, ResistorSpecs
 from symbol_resistors_specs import SERIES_SPECS, SeriesSpec
+from utilities import footprint_utils as fu
 
 
 class FootprintSpecs(NamedTuple):
@@ -53,36 +54,24 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         Complete .kicad_mod file content as formatted string
 
     """
+    case_in = specs.series_spec.case_code_in
+    case_mm = specs.series_spec.case_code_mm
+    footprint_name = f"R_{case_in}_{case_mm}Metric"
+    step_file_name = f"R_{case_in}"
+
     sections = [
-        generate_header(specs),
+        fu.generate_header(footprint_name),
         generate_properties(specs),
         generate_silkscreen(specs),
-        generate_courtyard(specs),
+        fu.generate_courtyard(
+            specs.resistor_specs.body_dimensions.width,
+            specs.resistor_specs.body_dimensions.height),
         generate_fab_layer(specs),
         generate_pads(specs),
-        generate_3d_model(specs),
+        fu.associate_3d_model(step_file_name),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_header(specs: FootprintSpecs) -> str:
-    """Generate the footprint header section with resistor details."""
-    case_in = specs.series_spec.case_code_in
-    case_mm = specs.series_spec.case_code_mm
-
-    footprint_name = f"R_{case_in}_{case_mm}Metric"
-
-    return (
-        f'(footprint "{footprint_name}"\n'
-        f"    (version 20240108)\n"
-        f'    (generator "pcbnew")\n'
-        f'    (generator_version "8.0")\n'
-        f'    (layer "F.Cu")\n'
-        f'    (descr "")\n'
-        f'    (tags "")\n'
-        f"    (attr smd)"
-    )
 
 
 def generate_properties(specs: FootprintSpecs) -> str:
@@ -154,29 +143,6 @@ def generate_silkscreen(specs: FootprintSpecs) -> str:
     return "\n".join(silkscreen)
 
 
-def generate_courtyard(specs: FootprintSpecs) -> str:
-    """Generate courtyard outline with resistor-specific clearances."""
-    res_specs = specs.resistor_specs
-    half_height = (
-        res_specs.body_dimensions.height / 2 + res_specs.courtyard_margin / 4
-    )
-    half_width = res_specs.courtyard_margin
-
-    return (
-        f"    (fp_rect\n"
-        f"        (start -{half_width} -{half_height})\n"
-        f"        (end {half_width} {half_height})\n"
-        f"        (stroke\n"
-        f"            (width 0.00635)\n"
-        f"            (type solid)\n"
-        f"        )\n"
-        f"        (fill none)\n"
-        f'        (layer "F.CrtYd")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"    )"
-    )
-
-
 def generate_fab_layer(specs: FootprintSpecs) -> str:
     """Generate fabrication layer with resistor-specific markings."""
     res_specs = specs.resistor_specs
@@ -238,19 +204,6 @@ def generate_pads(specs: FootprintSpecs) -> str:
         )
 
     return "\n".join(pads)
-
-
-def generate_3d_model(specs: FootprintSpecs) -> str:
-    """Generate 3D model reference for the resistor."""
-    case_code = specs.series_spec.case_code_in
-    return (
-        f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
-        f'R_{case_code}.step"\n'
-        f"        (offset (xyz 0 0 0))\n"
-        f"        (scale (xyz 1 1 1))\n"
-        f"        (rotate (xyz 0 0 0))\n"
-        f"    )"
-    )
 
 
 def generate_footprint_file(series_name: str, output_dir: str) -> None:

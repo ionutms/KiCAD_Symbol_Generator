@@ -11,6 +11,7 @@ from uuid import uuid4
 
 import symbol_transformer_specs as sti
 from footprint_transformer_specs import TRANSFORMER_SPECS, TransformerSpecs
+from utilities import footprint_utils as fu
 
 
 def generate_footprint(
@@ -18,28 +19,14 @@ def generate_footprint(
 ) -> str:
     """Generate complete KiCad footprint file content for a transformer."""
     sections = [
-        generate_header(part_info.series),
+        fu.generate_header(part_info.series),
         generate_properties(part_info, specs),
         generate_shapes(specs),
         generate_pads(specs),
-        generate_3d_model(part_info),
+        fu.associate_3d_model(part_info.series),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_header(model_name: str) -> str:
-    """Generate the footprint header section."""
-    return (
-        f'(footprint "{model_name}"\n'
-        '    (version 20240108)\n'
-        '    (generator "pcbnew")\n'
-        '    (generator_version "8.0")\n'
-        '    (layer "F.Cu")\n'
-        '    (descr "")\n'
-        '    (tags "")\n'
-        '    (attr smd)'
-    )
 
 
 def generate_properties(
@@ -207,18 +194,6 @@ def generate_pads(specs: TransformerSpecs) -> str:
         )
 
     return "\n".join(pads)
-
-
-def generate_3d_model(part_info: sti.PartInfo) -> str:
-    """Generate the 3D model section of the footprint."""
-    return (
-        f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
-        f'{part_info.series}.step"\n'
-        '        (offset (xyz 0 0 0))\n'
-        '        (scale (xyz 1 1 1))\n'
-        '        (rotate (xyz 0 0 0))\n'
-        '    )'
-    )
 
 
 def generate_footprint_file(part_info: sti.PartInfo, output_dir: str) -> None:
