@@ -11,6 +11,7 @@ from uuid import uuid4
 
 import symbol_inductors_specs as ssi
 from footprint_inductor_specs import INDUCTOR_SPECS, InductorSpecs
+from utilities import footprint_utils as fu
 
 
 def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
@@ -27,7 +28,7 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
 
     """
     sections = [
-        generate_header(part_info.series),
+        fu.generate_header(part_info.series),
         generate_properties(part_info, specs),
         generate_shapes(specs),
         generate_pads(specs),
@@ -35,20 +36,6 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_header(model_name: str) -> str:
-    """Generate the footprint header section."""
-    return (
-        f'(footprint "{model_name}"\n'
-        "    (version 20240108)\n"
-        '    (generator "pcbnew")\n'
-        '    (generator_version "8.0")\n'
-        '    (layer "F.Cu")\n'
-        '    (descr "")\n'
-        '    (tags "")\n'
-        "    (attr smd)"
-    )
 
 
 def generate_properties(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
