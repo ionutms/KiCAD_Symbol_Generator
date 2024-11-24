@@ -1,11 +1,10 @@
-"""
-Library for managing diode specifications and part info.
+"""Library for managing diode specifications and part info.
 
 This module provides data structures and definitions for various diode series,
 including their specifications and individual component information.
 """
 
-from typing import NamedTuple, Dict
+from typing import NamedTuple
 
 
 class SeriesSpec(NamedTuple):
@@ -25,7 +24,9 @@ class SeriesSpec(NamedTuple):
         package: Package type (e.g., "PowerDI-123")
         trustedparts_link: URL to the component listing on Trusted Parts
         has_thermal_pad: Whether the package includes a thermal pad
+
     """
+
     manufacturer: str
     base_series: str
     footprint: str
@@ -35,7 +36,6 @@ class SeriesSpec(NamedTuple):
     description: str
     package: str
     trustedparts_link: str
-    has_thermal_pad: bool = False
 
 
 class PartInfo(NamedTuple):
@@ -57,7 +57,9 @@ class PartInfo(NamedTuple):
         current_rating: Maximum forward current rating
         package: Package type
         trustedparts_link: URL to component listing on Trusted Parts
+
     """
+
     symbol_name: str
     reference: str
     value: str
@@ -73,7 +75,7 @@ class PartInfo(NamedTuple):
 
 
 # Example diode series specifications
-SERIES_SPECS: Dict[str, SeriesSpec] = {
+SERIES_SPECS: dict[str, SeriesSpec] = {
     "DFLS1200": SeriesSpec(
         manufacturer="Diodes Incorporated",
         base_series="DFLS1200",
@@ -84,6 +86,5 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         description="Power Schottky Rectifier",
         package="PowerDI-123",
         trustedparts_link="https://www.trustedparts.com/en/search/DFLS1200",
-        has_thermal_pad=False
     ),
 }

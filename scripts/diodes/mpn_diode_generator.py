@@ -51,8 +51,7 @@ def create_part_info(
         PartInfo instance with all specifications
 
     """
-    mpn = \
-        f"{specs.base_series}{'Q' if specs.has_thermal_pad else ''}{variant}"
+    mpn = f"{specs.base_series}{variant}"
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     return sym_diode_spec.PartInfo(
@@ -139,16 +138,13 @@ def generate_files_for_series(
         parts_list = generate_part_numbers(specs)
         utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
         pmu.print_success(
-            f"Generated {len(parts_list)} part numbers in '{csv_filename}'",
-        )
+            f"Generated {len(parts_list)} part numbers in '{csv_filename}'")
 
         # Generate KiCad symbol file
         sym_diode_gen.generate_kicad_symbol(
-            f"data/{csv_filename}", f"series_kicad_sym/{symbol_filename}",
-        )
+            f"data/{csv_filename}", f"series_kicad_sym/{symbol_filename}")
         pmu.print_success(
-            f"KiCad symbol file '{symbol_filename}' generated successfully.",
-        )
+            f"KiCad symbol file '{symbol_filename}' generated successfully.")
 
         # Generate KiCad footprint files
         try:
