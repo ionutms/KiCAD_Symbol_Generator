@@ -1,8 +1,10 @@
-"""Diode Part Number Generator.
+"""Generator for diode component files.
 
-Generates part numbers and specifications for diode series.
-Supports various package types and configurations.
-Generates both individual series files and unified component database.
+This module generates KiCad-compatible files for diode components including:
+- CSV files with component specifications
+- KiCad symbol files
+- KiCad footprint files
+- Unified component database
 """
 
 import csv
@@ -20,13 +22,13 @@ from utilities import print_message_utilities as pmu
 
 
 def create_description(specs: sym_diode_spec.SeriesSpec) -> str:
-    """Create component description.
+    """Create a formatted description string from series specifications.
 
     Args:
-        specs: Series specifications
+        specs: Series specifications containing component details.
 
     Returns:
-        Formatted description string
+        Formatted description combining key specifications.
 
     """
     parts = [
@@ -39,54 +41,33 @@ def create_description(specs: sym_diode_spec.SeriesSpec) -> str:
 
 
 def create_part_info(
-    specs: sym_diode_spec.SeriesSpec, variant: str = "",
+        specs: sym_diode_spec.SeriesSpec,
 ) -> sym_diode_spec.PartInfo:
-    """Create complete part information.
+    """Create a complete part information instance from specifications.
 
     Args:
-        specs: Series specifications
-        variant: Optional variant suffix (e.g., "-7" for tape and reel)
+        specs: Series specifications containing all component details.
 
     Returns:
-        PartInfo instance with all specifications
+        PartInfo instance with complete component specifications.
 
     """
-    mpn = f"{specs.base_series}{variant}"
-    trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
-
     return sym_diode_spec.PartInfo(
-        symbol_name=f"D_{mpn}",
+        symbol_name=f"D_{specs.base_series}",
         reference="D",
-        value=mpn,
+        value=specs.base_series,
         footprint=specs.footprint,
         datasheet=specs.datasheet,
         description=create_description(specs),
         manufacturer=specs.manufacturer,
-        mpn=mpn,
+        mpn=specs.base_series,
         voltage_rating=specs.voltage_rating,
         current_rating=specs.current_rating,
         package=specs.package,
-        trustedparts_link=trustedparts_link,
+        trustedparts_link=specs.trustedparts_link,
     )
 
 
-def generate_part_numbers(
-    specs: sym_diode_spec.SeriesSpec,
-) -> list[sym_diode_spec.PartInfo]:
-    """Generate all part numbers for the series.
-
-    Args:
-        specs: Series specifications
-        variants: List of variant suffixes to generate
-
-    Returns:
-        List of PartInfo instances
-
-    """
-    return [create_part_info(specs, variant) for variant in ["-7"]]
-
-
-# Global header to attribute mapping
 HEADER_MAPPING: Final[dict] = {
     "Symbol Name": lambda part: part.symbol_name,
     "Reference": lambda part: part.reference,
@@ -105,17 +86,20 @@ HEADER_MAPPING: Final[dict] = {
 def generate_files_for_series(
     series_name: str, unified_parts_list: list[sym_diode_spec.PartInfo],
 ) -> None:
-    """Generate CSV, KiCad symbol, and footprint files for a specific series.
+    """Generate all required files for a diode series.
+
+    Creates CSV, KiCad symbol, and footprint files for the specified series
+    and adds the part information to the unified component list.
 
     Args:
-        series_name: Series identifier (must exist in SERIES_SPECS)
-        unified_parts_list: List to append generated parts to
+        series_name: Series identifier that must exist in SERIES_SPECS.
+        unified_parts_list: List to append generated parts to.
 
     Raises:
-        ValueError: If series_name is not found in SERIES_SPECS
-        FileNotFoundError: If CSV file creation fails
-        csv.Error: If CSV processing fails
-        IOError: If file operations fail
+        ValueError: If series_name is not found in SERIES_SPECS.
+        FileNotFoundError: If CSV file creation fails.
+        csv.Error: If CSV processing fails.
+        IOError: If file operations fail.
 
     """
     if series_name not in sym_diode_spec.SERIES_SPECS:
@@ -135,10 +119,9 @@ def generate_files_for_series(
     symbol_filename = f"DIODES_{specs.base_series}_DATA_BASE.kicad_sym"
 
     try:
-        parts_list = generate_part_numbers(specs)
-        utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
-        pmu.print_success(
-            f"Generated {len(parts_list)} part numbers in '{csv_filename}'")
+        part_info = create_part_info(specs)
+        utils.write_to_csv([part_info], csv_filename, HEADER_MAPPING)
+        pmu.print_success(f"Generated part number in '{csv_filename}'")
 
         # Generate KiCad symbol file
         sym_diode_gen.generate_kicad_symbol(
@@ -148,17 +131,15 @@ def generate_files_for_series(
 
         # Generate KiCad footprint files
         try:
-            for part in parts_list:
-                ftp_diode_gen.generate_footprint_file(part, footprint_dir)
-                pmu.print_success(f"Generated footprint file for {part.mpn}")
+            ftp_diode_gen.generate_footprint_file(part_info, footprint_dir)
+            pmu.print_success(f"Generated footprint file for {part_info.mpn}")
         except ValueError as footprint_error:
-            pmu.print_error(
-                f"Error generating footprint: {footprint_error}")
+            pmu.print_error(f"Error generating footprint: {footprint_error}")
         except OSError as io_error:
             pmu.print_error(f"I/O error generating footprint: {io_error}")
 
-        # Add parts to unified list
-        unified_parts_list.extend(parts_list)
+        # Add part to unified list
+        unified_parts_list.append(part_info)
 
     except FileNotFoundError as file_error:
         pmu.print_error(f"CSV file not found: {file_error}")
@@ -166,20 +147,22 @@ def generate_files_for_series(
         pmu.print_error(f"CSV processing error: {csv_error}")
     except OSError as io_error:
         pmu.print_error(f"I/O error when generating files: {io_error}")
-    except ValueError as val_error:
-        pmu.print_error(f"Error generating part numbers: {val_error}")
 
 
 def generate_unified_files(
     all_parts: list[sym_diode_spec.PartInfo],
-    unified_csv: str, unified_symbol: str,
+    unified_csv: str,
+    unified_symbol: str,
 ) -> None:
-    """Generate unified component database files containing all series.
+    """Generate unified component database files.
+
+    Creates a combined CSV file and KiCad symbol file containing all
+    components across all series.
 
     Args:
-        all_parts: List of all PartInfo instances across all series
-        unified_csv: Name of the unified CSV file to generate
-        unified_symbol: Name of the unified KiCad symbol file to generate
+        all_parts: List of all PartInfo instances across all series.
+        unified_csv: Name of the unified CSV file to generate.
+        unified_symbol: Name of the unified KiCad symbol file to generate.
 
     """
     # Write unified CSV file

@@ -8,22 +8,18 @@ from typing import NamedTuple
 
 
 class SeriesSpec(NamedTuple):
-    """Diode series specifications.
-
-    This class defines the complete specifications for diodes,
-    including physical, electrical, and documentation characteristics.
+    """Specification for a diode series.
 
     Attributes:
-        manufacturer: Name of the component manufacturer
-        base_series: Base model number for the series
-        footprint: PCB footprint identifier used in schematic/layout tools
-        voltage_rating: Maximum reverse voltage rating (e.g., "100V")
-        current_rating: Maximum forward current rating (e.g., "1.2A")
-        datasheet: URL to the manufacturer's datasheet
-        description: General description of the diode type
-        package: Package type (e.g., "PowerDI-123")
-        trustedparts_link: URL to the component listing on Trusted Parts
-        has_thermal_pad: Whether the package includes a thermal pad
+        manufacturer: Name of the component manufacturer.
+        base_series: Complete part number for the series.
+        footprint: PCB footprint identifier for schematic/layout tools.
+        voltage_rating: Maximum reverse voltage rating (e.g., "100V").
+        current_rating: Maximum forward current rating (e.g., "1.2A").
+        datasheet: URL to the manufacturer's datasheet.
+        description: General description of the diode type.
+        package: Package type (e.g., "PowerDI-123").
+        trustedparts_link: URL to the component listing on Trusted Parts.
 
     """
 
@@ -39,24 +35,21 @@ class SeriesSpec(NamedTuple):
 
 
 class PartInfo(NamedTuple):
-    """Component part information structure for individual diodes.
-
-    This class contains all necessary information to fully specify a single
-    diode component, including its specifications and documentation.
+    """Information structure for individual diodes.
 
     Attributes:
-        symbol_name: Schematic symbol identifier
-        reference: Component reference designator (e.g., "D")
-        value: Diode part number
-        footprint: PCB footprint identifier
-        datasheet: URL to the manufacturer's datasheet
-        description: Human-readable component description
-        manufacturer: Component manufacturer name
-        mpn: Manufacturer part number
-        voltage_rating: Maximum reverse voltage rating
-        current_rating: Maximum forward current rating
-        package: Package type
-        trustedparts_link: URL to component listing on Trusted Parts
+        symbol_name: Schematic symbol identifier.
+        reference: Component reference designator (e.g., "D").
+        value: Component value/part number.
+        footprint: PCB footprint identifier.
+        datasheet: URL to the manufacturer's datasheet.
+        description: Human-readable component description.
+        manufacturer: Component manufacturer name.
+        mpn: Manufacturer part number.
+        voltage_rating: Maximum reverse voltage rating.
+        current_rating: Maximum forward current rating.
+        package: Package type.
+        trustedparts_link: URL to component listing on Trusted Parts.
 
     """
 
@@ -74,17 +67,16 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-# Example diode series specifications
 SERIES_SPECS: dict[str, SeriesSpec] = {
-    "DFLS1200": SeriesSpec(
+    "DFLS1200-7": SeriesSpec(
         manufacturer="Diodes Incorporated",
-        base_series="DFLS1200",
+        base_series="DFLS1200-7",
         footprint="diode_footprints:D_PowerDI-123",
         voltage_rating="100V",
         current_rating="1.2A",
         datasheet="https://www.diodes.com/assets/Datasheets/DFLS1200.pdf",
         description="Power Schottky Rectifier",
         package="PowerDI-123",
-        trustedparts_link="https://www.trustedparts.com/en/search/DFLS1200",
+        trustedparts_link="https://www.trustedparts.com/en/search/DFLS1200-7",
     ),
 }
