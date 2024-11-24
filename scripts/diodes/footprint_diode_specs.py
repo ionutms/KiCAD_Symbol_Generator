@@ -13,15 +13,19 @@ class BodyDimensions(NamedTuple):
     height: float   # Total height of diode body
 
 
-class PadDimensions(NamedTuple):
-    """Defines dimensions for diode pads.
+class PadDimensionsAsymmetric(NamedTuple):
+    """Defines dimensions for asymmetric diode pads.
 
-    All measurements are in millimeters.
+    All measurements are in millimeters. For PowerDI-123 package,
+    cathode_pad is pad 1, anode_pad is pad 2.
+
     """
 
-    width: float
-    height: float
-    center_x: float
+    cathode_width: float    # Width of cathode pad (pad 1)
+    cathode_height: float   # Height of cathode pad
+    anode_width: float      # Width of anode pad (pad 2)
+    anode_height: float     # Height of anode pad
+    center_x: float         # Distance from center to pad center
 
 
 class DiodeSpecs(NamedTuple):
@@ -32,21 +36,23 @@ class DiodeSpecs(NamedTuple):
     """
 
     body_dimensions: BodyDimensions
-    pad_dimensions: PadDimensions
+    pad_dimensions: PadDimensionsAsymmetric
     ref_offset_y: float
 
 
 DIODE_SPECS: dict[str, DiodeSpecs] = {
-    # Example PowerDI-123 package
+    # PowerDI-123 package specs for DFLS1200Q-7
     "PowerDI-123": DiodeSpecs(
         body_dimensions=BodyDimensions(
-            width=3.0,
-            height=2.0,
+            width=2.90,    # Body width
+            height=1.95,   # Body height
         ),
-        pad_dimensions=PadDimensions(
-            width=1.0,
-            height=1.2,
-            center_x=1.15,
+        pad_dimensions=PadDimensionsAsymmetric(
+            cathode_width=1.20,     # Cathode (pad 1) width
+            cathode_height=1.80,    # Cathode height
+            anode_width=0.95,       # Anode (pad 2) width
+            anode_height=1.40,      # Anode height
+            center_x=1.35,          # Center to pad distance
         ),
         ref_offset_y=-2.5,
     ),

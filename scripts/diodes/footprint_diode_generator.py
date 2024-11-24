@@ -103,9 +103,11 @@ def generate_shapes(specs: DiodeSpecs) -> str:
     """Generate the shapes section of the footprint."""
     half_width = specs.body_dimensions.width / 2
     half_height = specs.body_dimensions.height / 2
-    silkscreen_x = (
-        specs.pad_dimensions.center_x + specs.pad_dimensions.width / 2 + 0.2
-    )
+    # Calculate silkscreen_x using the larger of the two pad widths
+    max_pad_width = max(
+        specs.pad_dimensions.cathode_width,
+        specs.pad_dimensions.anode_width)
+    silkscreen_x = specs.pad_dimensions.center_x + max_pad_width / 2 + 0.2
 
     shapes = []
 
@@ -131,7 +133,7 @@ def generate_shapes(specs: DiodeSpecs) -> str:
         f'        (end -{half_width} {half_height})\n'
         '        (stroke\n'
         '            (width 0.1)\n'
-        '            (type solid)\n'
+            '            (type solid)\n'
         '        )\n'
         '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
@@ -159,8 +161,8 @@ def generate_shapes(specs: DiodeSpecs) -> str:
         f'        (start -{silkscreen_x} -{half_height})\n'
         f'        (end -{silkscreen_x} {half_height})\n'
         '        (stroke\n'
-        '            (width 0.24)\n'
-        '            (type solid)\n'
+            '            (width 0.24)\n'
+            '            (type solid)\n'
         '        )\n'
         '        (layer "F.SilkS")\n'
         f'        (uuid "{uuid4()}")\n'
@@ -190,14 +192,23 @@ def generate_shapes(specs: DiodeSpecs) -> str:
 
 
 def generate_pads(specs: DiodeSpecs) -> str:
-    """Generate the pads section of the footprint."""
+    """Generate the pads section of the footprint with pad dimensions.
+
+    Args:
+        specs: DiodeSpecs containing asymmetric pad dimensions
+
+    Returns:
+        String containing KiCad footprint pad definitions
+
+    """
     pad_props = specs.pad_dimensions
 
     # Cathode pad (1)
     cathode = (
         '    (pad "1" smd rect\n'
         f'        (at -{pad_props.center_x} 0)\n'
-        f'        (size {pad_props.width} {pad_props.height})\n'
+        '        (size '
+        f'{pad_props.cathode_width} {pad_props.cathode_height})\n'
         '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
         f'        (uuid "{uuid4()}")\n'
         '    )'
@@ -207,7 +218,7 @@ def generate_pads(specs: DiodeSpecs) -> str:
     anode = (
         '    (pad "2" smd rect\n'
         f'        (at {pad_props.center_x} 0)\n'
-        f'        (size {pad_props.width} {pad_props.height})\n'
+        f'        (size {pad_props.anode_width} {pad_props.anode_height})\n'
         '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
         f'        (uuid "{uuid4()}")\n'
         '    )'
