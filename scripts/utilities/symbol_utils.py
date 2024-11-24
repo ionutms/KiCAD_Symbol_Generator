@@ -42,18 +42,42 @@ def write_symbol_header(
 
 def get_all_properties(
         component_data_list: list[dict[str, str]],
-) -> set:
-    """Get all unique properties from the component data.
+) -> list[str]:
+    """Get all properties from the component data in a consistent order.
 
     Args:
         component_data_list (List[Dict[str, str]]): List of component data.
 
     Returns:
-        set: Set of all unique property names.
+        list[str]:
+            List of all unique property names with priority properties first,
+            then remaining properties in alphabetical order.
 
     """
-    return set().union(
-        *(component_data.keys() for component_data in component_data_list))
+    all_properties = set()
+
+    # Priority properties that should always come first
+    priority_properties = [
+        "Reference",
+        "Value",
+        "Footprint",
+        "Datasheet",
+    ]
+
+    # Collect all unique properties
+    for component in component_data_list:
+        all_properties.update(component.keys())
+
+    # Create final sorted list:
+    # 1. Start with priority properties (if they exist in the data)
+    result = [prop for prop in priority_properties if prop in all_properties]
+
+    # 2. Add remaining properties in alphabetical order
+    remaining_props = sorted(
+        prop for prop in all_properties if prop not in priority_properties)
+    result.extend(remaining_props)
+
+    return result
 
 
 def write_property(  # noqa: PLR0913
