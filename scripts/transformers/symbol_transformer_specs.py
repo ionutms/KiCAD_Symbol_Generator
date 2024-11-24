@@ -13,7 +13,7 @@ The module supports:
 - Standard configurations for common transformer layouts
 """
 
-from typing import List, NamedTuple, Dict, Optional
+from typing import NamedTuple, Optional
 
 
 class PinConfig(NamedTuple):
@@ -24,7 +24,9 @@ class PinConfig(NamedTuple):
         y_pos: Vertical position of the pin in millimeters relative to center
         pin_type: Pin type specification (e.g., "unspecified", "no_connect")
         hide: Boolean flag indicating if pin should be hidden in schematic
+
     """
+
     number: str
     y_pos: float
     pin_type: str
@@ -41,9 +43,11 @@ class SidePinConfig(NamedTuple):
     Attributes:
         left: List of PinConfig objects for the left side pins
         right: List of PinConfig objects for the right side pins
+
     """
-    left: List[PinConfig]
-    right: List[PinConfig]
+
+    left: list[PinConfig]
+    right: list[PinConfig]
 
 
 class SeriesSpec(NamedTuple):
@@ -66,26 +70,28 @@ class SeriesSpec(NamedTuple):
         max_dc_resistance:
             List of maximum DC resistance values in milliohms (mΩ)
         pin_config: Optional pin configuration specification
+
     """
+
     manufacturer: str
     base_series: str
     footprint: str
     tolerance: str
     datasheet: str
-    inductance_values: List[float]
+    inductance_values: list[float]
     trustedparts_link: str
     value_suffix: str
     has_aec: bool = True
-    max_dc_current: List[float] = []
-    max_dc_resistance: List[float] = []
-    pin_config: Optional[SidePinConfig] = None
+    max_dc_current: list[float] = []  # noqa: RUF012
+    max_dc_resistance: list[float] = []  # noqa: RUF012
+    pin_config: Optional[SidePinConfig] = None  # noqa: FA100
 
 
 class PartInfo(NamedTuple):
     """Detailed specification for an individual transformer component.
 
-    Provides a complete description of a single transformer or coupled inductor
-    component, including electrical specifications, documentation references,
+    Provides a complete description of a single transformer component,
+    including electrical specifications, documentation references,
     and sourcing information.
 
     Attributes:
@@ -102,7 +108,9 @@ class PartInfo(NamedTuple):
         trustedparts_link: URL to component listing on Trusted Parts
         max_dc_current: Maximum DC current rating in Amperes (A)
         max_dc_resistance: Maximum DC resistance in milliohms (mΩ)
+
     """
+
     symbol_name: str
     reference: str
     value: float
@@ -119,14 +127,16 @@ class PartInfo(NamedTuple):
 
 
 # Series specifications for supported transformer families
-SERIES_SPECS: Dict[str, SeriesSpec] = {
+SERIES_SPECS: dict[str, SeriesSpec] = {
     "ZA9384": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="ZA9384",
         footprint="transformer_footprints:ZA9384",
         tolerance="±10%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf",
+        datasheet=(
+            "https://www.coilcraft.com/getmedia/"
+            "cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf"
+        ),
         inductance_values=[470.0],
         max_dc_current=[0.80],
         max_dc_resistance=[1.1],
@@ -135,27 +145,29 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         pin_config=SidePinConfig(
             left=[
                 PinConfig("4", 5.08, "unspecified", 5.08),
-                PinConfig("5", 2.54, "no_connect", 2.54, True),
-                PinConfig("3", 0.0, "no_connect", 2.54, True),
-                PinConfig("1", -2.54, "no_connect", 2.54, True),
-                PinConfig("2", -5.08, "unspecified", 5.08)
+                PinConfig("5", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("3", 0.0, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("1", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("2", -5.08, "unspecified", 5.08),
             ],
             right=[
                 PinConfig("6", 5.08, "unspecified", 5.08),
-                PinConfig("7", 2.54, "no_connect", 2.54, True),
-                PinConfig("8", 0.0, "no_connect", 2.54, True),
-                PinConfig("9", -2.54, "no_connect", 2.54, True),
-                PinConfig("10", -5.08, "unspecified", 5.08)
-            ]
-        )
+                PinConfig("7", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("8", 0.0, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("9", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("10", -5.08, "unspecified", 5.08),
+            ],
+        ),
     ),
     "ZA9644": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="ZA9644",
         footprint="transformer_footprints:ZA9644",
         tolerance="±10%",
-        datasheet="https://www.coilcraft.com/getmedia/" +
-        "cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf",
+        datasheet=(
+            "https://www.coilcraft.com/getmedia/"
+            "cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf"
+        ),
         inductance_values=[470.0],
         max_dc_current=[0.49],
         max_dc_resistance=[1.8],
@@ -164,16 +176,16 @@ SERIES_SPECS: Dict[str, SeriesSpec] = {
         pin_config=SidePinConfig(
             left=[
                 PinConfig("1", 5.08, "unspecified", 5.08),
-                PinConfig("2", 2.54, "no_connect", 2.54, True),
-                PinConfig("3", -2.54, "no_connect", 2.54, True),
-                PinConfig("4", -5.08, "unspecified", 5.08)
+                PinConfig("2", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("3", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("4", -5.08, "unspecified", 5.08),
             ],
             right=[
                 PinConfig("5", 5.08, "unspecified", 5.08),
-                PinConfig("6", 2.54, "no_connect", 2.54, True),
-                PinConfig("7", -2.54, "no_connect", 2.54, True),
-                PinConfig("8", -5.08, "unspecified", 5.08)
-            ]
-        )
+                PinConfig("6", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("7", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("8", -5.08, "unspecified", 5.08),
+            ],
+        ),
     ),
 }
