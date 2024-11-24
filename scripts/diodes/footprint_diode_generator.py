@@ -64,12 +64,13 @@ def generate_properties(specs: DiodeSpecs) -> str:
         f'                (size {text_size} {text_size})\n'
         f'                (thickness {text_thickness})\n'
         '            )\n'
+        "            (justify left)\n"
         '        )\n'
         '    )'
     )
 
     val_text = (
-        '    (fp_text value "VAL**"\n'
+        f'    (fp_text value "to do"\n'
         f'        (at 0 {-specs.ref_offset_y} 0)\n'
         '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
@@ -78,6 +79,7 @@ def generate_properties(specs: DiodeSpecs) -> str:
         f'                (size {text_size} {text_size})\n'
         f'                (thickness {text_thickness})\n'
         '            )\n'
+        "            (justify left)\n"
         '        )\n'
         '    )'
     )
@@ -92,6 +94,7 @@ def generate_properties(specs: DiodeSpecs) -> str:
         f'                (size {text_size} {text_size})\n'
         f'                (thickness {text_thickness})\n'
         '            )\n'
+        "            (justify left)\n"
         '        )\n'
         '    )'
     )
@@ -103,89 +106,52 @@ def generate_shapes(specs: DiodeSpecs) -> str:
     """Generate the shapes section of the footprint."""
     half_width = specs.body_dimensions.width / 2
     half_height = specs.body_dimensions.height / 2
-    # Calculate silkscreen_x using the larger of the two pad widths
-    max_pad_width = max(
-        specs.pad_dimensions.cathode_width,
-        specs.pad_dimensions.anode_width)
-    silkscreen_x = specs.pad_dimensions.center_x + max_pad_width / 2 + 0.2
 
     shapes = []
 
     # Fabrication layer outline
     shapes.append(
-        '    (fp_rect\n'
-        f'        (start -{half_width} -{half_height})\n'
-        f'        (end {half_width} {half_height})\n'
-        '        (stroke\n'
-        '            (width 0.1)\n'
-        '            (type default)\n'
-        '        )\n'
-        '        (fill none)\n'
+        "    (fp_rect\n"
+        f"        (start -{half_width} -{half_height})\n"
+        f"        (end {half_width} {half_height})\n"
+        "        (stroke\n"
+        "            (width 0.0254)\n"
+        "            (type default)\n"
+        "        )\n"
+        "        (fill none)\n"
         '        (layer "F.Fab")\n'
         f'        (uuid "{uuid4()}")\n'
-        '    )',
+        "    )",
     )
 
-    # Fabrication layer cathode marker
+    # Silkscreen lines
     shapes.append(
-        '    (fp_line\n'
-        f'        (start -{half_width} -{half_height})\n'
-        f'        (end -{half_width} {half_height})\n'
-        '        (stroke\n'
-        '            (width 0.1)\n'
-            '            (type solid)\n'
-        '        )\n'
-        '        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        '    )',
-    )
-
-    # Silkscreen outline
-    for y in [half_height, -half_height]:
-        shapes.append(  # noqa: PERF401
-            '    (fp_line\n'
-            f'        (start -{silkscreen_x} {y})\n'
-            f'        (end {silkscreen_x} {y})\n'
-            '        (stroke\n'
-            '            (width 0.12)\n'
-            '            (type solid)\n'
-            '        )\n'
-            '        (layer "F.SilkS")\n'
-            f'        (uuid "{uuid4()}")\n'
-            '    )',
-        )
-
-    # Silkscreen cathode marker
-    shapes.append(
-        '    (fp_line\n'
-        f'        (start -{silkscreen_x} -{half_height})\n'
-        f'        (end -{silkscreen_x} {half_height})\n'
-        '        (stroke\n'
-            '            (width 0.24)\n'
-            '            (type solid)\n'
-        '        )\n'
+        "    (fp_rect\n"
+        f"        (start -{half_width} -{half_height})\n"
+        f"        (end {half_width} {half_height})\n"
+        "        (stroke\n"
+        "            (width 0.1524)\n"
+        "            (type default)\n"
+        "        )\n"
+        "        (fill none)\n"
         '        (layer "F.SilkS")\n'
         f'        (uuid "{uuid4()}")\n'
-        '    )',
+        "    )",
     )
 
     # Courtyard
-    courtyard_margin = 0.25
-    cy_half_width = half_width + courtyard_margin
-    cy_half_height = half_height + courtyard_margin
-
     shapes.append(
-        '    (fp_rect\n'
-        f'        (start -{cy_half_width} -{cy_half_height})\n'
-        f'        (end {cy_half_width} {cy_half_height})\n'
-        '        (stroke\n'
-        '            (width 0.05)\n'
-        '            (type default)\n'
-        '        )\n'
-        '        (fill none)\n'
+        "    (fp_rect\n"
+        f"        (start -{half_width} -{half_height})\n"
+        f"        (end {half_width} {half_height})\n"
+        "        (stroke\n"
+        "            (width 0.00635)\n"
+        "            (type default)\n"
+        "        )\n"
+        "        (fill none)\n"
         '        (layer "F.CrtYd")\n'
         f'        (uuid "{uuid4()}")\n'
-        '    )',
+        "    )",
     )
 
     return "\n".join(shapes)
@@ -205,21 +171,23 @@ def generate_pads(specs: DiodeSpecs) -> str:
 
     # Cathode pad (1)
     cathode = (
-        '    (pad "1" smd rect\n'
-        f'        (at -{pad_props.center_x} 0)\n'
+        '    (pad "1" smd roundrect\n'
+        f'        (at -{pad_props.cathode_center_x} 0)\n'
         '        (size '
         f'{pad_props.cathode_width} {pad_props.cathode_height})\n'
         '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
+        f"        (roundrect_rratio {pad_props.roundrect_ratio})\n"
         f'        (uuid "{uuid4()}")\n'
         '    )'
     )
 
     # Anode pad (2)
     anode = (
-        '    (pad "2" smd rect\n'
-        f'        (at {pad_props.center_x} 0)\n'
+        '    (pad "2" smd roundrect\n'
+        f'        (at {pad_props.anode_center_x} 0)\n'
         f'        (size {pad_props.anode_width} {pad_props.anode_height})\n'
         '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
+        f"        (roundrect_rratio {pad_props.roundrect_ratio})\n"
         f'        (uuid "{uuid4()}")\n'
         '    )'
     )
