@@ -11,6 +11,7 @@ from uuid import uuid4
 
 from footprint_resistor_specs import RESISTOR_SPECS, ResistorSpecs
 from symbol_resistors_specs import SERIES_SPECS, SeriesSpec
+from utilities import footprint_utils as fu
 
 
 class FootprintSpecs(NamedTuple):
@@ -53,8 +54,12 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         Complete .kicad_mod file content as formatted string
 
     """
+    case_in = specs.series_spec.case_code_in
+    case_mm = specs.series_spec.case_code_mm
+    footprint_name = f"R_{case_in}_{case_mm}Metric"
+
     sections = [
-        generate_header(specs),
+        fu.generate_header(footprint_name),
         generate_properties(specs),
         generate_silkscreen(specs),
         generate_courtyard(specs),
@@ -64,25 +69,6 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_header(specs: FootprintSpecs) -> str:
-    """Generate the footprint header section with resistor details."""
-    case_in = specs.series_spec.case_code_in
-    case_mm = specs.series_spec.case_code_mm
-
-    footprint_name = f"R_{case_in}_{case_mm}Metric"
-
-    return (
-        f'(footprint "{footprint_name}"\n'
-        f"    (version 20240108)\n"
-        f'    (generator "pcbnew")\n'
-        f'    (generator_version "8.0")\n'
-        f'    (layer "F.Cu")\n'
-        f'    (descr "")\n'
-        f'    (tags "")\n'
-        f"    (attr smd)"
-    )
 
 
 def generate_properties(specs: FootprintSpecs) -> str:

@@ -18,6 +18,7 @@ from uuid import uuid4
 
 import symbol_connectors_specs as ssc
 from footprint_connector_specs import CONNECTOR_SPECS, ConnectorSpecs
+from utilities import footprint_utils as fu
 
 
 def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
@@ -36,7 +37,7 @@ def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     """
     dimensions = calculate_dimensions(part_info, specs)
     sections = [
-        generate_header(part_info.mpn),
+        fu.generate_header(part_info.mpn),
         generate_properties(part_info, specs, dimensions),
         generate_shapes(dimensions, specs),
         generate_pads(part_info, specs, dimensions),
@@ -78,17 +79,6 @@ def calculate_dimensions(
         "total_length": total_length,
         "start_pos": start_position,
     }
-
-
-def generate_header(model_name: str) -> str:
-    """Generate the footprint header section."""
-    return (
-        f'(footprint "{model_name}"\n'
-        f"    (version 20240108)\n"
-        f'    (generator "pcbnew")\n'
-        f'    (generator_version "8.0")\n'
-        f'    (layer "F.Cu")'
-    )
 
 
 def generate_properties(
