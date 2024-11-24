@@ -10,8 +10,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "40 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -30,36 +50,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-400ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-400ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 40 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -70,8 +60,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "4.8"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-400ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -80,13 +70,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "4.8"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.016"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -100,17 +120,7 @@
             )
         )
         
-        (property "Value" "40 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -120,18 +130,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.016"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-400ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -217,8 +217,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "120 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -237,36 +257,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-121ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-121ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 120 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -277,8 +267,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "3.7"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-121ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -287,13 +277,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "3.7"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.022"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -307,17 +327,7 @@
             )
         )
         
-        (property "Value" "120 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -327,18 +337,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.022"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-121ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -424,8 +424,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "220 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -444,36 +464,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-221ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-221ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 220 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -484,8 +474,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "3.1"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-221ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -494,13 +484,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "3.1"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.025"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -514,17 +534,7 @@
             )
         )
         
-        (property "Value" "220 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -534,18 +544,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.025"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-221ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -631,8 +631,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "380 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -651,36 +671,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-381ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-381ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 380 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -691,8 +681,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "2.9"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-381ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -701,13 +691,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "2.9"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.033"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -721,17 +741,7 @@
             )
         )
         
-        (property "Value" "380 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -741,18 +751,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.033"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-381ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -838,8 +838,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "600 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -858,36 +878,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-601ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-601ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 600 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -898,8 +888,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "2.4"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-601ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -908,13 +898,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "2.4"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.054"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -928,17 +948,7 @@
             )
         )
         
-        (property "Value" "600 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -948,18 +958,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.054"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-601ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1045,8 +1045,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "820 nH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1065,36 +1085,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-821ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-821ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 820 nH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -1105,8 +1095,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "2.1"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-821ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1115,13 +1105,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "2.1"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.061"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1135,17 +1155,7 @@
             )
         )
         
-        (property "Value" "820 nH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1155,18 +1165,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.061"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-821ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1252,8 +1252,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1272,36 +1292,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-102ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-102ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 1 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -1312,8 +1302,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "1.8"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-102ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1322,13 +1312,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "1.8"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.083"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1342,17 +1362,7 @@
             )
         )
         
-        (property "Value" "1 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1362,18 +1372,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.083"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-102ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1459,8 +1459,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.5 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1479,36 +1499,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-152ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-152ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 1.5 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -1519,8 +1509,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "1.6"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-152ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1529,13 +1519,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "1.6"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.115"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1549,17 +1569,7 @@
             )
         )
         
-        (property "Value" "1.5 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1569,18 +1579,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.115"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-152ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1666,8 +1666,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "2.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1686,36 +1706,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-222ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-222ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 2.2 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -1726,8 +1716,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "1.4"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-222ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1736,13 +1726,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "1.4"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.156"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1756,17 +1776,7 @@
             )
         )
         
-        (property "Value" "2.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1776,18 +1786,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.156"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-222ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1873,8 +1873,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "3.3 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1893,36 +1913,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-332ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-332ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 3.3 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -1933,8 +1923,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "1.2"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-332ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1943,13 +1933,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "1.2"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.213"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -1963,17 +1983,7 @@
             )
         )
         
-        (property "Value" "3.3 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1983,18 +1993,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.213"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-332ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2080,8 +2080,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "4.7 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2100,36 +2120,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-472ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-472ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 4.7 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -2140,8 +2130,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.9"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-472ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2150,13 +2140,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.9"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.320"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2170,17 +2190,7 @@
             )
         )
         
-        (property "Value" "4.7 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -2190,18 +2200,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.320"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-472ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2287,8 +2287,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "6.8 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2307,36 +2327,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-682ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-682ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 6.8 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -2347,8 +2337,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.8"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-682ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2357,13 +2347,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.8"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.405"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2377,17 +2397,7 @@
             )
         )
         
-        (property "Value" "6.8 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -2397,18 +2407,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.405"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-682ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2494,8 +2494,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "8.2 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2514,36 +2534,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-822ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-822ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 8.2 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -2554,8 +2544,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.8"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-822ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2564,13 +2554,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.8"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.511"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2584,17 +2604,7 @@
             )
         )
         
-        (property "Value" "8.2 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -2604,18 +2614,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.511"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-822ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2701,8 +2701,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "10 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2721,36 +2741,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-103ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-103ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 10 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -2761,8 +2751,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.7"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-103ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2771,13 +2761,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.7"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "0.595"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2791,17 +2811,7 @@
             )
         )
         
-        (property "Value" "10 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -2811,18 +2821,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "0.595"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-103ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2908,8 +2908,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "18 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2928,36 +2948,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-183ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-183ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 18 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -2968,8 +2958,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.5"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-183ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2978,13 +2968,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.5"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.170"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -2998,17 +3018,7 @@
             )
         )
         
-        (property "Value" "18 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -3018,18 +3028,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "1.170"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-183ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3115,8 +3115,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "22 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3135,36 +3155,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-223ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-223ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 22 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -3175,8 +3165,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.4"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-223ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3185,13 +3175,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.4"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "1.500"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3205,17 +3225,7 @@
             )
         )
         
-        (property "Value" "22 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -3225,18 +3235,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "1.500"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-223ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3322,8 +3322,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "33 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3342,36 +3362,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-333ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-333ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 33 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -3382,8 +3372,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.3"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-333ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3392,13 +3382,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.3"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "2.140"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3412,17 +3432,7 @@
             )
         )
         
-        (property "Value" "33 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -3432,18 +3442,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "2.140"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-333ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3529,8 +3529,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "47 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3549,36 +3569,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-473ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-473ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 47 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -3589,8 +3579,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.3"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-473ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3599,13 +3589,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.3"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "2.910"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3619,17 +3639,7 @@
             )
         )
         
-        (property "Value" "47 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -3639,18 +3649,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "2.910"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-473ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3736,8 +3736,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "56 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3756,36 +3776,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-563ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-563ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 56 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -3796,8 +3786,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.3"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-563ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3806,13 +3796,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.3"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "3.660"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -3826,17 +3846,7 @@
             )
         )
         
-        (property "Value" "56 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -3846,18 +3856,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "3.660"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-563ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3943,8 +3943,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "68 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -3963,36 +3983,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-683ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-683ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 68 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -4003,8 +3993,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.3"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-683ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4013,13 +4003,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.3"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "3.980"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4033,17 +4053,7 @@
             )
         )
         
-        (property "Value" "68 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -4053,18 +4063,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "3.980"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-683ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4150,8 +4150,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "82 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4170,36 +4190,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-823ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-823ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 82 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -4210,8 +4200,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.2"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-823ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4220,13 +4210,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.2"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "5.810"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4240,17 +4260,7 @@
             )
         )
         
-        (property "Value" "82 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -4260,18 +4270,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "5.810"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-823ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4357,8 +4357,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "100 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4377,36 +4397,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-104ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-104ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 100 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -4417,8 +4407,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.2"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-104ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4427,13 +4417,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.2"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "6.980"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4447,17 +4467,7 @@
             )
         )
         
-        (property "Value" "100 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -4467,18 +4477,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "6.980"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-104ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4564,8 +4564,28 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Manufacturer" "Coilcraft"
-            (at 0 -12.7 0)
+        (property "Reference" "L"
+            (at 0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "220 µH"
+            (at 0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XFL2010"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4584,36 +4604,6 @@
             )
         )
         
-        (property "MPN" "XFL2010-224ME"
-            (at 0 -15.239999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-224ME"
-            (at 0 -17.779999999999998 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
-            (at 0 -20.319999999999997 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
         (property "Description" "INDUCTOR SMD 220 µH ±20% AEC-Q200"
             (at 0 -10.16 0)
             (show_name)
@@ -4624,8 +4614,8 @@
             )
         )
         
-        (property "Maximum DC Current (A)" "0.1"
-            (at 0 -22.859999999999996 0)
+        (property "MPN" "XFL2010-224ME"
+            (at 0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -4634,13 +4624,43 @@
             )
         )
         
-        (property "Reference" "L"
-            (at 0 2.54 0)
-            
+        (property "Manufacturer" "Coilcraft"
+            (at 0 -15.239999999999998 0)
+            (show_name)
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Current (A)" "0.1"
+            (at 0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Maximum DC Resistance (Ω)" "13.660"
+            (at 0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "XFL2010"
+            (at 0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
             )
         )
         
@@ -4654,17 +4674,7 @@
             )
         )
         
-        (property "Value" "220 µH"
-            (at 0 -2.54 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Series" "XFL2010"
+        (property "Tolerance" "±20%"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -4674,18 +4684,8 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "13.660"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/XFL2010-224ME"
             (at 0 -30.479999999999993 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "inductor_footprints:XFL2010"
-            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
