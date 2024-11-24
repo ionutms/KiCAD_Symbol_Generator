@@ -1,5 +1,4 @@
-"""
-Panasonic ERJ Series Part Number Generator
+"""Panasonic ERJ Series Part Number Generator.
 
 This script generates part numbers for Panasonic ERJ resistor series including
 ERJ-2RK, ERJ-3EK, ERJ-6EN, ERJ-P08, ERJ-P06, and ERJ-P03. It supports both E96
@@ -18,23 +17,20 @@ Features:
 - Includes vendor links and detailed component specifications
 - Exports in industry-standard formats (CSV, KiCad)
 """
-import sys
-import os
-
 import csv
-from typing import List, Final, Iterator
+import os
+import sys
+from typing import Final, Iterator  # noqa: UP035
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import symbol_resistors_specs as sym_res_spec
-import symbol_resistor_generator as sym_res_gen
 import footprint_resistor_generator as ftp_res_gen
-
-from utilities import print_message_utilities as pmu
+import symbol_resistor_generator as sym_res_gen
+import symbol_resistors_specs as sym_res_spec
 from utilities import file_handler_utilities as utils
+from utilities import print_message_utilities as pmu
 
-
-E96_BASE_VALUES: Final[List[float]] = [
+E96_BASE_VALUES: Final[list[float]] = [
     10.0, 10.2, 10.5, 10.7, 11.0, 11.3, 11.5, 11.8, 12.1, 12.4, 12.7, 13.0,
     13.3, 13.7, 14.0, 14.3, 14.7, 15.0, 15.4, 15.8, 16.2, 16.5, 16.9, 17.4,
     17.8, 18.2, 18.7, 19.1, 19.6, 20.0, 20.5, 21.0, 21.5, 22.1, 22.6, 23.2,
@@ -42,47 +38,46 @@ E96_BASE_VALUES: Final[List[float]] = [
     31.6, 32.4, 33.2, 34.0, 34.8, 35.7, 36.5, 37.4, 38.3, 39.2, 40.2, 41.2,
     42.2, 43.2, 44.2, 45.3, 46.4, 47.5, 48.7, 49.9, 51.1, 52.3, 53.6, 54.9,
     56.2, 57.6, 59.0, 60.4, 61.9, 63.4, 64.9, 66.5, 68.1, 69.8, 71.5, 73.2,
-    75.0, 76.8, 78.7, 80.6, 82.5, 84.5, 86.6, 88.7, 90.9, 93.1, 95.3, 97.6
+    75.0, 76.8, 78.7, 80.6, 82.5, 84.5, 86.6, 88.7, 90.9, 93.1, 95.3, 97.6,
 ]
 
-E24_BASE_VALUES: Final[List[float]] = [
+E24_BASE_VALUES: Final[list[float]] = [
     10.0, 11.0, 12.0, 13.0, 15.0, 16.0, 18.0, 20.0, 22.0, 24.0, 27.0, 30.0,
-    33.0, 36.0, 39.0, 43.0, 47.0, 51.0, 56.0, 62.0, 68.0, 75.0, 82.0, 91.0
+    33.0, 36.0, 39.0, 43.0, 47.0, 51.0, 56.0, 62.0, 68.0, 75.0, 82.0, 91.0,
 ]
 
 
 def format_resistance_value(resistance: float) -> str:
-    """
-    Convert a resistance value to a human-readable string format.
+    """Convert a resistance value to a human-readable string format.
 
     Args:
         resistance: The resistance value in ohms
 
     Returns:
         A formatted string with appropriate unit suffix (Ω, kΩ, or MΩ)
+
     """
     def clean_number(num: float) -> str:
         return f"{num:g}"
 
-    if resistance >= 1_000_000:
+    if resistance >= 1_000_000:  # noqa: PLR2004
         return f"{clean_number(resistance / 1_000_000)} MΩ"
-    if resistance >= 1_000:
+    if resistance >= 1_000:  # noqa: PLR2004
         return f"{clean_number(resistance / 1_000)} kΩ"
     return f"{clean_number(resistance)} Ω"
 
 
 def generate_resistance_code(resistance: float, max_resistance: int) -> str:
-    """
-    Generate the resistance code portion of a Panasonic part number.
+    """Generate the resistance code portion of a Panasonic part number.
 
     The code follows Panasonic's format:
     - For values < 100Ω: Uses R notation (e.g., 10R0 for 10Ω)
     - For values ≥ 100Ω: Uses 3 significant digits + multiplier digit where:
-        0 = ×1 (100-999Ω)
-        1 = ×10 (1k-9.99kΩ)
-        2 = ×100 (10k-99.9kΩ)
-        3 = ×1000 (100k-999kΩ)
-        4 = ×10000 (1MΩ+)
+        0 = *1 (100-999Ω)
+        1 = *10 (1k-9.99kΩ)
+        2 = *100 (10k-99.9kΩ)
+        3 = *1000 (100k-999kΩ)
+        4 = *10000 (1MΩ+)
 
     Args:
         resistance: The resistance value in ohms
@@ -94,28 +89,29 @@ def generate_resistance_code(resistance: float, max_resistance: int) -> str:
     Raises:
         ValueError:
             If resistance is outside valid range (10Ω to max_resistance)
+
     """
-    if resistance < 10 or resistance > max_resistance:
-        raise ValueError(
-            f"Resistance value out of range (10Ω to {max_resistance}Ω)")
+    if resistance < 10 or resistance > max_resistance:  # noqa: PLR2004
+        msg = f"Resistance value out of range (10Ω to {max_resistance}Ω)"
+        raise ValueError(msg)
 
     # Handle values less than 100Ω using R notation
-    if resistance < 100:
+    if resistance < 100:  # noqa: PLR2004
         whole = int(resistance)
         decimal = int(round((resistance - whole) * 10))
         return f"{whole:02d}R{decimal}"
 
     # For values ≥ 100Ω, determine multiplier and significant digits
-    if resistance < 1000:  # 100-999Ω
+    if resistance < 1000:  # 100-999Ω  # noqa: PLR2004
         significant = int(round(resistance))
         multiplier = "0"
-    elif resistance < 10000:  # 1k-9.99kΩ
+    elif resistance < 10000:  # 1k-9.99kΩ  # noqa: PLR2004
         significant = int(round(resistance / 10))
         multiplier = "1"
-    elif resistance < 100000:  # 10k-99.9kΩ
+    elif resistance < 100000:  # 10k-99.9kΩ  # noqa: PLR2004
         significant = int(round(resistance / 100))
         multiplier = "2"
-    elif resistance < 1000000:  # 100k-999kΩ
+    elif resistance < 1000000:  # 100k-999kΩ  # noqa: PLR2004
         significant = int(round(resistance / 1000))
         multiplier = "3"
     else:  # 1MΩ+
@@ -126,11 +122,10 @@ def generate_resistance_code(resistance: float, max_resistance: int) -> str:
 
 
 def generate_resistance_values(
-    base_values: List[float],
-    max_resistance: int
+    base_values: list[float],
+    max_resistance: int,
 ) -> Iterator[float]:
-    """
-    Generate all valid resistance values from a list of base values.
+    """Generate all valid resistance values from a list of base values.
 
     For each base value, generates a geometric sequence by multiplying by 10
     until reaching max_resistance. Only yields values ≥ 10Ω.
@@ -141,11 +136,12 @@ def generate_resistance_values(
 
     Yields:
         float: Valid resistance values in ascending order
+
     """
     for base_value in base_values:
         current = base_value
         while current <= max_resistance:
-            if current >= 10:
+            if current >= 10:  # noqa: PLR2004
                 yield current
             current *= 10
 
@@ -155,10 +151,9 @@ def create_part_info(
     tolerance_code: str,
     tolerance_value: str,
     packaging: str,
-    specs: sym_res_spec.SeriesSpec
+    specs: sym_res_spec.SeriesSpec,
 ) -> sym_res_spec.PartInfo:
-    """
-    Create a PartInfo instance with complete component specifications.
+    """Create a PartInfo instance with complete component specifications.
 
     Args:
         resistance: Resistance value in ohms
@@ -170,6 +165,7 @@ def create_part_info(
     Returns:
         PartInfo instance containing all component details
         and vendor information
+
     """
     resistance_code = generate_resistance_code(
         resistance, specs.max_resistance)
@@ -195,15 +191,14 @@ def create_part_info(
         case_code_in=specs.case_code_in,
         case_code_mm=specs.case_code_mm,
         series=specs.base_series,
-        trustedparts_link=trustedparts_link
+        trustedparts_link=trustedparts_link,
     )
 
 
 def generate_part_numbers(
-        specs: sym_res_spec.SeriesSpec
-) -> List[sym_res_spec.PartInfo]:
-    """
-    Generate all possible part numbers for a resistor series.
+        specs: sym_res_spec.SeriesSpec,
+) -> list[sym_res_spec.PartInfo]:
+    """Generate all possible part numbers for a resistor series.
 
     Generates part numbers for both E96 and E24 value series, considering:
     - All valid resistance values up to max_resistance
@@ -216,8 +211,9 @@ def generate_part_numbers(
 
     Returns:
         List of PartInfo instances for all valid combinations
+
     """
-    parts_list: List[sym_res_spec.PartInfo] = []
+    parts_list: list[sym_res_spec.PartInfo] = []
 
     for series_type in sym_res_spec.SeriesType:
         base_values = (
@@ -228,19 +224,19 @@ def generate_part_numbers(
         for resistance in generate_resistance_values(
                 base_values, specs.max_resistance):
             # Handle special case for high resistance values
-            if resistance > 1_000_000 and specs.high_resistance_tolerance:
+            if resistance > 1_000_000 and specs.high_resistance_tolerance:  # noqa: PLR2004
                 tolerance_codes = specs.high_resistance_tolerance
             else:
                 tolerance_codes = specs.tolerance_map[series_type]
 
             for tolerance_code, tolerance_value in tolerance_codes.items():
                 for packaging in specs.packaging_options:
-                    parts_list.append(create_part_info(
+                    parts_list.append(create_part_info(  # noqa: PERF401
                         resistance,
                         tolerance_code,
                         tolerance_value,
                         packaging,
-                        specs
+                        specs,
                     ))
 
     return parts_list
@@ -248,30 +244,28 @@ def generate_part_numbers(
 
 # Global header to attribute mapping
 HEADER_MAPPING: Final[dict] = {
-    'Symbol Name': lambda part: part.symbol_name,
-    'Reference': lambda part: part.reference,
-    'Value': lambda part: format_resistance_value(part.value),
-    'Footprint': lambda part: part.footprint,
-    'Datasheet': lambda part: part.datasheet,
-    'Description': lambda part: part.description,
-    'Manufacturer': lambda part: part.manufacturer,
-    'MPN': lambda part: part.mpn,
-    'Tolerance': lambda part: part.tolerance,
-    'Voltage Rating': lambda part: part.voltage_rating,
-    'Case Code - in': lambda part: part.case_code_in,
-    'Case Code - mm': lambda part: part.case_code_mm,
-    'Series': lambda part: part.series,
-    'Trustedparts Search': lambda part: part.trustedparts_link
+    "Symbol Name": lambda part: part.symbol_name,
+    "Reference": lambda part: part.reference,
+    "Value": lambda part: format_resistance_value(part.value),
+    "Footprint": lambda part: part.footprint,
+    "Datasheet": lambda part: part.datasheet,
+    "Description": lambda part: part.description,
+    "Manufacturer": lambda part: part.manufacturer,
+    "MPN": lambda part: part.mpn,
+    "Tolerance": lambda part: part.tolerance,
+    "Voltage Rating": lambda part: part.voltage_rating,
+    "Case Code - in": lambda part: part.case_code_in,
+    "Case Code - mm": lambda part: part.case_code_mm,
+    "Series": lambda part: part.series,
+    "Trustedparts Search": lambda part: part.trustedparts_link,
 }
 
 
 def generate_files_for_series(
     series_name: str,
-    unified_parts_list: List[sym_res_spec.PartInfo]
+    unified_parts_list: list[sym_res_spec.PartInfo],
 ) -> None:
-    """
-    Generate CSV, KiCad symbol, and footprint files
-    for a specific resistor series.
+    """Generate CSV, KiCad symbol, and footprint files for a resistor series.
 
     Creates:
     1. A CSV file containing all component specifications
@@ -288,17 +282,19 @@ def generate_files_for_series(
         FileNotFoundError: If CSV file cannot be found for symbol generation
         csv.Error: If CSV processing fails
         IOError: If file operations fail
+
     """
     if series_name not in sym_res_spec.SERIES_SPECS:
-        raise ValueError(f"Unknown series: {series_name}")
+        msg = f"Unknown series: {series_name}"
+        raise ValueError(msg)
 
     specs = sym_res_spec.SERIES_SPECS[series_name]
     series_code = series_name.replace("-", "")
 
     # Ensure required directories exist
-    utils.ensure_directory_exists('data')
-    utils.ensure_directory_exists('series_kicad_sym')
-    utils.ensure_directory_exists('symbols')
+    utils.ensure_directory_exists("data")
+    utils.ensure_directory_exists("series_kicad_sym")
+    utils.ensure_directory_exists("symbols")
     footprint_dir = "resistor_footprints.pretty"
     utils.ensure_directory_exists(footprint_dir)
 
@@ -314,15 +310,15 @@ def generate_files_for_series(
     # Generate KiCad symbol file
     try:
         sym_res_gen.generate_kicad_symbol(
-            f'data/{csv_filename}',
-            f'series_kicad_sym/{symbol_filename}')
+            f"data/{csv_filename}",
+            f"series_kicad_sym/{symbol_filename}")
         pmu.print_success(
             f"KiCad symbol file '{symbol_filename}' generated successfully.")
     except FileNotFoundError as file_error:
         pmu.print_error(f"CSV file not found: {file_error}")
     except csv.Error as csv_error:
         pmu.print_error(f"CSV processing error: {csv_error}")
-    except IOError as io_error:
+    except OSError as io_error:
         pmu.print_error(
             f"I/O error when generating KiCad symbol file: {io_error}")
 
@@ -331,23 +327,24 @@ def generate_files_for_series(
         ftp_res_gen.generate_footprint_file(series_name, footprint_dir)
         footprint_name = f"{series_name}_{specs.case_code_in}.kicad_mod"
         pmu.print_success(
-            f"KiCad footprint file '{footprint_name}' generated successfully.")
+            f"KiCad footprint file '{footprint_name}' "
+            "generated successfully.")
     except KeyError as key_error:
         pmu.print_error(f"Invalid series specification: {key_error}")
-    except IOError as io_error:
-        pmu.print_error(f"I/O error when generating footprint file: {io_error}")
+    except OSError as io_error:
+        pmu.print_error(
+            f"I/O error when generating footprint file: {io_error}")
 
     # Add parts to unified list
     unified_parts_list.extend(parts_list)
 
 
 def generate_unified_files(
-        all_parts: List[sym_res_spec.PartInfo],
+        all_parts: list[sym_res_spec.PartInfo],
         unified_csv: str,
-        unified_symbol: str
+        unified_symbol: str,
 ) -> None:
-    """
-    Generate unified component database files containing all series.
+    """Generate unified component database files containing all series.
 
     Creates:
     1. A unified CSV file containing all component specifications
@@ -363,6 +360,7 @@ def generate_unified_files(
         FileNotFoundError: If unified CSV file cannot be found
         csv.Error: If CSV processing fails
         IOError: If file operations fail
+
     """
     # Write unified CSV file
     utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
@@ -372,20 +370,20 @@ def generate_unified_files(
     # Generate unified KiCad symbol file
     try:
         sym_res_gen.generate_kicad_symbol(
-            f'data/{unified_csv}', f'symbols/{unified_symbol}')
+            f"data/{unified_csv}", f"symbols/{unified_symbol}")
         pmu.print_success("Unified KiCad symbol file generated successfully.")
     except FileNotFoundError as file_error:
         pmu.print_error(f"Unified CSV file not found: {file_error}")
     except csv.Error as csv_error:
         pmu.print_error(f"CSV processing error for unified file: {csv_error}")
-    except IOError as io_error:
+    except OSError as io_error:
         pmu.print_error(
-            f"I/O error when generating unified KiCad symbol file: {io_error}")
+            f"Error when generating unified KiCad symbol file: {io_error}")
 
 
 if __name__ == "__main__":
     try:
-        unified_parts: List[sym_res_spec.PartInfo] = []
+        unified_parts: list[sym_res_spec.PartInfo] = []
 
         for series in sym_res_spec.SERIES_SPECS:
             pmu.print_info(f"\nGenerating files for {series} series:")
@@ -397,5 +395,5 @@ if __name__ == "__main__":
         pmu.print_info("\nGenerating unified files:")
         generate_unified_files(unified_parts, UNIFIED_CSV, UNIFIED_SYMBOL)
 
-    except (csv.Error, IOError) as file_error:
+    except (OSError, csv.Error) as file_error:
         pmu.print_error(f"Error generating files: {file_error}")
