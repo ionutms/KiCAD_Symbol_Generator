@@ -57,6 +57,7 @@ def generate_footprint(specs: FootprintSpecs) -> str:
     case_in = specs.series_spec.case_code_in
     case_mm = specs.series_spec.case_code_mm
     footprint_name = f"R_{case_in}_{case_mm}Metric"
+    step_file_name = f"R_{case_in}"
 
     sections = [
         fu.generate_header(footprint_name),
@@ -65,7 +66,7 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         generate_courtyard(specs),
         generate_fab_layer(specs),
         generate_pads(specs),
-        generate_3d_model(specs),
+        fu.associate_3d_model(step_file_name),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
@@ -224,19 +225,6 @@ def generate_pads(specs: FootprintSpecs) -> str:
         )
 
     return "\n".join(pads)
-
-
-def generate_3d_model(specs: FootprintSpecs) -> str:
-    """Generate 3D model reference for the resistor."""
-    case_code = specs.series_spec.case_code_in
-    return (
-        f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
-        f'R_{case_code}.step"\n'
-        f"        (offset (xyz 0 0 0))\n"
-        f"        (scale (xyz 1 1 1))\n"
-        f"        (rotate (xyz 0 0 0))\n"
-        f"    )"
-    )
 
 
 def generate_footprint_file(series_name: str, output_dir: str) -> None:

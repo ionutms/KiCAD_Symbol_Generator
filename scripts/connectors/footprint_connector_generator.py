@@ -41,7 +41,7 @@ def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         generate_properties(part_info, specs, dimensions),
         generate_shapes(dimensions, specs),
         generate_pads(part_info, specs, dimensions),
-        generate_3d_model(part_info),
+        fu.associate_3d_model(f"CUI_DEVICES_{part_info.mpn}"),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
@@ -217,21 +217,6 @@ def generate_pads(
         )
         pads.append(pad)
     return "\n".join(pads)
-
-
-def generate_3d_model(part_info: ssc.PartInfo) -> str:
-    """Generate the 3D model section of the footprint."""
-    model_path = (
-        f"KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_{part_info.mpn}.step"
-    )
-
-    return (
-        f'    (model "${{KIPRJMOD}}/{model_path}"\n'
-        "        (offset (xyz 0 0 0))\n"
-        "        (scale (xyz 1 1 1))\n"
-        "        (rotate (xyz 0 0 0))\n"
-        "    )"
-    )
 
 
 def generate_footprint_file(part_info: ssc.PartInfo) -> None:
