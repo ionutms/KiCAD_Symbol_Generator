@@ -10,7 +10,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Maximum DC Current (A)" "22.0"
+        (property "Manufacturer" "Coilcraft"
             (at 0 -12.7 0)
             (show_name)
             (effects
@@ -20,7 +20,17 @@
             )
         )
         
-        (property "Symbol Name" "L_XAL1513-153ME"
+        (property "Datasheet" "https://www.coilcraft.com/getmedia/129ad6f3-0445-47fd-a0b3-edeb49177c17/xal1513.pdf"
+            (at 0.254 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "XAL1513-153ME"
             (at 0 -15.239999999999998 0)
             (show_name)
             (effects
@@ -40,7 +50,7 @@
             )
         )
         
-        (property "Maximum DC Resistance (Ω)" "7.500"
+        (property "Tolerance" "±20%"
             (at 0 -20.319999999999997 0)
             (show_name)
             (effects
@@ -50,8 +60,8 @@
             )
         )
         
-        (property "Series" "XAL1513"
-            (at 0 -22.859999999999996 0)
+        (property "Description" "INDUCTOR SMD 15 µH ±20% AEC-Q200"
+            (at 0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -60,8 +70,8 @@
             )
         )
         
-        (property "Footprint" "inductor_footprints:XAL1513"
-            (at 0 -5.08 0)
+        (property "Maximum DC Current (A)" "22.0"
+            (at 0 -22.859999999999996 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -80,7 +90,7 @@
             )
         )
         
-        (property "Manufacturer" "Coilcraft"
+        (property "Symbol Name" "L_XAL1513-153ME"
             (at 0 -25.399999999999995 0)
             (show_name)
             (effects
@@ -100,27 +110,7 @@
             )
         )
         
-        (property "Datasheet" "https://www.coilcraft.com/getmedia/129ad6f3-0445-47fd-a0b3-edeb49177c17/xal1513.pdf"
-            (at 0.254 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Description" "INDUCTOR SMD 15 µH ±20% AEC-Q200"
-            (at 0 -10.16 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Tolerance" "±20%"
+        (property "Series" "XAL1513"
             (at 0 -27.939999999999994 0)
             (show_name)
             (effects
@@ -130,8 +120,18 @@
             )
         )
         
-        (property "MPN" "XAL1513-153ME"
+        (property "Maximum DC Resistance (Ω)" "7.500"
             (at 0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Footprint" "inductor_footprints:XAL1513"
+            (at 0 -5.08 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))

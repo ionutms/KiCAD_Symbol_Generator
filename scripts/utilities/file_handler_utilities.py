@@ -1,29 +1,29 @@
-"""TODO"""
+"""TODO."""
 
-import os
 import csv
-from typing import Dict, List, Final, NamedTuple
+from pathlib import Path
+from typing import Final, NamedTuple
 
 from .print_message_utilities import print_info
 
 
 def write_to_csv(
-    parts_list: List[NamedTuple],
+    parts_list: list[NamedTuple],
     output_file: str,
-    header_mapping: List[str],
-    encoding: str = 'utf-8'
+    header_mapping: list[str],
+    encoding: str = "utf-8",
 ) -> None:
-    """
-    Write specifications to CSV file using global header mapping.
+    """Write specifications to CSV file using global header mapping.
 
     Args:
         parts_list: List of parts to write
         output_file: Output filename
+        header_mapping: todo
         encoding: Character encoding
-    """
 
+    """
     # Prepare all rows before opening file
-    headers: Final[List[str]] = list(header_mapping.keys())
+    headers: Final[list[str]] = list(header_mapping.keys())
     rows = [headers]
     rows.extend([
         [header_mapping[header](part) for header in headers]
@@ -31,25 +31,33 @@ def write_to_csv(
     ])
 
     # Write all rows at once
-    with open(f'data/{output_file}', 'w', newline='', encoding=encoding) as \
-            csvfile:
+    with Path.open(
+        f"data/{output_file}", "w", newline="", encoding=encoding) as csvfile:
         writer = csv.writer(csvfile)
         writer.writerows(rows)
 
 
 def ensure_directory_exists(directory: str) -> None:
-    """Create directory if it doesn't exist."""
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-        print_info(f"Created directory: {directory}")
+    """Create a directory and all necessary parent directories.
+
+    Args:
+        directory: Path of the directory to create.
+            Can be either absolute or relative path.
+
+    Note:
+        If the directory already exists, this function will silently succeed.
+        Parent directories will be created automatically if they don't exist.
+
+    """
+    Path(directory).mkdir(parents=True, exist_ok=True)
+    print_info(f"Created directory: {directory}")
 
 
 def read_csv_data(
         input_csv_file: str,
-        encoding: str
-) -> List[Dict[str, str]]:
-    """
-    Read component data from a CSV file.
+        encoding: str,
+) -> list[dict[str, str]]:
+    """Read component data from a CSV file.
 
     Args:
         input_csv_file (str): Path to the input CSV file.
@@ -57,6 +65,7 @@ def read_csv_data(
 
     Returns:
         List[Dict[str, str]]: List of dictionaries containing component data.
+
     """
-    with open(input_csv_file, 'r', encoding=encoding) as csv_file:
+    with Path.open(input_csv_file, "r", encoding=encoding) as csv_file:
         return list(csv.DictReader(csv_file))

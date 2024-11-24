@@ -10,27 +10,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-02BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -40,17 +20,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -60,7 +30,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -70,7 +40,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -80,8 +50,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  2 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -100,27 +80,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-02BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -140,8 +100,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-02BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-02BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  2 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -151,7 +121,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-02BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -170,7 +160,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -180,7 +170,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -223,27 +223,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-03BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -253,17 +233,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -273,7 +243,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -283,7 +253,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -293,8 +263,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  3 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -313,27 +293,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-03BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -353,8 +313,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-03BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-03BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  3 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -364,7 +334,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-03BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -383,7 +373,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -393,7 +383,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -444,27 +444,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-04BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -474,17 +454,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -494,7 +464,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -504,7 +474,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -514,8 +484,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  4 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -534,27 +514,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-04BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -574,8 +534,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-04BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-04BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  4 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -585,7 +555,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-04BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -604,7 +594,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -614,7 +604,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -673,27 +673,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-05BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -703,17 +683,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -723,7 +693,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -733,7 +703,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -743,8 +713,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  5 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -763,27 +743,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-05BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -803,8 +763,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-05BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-05BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  5 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -814,7 +784,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-05BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -833,7 +823,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -843,7 +833,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -910,27 +910,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-06BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -940,17 +920,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -960,7 +930,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -970,7 +940,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -980,8 +950,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  6 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1000,27 +980,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-06BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1040,8 +1000,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-06BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-06BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  6 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1051,7 +1021,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-06BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1070,7 +1060,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -1080,7 +1070,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -1155,27 +1155,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-07BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -1185,17 +1165,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -1205,7 +1175,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -1215,7 +1185,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -1225,8 +1195,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  7 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1245,27 +1225,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-07BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1285,8 +1245,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-07BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-07BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  7 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1296,7 +1266,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-07BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1315,7 +1305,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -1325,7 +1315,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -1408,27 +1408,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-08BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -1438,17 +1418,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -1458,7 +1428,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -1468,7 +1438,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -1478,8 +1448,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  8 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1498,27 +1478,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-08BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1538,8 +1498,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-08BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-08BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  8 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1549,7 +1519,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-08BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1568,7 +1558,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -1578,7 +1568,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -1669,27 +1669,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-09BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -1699,17 +1679,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -1719,7 +1689,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -1729,7 +1699,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -1739,8 +1709,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  9 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1759,27 +1739,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-09BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -1799,8 +1759,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-09BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-09BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  9 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1810,7 +1780,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-09BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -1829,7 +1819,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -1839,7 +1829,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -1938,27 +1938,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-10BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -1968,17 +1948,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -1988,7 +1958,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -1998,7 +1968,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -2008,8 +1978,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  10 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2028,27 +2008,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-10BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -2068,8 +2028,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-10BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-10BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  10 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2079,7 +2049,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-10BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2098,7 +2088,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -2108,7 +2098,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -2215,27 +2215,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-12BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -2245,17 +2225,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -2265,7 +2235,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -2275,7 +2245,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -2285,8 +2255,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  12 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2305,27 +2285,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-12BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -2345,8 +2305,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-12BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-12BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  12 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2356,7 +2326,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-12BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2375,7 +2365,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -2385,7 +2375,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -2508,27 +2508,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-14BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -2538,17 +2518,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -2558,7 +2528,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -2568,7 +2538,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -2578,8 +2548,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  14 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2598,27 +2578,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-14BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -2638,8 +2598,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-14BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-14BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  14 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2649,7 +2619,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-14BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2668,7 +2658,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -2678,7 +2668,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
@@ -2817,27 +2817,7 @@
             (in_bom yes)
             (on_board yes)
         
-        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
-            (at 5.08 -7.62 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Footprint" "connector_footprints:TBP02R2-381-16BE"
-            (at 5.08 -5.08 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Pitch (mm)" "3.81"
+        (property "Manufacturer" "Same Sky"
             (at 5.08 -12.7 0)
             (show_name)
             (effects
@@ -2847,17 +2827,7 @@
             )
         )
         
-        (property "Reference" "J"
-            (at 5.08 0 0)
-            
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                
-            )
-        )
-        
-        (property "Contact Plating" "Tin"
+        (property "Pitch (mm)" "3.81"
             (at 5.08 -15.239999999999998 0)
             (show_name)
             (effects
@@ -2867,7 +2837,7 @@
             )
         )
         
-        (property "Manufacturer" "Same Sky"
+        (property "Series" "TBP02R2-381"
             (at 5.08 -17.779999999999998 0)
             (show_name)
             (effects
@@ -2877,7 +2847,7 @@
             )
         )
         
-        (property "Mounting Angle" "Vertical"
+        (property "Mounting Style" "Through Hole"
             (at 5.08 -20.319999999999997 0)
             (show_name)
             (effects
@@ -2887,8 +2857,18 @@
             )
         )
         
-        (property "Description" "Same Sky TBP02R2-381 series,  16 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
-            (at 5.08 -10.16 0)
+        (property "Mounting Angle" "Vertical"
+            (at 5.08 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating (V)" "300"
+            (at 5.08 -25.399999999999995 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2907,27 +2887,7 @@
             )
         )
         
-        (property "Series" "TBP02R2-381"
-            (at 5.08 -22.859999999999996 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Current Rating (A)" "8.0"
-            (at 5.08 -25.399999999999995 0)
-            (show_name)
-            (effects
-                (font(size 1.27 1.27))
-                (justify left)
-                (hide yes)
-            )
-        )
-        
-        (property "Mounting Style" "Through Hole"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-16BE"
             (at 5.08 -27.939999999999994 0)
             (show_name)
             (effects
@@ -2947,8 +2907,18 @@
             )
         )
         
-        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/TBP02R2-381-16BE"
-            (at 5.08 -33.019999999999996 0)
+        (property "Footprint" "connector_footprints:TBP02R2-381-16BE"
+            (at 5.08 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "Same Sky TBP02R2-381 series,  16 positions connector,  3.81 mm pitch,  Blue,  Vertical mounting,  8.0 A,  300 V,  Through Hole,  Tin plated"
+            (at 5.08 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2958,7 +2928,27 @@
         )
         
         (property "Symbol Name" "J_TBP02R2-381-16BE"
+            (at 5.08 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Current Rating (A)" "8.0"
             (at 5.08 -35.559999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://www.sameskydevices.com/product/resource/tbp02r2-381.pdf"
+            (at 5.08 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -2977,7 +2967,7 @@
             )
         )
         
-        (property "Color" "Blue"
+        (property "Contact Plating" "Tin"
             (at 5.08 -40.63999999999999 0)
             (show_name)
             (effects
@@ -2987,7 +2977,17 @@
             )
         )
         
-        (property "Voltage Rating (V)" "300"
+        (property "Reference" "J"
+            (at 5.08 0 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Color" "Blue"
             (at 5.08 -43.17999999999999 0)
             (show_name)
             (effects
