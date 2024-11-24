@@ -58,46 +58,41 @@ class ResistorSpecs(NamedTuple):
     pad_dimensions: PadDimensions
     silkscreen: SilkscreenParams
     text_positions: TextPositions
-    courtyard_margin: float
 
 
 RESISTOR_SPECS: dict[str, ResistorSpecs] = {
     "0402": ResistorSpecs(
-        body_dimensions=BodyDimensions(width=1.0, height=0.5),
+        body_dimensions=BodyDimensions(width=1.82, height=0.955),
         pad_dimensions=PadDimensions(width=0.54, height=0.64, center_x=0.51),
         silkscreen=SilkscreenParams(
             y_position=0.38, extension=0.153641, inset=0.15),
         text_positions=TextPositions(
             reference=-1.27, value=1.27, fab_reference=2.54),
-        courtyard_margin=0.91,
     ),
     "0603": ResistorSpecs(
-        body_dimensions=BodyDimensions(width=1.6, height=0.8),
+        body_dimensions=BodyDimensions(width=2.96, height=1.54),
         pad_dimensions=PadDimensions(width=0.8, height=0.95, center_x=0.825),
         silkscreen=SilkscreenParams(
             y_position=0.5225, extension=0.237258, inset=0.24),
         text_positions=TextPositions(
             reference=-1.524, value=1.524, fab_reference=2.794),
-        courtyard_margin=1.48,
     ),
     "0805": ResistorSpecs(
-        body_dimensions=BodyDimensions(width=2.0, height=1.25),
+        body_dimensions=BodyDimensions(width=3.36, height=2.09),
         pad_dimensions=PadDimensions(
             width=1.025, height=1.4, center_x=0.9125),
         silkscreen=SilkscreenParams(
             y_position=0.735, extension=0.227064, inset=0.23),
         text_positions=TextPositions(
             reference=-1.778, value=1.778, fab_reference=3.048),
-        courtyard_margin=1.68,
     ),
     "1206": ResistorSpecs(
-        body_dimensions=BodyDimensions(width=3.2, height=1.6),
+        body_dimensions=BodyDimensions(width=4.56, height=2.74),
         pad_dimensions=PadDimensions(
             width=1.125, height=1.75, center_x=1.4625),
         silkscreen=SilkscreenParams(
             y_position=0.91, extension=0.727064, inset=0.25),
         text_positions=TextPositions(
             reference=-2.032, value=2.032, fab_reference=3.302),
-        courtyard_margin=2.28,
     ),
 }

@@ -63,7 +63,9 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         fu.generate_header(footprint_name),
         generate_properties(specs),
         generate_silkscreen(specs),
-        generate_courtyard(specs),
+        fu.generate_courtyard(
+            specs.resistor_specs.body_dimensions.width,
+            specs.resistor_specs.body_dimensions.height),
         generate_fab_layer(specs),
         generate_pads(specs),
         fu.associate_3d_model(step_file_name),
@@ -139,29 +141,6 @@ def generate_silkscreen(specs: FootprintSpecs) -> str:
         )
 
     return "\n".join(silkscreen)
-
-
-def generate_courtyard(specs: FootprintSpecs) -> str:
-    """Generate courtyard outline with resistor-specific clearances."""
-    res_specs = specs.resistor_specs
-    half_height = (
-        res_specs.body_dimensions.height / 2 + res_specs.courtyard_margin / 4
-    )
-    half_width = res_specs.courtyard_margin
-
-    return (
-        f"    (fp_rect\n"
-        f"        (start -{half_width} -{half_height})\n"
-        f"        (end {half_width} {half_height})\n"
-        f"        (stroke\n"
-        f"            (width 0.00635)\n"
-        f"            (type solid)\n"
-        f"        )\n"
-        f"        (fill none)\n"
-        f'        (layer "F.CrtYd")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"    )"
-    )
 
 
 def generate_fab_layer(specs: FootprintSpecs) -> str:
