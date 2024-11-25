@@ -8,7 +8,7 @@
         (at 0 -7.112 0)
         (unlocked yes)
         (layer "F.SilkS")
-        (uuid "742afc57-c563-421f-932c-5287b46a8a0f")
+        (uuid "1b4e9be1-5e87-4d58-a4cc-3b115d7f0f36")
         (effects
             (font
                 (size 0.762 0.762)
@@ -21,7 +21,7 @@
         (at 0 7.112 0)
         (unlocked yes)
         (layer "F.Fab")
-        (uuid "0a78d6e2-fa0e-4af4-bf72-f7e2136062d3")
+        (uuid "663c0777-9bee-41e6-8a63-2ae558146571")
         (effects
             (font
                 (size 0.762 0.762)
@@ -34,7 +34,7 @@
         (at 0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "7a53c986-2711-4d89-b84e-4c270d6c34b7")
+        (uuid "6c2f78bb-3382-4570-84b6-6352351bd7d7")
         (effects
             (font
                 (size 1.27 1.27)
@@ -52,29 +52,27 @@
             )
             (fill none)
             (layer "F.CrtYd")
-            (uuid "7ce5768b-bbf6-4ac0-9a2e-68a5556384a5")
+            (uuid "d4972143-97d1-43f5-adec-83502000a836")
         )
         
-    (fp_line
-        (start 2.25 -6.25)
-        (end -2.25 -6.25)
-        (stroke
-            (width 0.1524)
-            (type solid)
-        )
-        (layer "F.SilkS")
-        (uuid "2a9c3e35-87d7-48dd-af0c-1b94df1e251b")
-    )
-    (fp_line
-        (start 2.25 6.25)
-        (end -2.25 6.25)
-        (stroke
-            (width 0.1524)
-            (type solid)
-        )
-        (layer "F.SilkS")
-        (uuid "dc73fe3e-5e88-4cdb-9e9e-634acdbc8f5f")
-    )
+
+            (fp_line
+                (start 2.25 -6.25)
+                (end -2.25 -6.25)
+                (stroke (width 0.1524) (type solid) )
+                (layer "F.SilkS")
+                (uuid "8b4ede26-af95-41f8-908d-846581efdeed")
+            )
+            
+
+            (fp_line
+                (start 2.25 6.25)
+                (end -2.25 6.25)
+                (stroke (width 0.1524) (type solid) )
+                (layer "F.SilkS")
+                (uuid "29373506-fc4f-4a33-b267-9701dcb396ee")
+            )
+            
     (fp_circle
         (center -8.25 -1.75)
         (end -8.75 -1.75)
@@ -84,7 +82,7 @@
         )
         (fill solid)
         (layer "F.SilkS")
-        (uuid "5e9bdf9d-83ba-4343-8fef-859069e1bb67")
+        (uuid "3c9e94a1-9f25-4103-b259-9c8cce9f3151")
     )
     (fp_rect
         (start -6.25 -6.25)
@@ -95,7 +93,7 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "809505f5-2205-483a-a7e3-c65488e07e70")
+        (uuid "46f9f60c-754b-4937-a213-d128d1a906cd")
     )
     (fp_circle
         (center -4.25 -1.75)
@@ -106,13 +104,13 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "808fcb5a-0f96-4c5c-8420-b00cca746c06")
+        (uuid "c448495c-c3af-49c5-8c33-74d2a77d5fa1")
     )
     (fp_text user "${REFERENCE}"
         (at 0 8.382 0)
         (unlocked yes)
         (layer "F.Fab")
-        (uuid "9bce90bc-056c-4005-8715-9de5959dcfc8")
+        (uuid "30ddc004-6bca-4419-95a3-6d8ab407bcf2")
         (effects
             (font
                 (size 0.762 0.762)
@@ -125,25 +123,25 @@
         (at -4.25 -1.75)
         (size 4.0 2.0)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "2128dfd5-5af7-46a5-a148-e9e697e441c6")
+        (uuid "e5547739-8bae-4795-8b97-5b15e074dfdb")
     )
     (pad "2" smd rect
         (at -4.25 1.75)
         (size 4.0 2.0)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "a76cf787-10cb-4b38-8e09-723e207ca188")
+        (uuid "0b8c659a-1aa5-4a6a-95fb-2ef8ea16846c")
     )
     (pad "3" smd rect
         (at 4.25 1.75)
         (size 4.0 2.0)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "7199df66-aa01-48ed-96f7-2aef00d203a9")
+        (uuid "ddf143a3-4923-4194-98ce-9720a065a2fc")
     )
     (pad "4" smd rect
         (at 4.25 -1.75)
         (size 4.0 2.0)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "e53ca2a5-5b9e-4464-bb22-235107d50759")
+        (uuid "715182a6-3a26-435a-b1d4-e8d5813fe3d3")
     )
     (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/MSD1260.step"
         (offset (xyz 0 0 0))
