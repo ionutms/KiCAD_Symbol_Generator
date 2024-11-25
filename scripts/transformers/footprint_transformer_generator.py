@@ -18,12 +18,6 @@ def generate_footprint(
         part_info: sti.PartInfo, specs: TransformerSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a transformer."""
-    # Get silkscreen lines as a list
-    silkscreen_lines = fu.generate_silkscreen_lines(
-        specs.body_dimensions.height,
-        specs.pad_dimensions.center_x,
-        specs.pad_dimensions.width)
-
     sections = [
         fu.generate_header(part_info.series),
         generate_properties(part_info, specs),
@@ -33,11 +27,14 @@ def generate_footprint(
         fu.generate_fab_rectangle(
             specs.body_dimensions.width,
             specs.body_dimensions.height),
-        # Join the silkscreen lines with newlines before adding to sections
-        "\n".join(silkscreen_lines),
+        fu.generate_silkscreen_lines(
+            specs.body_dimensions.height,
+            specs.pad_dimensions.center_x,
+            specs.pad_dimensions.width),
         generate_shapes(specs),
         generate_pads(specs),
-        fu.associate_3d_model(part_info.series),
+        fu.associate_3d_model(
+            "KiCAD_Symbol_Generator/3D_models", part_info.series),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
