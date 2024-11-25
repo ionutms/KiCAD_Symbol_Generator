@@ -71,6 +71,9 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         fu.generate_courtyard(
             specs.resistor_specs.body_dimensions.width,
             specs.resistor_specs.body_dimensions.height),
+        fu.generate_fab_rectangle(
+            specs.resistor_specs.body_dimensions.width,
+            specs.resistor_specs.body_dimensions.height),
         # Join the silkscreen lines with newlines before adding to sections
         "\n".join(silkscreen_lines),
         generate_fab_layer(specs),
@@ -130,26 +133,8 @@ def generate_properties(specs: FootprintSpecs) -> str:
 def generate_fab_layer(specs: FootprintSpecs) -> str:
     """Generate fabrication layer with resistor-specific markings."""
     res_specs = specs.resistor_specs
-    body = res_specs.body_dimensions
-    half_width = body.width / 2
-    half_height = body.height / 2
 
     fab_layer = []
-
-    # Main body outline
-    fab_layer.append(
-        f"    (fp_rect\n"
-        f"        (start -{half_width} -{half_height})\n"
-        f"        (end {half_width} {half_height})\n"
-        f"        (stroke\n"
-        f"            (width 0.0254)\n"
-        f"            (type default)\n"
-        f"        )\n"
-        f"        (fill none)\n"
-        f'        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"    )",
-    )
 
     # Reference designator
     fab_layer.append(
