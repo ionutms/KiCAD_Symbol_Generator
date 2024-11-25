@@ -39,6 +39,9 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
         fu.generate_courtyard(
             specs.body_dimensions.width,
             specs.body_dimensions.height),
+        fu.generate_fab_rectangle(
+            specs.body_dimensions.width,
+            specs.body_dimensions.height),
         # Join the silkscreen lines with newlines before adding to sections
         "\n".join(silkscreen_lines),
         generate_shapes(specs),
@@ -95,25 +98,7 @@ def generate_properties(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
 
 def generate_shapes(specs: InductorSpecs) -> str:
     """Generate the shapes section of the footprint."""
-    half_width = specs.body_dimensions.width / 2
-    half_height = specs.body_dimensions.height / 2
-
     shapes = []
-
-    # Fabrication layer outline
-    shapes.append(
-        "    (fp_rect\n"
-        f"        (start -{half_width} -{half_height})\n"
-        f"        (end {half_width} {half_height})\n"
-        "        (stroke\n"
-        "            (width 0.0254)\n"
-        "            (type default)\n"
-        "        )\n"
-        "        (fill none)\n"
-        '        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        "    )",
-    )
 
     # Polarity marker
     shapes.append(
