@@ -21,6 +21,9 @@ def generate_footprint(
     sections = [
         fu.generate_header(part_info.series),
         generate_properties(part_info, specs),
+        fu.generate_courtyard(
+            specs.body_dimensions.width,
+            specs.body_dimensions.height),
         generate_shapes(specs),
         generate_pads(specs),
         fu.associate_3d_model(part_info.series),
@@ -127,19 +130,8 @@ def generate_shapes(specs: TransformerSpecs) -> str:
         '    )',
     )
 
-    # Courtyard and fabrication layer shapes
+    # Fabrication layer
     shapes.extend([
-        '    (fp_rect\n'
-        f'        (start -{half_width} -{half_height})\n'
-        f'        (end {half_width} {half_height})\n'
-        '        (stroke\n'
-        '            (width 0.00635)\n'
-        '            (type default)\n'
-        '        )\n'
-        '        (fill none)\n'
-        '        (layer "F.CrtYd")\n'
-        f'        (uuid "{uuid4()}")\n'
-        '    )',
         '    (fp_rect\n'
         f'        (start -{half_width} -{half_height})\n'
         f'        (end {half_width} {half_height})\n'
