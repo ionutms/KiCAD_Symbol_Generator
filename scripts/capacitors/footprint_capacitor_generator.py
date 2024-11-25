@@ -85,7 +85,7 @@ def generate_properties(specs: FootprintSpecs) -> str:
     """Generate properties section with capacitor-specific information."""
     footprint_name = (
         "C_"  # noqa: ISC003
-        + "{specs.series_spec.case_code_in}_"
+        + f"{specs.series_spec.case_code_in}_"
         + f"{specs.series_spec.case_code_mm}"
         + "Metric"
     )
