@@ -15,16 +15,15 @@ def generate_header(model_name: str) -> str:
     """)
 
 
-def associate_3d_model(step_file_name: str) -> str:
+def associate_3d_model(file_path: str, file_name: str) -> str:
     """Generate the 3D model section of the footprint."""
-    return (
-        f'    (model "${{KIPRJMOD}}/KiCAD_Symbol_Generator/3D_models/'
-        f'{step_file_name}.step"\n'
-        '        (offset (xyz 0 0 0))\n'
-        '        (scale (xyz 1 1 1))\n'
-        '        (rotate (xyz 0 0 0))\n'
-        '    )'
-    )
+    return (f"""
+        (model "${{KIPRJMOD}}/{file_path}/{file_name}.step"
+            (offset (xyz 0 0 0))
+            (scale (xyz 1 1 1))
+            (rotate (xyz 0 0 0))
+        )
+        """)
 
 
 def generate_courtyard(width: float, height: float) -> str:
@@ -48,10 +47,7 @@ def generate_courtyard(width: float, height: float) -> str:
         (fp_rect
             (start -{half_width} -{half_height})
             (end {half_width} {half_height})
-            (stroke
-                (width 0.00635)
-                (type solid)
-            )
+            (stroke (width 0.00635) (type solid))
             (fill none)
             (layer "F.CrtYd")
             (uuid "{uuid4()}")
@@ -72,7 +68,7 @@ def generate_silkscreen_lines(
             (fp_line
                 (start {silkscreen_x} {symbol}{half_height})
                 (end -{silkscreen_x} {symbol}{half_height})
-                (stroke (width 0.1524) (type solid) )
+                (stroke (width 0.1524) (type solid))
                 (layer "F.SilkS")
                 (uuid "{uuid4()}")
             )
@@ -89,10 +85,7 @@ def generate_fab_rectangle(width: float, height: float) -> str:
         (fp_rect
             (start -{half_width} -{half_height})
             (end {half_width} {half_height})
-            (stroke
-                (width 0.0254)
-                (type default)
-            )
+            (stroke (width 0.0254) (type default))
             (fill none)
             (layer "F.Fab")
             (uuid "{uuid4()}")

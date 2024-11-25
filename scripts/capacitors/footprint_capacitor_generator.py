@@ -74,7 +74,8 @@ def generate_footprint(specs: FootprintSpecs) -> str:
             specs.capacitor_specs.pad_dimensions.width),
         generate_fab_layer(specs),
         generate_pads(specs),
-        fu.associate_3d_model(step_file_name),
+        fu.associate_3d_model(
+            "KiCAD_Symbol_Generator/3D_models", step_file_name),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
@@ -129,26 +130,8 @@ def generate_properties(specs: FootprintSpecs) -> str:
 def generate_fab_layer(specs: FootprintSpecs) -> str:
     """Generate fabrication layer with capacitor-specific markings."""
     cap_specs = specs.capacitor_specs
-    body = cap_specs.body_dimensions
-    half_width = body.width / 2
-    half_height = body.height / 2
 
     fab_layer = []
-
-    # Main body outline
-    fab_layer.append(
-        f"    (fp_rect\n"
-        f"        (start -{half_width} -{half_height})\n"
-        f"        (end {half_width} {half_height})\n"
-        f"        (stroke\n"
-        f"            (width 0.0254)\n"
-        f"            (type default)\n"
-        f"        )\n"
-        f"        (fill none)\n"
-        f'        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"    )",
-    )
 
     # Reference designator
     fab_layer.append(

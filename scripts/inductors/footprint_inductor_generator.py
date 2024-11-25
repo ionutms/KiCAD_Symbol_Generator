@@ -42,7 +42,8 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
             specs.pad_dimensions.width),
         generate_shapes(specs),
         generate_pads(specs),
-        fu.associate_3d_model(part_info.series),
+        fu.associate_3d_model(
+            "KiCAD_Symbol_Generator/3D_models", part_info.series),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)

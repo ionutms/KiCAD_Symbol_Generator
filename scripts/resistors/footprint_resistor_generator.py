@@ -74,7 +74,8 @@ def generate_footprint(specs: FootprintSpecs) -> str:
             specs.resistor_specs.pad_dimensions.width),
         generate_fab_layer(specs),
         generate_pads(specs),
-        fu.associate_3d_model(step_file_name),
+        fu.associate_3d_model(
+            "KiCAD_Symbol_Generator/3D_models", step_file_name),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
