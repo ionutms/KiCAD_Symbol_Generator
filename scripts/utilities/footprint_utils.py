@@ -60,15 +60,15 @@ def generate_courtyard(width: float, height: float) -> str:
 
 
 def generate_silkscreen_lines(
-        height: float, center_x: float, pad_width: float) -> list[str]:
+        height: float, center_x: float, pad_width: float) -> str:
     """Todo."""
     half_height = height / 2
     silkscreen_x = center_x - pad_width / 2
 
-    shapes: list = []
+    shapes: str = ""
 
     for symbol in ["-", ""]:
-        shapes.append(f"""
+        shapes += f"""
             (fp_line
                 (start {silkscreen_x} {symbol}{half_height})
                 (end -{silkscreen_x} {symbol}{half_height})
@@ -76,7 +76,7 @@ def generate_silkscreen_lines(
                 (layer "F.SilkS")
                 (uuid "{uuid4()}")
             )
-            """)  # noqa: PERF401
+            """
     return shapes
 
 

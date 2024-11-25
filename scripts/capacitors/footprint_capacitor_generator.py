@@ -54,12 +54,6 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         Complete .kicad_mod file content as formatted string
 
     """
-    # Get silkscreen lines as a list
-    silkscreen_lines = fu.generate_silkscreen_lines(
-        specs.capacitor_specs.body_dimensions.height,
-        specs.capacitor_specs.pad_dimensions.center_x,
-        specs.capacitor_specs.pad_dimensions.width)
-
     case_in = specs.series_spec.case_code_in
     case_mm = specs.series_spec.case_code_mm
     footprint_name = f"C_{case_in}_{case_mm}Metric"
@@ -74,8 +68,10 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         fu.generate_fab_rectangle(
             specs.capacitor_specs.body_dimensions.width,
             specs.capacitor_specs.body_dimensions.height),
-        # Join the silkscreen lines with newlines before adding to sections
-        "\n".join(silkscreen_lines),
+        fu.generate_silkscreen_lines(
+            specs.capacitor_specs.body_dimensions.height,
+            specs.capacitor_specs.pad_dimensions.center_x,
+            specs.capacitor_specs.pad_dimensions.width),
         generate_fab_layer(specs),
         generate_pads(specs),
         fu.associate_3d_model(step_file_name),
