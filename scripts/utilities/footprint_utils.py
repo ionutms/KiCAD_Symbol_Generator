@@ -78,3 +78,23 @@ def generate_silkscreen_lines(
             )
             """)  # noqa: PERF401
     return shapes
+
+
+def generate_fab_rectangle(width: float, height: float) -> str:
+    """Todo."""
+    half_width = width / 2
+    half_height = height / 2
+
+    return (f"""
+        (fp_rect
+            (start -{half_width} -{half_height})
+            (end {half_width} {half_height})
+            (stroke
+                (width 0.0254)
+                (type default)
+            )
+            (fill none)
+            (layer "F.Fab")
+            (uuid "{uuid4()}")
+        )
+        """)
