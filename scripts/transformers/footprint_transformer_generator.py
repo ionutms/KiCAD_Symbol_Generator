@@ -18,12 +18,20 @@ def generate_footprint(
         part_info: sti.PartInfo, specs: TransformerSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a transformer."""
+    # Get silkscreen lines as a list
+    silkscreen_lines = fu.generate_silkscreen_lines(
+        specs.body_dimensions.height,
+        specs.pad_dimensions.center_x,
+        specs.pad_dimensions.width)
+
     sections = [
         fu.generate_header(part_info.series),
         generate_properties(part_info, specs),
         fu.generate_courtyard(
             specs.body_dimensions.width,
             specs.body_dimensions.height),
+        # Join the silkscreen lines with newlines before adding to sections
+        "\n".join(silkscreen_lines),
         generate_shapes(specs),
         generate_pads(specs),
         fu.associate_3d_model(part_info.series),
@@ -82,29 +90,8 @@ def generate_shapes(specs: TransformerSpecs) -> str:
     """Generate the shapes section of the footprint."""
     half_width = specs.body_dimensions.width / 2
     half_height = specs.body_dimensions.height / 2
-    silkscreen_x = \
-        specs.pad_dimensions.center_x - specs.pad_dimensions.width / 2
 
     shapes = []
-
-    # Silkscreen lines
-    for symbol in ["-", ""]:
-        shapes.append(  # noqa: PERF401
-            '    (fp_line\n'
-            '        (start '
-            f'{silkscreen_x} '
-            f'{symbol}{half_height})\n'
-            '        (end '
-            f'-{silkscreen_x} '
-            f'{symbol}{half_height})\n'
-            '        (stroke\n'
-            '            (width 0.1524)\n'
-            '            (type solid)\n'
-            '        )\n'
-            '        (layer "F.SilkS")\n'
-            f'        (uuid "{uuid4()}")\n'
-            '    )',
-        )
 
     # Pin 1 indicator position
     pins_per_side = specs.pad_dimensions.pin_count // 2
