@@ -71,6 +71,9 @@ def generate_footprint(specs: FootprintSpecs) -> str:
         fu.generate_courtyard(
             specs.capacitor_specs.body_dimensions.width,
             specs.capacitor_specs.body_dimensions.height),
+        fu.generate_fab_rectangle(
+            specs.capacitor_specs.body_dimensions.width,
+            specs.capacitor_specs.body_dimensions.height),
         # Join the silkscreen lines with newlines before adding to sections
         "\n".join(silkscreen_lines),
         generate_fab_layer(specs),
