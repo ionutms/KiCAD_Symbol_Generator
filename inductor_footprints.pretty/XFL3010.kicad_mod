@@ -8,7 +8,7 @@
         (at 0 -2.54 0)
         (unlocked yes)
         (layer "F.SilkS")
-        (uuid "2d25d48a-874d-4eba-958f-15ff6feb0011")
+        (uuid "0b021f4c-09d3-4c13-ae45-2dc5b71c67c9")
         (effects
             (font
                 (size 0.762 0.762)
@@ -21,7 +21,7 @@
         (at 0 2.54 0)
         (unlocked yes)
         (layer "F.Fab")
-        (uuid "db1563d2-3c10-46b8-9ac4-65be35493409")
+        (uuid "b68f387b-717b-42b8-b795-87d18c511829")
         (effects
             (font
                 (size 0.762 0.762)
@@ -34,7 +34,7 @@
         (at 0 0 0)
         (layer "F.Fab")
         (hide yes)
-        (uuid "242de698-5b16-4121-824e-9ca1643dc63c")
+        (uuid "98dbb2a3-34e5-4450-8ed1-253f65398616")
         (effects
             (font
                 (size 1.27 1.27)
@@ -52,29 +52,27 @@
             )
             (fill none)
             (layer "F.CrtYd")
-            (uuid "0d255a81-3818-441f-afe5-47930e695931")
+            (uuid "8453ee8e-d7d8-44f1-9f5d-415cc2a94505")
         )
         
-    (fp_line
-        (start 0.5206999999999999 -1.6764)
-        (end -0.5206999999999999 -1.6764)
-        (stroke
-            (width 0.1524)
-            (type solid)
-        )
-        (layer "F.SilkS")
-        (uuid "a6670266-424c-46d8-96e0-5ee48f2a2c5d")
-    )
-    (fp_line
-        (start 0.5206999999999999 1.6764)
-        (end -0.5206999999999999 1.6764)
-        (stroke
-            (width 0.1524)
-            (type solid)
-        )
-        (layer "F.SilkS")
-        (uuid "6fcaed84-18d6-4097-86c6-9aadc8a9bd8c")
-    )
+
+            (fp_line
+                (start 0.5206999999999999 -1.6764)
+                (end -0.5206999999999999 -1.6764)
+                (stroke (width 0.1524) (type solid) )
+                (layer "F.SilkS")
+                (uuid "4d7b2e68-535e-40e9-ac6c-ce4c0af5c10b")
+            )
+            
+
+            (fp_line
+                (start 0.5206999999999999 1.6764)
+                (end -0.5206999999999999 1.6764)
+                (stroke (width 0.1524) (type solid) )
+                (layer "F.SilkS")
+                (uuid "485b5ac3-5a08-4aaa-8bce-baf3dee928be")
+            )
+            
     (fp_rect
         (start -1.6764 -1.6764)
         (end 1.6764 1.6764)
@@ -84,7 +82,7 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "5d9fa1a3-dcc5-48dc-af27-5311d01ceb3d")
+        (uuid "30794890-c957-4905-a6e1-7f89285193f8")
     )
     (fp_circle
         (center -1.016 0)
@@ -95,13 +93,13 @@
         )
         (fill none)
         (layer "F.Fab")
-        (uuid "b8c044d0-b9ec-41dc-9866-c880829df3e0")
+        (uuid "59fe91b0-5f37-4288-a7c3-8e9c5ebc027f")
     )
     (fp_text user "${REFERENCE}"
         (at 0 3.81 0)
         (unlocked yes)
         (layer "F.Fab")
-        (uuid "b888bc1c-ce2d-44e4-a5eb-77d4b6a92d51")
+        (uuid "755f750d-5bbf-4c1e-8d9a-eba028c61097")
         (effects
             (font
                 (size 0.762 0.762)
@@ -114,13 +112,13 @@
         (at -1.016 0)
         (size 0.9906 2.8956)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "3f290b5a-957e-4166-835e-7924b6ecec9c")
+        (uuid "cf1f643a-27b8-4855-85ff-8df7a240bba2")
     )
     (pad "2" smd rect
         (at 1.016 0)
         (size 0.9906 2.8956)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "a7926706-8532-4226-b2b8-313aff80eab9")
+        (uuid "927b8176-4ad7-48ab-b3f1-b9112d8c7ff4")
     )
     (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/XFL3010.step"
         (offset (xyz 0 0 0))
