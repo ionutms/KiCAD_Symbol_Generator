@@ -1,5 +1,4 @@
-"""
-Style Utilities for Dash Components
+"""Style Utilities for Dash Components.
 
 This module defines styles and styling functions for various Dash components.
 It includes predefined styles for headings, accordion items, radio buttons,
@@ -33,11 +32,7 @@ Functions:
     generate_style_filter: Generate style for table filters.
     style_accordionitem_title: Create a styled accordion item title.
 """
-
-from typing import List, Dict
-
 from dash import html
-
 
 heading_3_style = {"font-size": "30px", "font-weight": "bold"}
 
@@ -103,21 +98,22 @@ TABLE_GLOBAL_STYLES = {
     "width_100": "100%",
     "max_width_100": "100%",
     "overflow_hidden": "hidden",
-    "text_overflow_ellipsis": "ellipsis"
+    "text_overflow_ellipsis": "ellipsis",
 }
 
 
-def generate_css(switch: bool) -> List[Dict[str, str]]:
-    """
-    Generate CSS rules for the DataTable based on the theme switch value.
+def generate_css(switch: bool) -> list[dict[str, str]]:  # noqa: FBT001
+    """Generate CSS rules for the DataTable based on the theme switch value.
 
     Args:
         switch (bool):
             The state of the theme switch (True for light, False for dark).
 
     Returns:
-        List[Dict[str, str]]:
-            A list of CSS rule dictionaries for table filters and placeholders.
+        list[dict[str, str]]:
+            A list of CSS rule dictionaries for table filters and
+            placeholders.
+
     """
     input_color = (
         TABLE_GLOBAL_STYLES["input_text_color_light"]
@@ -132,8 +128,8 @@ def generate_css(switch: bool) -> List[Dict[str, str]]:
 
     return [
         {
-            'selector': '.dash-filter input',
-            'rule': f'''
+            "selector": ".dash-filter input",
+            "rule": f"""
                 text-align: {TABLE_GLOBAL_STYLES["text_align_center"]}
                             !important;
                 font-size: {TABLE_GLOBAL_STYLES["filter_font_size"]}
@@ -141,11 +137,11 @@ def generate_css(switch: bool) -> List[Dict[str, str]]:
                 padding: {TABLE_GLOBAL_STYLES["filter_padding"]} !important;
                 color: {input_color} !important;
                 font-family: {TABLE_GLOBAL_STYLES["font_family"]} !important;
-            '''
+            """,
         },
         {
-            'selector': '.dash-filter input::placeholder',
-            'rule': f'''
+            "selector": ".dash-filter input::placeholder",
+            "rule": f"""
                 color: {placeholder_color} !important;
                 font-size: {TABLE_GLOBAL_STYLES["placeholder_font_size"]}
                            !important;
@@ -154,21 +150,21 @@ def generate_css(switch: bool) -> List[Dict[str, str]]:
                 font-style: {TABLE_GLOBAL_STYLES["font_style_bold"]}
                             !important;
                 font-family: {TABLE_GLOBAL_STYLES["font_family"]} !important;
-            '''
-        }
+            """,
+        },
     ]
 
 
-def generate_style_data(switch: bool) -> Dict[str, str]:
-    """
-    Generate style for table cells based on the theme switch value.
+def generate_style_data(switch: bool) -> dict[str, str]:  # noqa: FBT001
+    """Generate style for table cells based on the theme switch value.
 
     Args:
         switch (bool):
             The state of the theme switch (True for light, False for dark).
 
     Returns:
-        Dict[str, str]: A dictionary of style properties for table cells.
+        dict[str, str]: A dictionary of style properties for table cells.
+
     """
     return {
         "backgroundColor": (
@@ -184,20 +180,20 @@ def generate_style_data(switch: bool) -> Dict[str, str]:
         "fontWeight": TABLE_GLOBAL_STYLES["font_weight_normal"],
         "whiteSpace": TABLE_GLOBAL_STYLES["white_space_normal"],
         "height": TABLE_GLOBAL_STYLES["height_auto"],
-        "font-family": TABLE_GLOBAL_STYLES["font_family"]
+        "font-family": TABLE_GLOBAL_STYLES["font_family"],
     }
 
 
-def generate_style_header(switch: bool) -> Dict[str, str]:
-    """
-    Generate style for table header based on the theme switch value.
+def generate_style_header(switch: bool) -> dict[str, str]:  # noqa: FBT001
+    """Generate style for table header based on the theme switch value.
 
     Args:
         switch (bool):
             The state of the theme switch (True for light, False for dark).
 
     Returns:
-        Dict[str, str]: A dictionary of style properties for table header.
+        dict[str, str]: A dictionary of style properties for table header.
+
     """
     return {
         "backgroundColor": (
@@ -215,23 +211,23 @@ def generate_style_header(switch: bool) -> Dict[str, str]:
             if switch
             else TABLE_GLOBAL_STYLES["dark_color"]
         ),
-        "font-family": TABLE_GLOBAL_STYLES["font_family"]
+        "font-family": TABLE_GLOBAL_STYLES["font_family"],
     }
 
 
 def generate_style_data_conditional(
-    switch: bool
-) -> List[Dict[str, Dict[str, str]]]:
-    """
-    Generate conditional styles for table rows based on the theme switch value.
+    switch: bool,  # noqa: FBT001
+) -> list[dict[str, dict[str, str]]]:
+    """Generate conditional styles for table rows based on the theme switch.
 
     Args:
         switch (bool):
             The state of the theme switch (True for light, False for dark).
 
     Returns:
-        List[Dict[str, Dict[str, str]]]:
+        list[dict[str, dict[str, str]]]:
             A list of conditional style dictionaries for table rows.
+
     """
     return [
         {
@@ -240,18 +236,18 @@ def generate_style_data_conditional(
                 TABLE_GLOBAL_STYLES["filter_background_light"]
                 if switch
                 else TABLE_GLOBAL_STYLES["filter_background_dark"]
-            )
-        }
+            ),
+        },
     ]
 
 
-def generate_style_table() -> Dict[str, str]:
-    """
-    Generate style for the table container.
+def generate_style_table() -> dict[str, str]:
+    """Generate style for the table container.
 
     Returns:
-        Dict[str, str]:
+        dict[str, str]:
             A dictionary of style properties for the table container.
+
     """
     return {
         "overflowX": TABLE_GLOBAL_STYLES["overflow_x_auto"],
@@ -260,16 +256,16 @@ def generate_style_table() -> Dict[str, str]:
         "maxWidth": TABLE_GLOBAL_STYLES["max_width_100"],
         "height": TABLE_GLOBAL_STYLES["height_auto"],
         "overflowY": TABLE_GLOBAL_STYLES["overflow_y_auto"],
-        "font-family": TABLE_GLOBAL_STYLES["font_family"]
+        "font-family": TABLE_GLOBAL_STYLES["font_family"],
     }
 
 
-def generate_style_cell() -> Dict[str, str]:
-    """
-    Generate style for table cells.
+def generate_style_cell() -> dict[str, str]:
+    """Generate style for table cells.
 
     Returns:
-        Dict[str, str]: A dictionary of style properties for table cells.
+        dict[str, str]: A dictionary of style properties for table cells.
+
     """
     return {
         "textAlign": TABLE_GLOBAL_STYLES["text_align_center"],
@@ -279,33 +275,32 @@ def generate_style_cell() -> Dict[str, str]:
         "padding": TABLE_GLOBAL_STYLES["cell_padding"],
         "font-family": TABLE_GLOBAL_STYLES["font_family"],
         "whiteSpace": TABLE_GLOBAL_STYLES["white_space_normal"],
-        "height": TABLE_GLOBAL_STYLES["height_auto"]
+        "height": TABLE_GLOBAL_STYLES["height_auto"],
     }
 
 
-def generate_style_filter(switch: bool) -> Dict[str, str]:
-    """
-    Generate style for table filters based on the theme switch value.
+def generate_style_filter(switch: bool) -> dict[str, str]:  # noqa: FBT001
+    """Generate style for table filters based on the theme switch value.
 
     Args:
         switch (bool):
             The state of the theme switch (True for light, False for dark).
 
     Returns:
-        Dict[str, str]: A dictionary of style properties for table filters.
+        dict[str, str]: A dictionary of style properties for table filters.
+
     """
     return {
         "backgroundColor": (
             TABLE_GLOBAL_STYLES["filter_background_light"]
             if switch
             else TABLE_GLOBAL_STYLES["filter_background_dark"]
-        )
+        ),
     }
 
 
 def style_accordionitem_title(title: str, font_size: int = 24) -> html.H1:
-    """
-    Create a styled accordion item title.
+    """Create a styled accordion item title.
 
     Args:
         title (str): The text content of the title.
@@ -313,6 +308,7 @@ def style_accordionitem_title(title: str, font_size: int = 24) -> html.H1:
 
     Returns:
         html.H1: A styled H1 element for use as an accordion item title.
+
     """
     style_accordionitem_title_params = {
         "font-size": f"{font_size}px",
@@ -321,6 +317,6 @@ def style_accordionitem_title(title: str, font_size: int = 24) -> html.H1:
         "text-align": "center",
         "width": "100%",
         "margin": "0px auto",
-        "padding": "0px"
+        "padding": "0px",
     }
     return html.H1(title, style=style_accordionitem_title_params)

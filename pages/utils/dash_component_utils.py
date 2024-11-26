@@ -1,21 +1,20 @@
-"""TODO
-"""
+"""TODO."""
 
-from typing import Any, List, Dict, Tuple
-from dash import html, callback, dcc
-from dash.dependencies import Input, Output
+from typing import Any
+
 import dash_bootstrap_components as dbc
-
 import pandas as pd
+from dash import callback, dcc, html
+from dash.dependencies import Input, Output
 
 import pages.utils.style_utils as styles
 
 
 def app_description(
     title: str,
-    about: Tuple[str],
-    features: Tuple[str],
-    usage_steps: Tuple[str]
+    about: tuple[str],
+    features: tuple[str],
+    usage_steps: tuple[str],
 ) -> html.Div:
     """Create a description component for any app page.
 
@@ -28,15 +27,16 @@ def app_description(
 
     Returns:
         html.Div: A Div component containing the formatted app description.
+
     """
     left_column_content: dbc.Col = dbc.Col([
         html.H4("Key Features:"),
-        html.Ul([html.Li(feature) for feature in features])
+        html.Ul([html.Li(feature) for feature in features]),
     ], xs=12, md=6)
 
     right_column_content: dbc.Col = dbc.Col([
         html.H4("How to Use:"),
-        html.Ol([html.Li(step) for step in usage_steps])
+        html.Ol([html.Li(step) for step in usage_steps]),
     ], xs=12, md=6)
 
     description: html.Div = html.Div([
@@ -51,7 +51,7 @@ def app_description(
 
 
 def callback_update_table_style_and_visibility(
-    table_id: str
+    table_id: str,
 ) -> None:
     """Create a callback function to update DataTable styles based on theme.
 
@@ -78,6 +78,7 @@ def callback_update_table_style_and_visibility(
         None:
             This function registers a callback with Dash and
             doesn't return a value directly.
+
     """
     @callback(
         Output(table_id, "style_data"),
@@ -90,15 +91,15 @@ def callback_update_table_style_and_visibility(
         Input("theme_switch_value_store", "data"),
     )
     def update_table_style_and_visibility(
-        switch: bool
-    ) -> Tuple[
-        Dict[str, str],
-        Dict[str, str],
-        List[Dict[str, str]],
-        Dict[str, str],
-        Dict[str, str],
-        Dict[str, str],
-        List[Dict[str, str]]
+        switch: bool,  # noqa: FBT001
+    ) -> tuple[
+        dict[str, str],
+        dict[str, str],
+        list[dict[str, str]],
+        dict[str, str],
+        dict[str, str],
+        dict[str, str],
+        list[dict[str, str]],
     ]:
         """Update the styles of the DataTable based on the theme switch value.
 
@@ -108,14 +109,15 @@ def callback_update_table_style_and_visibility(
 
         Returns:
             A tuple containing seven style-related elements:
-                1. Style for data cells (Dict[str, str])
-                2. Style for header cells (Dict[str, str])
+                1. Style for data cells (dict[str, str])
+                2. Style for header cells (dict[str, str])
                 3. Conditional styles for alternating rows
-                    (List[Dict[str, str]])
-                4. Table style (Dict[str, str])
-                5. Cell style (Dict[str, str])
-                6. Filter row style (Dict[str, str])
-                7. CSS rules (List[Dict[str, str]])
+                    (list[dict[str, str]])
+                4. Table style (dict[str, str])
+                5. Cell style (dict[str, str])
+                6. Filter row style (dict[str, str])
+                7. CSS rules (list[dict[str, str]])
+
         """
         return (
             styles.generate_style_data(switch),
@@ -124,14 +126,14 @@ def callback_update_table_style_and_visibility(
             styles.generate_style_table(),
             styles.generate_style_cell(),
             styles.generate_style_filter(switch),
-            styles.generate_css(switch)
+            styles.generate_css(switch),
         )
 
 
 def callback_update_visible_columns(
     table_id: str,
     checklist_id: str,
-    dataframe: pd.DataFrame
+    dataframe: pd.DataFrame,
 ) -> None:
     """Create a callback function to update DataTable columns visibility.
 
@@ -160,33 +162,35 @@ def callback_update_visible_columns(
         None:
             This function registers a callback with Dash and doesn't return
             a value directly.
+
     """
     @callback(
         Output(table_id, "columns"),
         Output(table_id, "data"),
         Input(checklist_id, "value"),
     )
-    def update_visible_columns(visible_columns):
+    def update_visible_columns(visible_columns: list) -> list:
         """Update the visible columns based on the checklist selection.
 
         Args:
             visible_columns:
-                List of column names that should be displayed in the table.
+                list of column names that should be displayed in the table.
 
         Returns:
             A tuple containing:
-                - List of column definitions for the visible columns
-                - List of dictionaries containing the filtered data records
+                - list of column definitions for the visible columns
+                - list of dictionaries containing the filtered data records
+
         """
         columns = create_column_definitions(dataframe, visible_columns)
-        filtered_data = dataframe[visible_columns].to_dict('records')
+        filtered_data = dataframe[visible_columns].to_dict("records")
         return columns, filtered_data
 
 
 def create_column_definitions(
         dataframe: pd.DataFrame,
-        visible_columns: List[str] = None
-) -> List[Dict[str, Any]]:
+        visible_columns: list[str] = None,  # noqa: RUF013
+) -> list[dict[str, Any]]:
     """Create column definitions for the Dash DataTable.
 
     Generates a list of column specifications for the DataTable component,
@@ -207,6 +211,7 @@ def create_column_definitions(
             - id: The column identifier matching the DataFrame column name
             - presentation:
                 The column's display type (markdown for datasheet links)
+
     """
     if visible_columns is None:
         visible_columns = dataframe.columns.tolist()
@@ -217,14 +222,14 @@ def create_column_definitions(
             "id": column,
             "presentation":
                 "markdown" if column in ["Datasheet", "Trustedparts Search"]
-                else "input"
+                else "input",
         } for column in dataframe.columns if column in visible_columns
     ]
 
 
 def generate_centered_link(
         url_text: str,
-        link_text: str = "Link"
+        link_text: str = "Link",
 ) -> str:
     """Generate a centered HTML link with consistent styling.
 
@@ -242,6 +247,7 @@ def generate_centered_link(
     Returns:
         A string containing HTML for a centered link, or an empty string if
         the input is null/NaN.
+
     """
     if pd.notna(url_text):
         return (
@@ -249,12 +255,12 @@ def generate_centered_link(
             f'<a href="{url_text}" target="_blank" '
             f'style="display:inline-block;">{link_text}</a></div>'
         )
-    return ''
+    return ""
 
 
 def callback_update_page_size(
         table_id: str,
-        dropdown_id: str
+        dropdown_id: str,
 ) -> None:
     """Create a callback function to update DataTable page size.
 
@@ -269,10 +275,11 @@ def callback_update_page_size(
     Returns:
         None: This function registers a callback with Dash and doesn't
             return a value directly.
+
     """
     @callback(
-        Output(table_id, 'page_size'),
-        Input(dropdown_id, 'value')
+        Output(table_id, "page_size"),
+        Input(dropdown_id, "value"),
     )
     def update_page_size(page_size: int) -> int:
         """Update the number of items displayed per page.
@@ -282,6 +289,7 @@ def callback_update_page_size(
 
         Returns:
             The selected page size value.
+
         """
         return page_size
 
@@ -291,12 +299,13 @@ def callback_update_dropdown_style(dropdown_id: str) -> None:
 
     Args:
         dropdown_id (str): The ID of the Dropdown component to style.
+
     """
     @callback(
-        Output(dropdown_id, 'style'),
+        Output(dropdown_id, "style"),
         Input("theme_switch_value_store", "data"),
     )
-    def update_dropdown_style(switch: bool) -> dict:
+    def update_dropdown_style(switch: bool) -> dict:  # noqa: FBT001
         """Update the dropdown styling based on the theme.
 
         Args:
@@ -304,6 +313,7 @@ def callback_update_dropdown_style(dropdown_id: str) -> None:
 
         Returns:
             Dictionary containing the dropdown styles.
+
         """
         base_style = {"width": "150px"}
         if not switch:
@@ -318,30 +328,30 @@ def callback_update_dropdown_style(dropdown_id: str) -> None:
 def table_controls_row(
         module_name: str,
         dataframe: pd.DataFrame,
-        visible_columns: List[str]
+        visible_columns: list[str],
 ) -> dbc.Col:
-    """TODO"""
+    """TODO."""
     col_left = dbc.Col([
         html.Div([
             html.H6("Items per page:", className="mb-1"),
             dcc.Dropdown(
-                id=f'{module_name}_page_size',
+                id=f"{module_name}_page_size",
                 options=[
-                    {'label': str(page_size), 'value': page_size}
+                    {"label": str(page_size), "value": page_size}
                     for page_size in [10, 25, 50, 100]
                 ],
                 value=10,
                 clearable=False,
             ),
-            html.Br()
-        ], className="d-flex flex-column align-items-start")
+            html.Br(),
+        ], className="d-flex flex-column align-items-start"),
     ], xs=12, sm=2)
 
     col_right = dbc.Col([
         html.Div([
             html.H6("Show/Hide Columns:", className="mb-1"),
             dbc.Checklist(
-                id=f'{module_name}_column_toggle',
+                id=f"{module_name}_column_toggle",
                 options=[
                     {"label": " ".join(col.split()), "value": col}
                     for col in dataframe.columns
@@ -350,8 +360,8 @@ def table_controls_row(
                 inline=True,
                 className="flex-wrap",
             ),
-            html.Br()
-        ])
+            html.Br(),
+        ]),
     ], xs=12, sm=10)
 
     return dbc.Row([col_left, col_right], className="mb-1")
