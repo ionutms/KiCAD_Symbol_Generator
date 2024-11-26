@@ -92,6 +92,37 @@ def generate_fab_rectangle(width: float, height: float) -> str:
         )
         """)
 
+
+def generate_fab_diode(
+        width: float,
+        height: float,
+        anode_center_x: float,
+        cathode_center_x: float) -> str:
+    """Todo."""
+    return (f"""
+        (fp_poly
+            (pts
+            (xy {width} 0)
+            (xy {anode_center_x} 0)
+            (xy {width} 0)
+            (xy {width} {height / 2})
+            (xy 0 0)
+            (xy 0 {height / 2})
+            (xy 0 0)
+            (xy -{cathode_center_x} 0)
+            (xy 0 0)
+            (xy 0 -{height / 2})
+            (xy 0 0)
+            (xy {width} -{height / 2})
+            )
+            (stroke (width 0.1) (type solid))
+            (fill solid)
+            (layer "F.Fab")
+            (uuid "{uuid4()}")
+        )
+        """)
+
+
 def generate_properties(ref_offset_y: float, value: str) -> str:
     """Generate the properties section of the footprint."""
     font_props = ("""

@@ -28,14 +28,19 @@ def generate_footprint(part_info: sds.PartInfo, specs: DiodeSpecs) -> str:
     body_width = specs.body_dimensions.width
     body_height = specs.body_dimensions.height
     anode_center_x = specs.pad_dimensions.anode_center_x
+    cathode_center_x = specs.pad_dimensions.cathode_center_x
     anode_width = specs.pad_dimensions.anode_width
+    anode_height = specs.pad_dimensions.anode_height
 
     sections = [
         fu.generate_header(part_info.package),
         fu.generate_properties(specs.ref_offset_y, part_info.package),
         fu.generate_courtyard(body_width, body_height),
         fu.generate_fab_rectangle(body_width, body_height),
-        fu.generate_silkscreen_lines(body_height,anode_center_x, anode_width),
+        fu.generate_fab_diode(
+            anode_width, anode_height, anode_center_x, cathode_center_x),
+        fu.generate_silkscreen_lines(
+            body_height, anode_center_x, anode_width),
         generate_pads(specs),
         fu.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.package),
