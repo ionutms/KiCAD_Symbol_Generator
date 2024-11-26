@@ -52,6 +52,7 @@ def create_part_info(
         PartInfo instance with complete component specifications.
 
     """
+    trustedparts_link = f"{specs.trustedparts_link}/{specs.base_series}"
     return sym_diode_spec.PartInfo(
         symbol_name=f"D_{specs.base_series}",
         reference="D",
@@ -64,7 +65,7 @@ def create_part_info(
         voltage_rating=specs.voltage_rating,
         current_rating=specs.current_rating,
         package=specs.package,
-        trustedparts_link=specs.trustedparts_link,
+        trustedparts_link=trustedparts_link,
     )
 
 
