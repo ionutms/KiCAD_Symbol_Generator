@@ -91,3 +91,43 @@ def generate_fab_rectangle(width: float, height: float) -> str:
             (uuid "{uuid4()}")
         )
         """)
+
+def generate_properties(ref_offset_y: float, value: str) -> str:
+    """Generate the properties section of the footprint."""
+    font_props = ("""
+        (effects
+            (font (size 0.762 0.762) (thickness 0.1524))
+            (justify left)
+        )
+        """)
+
+    return (f"""
+        (property "Reference" "REF**"
+            (at 0 {ref_offset_y} 0)
+            (unlocked yes)
+            (layer "F.SilkS")
+            (uuid "{uuid4()}")
+            {font_props}
+        )
+        (property "Value" "{value}"
+            (at 0 {-1 * ref_offset_y} 0)
+            (unlocked yes)
+            (layer "F.Fab")
+            (uuid "{uuid4()}")
+            {font_props}
+        )
+        (property "Footprint" ""
+            (at 0 0 0)
+            (layer "F.Fab")
+            (hide yes)
+            (uuid "{uuid4()}")
+            {font_props}
+        )
+        (fp_text user "${{REFERENCE}}"
+            (at 0 {-1 * ref_offset_y + 1.27} 0)
+            (unlocked yes)
+            (layer "F.Fab")
+            (uuid "{uuid4()}")
+            {font_props}
+        )
+        """)
