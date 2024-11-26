@@ -1,9 +1,9 @@
-"""
-Main application module for a Dash web application.
+"""Main application module for a Dash web application.
 
-This module implements a Dash web application with theme switching capabilities
-and dynamic page navigation. It uses Dash Bootstrap Components for styling and
-implements a dark/light theme switcher.
+This module implements a Dash web application with theme switching
+capabilities and dynamic page navigation.
+It uses Dash Bootstrap Components for styling and implements a dark/light
+theme switcher.
 
 Features:
     - Multi-page functionality with dynamic content loading
@@ -15,19 +15,19 @@ Environment Variables:
     PORT (int): The port number on which to run the server (default: 8050)
 """
 
-from typing import Optional, List, Dict
-import os
 import importlib
-from dash import Dash, html, dcc, Input, Output, callback
+import os
+from typing import Optional
+
 import dash
-from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
+from dash import Dash, Input, Output, callback, dcc, html
+from dash.exceptions import PreventUpdate
 from dash_bootstrap_templates import ThemeSwitchAIO
 
 
-def get_page_count(module_path: str) -> Optional[int]:
-    """
-    Retrieve the number of items in a page's dataframe.
+def get_page_count(module_path: str) -> Optional[int]:  # noqa: FA100
+    """Retrieve the number of items in a page's dataframe.
 
     Dynamically imports the specified module and attempts to access its
     dataframe attribute to count the number of items.
@@ -38,10 +38,11 @@ def get_page_count(module_path: str) -> Optional[int]:
     Returns:
         Optional[int]:
             The number of items in the dataframe if found, None otherwise
+
     """
     try:
         module = importlib.import_module(module_path)
-        if hasattr(module, 'dataframe'):
+        if hasattr(module, "dataframe"):
             return len(module.dataframe)
     except (ImportError, AttributeError):
         pass
@@ -60,30 +61,29 @@ app.layout = dbc.Container([
                 aio_id="theme",
                 themes=[dbc.themes.CERULEAN, dbc.themes.DARKLY],
                 switch_props={"persistence": False, "value": 0}),
-        ])
-    ], id='theme_switch', style={"display": ''}),
+        ]),
+    ], id="theme_switch", style={"display": ""}),
 
-    dcc.Store(id='theme_switch_value_store', data=[]),
+    dcc.Store(id="theme_switch_value_store", data=[]),
 
     # Interval component for initial load
-    dcc.Interval(id='interval_component', interval=1*100, max_intervals=1),
+    dcc.Interval(id="interval_component", interval=1*100, max_intervals=1),
 
     # Store component for navigation links
-    dcc.Store(id='links_store'),
+    dcc.Store(id="links_store"),
 
     dash.page_container,
 ], fluid=True)
 
 
 @app.callback(
-    Output('theme_switch_value_store', 'data'),
-    Input(ThemeSwitchAIO.ids.switch("theme"), "value")
+    Output("theme_switch_value_store", "data"),
+    Input(ThemeSwitchAIO.ids.switch("theme"), "value"),
 )
 def update_graph_theme(
-    switch: bool
+    switch: bool,  # noqa: FBT001
 ) -> bool:
-    """
-    Update the application theme based on the theme switch value.
+    """Update the application theme based on the theme switch value.
 
     Args:
         switch (bool):
@@ -92,19 +92,19 @@ def update_graph_theme(
 
     Returns:
         bool: The same switch value, stored for persistence
+
     """
     return switch
 
 
 @callback(
-    Output('links_store', 'data'),
-    Input('interval_component', 'n_intervals')
+    Output("links_store", "data"),
+    Input("interval_component", "n_intervals"),
 )
 def update_links_store(
-    interval_component: Optional[int]
-) -> List[Dict[str, str]]:
-    """
-    Generate and update the navigation links with item counts.
+    interval_component: Optional[int],  # noqa: FA100
+) -> list[dict[str, str]]:
+    """Generate and update the navigation links with item counts.
 
     This callback is triggered once on initial load and creates a list of
     navigation links for all registered pages. If a page has a dataframe,
@@ -120,14 +120,15 @@ def update_links_store(
 
     Raises:
         PreventUpdate: If the callback is triggered with no intervals
+
     """
     if interval_component is None:
         raise PreventUpdate
 
     links = []
     for page in dash.page_registry.values():
-        name = page['name']
-        module_path = page.get('module', '')
+        name = page["name"]
+        module_path = page.get("module", "")
 
         if module_path:
             count = get_page_count(module_path)
@@ -135,18 +136,18 @@ def update_links_store(
                 name = f"{name} ({count:,} items)"
 
         links.append({
-            'name': name,
-            'path': page['relative_path']
+            "name": name,
+            "path": page["relative_path"],
         })
 
     return links
 
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8050))
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8050))
     app.run_server(
         port=port,
         debug=True,
         dev_tools_ui=True,
-        dev_tools_props_check=True
+        dev_tools_props_check=True,
     )
