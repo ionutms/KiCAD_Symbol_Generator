@@ -73,7 +73,7 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
     "DFLS1200-7": SeriesSpec(
         manufacturer="Diodes Incorporated",
         base_series="DFLS1200-7",
-        footprint="diode_footprints:D_PowerDI-123",
+        footprint="diode_footprints:PowerDI-123",
         voltage_rating="100V",
         current_rating="1.2A",
         datasheet="https://www.diodes.com/datasheet/download/DFLS1200.pdf",
