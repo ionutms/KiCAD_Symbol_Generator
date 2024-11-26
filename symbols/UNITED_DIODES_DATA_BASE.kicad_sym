@@ -47,7 +47,7 @@
             )
         )
         
-        (property "Datasheet" "https://www.diodes.com/assets/Datasheets/DFLS1200.pdf"
+        (property "Datasheet" "https://www.diodes.com/datasheet/download/DFLS1200.pdf"
             (at 0 -10.16 0)
             (show_name)
             (effects
@@ -117,8 +117,18 @@
             )
         )
         
-        (property "Voltage Rating" "100V"
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search"
             (at 0 -27.939999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "100V"
+            (at 0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
