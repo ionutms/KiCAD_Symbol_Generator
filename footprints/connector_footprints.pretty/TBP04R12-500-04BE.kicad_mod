@@ -1,0 +1,164 @@
+(footprint "TBP04R12-500-04BE"
+    (version 20240108)
+    (generator "pcbnew")
+    (generator_version "8.0")
+    (layer "F.Cu")
+    
+    (property "Reference" "REF**"
+        (at 0 -3.0 0)
+        (layer "F.SilkS")
+        (uuid "81246ecb-c15e-4979-ac30-0d5708d9654b")
+        (effects
+            (font
+                (size 0.762 0.762)
+                (thickness 0.1524)
+            )
+        )
+    )
+    (property "Value" "TBP04R12-500-04BE"
+        (at 0 10.8 0)
+        (layer "F.Fab")
+        (uuid "9fc85681-6d05-4141-b0e9-153a0e785240")
+        (effects
+            (font
+                (size 0.762 0.762)
+                (thickness 0.1524)
+            )
+        )
+    )
+    (property "Footprint" ""
+        (at -7.5 0 0)
+        (layer "F.Fab")
+        (hide yes)
+        (uuid "3e836d75-9384-4524-95a7-a712d6d28830")
+        (effects
+            (font
+                (size 1.27 1.27)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Datasheet" ""
+        (at -7.5 0 0)
+        (layer "F.Fab")
+        (hide yes)
+        (uuid "2586ea8b-0a0c-47a3-ba7c-d350e80a4fab")
+        (effects
+            (font
+                (size 1.27 1.27)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Description" ""
+        (at -7.5 0 0)
+        (layer "F.Fab")
+        (hide yes)
+        (uuid "e2e2ace5-e975-4ca8-82b6-728a437991d6")
+        (effects
+            (font
+                (size 1.27 1.27)
+                (thickness 0.15)
+            )
+        )
+    )
+    (attr through_hole)
+    (fp_rect
+        (start -10.800 9.9)
+        (end 10.800 -2.2)
+        (stroke
+            (width 0.1524)
+            (type default)
+        )
+        (fill none)
+        (layer "F.SilkS")
+        (uuid "79dcdc2f-9c6a-4a31-a2fd-05366880229c")
+    )
+    (fp_circle
+        (center -11.714 0)
+        (end -11.105 0)
+        (stroke
+            (width 0.1524)
+            (type solid)
+        )
+        (fill solid)
+        (layer "F.SilkS")
+        (uuid "baa5b052-62c2-48bd-9c5f-6f751cd52f9c")
+    )
+    (fp_rect
+        (start -10.800 9.9)
+        (end 10.800 -2.2)
+        (stroke
+            (width 0.00635)
+            (type default)
+        )
+        (fill none)
+        (layer "F.CrtYd")
+        (uuid "a8f4bf14-7022-4d76-be52-e2ea16d2c6e6")
+    )
+    (fp_rect
+        (start -10.800 9.9)
+        (end 10.800 -2.2)
+        (stroke
+            (width 0.1524)
+            (type default)
+        )
+        (fill none)
+        (layer "F.Fab")
+        (uuid "dff9b773-1f8b-4ecf-bfb6-80af398135fc")
+    )
+    (fp_circle
+        (center -11.714 0)
+        (end -11.105 0)
+        (stroke
+            (width 0.1524)
+            (type solid)
+        )
+        (fill none)
+        (layer "F.Fab")
+        (uuid "291bc302-5578-4dac-9251-d0d72b16d76c")
+    )
+    (pad "1" thru_hole rect
+        (at -7.500 0)
+        (size 2.55 2.55)
+        (drill 1.7)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "fb9494eb-21ba-4d2d-af37-6502a7a92794")
+    )
+    (pad "2" thru_hole circle
+        (at -2.500 0)
+        (size 2.55 2.55)
+        (drill 1.7)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "91b2f296-ddec-4a02-a0c7-1ad15ed0f3fd")
+    )
+    (pad "3" thru_hole circle
+        (at 2.500 0)
+        (size 2.55 2.55)
+        (drill 1.7)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "9c91c6e1-7453-4906-8450-48db52f1e0e7")
+    )
+    (pad "4" thru_hole circle
+        (at 7.500 0)
+        (size 2.55 2.55)
+        (drill 1.7)
+        (layers "*.Cu" "*.Mask")
+        (remove_unused_layers no)
+        (solder_mask_margin 0.102)
+        (uuid "fb5f4cf0-ac52-4e7d-839b-684fe1939676")
+    )
+
+        (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/CUI_DEVICES_TBP04R12-500-04BE.step"
+            (offset (xyz 0 0 0))
+            (scale (xyz 1 1 1))
+            (rotate (xyz 0 0 0))
+        )
+        
+)
