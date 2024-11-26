@@ -43,7 +43,7 @@ class DiodeSpecs(NamedTuple):
 
 
 DIODE_SPECS: dict[str, DiodeSpecs] = {
-    "PowerDI-123": DiodeSpecs(
+    "PowerDI_123": DiodeSpecs(
         body_dimensions=BodyDimensions(
             width=5.0,
             height=2.6),
