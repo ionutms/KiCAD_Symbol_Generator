@@ -80,6 +80,7 @@ HEADER_MAPPING: Final[dict] = {
     "Voltage Rating": lambda part: part.voltage_rating,
     "Current Rating": lambda part: part.current_rating,
     "Package": lambda part: part.package,
+    "Trustedparts Search": lambda part: part.trustedparts_link,
 }
 
 

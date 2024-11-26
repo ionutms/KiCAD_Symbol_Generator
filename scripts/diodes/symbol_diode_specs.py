@@ -74,9 +74,9 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         footprint="diode_footprints:D_PowerDI-123",
         voltage_rating="100V",
         current_rating="1.2A",
-        datasheet="https://www.diodes.com/assets/Datasheets/DFLS1200.pdf",
+        datasheet="https://www.diodes.com/datasheet/download/DFLS1200.pdf",
         description="Power Schottky Rectifier",
         package="PowerDI-123",
-        trustedparts_link="https://www.trustedparts.com/en/search/DFLS1200-7",
+        trustedparts_link="https://www.trustedparts.com/en/search",
     ),
 }
