@@ -20,7 +20,7 @@ def generate_footprint(
     """Generate complete KiCad footprint file content for a transformer."""
     sections = [
         fu.generate_header(part_info.series),
-        generate_properties(part_info, specs),
+        fu.generate_properties(specs.ref_offset_y, part_info.series),
         fu.generate_courtyard(
             specs.body_dimensions.width,
             specs.body_dimensions.height),
@@ -38,52 +38,6 @@ def generate_footprint(
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_properties(
-        part_info: sti.PartInfo, specs: TransformerSpecs,
-) -> str:
-    """Generate the properties section of the footprint."""
-    font_props = (
-        "        (effects\n"
-        "            (font\n"
-        "                (size 0.762 0.762)\n"
-        "                (thickness 0.1524)\n"
-        "            )\n"
-        "            (justify left)\n"
-        "        )"
-    )
-
-    ref_offset_y = specs.ref_offset_y
-
-    return (
-        '    (property "Reference" "REF**"\n'
-        f'        (at 0 {ref_offset_y} 0)\n'
-        '        (unlocked yes)\n'
-        '        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'{font_props}\n'
-        '    )\n'
-        f'    (property "Value" "{part_info.series}"\n'
-        f'        (at 0 {-1 * ref_offset_y} 0)\n'
-        '        (unlocked yes)\n'
-        '        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f'{font_props}\n'
-        '    )\n'
-        '    (property "Footprint" ""\n'
-        '        (at 0 0 0)\n'
-        '        (layer "F.Fab")\n'
-        '        (hide yes)\n'
-        f'        (uuid "{uuid4()}")\n'
-        '        (effects\n'
-        '            (font\n'
-        '                (size 1.27 1.27)\n'
-        '                (thickness 0.15)\n'
-        '            )\n'
-        '        )\n'
-        '    )'
-    )
 
 
 def generate_shapes(specs: TransformerSpecs) -> str:
