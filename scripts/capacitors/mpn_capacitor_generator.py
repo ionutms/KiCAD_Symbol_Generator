@@ -446,7 +446,8 @@ def generate_files_for_series(
     utils.ensure_directory_exists("data")
     utils.ensure_directory_exists("series_kicad_sym")
     utils.ensure_directory_exists("symbols")
-    footprint_dir = "capacitor_footprints.pretty"
+    utils.ensure_directory_exists("footprints")
+    footprint_dir = "footprints/capacitor_footprints.pretty"
     utils.ensure_directory_exists(footprint_dir)
 
     csv_filename = f"{series_code}_part_numbers.csv"

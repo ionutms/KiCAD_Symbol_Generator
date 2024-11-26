@@ -41,7 +41,9 @@ def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
         generate_properties(part_info, specs, dimensions),
         generate_shapes(dimensions, specs),
         generate_pads(part_info, specs, dimensions),
-        fu.associate_3d_model(f"CUI_DEVICES_{part_info.mpn}"),
+        fu.associate_3d_model(
+            "KiCAD_Symbol_Generator/3D_models",
+            f"CUI_DEVICES_{part_info.mpn}"),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
@@ -241,6 +243,7 @@ def generate_footprint_file(part_info: ssc.PartInfo) -> None:
     specs = CONNECTOR_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
 
-    filename = f"connector_footprints.pretty/{part_info.mpn}.kicad_mod"
+    filename = \
+        f"footprints/connector_footprints.pretty/{part_info.mpn}.kicad_mod"
     with Path.open(filename, "w", encoding="utf-8") as output_file:
         output_file.write(footprint_content)
