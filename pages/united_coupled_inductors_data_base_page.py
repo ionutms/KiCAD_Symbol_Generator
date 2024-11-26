@@ -1,4 +1,4 @@
-"""Coupled inductors Database Page
+"""Coupled inductors Database Page.
 
 This module provides a Dash page for viewing and interacting with inductor
 specifications. It allows users to browse, search, and filter through a
@@ -21,12 +21,11 @@ comprehensive styling support for both light and dark themes.
 """
 
 import dash_bootstrap_components as dbc
-from dash import html, dcc, register_page
-from dash import dash_table
 import pandas as pd
+from dash import dash_table, dcc, html, register_page
 
-import pages.utils.style_utils as styles
 import pages.utils.dash_component_utils as dcu
+import pages.utils.style_utils as styles
 
 link_name = __name__.rsplit(".", maxsplit=1)[-1].replace("_page", "").title()
 module_name = __name__.rsplit(".", maxsplit=1)[-1]
@@ -34,7 +33,7 @@ module_name = __name__.rsplit(".", maxsplit=1)[-1]
 register_page(__name__, name=link_name, order=5)
 
 dataframe: pd.DataFrame = pd.read_csv(
-    'data/UNITED_COUPLED_INDUCTORS_DATA_BASE.csv')
+    "data/UNITED_COUPLED_INDUCTORS_DATA_BASE.csv")
 total_rows = len(dataframe)
 
 TITLE = f"Coupled inductors Database ({total_rows:,} items)"
@@ -43,7 +42,7 @@ ABOUT = (
     "provides a comprehensive view of inductor specifications.",
     "It allows users to easily browse, search, and filter "
     f"through a database of {total_rows:,} coupled inductors, "
-    "providing quick access to important information and datasheets."
+    "providing quick access to important information and datasheets.",
 )
 
 features = [
@@ -53,7 +52,7 @@ features = [
     "Direct links to inductor datasheets",
     "Responsive design adapting to light and dark themes",
     "Easy-to-use interface for exploring inductor data",
-    "Customizable column visibility"
+    "Customizable column visibility",
 ]
 
 usage_steps = [
@@ -69,24 +68,24 @@ usage_steps = [
     "Access inductor datasheets by clicking on the provided links in the "
     "'Datasheet' column",
     "Switch between light and dark themes for comfortable viewing in "
-    "different environments"
+    "different environments",
 ]
 
 hidden_columns = [
-    'Reference',
-    'Series',
-    'Maximum DC Current (A)',
-    'Maximum DC Resistance (Ω)'
+    "Reference",
+    "Series",
+    "Maximum DC Current (A)",
+    "Maximum DC Resistance (Ω)",
 ]
 
 visible_columns = [
     col for col in dataframe.columns if col not in hidden_columns]
 
 try:
-    dataframe['Datasheet'] = dataframe['Datasheet'].apply(
+    dataframe["Datasheet"] = dataframe["Datasheet"].apply(
         lambda url_text: dcu.generate_centered_link(url_text, "Datasheet"))
 
-    dataframe['Trustedparts Search'] = dataframe['Trustedparts Search'].apply(
+    dataframe["Trustedparts Search"] = dataframe["Trustedparts Search"].apply(
         lambda url_text: dcu.generate_centered_link(url_text, "Search"))
 except KeyError:
     pass
@@ -101,29 +100,29 @@ layout = dbc.Container([html.Div([
     dcu.table_controls_row(module_name, dataframe, visible_columns),
 
     dash_table.DataTable(
-        id=f'{module_name}_table',
+        id=f"{module_name}_table",
         columns=dcu.create_column_definitions(dataframe, visible_columns),
-        data=dataframe[visible_columns].to_dict('records'),
+        data=dataframe[visible_columns].to_dict("records"),
         cell_selectable=False,
-        markdown_options={'html': True},
+        markdown_options={"html": True},
         page_size=10,
         filter_action="native",
         sort_action="native",
         sort_mode="multi"),
 
-], style=styles.GLOBAL_STYLE)
+], style=styles.GLOBAL_STYLE),
 ], fluid=True)
 
 
 dcu.callback_update_visible_columns(
-    f'{module_name}_table',
-    f'{module_name}_column_toggle',
+    f"{module_name}_table",
+    f"{module_name}_column_toggle",
     dataframe)
 
 
-dcu.callback_update_table_style_and_visibility(f'{module_name}_table')
+dcu.callback_update_table_style_and_visibility(f"{module_name}_table")
 
 dcu.callback_update_page_size(
-    f'{module_name}_table', f'{module_name}_page_size')
+    f"{module_name}_table", f"{module_name}_page_size")
 
-dcu.callback_update_dropdown_style(f'{module_name}_page_size')
+dcu.callback_update_dropdown_style(f"{module_name}_page_size")
