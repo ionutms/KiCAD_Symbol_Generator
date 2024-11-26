@@ -52,6 +52,7 @@ def generate_kicad_symbol(
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
 
+
 def write_component(
         symbol_file: TextIO,
         component_data: dict[str, str],
@@ -67,20 +68,10 @@ def write_component(
     """
     symbol_name = component_data.get("Symbol Name", "")
     su.write_symbol_header(symbol_file, symbol_name)
-
-    # Write pin names offset and other symbol properties
-    symbol_file.write("""
-        (pin_names
-            (offset 0.254)
-        )
-        (exclude_from_sim no)
-        (in_bom yes)
-        (on_board yes)
-    """)
-
     write_properties(symbol_file, component_data, property_order)
-    write_symbol_drawing_horizontal(symbol_file, symbol_name)
+    write_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("\t)\n")
+
 
 def write_properties(
         symbol_file: TextIO,
@@ -110,16 +101,13 @@ def write_properties(
                 prop_name,
                 (0, y_offset, 1.27, True, True, None))
             value = config[5] or component_data[prop_name]
-            su.write_property(
-                symbol_file,
-                prop_name,
-                value,
-                *config[:5],
+            su.write_property(symbol_file, prop_name, value, *config[:5],
             )
             if prop_name not in property_configs:
                 y_offset -= 2.54
 
-def write_symbol_drawing_horizontal(
+
+def write_symbol_drawing(
         symbol_file: TextIO,
         symbol_name: str,
 ) -> None:
@@ -130,27 +118,14 @@ def write_symbol_drawing_horizontal(
         symbol_name (str): Name of the symbol.
 
     """
-    symbol_file.write(f'\t\t(symbol "{symbol_name}_0_1"\n')
+    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
-    # Write cathode line
-    symbol_file.write("""
-            (polyline
-                (pts
-                    (xy 1.905 -1.27) (xy 1.905 -1.905) (xy 1.27 -1.905)
-                    (xy 1.27 1.905) (xy 0.635 1.905) (xy 0.635 1.27)
-                )
-                (stroke (width 0.2032) default))
-                (fill (type none))
-            )
-        )
-    """)
-
-    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_1"\n')
-
-    # Write diode triangle
     symbol_file.write("""
         (polyline
-            (pts (xy 1.27 0) (xy -1.27 1.905) (xy -1.27 -1.905) (xy 1.27 0))
+            (pts
+                (xy 1.27 1.905) (xy 1.27 0) (xy -1.27 1.905)
+                (xy -1.27 -1.905) (xy 1.27 0) (xy 1.27 -1.905)
+            )
             (stroke (width 0.2032) (type default))
             (fill (type none))
         )
