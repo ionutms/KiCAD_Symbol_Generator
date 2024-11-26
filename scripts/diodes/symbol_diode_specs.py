@@ -79,7 +79,7 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         datasheet="https://www.diodes.com/datasheet/download/DFLS1200.pdf",
         diode_type="Schottky",
         description="Power Schottky Rectifier",
-        package="PowerDI-123",
+        package="PowerDI_123",
         trustedparts_link="https://www.trustedparts.com/en/search",
     ),
 }
