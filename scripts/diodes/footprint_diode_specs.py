@@ -46,16 +46,13 @@ DIODE_SPECS: dict[str, DiodeSpecs] = {
     "PowerDI-123": DiodeSpecs(
         body_dimensions=BodyDimensions(
             width=5.0,
-            height=2.6,
-        ),
+            height=2.6),
         pad_dimensions=PadDimensionsAsymmetric(
             cathode_width=2.4,
             cathode_height=1.5,
             cathode_center_x=0.85,
             anode_width=1.05,
             anode_height=1.5,
-            anode_center_x=1.525,
-        ),
-        ref_offset_y=-2.5,
-    ),
+            anode_center_x=1.525),
+        ref_offset_y=-2.5),
 }

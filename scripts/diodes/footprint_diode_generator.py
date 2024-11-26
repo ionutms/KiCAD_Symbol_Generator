@@ -11,6 +11,7 @@ from uuid import uuid4
 
 import symbol_diode_specs as sds
 from footprint_diode_specs import DIODE_SPECS, DiodeSpecs
+from utilities import footprint_utils as fu
 
 
 def generate_footprint(part_info: sds.PartInfo, specs: DiodeSpecs) -> str:
@@ -24,137 +25,23 @@ def generate_footprint(part_info: sds.PartInfo, specs: DiodeSpecs) -> str:
         Complete .kicad_mod file content as formatted string
 
     """
+    body_width = specs.body_dimensions.width
+    body_height = specs.body_dimensions.height
+    anode_center_x = specs.pad_dimensions.anode_center_x
+    anode_width = specs.pad_dimensions.anode_width
+
     sections = [
-        generate_header(part_info),
-        generate_properties(specs),
-        generate_shapes(specs),
+        fu.generate_header(part_info.package),
+        fu.generate_properties(specs.ref_offset_y, part_info.package),
+        fu.generate_courtyard(body_width, body_height),
+        fu.generate_fab_rectangle(body_width, body_height),
+        fu.generate_silkscreen_lines(body_height,anode_center_x, anode_width),
         generate_pads(specs),
-        generate_3d_model(part_info),
+        fu.associate_3d_model(
+            "KiCAD_Symbol_Generator/3D_models", part_info.package),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_header(part_info: sds.PartInfo) -> str:
-    """Generate the footprint header section."""
-    return (
-        f'(footprint "{part_info.mpn}"\n'
-        '    (version 20240108)\n'
-        '    (generator "pcbnew")\n'
-        '    (generator_version "8.0")\n'
-        '    (layer "F.Cu")\n'
-        f'    (descr "{part_info.description}")\n'
-        f'    (tags "Diode {part_info.package} {part_info.mpn}")\n'
-        '    (attr smd)'
-    )
-
-
-def generate_properties(specs: DiodeSpecs) -> str:
-    """Generate the properties section of the footprint."""
-    text_size = 0.762
-    text_thickness = 0.1524
-
-    ref_text = (
-        '    (fp_text reference "REF**"\n'
-        f'        (at 0 {specs.ref_offset_y} 0)\n'
-        '        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        '        (effects\n'
-        '            (font\n'
-        f'                (size {text_size} {text_size})\n'
-        f'                (thickness {text_thickness})\n'
-        '            )\n'
-        "            (justify left)\n"
-        '        )\n'
-        '    )'
-    )
-
-    val_text = (
-        f'    (fp_text value "to do"\n'
-        f'        (at 0 {-specs.ref_offset_y} 0)\n'
-        '        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        '        (effects\n'
-        '            (font\n'
-        f'                (size {text_size} {text_size})\n'
-        f'                (thickness {text_thickness})\n'
-        '            )\n'
-        "            (justify left)\n"
-        '        )\n'
-        '    )'
-    )
-
-    user_text = (
-        '    (fp_text user "${REFERENCE}"\n'
-        '        (at 0 0 0)\n'
-        '        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        '        (effects\n'
-        '            (font\n'
-        f'                (size {text_size} {text_size})\n'
-        f'                (thickness {text_thickness})\n'
-        '            )\n'
-        "            (justify left)\n"
-        '        )\n'
-        '    )'
-    )
-
-    return "\n".join([ref_text, val_text, user_text])  # noqa: FLY002
-
-
-def generate_shapes(specs: DiodeSpecs) -> str:
-    """Generate the shapes section of the footprint."""
-    half_width = specs.body_dimensions.width / 2
-    half_height = specs.body_dimensions.height / 2
-
-    shapes = []
-
-    # Fabrication layer outline
-    shapes.append(
-        "    (fp_rect\n"
-        f"        (start -{half_width} -{half_height})\n"
-        f"        (end {half_width} {half_height})\n"
-        "        (stroke\n"
-        "            (width 0.0254)\n"
-        "            (type default)\n"
-        "        )\n"
-        "        (fill none)\n"
-        '        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        "    )",
-    )
-
-    # Silkscreen lines
-    shapes.append(
-        "    (fp_rect\n"
-        f"        (start -{half_width} -{half_height})\n"
-        f"        (end {half_width} {half_height})\n"
-        "        (stroke\n"
-        "            (width 0.1524)\n"
-        "            (type default)\n"
-        "        )\n"
-        "        (fill none)\n"
-        '        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        "    )",
-    )
-
-    # Courtyard
-    shapes.append(
-        "    (fp_rect\n"
-        f"        (start -{half_width} -{half_height})\n"
-        f"        (end {half_width} {half_height})\n"
-        "        (stroke\n"
-        "            (width 0.00635)\n"
-        "            (type default)\n"
-        "        )\n"
-        "        (fill none)\n"
-        '        (layer "F.CrtYd")\n'
-        f'        (uuid "{uuid4()}")\n'
-        "    )",
-    )
-
-    return "\n".join(shapes)
 
 
 def generate_pads(specs: DiodeSpecs) -> str:
@@ -170,42 +57,28 @@ def generate_pads(specs: DiodeSpecs) -> str:
     pad_props = specs.pad_dimensions
 
     # Cathode pad (1)
-    cathode = (
-        '    (pad "1" smd roundrect\n'
-        f'        (at -{pad_props.cathode_center_x} 0)\n'
-        '        (size '
-        f'{pad_props.cathode_width} {pad_props.cathode_height})\n'
-        '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-        f"        (roundrect_rratio {pad_props.roundrect_ratio})\n"
-        f'        (uuid "{uuid4()}")\n'
-        '    )'
-    )
+    cathode = (f"""
+        (pad "1" smd roundrect
+            (at -{pad_props.cathode_center_x} 0)
+            (size {pad_props.cathode_width} {pad_props.cathode_height})
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (roundrect_rratio {pad_props.roundrect_ratio})
+            (uuid "{uuid4()}")
+        )
+        """)
 
     # Anode pad (2)
-    anode = (
-        '    (pad "2" smd roundrect\n'
-        f'        (at {pad_props.anode_center_x} 0)\n'
-        f'        (size {pad_props.anode_width} {pad_props.anode_height})\n'
-        '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-        f"        (roundrect_rratio {pad_props.roundrect_ratio})\n"
-        f'        (uuid "{uuid4()}")\n'
-        '    )'
-    )
+    anode = (f"""
+        (pad "2" smd roundrect
+            (at {pad_props.anode_center_x} 0)
+            (size {pad_props.anode_width} {pad_props.anode_height})
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (roundrect_rratio {pad_props.roundrect_ratio})
+            (uuid "{uuid4()}")
+        )
+        """)
 
-    return "\n".join([cathode, anode])  # noqa: FLY002
-
-
-def generate_3d_model(part_info: sds.PartInfo) -> str:
-    """Generate the 3D model section of the footprint."""
-    return (
-        '    (model "${KIPRJMOD}/3D_models/'
-        f'{part_info.mpn}.step"\n'
-        '        (offset (xyz 0 0 0))\n'
-        '        (scale (xyz 1 1 1))\n'
-        '        (rotate (xyz 0 0 0))\n'
-        '    )'
-    )
-
+    return f"{cathode}\n{anode}"
 
 def generate_footprint_file(part_info: sds.PartInfo, output_dir: str) -> None:
     """Generate and save a complete .kicad_mod file for a diode.
@@ -226,5 +99,5 @@ def generate_footprint_file(part_info: sds.PartInfo, output_dir: str) -> None:
     specs = DIODE_SPECS[part_info.package]
     footprint_content = generate_footprint(part_info, specs)
 
-    filepath = Path(output_dir) / f"{part_info.mpn}.kicad_mod"
+    filepath = Path(output_dir) / f"{part_info.package}.kicad_mod"
     filepath.write_text(footprint_content, encoding="utf-8")
