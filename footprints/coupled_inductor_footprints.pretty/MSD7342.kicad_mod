@@ -1,0 +1,147 @@
+(footprint "MSD7342"
+    (version 20240108)
+    (generator "pcbnew")
+    (generator_version "8.0")
+    (layer "F.Cu")
+    
+
+        (property "Reference" "REF**"
+            (at 0 -4.826 0)
+            (unlocked yes)
+            (layer "F.SilkS")
+            (uuid "83ba2c14-a81c-4f5f-ac31-45a1624719ea")
+            
+        (effects
+            (font (size 0.762 0.762) (thickness 0.1524))
+            (justify left)
+        )
+        
+        )
+        (property "Value" "MSD7342"
+            (at 0 4.826 0)
+            (unlocked yes)
+            (layer "F.Fab")
+            (uuid "2247c4d8-854e-44c6-b568-7da6a5bd2ccb")
+            
+        (effects
+            (font (size 0.762 0.762) (thickness 0.1524))
+            (justify left)
+        )
+        
+        )
+        (property "Footprint" ""
+            (at 0 0 0)
+            (layer "F.Fab")
+            (hide yes)
+            (uuid "5a3e22d8-ce0b-4f55-be59-a65f011a1de0")
+            
+        (effects
+            (font (size 0.762 0.762) (thickness 0.1524))
+            (justify left)
+        )
+        
+        )
+        (fp_text user "${REFERENCE}"
+            (at 0 6.096 0)
+            (unlocked yes)
+            (layer "F.Fab")
+            (uuid "fe89d882-5b34-4991-94e0-8af59896a1d3")
+            
+        (effects
+            (font (size 0.762 0.762) (thickness 0.1524))
+            (justify left)
+        )
+        
+        )
+        
+
+        (fp_rect
+            (start -3.85 -3.85)
+            (end 3.85 3.85)
+            (stroke (width 0.00635) (type solid))
+            (fill none)
+            (layer "F.CrtYd")
+            (uuid "886e26fe-ab83-4c44-a438-680bb24d40c0")
+        )
+        
+
+        (fp_rect
+            (start -3.85 -3.85)
+            (end 3.85 3.85)
+            (stroke (width 0.0254) (type default))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "99ea4082-e3d0-49b9-9b2b-02f768de006a")
+        )
+        
+
+            (fp_line
+                (start 1.6500000000000001 -3.85)
+                (end -1.6500000000000001 -3.85)
+                (stroke (width 0.1524) (type solid))
+                (layer "F.SilkS")
+                (uuid "06ed0b68-89d5-4269-bcde-859c3848c01d")
+            )
+            
+            (fp_line
+                (start 1.6500000000000001 3.85)
+                (end -1.6500000000000001 3.85)
+                (stroke (width 0.1524) (type solid))
+                (layer "F.SilkS")
+                (uuid "7778112f-6cba-4768-b166-1d64e16363b5")
+            )
+            
+    (fp_circle
+        (center -4.800000000000001 -0.85)
+        (end -5.075000000000001 -0.85)
+        (stroke
+            (width 0.1524)
+            (type solid)
+        )
+        (fill solid)
+        (layer "F.SilkS")
+        (uuid "fe3e1379-c2ca-41d5-8cb5-9f06c30e4084")
+    )
+    (fp_circle
+        (center -2.7 -0.85)
+        (end -2.1500000000000004 -0.85)
+        (stroke
+            (width 0.0254)
+            (type solid)
+        )
+        (fill none)
+        (layer "F.Fab")
+        (uuid "545391f8-f28b-4cdd-9201-43100335aca0")
+    )
+    (pad "1" smd rect
+        (at -2.7 -0.85)
+        (size 2.1 1.1)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "0a7f8726-4d1e-41bc-86cd-d7512c55eb86")
+    )
+    (pad "2" smd rect
+        (at -2.7 0.85)
+        (size 2.1 1.1)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "b28e49e8-2a29-4374-a03a-36fff69ed50a")
+    )
+    (pad "3" smd rect
+        (at 2.7 0.85)
+        (size 2.1 1.1)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "055918e2-77c7-45b4-876e-569c8c110d6f")
+    )
+    (pad "4" smd rect
+        (at 2.7 -0.85)
+        (size 2.1 1.1)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "a938bb91-d66f-4e8d-8de1-7a9625131a47")
+    )
+
+        (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/MSD7342.step"
+            (offset (xyz 0 0 0))
+            (scale (xyz 1 1 1))
+            (rotate (xyz 0 0 0))
+        )
+        
+)
