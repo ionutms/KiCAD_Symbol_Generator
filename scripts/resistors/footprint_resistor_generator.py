@@ -61,7 +61,8 @@ def generate_footprint(specs: FootprintSpecs) -> str:
 
     sections = [
         fu.generate_header(footprint_name),
-        generate_properties(specs),
+        fu.generate_properties(
+            specs.resistor_specs.text_positions.reference, footprint_name),
         fu.generate_courtyard(
             specs.resistor_specs.body_dimensions.width,
             specs.resistor_specs.body_dimensions.height),
@@ -72,84 +73,12 @@ def generate_footprint(specs: FootprintSpecs) -> str:
             specs.resistor_specs.body_dimensions.height,
             specs.resistor_specs.pad_dimensions.center_x,
             specs.resistor_specs.pad_dimensions.width),
-        generate_fab_layer(specs),
         generate_pads(specs),
         fu.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", step_file_name),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_properties(specs: FootprintSpecs) -> str:
-    """Generate properties section with resistor-specific information."""
-    footprint_name = (
-        "R_"  # noqa: ISC003
-        + f"{specs.series_spec.case_code_in}_"
-        + f"{specs.series_spec.case_code_mm}"
-        + "Metric"
-    )
-
-    res_specs = specs.resistor_specs
-    text_pos = res_specs.text_positions
-
-    font_props = (
-        "        (effects\n"
-        "            (font\n"
-        "                (size 0.762 0.762)\n"
-        "                (thickness 0.1524)\n"
-        "                (bold yes)\n"
-        "            )\n"
-        "            (justify left)\n"
-        "        )"
-    )
-
-    return (
-        f'    (property "Reference" "REF**"\n'
-        f"        (at 0 {text_pos.reference} 0)\n"
-        f'        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"{font_props}\n"
-        f"    )\n"
-        f'    (property "Value" "{footprint_name}"\n'
-        f"        (at 0 {text_pos.value} 0)\n"
-        f'        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"{font_props}\n"
-        f"    )\n"
-        f'    (property "Footprint" ""\n'
-        f"        (at 0 0 0)\n"
-        f'        (layer "F.Fab")\n'
-        f"        (hide yes)\n"
-        f'        (uuid "{uuid4()}")\n'
-        f"{font_props}\n"
-        f"    )"
-    )
-
-
-def generate_fab_layer(specs: FootprintSpecs) -> str:
-    """Generate fabrication layer with resistor-specific markings."""
-    res_specs = specs.resistor_specs
-
-    fab_layer = []
-
-    # Reference designator
-    fab_layer.append(
-        f'    (fp_text user "${{REFERENCE}}"\n'
-        f"        (at 0 {res_specs.text_positions.fab_reference} 0)\n"
-        f'        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"        (effects\n"
-        f"            (font\n"
-        f"                (size 0.762 0.762)\n"
-        f"                (thickness 0.1524)\n"
-        f"            )\n"
-        f"            (justify left)\n"
-        f"        )\n"
-        f"    )",
-    )
-
-    return "\n".join(fab_layer)
 
 
 def generate_pads(specs: FootprintSpecs) -> str:
