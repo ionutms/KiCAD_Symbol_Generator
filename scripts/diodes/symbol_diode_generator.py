@@ -69,7 +69,8 @@ def write_component(
     symbol_name = component_data.get("Symbol Name", "")
     su.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
-    write_symbol_drawing(symbol_file, symbol_name)
+    if component_data.get("Diode Type") == "Schottky":
+        write_schottky_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("\t)\n")
 
 
@@ -107,7 +108,7 @@ def write_properties(
                 y_offset -= 2.54
 
 
-def write_symbol_drawing(
+def write_schottky_symbol_drawing(
         symbol_file: TextIO,
         symbol_name: str,
 ) -> None:

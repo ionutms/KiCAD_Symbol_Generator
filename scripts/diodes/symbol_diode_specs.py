@@ -30,6 +30,7 @@ class SeriesSpec(NamedTuple):
     current_rating: str
     datasheet: str
     description: str
+    diode_type: str
     package: str
     trustedparts_link: str
 
@@ -59,6 +60,7 @@ class PartInfo(NamedTuple):
     footprint: str
     datasheet: str
     description: str
+    diode_type: str
     manufacturer: str
     mpn: str
     voltage_rating: str
@@ -75,6 +77,7 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         voltage_rating="100V",
         current_rating="1.2A",
         datasheet="https://www.diodes.com/datasheet/download/DFLS1200.pdf",
+        diode_type="Schottky",
         description="Power Schottky Rectifier",
         package="PowerDI-123",
         trustedparts_link="https://www.trustedparts.com/en/search",
