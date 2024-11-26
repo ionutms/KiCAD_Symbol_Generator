@@ -87,13 +87,8 @@ def write_properties(
     property_configs = {
         "Reference": (0, 2.54, 1.27, False, False, "L"),
         "Value": (
-            0,
-            -2.54,
-            1.27,
-            False,
-            False,
-            component_data.get("Inductance", ""),
-        ),
+            0, -2.54, 1.27, False, False,
+            component_data.get("Inductance", "")),
         "Footprint": (0, -5.08, 1.27, True, True, None),
         "Datasheet": (0.254, -7.62, 1.27, True, True, None),
         "Description": (0, -10.16, 1.27, True, True, None),
@@ -128,13 +123,8 @@ def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
                 (start {start_x} 0.0056)
                 (mid {mid_x} 1.27)
                 (end {end_x} 0.0056)
-                (stroke
-                    (width 0.2032)
-                    (type default)
-                )
-                (fill
-                    (type none)
-                )
+                (stroke (width 0.2032) (type default))
+                (fill (type none))
             )
             """)
 
