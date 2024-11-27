@@ -237,3 +237,33 @@ def generate_properties(ref_offset_y: float, value: str) -> str:
             {font_props}
         )
         """)
+
+
+def generate_pin_1_indicator(
+        pad_center_x: float,
+        pad_width: float,
+        pins_per_side: float = 1,
+        pitch_y: float = 0,
+) -> str:
+    """Generate the shapes section of the footprint."""
+    shapes = []
+
+    # Pin 1 indicator position
+    total_height = pitch_y * (pins_per_side - 1)
+    circle_x = -(pad_center_x + pad_width)
+    circle_y = -total_height / 2
+    radius = pad_width / 4
+
+    # Pin 1 indicator on silkscreen
+    shapes.append(f"""
+        (fp_circle
+            (center {circle_x} {circle_y})
+            (end {circle_x - radius} {circle_y})
+            (stroke (width 0.1524) (type solid))
+            (fill solid)
+            (layer "F.SilkS")
+            (uuid "{uuid4()}")
+        )
+        """)
+
+    return "\n".join(shapes)

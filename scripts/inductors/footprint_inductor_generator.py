@@ -27,45 +27,25 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
         Complete .kicad_mod file content as formatted string
 
     """
+    body_width = specs.body_dimensions.width
+    body_height = specs.body_dimensions.height
+
+    pad_center_x = specs.pad_dimensions.center_x
+    pad_width = specs.pad_dimensions.width
+
     sections = [
         fu.generate_header(part_info.series),
         fu.generate_properties(specs.ref_offset_y, part_info.series),
-        fu.generate_courtyard(
-            specs.body_dimensions.width,
-            specs.body_dimensions.height),
-        fu.generate_fab_rectangle(
-            specs.body_dimensions.width,
-            specs.body_dimensions.height),
-        fu.generate_silkscreen_lines(
-            specs.body_dimensions.height,
-            specs.pad_dimensions.center_x,
-            specs.pad_dimensions.width),
-        generate_shapes(specs),
+        fu.generate_courtyard(body_width, body_height),
+        fu.generate_fab_rectangle(body_width, body_height),
+        fu.generate_silkscreen_lines(body_height, pad_center_x, pad_width),
+        fu.generate_pin_1_indicator(pad_center_x, pad_width),
         generate_pads(specs),
         fu.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.series),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_shapes(specs: InductorSpecs) -> str:
-    """Generate the shapes section of the footprint."""
-    shapes = []
-    pad_center_x = specs.pad_dimensions.center_x
-
-    # Polarity marker
-    shapes.append(f"""
-        (fp_circle
-            (center -{pad_center_x} 0)
-            (end -{pad_center_x - 0.0762} 0)
-            (stroke (width 0.0254) (type solid))
-            (fill none)
-            (layer "F.Fab")
-            (uuid "{uuid4()}")
-        )
-        """)
-    return "\n".join(shapes)
 
 
 def generate_pads(specs: InductorSpecs) -> str:
