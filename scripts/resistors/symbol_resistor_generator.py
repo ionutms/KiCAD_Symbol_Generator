@@ -87,13 +87,8 @@ def write_properties(
     property_configs = {
         "Reference": (0, 2.54, 1.27, False, False, "R"),
         "Value": (
-            0,
-            -2.54,
-            1.27,
-            False,
-            False,
-            component_data.get("Resistance", ""),
-        ),
+            0, -2.54, 1.27, False, False,
+            component_data.get("Resistance", "")),
         "Footprint": (0, -5.08, 1.27, True, True, None),
         "Datasheet": (0, -7.62, 1.27, True, True, None),
         "Description": (0, -10.16, 1.27, True, True, None),
@@ -121,16 +116,12 @@ def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
     symbol_file.write(f"""
         (symbol "{symbol_name}_0_1"
             (polyline
-                (pts
-                    (xy 2.286 0) (xy 2.54 0)
-                )
+                (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
                 (fill (type none))
             )
             (polyline
-                (pts
-                    (xy -2.286 0) (xy -2.54 0)
-                )
+                (pts (xy -2.286 0) (xy -2.54 0))
                 (stroke (width 0) (type default))
                 (fill (type none))
             )
