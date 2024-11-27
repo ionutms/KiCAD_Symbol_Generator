@@ -304,10 +304,11 @@ def generate_pads(
 
     for pad_number, (x_pos, y_pos) in enumerate(pad_positions, 1):
         pads.append(f"""
-            (pad "{pad_number}" smd rect
+            (pad "{pad_number}" smd roundrect
                 (at {x_pos} {y_pos})
                 (size {pad_width} {pad_heigh})
                 (layers "F.Cu" "F.Paste" "F.Mask")
+                (roundrect_rratio 0.25)
                 (uuid "{uuid4()}")
             )
             """)

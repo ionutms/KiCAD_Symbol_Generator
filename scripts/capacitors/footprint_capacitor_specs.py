@@ -22,7 +22,6 @@ class PadDimensions(NamedTuple):
     width: float  # Width of each pad
     height: float  # Height of each pad
     center_x: float  # Distance from origin to pad center
-    roundrect_ratio: float = 0.25  # Constant value for pad corner rounding
 
 
 class SilkscreenParams(NamedTuple):
