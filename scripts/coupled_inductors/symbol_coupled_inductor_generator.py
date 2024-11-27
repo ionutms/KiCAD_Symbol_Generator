@@ -26,7 +26,9 @@ from utilities import symbol_utils as su
 
 
 def generate_kicad_symbol(
-    input_csv_file: str, output_symbol_file: str, encoding: str = "utf-8",
+    input_csv_file: str,
+    output_symbol_file: str,
+    encoding: str = "utf-8",
 ) -> None:
     """Generate a KiCad symbol file from CSV data for inductors.
 
@@ -66,26 +68,18 @@ def convert_pin_config(
 
     """
     return {
-        "left": [
-            {
-                "number": pin.number,
-                "y_pos": pin.y_pos,
-                "pin_type": pin.pin_type,
-                "lenght": pin.lenght,
-                "hide": pin.hide,
-            }
-            for pin in spec_config.left
-        ],
-        "right": [
-            {
-                "number": pin.number,
-                "y_pos": pin.y_pos,
-                "pin_type": pin.pin_type,
-                "lenght": pin.lenght,
-                "hide": pin.hide,
-            }
-            for pin in spec_config.right
-        ],
+        "left": [{
+            "number": pin.number,
+            "y_pos": pin.y_pos,
+            "pin_type": pin.pin_type,
+            "lenght": pin.lenght,
+            "hide": pin.hide} for pin in spec_config.left],
+        "right": [{
+            "number": pin.number,
+            "y_pos": pin.y_pos,
+            "pin_type": pin.pin_type,
+            "lenght": pin.lenght,
+            "hide": pin.hide} for pin in spec_config.right],
     }
 
 
@@ -131,13 +125,8 @@ def write_properties(
     property_configs = {
         "Reference": (0, 7.62, 1.27, False, False, "L"),
         "Value": (
-            0,
-            -7.62,
-            1.27,
-            False,
-            False,
-            component_data.get("Inductance", ""),
-        ),
+            0, -7.62, 1.27, False, False,
+            component_data.get("Inductance", "")),
         "Footprint": (0, -10.16, 1.27, True, True, None),
         "Datasheet": (0.254, -12.7, 1.27, True, True, None),
         "Description": (0, -15.24, 1.27, True, True, None),
@@ -147,8 +136,7 @@ def write_properties(
     for prop_name in property_order:
         if prop_name in component_data:
             config = property_configs.get(
-                prop_name, (0, y_offset, 1.27, True, True, None),
-            )
+                prop_name, (0, y_offset, 1.27, True, True, None))
             value = config[5] or component_data[prop_name]
             su.write_property(symbol_file, prop_name, value, *config[:5])
             if prop_name not in property_configs:
@@ -214,27 +202,13 @@ def write_symbol_drawing(
     # Write left side pins
     for pin in pin_config["left"]:
         su.write_pin(
-            symbol_file,
-            -7.62,
-            pin["y_pos"],
-            0,
-            pin["number"],
-            pin["pin_type"],
-            pin.get("hide", False),
-            pin["lenght"],
-        )
+            symbol_file, -7.62, pin["y_pos"], 0, pin["number"],
+            pin["pin_type"], pin.get("hide", False), pin["lenght"])
 
     # Write right side pins
     for pin in pin_config["right"]:
         su.write_pin(
-            symbol_file,
-            7.62,
-            pin["y_pos"],
-            180,
-            pin["number"],
-            pin["pin_type"],
-            pin.get("hide", False),
-            pin["lenght"],
-        )
+            symbol_file, 7.62, pin["y_pos"], 180, pin["number"],
+            pin["pin_type"], pin.get("hide", False), pin["lenght"])
 
     symbol_file.write("        )\n")

@@ -267,8 +267,7 @@ def generate_files_for_series(
 
     csv_filename = f"{specs.base_series}_part_numbers.csv"
     symbol_filename = (
-        f"COUPLED_INDUCTORS_{specs.base_series}_DATA_BASE.kicad_sym"
-    )
+        f"COUPLED_INDUCTORS_{specs.base_series}_DATA_BASE.kicad_sym")
 
     # Generate part numbers and write to CSV
     try:
