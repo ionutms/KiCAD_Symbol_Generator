@@ -18,52 +18,28 @@ def generate_footprint(
         part_info: sti.PartInfo, specs: TransformerSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a transformer."""
+    body_width = specs.body_dimensions.width
+    body_height = specs.body_dimensions.height
+
+    pad_center_x = specs.pad_dimensions.center_x
+    pad_width = specs.pad_dimensions.width
+    pad_pitch_y = specs.pad_dimensions.pitch_y
+    pins_per_side = specs.pad_dimensions.pin_count//2
+
     sections = [
         fu.generate_header(part_info.series),
         fu.generate_properties(specs.ref_offset_y, part_info.series),
-        fu.generate_courtyard(
-            specs.body_dimensions.width,
-            specs.body_dimensions.height),
-        fu.generate_fab_rectangle(
-            specs.body_dimensions.width,
-            specs.body_dimensions.height),
-        fu.generate_silkscreen_lines(
-            specs.body_dimensions.height,
-            specs.pad_dimensions.center_x,
-            specs.pad_dimensions.width),
-        generate_shapes(specs),
+        fu.generate_courtyard(body_width, body_height),
+        fu.generate_fab_rectangle(body_width, body_height),
+        fu.generate_silkscreen_lines(body_height, pad_center_x, pad_width),
+        fu.generate_pin_1_indicator(
+            pad_center_x, pad_width, pins_per_side, pad_pitch_y),
         generate_pads(specs),
         fu.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.series),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_shapes(specs: TransformerSpecs) -> str:
-    """Generate the shapes section of the footprint."""
-    shapes = []
-
-    # Pin 1 indicator position
-    pins_per_side = specs.pad_dimensions.pin_count // 2
-    total_height = specs.pad_dimensions.pitch_y * (pins_per_side - 1)
-    circle_x = -(specs.pad_dimensions.center_x + specs.pad_dimensions.width)
-    circle_y = -total_height / 2
-    radius = specs.pad_dimensions.height / 4
-
-    # Pin 1 indicator on silkscreen
-    shapes.append(f"""
-        (fp_circle
-            (center {circle_x} {circle_y})
-            (end {circle_x - radius} {circle_y})
-            (stroke (width 0.1524) (type solid))
-            (fill solid)
-            (layer "F.SilkS")
-            (uuid "{uuid4()}")
-        )
-        """)
-
-    return "\n".join(shapes)
 
 
 def calculate_pad_positions(
