@@ -88,17 +88,11 @@ def write_properties(
     property_configs = {
         "Reference": (0, 5.08, 1.27, False, False, "C"),
         "Value": (
-            0,
-            -5.08,
-            1.27,
-            False,
-            False,
-            component_data.get("Resistance", ""),
-        ),
+            0, -5.08, 1.27, False, False,
+            component_data.get("Resistance", "")),
         "Footprint": (0, -7.62, 1.27, True, True, None),
         "Datasheet": (0, -10.16, 1.27, True, True, None),
-        "Description": (0, -12.7, 1.27, True, True, None),
-    }
+        "Description": (0, -12.7, 1.27, True, True, None)}
 
     y_offset = -15.24
     for prop_name in property_order:
@@ -122,28 +116,14 @@ def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
     symbol_file.write(f"""
         (symbol "{symbol_name}_0_1"
             (polyline
-                (pts
-                    (xy -0.762 -2.032) (xy -0.762 2.032)
-                )
-                (stroke
-                    (width 0.508)
-                    (type default)
-                )
-                (fill
-                    (type none)
-                )
+                (pts (xy -0.762 -2.032) (xy -0.762 2.032))
+                (stroke (width 0.508) (type default))
+                (fill (type none))
             )
             (polyline
-                (pts
-                    (xy 0.762 -2.032) (xy 0.762 2.032)
-                )
-                (stroke
-                    (width 0.508)
-                    (type default)
-                )
-                (fill
-                    (type none)
-                )
+                (pts (xy 0.762 -2.032) (xy 0.762 2.032))
+                (stroke (width 0.508) (type default))
+                (fill (type none))
             )
         )
     """)

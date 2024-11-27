@@ -70,34 +70,30 @@ CHARACTERISTIC_CONFIGS: Final[dict[str, list[CharacteristicThreshold]]] = {
     "GCM155": [
         CharacteristicThreshold(22e-9, "E02"),
         CharacteristicThreshold(4.7e-9, "A55"),
-        CharacteristicThreshold(0, "A37"),
-    ],
+        CharacteristicThreshold(0, "A37")],
     "GCM188": [
         CharacteristicThreshold(100e-9, "A64"),
         CharacteristicThreshold(47e-9, "A57"),
         CharacteristicThreshold(22e-9, "A55"),
-        CharacteristicThreshold(0, "A37"),
-    ],
+        CharacteristicThreshold(0, "A37")],
     "GCM216": [
         CharacteristicThreshold(22e-9, "A55"),
-        CharacteristicThreshold(0, "A37"),
-    ],
+        CharacteristicThreshold(0, "A37")],
     "GCM31M": [
         CharacteristicThreshold(560e-9, "A55"),
         CharacteristicThreshold(100e-9, "A37"),
-        CharacteristicThreshold(0, "A37"),
-    ],
+        CharacteristicThreshold(0, "A37")],
     "GCM31C": [
         CharacteristicThreshold(4.7e-6, "A55"),
-        CharacteristicThreshold(0, "A55"),
-    ],
+        CharacteristicThreshold(0, "A55")],
     "CL31": [
-        CharacteristicThreshold(0, "X7R"),
-    ],
+        CharacteristicThreshold(0, "X7R")],
 }
 
 
-def format_capacitance_value(capacitance: float) -> str:
+def format_capacitance_value(
+        capacitance: float,
+) -> str:
     """Convert capacitance value to human-readable format with units.
 
     Args:
@@ -233,19 +229,7 @@ def generate_standard_values(
 
     """
     e12_multipliers: Final[list[float]] = [
-        1.0,
-        1.2,
-        1.5,
-        1.8,
-        2.2,
-        2.7,
-        3.3,
-        3.9,
-        4.7,
-        5.6,
-        6.8,
-        8.2,
-    ]
+        1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2]
 
     # Convert excluded values to normalized form
     normalized_excluded = {float(f"{value:.1e}") for value in excluded_values}
@@ -373,13 +357,9 @@ def generate_part_numbers(
             min_val, max_val = specs.value_range[series_type]
 
             for capacitance in generate_standard_values(
-                min_val,
-                max_val,
-                specs.excluded_values,
-            ):
+                    min_val, max_val, specs.excluded_values):
                 for tolerance_code, tolerance_value in specs.tolerance_map[
-                    series_type
-                ].items():
+                        series_type].items():
                     for packaging in specs.packaging_options:
                         params = PartParameters(
                             capacitance=capacitance,
@@ -387,8 +367,7 @@ def generate_part_numbers(
                             tolerance_value=tolerance_value,
                             packaging=packaging,
                             series_type=series_type,
-                            specs=specs,
-                        )
+                            specs=specs)
                         parts_list.append(create_part_info(params))
 
     return sorted(parts_list, key=lambda x: (x.dielectric, x.value))
