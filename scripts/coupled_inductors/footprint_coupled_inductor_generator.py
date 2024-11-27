@@ -59,65 +59,58 @@ def generate_shapes(specs: InductorSpecs) -> str:
     radius = specs.pad_dimensions.height / 4
 
     # Pin 1 indicator on silkscreen
-    shapes.append(
-        "    (fp_circle\n"
-        "        (center "
-        f"{circle_x} {circle_y})\n"
-        "        (end "
-        f"{circle_x - radius} {circle_y})\n"
-        "        (stroke\n"
-        "            (width 0.1524)\n"
-        "            (type solid)\n"
-        "        )\n"
-        "        (fill solid)\n"
-        '        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        "    )",
-    )
+    shapes.append(f"""
+        (fp_circle
+            (center {circle_x} {circle_y})
+            (end {circle_x - radius} {circle_y})
+            (stroke (width 0.1524) (type solid))
+            (fill solid)
+            (layer "F.SilkS")
+            (uuid "{uuid4()}")
+        )
+        """)
+
+    pad_height = specs.pad_dimensions.height
+    pad_center_x = specs.pad_dimensions.center_x
+    pad_pitch_y = specs.pad_dimensions.pitch_y
 
     # Polarity marker
-    shapes.append(
-        "    (fp_circle\n"
-        "        (center "
-        f"-{specs.pad_dimensions.center_x} "
-        f"-{specs.pad_dimensions.pitch_y / 2})\n"
-        "        (end "
-        f"-{specs.pad_dimensions.center_x - specs.pad_dimensions.height / 2} "
-        f"-{specs.pad_dimensions.pitch_y / 2})\n"
-        "        (stroke\n"
-        "            (width 0.0254)\n"
-        "            (type solid)\n"
-        "        )\n"
-        "        (fill none)\n"
-        '        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        "    )",
-    )
+    shapes.append(f"""
+        (fp_circle
+            (center -{pad_center_x} -{pad_pitch_y / 2})
+            (end -{pad_center_x - pad_height / 2} -{pad_pitch_y / 2})
+            (stroke (width 0.0254) (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "{uuid4()}")
+        )
+        """)
 
     return "\n".join(shapes)
 
 
 def generate_pads(specs: InductorSpecs) -> str:
     """Generate the pads section of the footprint."""
+    pad_width = specs.pad_dimensions.width
+    pad_height = specs.pad_dimensions.height
+    pad_center_x = specs.pad_dimensions.center_x
+    pad_pitch_y = specs.pad_dimensions.pitch_y
+
     pads = []
 
     pad_positions = [
-        (-specs.pad_dimensions.center_x, -specs.pad_dimensions.pitch_y / 2),
-        (-specs.pad_dimensions.center_x, specs.pad_dimensions.pitch_y / 2),
-        (specs.pad_dimensions.center_x, specs.pad_dimensions.pitch_y / 2),
-        (specs.pad_dimensions.center_x, -specs.pad_dimensions.pitch_y / 2),
-    ]
+        (-pad_center_x, -pad_pitch_y / 2), (-pad_center_x, pad_pitch_y / 2),
+        (pad_center_x, pad_pitch_y / 2), (pad_center_x, -pad_pitch_y / 2)]
 
     for pad_number, (x_pos, y_pos) in enumerate(pad_positions, 1):
-        pads.append(
-            f'    (pad "{pad_number}" smd rect\n'
-            f"        (at {x_pos} {y_pos})\n"
-            "        (size "
-            f"{specs.pad_dimensions.width} {specs.pad_dimensions.height})\n"
-            '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-            f'        (uuid "{uuid4()}")\n'
-            "    )",
-        )
+        pads.append(f"""
+            (pad "{pad_number}" smd rect
+                (at {x_pos} {y_pos})
+                (size {pad_width} {pad_height})
+                (layers "F.Cu" "F.Paste" "F.Mask")
+                (uuid "{uuid4()}")
+            )
+            """)
 
     return "\n".join(pads)
 

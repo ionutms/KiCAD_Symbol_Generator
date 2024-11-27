@@ -52,39 +52,38 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
 def generate_shapes(specs: InductorSpecs) -> str:
     """Generate the shapes section of the footprint."""
     shapes = []
+    pad_center_x = specs.pad_dimensions.center_x
 
     # Polarity marker
-    shapes.append(
-        "    (fp_circle\n"
-        f"        (center -{specs.pad_dimensions.center_x} 0)\n"
-        "        (end "
-        f"-{specs.pad_dimensions.center_x - 0.0762} 0)\n"
-        "        (stroke\n"
-        "            (width 0.0254)\n"
-        "            (type solid)\n"
-        "        )\n"
-        "        (fill none)\n"
-        '        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        "    )",
-    )
+    shapes.append(f"""
+        (fp_circle
+            (center -{pad_center_x} 0)
+            (end -{pad_center_x - 0.0762} 0)
+            (stroke (width 0.0254) (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "{uuid4()}")
+        )
+        """)
     return "\n".join(shapes)
 
 
 def generate_pads(specs: InductorSpecs) -> str:
     """Generate the pads section of the footprint."""
     pads = []
+    pad_center_x = specs.pad_dimensions.center_x
+    pad_width = specs.pad_dimensions.width
+    pad_height = specs.pad_dimensions.height
 
     for pad_number, symbol in enumerate(["-", ""], start=1):
-        pads.append(
-            f'    (pad "{pad_number}" smd rect\n'
-            f"        (at {symbol}{specs.pad_dimensions.center_x} 0)\n"
-            "        (size "
-            f"{specs.pad_dimensions.width} {specs.pad_dimensions.height})\n"
-            '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-            f'        (uuid "{uuid4()}")\n'
-            "    )",
-        )
+        pads.append(f"""
+            (pad "{pad_number}" smd rect
+                (at {symbol}{pad_center_x} 0)
+                (size {pad_width} {pad_height})
+                (layers "F.Cu" "F.Paste" "F.Mask")
+                (uuid "{uuid4()}")
+            )
+            """)
 
     return "\n".join(pads)
 

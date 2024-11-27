@@ -67,16 +67,14 @@ RESISTOR_SPECS: dict[str, ResistorSpecs] = {
         silkscreen=SilkscreenParams(
             y_position=0.38, extension=0.153641, inset=0.15),
         text_positions=TextPositions(
-            reference=-1.27, value=1.27, fab_reference=2.54),
-    ),
+            reference=-1.27, value=1.27, fab_reference=2.54)),
     "0603": ResistorSpecs(
         body_dimensions=BodyDimensions(width=2.96, height=1.54),
         pad_dimensions=PadDimensions(width=0.8, height=0.95, center_x=0.825),
         silkscreen=SilkscreenParams(
             y_position=0.5225, extension=0.237258, inset=0.24),
         text_positions=TextPositions(
-            reference=-1.524, value=1.524, fab_reference=2.794),
-    ),
+            reference=-1.524, value=1.524, fab_reference=2.794)),
     "0805": ResistorSpecs(
         body_dimensions=BodyDimensions(width=3.36, height=2.09),
         pad_dimensions=PadDimensions(
@@ -84,8 +82,7 @@ RESISTOR_SPECS: dict[str, ResistorSpecs] = {
         silkscreen=SilkscreenParams(
             y_position=0.735, extension=0.227064, inset=0.23),
         text_positions=TextPositions(
-            reference=-1.778, value=1.778, fab_reference=3.048),
-    ),
+            reference=-1.778, value=1.778, fab_reference=3.048)),
     "1206": ResistorSpecs(
         body_dimensions=BodyDimensions(width=4.56, height=2.74),
         pad_dimensions=PadDimensions(
@@ -93,6 +90,5 @@ RESISTOR_SPECS: dict[str, ResistorSpecs] = {
         silkscreen=SilkscreenParams(
             y_position=0.91, extension=0.727064, inset=0.25),
         text_positions=TextPositions(
-            reference=-2.032, value=2.032, fab_reference=3.302),
-    ),
+            reference=-2.032, value=2.032, fab_reference=3.302)),
 }

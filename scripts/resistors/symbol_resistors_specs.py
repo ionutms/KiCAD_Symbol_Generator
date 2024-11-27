@@ -118,16 +118,12 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         max_resistance=1_000_000,
         packaging_options=["X"],
         tolerance_map={
-            SeriesType.E96: {"F": "1%"},
-            SeriesType.E24: {"J": "5%"},
-        },
+            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"J": "5%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDA0000/AOA0000C304.pdf"
-        ),
+            "RDA0000/AOA0000C304.pdf"),
         manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/",
-    ),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
     "ERJ-3EK": SeriesSpec(
         base_series="ERJ-3EK",
         footprint="resistor_footprints:R_0603_1608Metric",
@@ -138,16 +134,12 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={
-            SeriesType.E96: {"F": "1%"},
-            SeriesType.E24: {"J": "5%"},
-        },
+            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"J": "5%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDA0000/AOA0000C304.pdf"
-        ),
+            "RDA0000/AOA0000C304.pdf"),
         manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/",
-    ),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
     "ERJ-6EN": SeriesSpec(
         base_series="ERJ-6EN",
         footprint="resistor_footprints:R_0805_2012Metric",
@@ -158,17 +150,13 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         max_resistance=2_200_000,
         packaging_options=["V"],
         tolerance_map={
-            SeriesType.E96: {"F": "1%"},
-            SeriesType.E24: {"J": "5%"},
-        },
+            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"J": "5%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDA0000/AOA0000C304.pdf"
-        ),
+            "RDA0000/AOA0000C304.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/",
-        high_resistance_tolerance={"F": "1%"},
-    ),
+        high_resistance_tolerance={"F": "1%"}),
     "ERJ-P08": SeriesSpec(
         base_series="ERJ-P08",
         footprint="resistor_footprints:R_1206_3216Metric",
@@ -179,16 +167,12 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={
-            SeriesType.E96: {"F": "1%"},
-            SeriesType.E24: {"F": "1%"},
-        },
+            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"F": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDO0000/AOA0000C331.pdf"
-        ),
+            "RDO0000/AOA0000C331.pdf"),
         manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/",
-    ),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
     "ERJ-P06": SeriesSpec(
         base_series="ERJ-P06",
         footprint="resistor_footprints:R_0805_2012Metric",
@@ -199,16 +183,12 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={
-            SeriesType.E96: {"F": "1%"},
-            SeriesType.E24: {"F": "1%"},
-        },
+            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"F": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDO0000/AOA0000C331.pdf"
-        ),
+            "RDO0000/AOA0000C331.pdf"),
         manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/",
-    ),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
     "ERJ-P03": SeriesSpec(
         base_series="ERJ-P03",
         footprint="resistor_footprints:R_0603_1608Metric",
@@ -219,14 +199,10 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={
-            SeriesType.E96: {"F": "1%"},
-            SeriesType.E24: {"F": "1%"},
-        },
+            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"F": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDO0000/AOA0000C331.pdf"
-        ),
+            "RDO0000/AOA0000C331.pdf"),
         manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/",
-    ),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
 }

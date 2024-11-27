@@ -88,15 +88,15 @@ def generate_pads(specs: FootprintSpecs) -> str:
     pad = res_specs.pad_dimensions
 
     for pad_number, symbol in enumerate(["-", ""], start=1):
-        pads.append(
-            f'    (pad "{pad_number}" smd roundrect\n'
-            f"        (at {symbol}{pad.center_x} 0)\n"
-            f"        (size {pad.width} {pad.height})\n"
-            f'        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-            f"        (roundrect_rratio {pad.roundrect_ratio})\n"
-            f'        (uuid "{uuid4()}")\n'
-            f"    )",
-        )
+        pads.append(f"""
+            (pad "{pad_number}" smd roundrect
+                (at {symbol}{pad.center_x} 0)
+                (size {pad.width} {pad.height})
+                (layers "F.Cu" "F.Paste" "F.Mask")
+                (roundrect_rratio {pad.roundrect_ratio})
+                (uuid "{uuid4()}")
+            )
+            """)
 
     return "\n".join(pads)
 

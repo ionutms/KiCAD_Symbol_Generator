@@ -81,8 +81,7 @@ class PartInfo(NamedTuple):
 # Base URLs for documentation
 MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
 SAMSUNG_DOC_BASE = (
-    "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber="
-)
+    "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=")
 
 # Original Murata specifications
 MURATA_SPECS = {
@@ -95,8 +94,7 @@ MURATA_SPECS = {
         case_code_mm="1005",
         packaging_options=["D", "J"],
         tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={
-            SeriesType.X7R: (220e-12, 0.1e-6)},  # 220pF to 0.1µF
+        value_range={SeriesType.X7R: (220e-12, 0.1e-6)},  # 220pF to 0.1µF
         voltage_code="1H",
         dielectric_code={SeriesType.X7R: "R7"},
         excluded_values={27e-9, 39e-9, 56e-9, 82e-9},
@@ -112,8 +110,7 @@ MURATA_SPECS = {
         case_code_mm="1608",
         packaging_options=["D", "J"],
         tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={
-            SeriesType.X7R: (1e-9, 220e-9)},  # 1nF to 220nF
+        value_range={SeriesType.X7R: (1e-9, 220e-9)},  # 1nF to 220nF
         voltage_code="1H",
         dielectric_code={SeriesType.X7R: "R7"},
         excluded_values={120e-9, 180e-9},
@@ -129,8 +126,7 @@ MURATA_SPECS = {
         case_code_mm="2012",
         packaging_options=["D", "J"],
         tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={
-            SeriesType.X7R: (1e-9, 22e-9)},  # 1nF to 22nF
+        value_range={SeriesType.X7R: (1e-9, 22e-9)},  # 1nF to 22nF
         voltage_code="1H",
         dielectric_code={SeriesType.X7R: "R7"},
         excluded_values=set(),
@@ -146,8 +142,7 @@ MURATA_SPECS = {
         case_code_mm="3216",
         packaging_options=["K", "L"],
         tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={
-            SeriesType.X7R: (100e-9, 1e-6)},  # 100nF to 1µF
+        value_range={SeriesType.X7R: (100e-9, 1e-6)},  # 100nF to 1µF
         voltage_code="1H",
         dielectric_code={SeriesType.X7R: "R7"},
         excluded_values={180e-9, 560e-9},
@@ -163,8 +158,7 @@ MURATA_SPECS = {
         case_code_mm="3216",
         packaging_options=["K", "L"],
         tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={
-            SeriesType.X7R: (4.7e-6, 4.7e-6)},  # Only 4.7µF
+        value_range={SeriesType.X7R: (4.7e-6, 4.7e-6)},  # Only 4.7µF
         voltage_code="1E",
         dielectric_code={SeriesType.X7R: "R7"},
         excluded_values=set(),
@@ -188,19 +182,8 @@ SAMSUNG_SPECS = {
         voltage_code="B",
         dielectric_code={SeriesType.X7R: "B"},
         excluded_values={
-            0.56e-6,
-            0.68e-6,
-            0.82e-6,
-            1.2e-6,
-            1.5e-6,
-            1.8e-6,
-            2.7e-6,
-            3.3e-6,
-            3.9e-6,
-            5.6e-6,
-            6.8e-6,
-            8.2e-6,
-        },
+            0.56e-6, 0.68e-6, 0.82e-6, 1.2e-6, 1.5e-6, 1.8e-6, 2.7e-6, 3.3e-6,
+            3.9e-6, 5.6e-6, 6.8e-6, 8.2e-6},
         datasheet_url=f"{SAMSUNG_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search/CL31",
     ),

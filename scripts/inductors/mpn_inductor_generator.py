@@ -146,8 +146,7 @@ def create_part_info(
     value_code = generate_value_code(
         inductance,
         specs.value_suffix,
-        is_aec and specs.has_aec,
-    )
+        is_aec and specs.has_aec)
     mpn = f"{specs.base_series}-{value_code}"
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
@@ -158,15 +157,13 @@ def create_part_info(
     except ValueError:
         pmu.print_error(
             f"Error: Inductance value {inductance} µH "
-            f"not found in series {specs.base_series}",
-        )
+            f"not found in series {specs.base_series}")
         max_dc_current = 0.0
         max_dc_resistance = 0.0
     except IndexError:
         pmu.print_error(
             "Error: No DC specifications found for inductance "
-            f"{inductance} µH in series {specs.base_series}",
-        )
+            f"{inductance} µH in series {specs.base_series}")
         max_dc_current = 0.0
         max_dc_resistance = 0.0
 
@@ -183,8 +180,7 @@ def create_part_info(
         series=specs.base_series,
         trustedparts_link=trustedparts_link,
         max_dc_current=max_dc_current,
-        max_dc_resistance=max_dc_resistance,
-    )
+        max_dc_resistance=max_dc_resistance)
 
 
 def generate_part_numbers(
@@ -203,8 +199,7 @@ def generate_part_numbers(
     """
     return [
         create_part_info(value, specs, is_aec)
-        for value in specs.inductance_values
-    ]
+        for value in specs.inductance_values]
 
 
 # Global header to attribute mapping
