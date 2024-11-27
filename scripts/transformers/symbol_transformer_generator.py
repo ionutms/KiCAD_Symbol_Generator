@@ -73,15 +73,13 @@ def convert_pin_config(
             "y_pos": pin.y_pos,
             "pin_type": pin.pin_type,
             "lenght": pin.lenght,
-            "hide": pin.hide,
-        } for pin in spec_config.left],
+            "hide": pin.hide} for pin in spec_config.left],
         "right": [{
             "number": pin.number,
             "y_pos": pin.y_pos,
             "pin_type": pin.pin_type,
             "lenght": pin.lenght,
-            "hide": pin.hide,
-        } for pin in spec_config.right],
+            "hide": pin.hide} for pin in spec_config.right],
     }
 
 
@@ -137,15 +135,9 @@ def write_properties(
     for prop_name in property_order:
         if prop_name in component_data:
             config = property_configs.get(
-                prop_name,
-                (0, y_offset, 1.27, True, True, None))
+                prop_name, (0, y_offset, 1.27, True, True, None))
             value = config[5] or component_data[prop_name]
-            su.write_property(
-                symbol_file,
-                prop_name,
-                value,
-                *config[:5],
-            )
+            su.write_property(symbol_file, prop_name, value, *config[:5])
             if prop_name not in property_configs:
                 y_offset -= 2.54
 

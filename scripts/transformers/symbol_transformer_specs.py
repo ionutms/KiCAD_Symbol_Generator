@@ -135,8 +135,7 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         tolerance="±10%",
         datasheet=(
             "https://www.coilcraft.com/getmedia/"
-            "cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf"
-        ),
+            "cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf"),
         inductance_values=[470.0],
         max_dc_current=[0.80],
         max_dc_resistance=[1.1],
@@ -148,15 +147,13 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
                 PinConfig("5", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
                 PinConfig("3", 0.0, "no_connect", 2.54, True),  # noqa: FBT003
                 PinConfig("1", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
-                PinConfig("2", -5.08, "unspecified", 5.08),
-            ],
+                PinConfig("2", -5.08, "unspecified", 5.08)],
             right=[
                 PinConfig("6", 5.08, "unspecified", 5.08),
                 PinConfig("7", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
                 PinConfig("8", 0.0, "no_connect", 2.54, True),  # noqa: FBT003
                 PinConfig("9", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
-                PinConfig("10", -5.08, "unspecified", 5.08),
-            ],
+                PinConfig("10", -5.08, "unspecified", 5.08)],
         ),
     ),
     "ZA9644": SeriesSpec(
@@ -166,8 +163,7 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         tolerance="±10%",
         datasheet=(
             "https://www.coilcraft.com/getmedia/"
-            "cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf"
-        ),
+            "cc4df0c9-0883-48fa-b8fb-d5dedac2b455/za9384.pdf"),
         inductance_values=[470.0],
         max_dc_current=[0.49],
         max_dc_resistance=[1.8],
@@ -178,14 +174,12 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
                 PinConfig("1", 5.08, "unspecified", 5.08),
                 PinConfig("2", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
                 PinConfig("3", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
-                PinConfig("4", -5.08, "unspecified", 5.08),
-            ],
+                PinConfig("4", -5.08, "unspecified", 5.08)],
             right=[
                 PinConfig("5", 5.08, "unspecified", 5.08),
                 PinConfig("6", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
                 PinConfig("7", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
-                PinConfig("8", -5.08, "unspecified", 5.08),
-            ],
+                PinConfig("8", -5.08, "unspecified", 5.08)],
         ),
     ),
 }

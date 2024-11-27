@@ -38,31 +38,13 @@ class TransformerSpecs(NamedTuple):
 
 TRANSFORMER_SPECS: dict[str, TransformerSpecs] = {
     "ZA9384": TransformerSpecs(
-        body_dimensions=BodyDimensions(
-            width=18.5,
-            height=15.5,
-        ),
+        body_dimensions=BodyDimensions(width=18.5, height=15.5),
         pad_dimensions=PadDimensions(
-            width=2.5,
-            height=1.75,
-            center_x=7.75,
-            pitch_y=2.5,
-            pin_count=10,
-        ),
-        ref_offset_y=-8.89,
-    ),
+            width=2.5, height=1.75, center_x=7.75, pitch_y=2.5, pin_count=10),
+        ref_offset_y=-8.89),
     "ZA9644": TransformerSpecs(
-        body_dimensions=BodyDimensions(
-            width=10.5,
-            height=10.5,
-        ),
+        body_dimensions=BodyDimensions(width=10.5, height=10.5),
         pad_dimensions=PadDimensions(
-            width=2.45,
-            height=1.6,
-            center_x=3.675,
-            pitch_y=2.5,
-            pin_count=8,
-        ),
-        ref_offset_y=-6.096,
-    ),
+            width=2.45, height=1.6, center_x=3.675, pitch_y=2.5, pin_count=8),
+        ref_offset_y=-6.096),
 }

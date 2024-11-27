@@ -52,21 +52,16 @@ def generate_shapes(specs: TransformerSpecs) -> str:
     radius = specs.pad_dimensions.height / 4
 
     # Pin 1 indicator on silkscreen
-    shapes.append(
-        '    (fp_circle\n'
-        '        (center '
-        f'{circle_x} {circle_y})\n'
-        '        (end '
-        f'{circle_x - radius} {circle_y})\n'
-        '        (stroke\n'
-        '            (width 0.1524)\n'
-        '            (type solid)\n'
-        '        )\n'
-        '        (fill solid)\n'
-        '        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        '    )',
-    )
+    shapes.append(f"""
+        (fp_circle
+            (center {circle_x} {circle_y})
+            (end {circle_x - radius} {circle_y})
+            (stroke (width 0.1524) (type solid))
+            (fill solid)
+            (layer "F.SilkS")
+            (uuid "{uuid4()}")
+        )
+        """)
 
     return "\n".join(shapes)
 
@@ -96,17 +91,18 @@ def generate_pads(specs: TransformerSpecs) -> str:
     """Generate the pads section of the footprint."""
     pads = []
     pad_positions = calculate_pad_positions(specs)
+    pad_width = specs.pad_dimensions.width
+    pad_heigh = specs.pad_dimensions.height
 
     for pad_number, (x_pos, y_pos) in enumerate(pad_positions, 1):
-        pads.append(
-            f'    (pad "{pad_number}" smd rect\n'
-            f'        (at {x_pos} {y_pos})\n'
-            '        (size '
-            f'{specs.pad_dimensions.width} {specs.pad_dimensions.height})\n'
-            '        (layers "F.Cu" "F.Paste" "F.Mask")\n'
-            f'        (uuid "{uuid4()}")\n'
-            '    )',
-        )
+        pads.append(f"""
+            (pad "{pad_number}" smd rect
+                (at {x_pos} {y_pos})
+                (size {pad_width} {pad_heigh})
+                (layers "F.Cu" "F.Paste" "F.Mask")
+                (uuid "{uuid4()}")
+            )
+            """)
 
     return "\n".join(pads)
 
