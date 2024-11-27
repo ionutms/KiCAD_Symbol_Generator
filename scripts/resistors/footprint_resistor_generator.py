@@ -7,7 +7,6 @@ with appropriate pad dimensions and clearances.
 
 from pathlib import Path
 from typing import NamedTuple
-from uuid import uuid4
 
 from footprint_resistor_specs import RESISTOR_SPECS, ResistorSpecs
 from symbol_resistors_specs import SERIES_SPECS, SeriesSpec
@@ -73,32 +72,15 @@ def generate_footprint(specs: FootprintSpecs) -> str:
             specs.resistor_specs.body_dimensions.height,
             specs.resistor_specs.pad_dimensions.center_x,
             specs.resistor_specs.pad_dimensions.width),
-        generate_pads(specs),
+        fu.generate_pads(
+            specs.resistor_specs.pad_dimensions.width,
+            specs.resistor_specs.pad_dimensions.height,
+            specs.resistor_specs.pad_dimensions.center_x),
         fu.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", step_file_name),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def generate_pads(specs: FootprintSpecs) -> str:
-    """Generate SMD pads with resistor-specific dimensions."""
-    pads = []
-    res_specs = specs.resistor_specs
-    pad = res_specs.pad_dimensions
-
-    for pad_number, symbol in enumerate(["-", ""], start=1):
-        pads.append(f"""
-            (pad "{pad_number}" smd roundrect
-                (at {symbol}{pad.center_x} 0)
-                (size {pad.width} {pad.height})
-                (layers "F.Cu" "F.Paste" "F.Mask")
-                (roundrect_rratio {pad.roundrect_ratio})
-                (uuid "{uuid4()}")
-            )
-            """)
-
-    return "\n".join(pads)
 
 
 def generate_footprint_file(series_name: str, output_dir: str) -> None:
