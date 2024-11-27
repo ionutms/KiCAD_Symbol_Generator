@@ -267,3 +267,49 @@ def generate_pin_1_indicator(
         """)
 
     return "\n".join(shapes)
+
+
+def calculate_pad_positions(
+        pad_center_x: float, pad_pitch_y: float, pins_per_side: float,
+) -> list[tuple[float, float]]:
+    """Calculate positions for all pads based on pin count."""
+    total_height = pad_pitch_y * (pins_per_side - 1)
+
+    positions = []
+
+    # Left side pads (top to bottom)
+    for pin_index in range(pins_per_side):
+        y_pos = -total_height/2 + pin_index * pad_pitch_y
+        positions.append((-pad_center_x, y_pos))
+
+    # Right side pads (bottom to top)
+    for pin_index in range(pins_per_side):
+        y_pos = total_height/2 - pin_index * pad_pitch_y
+        positions.append((pad_center_x, y_pos))
+
+    return positions
+
+
+def generate_pads(
+        pad_width: float,
+        pad_heigh: float,
+        pad_center_x: float,
+        pad_pitch_y: float = 0,
+        pins_per_side: float = 1,
+) -> str:
+    """Generate the pads section of the footprint."""
+    pads = []
+    pad_positions = calculate_pad_positions(
+        pad_center_x, pad_pitch_y, pins_per_side)
+
+    for pad_number, (x_pos, y_pos) in enumerate(pad_positions, 1):
+        pads.append(f"""
+            (pad "{pad_number}" smd rect
+                (at {x_pos} {y_pos})
+                (size {pad_width} {pad_heigh})
+                (layers "F.Cu" "F.Paste" "F.Mask")
+                (uuid "{uuid4()}")
+            )
+            """)
+
+    return "\n".join(pads)

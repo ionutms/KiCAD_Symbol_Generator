@@ -32,6 +32,7 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
 
     pad_center_x = specs.pad_dimensions.center_x
     pad_width = specs.pad_dimensions.width
+    pad_height = specs.pad_dimensions.height
 
     sections = [
         fu.generate_header(part_info.series),
@@ -40,7 +41,7 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
         fu.generate_fab_rectangle(body_width, body_height),
         fu.generate_silkscreen_lines(body_height, pad_center_x, pad_width),
         fu.generate_pin_1_indicator(pad_center_x, pad_width),
-        generate_pads(specs),
+        fu.generate_pads(pad_width, pad_height, pad_center_x),
         fu.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.series),
         ")",  # Close the footprint

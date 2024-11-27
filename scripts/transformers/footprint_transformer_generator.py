@@ -7,7 +7,6 @@ silkscreen markings for surface mount power transformers with multiple pins.
 """
 
 from pathlib import Path
-from uuid import uuid4
 
 import symbol_transformer_specs as sti
 from footprint_transformer_specs import TRANSFORMER_SPECS, TransformerSpecs
@@ -23,6 +22,7 @@ def generate_footprint(
 
     pad_center_x = specs.pad_dimensions.center_x
     pad_width = specs.pad_dimensions.width
+    pad_height = specs.pad_dimensions.height
     pad_pitch_y = specs.pad_dimensions.pitch_y
     pins_per_side = specs.pad_dimensions.pin_count//2
 
@@ -34,53 +34,13 @@ def generate_footprint(
         fu.generate_silkscreen_lines(body_height, pad_center_x, pad_width),
         fu.generate_pin_1_indicator(
             pad_center_x, pad_width, pins_per_side, pad_pitch_y),
-        generate_pads(specs),
+        fu.generate_pads(
+            pad_width, pad_height, pad_center_x, pad_pitch_y, pins_per_side),
         fu.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.series),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
-
-
-def calculate_pad_positions(
-        specs: TransformerSpecs,
-) -> list[tuple[float, float]]:
-    """Calculate positions for all pads based on pin count."""
-    pins_per_side = specs.pad_dimensions.pin_count // 2
-    total_height = specs.pad_dimensions.pitch_y * (pins_per_side - 1)
-    positions = []
-
-    # Left side pads
-    for i in range(pins_per_side):
-        y_pos = -total_height/2 + i * specs.pad_dimensions.pitch_y
-        positions.append((-specs.pad_dimensions.center_x, y_pos))
-
-    # Right side pads (bottom to top)
-    for i in range(pins_per_side):
-        y_pos = total_height/2 - i * specs.pad_dimensions.pitch_y
-        positions.append((specs.pad_dimensions.center_x, y_pos))
-
-    return positions
-
-
-def generate_pads(specs: TransformerSpecs) -> str:
-    """Generate the pads section of the footprint."""
-    pads = []
-    pad_positions = calculate_pad_positions(specs)
-    pad_width = specs.pad_dimensions.width
-    pad_heigh = specs.pad_dimensions.height
-
-    for pad_number, (x_pos, y_pos) in enumerate(pad_positions, 1):
-        pads.append(f"""
-            (pad "{pad_number}" smd rect
-                (at {x_pos} {y_pos})
-                (size {pad_width} {pad_heigh})
-                (layers "F.Cu" "F.Paste" "F.Mask")
-                (uuid "{uuid4()}")
-            )
-            """)
-
-    return "\n".join(pads)
 
 
 def generate_footprint_file(part_info: sti.PartInfo, output_dir: str) -> None:
