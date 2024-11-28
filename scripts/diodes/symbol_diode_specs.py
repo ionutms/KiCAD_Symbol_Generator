@@ -39,6 +39,7 @@ class SeriesSpec(NamedTuple):
     trustedparts_link: str
     current_rating: list[float]
     package: str
+    diode_type: str
 
 
 class PartInfo(NamedTuple):
@@ -77,6 +78,7 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
     current_rating: float
     package: str
+    diode_type: str
 
 
 SERIES_SPECS: dict[str, SeriesSpec] = {
@@ -88,5 +90,18 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         voltage_rating=[100.0],
         current_rating=[1.2],
         package="PowerDI_123",
+        diode_type="Schottky",
+        trustedparts_link="https://www.trustedparts.com/en/search"),
+    "MMSZ52": SeriesSpec(
+        manufacturer="Onsemi",
+        base_series="MMSZ5265BT1G",
+        footprint="diode_footprints:PowerDI_123", # change footprint
+        datasheet=(
+            "https://ro.mouser.com/datasheet/2/308/1/"
+            "MMSZ5221BT1_D-2316205.pdf"),
+        voltage_rating=[62.0],
+        current_rating=[1.2],
+        package="PowerDI_123", # change package
+        diode_type="Zener",
         trustedparts_link="https://www.trustedparts.com/en/search"),
 }

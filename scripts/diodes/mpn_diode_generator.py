@@ -67,6 +67,7 @@ def create_part_info(
         series=specs.base_series,
         trustedparts_link=trustedparts_link,
         current_rating=current_rating,
+        diode_type=specs.diode_type,
         )
 
 
@@ -100,6 +101,7 @@ HEADER_MAPPING: Final[dict] = {
     "Series": lambda part: part.series,
     "Trustedparts Search": lambda part: part.trustedparts_link,
     "Maximum DC Current (A)": lambda part: f"{part.current_rating:.1f}",
+    "Diode Type": lambda part: part.diode_type,
 }
 
 
