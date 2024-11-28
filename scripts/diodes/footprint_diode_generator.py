@@ -11,7 +11,7 @@ from uuid import uuid4
 
 import symbol_diode_specs as sds
 from footprint_diode_specs import DIODE_SPECS, DiodeSpecs
-from utilities import footprint_utils as fu
+from utilities import footprint_utils
 
 
 def generate_footprint(part_info: sds.PartInfo, specs: DiodeSpecs) -> str:
@@ -33,16 +33,17 @@ def generate_footprint(part_info: sds.PartInfo, specs: DiodeSpecs) -> str:
     anode_height = specs.pad_dimensions.anode_height
 
     sections = [
-        fu.generate_header(part_info.package),
-        fu.generate_properties(specs.ref_offset_y, part_info.package),
-        fu.generate_courtyard(body_width, body_height),
-        fu.generate_fab_rectangle(body_width, body_height),
-        fu.generate_fab_diode(
+        footprint_utils.generate_header(part_info.package),
+        footprint_utils.generate_properties(
+            specs.ref_offset_y, part_info.package),
+        footprint_utils.generate_courtyard(body_width, body_height),
+        footprint_utils.generate_fab_rectangle(body_width, body_height),
+        footprint_utils.generate_fab_diode(
             anode_width, anode_height, anode_center_x, cathode_center_x),
-        fu.generate_silkscreen_lines(
+        footprint_utils.generate_silkscreen_lines(
             body_height, anode_center_x, anode_width),
         generate_pads(specs),
-        fu.associate_3d_model(
+        footprint_utils.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.package),
         ")",  # Close the footprint
     ]

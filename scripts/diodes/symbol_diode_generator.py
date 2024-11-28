@@ -20,16 +20,13 @@ Dependencies:
 from pathlib import Path
 from typing import TextIO
 
-from utilities import file_handler_utilities as fhu
-from utilities import symbol_utils as su
+from utilities import file_handler_utilities, symbol_utils
 
 
 def generate_kicad_symbol(
-        input_csv_file: str,
-        output_symbol_file: str,
-        encoding: str = "utf-8",
+    input_csv_file: str, output_symbol_file: str, encoding: str = "utf-8",
 ) -> None:
-    """Generate a KiCad symbol file from CSV data for diodes.
+    """Generate a KiCad symbol file from CSV data for inductors.
 
     Args:
         input_csv_file (str): Path to the input CSV file with component data.
@@ -43,22 +40,23 @@ def generate_kicad_symbol(
         IOError: If there's an error writing to the output file.
 
     """
-    component_data_list = fhu.read_csv_data(input_csv_file, encoding)
-    all_properties = su.get_all_properties(component_data_list)
+    component_data_list = file_handler_utilities.read_csv_data(
+        input_csv_file, encoding)
+    all_properties = symbol_utils.get_all_properties(component_data_list)
 
     with Path.open(output_symbol_file, "w", encoding=encoding) as symbol_file:
-        su.write_header(symbol_file)
+        symbol_utils.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
 
 
 def write_component(
-        symbol_file: TextIO,
-        component_data: dict[str, str],
-        property_order: list[str],
+    symbol_file: TextIO,
+    component_data: dict[str, str],
+    property_order: list[str],
 ) -> None:
-    """Write a single diode component to the KiCad symbol file.
+    """Write a single component to the KiCad symbol file.
 
     Args:
         symbol_file (TextIO): File object for writing the symbol file.
@@ -67,10 +65,9 @@ def write_component(
 
     """
     symbol_name = component_data.get("Symbol Name", "")
-    su.write_symbol_header(symbol_file, symbol_name)
+    symbol_utils.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
-    if component_data.get("Diode Type") == "Schottky":
-        write_schottky_symbol_drawing(symbol_file, symbol_name)
+    write_schottky_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("\t)\n")
 
 
@@ -102,8 +99,8 @@ def write_properties(
                 prop_name,
                 (0, y_offset, 1.27, True, True, None))
             value = config[5] or component_data[prop_name]
-            su.write_property(symbol_file, prop_name, value, *config[:5],
-            )
+            symbol_utils.write_property(
+                symbol_file, prop_name, value, *config[:5])
             if prop_name not in property_configs:
                 y_offset -= 2.54
 
@@ -134,7 +131,7 @@ def write_schottky_symbol_drawing(
         """)
 
     # Write pins
-    su.write_pin(symbol_file, 5.08, 0, 180, "1", length=3.81)
-    su.write_pin(symbol_file, -5.08, 0, 0, "2", length=3.81)
+    symbol_utils.write_pin(symbol_file, 5.08, 0, 180, "1", length=3.81)
+    symbol_utils.write_pin(symbol_file, -5.08, 0, 0, "2", length=3.81)
 
     symbol_file.write("\t\t)\n")
