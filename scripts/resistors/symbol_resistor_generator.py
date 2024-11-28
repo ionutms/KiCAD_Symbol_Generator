@@ -20,8 +20,7 @@ Dependencies:
 from pathlib import Path
 from typing import TextIO
 
-from utilities import file_handler_utilities as fhu
-from utilities import symbol_utils as su
+from utilities import file_handler_utilities, symbol_utils
 
 
 def generate_kicad_symbol(
@@ -41,11 +40,12 @@ def generate_kicad_symbol(
         IOError: If there's an error writing to the output file.
 
     """
-    component_data_list = fhu.read_csv_data(input_csv_file, encoding)
-    all_properties = su.get_all_properties(component_data_list)
+    component_data_list = file_handler_utilities.read_csv_data(
+        input_csv_file, encoding)
+    all_properties = symbol_utils.get_all_properties(component_data_list)
 
     with Path.open(output_symbol_file, "w", encoding=encoding) as symbol_file:
-        su.write_header(symbol_file)
+        symbol_utils.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
@@ -65,7 +65,7 @@ def write_component(
 
     """
     symbol_name = component_data["Symbol Name"]
-    su.write_symbol_header(symbol_file, symbol_name)
+    symbol_utils.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
     write_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("    )")
@@ -100,7 +100,8 @@ def write_properties(
             config = property_configs.get(
                 prop_name, (0, y_offset, 1.27, True, True, None))
             value = config[5] or component_data[prop_name]
-            su.write_property(symbol_file, prop_name, value, *config[:5])
+            symbol_utils.write_property(
+                symbol_file, prop_name, value, *config[:5])
             if prop_name not in property_configs:
                 y_offset -= 2.54
 
@@ -153,5 +154,5 @@ def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
         """)
 
     # Write pins
-    su.write_pin(symbol_file, -5.08, 0, 0, "1")
-    su.write_pin(symbol_file, 5.08, 0, 180, "2")
+    symbol_utils.write_pin(symbol_file, -5.08, 0, 0, "1")
+    symbol_utils.write_pin(symbol_file, 5.08, 0, 180, "2")

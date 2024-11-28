@@ -9,12 +9,15 @@ mount power inductors.
 from pathlib import Path
 from uuid import uuid4
 
-import symbol_inductors_specs as ssi
+import symbol_inductors_specs
 from footprint_inductor_specs import INDUCTOR_SPECS, InductorSpecs
-from utilities import footprint_utils as fu
+from utilities import footprint_utils
 
 
-def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
+def generate_footprint(
+        part_info: symbol_inductors_specs.PartInfo,
+        specs: InductorSpecs,
+) -> str:
     """Generate complete KiCad footprint file content for an inductor.
 
     Args:
@@ -35,14 +38,16 @@ def generate_footprint(part_info: ssi.PartInfo, specs: InductorSpecs) -> str:
     pad_height = specs.pad_dimensions.height
 
     sections = [
-        fu.generate_header(part_info.series),
-        fu.generate_properties(specs.ref_offset_y, part_info.series),
-        fu.generate_courtyard(body_width, body_height),
-        fu.generate_fab_rectangle(body_width, body_height),
-        fu.generate_silkscreen_lines(body_height, pad_center_x, pad_width),
-        fu.generate_pin_1_indicator(pad_center_x, pad_width),
-        fu.generate_pads(pad_width, pad_height, pad_center_x),
-        fu.associate_3d_model(
+        footprint_utils.generate_header(part_info.series),
+        footprint_utils.generate_properties(
+            specs.ref_offset_y, part_info.series),
+        footprint_utils.generate_courtyard(body_width, body_height),
+        footprint_utils.generate_fab_rectangle(body_width, body_height),
+        footprint_utils.generate_silkscreen_lines(
+            body_height, pad_center_x, pad_width),
+        footprint_utils.generate_pin_1_indicator(pad_center_x, pad_width),
+        footprint_utils.generate_pads(pad_width, pad_height, pad_center_x),
+        footprint_utils.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.series),
         ")",  # Close the footprint
     ]
@@ -69,7 +74,10 @@ def generate_pads(specs: InductorSpecs) -> str:
     return "\n".join(pads)
 
 
-def generate_footprint_file(part_info: ssi.PartInfo, output_dir: str) -> None:
+def generate_footprint_file(
+        part_info: symbol_inductors_specs.PartInfo,
+        output_dir: str,
+) -> None:
     """Generate and save a complete .kicad_mod file for an inductor.
 
     Args:
