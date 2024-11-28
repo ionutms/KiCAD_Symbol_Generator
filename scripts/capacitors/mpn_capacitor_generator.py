@@ -23,11 +23,10 @@ from typing import Final
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import footprint_capacitor_generator as ftp_cap_gen
-import symbol_capacitor_generator as sym_cap_gen
+import footprint_capacitor_generator
+import symbol_capacitor_generator
 import symbol_capacitors_specs as sym_cap_spec
-from utilities import file_handler_utilities as utils
-from utilities import print_message_utilities as pmu
+from utilities import file_handler_utilities, print_message_utilities
 
 
 @dataclass
@@ -422,47 +421,52 @@ def generate_files_for_series(
     series_code = series_name.replace("-", "")
 
     # Ensure required directories exist
-    utils.ensure_directory_exists("data")
-    utils.ensure_directory_exists("series_kicad_sym")
-    utils.ensure_directory_exists("symbols")
-    utils.ensure_directory_exists("footprints")
+    file_handler_utilities.ensure_directory_exists("data")
+    file_handler_utilities.ensure_directory_exists("series_kicad_sym")
+    file_handler_utilities.ensure_directory_exists("symbols")
+    file_handler_utilities.ensure_directory_exists("footprints")
     footprint_dir = "footprints/capacitor_footprints.pretty"
-    utils.ensure_directory_exists(footprint_dir)
+    file_handler_utilities.ensure_directory_exists(footprint_dir)
 
     csv_filename = f"{series_code}_part_numbers.csv"
     symbol_filename = f"CAPACITORS_{series_code}_DATA_BASE.kicad_sym"
 
     # Generate part numbers and write to CSV
     parts_list = generate_part_numbers(specs)
-    utils.write_to_csv(parts_list, csv_filename, HEADER_MAPPING)
-    pmu.print_success(
+    file_handler_utilities.write_to_csv(
+        parts_list, csv_filename, HEADER_MAPPING)
+    print_message_utilities.print_success(
         f"Generated {len(parts_list)} part numbers in '{csv_filename}'")
 
     # Generate KiCad symbol file
     try:
-        sym_cap_gen.generate_kicad_symbol(
+        symbol_capacitor_generator.generate_kicad_symbol(
             f"data/{csv_filename}", f"series_kicad_sym/{symbol_filename}")
-        pmu.print_success(
+        print_message_utilities.print_success(
             f"KiCad symbol file '{symbol_filename}' generated successfully.")
     except FileNotFoundError as file_error:
-        pmu.print_error(f"CSV file not found: {file_error}")
+        print_message_utilities.print_error(
+            f"CSV file not found: {file_error}")
     except csv.Error as csv_error:
-        pmu.print_error(f"CSV processing error: {csv_error}")
+        print_message_utilities.print_error(
+            f"CSV processing error: {csv_error}")
     except OSError as io_error:
-        pmu.print_error(
+        print_message_utilities.print_error(
             f"I/O error when generating KiCad symbol file: {io_error}")
 
     # Generate KiCad footprint file
     try:
-        ftp_cap_gen.generate_footprint_file(series_name, footprint_dir)
+        footprint_capacitor_generator.generate_footprint_file(
+            series_name, footprint_dir)
         footprint_name = f"{series_name}_{specs.case_code_in}.kicad_mod"
-        pmu.print_success(
+        print_message_utilities.print_success(
             f"KiCad footprint file '{footprint_name}' "
             "generated successfully.")
     except KeyError as key_error:
-        pmu.print_error(f"Invalid series specification: {key_error}")
+        print_message_utilities.print_error(
+            f"Invalid series specification: {key_error}")
     except OSError as io_error:
-        pmu.print_error(
+        print_message_utilities.print_error(
             f"I/O error when generating footprint file: {io_error}")
 
     # Add parts to unified list
@@ -494,22 +498,25 @@ def generate_unified_files(
 
     """
     # Write unified CSV file
-    utils.write_to_csv(all_parts, unified_csv, HEADER_MAPPING)
-    pmu.print_success(
+    file_handler_utilities.write_to_csv(
+        all_parts, unified_csv, HEADER_MAPPING)
+    print_message_utilities.print_success(
         f"Generated unified CSV file with {len(all_parts)} part numbers")
 
     # Generate unified KiCad symbol file
     try:
-        sym_cap_gen.generate_kicad_symbol(
-            f"data/{unified_csv}", f"symbols/{unified_symbol}",
-        )
-        pmu.print_success("Unified KiCad symbol file generated successfully.")
+        symbol_capacitor_generator.generate_kicad_symbol(
+            f"data/{unified_csv}", f"symbols/{unified_symbol}")
+        print_message_utilities.print_success(
+            "Unified KiCad symbol file generated successfully.")
     except FileNotFoundError as file_error:
-        pmu.print_error(f"Unified CSV file not found: {file_error}")
+        print_message_utilities.print_error(
+            f"Unified CSV file not found: {file_error}")
     except csv.Error as csv_error:
-        pmu.print_error(f"CSV processing error for unified file: {csv_error}")
+        print_message_utilities.print_error(
+            f"CSV processing error for unified file: {csv_error}")
     except OSError as io_error:
-        pmu.print_error(
+        print_message_utilities.print_error(
             f"Error when generating unified KiCad symbol file: {io_error}")
 
 
@@ -518,14 +525,16 @@ if __name__ == "__main__":
         unified_parts: list[sym_cap_spec.PartInfo] = []
 
         for series in sym_cap_spec.SERIES_SPECS:
-            pmu.print_info(f"\nGenerating files for {series} series:")
+            print_message_utilities.print_info(
+                f"\nGenerating files for {series} series:")
             generate_files_for_series(series, unified_parts)
 
         # Generate unified files after all series are processed
         UNIFIED_CSV = "UNITED_CAPACITORS_DATA_BASE.csv"
         UNIFIED_SYMBOL = "UNITED_CAPACITORS_DATA_BASE.kicad_sym"
-        pmu.print_info("\nGenerating unified files:")
+        print_message_utilities.print_info("\nGenerating unified files:")
         generate_unified_files(unified_parts, UNIFIED_CSV, UNIFIED_SYMBOL)
 
     except (OSError, csv.Error) as file_error:
-        pmu.print_error(f"Error generating unified files: {file_error}")
+        print_message_utilities.print_error(
+            f"Error generating unified files: {file_error}")
