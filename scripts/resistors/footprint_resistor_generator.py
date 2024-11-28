@@ -10,7 +10,7 @@ from typing import NamedTuple
 
 from footprint_resistor_specs import RESISTOR_SPECS, ResistorSpecs
 from symbol_resistors_specs import SERIES_SPECS, SeriesSpec
-from utilities import footprint_utils as fu
+from utilities import footprint_utils
 
 
 class FootprintSpecs(NamedTuple):
@@ -59,24 +59,24 @@ def generate_footprint(specs: FootprintSpecs) -> str:
     step_file_name = f"R_{case_in}"
 
     sections = [
-        fu.generate_header(footprint_name),
-        fu.generate_properties(
+        footprint_utils.generate_header(footprint_name),
+        footprint_utils.generate_properties(
             specs.resistor_specs.text_positions.reference, footprint_name),
-        fu.generate_courtyard(
+        footprint_utils.generate_courtyard(
             specs.resistor_specs.body_dimensions.width,
             specs.resistor_specs.body_dimensions.height),
-        fu.generate_fab_rectangle(
+        footprint_utils.generate_fab_rectangle(
             specs.resistor_specs.body_dimensions.width,
             specs.resistor_specs.body_dimensions.height),
-        fu.generate_silkscreen_lines(
+        footprint_utils.generate_silkscreen_lines(
             specs.resistor_specs.body_dimensions.height,
             specs.resistor_specs.pad_dimensions.center_x,
             specs.resistor_specs.pad_dimensions.width),
-        fu.generate_pads(
+        footprint_utils.generate_pads(
             specs.resistor_specs.pad_dimensions.width,
             specs.resistor_specs.pad_dimensions.height,
             specs.resistor_specs.pad_dimensions.center_x),
-        fu.associate_3d_model(
+        footprint_utils.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", step_file_name),
         ")",  # Close the footprint
     ]
