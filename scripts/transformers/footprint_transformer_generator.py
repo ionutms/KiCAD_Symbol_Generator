@@ -8,13 +8,14 @@ silkscreen markings for surface mount power transformers with multiple pins.
 
 from pathlib import Path
 
-import symbol_transformer_specs as sti
+import symbol_transformer_specs
 from footprint_transformer_specs import TRANSFORMER_SPECS, TransformerSpecs
-from utilities import footprint_utils as fu
+from utilities import footprint_utils
 
 
 def generate_footprint(
-        part_info: sti.PartInfo, specs: TransformerSpecs,
+        part_info: symbol_transformer_specs.PartInfo,
+        specs: TransformerSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a transformer."""
     body_width = specs.body_dimensions.width
@@ -27,23 +28,28 @@ def generate_footprint(
     pins_per_side = specs.pad_dimensions.pin_count//2
 
     sections = [
-        fu.generate_header(part_info.series),
-        fu.generate_properties(specs.ref_offset_y, part_info.series),
-        fu.generate_courtyard(body_width, body_height),
-        fu.generate_fab_rectangle(body_width, body_height),
-        fu.generate_silkscreen_lines(body_height, pad_center_x, pad_width),
-        fu.generate_pin_1_indicator(
+        footprint_utils.generate_header(part_info.series),
+        footprint_utils.generate_properties(
+            specs.ref_offset_y, part_info.series),
+        footprint_utils.generate_courtyard(body_width, body_height),
+        footprint_utils.generate_fab_rectangle(body_width, body_height),
+        footprint_utils.generate_silkscreen_lines(
+            body_height, pad_center_x, pad_width),
+        footprint_utils.generate_pin_1_indicator(
             pad_center_x, pad_width, pins_per_side, pad_pitch_y),
-        fu.generate_pads(
+        footprint_utils.generate_pads(
             pad_width, pad_height, pad_center_x, pad_pitch_y, pins_per_side),
-        fu.associate_3d_model(
+        footprint_utils.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.series),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
 
 
-def generate_footprint_file(part_info: sti.PartInfo, output_dir: str) -> None:
+def generate_footprint_file(
+        part_info: symbol_transformer_specs.PartInfo,
+        output_dir: str,
+) -> None:
     """Generate and save a complete .kicad_mod file for a transformer."""
     if part_info.series not in TRANSFORMER_SPECS:
         msg = f"Unknown series: {part_info.series}"
