@@ -9,12 +9,15 @@ mount diodes.
 from pathlib import Path
 from uuid import uuid4
 
-import symbol_diode_specs as sds
+import symbol_diode_specs
 from footprint_diode_specs import DIODE_SPECS, DiodeSpecs
 from utilities import footprint_utils
 
 
-def generate_footprint(part_info: sds.PartInfo, specs: DiodeSpecs) -> str:
+def generate_footprint(
+        part_info: symbol_diode_specs.PartInfo,
+        specs: DiodeSpecs,
+) -> str:
     """Generate complete KiCad footprint file content for a diode.
 
     Args:
@@ -86,7 +89,10 @@ def generate_pads(specs: DiodeSpecs) -> str:
 
     return f"{cathode}\n{anode}"
 
-def generate_footprint_file(part_info: sds.PartInfo, output_dir: str) -> None:
+def generate_footprint_file(
+        part_info: symbol_diode_specs.PartInfo,
+        output_dir: str,
+) -> None:
     """Generate and save a complete .kicad_mod file for a diode.
 
     Args:
