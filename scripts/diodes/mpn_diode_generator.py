@@ -1,10 +1,37 @@
-"""Generator for diode component files.
+"""Diode Component File Generator.
 
-This module generates KiCad-compatible files for diode components including:
-- CSV files with component specifications
-- KiCad symbol files
-- KiCad footprint files
-- Unified component database
+This module automates the generation of electronic component documentation
+and KiCad library files for diodes.
+
+Key Features:
+- Generates CSV files with detailed component specifications
+- Creates KiCad symbol files for electronic design automation (EDA)
+- Produces KiCad footprint files for PCB layout
+- Builds a unified component database
+
+Primary Workflow:
+1. Reads diode series specifications from symbol_diode_specs
+2. Generates individual part numbers for each series
+3. Creates CSV files with component details
+4. Generates KiCad symbol files
+5. Produces footprint files
+6. Assembles a unified component database
+
+Typical Use Cases:
+- Automated electronic component library management
+- Standardizing component documentation
+- Facilitating KiCad library development
+
+Dependencies:
+- symbol_diode_specs: Provides series and part specifications
+- file_handler_utilities: Handles file operations
+- print_message_utilities: Manages logging and error reporting
+- footprint_diode_generator: Generates component footprints
+- symbol_diode_generator: Creates KiCad symbol files
+
+Note:
+Requires predefined series specifications in symbol_diode_specs.SERIES_SPECS
+
 """
 
 import csv
@@ -21,12 +48,28 @@ from utilities import file_handler_utilities, print_message_utilities
 
 
 def format_value(value: float) -> str:
-    """TODO."""
+    """Format the diode voltage value with a 'V' suffix.
+
+    Args:
+        value (float): The voltage rating of the diode.
+
+    Returns:
+        str: Formatted voltage value with 'V' appended.
+
+    """
     return f"{value} V"
 
 
 def create_description(value: float) -> str:
-    """TODO."""
+    """Create a descriptive string for the diode component.
+
+    Args:
+        value (float): The voltage rating of the diode.
+
+    Returns:
+        str: A descriptive string combining 'DIODE SMD' and formatted voltage.
+
+    """
     parts = ["DIODE SMD", format_value(value)]
 
     return " ".join(parts)
@@ -36,7 +79,20 @@ def create_part_info(
     value: float,
     specs: symbol_diode_specs.SeriesSpec,
 ) -> symbol_diode_specs.PartInfo:
-    """TODO."""
+    """Create a PartInfo object for a specific diode component.
+
+    Args:
+        value (float): The voltage rating of the diode.
+        specs (SeriesSpec): Specifications for the diode series.
+
+    Returns:
+        PartInfo: A comprehensive part information object for the diode.
+
+    Raises:
+        ValueError: If the voltage rating is not found in the series.
+        IndexError: If no DC specifications are found for the given voltage.
+
+    """
     mpn = f"{specs.base_series}"
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
