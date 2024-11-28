@@ -67,7 +67,9 @@ def write_component(
     symbol_name = component_data.get("Symbol Name", "")
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
-    write_schottky_symbol_drawing(symbol_file, symbol_name)
+    if component_data.get("Diode Type") == "Schottky":
+        write_schottky_symbol_drawing(symbol_file, symbol_name)
+    write_zener_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("\t)\n")
 
 
@@ -124,6 +126,38 @@ def write_schottky_symbol_drawing(
                 (xy 0.635 1.27) (xy 0.635 1.905) (xy 1.27 1.905) (xy 1.27 0)
                 (xy -1.27 1.905) (xy -1.27 -1.905) (xy 1.27 0)
                 (xy 1.27 -1.905) (xy 1.905 -1.905) (xy 1.905 -1.27)
+            )
+            (stroke (width 0.2032) (type default))
+            (fill (type none))
+        )
+        """)
+
+    # Write pins
+    symbol_utils.write_pin(symbol_file, 5.08, 0, 180, "1", length=3.81)
+    symbol_utils.write_pin(symbol_file, -5.08, 0, 0, "2", length=3.81)
+
+    symbol_file.write("\t\t)\n")
+
+
+def write_zener_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+) -> None:
+    """Write the horizontal graphical representation of a diode symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+
+    """
+    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
+
+    symbol_file.write("""
+        (polyline
+            (pts
+                (xy 0.635 1.905) (xy 1.27 1.27) (xy 1.27 0)
+                (xy -1.27 1.905) (xy -1.27 -1.905) (xy 1.27 0)
+                (xy 1.27 -1.27) (xy 1.905 -1.905)
             )
             (stroke (width 0.2032) (type default))
             (fill (type none))
