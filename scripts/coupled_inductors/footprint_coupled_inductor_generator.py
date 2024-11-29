@@ -58,13 +58,13 @@ def generate_footprint(
 
 def generate_footprint_file(
     part_info: symbol_coupled_inductors_specs.PartInfo,
-    output_dir: str,
+    output_path: str,
 ) -> None:
     """Generate and save a complete .kicad_mod file for an inductor.
 
     Args:
         part_info: Component specifications including MPN and series
-        output_dir: Directory path where the footprint file will be saved
+        output_path: Directory path where the footprint file will be saved
 
     Raises:
         ValueError: If the specified inductor series is not supported
@@ -77,7 +77,8 @@ def generate_footprint_file(
 
     specs = INDUCTOR_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
+    filename = f"{part_info.series}.kicad_mod"
+    file_path = f"{output_path}/{filename}"
 
-    filename = f"{output_dir}/{part_info.series}.kicad_mod"
-    with Path.open(filename, "w", encoding="utf-8") as file_handle:
+    with Path.open(file_path, "w", encoding="utf-8") as file_handle:
         file_handle.write(footprint_content)

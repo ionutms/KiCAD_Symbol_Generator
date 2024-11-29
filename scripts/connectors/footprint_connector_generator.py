@@ -210,6 +210,7 @@ def generate_pads(
 
 def generate_footprint_file(
         part_info: symbol_connectors_specs.PartInfo,
+        output_path: str,
 ) -> None:
     """Generate and save a complete .kicad_mod file for a connector.
 
@@ -219,6 +220,7 @@ def generate_footprint_file(
 
     Args:
         part_info: Component specifications including MPN and series
+        output_path: todo
 
     Raises:
         ValueError: If the specified connector series is not supported
@@ -231,8 +233,8 @@ def generate_footprint_file(
 
     specs = CONNECTOR_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
+    filename = f"{part_info.mpn}.kicad_mod"
+    file_path = f"{output_path}/{filename}"
 
-    filename = \
-        f"footprints/connector_footprints.pretty/{part_info.mpn}.kicad_mod"
-    with Path.open(filename, "w", encoding="utf-8") as output_file:
-        output_file.write(footprint_content)
+    with Path.open(file_path, "w", encoding="utf-8") as file_handle:
+        file_handle.write(footprint_content)

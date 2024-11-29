@@ -91,13 +91,13 @@ def generate_pads(specs: DiodeSpecs) -> str:
 
 def generate_footprint_file(
         part_info: symbol_diode_specs.PartInfo,
-        output_dir: str,
+        output_path: str,
 ) -> None:
     """Generate and save a complete .kicad_mod file for a diode.
 
     Args:
         part_info: Component specifications including MPN and package type
-        output_dir: Directory path where the footprint file will be saved
+        output_path: Directory path where the footprint file will be saved
 
     Raises:
         ValueError: If the specified diode package is not supported
@@ -110,6 +110,8 @@ def generate_footprint_file(
 
     specs = DIODE_SPECS[part_info.package]
     footprint_content = generate_footprint(part_info, specs)
+    filename = f"{part_info.package}.kicad_mod"
+    file_path = f"{output_path}/{filename}"
 
-    filepath = Path(output_dir) / f"{part_info.package}.kicad_mod"
-    filepath.write_text(footprint_content, encoding="utf-8")
+    with Path.open(file_path, "w", encoding="utf-8") as file_handle:
+        file_handle.write(footprint_content)
