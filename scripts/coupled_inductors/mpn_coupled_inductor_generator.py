@@ -41,7 +41,6 @@ def format_inductance_value(inductance: float) -> str:
 def generate_value_code(
     inductance: float,
     value_suffix: str,
-    is_aec: bool = True,  # noqa: FBT001, FBT002
 ) -> str:
     """Generate Coilcraft value code for inductance values.
 
@@ -77,36 +76,36 @@ def generate_value_code(
     if inductance >= 1000.0:  # noqa: PLR2004
         value = round(inductance / 100)
         base_code = f"{value:02d}5"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
+        return f"{base_code}{value_suffix}"
 
     if inductance >= 100.0:  # noqa: PLR2004
         value = round(inductance / 10)
         base_code = f"{value:02d}4"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
+        return f"{base_code}{value_suffix}"
 
     if inductance >= 10.0:  # noqa: PLR2004
         value = round(inductance)
         base_code = f"{value:02d}3"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
+        return f"{base_code}{value_suffix}"
 
     if inductance >= 1.0:
         value = round(inductance * 10)
         base_code = f"{value:02d}2"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
+        return f"{base_code}{value_suffix}"
 
     if inductance >= 0.1:  # noqa: PLR2004
         value = round(inductance * 100)
         base_code = f"{value:02d}1"
-        return f"{base_code}{value_suffix}" if is_aec else base_code
+        return f"{base_code}{value_suffix}"
 
     value = round(inductance * 1000)
     base_code = f"{value:02d}0"
-    return f"{base_code}{value_suffix}" if is_aec else base_code
+    return f"{base_code}{value_suffix}"
 
 
 def create_description(
     inductance: float,
-    specs: symbol_coupled_inductors_specs.SeriesSpec, is_aec: bool,  # noqa: FBT001
+    specs: symbol_coupled_inductors_specs.SeriesSpec,
 ) -> str:
     """Create component description.
 
@@ -121,12 +120,7 @@ def create_description(
     """
     parts = [
         "COUPLED INDUCTOR SMD",
-        format_inductance_value(inductance),
-        specs.tolerance,
-    ]
-
-    if is_aec and specs.has_aec:
-        parts.append("AEC-Q200")
+        format_inductance_value(inductance), specs.tolerance]
 
     return " ".join(parts)
 
@@ -134,7 +128,6 @@ def create_description(
 def create_part_info(
     inductance: float,
     specs: symbol_coupled_inductors_specs.SeriesSpec,
-    is_aec: bool = True,  # noqa: FBT001, FBT002
 ) -> symbol_coupled_inductors_specs.PartInfo:
     """Create complete part information.
 
@@ -147,11 +140,7 @@ def create_part_info(
         PartInfo instance with all specifications
 
     """
-    value_code = generate_value_code(
-        inductance,
-        specs.value_suffix,
-        is_aec and specs.has_aec,
-    )
+    value_code = generate_value_code(inductance, specs.value_suffix)
     mpn = f"{specs.base_series}-{value_code}"
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
@@ -178,7 +167,7 @@ def create_part_info(
         value=inductance,
         footprint=specs.footprint,
         datasheet=specs.datasheet,
-        description=create_description(inductance, specs, is_aec),
+        description=create_description(inductance, specs),
         manufacturer=specs.manufacturer,
         mpn=mpn,
         tolerance=specs.tolerance,
@@ -191,7 +180,6 @@ def create_part_info(
 
 def generate_part_numbers(
     specs: symbol_coupled_inductors_specs.SeriesSpec,
-    is_aec: bool = True,  # noqa: FBT001, FBT002
 ) -> list[symbol_coupled_inductors_specs.PartInfo]:
     """Generate all part numbers for the series.
 
@@ -204,9 +192,7 @@ def generate_part_numbers(
 
     """
     return [
-        create_part_info(value, specs, is_aec)
-        for value in specs.inductance_values
-    ]
+        create_part_info(value, specs) for value in specs.inductance_values]
 
 
 # Global header to attribute mapping
@@ -229,7 +215,6 @@ HEADER_MAPPING: Final[dict] = {
 
 def generate_files_for_series(
     series_name: str,
-    is_aec: bool,  # noqa: FBT001
     unified_parts_list: list[symbol_coupled_inductors_specs.PartInfo],
 ) -> None:
     """Generate CSV, KiCad symbol, and footprint files for a specific series.
@@ -270,7 +255,7 @@ def generate_files_for_series(
 
     # Generate part numbers and write to CSV
     try:
-        parts_list = generate_part_numbers(specs, is_aec)
+        parts_list = generate_part_numbers(specs)
         file_handler_utilities.write_to_csv(
             parts_list, csv_filename, HEADER_MAPPING)
         print_message_utilities.print_success(
@@ -361,8 +346,7 @@ if __name__ == "__main__":
         for series in symbol_coupled_inductors_specs.SERIES_SPECS:
             print_message_utilities.print_info(
                 f"\nGenerating files for {series} series:")
-            generate_files_for_series(
-                series, True, unified_parts)  # noqa: FBT003
+            generate_files_for_series(series, unified_parts)
 
         # Generate unified files after all series are processed
         UNIFIED_CSV = "UNITED_COUPLED_INDUCTORS_DATA_BASE.csv"
