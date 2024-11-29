@@ -68,7 +68,7 @@ def generate_footprint(specs: FootprintSpecs) -> str:
     sections = [
         footprint_utils.generate_header(footprint_name),
         footprint_utils.generate_properties(
-            specs.resistor_specs.text_positions.reference, footprint_name),
+            specs.resistor_specs.ref_offset_y, footprint_name),
         footprint_utils.generate_courtyard(body_width, body_height),
         footprint_utils.generate_fab_rectangle(body_width, body_height),
         footprint_utils.generate_silkscreen_lines(
