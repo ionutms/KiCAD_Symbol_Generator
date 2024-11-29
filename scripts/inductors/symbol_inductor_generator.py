@@ -60,7 +60,7 @@ def write_component(
     symbol_name = component_data.get("Symbol Name", "")
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
-    write_symbol_drawing(symbol_file, symbol_name)
+    symbol_utils.write_inductor_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("\t)\n")
 
 
@@ -97,52 +97,3 @@ def write_properties(
                 symbol_file, prop_name, value, *config[:5])
             if prop_name not in property_configs:
                 y_offset -= 2.54
-
-
-def write_symbol_drawing(
-        symbol_file: TextIO,
-        symbol_name: str,
-) -> None:
-    """Write the horizontal graphical representation of an inductor symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
-
-    """
-
-    def write_arc(
-        symbol_file: TextIO,
-        start_x: float,
-        mid_x: float,
-        end_x: float,
-    ) -> None:
-        """Write a single arc of the inductor symbol."""
-        symbol_file.write(f"""
-            (arc
-                (start {start_x} 0.0056)
-                (mid {mid_x} 1.27)
-                (end {end_x} 0.0056)
-                (stroke (width 0.2032) (type default))
-                (fill (type none))
-            )
-            """)
-
-    # Write symbol drawing section
-    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_1"\n')
-
-    # Write arcs
-    arc_params = [
-        (-2.54, -3.81, -5.08),
-        (0, -1.27, -2.54),
-        (2.54, 1.27, 0),
-        (5.08, 3.81, 2.54),
-    ]
-    for start_x, mid_x, end_x in arc_params:
-        write_arc(symbol_file, start_x, mid_x, end_x)
-
-    # Write pins
-    symbol_utils.write_pin(symbol_file, -7.62, 0, 0, "1")
-    symbol_utils.write_pin(symbol_file, 7.62, 0, 180, "2")
-
-    symbol_file.write("\t\t)\n")

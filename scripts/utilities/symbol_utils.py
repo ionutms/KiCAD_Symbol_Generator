@@ -136,3 +136,411 @@ def write_pin(  # noqa: PLR0913
             {('hide' if hide else '')}
         )
         """)
+
+
+def write_capacitor_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+) -> None:
+    """Write the graphical representation of a symbol in the KiCad symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+
+    """
+    symbol_file.write(f"""
+        (symbol "{symbol_name}_0_1"
+            (polyline
+                (pts (xy -0.762 -2.032) (xy -0.762 2.032))
+                (stroke (width 0.508) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy 0.762 -2.032) (xy 0.762 2.032))
+                (stroke (width 0.508) (type default))
+                (fill (type none))
+            )
+        )
+    """)
+
+    # Write pins
+    write_pin(symbol_file, -3.81, 0, 0, "1", length=2.8)
+    write_pin(symbol_file, 3.81, 0, 180, "2", length=2.8)
+
+
+def write_resistor_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+) -> None:
+    """Write the graphical representation of a symbol in the KiCad file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+
+    """
+    symbol_file.write(f"""
+        (symbol "{symbol_name}_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        """)
+
+    # Write pins
+    write_pin(symbol_file, -5.08, 0, 0, "1")
+    write_pin(symbol_file, 5.08, 0, 180, "2")
+
+
+def write_inductor_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+) -> None:
+    """Write the horizontal graphical representation of an inductor symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+
+    """
+
+    def write_arc(
+        symbol_file: TextIO,
+        start_x: float,
+        mid_x: float,
+        end_x: float,
+    ) -> None:
+        """Write a single arc of the inductor symbol."""
+        symbol_file.write(f"""
+            (arc
+                (start {start_x} 0.0056)
+                (mid {mid_x} 1.27)
+                (end {end_x} 0.0056)
+                (stroke (width 0.2032) (type default))
+                (fill (type none))
+            )
+            """)
+
+    # Write symbol drawing section
+    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_1"\n')
+
+    # Write arcs
+    arc_params = [
+        (-2.54, -3.81, -5.08),
+        (0, -1.27, -2.54),
+        (2.54, 1.27, 0),
+        (5.08, 3.81, 2.54),
+    ]
+    for start_x, mid_x, end_x in arc_params:
+        write_arc(symbol_file, start_x, mid_x, end_x)
+
+    # Write pins
+    write_pin(symbol_file, -7.62, 0, 0, "1")
+    write_pin(symbol_file, 7.62, 0, 180, "2")
+
+    symbol_file.write("\t\t)\n")
+
+
+def write_transformer_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+        pin_config: dict,
+) -> None:
+    """Write the horizontal graphical representation of a transformer symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+        pin_config (dict, optional): Dictionary defining pin configuration.
+
+    """
+    def get_symbol_bounds(pin_config: dict) -> tuple:
+        """Calculate symbol bounds based on pin configuration."""
+        y_positions = (
+            [pin["y_pos"] for pin in pin_config["left"]] +
+            [pin["y_pos"] for pin in pin_config["right"]]
+        )
+        max_y = max(y_positions)
+        min_y = min(y_positions)
+        return min_y, max_y
+
+    # Calculate symbol bounds
+    min_y, max_y = get_symbol_bounds(pin_config)
+
+    # Write symbol drawing section - split into two units
+    symbol_file.write(f'        (symbol "{symbol_name}_0_1"\n')
+
+    # Write left inductor arcs
+    for y_start in range(4):
+        symbol_file.write(f"""
+            (arc
+                (start -2.54 {-5.08 + (y_start * 2.54)})
+                (mid -1.27 {-3.81 + (y_start * 2.54)})
+                (end -2.54 {-2.54 + (y_start * 2.54)})
+                (stroke (width 0) (type default) )
+                (fill (type none) )
+            )
+            """)
+
+    # Write right inductor arcs
+    for y_start in range(4):
+        symbol_file.write(f"""
+            (arc
+                (start 2.54 {5.08 - (y_start * 2.54)})
+                (mid 1.27 {3.81 - (y_start * 2.54)})
+                (end 2.54 {2.54 - (y_start * 2.54)})
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            """)
+
+    # Write polarity dots
+    for x, y in [(-2.54, 3.81), (2.54, -3.81)]:
+        symbol_file.write(f"""
+            (circle
+                (center {x} {y})
+                (radius 0.508)
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            """)
+
+    # Write coupling lines
+    for x in [-0.254, 0.254]:
+        symbol_file.write(f"""
+            (polyline
+                (pts (xy {x} {max_y}) (xy {x} {min_y}))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            """)
+
+    # Write left side pins
+    for pin in pin_config["left"]:
+        write_pin(
+            symbol_file, -7.62, pin["y_pos"], 0, pin["number"],
+            pin["pin_type"], pin.get("hide", False), pin["lenght"])
+
+    # Write right side pins
+    for pin in pin_config["right"]:
+        write_pin(
+            symbol_file, 7.62, pin["y_pos"], 180, pin["number"],
+            pin["pin_type"], pin.get("hide", False), pin["lenght"])
+
+    symbol_file.write("        )\n")
+
+
+
+def write_coupled_inductor_symbol_drawing(
+    symbol_file: TextIO,
+    symbol_name: str,
+    pin_config: dict,
+) -> None:
+    """Write the horizontal graphical representation of an inductor symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+        pin_config (dict): Pin config.
+
+    """
+    # Write symbol drawing section
+    symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
+
+    # Write left inductor arcs
+    for y_start in range(4):
+        symbol_file.write(f"""
+            (arc
+                (start -2.54 {-5.08 + (y_start * 2.54)})
+                (mid -1.27 {-3.81 + (y_start * 2.54)})
+                (end -2.54 {-2.54 + (y_start * 2.54)})
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            """)
+
+    # Write right inductor arcs
+    for y_start in range(4):
+        symbol_file.write(f"""
+            (arc
+                (start 2.54 {5.08 - (y_start * 2.54)})
+                (mid 1.27 {3.81 - (y_start * 2.54)})
+                (end 2.54 {2.54 - (y_start * 2.54)})
+                (stroke (width 0) (type default))
+                (fill (type none) )
+            )""")
+
+    # Write polarity dots
+    for x, y in [(-2.54, 3.81), (2.54, -3.81)]:
+        symbol_file.write(f"""
+            (circle
+                (center {x} {y})
+                (radius 0.508)
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )""")
+
+    # Write coupling lines
+    for x in [-0.254, 0.254]:
+        symbol_file.write(f"""
+            (polyline
+                (pts (xy {x} 5.08) (xy {x} -5.08))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )""")
+
+    # Write left side pins
+    for pin in pin_config["left"]:
+        write_pin(
+            symbol_file, -7.62, pin["y_pos"], 0, pin["number"],
+            pin["pin_type"], pin.get("hide", False), pin["lenght"])
+
+    # Write right side pins
+    for pin in pin_config["right"]:
+        write_pin(
+            symbol_file, 7.62, pin["y_pos"], 180, pin["number"],
+            pin["pin_type"], pin.get("hide", False), pin["lenght"])
+
+    symbol_file.write("        )\n")
+
+
+def write_schottky_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+) -> None:
+    """Write the horizontal graphical representation of a diode symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+
+    """
+    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
+
+    symbol_file.write("""
+        (polyline
+            (pts
+                (xy 0.635 1.27) (xy 0.635 1.905) (xy 1.27 1.905) (xy 1.27 0)
+                (xy -1.27 1.905) (xy -1.27 -1.905) (xy 1.27 0)
+                (xy 1.27 -1.905) (xy 1.905 -1.905) (xy 1.905 -1.27)
+            )
+            (stroke (width 0.2032) (type default))
+            (fill (type none))
+        )
+        """)
+
+    # Write pins
+    write_pin(symbol_file, 5.08, 0, 180, "1", length=3.81)
+    write_pin(symbol_file, -5.08, 0, 0, "2", length=3.81)
+
+    symbol_file.write("\t\t)\n")
+
+
+def write_zener_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+) -> None:
+    """Write the horizontal graphical representation of a diode symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+
+    """
+    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
+
+    symbol_file.write("""
+        (polyline
+            (pts
+                (xy 0.635 1.905) (xy 1.27 1.27) (xy 1.27 0)
+                (xy -1.27 1.905) (xy -1.27 -1.905) (xy 1.27 0)
+                (xy 1.27 -1.27) (xy 1.905 -1.905)
+            )
+            (stroke (width 0.2032) (type default))
+            (fill (type none))
+        )
+        """)
+
+    # Write pins
+    write_pin(symbol_file, 5.08, 0, 180, "1", length=3.81)
+    write_pin(symbol_file, -5.08, 0, 0, "2", length=3.81)
+
+    symbol_file.write("\t\t)\n")
+
+
+def write_connector_symbol_drawing(
+    symbol_file: TextIO,
+    symbol_name: str,
+    component_data: dict[str, str],
+) -> None:
+    """Write the symbol drawing with dimensions adjusted for pin count."""
+    pin_count = int(component_data.get("Pin Count", "2"))
+    pin_spacing = 2.54
+
+    min_height = 7.62
+    calculated_height = (pin_count * pin_spacing) + 2.54
+    rectangle_height = max(min_height, calculated_height)
+
+    symbol_file.write(f'\t\t(symbol "{symbol_name}_0_0"\n')
+
+    start_y = (pin_count - 1) * pin_spacing / 2
+    for pin_num in range(1, pin_count + 1):
+        y_pos = start_y - (pin_num - 1) * pin_spacing
+        write_pin(symbol_file, -5.08, y_pos, 0, str(pin_num))
+
+    symbol_file.write("\t\t)\n")
+
+    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
+    write_rectangle(
+        symbol_file, -2.54, rectangle_height / 2, 2.54, -rectangle_height / 2)
+    symbol_file.write("\t\t)\n")
+
+
+def write_rectangle(
+    symbol_file: TextIO,
+    start_x: float,
+    start_y: float,
+    end_x: float,
+    end_y: float,
+) -> None:
+    """Write a rectangle definition with specific formatting."""
+    symbol_file.write(f"""
+        (rectangle
+            (start {start_x} {start_y})
+            (end {end_x} {end_y})
+            (stroke (width 0.254) (type solid) )
+            (fill (type none) )
+        )
+        """)
