@@ -68,7 +68,7 @@ def write_component(
     symbol_name = component_data["Symbol Name"]
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
-    write_symbol_drawing(symbol_file, symbol_name)
+    symbol_utils.write_capacitor_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("    )")
 
 
@@ -104,31 +104,3 @@ def write_properties(
                 symbol_file, prop_name, value, *config[:5])
             if prop_name not in property_configs:
                 y_offset -= 2.54
-
-
-def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
-    """Write the graphical representation of a symbol in the KiCad symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
-
-    """
-    symbol_file.write(f"""
-        (symbol "{symbol_name}_0_1"
-            (polyline
-                (pts (xy -0.762 -2.032) (xy -0.762 2.032))
-                (stroke (width 0.508) (type default))
-                (fill (type none))
-            )
-            (polyline
-                (pts (xy 0.762 -2.032) (xy 0.762 2.032))
-                (stroke (width 0.508) (type default))
-                (fill (type none))
-            )
-        )
-    """)
-
-    # Write pins
-    symbol_utils.write_pin(symbol_file, -3.81, 0, 0, "1", length=2.8)
-    symbol_utils.write_pin(symbol_file, 3.81, 0, 180, "2", length=2.8)

@@ -59,7 +59,8 @@ def convert_pin_config(spec_config: SidePinConfig) -> dict[str, list]:
 
     Returns:
         Optional[Dict]:
-            Pin configuration in the format expected by write_symbol_drawing
+            Pin configuration in the format expected by
+            write_coupled_inductor_symbol_drawing
 
     """
     return {
@@ -100,7 +101,8 @@ def write_component(
 
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
-    write_symbol_drawing(symbol_file, symbol_name, pin_config)
+    symbol_utils.write_coupled_inductor_symbol_drawing(
+        symbol_file, symbol_name, pin_config)
     symbol_file.write("    )\n")
 
 
@@ -137,74 +139,3 @@ def write_properties(
                 symbol_file, prop_name, value, *config[:5])
             if prop_name not in property_configs:
                 y_offset -= 2.54
-
-
-def write_symbol_drawing(
-    symbol_file: TextIO, symbol_name: str, pin_config: dict,
-) -> None:
-    """Write the horizontal graphical representation of an inductor symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
-        pin_config (dict): Pin config.
-
-    """
-    # Write symbol drawing section
-    symbol_file.write(f'        (symbol "{symbol_name}_1_1"\n')
-
-    # Write left inductor arcs
-    for y_start in range(4):
-        symbol_file.write(f"""
-            (arc
-                (start -2.54 {-5.08 + (y_start * 2.54)})
-                (mid -1.27 {-3.81 + (y_start * 2.54)})
-                (end -2.54 {-2.54 + (y_start * 2.54)})
-                (stroke (width 0) (type default))
-                (fill (type none))
-            )
-            """)
-
-    # Write right inductor arcs
-    for y_start in range(4):
-        symbol_file.write(f"""
-            (arc
-                (start 2.54 {5.08 - (y_start * 2.54)})
-                (mid 1.27 {3.81 - (y_start * 2.54)})
-                (end 2.54 {2.54 - (y_start * 2.54)})
-                (stroke (width 0) (type default))
-                (fill (type none) )
-            )""")
-
-    # Write polarity dots
-    for x, y in [(-2.54, 3.81), (2.54, -3.81)]:
-        symbol_file.write(f"""
-            (circle
-                (center {x} {y})
-                (radius 0.508)
-                (stroke (width 0) (type default))
-                (fill (type none))
-            )""")
-
-    # Write coupling lines
-    for x in [-0.254, 0.254]:
-        symbol_file.write(f"""
-            (polyline
-                (pts (xy {x} 5.08) (xy {x} -5.08))
-                (stroke (width 0) (type default))
-                (fill (type none))
-            )""")
-
-    # Write left side pins
-    for pin in pin_config["left"]:
-        symbol_utils.write_pin(
-            symbol_file, -7.62, pin["y_pos"], 0, pin["number"],
-            pin["pin_type"], pin.get("hide", False), pin["lenght"])
-
-    # Write right side pins
-    for pin in pin_config["right"]:
-        symbol_utils.write_pin(
-            symbol_file, 7.62, pin["y_pos"], 180, pin["number"],
-            pin["pin_type"], pin.get("hide", False), pin["lenght"])
-
-    symbol_file.write("        )\n")
