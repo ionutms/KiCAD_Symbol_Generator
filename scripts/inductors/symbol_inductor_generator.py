@@ -26,27 +26,18 @@ from utilities import file_handler_utilities, symbol_utils
 def generate_kicad_symbol(
     input_csv_file: str,
     output_symbol_file: str,
-    encoding: str = "utf-8",
 ) -> None:
     """Generate a KiCad symbol file from CSV data for inductors.
 
     Args:
         input_csv_file (str): Path to the input CSV file with component data.
         output_symbol_file (str): Path for the output .kicad_sym file.
-        encoding (str, optional):
-            Character encoding to use. Defaults to 'utf-8'.
-
-    Raises:
-        FileNotFoundError: If the input CSV file is not found.
-        csv.Error: If there's an error reading the CSV file.
-        IOError: If there's an error writing to the output file.
 
     """
-    component_data_list = file_handler_utilities.read_csv_data(
-        input_csv_file, encoding)
+    component_data_list = file_handler_utilities.read_csv_data(input_csv_file)
     all_properties = symbol_utils.get_all_properties(component_data_list)
 
-    with Path.open(output_symbol_file, "w", encoding=encoding) as symbol_file:
+    with Path.open(output_symbol_file, "w", encoding="utf-8") as symbol_file:
         symbol_utils.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
