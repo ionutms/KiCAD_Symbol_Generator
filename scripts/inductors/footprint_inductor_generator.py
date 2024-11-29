@@ -7,7 +7,6 @@ mount power inductors.
 """
 
 from pathlib import Path
-from uuid import uuid4
 
 import symbol_inductors_specs
 from footprint_inductor_specs import INDUCTOR_SPECS, InductorSpecs
@@ -54,26 +53,6 @@ def generate_footprint(
     return "\n".join(sections)
 
 
-def generate_pads(specs: InductorSpecs) -> str:
-    """Generate the pads section of the footprint."""
-    pads = []
-    pad_center_x = specs.pad_dimensions.center_x
-    pad_width = specs.pad_dimensions.width
-    pad_height = specs.pad_dimensions.height
-
-    for pad_number, symbol in enumerate(["-", ""], start=1):
-        pads.append(f"""
-            (pad "{pad_number}" smd rect
-                (at {symbol}{pad_center_x} 0)
-                (size {pad_width} {pad_height})
-                (layers "F.Cu" "F.Paste" "F.Mask")
-                (uuid "{uuid4()}")
-            )
-            """)
-
-    return "\n".join(pads)
-
-
 def generate_footprint_file(
         part_info: symbol_inductors_specs.PartInfo,
         output_path: str,
@@ -87,6 +66,7 @@ def generate_footprint_file(
     """
     specs = INDUCTOR_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
+
     filename = f"{part_info.series}.kicad_mod"
     file_path = f"{output_path}/{filename}"
 
