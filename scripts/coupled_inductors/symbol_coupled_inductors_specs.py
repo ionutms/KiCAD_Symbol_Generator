@@ -7,7 +7,7 @@ It is used to maintain a standardized database of coupled coupled inductor
 specifications and generate consistent part information.
 """
 
-from typing import NamedTuple, Optional
+from typing import NamedTuple
 
 
 class PinConfig(NamedTuple):
@@ -72,9 +72,9 @@ class SeriesSpec(NamedTuple):
     inductance_values: list[float]
     trustedparts_link: str
     value_suffix: str
-    max_dc_current: list[float] = []  # noqa: RUF012
-    max_dc_resistance: list[float] = []  # noqa: RUF012
-    pin_config: Optional[SidePinConfig] = None  # noqa: FA100
+    max_dc_current: list[float]
+    max_dc_resistance: list[float]
+    pin_config: SidePinConfig
 
 
 class PartInfo(NamedTuple):
