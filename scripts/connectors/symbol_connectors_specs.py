@@ -95,8 +95,9 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         manufacturer="Same Sky",
         base_series="TBP02R1-381",
         footprint_pattern="connector_footprints:TBP02R1-381-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
-        + "product/resource/tbp02r1-381.pdf",
+        datasheet=(
+            "https://www.sameskydevices.com/"
+            "product/resource/tbp02r1-381.pdf"),
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -105,14 +106,14 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=8.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin",
-    ),
+        contact_plating="Tin"),
     "TBP02R2-381": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP02R2-381",
         footprint_pattern="connector_footprints:TBP02R2-381-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
-        + "product/resource/tbp02r2-381.pdf",
+        datasheet=(
+            "https://www.sameskydevices.com/"
+            "product/resource/tbp02r2-381.pdf"),
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -121,14 +122,14 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=8.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin",
-    ),
+        contact_plating="Tin"),
     "TBP04R1-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R1-500",
         footprint_pattern="connector_footprints:TBP04R1-500-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
-        + "product/resource/tbp04r1-500.pdf",
+        datasheet=(
+            "https://www.sameskydevices.com/"
+            "product/resource/tbp04r1-500.pdf"),
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -137,14 +138,14 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=15.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin",
-    ),
+        contact_plating="Tin"),
     "TBP04R12-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R12-500",
         footprint_pattern="connector_footprints:TBP04R12-500-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
-        + "product/resource/tbp04r12-500.pdf",
+        datasheet=(
+            "https://www.sameskydevices.com/"
+            "product/resource/tbp04r12-500.pdf"),
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -153,14 +154,14 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=15.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin",
-    ),
+        contact_plating="Tin"),
     "TBP04R2-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R2-500",
         footprint_pattern="connector_footprints:TBP04R2-500-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
-        + "product/resource/tbp04r2-500.pdf",
+        datasheet=(
+            "https://www.sameskydevices.com/"
+            "product/resource/tbp04r2-500.pdf"),
         pin_counts=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -169,14 +170,14 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=15.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin",
-    ),
+        contact_plating="Tin"),
     "TBP04R3-500": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP04R3-500",
         footprint_pattern="connector_footprints:TBP04R3-500-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
-        + "product/resource/tbp04r3-500.pdf",
+        datasheet=(
+            "https://www.sameskydevices.com/"
+            "product/resource/tbp04r3-500.pdf"),
         pin_counts=[2, 3, 4, 5, 6],
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -185,14 +186,14 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=15.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin",
-    ),
+        contact_plating="Tin"),
     "TB004-508": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TB004-508",
         footprint_pattern="connector_footprints:TB004-508-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
-        + "product/resource/tb004-508.pdf",
+        datasheet=(
+            "https://www.sameskydevices.com/"
+            "product/resource/tb004-508.pdf"),
         pin_counts=list(range(2, 25)),
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -201,14 +202,14 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=16.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin",
-    ),
+        contact_plating="Tin"),
     "TB006-508": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TB006-508",
         footprint_pattern="connector_footprints:TB006-508-{:02d}BE",
-        datasheet="https://www.sameskydevices.com/"  # noqa: ISC003
-        + "product/resource/tb006-508.pdf",
+        datasheet=(
+            "https://www.sameskydevices.com/"
+            "product/resource/tb006-508.pdf"),
         pin_counts=list(range(2, 25)),
         trustedparts_link="https://www.trustedparts.com/en/search",
         color="Blue",
@@ -217,8 +218,7 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=12.0,
         voltage_rating=300,
         mounting_style="Through Hole",
-        contact_plating="Tin",
-    ),
+        contact_plating="Tin"),
 }
 
 

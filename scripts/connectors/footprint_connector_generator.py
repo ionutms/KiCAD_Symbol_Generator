@@ -92,104 +92,84 @@ def generate_properties(
     specs: ConnectorSpecs, dimensions: dict,
 ) -> str:
     """Generate the properties section of the footprint."""
-    font_props = (
-        "        (effects\n"
-        "            (font\n"
-        "                (size 0.762 0.762)\n"
-        "                (thickness 0.1524)\n"
-        "            )\n"
-        "        )"
-    )
+    font_props = ("""
+        (effects (font (size 0.762 0.762) (thickness 0.1524)))
+        """)
 
-    hidden_font_props = (
-        "        (effects\n"
-        "            (font\n"
-        "                (size 1.27 1.27)\n"
-        "                (thickness 0.15)\n"
-        "            )\n"
-        "        )"
-    )
+    hidden_font_props = ("""
+        (effects (font (size 1.27 1.27) (thickness 0.15)))
+        """)
 
-    return (
-        f'    (property "Reference" "REF**"\n'
-        f"        (at 0 {specs.ref_y} 0)\n"
-        f'        (layer "F.SilkS")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"{font_props}\n"
-        f"    )\n"
-        f'    (property "Value" "{part_info.mpn}"\n'
-        f"        (at 0 {specs.mpn_y} 0)\n"
-        f'        (layer "F.Fab")\n'
-        f'        (uuid "{uuid4()}")\n'
-        f"{font_props}\n"
-        f"    )\n"
-        f'    (property "Footprint" ""\n'
-        f"        (at {dimensions['start_pos']} 0 0)\n"
-        f'        (layer "F.Fab")\n'
-        f"        (hide yes)\n"
-        f'        (uuid "{uuid4()}")\n'
-        f"{hidden_font_props}\n"
-        f"    )\n"
-        f'    (property "Datasheet" ""\n'
-        f"        (at {dimensions['start_pos']} 0 0)\n"
-        f'        (layer "F.Fab")\n'
-        f"        (hide yes)\n"
-        f'        (uuid "{uuid4()}")\n'
-        f"{hidden_font_props}\n"
-        f"    )\n"
-        f'    (property "Description" ""\n'
-        f"        (at {dimensions['start_pos']} 0 0)\n"
-        f'        (layer "F.Fab")\n'
-        f"        (hide yes)\n"
-        f'        (uuid "{uuid4()}")\n'
-        f"{hidden_font_props}\n"
-        f"    )"
-    )
+    return (f"""
+        (property "Reference" "REF**"
+            (at 0 {specs.ref_y} 0)
+            (layer "F.SilkS")
+            (uuid "{uuid4()}")
+            {font_props}
+        )
+        (property "Value" "{part_info.mpn}"
+            (at 0 {specs.mpn_y} 0)
+            (layer "F.Fab")
+            (uuid "{uuid4()}")
+            {font_props}
+        )
+        (property "Footprint" ""
+            (at {dimensions['start_pos']} 0 0)
+            (layer "F.Fab")
+            (hide yes)
+            (uuid "{uuid4()}")
+            {hidden_font_props}
+        )
+        (property "Datasheet" ""
+            (at {dimensions['start_pos']} 0 0)
+            (layer "F.Fab")
+            (hide yes)
+            (uuid "{uuid4()}")
+            {hidden_font_props}
+        )
+        (property "Description" ""
+            (at {dimensions['start_pos']} 0 0)
+            (layer "F.Fab")
+            (hide yes)
+            (uuid "{uuid4()}")
+            {hidden_font_props}
+        )
+        """)
 
 
 def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
     """Generate the shapes section of the footprint."""
     circle_center = -(
-        dimensions["total_half_width_left"] + specs.silk_margin * 6
-    )
+        dimensions["total_half_width_left"] + specs.silk_margin * 6)
     circle_end = -(
-        dimensions["total_half_width_left"] + specs.silk_margin * 2
-    )
+        dimensions["total_half_width_left"] + specs.silk_margin * 2)
 
     rect_start = -dimensions["total_half_width_left"]
     rect_end = dimensions["total_half_width_right"]
 
     def generate_rect(layer_name: str, stroke_width: str) -> str:
-        return (
-            f"    (fp_rect\n"
-            f"        (start {rect_start:.3f} "
-            f"{specs.body_dimensions.height_bottom})\n"
-            f"        (end {rect_end:.3f} "
-            f"{specs.body_dimensions.height_top})\n"
-            f"        (stroke\n"
-            f"            (width {stroke_width})\n"
-            f"            (type default)\n"
-            f"        )\n"
-            f"        (fill none)\n"
-            f'        (layer "{layer_name}")\n'
-            f'        (uuid "{uuid4()}")\n'
-            f"    )"
-        )
+        return (f"""
+            (fp_rect
+                (start {rect_start:.3f} {specs.body_dimensions.height_bottom})
+                (end {rect_end:.3f} {specs.body_dimensions.height_top})
+                (stroke (width {stroke_width}) (type default))
+                (fill none)
+                (layer "{layer_name}")
+                (uuid "{uuid4()}")
+            )
+            """)
 
     def generate_circle(layer_name: str, fill_type: str) -> str:
-        return (
-            f"    (fp_circle\n"
-            f"        (center {circle_center:.3f} 0)\n"
-            f"        (end {circle_end:.3f} 0)\n"
-            f"        (stroke\n"
-            f"            (width {specs.silk_margin})\n"
-            f"            (type solid)\n"
-            f"        )\n"
-            f"        (fill {fill_type})\n"
-            f'        (layer "{layer_name}")\n'
-            f'        (uuid "{uuid4()}")\n'
-            f"    )"
-        )
+        return (f"""
+            (fp_circle
+                (center {circle_center:.3f} 0)
+                (end {circle_end:.3f} 0)
+                (stroke (width {specs.silk_margin}) (type solid))
+                (fill {fill_type})
+                (layer "{layer_name}")
+                (uuid "{uuid4()}")
+            )
+            """)
 
     shapes = [
         "    (attr through_hole)",
@@ -213,17 +193,17 @@ def generate_pads(
     for pin_num in range(part_info.pin_count):
         xpos = dimensions["start_pos"] + (pin_num * part_info.pitch)
         pad_type = "rect" if pin_num == 0 else "circle"
-        pad = (
-            f'    (pad "{pin_num + 1}" thru_hole {pad_type}\n'
-            f"        (at {xpos:.3f} 0)\n"
-            f"        (size {specs.pad_size} {specs.pad_size})\n"
-            f"        (drill {specs.drill_size})\n"
-            f'        (layers "*.Cu" "*.Mask")\n'
-            f"        (remove_unused_layers no)\n"
-            f"        (solder_mask_margin {specs.mask_margin})\n"
-            f'        (uuid "{uuid4()}")\n'
-            f"    )"
-        )
+        pad = (f"""
+            (pad "{pin_num + 1}" thru_hole {pad_type}
+                (at {xpos:.3f} 0)
+                (size {specs.pad_size} {specs.pad_size})
+                (drill {specs.drill_size})
+                (layers "*.Cu" "*.Mask")
+                (remove_unused_layers no)
+                (solder_mask_margin {specs.mask_margin})
+                (uuid "{uuid4()}")
+            )
+            """)
         pads.append(pad)
     return "\n".join(pads)
 
