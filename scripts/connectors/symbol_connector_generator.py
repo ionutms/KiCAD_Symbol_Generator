@@ -7,8 +7,7 @@ Modified to match specific pin and field positioning requirements.
 from pathlib import Path
 from typing import TextIO
 
-from utilities import file_handler_utilities as fhu
-from utilities import symbol_utils as su
+from utilities import file_handler_utilities, symbol_utils
 
 
 def generate_kicad_symbol(
@@ -24,11 +23,11 @@ def generate_kicad_symbol(
             Character encoding to use. Defaults to 'utf-8'.
 
     """
-    component_data_list = fhu.read_csv_data(input_csv_file)
-    all_properties = su.get_all_properties(component_data_list)
+    component_data_list = file_handler_utilities.read_csv_data(input_csv_file)
+    all_properties = symbol_utils.get_all_properties(component_data_list)
 
     with Path.open(output_symbol_file, "w", encoding="utf-8") as symbol_file:
-        su.write_header(symbol_file)
+        symbol_utils.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
         symbol_file.write(")")
@@ -41,7 +40,7 @@ def write_component(
 ) -> None:
     """Write a complete component definition."""
     symbol_name = component_data.get("Symbol Name", "")
-    su.write_symbol_header(symbol_file, symbol_name)
+    symbol_utils.write_symbol_header(symbol_file, symbol_name)
     write_properties(symbol_file, component_data, property_order)
     write_symbol_drawing(symbol_file, symbol_name, component_data)
     symbol_file.write(")")
@@ -70,7 +69,8 @@ def write_properties(
                 prop_name, (5.08, y_offset, 1.27, True, True, None),
             )
             value = config[5] or component_data[prop_name]
-            su.write_property(symbol_file, prop_name, value, *config[:5])
+            symbol_utils.write_property(
+                symbol_file, prop_name, value, *config[:5])
             if prop_name not in property_configs:
                 y_offset -= 2.54
 
@@ -93,7 +93,7 @@ def write_symbol_drawing(
     start_y = (pin_count - 1) * pin_spacing / 2
     for pin_num in range(1, pin_count + 1):
         y_pos = start_y - (pin_num - 1) * pin_spacing
-        su.write_pin(symbol_file, -5.08, y_pos, 0, str(pin_num))
+        symbol_utils.write_pin(symbol_file, -5.08, y_pos, 0, str(pin_num))
 
     symbol_file.write("\t\t)\n")
 

@@ -16,12 +16,15 @@ pitches, generating complete footprint definitions including:
 from pathlib import Path
 from uuid import uuid4
 
-import symbol_connectors_specs as ssc
+import symbol_connectors_specs
 from footprint_connector_specs import CONNECTOR_SPECS, ConnectorSpecs
-from utilities import footprint_utils as fu
+from utilities import footprint_utils
 
 
-def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
+def generate_footprint(
+        part_info: symbol_connectors_specs.PartInfo,
+        specs: ConnectorSpecs,
+) -> str:
     """Generate complete KiCad footprint file content for a connector.
 
     Creates all required sections of a .kicad_mod file including component
@@ -37,11 +40,11 @@ def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
     """
     dimensions = calculate_dimensions(part_info, specs)
     sections = [
-        fu.generate_header(part_info.mpn),
+        footprint_utils.generate_header(part_info.mpn),
         generate_properties(part_info, specs, dimensions),
         generate_shapes(dimensions, specs),
         generate_pads(part_info, specs, dimensions),
-        fu.associate_3d_model(
+        footprint_utils.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models",
             f"CUI_DEVICES_{part_info.mpn}"),
         ")",  # Close the footprint
@@ -50,7 +53,8 @@ def generate_footprint(part_info: ssc.PartInfo, specs: ConnectorSpecs) -> str:
 
 
 def calculate_dimensions(
-    part_info: ssc.PartInfo, specs: ConnectorSpecs,
+    part_info: symbol_connectors_specs.PartInfo,
+    specs: ConnectorSpecs,
 ) -> dict:
     """Calculate key dimensions for footprint generation.
 
@@ -84,7 +88,8 @@ def calculate_dimensions(
 
 
 def generate_properties(
-    part_info: ssc.PartInfo, specs: ConnectorSpecs, dimensions: dict,
+    part_info: symbol_connectors_specs.PartInfo,
+    specs: ConnectorSpecs, dimensions: dict,
 ) -> str:
     """Generate the properties section of the footprint."""
     font_props = (
@@ -199,7 +204,9 @@ def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
 
 
 def generate_pads(
-    part_info: ssc.PartInfo, specs: ConnectorSpecs, dimensions: dict,
+    part_info: symbol_connectors_specs.PartInfo,
+    specs: ConnectorSpecs,
+    dimensions: dict,
 ) -> str:
     """Generate the pads section of the footprint."""
     pads = []
@@ -221,7 +228,9 @@ def generate_pads(
     return "\n".join(pads)
 
 
-def generate_footprint_file(part_info: ssc.PartInfo) -> None:
+def generate_footprint_file(
+        part_info: symbol_connectors_specs.PartInfo,
+) -> None:
     """Generate and save a complete .kicad_mod file for a connector.
 
     Creates a KiCad footprint file in the connector_footprints.pretty
