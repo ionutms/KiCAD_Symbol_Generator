@@ -24,7 +24,9 @@ from utilities import file_handler_utilities, symbol_utils
 
 
 def generate_kicad_symbol(
-    input_csv_file: str, output_symbol_file: str, encoding: str = "utf-8",
+    input_csv_file: str,
+    output_symbol_file: str,
+    encoding: str = "utf-8",
 ) -> None:
     """Generate a KiCad symbol file from CSV data for inductors.
 
@@ -106,7 +108,10 @@ def write_properties(
                 y_offset -= 2.54
 
 
-def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
+def write_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+) -> None:
     """Write the horizontal graphical representation of an inductor symbol.
 
     Args:
@@ -116,7 +121,10 @@ def write_symbol_drawing(symbol_file: TextIO, symbol_name: str) -> None:
     """
 
     def write_arc(
-        symbol_file: TextIO, start_x: float, mid_x: float, end_x: float,
+        symbol_file: TextIO,
+        start_x: float,
+        mid_x: float,
+        end_x: float,
     ) -> None:
         """Write a single arc of the inductor symbol."""
         symbol_file.write(f"""

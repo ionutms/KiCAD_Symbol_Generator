@@ -39,7 +39,6 @@ class SeriesSpec(NamedTuple):
     inductance_values: list[float]
     trustedparts_link: str
     value_suffix: str
-    has_aec: bool = True
     max_dc_current: list[float] = []  # noqa: RUF012
     max_dc_resistance: list[float] = []  # noqa: RUF012
 
