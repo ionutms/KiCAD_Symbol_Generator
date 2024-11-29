@@ -53,10 +53,7 @@ def ensure_directory_exists(directory: str) -> None:
     print_info(f"Created directory: {directory}")
 
 
-def read_csv_data(
-        input_csv_file: str,
-        encoding: str,
-) -> list[dict[str, str]]:
+def read_csv_data(input_csv_file: str) -> list[dict[str, str]]:
     """Read component data from a CSV file.
 
     Args:
@@ -67,5 +64,5 @@ def read_csv_data(
         List[Dict[str, str]]: List of dictionaries containing component data.
 
     """
-    with Path.open(input_csv_file, "r", encoding=encoding) as csv_file:
+    with Path.open(input_csv_file, "r", encoding="utf-8") as csv_file:
         return list(csv.DictReader(csv_file))

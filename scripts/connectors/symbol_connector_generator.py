@@ -12,7 +12,8 @@ from utilities import symbol_utils as su
 
 
 def generate_kicad_symbol(
-    input_csv_file: str, output_symbol_file: str, encoding: str = "utf-8",
+        input_csv_file: str,
+        output_symbol_file: str,
 ) -> None:
     """Generate a KiCad symbol file from CSV data for connectors.
 
@@ -23,10 +24,10 @@ def generate_kicad_symbol(
             Character encoding to use. Defaults to 'utf-8'.
 
     """
-    component_data_list = fhu.read_csv_data(input_csv_file, encoding)
+    component_data_list = fhu.read_csv_data(input_csv_file)
     all_properties = su.get_all_properties(component_data_list)
 
-    with Path.open(output_symbol_file, "w", encoding=encoding) as symbol_file:
+    with Path.open(output_symbol_file, "w", encoding="utf-8") as symbol_file:
         su.write_header(symbol_file)
         for component_data in component_data_list:
             write_component(symbol_file, component_data, all_properties)
@@ -55,13 +56,8 @@ def write_properties(
     property_configs = {
         "Reference": (5.08, 0, 1.27, False, False, "J"),
         "Value": (
-            5.08,
-            -2.54,
-            1.27,
-            True,
-            True,
-            component_data.get("MPN", ""),
-        ),
+            5.08, -2.54, 1.27, True, True,
+            component_data.get("MPN", "")),
         "Footprint": (5.08, -5.08, 1.27, True, True, None),
         "Datasheet": (5.08, -7.62, 1.27, True, True, None),
         "Description": (5.08, -10.16, 1.27, True, True, None),
@@ -80,7 +76,9 @@ def write_properties(
 
 
 def write_symbol_drawing(
-    symbol_file: TextIO, symbol_name: str, component_data: dict[str, str],
+    symbol_file: TextIO,
+    symbol_name: str,
+    component_data: dict[str, str],
 ) -> None:
     """Write the symbol drawing with dimensions adjusted for pin count."""
     pin_count = int(component_data.get("Pin Count", "2"))
