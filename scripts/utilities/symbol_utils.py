@@ -116,6 +116,53 @@ def write_property(  # noqa: PLR0913
         """)
 
 
+def write_properties(
+    symbol_file: TextIO,
+    component_data: dict[str, str],
+    property_order: list[str],
+    text_y_offset: int,
+    text_x_offset: int=0,
+) -> None:
+    """Write properties for a single symbol in the KiCad symbol file.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        component_data (Dict[str, str]): Data for a single component.
+        property_order (List[str]): Ordered list of property names.
+        component_value: todo
+        text_y_offset: todo
+        text_x_offset: todo
+
+    """
+    property_configs = {
+        "Reference": (
+            2.54*text_x_offset, 2.54*text_y_offset,
+            1.27, False, False, component_data.get("Reference", "-")),
+        "Value": (
+            2.54*text_x_offset, -2.54*text_y_offset,
+            1.27, False, False, component_data.get("Value", "-")),
+        "Footprint": (
+            2.54*text_x_offset, -2.54*(text_y_offset+1),
+            1.27, True, True, None),
+        "Datasheet": (
+            2.54*text_x_offset, -2.54*(text_y_offset+2),
+            1.27, True, True, None),
+        "Description": (
+            2.54*text_x_offset, -2.54*(text_y_offset+3),
+            1.27, True, True, None)}
+
+    y_offset = -2.54*(text_y_offset+4)
+    for prop_name in property_order:
+        if prop_name in component_data:
+            config = property_configs.get(
+                prop_name,
+                (2.54*text_x_offset, y_offset,1.27, True, True, None))
+            value = config[5] or component_data[prop_name]
+            write_property(symbol_file, prop_name, value, *config[:5])
+            if prop_name not in property_configs:
+                y_offset -= 2.54
+
+
 def write_pin(  # noqa: PLR0913
         symbol_file: TextIO,
         x_pos: float,
@@ -362,7 +409,6 @@ def write_transformer_symbol_drawing(
     symbol_file.write("        )\n")
 
 
-
 def write_coupled_inductor_symbol_drawing(
     symbol_file: TextIO,
     symbol_name: str,
@@ -540,7 +586,7 @@ def write_rectangle(
         (rectangle
             (start {start_x} {start_y})
             (end {end_x} {end_y})
-            (stroke (width 0.254) (type solid) )
-            (fill (type none) )
+            (stroke (width 0.254) (type solid))
+            (fill (type none))
         )
         """)

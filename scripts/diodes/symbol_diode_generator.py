@@ -66,42 +66,10 @@ def write_component(
     """
     symbol_name = component_data.get("Symbol Name", "")
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
-    write_properties(symbol_file, component_data, property_order)
+    symbol_utils.write_properties(
+        symbol_file, component_data, property_order, 2)
     if component_data.get("Diode Type") == "Schottky":
         symbol_utils.write_schottky_symbol_drawing(symbol_file, symbol_name)
-    symbol_utils.write_zener_symbol_drawing(symbol_file, symbol_name)
+    else:
+        symbol_utils.write_zener_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write("\t)\n")
-
-
-def write_properties(
-        symbol_file: TextIO,
-        component_data: dict[str, str],
-        property_order: list[str],
-) -> None:
-    """Write properties for a single diode symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        component_data (Dict[str, str]): Data for a single component.
-        property_order (List[str]): Ordered list of property names.
-
-    """
-    property_configs = {
-        "Reference": (0, 2.54*2, 1.27, False, False, "D"),
-        "Value": (0, -2.54*2, 1.27, True, True, None),
-        "Footprint": (0, -2.54*3, 1.27, True, True, None),
-        "Datasheet": (0, -2.54*4, 1.27, True, True, None),
-        "Description": (0, -2.54*5, 1.27, True, True, None),
-    }
-
-    y_offset = -2.54*6
-    for prop_name in property_order:
-        if prop_name in component_data:
-            config = property_configs.get(
-                prop_name,
-                (0, y_offset, 1.27, True, True, None))
-            value = config[5] or component_data[prop_name]
-            symbol_utils.write_property(
-                symbol_file, prop_name, value, *config[:5])
-            if prop_name not in property_configs:
-                y_offset -= 2.54
