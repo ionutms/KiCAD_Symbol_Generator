@@ -59,7 +59,6 @@ def generate_value_code(
     Args:
         inductance:
             Value in µH (microhenries), must be between 0.01 and 999.99
-        is_aec: If True, append AEC qualification suffix to the value code
         value_suffix: AEC qualification suffix to append when is_aec is True
 
     Returns:

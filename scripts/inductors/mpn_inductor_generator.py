@@ -59,7 +59,6 @@ def generate_value_code(
     Args:
         inductance:
             Value in µH (microhenries), must be between 0.01 and 999.99
-        is_aec: If True, append AEC qualification suffix to the value code
         value_suffix: AEC qualification suffix to append when is_aec is True
 
     Returns:
@@ -107,17 +106,13 @@ def create_description(
     Args:
         inductance: Value in µH
         specs: Series specifications
-        is_aec: If True, add AEC-Q200 qualification
 
     Returns:
         Formatted description string
 
     """
     parts = [
-        "INDUCTOR SMD",
-        format_inductance_value(inductance),
-        specs.tolerance,
-    ]
+        "INDUCTOR SMD", format_inductance_value(inductance), specs.tolerance]
 
     return " ".join(parts)
 
@@ -131,7 +126,6 @@ def create_part_info(
     Args:
         inductance: Value in µH
         specs: Series specifications
-        is_aec: If True, create AEC-Q200 qualified part
 
     Returns:
         PartInfo instance with all specifications
@@ -181,7 +175,6 @@ def generate_part_numbers(
 
     Args:
         specs: Series specifications
-        is_aec: If True, generate AEC-Q200 qualified parts
 
     Returns:
         List of PartInfo instances
@@ -217,7 +210,6 @@ def generate_files_for_series(
 
     Args:
         series_name: Series identifier (must exist in SERIES_SPECS)
-        is_aec: If True, generate AEC-Q200 qualified parts
         unified_parts_list: List to append generated parts to
 
     Raises:
