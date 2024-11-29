@@ -7,7 +7,7 @@ It is used to maintain a standardized database of coupled coupled inductor
 specifications and generate consistent part information.
 """
 
-from typing import NamedTuple, Optional
+from typing import NamedTuple
 
 
 class PinConfig(NamedTuple):
@@ -51,16 +51,14 @@ class SeriesSpec(NamedTuple):
     including physical, electrical, and documentation characteristics.
 
     Attributes:
-        manufacturer: Name of the component manufacturer (e.g., "Coilcraft")
-        base_series: Base model number for the series (e.g., "XAL1513")
+        manufacturer: Name of the component manufacturer
+        base_series: Base model number for the series
         footprint: PCB footprint identifier used in schematic/layout tools
-        tolerance: Component value tolerance (e.g., "±20%")
+        tolerance: Component value tolerance
         datasheet: URL to the manufacturer's datasheet
         inductance_values: List of available inductance values in µH
         trustedparts_link: URL to the component listing on Trusted Parts
-        value_suffix:
-            Manufacturer's suffix for the component value (e.g., "ME")
-        has_aec: Whether the series is AEC-Q200 qualified (defaults to True)
+        value_suffix: Manufacturer's suffix for the component value
         max_dc_current: Maximum DC current rating in Amperes (A)
         max_dc_resistance: Maximum DC resistance in milliohms (mΩ)
 
@@ -74,10 +72,9 @@ class SeriesSpec(NamedTuple):
     inductance_values: list[float]
     trustedparts_link: str
     value_suffix: str
-    has_aec: bool = True
-    max_dc_current: list[float] = []  # noqa: RUF012
-    max_dc_resistance: list[float] = []  # noqa: RUF012
-    pin_config: Optional[SidePinConfig] = None  # noqa: FA100
+    max_dc_current: list[float]
+    max_dc_resistance: list[float]
+    pin_config: SidePinConfig
 
 
 class PartInfo(NamedTuple):
