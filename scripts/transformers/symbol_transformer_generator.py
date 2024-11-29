@@ -105,4 +105,4 @@ def write_component(
         symbol_file, component_data, property_order, 3)
     symbol_utils.write_transformer_symbol_drawing(
         symbol_file, symbol_name, pin_config)
-    symbol_file.write("    )\n")
+    symbol_file.write(")")

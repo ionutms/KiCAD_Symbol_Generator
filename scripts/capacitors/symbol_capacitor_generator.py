@@ -70,4 +70,4 @@ def write_component(
     symbol_utils.write_properties(
         symbol_file, component_data, property_order, 2)
     symbol_utils.write_capacitor_symbol_drawing(symbol_file, symbol_name)
-    symbol_file.write("    )")
+    symbol_file.write(")")
