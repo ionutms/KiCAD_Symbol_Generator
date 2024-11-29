@@ -57,7 +57,8 @@ def generate_footprint(
 
 
 def generate_footprint_file(
-    part_info: symbol_coupled_inductors_specs.PartInfo, output_dir: str,
+    part_info: symbol_coupled_inductors_specs.PartInfo,
+    output_dir: str,
 ) -> None:
     """Generate and save a complete .kicad_mod file for an inductor.
 
