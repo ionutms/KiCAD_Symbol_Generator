@@ -123,7 +123,8 @@ def generate_files_for_series(
     # Generate KiCad footprint files
     try:
         for part in parts_list:
-            footprint_connector_generator.generate_footprint_file(part)
+            footprint_connector_generator.generate_footprint_file(
+                part, footprint_dir)
             footprint_name = f"{part.mpn}.kicad_mod"
             print_message_utilities.print_success(
                 "KiCad footprint file "
