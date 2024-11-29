@@ -261,7 +261,7 @@ def generate_datasheet_url(
         # Remove the last character (packaging code) from MPN
         base_mpn = mpn[:-1]
         # Get specific series characteristics (voltage code, dielectric code)
-        specific_part = base_mpn[len(specs.base_series) :]
+        specific_part = base_mpn[len(specs.base_series):]
         # Combine base URL with specific part characteristics
         return f"{specs.datasheet_url}{specific_part}-01.pdf"
     return f"{specs.datasheet_url}{mpn}"

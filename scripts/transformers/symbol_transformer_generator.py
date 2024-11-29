@@ -101,41 +101,8 @@ def write_component(
     pin_config = convert_pin_config(series_spec.pin_config)
 
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
-    write_properties(symbol_file, component_data, property_order)
+    symbol_utils.write_properties(
+        symbol_file, component_data, property_order, 3)
     symbol_utils.write_transformer_symbol_drawing(
         symbol_file, symbol_name, pin_config)
     symbol_file.write("    )\n")
-
-
-def write_properties(
-        symbol_file: TextIO,
-        component_data: dict[str, str],
-        property_order: list[str],
-) -> None:
-    """Write properties for a single symbol.
-
-    Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        component_data (Dict[str, str]): Data for a single component.
-        property_order (List[str]): Ordered list of property names.
-
-    """
-    property_configs = {
-        "Reference": (0, 7.62, 1.27, False, False, "T"),
-        "Value": (
-            0, -7.62, 1.27, False, False, component_data.get("MPN", "")),
-        "Footprint": (0, -10.16, 1.27, True, True, None),
-        "Datasheet": (0.254, -12.7, 1.27, True, True, None),
-        "Description": (0, -15.24, 1.27, True, True, None),
-    }
-
-    y_offset = -17.78
-    for prop_name in property_order:
-        if prop_name in component_data:
-            config = property_configs.get(
-                prop_name, (0, y_offset, 1.27, True, True, None))
-            value = config[5] or component_data[prop_name]
-            symbol_utils.write_property(
-                symbol_file, prop_name, value, *config[:5])
-            if prop_name not in property_configs:
-                y_offset -= 2.54

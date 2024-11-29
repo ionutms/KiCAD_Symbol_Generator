@@ -41,38 +41,10 @@ def write_component(
     """Write a complete component definition."""
     symbol_name = component_data.get("Symbol Name", "")
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
-    write_properties(symbol_file, component_data, property_order)
+    symbol_utils.write_properties(
+        symbol_file, component_data, property_order, 1, 2)
     write_symbol_drawing(symbol_file, symbol_name, component_data)
     symbol_file.write(")")
-
-
-def write_properties(
-    symbol_file: TextIO,
-    component_data: dict[str, str],
-    property_order: list[str],
-) -> None:
-    """Write all symbol properties with positions adjusted."""
-    property_configs = {
-        "Reference": (5.08, 0, 1.27, False, False, "J"),
-        "Value": (
-            5.08, -2.54, 1.27, True, True,
-            component_data.get("MPN", "")),
-        "Footprint": (5.08, -5.08, 1.27, True, True, None),
-        "Datasheet": (5.08, -7.62, 1.27, True, True, None),
-        "Description": (5.08, -10.16, 1.27, True, True, None),
-    }
-
-    y_offset = -12.7
-    for prop_name in property_order:
-        if prop_name in component_data:
-            config = property_configs.get(
-                prop_name, (5.08, y_offset, 1.27, True, True, None),
-            )
-            value = config[5] or component_data[prop_name]
-            symbol_utils.write_property(
-                symbol_file, prop_name, value, *config[:5])
-            if prop_name not in property_configs:
-                y_offset -= 2.54
 
 
 def write_symbol_drawing(
