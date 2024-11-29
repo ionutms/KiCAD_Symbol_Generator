@@ -11,7 +11,7 @@
             (on_board yes)
         
         (property "Reference" "D"
-            (at 0 5.08 0)
+            (at 0.0 5.08 0)
             
             (effects
                 (font(size 1.27 1.27))
@@ -21,17 +21,17 @@
         )
         
         (property "Value" "100.0 V"
-            (at 0 -5.08 0)
-            (show_name)
+            (at 0.0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Footprint" "diode_footprints:PowerDI_123"
-            (at 0 -7.62 0)
+            (at 0.0 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -41,7 +41,7 @@
         )
         
         (property "Datasheet" "https://www.diodes.com/datasheet/download/DFLS1200.pdf"
-            (at 0 -10.16 0)
+            (at 0.0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -51,7 +51,7 @@
         )
         
         (property "Description" "DIODE SMD 100.0 V"
-            (at 0 -12.7 0)
+            (at 0.0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -61,7 +61,7 @@
         )
         
         (property "Diode Type" "Schottky"
-            (at 0 -15.24 0)
+            (at 0.0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -71,7 +71,7 @@
         )
         
         (property "MPN" "DFLS1200-7"
-            (at 0 -17.78 0)
+            (at 0.0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -81,7 +81,7 @@
         )
         
         (property "Manufacturer" "Diodes Incorporated"
-            (at 0 -20.32 0)
+            (at 0.0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -91,7 +91,7 @@
         )
         
         (property "Maximum DC Current (A)" "1.2"
-            (at 0 -22.86 0)
+            (at 0.0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -101,7 +101,7 @@
         )
         
         (property "Series" "DFLS1200-7"
-            (at 0 -25.4 0)
+            (at 0.0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -111,7 +111,7 @@
         )
         
         (property "Symbol Name" "D_DFLS1200-7"
-            (at 0 -27.939999999999998 0)
+            (at 0.0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -121,7 +121,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/DFLS1200-7"
-            (at 0 -30.479999999999997 0)
+            (at 0.0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -157,34 +157,6 @@
             
         )
         		)
-		(symbol "D_DFLS1200-7_1_0"
-
-        (polyline
-            (pts
-                (xy 0.635 1.905) (xy 1.27 1.27) (xy 1.27 0)
-                (xy -1.27 1.905) (xy -1.27 -1.905) (xy 1.27 0)
-                (xy 1.27 -1.27) (xy 1.905 -1.905)
-            )
-            (stroke (width 0.2032) (type default))
-            (fill (type none))
-        )
-        
-        (pin unspecified line
-            (at 5.08 0 180)
-            (length 3.81)
-            (name ""(effects(font(size 1.27 1.27))))
-            (number "1"(effects(font(size 1.27 1.27))))
-            
-        )
-        
-        (pin unspecified line
-            (at -5.08 0 0)
-            (length 3.81)
-            (name ""(effects(font(size 1.27 1.27))))
-            (number "2"(effects(font(size 1.27 1.27))))
-            
-        )
-        		)
 	)
 
         (symbol "D_MMSZ5265BT1G"
@@ -194,7 +166,7 @@
             (on_board yes)
         
         (property "Reference" "D"
-            (at 0 5.08 0)
+            (at 0.0 5.08 0)
             
             (effects
                 (font(size 1.27 1.27))
@@ -204,17 +176,17 @@
         )
         
         (property "Value" "62.0 V"
-            (at 0 -5.08 0)
-            (show_name)
+            (at 0.0 -5.08 0)
+            
             (effects
                 (font(size 1.27 1.27))
                 (justify left)
-                (hide yes)
+                
             )
         )
         
         (property "Footprint" "diode_footprints:PowerDI_123"
-            (at 0 -7.62 0)
+            (at 0.0 -7.62 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -224,7 +196,7 @@
         )
         
         (property "Datasheet" "https://ro.mouser.com/datasheet/2/308/1/MMSZ5221BT1_D-2316205.pdf"
-            (at 0 -10.16 0)
+            (at 0.0 -10.16 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -234,7 +206,7 @@
         )
         
         (property "Description" "DIODE SMD 62.0 V"
-            (at 0 -12.7 0)
+            (at 0.0 -12.7 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -244,7 +216,7 @@
         )
         
         (property "Diode Type" "Zener"
-            (at 0 -15.24 0)
+            (at 0.0 -15.24 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -254,7 +226,7 @@
         )
         
         (property "MPN" "MMSZ5265BT1G"
-            (at 0 -17.78 0)
+            (at 0.0 -17.78 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -264,7 +236,7 @@
         )
         
         (property "Manufacturer" "Onsemi"
-            (at 0 -20.32 0)
+            (at 0.0 -20.32 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -274,7 +246,7 @@
         )
         
         (property "Maximum DC Current (A)" "1.2"
-            (at 0 -22.86 0)
+            (at 0.0 -22.86 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -284,7 +256,7 @@
         )
         
         (property "Series" "MMSZ5265BT1G"
-            (at 0 -25.4 0)
+            (at 0.0 -25.4 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -294,7 +266,7 @@
         )
         
         (property "Symbol Name" "D_MMSZ5265BT1G"
-            (at 0 -27.939999999999998 0)
+            (at 0.0 -27.939999999999998 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
@@ -304,7 +276,7 @@
         )
         
         (property "Trustedparts Search" "https://www.trustedparts.com/en/search/MMSZ5265BT1G"
-            (at 0 -30.479999999999997 0)
+            (at 0.0 -30.479999999999997 0)
             (show_name)
             (effects
                 (font(size 1.27 1.27))
