@@ -80,16 +80,15 @@ def generate_footprint(specs: FootprintSpecs) -> str:
     return "\n".join(sections)
 
 
-def generate_footprint_file(series_name: str, output_dir: str) -> None:
+def generate_footprint_file(
+        series_name: str,
+        output_path: str,
+) -> None:
     """Generate and save a complete .kicad_mod file for a capacitor.
 
     Args:
-        series_name: Name of the capacitor series (e.g., "C0402")
-        output_dir: Directory to save the generated footprint file
-
-    Raises:
-        KeyError: If series_name is not found in SERIES_SPECS
-        IOError: If there are problems writing the output file
+        series_name: Name of the capacitor series
+        output_path: Directory to save the generated footprint file
 
     """
     series_spec = SERIES_SPECS[series_name]
@@ -97,11 +96,9 @@ def generate_footprint_file(series_name: str, output_dir: str) -> None:
     footprint_content = generate_footprint(footprint_specs)
 
     filename = (
-        f"{output_dir}/"  # noqa: ISC003
-        + "C_"
-        + f"{series_spec.case_code_in}_"
-        + f"{series_spec.case_code_mm}"
-        + "Metric.kicad_mod"
-    )
-    with Path.open(filename, "w", encoding="utf-8") as f:
-        f.write(footprint_content)
+        f"C_{series_spec.case_code_in}_{series_spec.case_code_mm}"
+        "Metric.kicad_mod")
+    file_path = f"{output_path}/{filename}"
+
+    with Path.open(file_path, "w", encoding="utf-8") as file_handle:
+        file_handle.write(footprint_content)

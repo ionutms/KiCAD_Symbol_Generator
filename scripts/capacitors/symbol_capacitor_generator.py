@@ -33,13 +33,7 @@ def generate_kicad_symbol(
     Args:
         input_csv_file (str): Path to the input CSV file with component data.
         output_symbol_file (str): Path for the output .kicad_sym file.
-        encoding (str, optional):
-            Character encoding to use. Defaults to 'utf-8'.
-
-    Raises:
-        FileNotFoundError: If the input CSV file is not found.
-        csv.Error: If there's an error reading the CSV file.
-        IOError: If there's an error writing to the output file.
+        encoding (str, optional): Character encoding to use.
 
     """
     component_data_list = file_handler_utilities.read_csv_data(input_csv_file)
