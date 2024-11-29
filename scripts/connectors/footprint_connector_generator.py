@@ -222,15 +222,7 @@ def generate_footprint_file(
         part_info: Component specifications including MPN and series
         output_path: todo
 
-    Raises:
-        ValueError: If the specified connector series is not supported
-        IOError: If there are problems writing the output file
-
     """
-    if part_info.series not in CONNECTOR_SPECS:
-        msg = f"Unknown series: {part_info.series}"
-        raise ValueError(msg)
-
     specs = CONNECTOR_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
     filename = f"{part_info.mpn}.kicad_mod"

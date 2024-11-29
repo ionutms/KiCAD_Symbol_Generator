@@ -50,15 +50,14 @@ def generate_footprint_file(
         part_info: symbol_transformer_specs.PartInfo,
         output_path: str,
 ) -> None:
-    """Generate and save a complete .kicad_mod file for a transformer."""
-    if part_info.series not in TRANSFORMER_SPECS:
-        msg = f"Unknown series: {part_info.series}"
-        raise ValueError(msg)
+    """Generate and save a complete .kicad_mod file.
 
+    Args:
+        part_info: Name of the series
+        output_path: Directory to save the generated footprint file
+
+    """
     specs = TRANSFORMER_SPECS[part_info.series]
-    if specs.pad_dimensions.pin_count % 2 != 0:
-        msg = "Pin count must be even"
-        raise ValueError(msg)
 
     footprint_content = generate_footprint(part_info, specs)
     filename = f"{part_info.series}.kicad_mod"

@@ -85,15 +85,11 @@ def generate_footprint_file(
         series_name: str,
         output_path: str,
 ) -> None:
-    """Generate and save a complete .kicad_mod file for a resistor.
+    """Generate and save a complete .kicad_mod file.
 
     Args:
-        series_name: Name of the resistor series (e.g., "ERJ-2RK")
+        series_name: Name of the series
         output_path: Directory to save the generated footprint file
-
-    Raises:
-        KeyError: If series_name is not found in SERIES_SPECS
-        IOError: If there are problems writing the output file
 
     """
     series_spec = SERIES_SPECS[series_name]

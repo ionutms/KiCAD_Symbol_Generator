@@ -66,15 +66,7 @@ def generate_footprint_file(
         part_info: Component specifications including MPN and series
         output_path: Directory path where the footprint file will be saved
 
-    Raises:
-        ValueError: If the specified inductor series is not supported
-        IOError: If there are problems writing the output file
-
     """
-    if part_info.series not in INDUCTOR_SPECS:
-        msg = f"Unknown series: {part_info.series}"
-        raise ValueError(msg)
-
     specs = INDUCTOR_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
     filename = f"{part_info.series}.kicad_mod"

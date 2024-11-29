@@ -99,15 +99,7 @@ def generate_footprint_file(
         part_info: Component specifications including MPN and package type
         output_path: Directory path where the footprint file will be saved
 
-    Raises:
-        ValueError: If the specified diode package is not supported
-        IOError: If there are problems writing the output file
-
     """
-    if part_info.package not in DIODE_SPECS:
-        msg = f"Unknown package type: {part_info.package}"
-        raise ValueError(msg)
-
     specs = DIODE_SPECS[part_info.package]
     footprint_content = generate_footprint(part_info, specs)
     filename = f"{part_info.package}.kicad_mod"
