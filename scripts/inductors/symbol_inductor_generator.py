@@ -62,4 +62,4 @@ def write_component(
     symbol_utils.write_properties(
         symbol_file, component_data, property_order, 1)
     symbol_utils.write_inductor_symbol_drawing(symbol_file, symbol_name)
-    symbol_file.write("\t)\n")
+    symbol_file.write(")")
