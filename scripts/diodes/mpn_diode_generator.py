@@ -93,7 +93,14 @@ def create_part_info(
         IndexError: If no DC specifications are found for the given voltage.
 
     """
+    # Construct MPN with optional suffix
     mpn = f"{specs.base_series}"
+    if specs.part_number_suffix:
+        # Find index of voltage in ratings list
+        index = specs.voltage_rating.index(value)
+        # Add index+1 to the base series and suffix
+        mpn = f"{specs.base_series}{index + 1}{specs.part_number_suffix}"
+
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     try:
@@ -101,13 +108,13 @@ def create_part_info(
         current_rating = float(specs.current_rating[index])
     except ValueError:
         print_message_utilities.print_error(
-            f"Error: value value {value} µH "
+            f"Error: value {value} V "
             f"not found in series {specs.base_series}")
         current_rating = 0.0
     except IndexError:
         print_message_utilities.print_error(
             "Error: No DC specifications found for value "
-            f"{value} µH in series {specs.base_series}")
+            f"{value} V in series {specs.base_series}")
         current_rating = 0.0
 
     return symbol_diode_specs.PartInfo(
@@ -169,7 +176,6 @@ def generate_files_for_series(
 
     Args:
         series_name: Series identifier (must exist in SERIES_SPECS)
-        is_aec: If True, generate AEC-Q200 qualified parts
         unified_parts_list: List to append generated parts to
 
     Raises:
@@ -180,7 +186,7 @@ def generate_files_for_series(
 
     Note:
         Generated files are saved in 'data/', 'series_kicad_sym/', and
-        'inductor_footprints.pretty/' directories.
+        'diode_footprints.pretty/' directories.
 
     """
     if series_name not in symbol_diode_specs.SERIES_SPECS:
@@ -292,8 +298,7 @@ if __name__ == "__main__":
         for series in symbol_diode_specs.SERIES_SPECS:
             print_message_utilities.print_info(
                 f"\nGenerating files for {series} series:")
-            generate_files_for_series(
-                series, unified_parts)
+            generate_files_for_series(series, unified_parts)
 
         # Generate unified files after all series are processed
         UNIFIED_CSV = "UNITED_DIODES_DATA_BASE.csv"

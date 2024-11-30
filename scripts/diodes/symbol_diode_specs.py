@@ -1,34 +1,18 @@
-"""Library for managing inductor specifications.
+"""Library for managing diode specifications.
 
-This module provides data structures and definitions for various Coilcraft
-inductor series, including their specifications and individual component
-information. It is used to maintain a standardized database of inductor
-specifications and generate consistent part information.
+This module provides data structures and definitions for various diode
+series, including their specifications and individual component
+information.
 """
 
 from typing import NamedTuple
 
 
 class SeriesSpec(NamedTuple):
-    """Inductor series specifications for Coilcraft components.
+    """Diode series specifications.
 
-    This class defines the complete specifications for a series of inductors,
+    This class defines the complete specifications for a series of diodes,
     including physical, electrical, and documentation characteristics.
-
-    Attributes:
-        manufacturer: Name of the component manufacturer (e.g., "Coilcraft")
-        base_series: Base model number for the series (e.g., "XAL1513")
-        footprint: PCB footprint identifier used in schematic/layout tools
-        tolerance: Component value tolerance (e.g., "±20%")
-        datasheet: URL to the manufacturer's datasheet
-        voltage_rating: List of available inductance values in µH
-        trustedparts_link: URL to the component listing on Trusted Parts
-        value_suffix:
-            Manufacturer's suffix for the component value (e.g., "ME")
-        has_aec: Whether the series is AEC-Q200 qualified (defaults to True)
-        current_rating: Maximum DC current rating in Amperes (A)
-        max_dc_resistance: Maximum DC resistance in milliohms (mΩ)
-
     """
 
     manufacturer: str
@@ -40,31 +24,11 @@ class SeriesSpec(NamedTuple):
     current_rating: list[float]
     package: str
     diode_type: str
+    part_number_suffix: str | None  # noqa: FA102
 
 
 class PartInfo(NamedTuple):
-    """Component part information structure for individual inductors.
-
-    This class contains all necessary information to fully specify a single
-    inductor component, including its specifications, documentation, and
-    sourcing information.
-
-    Attributes:
-        symbol_name: Schematic symbol identifier
-        reference: Component reference designator
-        value: Inductance value in µH
-        footprint: PCB footprint identifier
-        datasheet: URL to the manufacturer's datasheet
-        description: Human-readable component description
-        manufacturer: Component manufacturer name
-        mpn: Manufacturer part number
-        tolerance: Component value tolerance
-        series: Product series identifier
-        trustedparts_link: URL to component listing on Trusted Parts
-        current_rating: Maximum DC current rating in Amperes (A)
-        max_dc_resistance: Maximum DC resistance in milliohms (mΩ)
-
-    """
+    """Component part information structure for individual diodes."""
 
     symbol_name: str
     reference: str
@@ -91,17 +55,23 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         current_rating=[1.2],
         package="PowerDI_123",
         diode_type="Schottky",
-        trustedparts_link="https://www.trustedparts.com/en/search"),
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        part_number_suffix=None,
+    ),
     "MMSZ52": SeriesSpec(
         manufacturer="Onsemi",
-        base_series="MMSZ5265BT1G",
-        footprint="diode_footprints:PowerDI_123", # change footprint
+        base_series="MMSZ52",
+        footprint="diode_footprints:PowerDI_123",
         datasheet=(
-            "https://ro.mouser.com/datasheet/2/308/1/"
-            "MMSZ5221BT1_D-2316205.pdf"),
-        voltage_rating=[62.0],
-        current_rating=[1.2],
-        package="PowerDI_123", # change package
+            "https://www.onsemi.com/download/data-sheet/"
+            "pdf/mmsz5221bt1-d.pdf"),
+        voltage_rating=[
+            3.0, 3.3, 5.1, 10.0, 12.0, 15.0, 18.0, 22.0, 24.0, 27.0,
+            30.0, 33.0, 36.0, 39.0, 43.0, 47.0, 51.0, 56.0, 62.0],
+        current_rating=[0.5] * 19,
+        package="PowerDI_123",
         diode_type="Zener",
-        trustedparts_link="https://www.trustedparts.com/en/search"),
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        part_number_suffix="BT1G",
+    ),
 }
