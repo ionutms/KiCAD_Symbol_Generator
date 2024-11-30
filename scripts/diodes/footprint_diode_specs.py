@@ -55,4 +55,16 @@ DIODE_SPECS: dict[str, DiodeSpecs] = {
             anode_height=1.5,
             anode_center_x=1.525),
         ref_offset_y=-2.5),
+    "SOD_123": DiodeSpecs(
+        body_dimensions=BodyDimensions(
+            width=4.6,
+            height=1.6),
+        pad_dimensions=PadDimensionsAsymmetric(
+            cathode_width=0.91,
+            cathode_height=1.22,
+            cathode_center_x=1.635,
+            anode_width=0.91,
+            anode_height=1.22,
+            anode_center_x=1.635),
+        ref_offset_y=-1.524),
 }
