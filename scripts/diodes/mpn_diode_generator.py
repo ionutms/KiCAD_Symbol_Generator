@@ -97,9 +97,18 @@ def create_part_info(
     mpn = f"{specs.base_series}"
     if specs.part_number_suffix:
         # Find index of voltage in ratings list
-        index = specs.voltage_rating.index(value)
-        # Add index+1 to the base series and suffix
-        mpn = f"{specs.base_series}{index + 1}{specs.part_number_suffix}"
+        try:
+            index = specs.voltage_rating.index(value)
+            # Adjust index to start from 21
+            adjusted_index = index + 21
+            mpn = (
+                f"{specs.base_series}{adjusted_index}"
+                f"{specs.part_number_suffix}")
+        except ValueError:
+            print_message_utilities.print_error(
+                f"Error: value {value} V "
+                f"not found in series {specs.base_series}")
+            return None
 
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
@@ -108,8 +117,7 @@ def create_part_info(
         current_rating = float(specs.current_rating[index])
     except ValueError:
         print_message_utilities.print_error(
-            f"Error: value {value} V "
-            f"not found in series {specs.base_series}")
+            f"Error: value {value} V not found in series {specs.base_series}")
         current_rating = 0.0
     except IndexError:
         print_message_utilities.print_error(
@@ -148,7 +156,9 @@ def generate_part_numbers(
     """
     return [
         create_part_info(value, specs)
-        for value in specs.voltage_rating]
+        for value in specs.voltage_rating
+        if create_part_info(value, specs) is not None
+    ]
 
 
 # Global header to attribute mapping
