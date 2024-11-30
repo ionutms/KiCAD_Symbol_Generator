@@ -27,20 +27,8 @@ import symbol_capacitor_generator
 import symbol_capacitors_specs
 from utilities import file_handler_utilities, print_message_utilities
 
-# Simplified characteristic codes without explicit thresholds
-CHARACTERISTIC_CODES: Final[dict[str, dict[float, str]]] = {
-    "GCM155": {22e-9: "E02", 4.7e-9: "A55", 0: "A37"},
-    "GCM188": {100e-9: "A64", 47e-9: "A57", 22e-9: "A55", 0: "A37"},
-    "GCM216": {22e-9: "A55", 0: "A37"},
-    "GCM31M": {560e-9: "A55", 100e-9: "A37", 0: "A37"},
-    "GCM31C": {4.7e-6: "A55", 0: "A55"},
-    "CL31": {0: "X7R"},
-}
 
-
-def format_capacitance_value(
-        capacitance: float,
-) -> str:
+def format_capacitance_value(capacitance: float) -> str:
     """Convert capacitance value to human-readable format with units.
 
     Args:
@@ -74,9 +62,7 @@ def format_capacitance_value(
     return f"{formatted} {unit}"
 
 
-def generate_capacitance_code(
-    capacitance: float,
-) -> str:
+def generate_capacitance_code(capacitance: float) -> str:
     """Generate the capacitance portion of Murata part number.
 
     Args:
@@ -132,7 +118,7 @@ def get_characteristic_code(
         Appropriate characteristic code for the series/value combination
 
     Raises:
-        ValueError: If specs.base_series is not a supported series
+        ValueError: If series is not found or supports no characteristic codes
 
     """
     # For Samsung series, just return X7R directly
@@ -140,16 +126,12 @@ def get_characteristic_code(
         return "X7R"
 
     # Simplified series-specific characteristic code lookup
-    if specs.base_series not in CHARACTERISTIC_CODES:
-        msg = f"Unknown series: {specs.base_series}"
-        raise ValueError(msg)
-
-    characteristic_map = CHARACTERISTIC_CODES[specs.base_series]
-    for threshold, code in sorted(characteristic_map.items(), reverse=True):
+    for threshold, code in sorted(
+            specs.characteristic_codes.items(), reverse=True):
         if capacitance > threshold:
             return code
 
-    return list(characteristic_map.values())[-1]
+    return list(specs.characteristic_codes.values())[-1]
 
 
 def generate_standard_values(

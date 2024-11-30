@@ -55,6 +55,7 @@ class SeriesSpec(NamedTuple):
     excluded_values: set[float]
     datasheet_url: str
     trustedparts_url: str
+    characteristic_codes: dict[float, str]
 
 
 class PartInfo(NamedTuple):
@@ -100,6 +101,7 @@ MURATA_SPECS = {
         excluded_values={27e-9, 39e-9, 56e-9, 82e-9},
         datasheet_url=f"{MURATA_DOC_BASE}/GCM155",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={22e-9: "E02", 4.7e-9: "A55", 0: "A37"},
     ),
     "GCM188": SeriesSpec(
         base_series="GCM188",
@@ -116,6 +118,8 @@ MURATA_SPECS = {
         excluded_values={120e-9, 180e-9},
         datasheet_url=f"{MURATA_DOC_BASE}/GCM188",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={
+            100e-9: "A64", 47e-9: "A57", 22e-9: "A55", 0: "A37"},
     ),
     "GCM216": SeriesSpec(
         base_series="GCM216",
@@ -132,6 +136,7 @@ MURATA_SPECS = {
         excluded_values=set(),
         datasheet_url=f"{MURATA_DOC_BASE}/GCM216",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={22e-9: "A55", 0: "A37"},
     ),
     "GCM31M": SeriesSpec(
         base_series="GCM31M",
@@ -148,6 +153,7 @@ MURATA_SPECS = {
         excluded_values={180e-9, 560e-9},
         datasheet_url=f"{MURATA_DOC_BASE}/GCM31M",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={560e-9: "A55", 100e-9: "A37", 0: "A37"},
     ),
     "GCM31C": SeriesSpec(
         base_series="GCM31C",
@@ -164,6 +170,7 @@ MURATA_SPECS = {
         excluded_values=set(),
         datasheet_url=f"{MURATA_DOC_BASE}/GCM31C",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={4.7e-6: "A55", 0: "A55"},
     ),
 }
 
@@ -186,6 +193,7 @@ SAMSUNG_SPECS = {
             3.9e-6, 5.6e-6, 6.8e-6, 8.2e-6},
         datasheet_url=f"{SAMSUNG_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search/CL31",
+        characteristic_codes={0: "X7R"},
     ),
 }
 
