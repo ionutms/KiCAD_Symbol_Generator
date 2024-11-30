@@ -49,41 +49,14 @@ class PartParameters(NamedTuple):
     specs: symbol_capacitors_specs.SeriesSpec
 
 
-class CharacteristicThreshold(NamedTuple):
-    """Threshold configuration for characteristic codes.
-
-    Attributes:
-        threshold: Capacitance threshold in Farads
-        code: Characteristic code to use when value exceeds threshold
-
-    """
-
-    threshold: float
-    code: str
-
-
-CHARACTERISTIC_CONFIGS: Final[dict[str, list[CharacteristicThreshold]]] = {
-    "GCM155": [
-        CharacteristicThreshold(22e-9, "E02"),
-        CharacteristicThreshold(4.7e-9, "A55"),
-        CharacteristicThreshold(0, "A37")],
-    "GCM188": [
-        CharacteristicThreshold(100e-9, "A64"),
-        CharacteristicThreshold(47e-9, "A57"),
-        CharacteristicThreshold(22e-9, "A55"),
-        CharacteristicThreshold(0, "A37")],
-    "GCM216": [
-        CharacteristicThreshold(22e-9, "A55"),
-        CharacteristicThreshold(0, "A37")],
-    "GCM31M": [
-        CharacteristicThreshold(560e-9, "A55"),
-        CharacteristicThreshold(100e-9, "A37"),
-        CharacteristicThreshold(0, "A37")],
-    "GCM31C": [
-        CharacteristicThreshold(4.7e-6, "A55"),
-        CharacteristicThreshold(0, "A55")],
-    "CL31": [
-        CharacteristicThreshold(0, "X7R")],
+# Simplified characteristic codes without explicit thresholds
+CHARACTERISTIC_CODES: Final[dict[str, dict[float, str]]] = {
+    "GCM155": {22e-9: "E02", 4.7e-9: "A55", 0: "A37"},
+    "GCM188": {100e-9: "A64", 47e-9: "A57", 22e-9: "A55", 0: "A37"},
+    "GCM216": {22e-9: "A55", 0: "A37"},
+    "GCM31M": {560e-9: "A55", 100e-9: "A37", 0: "A37"},
+    "GCM31C": {4.7e-6: "A55", 0: "A55"},
+    "CL31": {0: "X7R"},
 }
 
 
@@ -184,21 +157,21 @@ def get_characteristic_code(
         ValueError: If specs.base_series is not a supported series
 
     """
-    if specs.base_series not in CHARACTERISTIC_CONFIGS:
-        msg = f"Unknown series: {specs.base_series}"
-        raise ValueError(msg)
-
     # For Samsung series, just return X7R directly
     if specs.base_series.startswith("CL"):
         return "X7R"
 
-    # Original Murata logic
-    thresholds = CHARACTERISTIC_CONFIGS[specs.base_series]
-    for threshold in thresholds:
-        if capacitance > threshold.threshold:
-            return threshold.code
+    # Simplified series-specific characteristic code lookup
+    if specs.base_series not in CHARACTERISTIC_CODES:
+        msg = f"Unknown series: {specs.base_series}"
+        raise ValueError(msg)
 
-    return thresholds[-1].code
+    characteristic_map = CHARACTERISTIC_CODES[specs.base_series]
+    for threshold, code in sorted(characteristic_map.items(), reverse=True):
+        if capacitance > threshold:
+            return code
+
+    return list(characteristic_map.values())[-1]
 
 
 def generate_standard_values(
