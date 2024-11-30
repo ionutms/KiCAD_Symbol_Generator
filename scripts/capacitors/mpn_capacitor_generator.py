@@ -18,7 +18,7 @@ import csv
 import os
 import sys
 from collections.abc import Iterator
-from typing import Final, NamedTuple
+from typing import Final
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -26,28 +26,6 @@ import footprint_capacitor_generator
 import symbol_capacitor_generator
 import symbol_capacitors_specs
 from utilities import file_handler_utilities, print_message_utilities
-
-
-class PartParameters(NamedTuple):
-    """Input parameters for creating a part number.
-
-    Attributes:
-        capacitance: Capacitance value in Farads
-        tolerance_code: Code indicating component tolerance
-        tolerance_value: Human-readable tolerance specification
-        packaging: Component packaging code
-        series_type: Dielectric type specification
-        specs: Complete series specifications
-
-    """
-
-    capacitance: float
-    tolerance_code: str
-    tolerance_value: str
-    packaging: str
-    series_type: symbol_capacitors_specs.SeriesType
-    specs: symbol_capacitors_specs.SeriesSpec
-
 
 # Simplified characteristic codes without explicit thresholds
 CHARACTERISTIC_CODES: Final[dict[str, dict[float, str]]] = {
@@ -237,71 +215,78 @@ def generate_datasheet_url(
     return f"{specs.datasheet_url}{mpn}"
 
 
-def create_part_info(
-    params: PartParameters,
+def create_part_info(  # noqa: PLR0913
+    capacitance: float,
+    tolerance_code: str,
+    tolerance_value: str,
+    packaging: str,
+    series_type: symbol_capacitors_specs.SeriesType,
+    specs: symbol_capacitors_specs.SeriesSpec,
 ) -> symbol_capacitors_specs.PartInfo:
     """Create complete part information from component parameters.
 
     Args:
-        params: Complete set of parameters needed to create part info
+        capacitance: Capacitance value in Farads
+        tolerance_code: Code indicating component tolerance
+        tolerance_value: Human-readable tolerance specification
+        packaging: Component packaging code
+        series_type: Dielectric type specification
+        specs: Complete series specifications
 
     Returns:
         PartInfo containing all component information and identifiers
 
     """
-    capacitance_code = generate_capacitance_code(params.capacitance)
-    characteristic_code = get_characteristic_code(
-        params.capacitance,
-        params.specs,
-    )
-    formatted_value = format_capacitance_value(params.capacitance)
+    capacitance_code = generate_capacitance_code(capacitance)
+    characteristic_code = get_characteristic_code(capacitance, specs)
+    formatted_value = format_capacitance_value(capacitance)
 
-    if params.specs.manufacturer == "Murata Electronics":
+    if specs.manufacturer == "Murata Electronics":
         mpn = (
-            f"{params.specs.base_series}"
-            f"{params.specs.dielectric_code[params.series_type]}"
-            f"{params.specs.voltage_code}"
+            f"{specs.base_series}"
+            f"{specs.dielectric_code[series_type]}"
+            f"{specs.voltage_code}"
             f"{capacitance_code}"
-            f"{params.tolerance_code}"
+            f"{tolerance_code}"
             f"{characteristic_code}"
-            f"{params.packaging}"
+            f"{packaging}"
         )
     else:
         mpn = (
-            f"{params.specs.base_series}"
-            f"{params.specs.dielectric_code[params.series_type]}"
+            f"{specs.base_series}"
+            f"{specs.dielectric_code[series_type]}"
             f"{capacitance_code}"
-            f"{params.tolerance_code}"
-            f"{params.specs.voltage_code}"
-            f"{params.packaging}"
+            f"{tolerance_code}"
+            f"{specs.voltage_code}"
+            f"{packaging}"
         )
 
     symbol_name = f"C_{mpn}"
     description = (
         f"CAP SMD {formatted_value} "
-        f"{params.series_type.value} {params.tolerance_value} "
-        f"{params.specs.case_code_in} {params.specs.voltage_rating}"
+        f"{series_type.value} {tolerance_value} "
+        f"{specs.case_code_in} {specs.voltage_rating}"
     )
 
-    trustedparts_link = f"{params.specs.trustedparts_url}/{mpn}"
-    datasheet_url = generate_datasheet_url(mpn, params.specs)
+    trustedparts_link = f"{specs.trustedparts_url}/{mpn}"
+    datasheet_url = generate_datasheet_url(mpn, specs)
 
     return symbol_capacitors_specs.PartInfo(
         symbol_name=symbol_name,
         reference="C",
-        value=params.capacitance,
+        value=capacitance,
         formatted_value=formatted_value,
-        footprint=params.specs.footprint,
+        footprint=specs.footprint,
         datasheet=datasheet_url,
         description=description,
-        manufacturer=params.specs.manufacturer,
+        manufacturer=specs.manufacturer,
         mpn=mpn,
-        dielectric=params.series_type.value,
-        tolerance=params.tolerance_value,
-        voltage_rating=params.specs.voltage_rating,
-        case_code_in=params.specs.case_code_in,
-        case_code_mm=params.specs.case_code_mm,
-        series=params.specs.base_series,
+        dielectric=series_type.value,
+        tolerance=tolerance_value,
+        voltage_rating=specs.voltage_rating,
+        case_code_in=specs.case_code_in,
+        case_code_mm=specs.case_code_mm,
+        series=specs.base_series,
         trustedparts_link=trustedparts_link,
     )
 
@@ -330,14 +315,14 @@ def generate_part_numbers(
                 for tolerance_code, tolerance_value in specs.tolerance_map[
                         series_type].items():
                     for packaging in specs.packaging_options:
-                        params = PartParameters(
+                        parts_list.append(create_part_info(  # noqa: PERF401
                             capacitance=capacitance,
                             tolerance_code=tolerance_code,
                             tolerance_value=tolerance_value,
                             packaging=packaging,
                             series_type=series_type,
-                            specs=specs)
-                        parts_list.append(create_part_info(params))
+                            specs=specs,
+                        ))
 
     return sorted(parts_list, key=lambda x: (x.dielectric, x.value))
 
