@@ -6,14 +6,7 @@ dielectric types. It provides comprehensive component information including
 physical dimensions, electrical characteristics, and packaging options.
 """
 
-from enum import Enum
 from typing import Final, NamedTuple
-
-
-class SeriesType(Enum):
-    """Defines supported dielectric types for capacitor series."""
-
-    X7R = "X7R"
 
 
 class SeriesSpec(NamedTuple):
@@ -31,10 +24,10 @@ class SeriesSpec(NamedTuple):
         case_code_in: Package dimensions in inches (e.g., '0402')
         case_code_mm: Package dimensions in millimeters (e.g., '1005')
         packaging_options: List of available packaging codes
-        tolerance_map: Maps series types to tolerance codes and values
-        value_range: Valid capacitance range for each series type
+        tolerance_map: Maps dielectric types to tolerance codes and values
+        value_range: Valid capacitance range for each dielectric type
         voltage_code: Voltage rating code used in part numbering
-        dielectric_code: Maps series types to their dielectric material codes
+        dielectric_code: Maps dielectric types to their material codes
         excluded_values: Set of unsupported capacitance values within range
         datasheet_url: Complete URL to component datasheet
         trustedparts_url: Base URL for component listing on Trustedparts
@@ -48,13 +41,14 @@ class SeriesSpec(NamedTuple):
     case_code_in: str
     case_code_mm: str
     packaging_options: list[str]
-    tolerance_map: dict[SeriesType, dict[str, str]]
-    value_range: dict[SeriesType, tuple[float, float]]
+    tolerance_map: dict[str, dict[str, str]]
+    value_range: dict[str, tuple[float, float]]
     voltage_code: str
-    dielectric_code: dict[SeriesType, str]
+    dielectric_code: dict[str, str]
     excluded_values: set[float]
     datasheet_url: str
     trustedparts_url: str
+    characteristic_codes: dict[float, str]
 
 
 class PartInfo(NamedTuple):
@@ -80,10 +74,8 @@ class PartInfo(NamedTuple):
 
 # Base URLs for documentation
 MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
-SAMSUNG_DOC_BASE = (
-    "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=")
 
-# Original Murata specifications
+# Murata specifications
 MURATA_SPECS = {
     "GCM155": SeriesSpec(
         base_series="GCM155",
@@ -93,13 +85,14 @@ MURATA_SPECS = {
         case_code_in="0402",
         case_code_mm="1005",
         packaging_options=["D", "J"],
-        tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={SeriesType.X7R: (220e-12, 0.1e-6)},  # 220pF to 0.1µF
+        tolerance_map={"X7R": {"K": "10%"}},
+        value_range={"X7R": (220e-12, 0.1e-6)},  # 220pF to 0.1µF
         voltage_code="1H",
-        dielectric_code={SeriesType.X7R: "R7"},
+        dielectric_code={"X7R": "R7"},
         excluded_values={27e-9, 39e-9, 56e-9, 82e-9},
         datasheet_url=f"{MURATA_DOC_BASE}/GCM155",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={22e-9: "E02", 4.7e-9: "A55", 0: "A37"},
     ),
     "GCM188": SeriesSpec(
         base_series="GCM188",
@@ -109,13 +102,15 @@ MURATA_SPECS = {
         case_code_in="0603",
         case_code_mm="1608",
         packaging_options=["D", "J"],
-        tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={SeriesType.X7R: (1e-9, 220e-9)},  # 1nF to 220nF
+        tolerance_map={"X7R": {"K": "10%"}},
+        value_range={"X7R": (1e-9, 220e-9)},  # 1nF to 220nF
         voltage_code="1H",
-        dielectric_code={SeriesType.X7R: "R7"},
+        dielectric_code={"X7R": "R7"},
         excluded_values={120e-9, 180e-9},
         datasheet_url=f"{MURATA_DOC_BASE}/GCM188",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={
+            100e-9: "A64", 47e-9: "A57", 22e-9: "A55", 0: "A37"},
     ),
     "GCM216": SeriesSpec(
         base_series="GCM216",
@@ -125,13 +120,14 @@ MURATA_SPECS = {
         case_code_in="0805",
         case_code_mm="2012",
         packaging_options=["D", "J"],
-        tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={SeriesType.X7R: (1e-9, 22e-9)},  # 1nF to 22nF
+        tolerance_map={"X7R": {"K": "10%"}},
+        value_range={"X7R": (1e-9, 22e-9)},  # 1nF to 22nF
         voltage_code="1H",
-        dielectric_code={SeriesType.X7R: "R7"},
+        dielectric_code={"X7R": "R7"},
         excluded_values=set(),
         datasheet_url=f"{MURATA_DOC_BASE}/GCM216",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={22e-9: "A55", 0: "A37"},
     ),
     "GCM31M": SeriesSpec(
         base_series="GCM31M",
@@ -141,13 +137,14 @@ MURATA_SPECS = {
         case_code_in="1206",
         case_code_mm="3216",
         packaging_options=["K", "L"],
-        tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={SeriesType.X7R: (100e-9, 1e-6)},  # 100nF to 1µF
+        tolerance_map={"X7R": {"K": "10%"}},
+        value_range={"X7R": (100e-9, 1e-6)},  # 100nF to 1µF
         voltage_code="1H",
-        dielectric_code={SeriesType.X7R: "R7"},
+        dielectric_code={"X7R": "R7"},
         excluded_values={180e-9, 560e-9},
         datasheet_url=f"{MURATA_DOC_BASE}/GCM31M",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={560e-9: "A55", 100e-9: "A37", 0: "A37"},
     ),
     "GCM31C": SeriesSpec(
         base_series="GCM31C",
@@ -157,15 +154,20 @@ MURATA_SPECS = {
         case_code_in="1206",
         case_code_mm="3216",
         packaging_options=["K", "L"],
-        tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={SeriesType.X7R: (4.7e-6, 4.7e-6)},  # Only 4.7µF
+        tolerance_map={"X7R": {"K": "10%"}},
+        value_range={"X7R": (4.7e-6, 4.7e-6)},  # Only 4.7µF
         voltage_code="1E",
-        dielectric_code={SeriesType.X7R: "R7"},
+        dielectric_code={"X7R": "R7"},
         excluded_values=set(),
         datasheet_url=f"{MURATA_DOC_BASE}/GCM31C",
         trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={4.7e-6: "A55", 0: "A55"},
     ),
 }
+
+# Base URLs for documentation
+SAMSUNG_DOC_BASE = (
+    "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=")
 
 # Samsung specifications (X7R only)
 SAMSUNG_SPECS = {
@@ -177,15 +179,16 @@ SAMSUNG_SPECS = {
         case_code_in="1206",
         case_code_mm="3216",
         packaging_options=["HNNN#"],
-        tolerance_map={SeriesType.X7R: {"K": "10%"}},
-        value_range={SeriesType.X7R: (0.47e-6, 10e-6)},
+        tolerance_map={"X7R": {"K": "10%"}},
+        value_range={"X7R": (0.47e-6, 10e-6)},
         voltage_code="B",
-        dielectric_code={SeriesType.X7R: "B"},
+        dielectric_code={"X7R": "B"},
         excluded_values={
             0.56e-6, 0.68e-6, 0.82e-6, 1.2e-6, 1.5e-6, 1.8e-6, 2.7e-6, 3.3e-6,
             3.9e-6, 5.6e-6, 6.8e-6, 8.2e-6},
         datasheet_url=f"{SAMSUNG_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search/CL31",
+        characteristic_codes={0: "X7R"},
     ),
 }
 
