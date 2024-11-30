@@ -72,7 +72,7 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
             22.0, 24.0, 25.0, 27.0, 28.0, 30.0, 33.0, 36.0, 39.0, 43.0,
             47.0, 51.0, 56.0, 60.0, 62.0, 68.0, 75.0, 82.0, 87.0, 91.0],
         current_rating=[0.5] * 51,
-        package="PowerDI_123",
+        package="SOD_123",
         diode_type="Zener",
         trustedparts_link="https://www.trustedparts.com/en/search",
         part_number_suffix="BT1G",
