@@ -61,7 +61,7 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
     "MMSZ52": SeriesSpec(
         manufacturer="Onsemi",
         base_series="MMSZ52",
-        footprint="diode_footprints:PowerDI_123",
+        footprint="diode_footprints:SOD_123",
         datasheet=(
             "https://www.onsemi.com/download/data-sheet/"
             "pdf/mmsz5221bt1-d.pdf"),
