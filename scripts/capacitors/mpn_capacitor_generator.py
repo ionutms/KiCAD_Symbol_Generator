@@ -121,7 +121,6 @@ def get_characteristic_code(
         ValueError: If series is not found or supports no characteristic codes
 
     """
-    # For Samsung series, just return X7R directly
     if specs.base_series.startswith("CL"):
         return "X7R"
 
@@ -202,7 +201,7 @@ def create_part_info(  # noqa: PLR0913
     tolerance_code: str,
     tolerance_value: str,
     packaging: str,
-    series_type: symbol_capacitors_specs.SeriesType,
+    dielectric_type: str,
     specs: symbol_capacitors_specs.SeriesSpec,
 ) -> symbol_capacitors_specs.PartInfo:
     """Create complete part information from component parameters.
@@ -212,7 +211,7 @@ def create_part_info(  # noqa: PLR0913
         tolerance_code: Code indicating component tolerance
         tolerance_value: Human-readable tolerance specification
         packaging: Component packaging code
-        series_type: Dielectric type specification
+        dielectric_type: Dielectric type specification
         specs: Complete series specifications
 
     Returns:
@@ -226,7 +225,7 @@ def create_part_info(  # noqa: PLR0913
     if specs.manufacturer == "Murata Electronics":
         mpn = (
             f"{specs.base_series}"
-            f"{specs.dielectric_code[series_type]}"
+            f"{specs.dielectric_code[dielectric_type]}"
             f"{specs.voltage_code}"
             f"{capacitance_code}"
             f"{tolerance_code}"
@@ -236,7 +235,7 @@ def create_part_info(  # noqa: PLR0913
     else:
         mpn = (
             f"{specs.base_series}"
-            f"{specs.dielectric_code[series_type]}"
+            f"{specs.dielectric_code[dielectric_type]}"
             f"{capacitance_code}"
             f"{tolerance_code}"
             f"{specs.voltage_code}"
@@ -246,7 +245,7 @@ def create_part_info(  # noqa: PLR0913
     symbol_name = f"C_{mpn}"
     description = (
         f"CAP SMD {formatted_value} "
-        f"{series_type.value} {tolerance_value} "
+        f"{dielectric_type} {tolerance_value} "
         f"{specs.case_code_in} {specs.voltage_rating}"
     )
 
@@ -263,7 +262,7 @@ def create_part_info(  # noqa: PLR0913
         description=description,
         manufacturer=specs.manufacturer,
         mpn=mpn,
-        dielectric=series_type.value,
+        dielectric=dielectric_type,
         tolerance=tolerance_value,
         voltage_rating=specs.voltage_rating,
         case_code_in=specs.case_code_in,
@@ -288,21 +287,23 @@ def generate_part_numbers(
     """
     parts_list: list[symbol_capacitors_specs.PartInfo] = []
 
-    for series_type in symbol_capacitors_specs.SeriesType:
-        if series_type in specs.value_range:
-            min_val, max_val = specs.value_range[series_type]
+    dielectric_types = ["X7R"]
+
+    for dielectric_type in dielectric_types:
+        if dielectric_type in specs.value_range:
+            min_val, max_val = specs.value_range[dielectric_type]
 
             for capacitance in generate_standard_values(
                     min_val, max_val, specs.excluded_values):
                 for tolerance_code, tolerance_value in specs.tolerance_map[
-                        series_type].items():
+                        dielectric_type].items():
                     for packaging in specs.packaging_options:
                         parts_list.append(create_part_info(  # noqa: PERF401
                             capacitance=capacitance,
                             tolerance_code=tolerance_code,
                             tolerance_value=tolerance_value,
                             packaging=packaging,
-                            series_type=series_type,
+                            dielectric_type=dielectric_type,
                             specs=specs,
                         ))
 
