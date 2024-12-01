@@ -212,12 +212,9 @@ def generate_part_numbers(
     """
     parts_list: list[symbol_resistors_specs.PartInfo] = []
 
-    for series_type in symbol_resistors_specs.SeriesType:
+    for series_type in ["E96", "E24"]:
         base_values = (
-            E96_BASE_VALUES
-            if series_type == symbol_resistors_specs.SeriesType.E96
-            else E24_BASE_VALUES
-        )
+            E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES)
 
         for resistance in generate_resistance_values(
                 base_values, specs.max_resistance):
