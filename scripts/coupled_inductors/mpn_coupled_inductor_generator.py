@@ -161,8 +161,8 @@ def create_part_info(
         max_dc_resistance = 0.0
 
     return symbol_coupled_inductors_specs.PartInfo(
-        symbol_name=f"L_{mpn}",
-        reference="L",
+        symbol_name=f"{specs.reference}_{mpn}",
+        reference=specs.reference,
         value=inductance,
         footprint=specs.footprint,
         datasheet=specs.datasheet,

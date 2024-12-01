@@ -242,7 +242,6 @@ def create_part_info(  # noqa: PLR0913
             f"{packaging}"
         )
 
-    symbol_name = f"C_{mpn}"
     description = (
         f"CAP SMD {formatted_value} "
         f"{dielectric_type} {tolerance_value} "
@@ -253,7 +252,7 @@ def create_part_info(  # noqa: PLR0913
     datasheet_url = generate_datasheet_url(mpn, specs)
 
     return symbol_capacitors_specs.PartInfo(
-        symbol_name=symbol_name,
+        symbol_name=f"{specs.reference}_{mpn}",
         reference="C",
         value=capacitance,
         formatted_value=formatted_value,

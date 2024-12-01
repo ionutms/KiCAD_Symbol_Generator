@@ -1,25 +1,12 @@
 """Specifications and data structures for Panasonic ERJ series resistors.
 
-This module defines the data structures and specifications for various
-Panasonic ERJ series resistors, supporting both E96 and E24 value series.
+This module defines the specifications for various Panasonic ERJ series
+resistors, supporting both E96 and E24 value series.
 It provides comprehensive component information including physical dimensions,
 electrical characteristics, and packaging options.
 """
 
-from enum import Enum
 from typing import Final, NamedTuple
-
-
-class SeriesType(Enum):
-    """Defines supported resistance value series types.
-
-    Values:
-        E96: 96 values per decade, typically 1% tolerance
-        E24: 24 values per decade, typically 5% tolerance
-    """
-
-    E96 = "E96"
-    E24 = "E24"
 
 
 class SeriesSpec(NamedTuple):
@@ -41,7 +28,7 @@ class SeriesSpec(NamedTuple):
             List of available packaging codes (e.g., ['V', 'X'])
         tolerance_map:
             Maps series types to available tolerance codes and values
-            Format: {SeriesType: {code: value}}
+            Format: {str: {code: value}}
         datasheet: Complete URL to component datasheet
         manufacturer: Name of the component manufacturer
         trustedparts_url:
@@ -59,11 +46,12 @@ class SeriesSpec(NamedTuple):
     power_rating: str
     max_resistance: int
     packaging_options: list[str]
-    tolerance_map: dict[SeriesType, dict[str, str]]
+    tolerance_map: dict[str, dict[str, str]]
     datasheet: str
     manufacturer: str
     trustedparts_url: str
     high_resistance_tolerance: dict[str, str] | None = None  # noqa: FA102
+    reference: str = "R"
 
 
 class PartInfo(NamedTuple):
@@ -117,8 +105,7 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         power_rating="0.1W",
         max_resistance=1_000_000,
         packaging_options=["X"],
-        tolerance_map={
-            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"J": "5%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
@@ -133,8 +120,7 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         power_rating="0.1W",
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={
-            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"J": "5%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
@@ -149,8 +135,7 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         power_rating="0.125W",
         max_resistance=2_200_000,
         packaging_options=["V"],
-        tolerance_map={
-            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"J": "5%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
@@ -166,8 +151,7 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         power_rating="0.66W",
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={
-            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"F": "1%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
@@ -182,8 +166,7 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         power_rating="0.5W",
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={
-            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"F": "1%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
@@ -198,8 +181,7 @@ SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
         power_rating="0.25W",
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={
-            SeriesType.E96: {"F": "1%"}, SeriesType.E24: {"F": "1%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),

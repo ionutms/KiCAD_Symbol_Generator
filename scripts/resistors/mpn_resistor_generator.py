@@ -169,16 +169,14 @@ def create_part_info(
     resistance_code = generate_resistance_code(
         resistance, specs.max_resistance)
     mpn = f"{specs.base_series}{tolerance_code}{resistance_code}{packaging}"
-    symbol_name = f"R_{mpn}"
     description = (
         f"RES SMD {format_resistance_value(resistance)} "
-        f"{tolerance_value} {specs.case_code_in} {specs.voltage_rating}"
-    )
+        f"{tolerance_value} {specs.case_code_in} {specs.voltage_rating}")
     trustedparts_link = f"{specs.trustedparts_url}{mpn}"
 
     return symbol_resistors_specs.PartInfo(
-        symbol_name=symbol_name,
-        reference="R",
+        symbol_name=f"{specs.reference}_{mpn}",
+        reference=specs.reference,
         value=resistance,
         footprint=specs.footprint,
         datasheet=specs.datasheet,
@@ -214,12 +212,9 @@ def generate_part_numbers(
     """
     parts_list: list[symbol_resistors_specs.PartInfo] = []
 
-    for series_type in symbol_resistors_specs.SeriesType:
+    for series_type in ["E96", "E24"]:
         base_values = (
-            E96_BASE_VALUES
-            if series_type == symbol_resistors_specs.SeriesType.E96
-            else E24_BASE_VALUES
-        )
+            E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES)
 
         for resistance in generate_resistance_values(
                 base_values, specs.max_resistance):

@@ -39,6 +39,7 @@ class SeriesSpec(NamedTuple):
     value_suffix: str
     max_dc_current: list[float]
     max_dc_resistance: list[float]
+    reference: str = "L"
 
 
 class PartInfo(NamedTuple):

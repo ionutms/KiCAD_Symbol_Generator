@@ -43,6 +43,7 @@ class SeriesSpec(NamedTuple):
     voltage_rating: int
     mounting_style: str
     contact_plating: str
+    reference: str = "J"
 
 
 class PartInfo(NamedTuple):
@@ -241,8 +242,8 @@ def create_part_info(
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     return PartInfo(
-        symbol_name=f"J_{mpn}",
-        reference="J",
+        symbol_name=f"{specs.reference}_{mpn}",
+        reference=specs.reference,
         value=mpn,
         footprint=footprint,
         datasheet=specs.datasheet,

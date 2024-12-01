@@ -49,6 +49,7 @@ class SeriesSpec(NamedTuple):
     datasheet_url: str
     trustedparts_url: str
     characteristic_codes: dict[float, str]
+    reference: str = "C"
 
 
 class PartInfo(NamedTuple):
