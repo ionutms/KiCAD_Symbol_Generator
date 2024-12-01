@@ -64,6 +64,7 @@ class SeriesSpec(NamedTuple):
     manufacturer: str
     trustedparts_url: str
     high_resistance_tolerance: dict[str, str] | None = None  # noqa: FA102
+    reference: str = "R"
 
 
 class PartInfo(NamedTuple):

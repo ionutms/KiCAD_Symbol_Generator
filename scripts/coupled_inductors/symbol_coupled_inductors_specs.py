@@ -75,6 +75,7 @@ class SeriesSpec(NamedTuple):
     max_dc_current: list[float]
     max_dc_resistance: list[float]
     pin_config: SidePinConfig
+    reference: str = "L"
 
 
 class PartInfo(NamedTuple):

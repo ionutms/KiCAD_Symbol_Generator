@@ -126,8 +126,8 @@ def create_part_info(
         current_rating = 0.0
 
     return symbol_diode_specs.PartInfo(
-        symbol_name=f"D_{mpn}",
-        reference="D",
+        symbol_name=f"{specs.reference}_{mpn}",
+        reference=specs.reference,
         value=value,
         footprint=specs.footprint,
         datasheet=specs.datasheet,
@@ -139,7 +139,7 @@ def create_part_info(
         trustedparts_link=trustedparts_link,
         current_rating=current_rating,
         diode_type=specs.diode_type,
-        )
+    )
 
 
 def generate_part_numbers(

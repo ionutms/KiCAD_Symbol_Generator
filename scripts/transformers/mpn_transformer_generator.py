@@ -102,8 +102,8 @@ def create_part_info(
         max_dc_resistance = 0.0
 
     return symbol_transformer_specs.PartInfo(
-        symbol_name=f"T_{mpn}",
-        reference="T",
+        symbol_name=f"{specs.reference}_{mpn}",
+        reference=specs.reference,
         value=mpn,
         footprint=specs.footprint,
         datasheet=specs.datasheet,

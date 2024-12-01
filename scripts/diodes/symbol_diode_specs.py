@@ -25,6 +25,7 @@ class SeriesSpec(NamedTuple):
     package: str
     diode_type: str
     part_number_suffix: str | None  # noqa: FA102
+    reference: str = "D"
 
 
 class PartInfo(NamedTuple):

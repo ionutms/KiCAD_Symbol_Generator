@@ -169,16 +169,14 @@ def create_part_info(
     resistance_code = generate_resistance_code(
         resistance, specs.max_resistance)
     mpn = f"{specs.base_series}{tolerance_code}{resistance_code}{packaging}"
-    symbol_name = f"R_{mpn}"
     description = (
         f"RES SMD {format_resistance_value(resistance)} "
-        f"{tolerance_value} {specs.case_code_in} {specs.voltage_rating}"
-    )
+        f"{tolerance_value} {specs.case_code_in} {specs.voltage_rating}")
     trustedparts_link = f"{specs.trustedparts_url}{mpn}"
 
     return symbol_resistors_specs.PartInfo(
-        symbol_name=symbol_name,
-        reference="R",
+        symbol_name=f"{specs.reference}_{mpn}",
+        reference=specs.reference,
         value=resistance,
         footprint=specs.footprint,
         datasheet=specs.datasheet,

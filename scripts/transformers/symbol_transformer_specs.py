@@ -85,6 +85,7 @@ class SeriesSpec(NamedTuple):
     max_dc_current: list[float] = []  # noqa: RUF012
     max_dc_resistance: list[float] = []  # noqa: RUF012
     pin_config: Optional[SidePinConfig] = None  # noqa: FA100
+    reference: str = "T"
 
 
 class PartInfo(NamedTuple):
