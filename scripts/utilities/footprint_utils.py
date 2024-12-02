@@ -343,7 +343,7 @@ def generate_thermal_pad(
             (at {pad_x} 0)
             (size {pad_width} {pad_heigh})
             (layers "F.Cu" "F.Paste" "F.Mask")
-            (roundrect_rratio 0.1)
+            (roundrect_rratio 0.05)
             (uuid "{uuid4()}")
         )
         """)
