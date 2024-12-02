@@ -57,7 +57,7 @@ def create_description(value: float) -> str:
         str: A descriptive string combining 'DIODE SMD' and formatted voltage.
 
     """
-    parts = ["DIODE SMD", f"{value} V"]
+    parts = ["Transistor", f"{value} V"]
 
     return " ".join(parts)
 
@@ -128,10 +128,8 @@ def generate_part_numbers(
 
     """
     return [
-        create_part_info(value, specs)
-        for value in specs.drain_source_voltage
-        if create_part_info(value, specs) is not None
-    ]
+        create_part_info(value, specs) for value in specs.drain_source_voltage
+        if create_part_info(value, specs) is not None]
 
 
 # Global header to attribute mapping

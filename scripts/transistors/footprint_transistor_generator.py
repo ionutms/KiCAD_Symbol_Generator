@@ -42,7 +42,8 @@ def generate_footprint(
         footprint_utils.generate_courtyard(body_width, body_height),
         footprint_utils.generate_fab_rectangle(body_width, body_height),
         footprint_utils.generate_pads(
-            pad_width, pad_height, pad_center_x, pad_pitch_y, pins_per_side),
+            pad_width, pad_height, pad_center_x, pad_pitch_y, pins_per_side,
+            [1, 2, 3, 4, 5, 5, 5, 5]),
         footprint_utils.generate_thermal_pad(5, 1.725, 2.235, 0.558),
         footprint_utils.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.package),

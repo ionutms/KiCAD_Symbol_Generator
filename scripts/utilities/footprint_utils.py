@@ -290,23 +290,36 @@ def calculate_pad_positions(
     return positions
 
 
-def generate_pads(
+def generate_pads(  # noqa: PLR0913
         pad_width: float,
-        pad_heigh: float,
+        pad_height: float,
         pad_center_x: float,
         pad_pitch_y: float = 0,
         pins_per_side: float = 1,
+        pin_numbers: list = None,  # noqa: RUF013
 ) -> str:
     """Generate the pads section of the footprint."""
     pads = []
     pad_positions = calculate_pad_positions(
         pad_center_x, pad_pitch_y, pins_per_side)
 
-    for pad_number, (x_pos, y_pos) in enumerate(pad_positions, 1):
+    # Determine pin numbering
+    if pin_numbers is None:
+        # Default: use sequential numbering from 1
+        pin_numbers = list(range(1, len(pad_positions) + 1))
+
+    # Validate that we have enough custom pin numbers
+    if len(pin_numbers) != len(pad_positions):
+        msg = (
+            f"Number of pin numbers ({len(pin_numbers)}) "
+            f"must match number of pad positions ({len(pad_positions)})")
+        raise ValueError(msg)
+
+    for (x_pos, y_pos), pad_number in zip(pad_positions, pin_numbers):
         pads.append(f"""
             (pad "{pad_number}" smd roundrect
                 (at {x_pos} {y_pos})
-                (size {pad_width} {pad_heigh})
+                (size {pad_width} {pad_height})
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
                 (uuid "{uuid4()}")
