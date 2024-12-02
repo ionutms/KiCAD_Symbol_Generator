@@ -47,19 +47,6 @@ import symbol_transistor_specs
 from utilities import file_handler_utilities, print_message_utilities
 
 
-def format_value(value: float) -> str:
-    """Format the diode voltage value with a 'V' suffix.
-
-    Args:
-        value (float): The voltage rating of the diode.
-
-    Returns:
-        str: Formatted voltage value with 'V' appended.
-
-    """
-    return f"{value} V"
-
-
 def create_description(value: float) -> str:
     """Create a descriptive string for the diode component.
 
@@ -70,7 +57,7 @@ def create_description(value: float) -> str:
         str: A descriptive string combining 'DIODE SMD' and formatted voltage.
 
     """
-    parts = ["DIODE SMD", format_value(value)]
+    parts = ["DIODE SMD", f"{value} V"]
 
     return " ".join(parts)
 
@@ -95,35 +82,21 @@ def create_part_info(
     """
     # Construct MPN with optional suffix
     mpn = f"{specs.base_series}"
-    if specs.part_number_suffix:
-        # Find index of voltage in ratings list
-        try:
-            index = specs.voltage_rating.index(value)
-            # Adjust index to start from 21
-            adjusted_index = index + 21
-            mpn = (
-                f"{specs.base_series}{adjusted_index}"
-                f"{specs.part_number_suffix}")
-        except ValueError:
-            print_message_utilities.print_error(
-                f"Error: value {value} V "
-                f"not found in series {specs.base_series}")
-            return None
 
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     try:
-        index = specs.voltage_rating.index(value)
-        current_rating = float(specs.current_rating[index])
+        index = specs.drain_source_voltage .index(value)
+        drain_current = float(specs.drain_current[index])
     except ValueError:
         print_message_utilities.print_error(
             f"Error: value {value} V not found in series {specs.base_series}")
-        current_rating = 0.0
+        drain_current = 0.0
     except IndexError:
         print_message_utilities.print_error(
             "Error: No DC specifications found for value "
             f"{value} V in series {specs.base_series}")
-        current_rating = 0.0
+        drain_current = 0.0
 
     return symbol_transistor_specs.PartInfo(
         symbol_name=f"{specs.reference}_{mpn}",
@@ -137,8 +110,8 @@ def create_part_info(
         package=specs.package,
         series=specs.base_series,
         trustedparts_link=trustedparts_link,
-        current_rating=current_rating,
-        diode_type=specs.diode_type,
+        drain_current=drain_current,
+        transistor_type=specs.transistor_type,
     )
 
 
@@ -156,7 +129,7 @@ def generate_part_numbers(
     """
     return [
         create_part_info(value, specs)
-        for value in specs.voltage_rating
+        for value in specs.drain_source_voltage
         if create_part_info(value, specs) is not None
     ]
 
@@ -165,7 +138,7 @@ def generate_part_numbers(
 HEADER_MAPPING: Final[dict] = {
     "Symbol Name": lambda part: part.symbol_name,
     "Reference": lambda part: part.reference,
-    "Value": lambda part: format_value(part.value),
+    "Value": lambda part: f"{part.value} V",
     "Footprint": lambda part: part.footprint,
     "Datasheet": lambda part: part.datasheet,
     "Description": lambda part: part.description,
@@ -173,8 +146,8 @@ HEADER_MAPPING: Final[dict] = {
     "MPN": lambda part: part.mpn,
     "Series": lambda part: part.series,
     "Trustedparts Search": lambda part: part.trustedparts_link,
-    "Maximum DC Current (A)": lambda part: f"{part.current_rating:.1f}",
-    "Diode Type": lambda part: part.diode_type,
+    "Drain Current (A)": lambda part: f"{part.drain_current:.1f}",
+    "Transistor Type": lambda part: part.transistor_type,
 }
 
 

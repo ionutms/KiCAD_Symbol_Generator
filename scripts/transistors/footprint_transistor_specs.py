@@ -21,12 +21,11 @@ class PadDimensionsAsymmetric(NamedTuple):
 
     """
 
-    cathode_width: float
-    cathode_height: float
-    cathode_center_x: float
-    anode_width: float
-    anode_height: float
-    anode_center_x: float
+    width: float
+    height: float
+    pad_center_x: float
+    pad_pitch_y: float
+    pins_per_side: float
     roundrect_ratio: float = 0.25
 
 
@@ -45,14 +44,14 @@ class DiodeSpecs(NamedTuple):
 DIODE_SPECS: dict[str, DiodeSpecs] = {
     "PowerPAK 1212-8": DiodeSpecs(
         body_dimensions=BodyDimensions(
-            width=5.0,
-            height=2.6),
+            width=4.0,
+            height=3.9),
         pad_dimensions=PadDimensionsAsymmetric(
-            cathode_width=2.4,
-            cathode_height=1.5,
-            cathode_center_x=0.85,
-            anode_width=1.05,
-            anode_height=1.5,
-            anode_center_x=1.525),
+            width=0.99,
+            height=0.405,
+            pad_center_x=1.435,
+            pad_pitch_y=0.66,
+            pins_per_side=4,
+            ),
         ref_offset_y=-2.5),
 }

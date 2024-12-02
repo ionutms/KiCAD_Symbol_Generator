@@ -7,7 +7,6 @@ mount diodes.
 """
 
 from pathlib import Path
-from uuid import uuid4
 
 import symbol_transistor_specs
 from footprint_transistor_specs import DIODE_SPECS, DiodeSpecs
@@ -30,10 +29,11 @@ def generate_footprint(
     """
     body_width = specs.body_dimensions.width
     body_height = specs.body_dimensions.height
-    anode_center_x = specs.pad_dimensions.anode_center_x
-    cathode_center_x = specs.pad_dimensions.cathode_center_x
-    anode_width = specs.pad_dimensions.anode_width
-    anode_height = specs.pad_dimensions.anode_height
+    pad_width = specs.pad_dimensions.width
+    pad_height = specs.pad_dimensions.height
+    pad_center_x = specs.pad_dimensions.pad_center_x
+    pad_pitch_y = specs.pad_dimensions.pad_pitch_y
+    pins_per_side = specs.pad_dimensions.pins_per_side
 
     sections = [
         footprint_utils.generate_header(part_info.package),
@@ -41,53 +41,15 @@ def generate_footprint(
             specs.ref_offset_y, part_info.package),
         footprint_utils.generate_courtyard(body_width, body_height),
         footprint_utils.generate_fab_rectangle(body_width, body_height),
-        footprint_utils.generate_fab_diode(
-            anode_width, anode_height, anode_center_x, cathode_center_x),
-        footprint_utils.generate_silkscreen_lines(
-            body_height, anode_center_x, anode_width),
-        generate_pads(specs),
+        footprint_utils.generate_pads(
+            pad_width, pad_height, pad_center_x, pad_pitch_y, pins_per_side),
+        footprint_utils.generate_thermal_pad(5, 1.725, 2.235, 0.558),
         footprint_utils.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.package),
         ")",  # Close the footprint
     ]
     return "\n".join(sections)
 
-
-def generate_pads(specs: DiodeSpecs) -> str:
-    """Generate the pads section of the footprint with pad dimensions.
-
-    Args:
-        specs: DiodeSpecs containing asymmetric pad dimensions
-
-    Returns:
-        String containing KiCad footprint pad definitions
-
-    """
-    pad_props = specs.pad_dimensions
-
-    # Cathode pad (1)
-    cathode = (f"""
-        (pad "1" smd roundrect
-            (at -{pad_props.cathode_center_x} 0)
-            (size {pad_props.cathode_width} {pad_props.cathode_height})
-            (layers "F.Cu" "F.Paste" "F.Mask")
-            (roundrect_rratio {pad_props.roundrect_ratio})
-            (uuid "{uuid4()}")
-        )
-        """)
-
-    # Anode pad (2)
-    anode = (f"""
-        (pad "2" smd roundrect
-            (at {pad_props.anode_center_x} 0)
-            (size {pad_props.anode_width} {pad_props.anode_height})
-            (layers "F.Cu" "F.Paste" "F.Mask")
-            (roundrect_rratio {pad_props.roundrect_ratio})
-            (uuid "{uuid4()}")
-        )
-        """)
-
-    return f"{cathode}\n{anode}"
 
 def generate_footprint_file(
         part_info: symbol_transistor_specs.PartInfo,

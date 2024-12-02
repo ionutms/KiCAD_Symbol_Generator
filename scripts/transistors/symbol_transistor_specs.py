@@ -19,13 +19,12 @@ class SeriesSpec(NamedTuple):
     base_series: str
     footprint: str
     datasheet: str
-    voltage_rating: list[float]
+    drain_source_voltage : list[float]
     trustedparts_link: str
-    current_rating: list[float]
+    drain_current: list[float]
     package: str
-    diode_type: str
-    part_number_suffix: str | None  # noqa: FA102
-    reference: str = "D"
+    transistor_type: str
+    reference: str = "Q"
 
 
 class PartInfo(NamedTuple):
@@ -41,9 +40,9 @@ class PartInfo(NamedTuple):
     mpn: str
     series: str
     trustedparts_link: str
-    current_rating: float
+    drain_current: float
     package: str
-    diode_type: str
+    transistor_type: str
 
 
 SERIES_SPECS: dict[str, SeriesSpec] = {
@@ -52,11 +51,10 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         base_series="SI7309DN-T1-GE3",
         footprint="transistor_footprints:PowerPAK 1212-8",
         datasheet="https://www.vishay.com/docs/73434/si7309dn.pdf",
-        voltage_rating=[100.0],
-        current_rating=[1.2],
+        drain_source_voltage =[-60.0],
+        drain_current=[-8.0],
         package="PowerPAK 1212-8",
-        diode_type="P-Channel",
+        transistor_type="P-Channel",
         trustedparts_link="https://www.trustedparts.com/en/search",
-        part_number_suffix=None,
     ),
 }
