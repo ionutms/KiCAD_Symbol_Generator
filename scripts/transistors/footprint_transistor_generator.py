@@ -38,6 +38,8 @@ def generate_footprint(
     thermal_pad_width = specs.pad_dimensions.thermal_width
     thermal_pad_height = specs.pad_dimensions.thermal_height
     thermal_pad_center_x = specs.pad_dimensions.thermal_pad_center_x
+    thermal_pad_center_y = specs.pad_dimensions.thermal_pad_center_y
+    thermal_pad_numbers = specs.pad_dimensions.thermal_pad_numbers
 
     sections = [
         footprint_utils.generate_header(part_info.package),
@@ -49,7 +51,9 @@ def generate_footprint(
             pad_width, pad_height, pad_center_x, pad_pitch_y, pins_per_side,
             [1, 2, 3, 4, 5, 5, 5, 5]),
         footprint_utils.generate_thermal_pad(
-            5, thermal_pad_width, thermal_pad_height, thermal_pad_center_x),
+            thermal_pad_width, thermal_pad_height,
+            thermal_pad_center_x, thermal_pad_center_y,
+            thermal_pad_numbers),
         footprint_utils.associate_3d_model(
             "KiCAD_Symbol_Generator/3D_models", part_info.package),
         ")",  # Close the footprint
