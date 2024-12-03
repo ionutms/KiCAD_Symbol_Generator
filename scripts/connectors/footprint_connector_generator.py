@@ -17,13 +17,13 @@ from pathlib import Path
 from uuid import uuid4
 
 import symbol_connectors_specs
-from footprint_connector_specs import CONNECTOR_SPECS, ConnectorSpecs
+from footprint_connector_specs import CONNECTOR_SPECS, FootprintSpecs
 from utilities import footprint_utils
 
 
 def generate_footprint(
         part_info: symbol_connectors_specs.PartInfo,
-        specs: ConnectorSpecs,
+        specs: FootprintSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a connector.
 
@@ -54,7 +54,7 @@ def generate_footprint(
 
 def calculate_dimensions(
     part_info: symbol_connectors_specs.PartInfo,
-    specs: ConnectorSpecs,
+    specs: FootprintSpecs,
 ) -> dict:
     """Calculate key dimensions for footprint generation.
 
@@ -89,7 +89,7 @@ def calculate_dimensions(
 
 def generate_properties(
     part_info: symbol_connectors_specs.PartInfo,
-    specs: ConnectorSpecs, dimensions: dict,
+    specs: FootprintSpecs, dimensions: dict,
 ) -> str:
     """Generate the properties section of the footprint."""
     font_props = ("""
@@ -137,7 +137,7 @@ def generate_properties(
         """)
 
 
-def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
+def generate_shapes(dimensions: dict, specs: FootprintSpecs) -> str:
     """Generate the shapes section of the footprint."""
     circle_center = -(
         dimensions["total_half_width_left"] + specs.silk_margin * 6)
@@ -185,7 +185,7 @@ def generate_shapes(dimensions: dict, specs: ConnectorSpecs) -> str:
 
 def generate_pads(
     part_info: symbol_connectors_specs.PartInfo,
-    specs: ConnectorSpecs,
+    specs: FootprintSpecs,
     dimensions: dict,
 ) -> str:
     """Generate the pads section of the footprint."""

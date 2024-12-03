@@ -46,7 +46,7 @@ class PartInfo(NamedTuple):
     diode_type: str
 
 
-SERIES_SPECS: dict[str, SeriesSpec] = {
+SYMBOLS_SPECS: dict[str, SeriesSpec] = {
     "DFLS1200-7": SeriesSpec(
         manufacturer="Diodes Incorporated",
         base_series="DFLS1200-7",

@@ -10,19 +10,20 @@ from pathlib import Path
 from uuid import uuid4
 
 import symbol_diode_specs
-from footprint_diode_specs import DIODE_SPECS, DiodeSpecs
+from footprint_diode_specs import FOOTPRINTS_SPECS, FootprintSpecs
 from utilities import footprint_utils
 
 
 def generate_footprint(
         part_info: symbol_diode_specs.PartInfo,
-        specs: DiodeSpecs,
+        specs: FootprintSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a diode.
 
     Args:
         part_info: Component specifications
-        specs: Physical specifications for the diode series from DIODE_SPECS
+        specs: Physical specifications for the diode series from
+        FOOTPRINTS_SPECS
 
     Returns:
         Complete .kicad_mod file content as formatted string
@@ -53,11 +54,11 @@ def generate_footprint(
     return "\n".join(sections)
 
 
-def generate_pads(specs: DiodeSpecs) -> str:
+def generate_pads(specs: FootprintSpecs) -> str:
     """Generate the pads section of the footprint with pad dimensions.
 
     Args:
-        specs: DiodeSpecs containing asymmetric pad dimensions
+        specs: FootprintSpecs containing asymmetric pad dimensions
 
     Returns:
         String containing KiCad footprint pad definitions
@@ -100,7 +101,7 @@ def generate_footprint_file(
         output_path: Directory path where the footprint file will be saved
 
     """
-    specs = DIODE_SPECS[part_info.package]
+    specs = FOOTPRINTS_SPECS[part_info.package]
     footprint_content = generate_footprint(part_info, specs)
     filename = f"{part_info.package}.kicad_mod"
     file_path = f"{output_path}/{filename}"

@@ -7,20 +7,20 @@ with appropriate pad dimensions and clearances.
 
 from pathlib import Path
 
-from footprint_resistor_specs import RESISTOR_SPECS, ResistorSpecs
-from symbol_resistors_specs import SERIES_SPECS, SeriesSpec
+from footprint_resistor_specs import FOOTPRINTS_SPECS, FootprintSpecs
+from symbol_resistors_specs import SYMBOLS_SPECS, SeriesSpec
 from utilities import footprint_utils
 
 
 def generate_footprint(
     series_spec: SeriesSpec,
-    resistor_specs: ResistorSpecs,
+    resistor_specs: FootprintSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a resistor.
 
     Args:
-        series_spec: Series specifications from SERIES_SPECS
-        resistor_specs: Physical specifications from RESISTOR_SPECS
+        series_spec: Series specifications from SYMBOLS_SPECS
+        resistor_specs: Physical specifications from FOOTPRINTS_SPECS
 
     Returns:
         Complete .kicad_mod file content as formatted string
@@ -65,8 +65,9 @@ def generate_footprint_file(
         output_path: Directory to save the generated footprint file
 
     """
-    series_spec: SeriesSpec = SERIES_SPECS[series_name]
-    resistor_specs: ResistorSpecs = RESISTOR_SPECS[series_spec.case_code_in]
+    series_spec: SeriesSpec = SYMBOLS_SPECS[series_name]
+    resistor_specs: FootprintSpecs = \
+        FOOTPRINTS_SPECS[series_spec.case_code_in]
 
     footprint_content: str = generate_footprint(series_spec, resistor_specs)
 

@@ -117,7 +117,7 @@ class PartInfo(NamedTuple):
     max_dc_resistance: float
 
 
-SERIES_SPECS: dict[str, SeriesSpec] = {
+SYMBOLS_SPECS: dict[str, SeriesSpec] = {
     "MSD7342": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="MSD7342",

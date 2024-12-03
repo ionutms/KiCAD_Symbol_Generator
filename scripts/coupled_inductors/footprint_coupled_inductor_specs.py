@@ -25,7 +25,7 @@ class PadDimensions(NamedTuple):
     pitch_y: float  # Vertical distance between pads
 
 
-class InductorSpecs(NamedTuple):
+class FootprintSpecs(NamedTuple):
     """Complete specifications for generating an inductor footprint.
 
     Defines all physical dimensions, pad properties, and reference designator
@@ -37,8 +37,8 @@ class InductorSpecs(NamedTuple):
     ref_offset_y: float  # Y offset for reference designator
 
 
-INDUCTOR_SPECS: dict[str, InductorSpecs] = {
-    "MSD7342": InductorSpecs(
+FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
+    "MSD7342": FootprintSpecs(
         body_dimensions=BodyDimensions(width=7.7, height=7.7),
         pad_dimensions=PadDimensions(
             width=2.1,
@@ -46,7 +46,7 @@ INDUCTOR_SPECS: dict[str, InductorSpecs] = {
             center_x=2.7,
             pitch_y=1.7),
         ref_offset_y=-4.826),
-    "MSD1048": InductorSpecs(
+    "MSD1048": FootprintSpecs(
         body_dimensions=BodyDimensions(width=10.5, height=10.5),
         pad_dimensions=PadDimensions(
             width=2.4,
@@ -54,7 +54,7 @@ INDUCTOR_SPECS: dict[str, InductorSpecs] = {
             center_x=3.9,
             pitch_y=2.05),
         ref_offset_y=-6.096),
-    "MSD1260": InductorSpecs(
+    "MSD1260": FootprintSpecs(
         body_dimensions=BodyDimensions(width=12.5, height=12.5),
         pad_dimensions=PadDimensions(
             width=4.0,

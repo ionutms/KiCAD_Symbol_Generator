@@ -128,7 +128,7 @@ class PartInfo(NamedTuple):
 
 
 # Series specifications for supported transformer families
-SERIES_SPECS: dict[str, SeriesSpec] = {
+SYMBOLS_SPECS: dict[str, SeriesSpec] = {
     "ZA9384": SeriesSpec(
         manufacturer="Coilcraft",
         base_series="ZA9384",

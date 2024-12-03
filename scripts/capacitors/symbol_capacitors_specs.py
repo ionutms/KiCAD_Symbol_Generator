@@ -77,7 +77,7 @@ class PartInfo(NamedTuple):
 MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
 
 # Murata specifications
-MURATA_SPECS = {
+SYMBOLS_SPECS = {
     "GCM155": SeriesSpec(
         base_series="GCM155",
         manufacturer="Murata Electronics",
@@ -194,4 +194,5 @@ SAMSUNG_SPECS = {
 }
 
 # Combined specifications dictionary
-SERIES_SPECS: Final[dict[str, SeriesSpec]] = {**MURATA_SPECS, **SAMSUNG_SPECS}
+SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
+    **SYMBOLS_SPECS, **SAMSUNG_SPECS}

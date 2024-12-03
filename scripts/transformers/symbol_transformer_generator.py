@@ -20,7 +20,7 @@ Dependencies:
 from pathlib import Path
 from typing import TextIO
 
-from symbol_transformer_specs import SERIES_SPECS, SidePinConfig
+from symbol_transformer_specs import SYMBOLS_SPECS, SidePinConfig
 from utilities import file_handler_utilities, symbol_utils
 
 
@@ -56,7 +56,7 @@ def convert_pin_config(
     """Convert a SidePinConfig from specs.
 
     Args:
-        spec_config: Optional[SidePinConfig] from SERIES_SPECS
+        spec_config: Optional[SidePinConfig] from SYMBOLS_SPECS
 
     Returns:
         Optional[Dict]:
@@ -96,8 +96,8 @@ def write_component(
     symbol_name = component_data.get("Symbol Name", "")
     series = component_data.get("Series", "")
 
-    # Get pin configuration from SERIES_SPECS if available
-    series_spec = SERIES_SPECS.get(series)
+    # Get pin configuration from SYMBOLS_SPECS if available
+    series_spec = SYMBOLS_SPECS.get(series)
     pin_config = convert_pin_config(series_spec.pin_config)
 
     symbol_utils.write_symbol_header(symbol_file, symbol_name)

@@ -91,7 +91,7 @@ class PartInfo(NamedTuple):
     contact_plating: str
 
 
-SERIES_SPECS: dict[str, SeriesSpec] = {
+SYMBOLS_SPECS: dict[str, SeriesSpec] = {
     "TBP02R1-381": SeriesSpec(
         manufacturer="Same Sky",
         base_series="TBP02R1-381",
