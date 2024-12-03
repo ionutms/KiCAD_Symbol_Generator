@@ -95,7 +95,7 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
 
 
-SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
+SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-2RK": SeriesSpec(
         base_series="ERJ-2RK",
         footprint="resistor_footprints:R_0402_1005Metric",
