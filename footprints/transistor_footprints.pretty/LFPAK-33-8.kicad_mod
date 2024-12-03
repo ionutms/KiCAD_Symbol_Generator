@@ -1,4 +1,4 @@
-(footprint "PowerPAK 1212-8"
+(footprint "LFPAK-33-8"
     (version 20240108)
     (generator "pcbnew")
     (generator_version "8.0")
@@ -9,7 +9,7 @@
             (at 0 -2.5 0)
             (unlocked yes)
             (layer "F.SilkS")
-            (uuid "3be5ee61-7d1a-4d0f-a203-9ba26d23bd08")
+            (uuid "5f1ae62a-3aab-4985-bb4b-4743ce6dd5ce")
             
         (effects
             (font (size 0.762 0.762) (thickness 0.1524))
@@ -17,11 +17,11 @@
         )
         
         )
-        (property "Value" "PowerPAK 1212-8"
+        (property "Value" "LFPAK-33-8"
             (at 0 2.5 0)
             (unlocked yes)
             (layer "F.Fab")
-            (uuid "09a4d5d8-015e-45a4-ba06-89ad7fae66af")
+            (uuid "f5d1ad17-a03a-493a-887b-3957d70da3de")
             
         (effects
             (font (size 0.762 0.762) (thickness 0.1524))
@@ -33,7 +33,7 @@
             (at 0 0 0)
             (layer "F.Fab")
             (hide yes)
-            (uuid "7c0e4bd2-f4e8-43f7-ba66-3b5ebf8fa1e0")
+            (uuid "43cd2097-a3c4-4988-a75a-a38b00cca75d")
             
         (effects
             (font (size 0.762 0.762) (thickness 0.1524))
@@ -45,7 +45,7 @@
             (at 0 3.77 0)
             (unlocked yes)
             (layer "F.Fab")
-            (uuid "66d6b961-7a6c-4216-93d1-474e210026ce")
+            (uuid "033da2d5-a442-4e40-99b3-9695de4bff99")
             
         (effects
             (font (size 0.762 0.762) (thickness 0.1524))
@@ -61,7 +61,7 @@
             (stroke (width 0.00635) (type solid))
             (fill none)
             (layer "F.CrtYd")
-            (uuid "c91f8f96-90eb-4288-91c7-08baee993581")
+            (uuid "bedae732-8f58-4356-b592-9d4e5ed917b7")
         )
         
 
@@ -71,79 +71,79 @@
             (stroke (width 0.0254) (type default))
             (fill none)
             (layer "F.Fab")
-            (uuid "a6c77f7e-4ae5-4f07-9737-19e767aff312")
+            (uuid "77ac316c-6b58-43b4-ab27-641f0462a058")
         )
         
 
             (pad "1" smd roundrect
-                (at -1.435 -0.99)
-                (size 0.99 0.405)
+                (at -1.435 -0.9750000000000001)
+                (size 0.5 0.4)
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
-                (uuid "59e3570b-5a3e-43c4-b9b7-f08ce6686ea9")
+                (uuid "fda84555-f203-4d7d-96a8-8f83baa2098d")
             )
             
 
             (pad "2" smd roundrect
-                (at -1.435 -0.32999999999999996)
-                (size 0.99 0.405)
+                (at -1.435 -0.32500000000000007)
+                (size 0.5 0.4)
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
-                (uuid "0212762b-3e8e-46ac-be12-f21deab2670d")
+                (uuid "f76f3988-21e2-4a75-9506-79c793c247b6")
             )
             
 
             (pad "3" smd roundrect
-                (at -1.435 0.33000000000000007)
-                (size 0.99 0.405)
+                (at -1.435 0.32499999999999996)
+                (size 0.5 0.4)
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
-                (uuid "9b8176d8-51a0-4fd0-831d-8f5c6c9f8a72")
+                (uuid "b10d542c-9fd5-4287-8a7d-5d7d6a9220b4")
             )
             
 
             (pad "4" smd roundrect
-                (at -1.435 0.99)
-                (size 0.99 0.405)
+                (at -1.435 0.9750000000000001)
+                (size 0.5 0.4)
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
-                (uuid "598bab1b-b689-4796-98f3-e78e673a04b3")
+                (uuid "a66bcbfc-188c-4db9-8f2c-6ba89ee758dd")
             )
             
 
             (pad "5" smd roundrect
-                (at 1.435 0.99)
-                (size 0.99 0.405)
+                (at 1.435 0.9750000000000001)
+                (size 0.5 0.4)
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
-                (uuid "bf80bbb8-d2fb-4543-a033-69193288d4c5")
+                (uuid "126bb0cf-e98c-4129-951a-d41b9e18b23c")
             )
             
 
             (pad "5" smd roundrect
-                (at 1.435 0.32999999999999996)
-                (size 0.99 0.405)
+                (at 1.435 0.32500000000000007)
+                (size 0.5 0.4)
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
-                (uuid "d32122d4-83f8-4561-b7f1-1d30fa0cbb75")
+                (uuid "c7ae9386-60c5-47ad-b9c4-510285d52416")
             )
             
 
             (pad "5" smd roundrect
-                (at 1.435 -0.33000000000000007)
-                (size 0.99 0.405)
+                (at 1.435 -0.32499999999999996)
+                (size 0.5 0.4)
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
-                (uuid "e3a80538-0594-4e81-ba1f-ef319b24ca19")
+                (uuid "0c36bfa4-e739-4efb-8903-6f9f35bf3a25")
             )
             
 
             (pad "5" smd roundrect
-                (at 1.435 -0.99)
-                (size 0.99 0.405)
+                (at 1.435 -0.9750000000000001)
+                (size 0.5 0.4)
                 (layers "F.Cu" "F.Paste" "F.Mask")
                 (roundrect_rratio 0.25)
-                (uuid "f53203fb-92da-4e05-9153-98627e9db1f7")
+                (uuid "a413447f-85c7-4533-9d38-a7c3a2106f66")
             )
             
 
@@ -152,11 +152,11 @@
             (size 1.725 2.385)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (roundrect_rratio 0.05)
-            (uuid "dc9796f1-15d8-4db0-9948-52a0cac49aeb")
+            (uuid "ffa457fc-f172-4c83-988c-99e4e801d61c")
         )
         
 
-        (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/PowerPAK 1212-8.step"
+        (model "${KIPRJMOD}/KiCAD_Symbol_Generator/3D_models/LFPAK-33-8.step"
             (offset (xyz 0 0 0))
             (scale (xyz 1 1 1))
             (rotate (xyz 0 0 0))
