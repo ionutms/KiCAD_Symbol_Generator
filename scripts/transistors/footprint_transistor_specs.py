@@ -53,12 +53,21 @@ FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
             thermal_pad_center_x=0.558,
             ),
         ref_offset_y=-2.5),
-    "LFPAK-33-8": FootprintSpecs(
+    "LFPAK33-8": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.1, height=3.6),
         pad_dimensions=PadDimensionsAsymmetric(
             width=0.83, height=0.4, pad_center_x=1.535,
             pad_pitch_y=0.65, pins_per_side=4,
             thermal_width=1.85, thermal_height=2.35,
+            thermal_pad_center_x=0.405,
+            ),
+        ref_offset_y=-2.5),
+    "LFPAK56D-8": FootprintSpecs(
+        body_dimensions=BodyDimensions(width=7.3, height=5.85),
+        pad_dimensions=PadDimensionsAsymmetric(
+            width=1.15, height=0.7, pad_center_x=3.075,
+            pad_pitch_y=1.27, pins_per_side=4,
+            thermal_width=4.1, thermal_height=2.54,
             thermal_pad_center_x=0.405,
             ),
         ref_offset_y=-2.5),

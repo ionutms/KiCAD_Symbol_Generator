@@ -114,4 +114,14 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
         package="LFPAK33-8", transistor_type="N-Channel",
         trustedparts_link="https://www.trustedparts.com/en/search",
     ),
+    "BUK9K29-100E": SeriesSpec(
+        manufacturer="Nexperia", base_series="BUK9K29-100E",
+        footprint="transistor_footprints:LFPAK56D-8",
+        datasheet=(
+            "https://assets.nexperia.com/documents/data-sheet/"
+            "BUK9K29-100E.pdf"),
+        drain_source_voltage =[100], drain_current=[30],
+        package="LFPAK56D-8", transistor_type="N-Channel Dual",
+        trustedparts_link="https://www.trustedparts.com/en/search",
+    ),
 }

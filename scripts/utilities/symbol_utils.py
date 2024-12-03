@@ -169,6 +169,7 @@ def write_pin(  # noqa: PLR0913
         y_pos: float,
         angle: int,
         number: str,
+        name: str = "",
         pin_type: str = "unspecified",
         hide: bool = False,  # noqa: FBT001, FBT002
         length: float = 2.54,
@@ -178,7 +179,7 @@ def write_pin(  # noqa: PLR0913
         (pin {pin_type} line
             (at {x_pos} {y_pos} {angle})
             (length {length})
-            (name ""(effects(font(size 1.27 1.27))))
+            (name "{name}"(effects(font(size 1.27 1.27))))
             (number "{number}"(effects(font(size 1.27 1.27))))
             {('hide' if hide else '')}
         )
@@ -653,13 +654,11 @@ def write_p_mos_transistor_symbol_drawing(
         """)
 
     # Write pins
-    write_pin(
-        symbol_file, x_pos=-7.62, y_pos=1.27,
-        angle=0, number="5", length=2.54)
-    write_pin(symbol_file, 7.62, 1.27, 180, "1", length=2.54)
-    write_pin(symbol_file, 7.62, -1.27, 180, "2", length=2.54)
-    write_pin(symbol_file, 7.62, -3.81, 180, "3", length=2.54)
-    write_pin(symbol_file, 2.54, -6.35, 180, "4", length=2.54)
+    write_pin(symbol_file, -7.62, 1.27, 0, "5", "D", length=2.54)
+    write_pin(symbol_file, 7.62, 1.27, 180, "1", "S", length=2.54)
+    write_pin(symbol_file, 7.62, -1.27, 180, "2", "S", length=2.54)
+    write_pin(symbol_file, 7.62, -3.81, 180, "3", "S", length=2.54)
+    write_pin(symbol_file, 2.54, -6.35, 180, "4", "G", length=2.54)
 
     symbol_file.write("\t\t)\n")
 
@@ -776,13 +775,229 @@ def write_n_mos_transistor_symbol_drawing(
         """)
 
     # Write pins
-    write_pin(
-        symbol_file, x_pos=-7.62, y_pos=1.27,
-        angle=0, number="5", length=2.54)
-    write_pin(symbol_file, 7.62, 1.27, 180, "1", length=2.54)
-    write_pin(symbol_file, 7.62, -1.27, 180, "2", length=2.54)
-    write_pin(symbol_file, 7.62, -3.81, 180, "3", length=2.54)
-    write_pin(symbol_file, 2.54, -6.35, 180, "4", length=2.54)
+    write_pin(symbol_file, -7.62, 1.27, 0, "5", "D", length=2.54)
+    write_pin(symbol_file, 7.62, 1.27, 180, "1", "S", length=2.54)
+    write_pin(symbol_file, 7.62, -1.27, 180, "2", "S", length=2.54)
+    write_pin(symbol_file, 7.62, -3.81, 180, "3", "S", length=2.54)
+    write_pin(symbol_file, 2.54, -6.35, 180, "4", "G", length=2.54)
+
+    symbol_file.write("\t\t)\n")
+
+
+def write_n_mos_dual_transistor_symbol_drawing(
+        symbol_file: TextIO,
+        symbol_name: str,
+) -> None:
+    """Write the horizontal graphical representation of a diode symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+
+    """
+    symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
+
+    symbol_file.write("""
+			(polyline
+				(pts (xy -0.508 -2.032) (xy -0.508 -3.048))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy -0.508 10.668) (xy -0.508 9.652))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy 0 -10.16) (xy 0 -6.35))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy 0 2.54) (xy 0 6.35))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy 2.54 -6.35) (xy -2.54 -6.35))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy 2.54 -5.842) (xy 1.524 -5.842))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy 2.54 6.35) (xy -2.54 6.35))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy 2.54 6.858) (xy 1.524 6.858))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+
+			(circle
+				(center -2.54 -3.81)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
+			)
+			(circle
+				(center -2.54 8.89)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy -1.524 -5.842) (xy -2.54 -5.842))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy -1.524 6.858) (xy -2.54 6.858))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy 0.508 -5.842) (xy -0.508 -5.842))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy 0.508 6.858) (xy -0.508 6.858))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy -2.032 -5.842) (xy -2.032 -3.81) (xy -2.54 -3.81))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts (xy -2.032 6.858) (xy -2.032 8.89) (xy -2.54 8.89))
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts
+					(xy -0.508 -2.54) (xy 0.508 -3.048)
+                    (xy 0.508 -2.032) (xy -0.508 -2.54)
+				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
+			)
+			(polyline
+				(pts
+					(xy -0.508 10.16) (xy 0.508 9.652)
+                    (xy 0.508 10.668) (xy -0.508 10.16)
+				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
+			)
+			(polyline
+				(pts
+					(xy 0 -5.842) (xy 0.508 -4.826)
+                    (xy -0.508 -4.826) (xy 0 -5.842)
+				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
+			)
+			(polyline
+				(pts
+					(xy 0 6.858) (xy 0.508 7.874)
+                    (xy -0.508 7.874) (xy 0 6.858)
+				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
+			)
+			(polyline
+				(pts
+					(xy 0 -4.826) (xy 0 -3.81) (xy 2.54 -3.81)
+                    (xy 2.032 -3.81) (xy 2.032 -5.842)
+				)
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts
+					(xy 0 7.874) (xy 0 8.89) (xy 2.54 8.89)
+                    (xy 2.032 8.89) (xy 2.032 6.858)
+				)
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts
+					(xy 0.508 -2.54) (xy 2.54 -2.54) (xy 2.54 -3.81)
+                    (xy 7.62 -3.81) (xy 7.62 -2.54)
+				)
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts
+					(xy 0.508 10.16) (xy 2.54 10.16) (xy 2.54 8.89)
+                    (xy 7.62 8.89) (xy 7.62 10.16)
+				)
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts
+					(xy -7.62 -2.54) (xy -7.62 -5.08) (xy -7.62 -3.81)
+                    (xy -2.54 -3.81) (xy -2.54 -2.54) (xy -0.508 -2.54)
+				)
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(polyline
+				(pts
+					(xy -7.62 10.16) (xy -7.62 7.62) (xy -7.62 8.89)
+                    (xy -2.54 8.89) (xy -2.54 10.16) (xy -0.508 10.16)
+				)
+				(stroke (width 0.2032) (type default))
+				(fill (type none))
+			)
+			(circle
+				(center 2.032 -3.81)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
+			)
+			(circle
+				(center 2.032 8.89)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
+			)
+			(circle
+				(center 2.54 -3.81)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
+			)
+			(circle
+				(center 2.54 8.89)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
+			)
+
+        """)
+
+    # Write pins
+    write_pin(symbol_file, -10.16, 10.16, 0, "8", "D1", length=2.54)
+    write_pin(symbol_file, -10.16, 7.62, 0, "7", "D1", length=2.54)
+    write_pin(symbol_file, 10.16, 10.16, 180, "1", "S1", length=2.54)
+    write_pin(symbol_file, 2.54, 2.54, 180, "2", "G1", length=2.54)
+
+    write_pin(symbol_file, -10.16, -2.54, 0, "6", "D2", length=2.54)
+    write_pin(symbol_file, -10.16, -5.08, 0, "5", "D2", length=2.54)
+    write_pin(symbol_file, 10.16, -2.54, 180, "3", "S2", length=2.54)
+    write_pin(symbol_file, 2.54, -10.16, 180, "4", "G2", length=2.54)
 
     symbol_file.write("\t\t)\n")
 
