@@ -70,4 +70,17 @@ SERIES_SPECS: dict[str, SeriesSpec] = {
         transistor_type="N-Channel",
         trustedparts_link="https://www.trustedparts.com/en/search",
     ),
+    "PSMN040-100MSEX": SeriesSpec(
+        manufacturer="Nexperia",
+        base_series="PSMN040-100MSEX",
+        footprint="transistor_footprints:LFPAK-33-8",
+        datasheet=(
+            "https://assets.nexperia.com/documents/data-sheet/"
+            "PSMN040-100MSE.pdf"),
+        drain_source_voltage =[100.0],
+        drain_current=[30],
+        package="LFPAK-33-8",
+        transistor_type="N-Channel",
+        trustedparts_link="https://www.trustedparts.com/en/search",
+    ),
 }
