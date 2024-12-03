@@ -24,7 +24,7 @@ class PadDimensions(NamedTuple):
     center_x: float  # Distance from origin to pad center on X axis
 
 
-class InductorSpecs(NamedTuple):
+class FootprintSpecs(NamedTuple):
     """Complete specifications for generating an inductor footprint.
 
     Defines all physical dimensions, pad properties, and reference designator
@@ -36,193 +36,193 @@ class InductorSpecs(NamedTuple):
     ref_offset_y: float  # Y offset for reference designator
 
 
-INDUCTOR_SPECS: dict[str, InductorSpecs] = {
-    "XAL1010": InductorSpecs(
+FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
+    "XAL1010": FootprintSpecs(
         body_dimensions=BodyDimensions(width=10.922, height=12.192),
         pad_dimensions=PadDimensions(
             width=2.3876, height=8.9916, center_x=3.3274),
         ref_offset_y=-6.858),
-    "XAL1030": InductorSpecs(
+    "XAL1030": FootprintSpecs(
         body_dimensions=BodyDimensions(width=10.922, height=12.192),
         pad_dimensions=PadDimensions(
             width=2.3876, height=8.9916, center_x=3.3274),
         ref_offset_y=-6.858),
-    "XAL1060": InductorSpecs(
+    "XAL1060": FootprintSpecs(
         body_dimensions=BodyDimensions(width=10.922, height=12.192),
         pad_dimensions=PadDimensions(
             width=2.3876, height=8.9916, center_x=3.3274),
         ref_offset_y=-6.858),
-    "XAL1080": InductorSpecs(
+    "XAL1080": FootprintSpecs(
         body_dimensions=BodyDimensions(width=10.922, height=12.192),
         pad_dimensions=PadDimensions(
             width=2.3876, height=8.9916, center_x=3.3274),
         ref_offset_y=-6.858),
-    "XAL1350": InductorSpecs(
+    "XAL1350": FootprintSpecs(
         body_dimensions=BodyDimensions(width=13.716, height=14.732),
         pad_dimensions=PadDimensions(
             width=2.9718, height=11.9888, center_x=4.3053),
         ref_offset_y=-8.128),
-    "XAL1510": InductorSpecs(
+    "XAL1510": FootprintSpecs(
         body_dimensions=BodyDimensions(width=15.748, height=16.764),
         pad_dimensions=PadDimensions(
             width=3.175, height=13.208, center_x=5.2959),
         ref_offset_y=-9.144),
-    "XAL1513": InductorSpecs(
+    "XAL1513": FootprintSpecs(
         body_dimensions=BodyDimensions(width=15.748, height=16.764),
         pad_dimensions=PadDimensions(
             width=3.175, height=13.208, center_x=5.2959),
         ref_offset_y=-9.144),
-    "XAL1580": InductorSpecs(
+    "XAL1580": FootprintSpecs(
         body_dimensions=BodyDimensions(width=15.748, height=16.764),
         pad_dimensions=PadDimensions(
             width=3.175, height=13.208, center_x=5.2959),
         ref_offset_y=-9.144),
-    "XAL4020": InductorSpecs(
+    "XAL4020": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.4704, height=4.4704),
         pad_dimensions=PadDimensions(
             width=0.9652, height=3.4036, center_x=1.1811),
         ref_offset_y=-3.048),
-    "XAL4030": InductorSpecs(
+    "XAL4030": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.4704, height=4.4704),
         pad_dimensions=PadDimensions(
             width=0.9652, height=3.4036, center_x=1.1811),
         ref_offset_y=-3.048),
-    "XAL4040": InductorSpecs(
+    "XAL4040": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.4704, height=4.4704),
         pad_dimensions=PadDimensions(
             width=0.9652, height=3.4036, center_x=1.1811),
         ref_offset_y=-3.048),
-    "XAL5020": InductorSpecs(
+    "XAL5020": FootprintSpecs(
         body_dimensions=BodyDimensions(width=5.6896, height=5.9436),
         pad_dimensions=PadDimensions(
             width=1.1684, height=4.699, center_x=1.651),
         ref_offset_y=-3.81),
-    "XAL5030": InductorSpecs(
+    "XAL5030": FootprintSpecs(
         body_dimensions=BodyDimensions(width=5.6896, height=5.9436),
         pad_dimensions=PadDimensions(
             width=1.1684, height=4.699, center_x=1.651),
         ref_offset_y=-3.81),
-    "XAL5050": InductorSpecs(
+    "XAL5050": FootprintSpecs(
         body_dimensions=BodyDimensions(width=5.6896, height=5.9436),
         pad_dimensions=PadDimensions(
             width=1.1684, height=4.699, center_x=1.651),
         ref_offset_y=-3.81),
-    "XAL6020": InductorSpecs(
+    "XAL6020": FootprintSpecs(
         body_dimensions=BodyDimensions(width=6.858, height=7.112),
         pad_dimensions=PadDimensions(
             width=1.4224, height=5.4864, center_x=2.0193),
         ref_offset_y=-4.572),
-    "XAL6030": InductorSpecs(
+    "XAL6030": FootprintSpecs(
         body_dimensions=BodyDimensions(width=6.858, height=7.112),
         pad_dimensions=PadDimensions(
             width=1.4224, height=5.4864, center_x=2.0193),
         ref_offset_y=-4.572),
-    "XAL6060": InductorSpecs(
+    "XAL6060": FootprintSpecs(
         body_dimensions=BodyDimensions(width=6.858, height=7.112),
         pad_dimensions=PadDimensions(
             width=1.4224, height=5.4864, center_x=2.0193),
         ref_offset_y=-4.572),
-    "XAL7020": InductorSpecs(
+    "XAL7020": FootprintSpecs(
         body_dimensions=BodyDimensions(width=8.382, height=8.382),
         pad_dimensions=PadDimensions(
             width=1.778, height=6.5024, center_x=2.3622),
         ref_offset_y=-5.08),
-    "XAL7030": InductorSpecs(
+    "XAL7030": FootprintSpecs(
         body_dimensions=BodyDimensions(width=8.382, height=8.382),
         pad_dimensions=PadDimensions(
             width=1.778, height=6.5024, center_x=2.3622),
         ref_offset_y=-5.08),
-    "XAL7050": InductorSpecs(
+    "XAL7050": FootprintSpecs(
         body_dimensions=BodyDimensions(width=8.382, height=8.382),
         pad_dimensions=PadDimensions(
             width=1.778, height=6.5024, center_x=2.3622),
         ref_offset_y=-5.08),
-    "XAL7070": InductorSpecs(
+    "XAL7070": FootprintSpecs(
         body_dimensions=BodyDimensions(width=8.0264, height=8.382),
         pad_dimensions=PadDimensions(
             width=1.9304, height=6.5024, center_x=2.413),
         ref_offset_y=-5.08),
-    "XAL8050": InductorSpecs(
+    "XAL8050": FootprintSpecs(
         body_dimensions=BodyDimensions(width=8.636, height=9.144),
         pad_dimensions=PadDimensions(
             width=1.778, height=7.0104, center_x=2.5781),
         ref_offset_y=-5.588),
-    "XAL8080": InductorSpecs(
+    "XAL8080": FootprintSpecs(
         body_dimensions=BodyDimensions(width=8.636, height=9.144),
         pad_dimensions=PadDimensions(
             width=1.778, height=7.0104, center_x=2.5781),
         ref_offset_y=-5.588),
-    "XFL2005": InductorSpecs(
+    "XFL2005": FootprintSpecs(
         body_dimensions=BodyDimensions(width=2.6924, height=2.3876),
         pad_dimensions=PadDimensions(
             width=1.0414, height=2.2098, center_x=0.7239),
         ref_offset_y=-2.032),
-    "XFL2006": InductorSpecs(
+    "XFL2006": FootprintSpecs(
         body_dimensions=BodyDimensions(width=2.286, height=2.3876),
         pad_dimensions=PadDimensions(
             width=0.6096, height=1.8034, center_x=0.6731),
         ref_offset_y=-2.032),
-    "XFL2010": InductorSpecs(
+    "XFL2010": FootprintSpecs(
         body_dimensions=BodyDimensions(width=2.286, height=2.3876),
         pad_dimensions=PadDimensions(
             width=0.6096, height=1.8034, center_x=0.6731),
         ref_offset_y=-2.032),
-    "XFL3010": InductorSpecs(
+    "XFL3010": FootprintSpecs(
         body_dimensions=BodyDimensions(width=3.3528, height=3.3528),
         pad_dimensions=PadDimensions(
             width=0.9906, height=2.8956, center_x=1.016),
         ref_offset_y=-2.54),
-    "XFL3012": InductorSpecs(
+    "XFL3012": FootprintSpecs(
         body_dimensions=BodyDimensions(width=3.3528, height=3.3528),
         pad_dimensions=PadDimensions(
             width=0.9906, height=2.8956, center_x=1.016),
         ref_offset_y=-2.54),
-    "XFL4012": InductorSpecs(
+    "XFL4012": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.4704, height=4.4704),
         pad_dimensions=PadDimensions(
             width=0.9652, height=3.4036, center_x=1.1811),
         ref_offset_y=-3.048),
-    "XFL4015": InductorSpecs(
+    "XFL4015": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.4704, height=4.4704),
         pad_dimensions=PadDimensions(
             width=0.9652, height=3.4036, center_x=1.1811),
         ref_offset_y=-3.048),
-    "XFL4020": InductorSpecs(
+    "XFL4020": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.4704, height=4.4704),
         pad_dimensions=PadDimensions(
             width=0.9652, height=3.4036, center_x=1.1811),
         ref_offset_y=-3.048),
-    "XFL4030": InductorSpecs(
+    "XFL4030": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.4704, height=4.4704),
         pad_dimensions=PadDimensions(
             width=0.9652, height=3.4036, center_x=1.1811),
         ref_offset_y=-3.048),
-    "XFL5015": InductorSpecs(
+    "XFL5015": FootprintSpecs(
         body_dimensions=BodyDimensions(width=5.6896, height=5.9436),
         pad_dimensions=PadDimensions(
             width=1.1684, height=4.699, center_x=1.651),
         ref_offset_y=-3.81),
-    "XFL5018": InductorSpecs(
+    "XFL5018": FootprintSpecs(
         body_dimensions=BodyDimensions(width=5.6896, height=5.9436),
         pad_dimensions=PadDimensions(
             width=1.1684, height=4.699, center_x=1.651),
         ref_offset_y=-3.81),
-    "XFL5030": InductorSpecs(
+    "XFL5030": FootprintSpecs(
         body_dimensions=BodyDimensions(width=5.6896, height=5.9436),
         pad_dimensions=PadDimensions(
             width=1.1684, height=4.699, center_x=1.651),
         ref_offset_y=-3.81),
-    "XFL6012": InductorSpecs(
+    "XFL6012": FootprintSpecs(
         body_dimensions=BodyDimensions(width=6.858, height=7.112),
         pad_dimensions=PadDimensions(
             width=1.4224, height=5.4864, center_x=2.0193),
         ref_offset_y=-4.572),
-    "XFL6060": InductorSpecs(
+    "XFL6060": FootprintSpecs(
         body_dimensions=BodyDimensions(width=6.858, height=7.112),
         pad_dimensions=PadDimensions(
             width=1.4224, height=5.4864, center_x=2.0193),
         ref_offset_y=-4.572),
-    "XFL7015": InductorSpecs(
+    "XFL7015": FootprintSpecs(
         body_dimensions=BodyDimensions(width=8.382, height=8.382),
         pad_dimensions=PadDimensions(
             width=1.778, height=6.223, center_x=2.286),
