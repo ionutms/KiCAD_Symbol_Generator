@@ -9,13 +9,13 @@ mount power inductors.
 from pathlib import Path
 
 import symbol_coupled_inductors_specs
-from footprint_coupled_inductor_specs import INDUCTOR_SPECS, InductorSpecs
+from footprint_coupled_inductor_specs import FOOTPRINTS_SPECS, FootprintSpecs
 from utilities import footprint_utils
 
 
 def generate_footprint(
         part_info: symbol_coupled_inductors_specs.PartInfo,
-        specs: InductorSpecs,
+        specs: FootprintSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for an inductor.
 
@@ -23,7 +23,7 @@ def generate_footprint(
         part_info: Component specifications
         specs:
             Physical specifications for the inductor series
-            from INDUCTOR_SPECS
+            from FOOTPRINTS_SPECS
 
     Returns:
         Complete .kicad_mod file content as formatted string
@@ -67,7 +67,7 @@ def generate_footprint_file(
         output_path: Directory path where the footprint file will be saved
 
     """
-    specs = INDUCTOR_SPECS[part_info.series]
+    specs = FOOTPRINTS_SPECS[part_info.series]
     footprint_content = generate_footprint(part_info, specs)
     filename = f"{part_info.series}.kicad_mod"
     file_path = f"{output_path}/{filename}"
