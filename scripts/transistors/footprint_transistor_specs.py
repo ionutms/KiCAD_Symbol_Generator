@@ -31,6 +31,7 @@ class PadDimensionsAsymmetric(NamedTuple):
     thermal_pad_center_x: float
     thermal_pad_center_y: list[float]
     thermal_pad_numbers: list[int]
+    pad_numbers: list[int]
 
 
 class FootprintSpecs(NamedTuple):
@@ -53,7 +54,7 @@ FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
             pad_pitch_y=0.66, pins_per_side=4,
             thermal_width=1.725, thermal_height=2.385,
             thermal_pad_center_x=0.558, thermal_pad_center_y=[0],
-            thermal_pad_numbers=[5]),
+            thermal_pad_numbers=[5], pad_numbers=[1, 2, 3, 4, 5, 5, 5, 5]),
         ref_offset_y=-2.5,
     ),
     "LFPAK33-8": FootprintSpecs(
@@ -63,7 +64,7 @@ FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
             pad_pitch_y=0.65, pins_per_side=4,
             thermal_width=1.85, thermal_height=2.35,
             thermal_pad_center_x=0.405, thermal_pad_center_y=[0],
-            thermal_pad_numbers=[5]),
+            thermal_pad_numbers=[5], pad_numbers=[1, 2, 3, 4, 5, 5, 5, 5]),
         ref_offset_y=-2.5,
     ),
     "LFPAK56D-8": FootprintSpecs(
@@ -73,7 +74,7 @@ FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
             pad_pitch_y=1.27, pins_per_side=4,
             thermal_width=4.4, thermal_height=1.97,
             thermal_pad_center_x=0.425, thermal_pad_center_y=[1.27, -1.27],
-            thermal_pad_numbers=[5,6]),
+            thermal_pad_numbers=[5, 6], pad_numbers=[1, 2, 3, 4, 5, 5, 6, 6]),
         ref_offset_y=-3.6,
     ),
 }

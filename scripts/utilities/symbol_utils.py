@@ -989,13 +989,11 @@ def write_n_mos_dual_transistor_symbol_drawing(
         """)
 
     # Write pins
-    write_pin(symbol_file, -10.16, 10.16, 0, "8", "D1", length=2.54)
-    write_pin(symbol_file, -10.16, 7.62, 0, "7", "D1", length=2.54)
+    write_pin(symbol_file, -10.16, 10.16, 0, "6", "D1", length=2.54)
     write_pin(symbol_file, 10.16, 10.16, 180, "1", "S1", length=2.54)
     write_pin(symbol_file, 2.54, 2.54, 180, "2", "G1", length=2.54)
 
-    write_pin(symbol_file, -10.16, -2.54, 0, "6", "D2", length=2.54)
-    write_pin(symbol_file, -10.16, -5.08, 0, "5", "D2", length=2.54)
+    write_pin(symbol_file, -10.16, -2.54, 0, "5", "D2", length=2.54)
     write_pin(symbol_file, 10.16, -2.54, 180, "3", "S2", length=2.54)
     write_pin(symbol_file, 2.54, -10.16, 180, "4", "G2", length=2.54)
 

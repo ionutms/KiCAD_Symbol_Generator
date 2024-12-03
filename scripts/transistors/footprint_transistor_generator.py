@@ -40,6 +40,7 @@ def generate_footprint(
     thermal_pad_center_x = specs.pad_dimensions.thermal_pad_center_x
     thermal_pad_center_y = specs.pad_dimensions.thermal_pad_center_y
     thermal_pad_numbers = specs.pad_dimensions.thermal_pad_numbers
+    pad_numbers = specs.pad_dimensions.pad_numbers
 
     sections = [
         footprint_utils.generate_header(part_info.package),
@@ -49,7 +50,7 @@ def generate_footprint(
         footprint_utils.generate_fab_rectangle(body_width, body_height),
         footprint_utils.generate_pads(
             pad_width, pad_height, pad_center_x, pad_pitch_y, pins_per_side,
-            [1, 2, 3, 4, 5, 5, 5, 5]),
+            pad_numbers),
         footprint_utils.generate_thermal_pad(
             thermal_pad_width, thermal_pad_height,
             thermal_pad_center_x, thermal_pad_center_y,
