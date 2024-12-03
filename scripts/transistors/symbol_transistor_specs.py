@@ -45,7 +45,7 @@ class PartInfo(NamedTuple):
     transistor_type: str
 
 
-SERIES_SPECS: dict[str, SeriesSpec] = {
+SYMBOLS_SPECS: dict[str, SeriesSpec] = {
     "SI7309DN-T1-GE3": SeriesSpec(
         manufacturer="Vishay Semiconductors", base_series="SI7309DN-T1-GE3",
         footprint="transistor_footprints:PowerPAK 1212-8",

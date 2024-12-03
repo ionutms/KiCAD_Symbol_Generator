@@ -9,13 +9,13 @@ silkscreen markings for surface mount power transformers with multiple pins.
 from pathlib import Path
 
 import symbol_transformer_specs
-from footprint_transformer_specs import TRANSFORMER_SPECS, TransformerSpecs
+from footprint_transformer_specs import FOOTPRINTS_SPECS, FootprintSpecs
 from utilities import footprint_utils
 
 
 def generate_footprint(
         part_info: symbol_transformer_specs.PartInfo,
-        specs: TransformerSpecs,
+        specs: FootprintSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a transformer."""
     body_width = specs.body_dimensions.width
@@ -57,7 +57,7 @@ def generate_footprint_file(
         output_path: Directory to save the generated footprint file
 
     """
-    specs = TRANSFORMER_SPECS[part_info.series]
+    specs = FOOTPRINTS_SPECS[part_info.series]
 
     footprint_content = generate_footprint(part_info, specs)
     filename = f"{part_info.series}.kicad_mod"

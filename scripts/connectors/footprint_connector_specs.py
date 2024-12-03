@@ -26,7 +26,7 @@ class BodyDimensions(NamedTuple):
     height_bottom: float  # Distance from origin to bottom edge
 
 
-class ConnectorSpecs(NamedTuple):
+class FootprintSpecs(NamedTuple):
     """Complete specifications for generating a connector footprint.
 
     Defines all physical dimensions, pad properties, reference designator
@@ -44,8 +44,8 @@ class ConnectorSpecs(NamedTuple):
     ref_y: float         # Y position for reference designator
 
 
-CONNECTOR_SPECS: dict[str, ConnectorSpecs] = {
-    "TB004-508": ConnectorSpecs(
+CONNECTOR_SPECS: dict[str, FootprintSpecs] = {
+    "TB004-508": FootprintSpecs(
         pitch=5.08,
         body_dimensions=BodyDimensions(
             width_left=5.8,
@@ -58,7 +58,7 @@ CONNECTOR_SPECS: dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=6.096,
         ref_y=-6.096),
-    "TB006-508": ConnectorSpecs(
+    "TB006-508": FootprintSpecs(
         pitch=5.08,
         body_dimensions=BodyDimensions(
             width_left=5.8,
@@ -71,7 +71,7 @@ CONNECTOR_SPECS: dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=5.334,
         ref_y=-5.334),
-    "TBP02R1-381": ConnectorSpecs(
+    "TBP02R1-381": FootprintSpecs(
         pitch=3.81,
         body_dimensions=BodyDimensions(
             width_left=4.4,
@@ -84,7 +84,7 @@ CONNECTOR_SPECS: dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-8.8,
         ref_y=2.4),
-    "TBP02R2-381": ConnectorSpecs(
+    "TBP02R2-381": FootprintSpecs(
         pitch=3.81,
         body_dimensions=BodyDimensions(
             width_left=4.445,
@@ -97,7 +97,7 @@ CONNECTOR_SPECS: dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-5.4,
         ref_y=4.2),
-    "TBP04R1-500": ConnectorSpecs(
+    "TBP04R1-500": FootprintSpecs(
         pitch=5.0,
         body_dimensions=BodyDimensions(
             width_left=5.2,
@@ -110,7 +110,7 @@ CONNECTOR_SPECS: dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=10.8,
         ref_y=-3.0),
-    "TBP04R2-500": ConnectorSpecs(
+    "TBP04R2-500": FootprintSpecs(
         pitch=5.0,
         body_dimensions=BodyDimensions(
             width_left=5.8,
@@ -123,7 +123,7 @@ CONNECTOR_SPECS: dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-4.8,
         ref_y=5.8),
-    "TBP04R3-500": ConnectorSpecs(
+    "TBP04R3-500": FootprintSpecs(
         pitch=5.0,
         body_dimensions=BodyDimensions(
             width_left=5.2,
@@ -136,7 +136,7 @@ CONNECTOR_SPECS: dict[str, ConnectorSpecs] = {
         mask_margin=0.102,
         mpn_y=-4.8,
         ref_y=5.8),
-    "TBP04R12-500": ConnectorSpecs(
+    "TBP04R12-500": FootprintSpecs(
         pitch=5.0,
         body_dimensions=BodyDimensions(
             width_left=5.8,

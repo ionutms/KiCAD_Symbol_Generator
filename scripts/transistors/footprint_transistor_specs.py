@@ -31,7 +31,7 @@ class PadDimensionsAsymmetric(NamedTuple):
     thermal_pad_center_x: float
 
 
-class DiodeSpecs(NamedTuple):
+class FootprintSpecs(NamedTuple):
     """Complete specifications for generating a diode footprint.
 
     Defines all physical dimensions, pad properties, and reference designator
@@ -43,8 +43,8 @@ class DiodeSpecs(NamedTuple):
     ref_offset_y: float
 
 
-DIODE_SPECS: dict[str, DiodeSpecs] = {
-    "PowerPAK 1212-8": DiodeSpecs(
+FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
+    "PowerPAK 1212-8": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.0, height=3.9),
         pad_dimensions=PadDimensionsAsymmetric(
             width=0.99, height=0.405, pad_center_x=1.435,
@@ -53,7 +53,7 @@ DIODE_SPECS: dict[str, DiodeSpecs] = {
             thermal_pad_center_x=0.558,
             ),
         ref_offset_y=-2.5),
-    "LFPAK-33-8": DiodeSpecs(
+    "LFPAK-33-8": FootprintSpecs(
         body_dimensions=BodyDimensions(width=4.1, height=3.6),
         pad_dimensions=PadDimensionsAsymmetric(
             width=0.83, height=0.4, pad_center_x=1.535,

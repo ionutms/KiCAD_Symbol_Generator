@@ -279,11 +279,11 @@ def generate_files_for_series(
         IOError: If file operations fail
 
     """
-    if series_name not in symbol_resistors_specs.SERIES_SPECS:
+    if series_name not in symbol_resistors_specs.SYMBOLS_SPECS:
         msg = f"Unknown series: {series_name}"
         raise ValueError(msg)
 
-    specs = symbol_resistors_specs.SERIES_SPECS[series_name]
+    specs = symbol_resistors_specs.SYMBOLS_SPECS[series_name]
     series_code = series_name.replace("-", "")
 
     # Ensure required directories exist
@@ -390,7 +390,7 @@ if __name__ == "__main__":
     try:
         unified_parts: list[symbol_resistors_specs.PartInfo] = []
 
-        for series in symbol_resistors_specs.SERIES_SPECS:
+        for series in symbol_resistors_specs.SYMBOLS_SPECS:
             print_message_utilities.print_info(
                 f"\nGenerating files for {series} series:")
             generate_files_for_series(series, unified_parts)

@@ -7,20 +7,20 @@ with appropriate pad dimensions and clearances.
 
 from pathlib import Path
 
-from footprint_capacitor_specs import CAPACITOR_SPECS, CapacitorSpecs
+from footprint_capacitor_specs import FOOTPRINTS_SPECS, FootprintSpecs
 from symbol_capacitors_specs import SERIES_SPECS, SeriesSpec
 from utilities import footprint_utils
 
 
 def generate_footprint(
     series_spec: SeriesSpec,
-    capacitor_specs: CapacitorSpecs,
+    capacitor_specs: FootprintSpecs,
 ) -> str:
     """Generate complete KiCad footprint file content for a capacitor.
 
     Args:
         series_spec: Series specifications from SERIES_SPECS
-        capacitor_specs: Physical specifications from CAPACITOR_SPECS
+        capacitor_specs: Physical specifications from FOOTPRINTS_SPECS
 
     Returns:
         Complete .kicad_mod file content as formatted string
@@ -66,7 +66,7 @@ def generate_footprint_file(
 
     """
     series_spec: SeriesSpec = SERIES_SPECS[series_name]
-    capacitor_specs: CapacitorSpecs = CAPACITOR_SPECS[
+    capacitor_specs: FootprintSpecs = FOOTPRINTS_SPECS[
         series_spec.case_code_in]
 
     footprint_content: str = generate_footprint(series_spec, capacitor_specs)

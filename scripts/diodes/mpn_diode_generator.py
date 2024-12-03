@@ -30,7 +30,7 @@ Dependencies:
 - symbol_diode_generator: Creates KiCad symbol files
 
 Note:
-Requires predefined series specifications in symbol_diode_specs.SERIES_SPECS
+Requires predefined series specifications in symbol_diode_specs.SYMBOLS_SPECS
 
 """
 
@@ -185,11 +185,11 @@ def generate_files_for_series(
     """Generate CSV, KiCad symbol, and footprint files for a specific series.
 
     Args:
-        series_name: Series identifier (must exist in SERIES_SPECS)
+        series_name: Series identifier (must exist in SYMBOLS_SPECS)
         unified_parts_list: List to append generated parts to
 
     Raises:
-        ValueError: If series_name is not found in SERIES_SPECS
+        ValueError: If series_name is not found in SYMBOLS_SPECS
         FileNotFoundError: If CSV file creation fails
         csv.Error: If CSV processing fails or data formatting is invalid
         IOError: If file operations fail due to permissions or disk space
@@ -199,11 +199,11 @@ def generate_files_for_series(
         'diode_footprints.pretty/' directories.
 
     """
-    if series_name not in symbol_diode_specs.SERIES_SPECS:
+    if series_name not in symbol_diode_specs.SYMBOLS_SPECS:
         msg = f"Unknown series: {series_name}"
         raise ValueError(msg)
 
-    specs = symbol_diode_specs.SERIES_SPECS[series_name]
+    specs = symbol_diode_specs.SYMBOLS_SPECS[series_name]
 
     # Ensure required directories exist
     file_handler_utilities.ensure_directory_exists("data")
@@ -305,7 +305,7 @@ if __name__ == "__main__":
     try:
         unified_parts: list[symbol_diode_specs.PartInfo] = []
 
-        for series in symbol_diode_specs.SERIES_SPECS:
+        for series in symbol_diode_specs.SYMBOLS_SPECS:
             print_message_utilities.print_info(
                 f"\nGenerating files for {series} series:")
             generate_files_for_series(series, unified_parts)

@@ -30,7 +30,7 @@ class PadDimensionsAsymmetric(NamedTuple):
     roundrect_ratio: float = 0.25
 
 
-class DiodeSpecs(NamedTuple):
+class FootprintSpecs(NamedTuple):
     """Complete specifications for generating a diode footprint.
 
     Defines all physical dimensions, pad properties, and reference designator
@@ -42,8 +42,8 @@ class DiodeSpecs(NamedTuple):
     ref_offset_y: float
 
 
-DIODE_SPECS: dict[str, DiodeSpecs] = {
-    "PowerDI_123": DiodeSpecs(
+FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
+    "PowerDI_123": FootprintSpecs(
         body_dimensions=BodyDimensions(
             width=5.0,
             height=2.6),
@@ -55,7 +55,7 @@ DIODE_SPECS: dict[str, DiodeSpecs] = {
             anode_height=1.5,
             anode_center_x=1.525),
         ref_offset_y=-2.5),
-    "SOD_123": DiodeSpecs(
+    "SOD_123": FootprintSpecs(
         body_dimensions=BodyDimensions(
             width=4.8,
             height=2.0),
