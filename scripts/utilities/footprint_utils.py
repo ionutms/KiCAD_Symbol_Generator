@@ -330,22 +330,22 @@ def generate_pads(  # noqa: PLR0913
 
 
 def generate_thermal_pad(
-        pad_number: int,
         pad_width: float,
         pad_heigh: float,
         pad_x: float,
+        pad_y: list[float],
+        thermal_pad_numbers: list[int],
 ) -> str:
     """Generate the pads section of the footprint."""
-    pads = []
-
-    pads.append(f"""
+    pads = [
+        f"""
         (pad "{pad_number}" smd roundrect
-            (at {pad_x} 0)
+            (at {pad_x} {pad_y[index]})
             (size {pad_width} {pad_heigh})
             (layers "F.Cu" "F.Paste" "F.Mask")
             (roundrect_rratio 0.05)
             (uuid "{uuid4()}")
         )
-        """)
+        """ for index, pad_number in enumerate(thermal_pad_numbers)]
 
     return "\n".join(pads)
