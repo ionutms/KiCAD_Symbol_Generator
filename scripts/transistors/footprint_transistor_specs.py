@@ -58,16 +58,16 @@ DIODE_SPECS: dict[str, DiodeSpecs] = {
             ),
         ref_offset_y=-2.5),
     "LFPAK-33-8": DiodeSpecs(
-        body_dimensions=BodyDimensions(width=4.0, height=3.9),
+        body_dimensions=BodyDimensions(width=4.1, height=3.6),
         pad_dimensions=PadDimensionsAsymmetric(
-            width=0.5,
+            width=0.83,
             height=0.4,
-            pad_center_x=1.435,
-            thermal_width=1.725,
-            thermal_height=2.385,
-            thermal_pad_center_x=0.558,
+            pad_center_x=1.535,
             pad_pitch_y=0.65,
             pins_per_side=4,
+            thermal_width=1.85,
+            thermal_height=2.35,
+            thermal_pad_center_x=0.405,
             ),
         ref_offset_y=-2.5),
 }
