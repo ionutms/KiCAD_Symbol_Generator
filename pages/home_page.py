@@ -135,7 +135,7 @@ def update_graph_with_uploaded_file(
         y=data_frame["total_clones"],
         mode="lines+markers",
         name="Total Clones",
-        marker={"color": "blue"},
+        marker={"color": "#227b33"},
     )
 
     unique_clones_trace = go.Scatter(
@@ -143,7 +143,7 @@ def update_graph_with_uploaded_file(
         y=data_frame["unique_clones"],
         mode="lines+markers",
         name="Unique Clones",
-        marker={"color": "red"},
+        marker={"color": "#4187db"},
     )
 
     # Create figure
