@@ -4,8 +4,11 @@ This module defines the layout and callback for the home page of the Dash app.
 It displays a title and dynamically generates links to other pages in the app.
 """
 
+from pathlib import Path
+
 import dash
 import dash_bootstrap_components as dbc
+import pandas as pd
 import plotly.graph_objects as go
 from dash import Input, Output, callback, dcc, html
 
@@ -58,9 +61,9 @@ layout = dbc.Container([html.Div([
 def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
     """Generate and display links based on the provided data.
 
-    This callback function creates a list of links to be displayed on the home
-    page. It uses the data stored in the 'links_store' to dynamically generate
-    these links.
+    This callback function creates a list of links to be displayed on the
+    home page. It uses the data stored in the 'links_store' to dynamically
+    generate these links.
 
     Args:
         links (list[dict] | None): A list of dictionaries containing link
@@ -91,30 +94,65 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
 def update_graph_with_uploaded_file(
     theme_switch: bool,  # noqa: FBT001
 ) -> tuple[any, dict[str, str]]:
-    """Update the graph file."""
+    """Update the graph with repository clone history data."""
+    # Construct the path to the CSV file
+    csv_path = Path("repo_traffic_data/clones_history.csv")
+
+    # Read the CSV file
+    data_frame = pd.read_csv(csv_path)
+    data_frame["clone_timestamp"] = pd.to_datetime(
+        data_frame["clone_timestamp"])
+
+    # Create figure layout
     figure_layout = {
         "xaxis": {
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
             "domain": (0.0, 1.0),
+            "title": "Date",
         },
         "yaxis": {
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
             "tickangle": -90, "position": 0.0, "anchor": "free",
+            "title": "Clones",
         },
+        "title": "Repository Clone History",
     }
 
-    figure = go.Figure(layout=figure_layout)
+    # Create traces for total and unique clones
+    total_clones_trace = go.Scatter(
+        x=data_frame["clone_timestamp"],
+        y=data_frame["total_clones"],
+        mode="lines+markers",
+        name="Total Clones",
+        marker={"color": "blue"},
+    )
+
+    unique_clones_trace = go.Scatter(
+        x=data_frame["clone_timestamp"],
+        y=data_frame["unique_clones"],
+        mode="lines+markers",
+        name="Unique Clones",
+        marker={"color": "red"},
+    )
+
+    # Create figure
+    figure = go.Figure(
+        data=[total_clones_trace, unique_clones_trace],
+        layout=figure_layout,
+    )
+
+    # Theme configuration
     theme = {
         "template": "plotly" if theme_switch else "plotly_dark",
         "paper_bgcolor": "white" if theme_switch else "#222222",
         "plot_bgcolor": "white" if theme_switch else "#222222",
         "font_color": "black" if theme_switch else "white",
-        "margin": {"l": 10, "r": 10, "t": 10, "b": 10},
+        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
     }
 
-
+    # Update figure layout with theme
     figure.update_layout(**theme)
 
     return figure
