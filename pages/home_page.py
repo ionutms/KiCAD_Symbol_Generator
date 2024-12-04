@@ -129,20 +129,43 @@ def update_graph_with_uploaded_file(
     # Create figure layout
     figure_layout = {
         "xaxis": {
-            "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False,
+            "gridcolor": "#808080",
+            "griddash": "dash",
+            "zerolinecolor": "lightgray",
+            "zeroline": False,
             "domain": (0.0, 1.0),
             "title": "Date",
+            "showgrid": True,
         },
         "yaxis": {
-            "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False,
-            "tickangle": -90, "position": 0.0, "anchor": "free",
-            "title": "Clones",
+            "gridcolor": "#808080",
+            "griddash": "dash",
+            "zerolinecolor": "lightgray",
+            "zeroline": False,
+            "tickangle": -90,
+            "position": 0.0,
+            "anchor": "free",
+            "title": "Total Clones",
+            "showgrid": False,
+        },
+        "yaxis2": {
+            "gridcolor": "#808080",
+            "griddash": "dash",
+            "zerolinecolor": "lightgray",
+            "zeroline": False,
+            "tickangle": -90,
+            "overlaying": "y",
+            "side": "right",
+            "title": "Unique Clones",
+            "showgrid": False,
         },
         "title": "Repository Clone History",
         "legend": {
-            "x": 0.5, "xanchor": "center", "y": 1.1, "orientation": "h"},
+            "x": 0.5,
+            "xanchor": "center",
+            "y": 1.1,
+            "orientation": "h",
+        },
     }
 
     # Create traces for total and unique clones
@@ -151,7 +174,9 @@ def update_graph_with_uploaded_file(
         y=data_frame["total_clones"],
         mode="lines+markers",
         name="Total Clones",
-        marker={"color": "#227b33"},
+        marker={"color": "#227b33", "size": 8},
+        line={"color": "#227b33", "width": 2},
+        yaxis="y1",
     )
 
     unique_clones_trace = go.Scatter(
@@ -159,13 +184,35 @@ def update_graph_with_uploaded_file(
         y=data_frame["unique_clones"],
         mode="lines+markers",
         name="Unique Clones",
-        marker={"color": "#4187db"},
+        marker={"color": "#4187db", "size": 8},
+        line={"color": "#4187db", "width": 2},
+        yaxis="y2",
     )
 
     # Create figure
     figure = go.Figure(
         data=[total_clones_trace, unique_clones_trace],
         layout=figure_layout,
+    )
+
+    # Update axis colors to match trace colors
+    figure.update_layout(
+        yaxis={
+            "tickcolor": "#227b33",
+            "linecolor": "#227b33",
+            "linewidth": 2,
+            "title_font_color": "#227b33",
+            "title_font_size": 14,
+            "title_font_weight": "bold",
+        },
+        yaxis2={
+            "tickcolor": "#4187db",
+            "linecolor": "#4187db",
+            "linewidth": 2,
+            "title_font_color": "#4187db",
+            "title_font_size": 14,
+            "title_font_weight": "bold",
+        },
     )
 
     # Theme configuration
