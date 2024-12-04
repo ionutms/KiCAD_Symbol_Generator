@@ -4,14 +4,19 @@ This module defines the layout and callback for the home page of the Dash app.
 It displays a title and dynamically generates links to other pages in the app.
 """
 
+from pathlib import Path
+
 import dash
 import dash_bootstrap_components as dbc
+import pandas as pd
+import plotly.graph_objects as go
 from dash import Input, Output, callback, dcc, html
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
 
 link_name = __name__.rsplit(".", maxsplit=1)[-1].replace("_page", "").title()
+module_name = __name__.rsplit(".", maxsplit=1)[-1]
 
 dash.register_page(__name__, name=link_name, path="/")
 
@@ -38,13 +43,21 @@ usage_steps = [
     "to return to the Home page.",
 ]
 
-
-layout = dbc.Container([html.Div([
+layout = dbc.Container([
     dbc.Row([dbc.Col([html.H3(
         f"{link_name.replace('_', ' ')}", style=styles.heading_3_style)])]),
-    dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
-    html.Div(id="links_display"),
-], style=styles.GLOBAL_STYLE),
+    dbc.Row([dbc.Col([dcu.app_description(
+        TITLE, ABOUT, features, usage_steps)], width=12)]),
+    dbc.Row([
+        dbc.Col([dcc.Loading([
+            dcc.Graph(id=f"{module_name}_data_graph")])], xs=12, md=8),
+
+        dbc.Col([
+            html.H4("Application Pages"),
+            html.Div(id="links_display", style={
+                "display": "flex", "flex-direction": "column", "gap": "10px",
+            })], xs=12, md=4),
+    ]),
 ], fluid=True)
 
 
@@ -55,9 +68,9 @@ layout = dbc.Container([html.Div([
 def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
     """Generate and display links based on the provided data.
 
-    This callback function creates a list of links to be displayed on the home
-    page. It uses the data stored in the 'links_store' to dynamically generate
-    these links.
+    This callback function creates a list of links to be displayed on the
+    home page. It uses the data stored in the 'links_store' to dynamically
+    generate these links.
 
     Args:
         links (list[dict] | None): A list of dictionaries containing link
@@ -79,3 +92,76 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
         html.Div(dcc.Link(link["name"], href=link["path"]))
         for link in links
     ][:-1])
+
+
+@callback(
+    Output(f"{module_name}_data_graph", "figure"),
+    Input("theme_switch_value_store", "data"),
+)
+def update_graph_with_uploaded_file(
+    theme_switch: bool,  # noqa: FBT001
+) -> tuple[any, dict[str, str]]:
+    """Update the graph with repository clone history data."""
+    # Construct the path to the CSV file
+    csv_path = Path("repo_traffic_data/clones_history.csv")
+
+    # Read the CSV file
+    data_frame = pd.read_csv(csv_path)
+    data_frame["clone_timestamp"] = pd.to_datetime(
+        data_frame["clone_timestamp"])
+
+    # Create figure layout
+    figure_layout = {
+        "xaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "domain": (0.0, 1.0),
+            "title": "Date",
+        },
+        "yaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "tickangle": -90, "position": 0.0, "anchor": "free",
+            "title": "Clones",
+        },
+        "title": "Repository Clone History",
+        "legend": {
+            "x": 0.5, "xanchor": "center", "y": 1.1, "orientation": "h"},
+    }
+
+    # Create traces for total and unique clones
+    total_clones_trace = go.Scatter(
+        x=data_frame["clone_timestamp"],
+        y=data_frame["total_clones"],
+        mode="lines+markers",
+        name="Total Clones",
+        marker={"color": "#227b33"},
+    )
+
+    unique_clones_trace = go.Scatter(
+        x=data_frame["clone_timestamp"],
+        y=data_frame["unique_clones"],
+        mode="lines+markers",
+        name="Unique Clones",
+        marker={"color": "#4187db"},
+    )
+
+    # Create figure
+    figure = go.Figure(
+        data=[total_clones_trace, unique_clones_trace],
+        layout=figure_layout,
+    )
+
+    # Theme configuration
+    theme = {
+        "template": "plotly" if theme_switch else "plotly_dark",
+        "paper_bgcolor": "white" if theme_switch else "#222222",
+        "plot_bgcolor": "white" if theme_switch else "#222222",
+        "font_color": "black" if theme_switch else "white",
+        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
+    }
+
+    # Update figure layout with theme
+    figure.update_layout(**theme)
+
+    return figure
