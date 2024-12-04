@@ -154,18 +154,18 @@ def update_graph_with_uploaded_file(
             "zerolinecolor": "lightgray",
             "zeroline": False,
             "tickangle": -90,
+            "position": 1.0,
             "overlaying": "y",
             "side": "right",
             "title": "Unique Clones",
             "showgrid": False,
         },
-        "title": "Repository Clone History",
-        "legend": {
+        "title": {
+            "text": "Repository Clone History",
             "x": 0.5,
             "xanchor": "center",
-            "y": 1.1,
-            "orientation": "h",
         },
+        "showlegend": False,
     }
 
     # Create traces for total and unique clones
