@@ -136,6 +136,11 @@ def update_graph_with_uploaded_file(
             "domain": (0.0, 1.0),
             "title": "Date",
             "showgrid": True,
+            "range": [
+                data_frame["clone_timestamp"].min(),
+                data_frame["clone_timestamp"].max(),
+            ],
+            "type": "date",
         },
         "yaxis": {
             "gridcolor": "#808080",
@@ -197,6 +202,7 @@ def update_graph_with_uploaded_file(
 
     # Update axis colors to match trace colors
     figure.update_layout(
+        hovermode="x unified",
         yaxis={
             "tickcolor": "#227b33",
             "linecolor": "#227b33",
