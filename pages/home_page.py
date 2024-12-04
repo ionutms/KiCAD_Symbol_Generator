@@ -4,12 +4,13 @@ This module defines the layout and callback for the home page of the Dash app.
 It displays a title and dynamically generates links to other pages in the app.
 """
 
-from pathlib import Path
+import io
 
 import dash
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
+import requests
 from dash import Input, Output, callback, dcc, html
 
 import pages.utils.dash_component_utils as dcu
@@ -101,14 +102,29 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
 def update_graph_with_uploaded_file(
     theme_switch: bool,  # noqa: FBT001
 ) -> tuple[any, dict[str, str]]:
-    """Update the graph with repository clone history data."""
-    # Construct the path to the CSV file
-    csv_path = Path("repo_traffic_data/clones_history.csv")
+    """Update the graph with repository clone history data from GitHub."""
+    github_csv_url = (
+        "https://raw.githubusercontent.com/ionutms/KiCAD_Symbols_Generator/"
+        "main/repo_traffic_data/clones_history.csv")
 
-    # Read the CSV file
-    data_frame = pd.read_csv(csv_path)
-    data_frame["clone_timestamp"] = pd.to_datetime(
-        data_frame["clone_timestamp"])
+    try:
+        # Fetch the CSV file from GitHub
+        response = requests.get(github_csv_url, timeout=10)
+        # Raise an exception for bad responses
+        response.raise_for_status()
+
+        # Read the CSV from the response content
+        data_frame = pd.read_csv(io.StringIO(response.text))
+        data_frame["clone_timestamp"] = pd.to_datetime(
+            data_frame["clone_timestamp"])
+
+    except requests.RequestException as requests_error_message:
+        print(f"Error fetching CSV from GitHub: {requests_error_message}")
+        # Create an empty DataFrame with the expected structure
+        data_frame = pd.DataFrame({
+            "clone_timestamp": pd.Series(dtype="datetime64[ns]"),
+            "total_clones": pd.Series(dtype="int"),
+            "unique_clones": pd.Series(dtype="int")})
 
     # Create figure layout
     figure_layout = {
