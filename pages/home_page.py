@@ -51,7 +51,9 @@ layout = dbc.Container([
         TITLE, ABOUT, features, usage_steps)], width=12)]),
     dbc.Row([
         dbc.Col([dcc.Loading([
-            dcc.Graph(id=f"{module_name}_data_graph")])], xs=12, md=8),
+            dcc.Graph(
+                id=f"{module_name}_data_graph",
+                config={"displaylogo": False})])], xs=12, md=8),
 
         dbc.Col([
             html.H4("Application Pages"),
@@ -143,82 +145,51 @@ def update_graph_with_uploaded_file(
             "type": "date",
         },
         "yaxis": {
-            "gridcolor": "#808080",
-            "griddash": "dash",
-            "zerolinecolor": "lightgray",
-            "zeroline": False,
-            "tickangle": -90,
-            "position": 0.0,
-            "anchor": "free",
-            "title": "Total Clones",
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
+            "position": 0.0, "anchor": "free", "title": "Total Clones",
             "showgrid": False,
         },
         "yaxis2": {
-            "gridcolor": "#808080",
-            "griddash": "dash",
-            "zerolinecolor": "lightgray",
-            "zeroline": False,
-            "tickangle": -90,
-            "position": 1.0,
-            "overlaying": "y",
-            "side": "right",
-            "title": "Unique Clones",
-            "showgrid": False,
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
+            "position": 1.0, "overlaying": "y", "side": "right",
+            "title": "Unique Clones", "showgrid": False,
         },
         "title": {
-            "text": "Repository Clone History",
-            "x": 0.5,
-            "xanchor": "center",
+            "text": "Repository Clone History", "x": 0.5, "xanchor": "center",
         },
         "showlegend": False,
     }
 
     # Create traces for total and unique clones
     total_clones_trace = go.Scatter(
-        x=data_frame["clone_timestamp"],
-        y=data_frame["total_clones"],
-        mode="lines+markers",
-        name="Total Clones",
+        x=data_frame["clone_timestamp"], y=data_frame["total_clones"],
+        mode="lines+markers", name="Total Clones",
         marker={"color": "#227b33", "size": 8},
-        line={"color": "#227b33", "width": 2},
-        yaxis="y1",
-    )
+        line={"color": "#227b33", "width": 2}, yaxis="y1")
 
     unique_clones_trace = go.Scatter(
-        x=data_frame["clone_timestamp"],
-        y=data_frame["unique_clones"],
-        mode="lines+markers",
-        name="Unique Clones",
+        x=data_frame["clone_timestamp"], y=data_frame["unique_clones"],
+        mode="lines+markers", name="Unique Clones",
         marker={"color": "#4187db", "size": 8},
-        line={"color": "#4187db", "width": 2},
-        yaxis="y2",
-    )
+        line={"color": "#4187db", "width": 2}, yaxis="y2")
 
     # Create figure
     figure = go.Figure(
-        data=[total_clones_trace, unique_clones_trace],
-        layout=figure_layout,
-    )
+        data=[total_clones_trace, unique_clones_trace], layout=figure_layout)
 
     # Update axis colors to match trace colors
     figure.update_layout(
         hovermode="x unified",
         yaxis={
-            "tickcolor": "#227b33",
-            "linecolor": "#227b33",
-            "linewidth": 2,
-            "title_font_color": "#227b33",
-            "title_font_size": 14,
-            "title_font_weight": "bold",
-        },
+            "tickcolor": "#227b33", "linecolor": "#227b33",
+            "linewidth": 2, "title_font_color": "#227b33",
+            "title_font_size": 14, "title_font_weight": "bold"},
         yaxis2={
-            "tickcolor": "#4187db",
-            "linecolor": "#4187db",
-            "linewidth": 2,
-            "title_font_color": "#4187db",
-            "title_font_size": 14,
-            "title_font_weight": "bold",
-        },
+            "tickcolor": "#4187db", "linecolor": "#4187db",
+            "linewidth": 2, "title_font_color": "#4187db",
+            "title_font_size": 14, "title_font_weight": "bold"},
     )
 
     # Theme configuration
@@ -227,10 +198,11 @@ def update_graph_with_uploaded_file(
         "paper_bgcolor": "white" if theme_switch else "#222222",
         "plot_bgcolor": "white" if theme_switch else "#222222",
         "font_color": "black" if theme_switch else "white",
-        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
-    }
+        "margin": {"l": 50, "r": 50, "t": 50, "b": 50}}
 
     # Update figure layout with theme
-    figure.update_layout(**theme)
+    figure.update_layout(**theme, modebar={"remove": [
+        "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
+        "autoScale2d", "resetScale2d", "toImage"]})
 
     return figure
