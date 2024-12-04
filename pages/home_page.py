@@ -43,14 +43,21 @@ usage_steps = [
     "to return to the Home page.",
 ]
 
-
-layout = dbc.Container([html.Div([
+layout = dbc.Container([
     dbc.Row([dbc.Col([html.H3(
         f"{link_name.replace('_', ' ')}", style=styles.heading_3_style)])]),
-    dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
-    dcc.Loading([dcc.Graph(id=f"{module_name}_data_graph")]),
-    html.Div(id="links_display"),
-], style=styles.GLOBAL_STYLE),
+    dbc.Row([dbc.Col([dcu.app_description(
+        TITLE, ABOUT, features, usage_steps)], width=12)]),
+    dbc.Row([
+        dbc.Col([dcc.Loading([
+            dcc.Graph(id=f"{module_name}_data_graph")])], xs=12, md=8),
+
+        dbc.Col([
+            html.H4("Application Pages"),
+            html.Div(id="links_display", style={
+                "display": "flex", "flex-direction": "column", "gap": "10px",
+            })], xs=12, md=4),
+    ]),
 ], fluid=True)
 
 
@@ -118,6 +125,8 @@ def update_graph_with_uploaded_file(
             "title": "Clones",
         },
         "title": "Repository Clone History",
+        "legend": {
+            "x": 0.5, "xanchor": "center", "y": 1.1, "orientation": "h"},
     }
 
     # Create traces for total and unique clones
