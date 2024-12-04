@@ -6,12 +6,14 @@ It displays a title and dynamically generates links to other pages in the app.
 
 import dash
 import dash_bootstrap_components as dbc
+import plotly.graph_objects as go
 from dash import Input, Output, callback, dcc, html
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
 
 link_name = __name__.rsplit(".", maxsplit=1)[-1].replace("_page", "").title()
+module_name = __name__.rsplit(".", maxsplit=1)[-1]
 
 dash.register_page(__name__, name=link_name, path="/")
 
@@ -43,6 +45,7 @@ layout = dbc.Container([html.Div([
     dbc.Row([dbc.Col([html.H3(
         f"{link_name.replace('_', ' ')}", style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
+    dcc.Loading([dcc.Graph(id=f"{module_name}_data_graph")]),
     html.Div(id="links_display"),
 ], style=styles.GLOBAL_STYLE),
 ], fluid=True)
@@ -79,3 +82,39 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
         html.Div(dcc.Link(link["name"], href=link["path"]))
         for link in links
     ][:-1])
+
+
+@callback(
+    Output(f"{module_name}_data_graph", "figure"),
+    Input("theme_switch_value_store", "data"),
+)
+def update_graph_with_uploaded_file(
+    theme_switch: bool,  # noqa: FBT001
+) -> tuple[any, dict[str, str]]:
+    """Update the graph file."""
+    figure_layout = {
+        "xaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "domain": (0.0, 1.0),
+        },
+        "yaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "tickangle": -90, "position": 0.0, "anchor": "free",
+        },
+    }
+
+    figure = go.Figure(layout=figure_layout)
+    theme = {
+        "template": "plotly" if theme_switch else "plotly_dark",
+        "paper_bgcolor": "white" if theme_switch else "#222222",
+        "plot_bgcolor": "white" if theme_switch else "#222222",
+        "font_color": "black" if theme_switch else "white",
+        "margin": {"l": 10, "r": 10, "t": 10, "b": 10},
+    }
+
+
+    figure.update_layout(**theme)
+
+    return figure
