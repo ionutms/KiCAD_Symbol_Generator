@@ -106,12 +106,27 @@ def update_graph_with_uploaded_file(
 ) -> tuple[any, dict[str, str]]:
     """Update the graph with repository clone history data from GitHub."""
     github_csv_url = (
-        "https://raw.githubusercontent.com/ionutms/KiCAD_Symbols_Generator/"
-        "main/repo_traffic_data/clones_history.csv")
+        "https://raw.githubusercontent.com/"
+        "ionutms/KiCAD_Symbols_Generator/"
+        "main/repo_traffic_data/clones_history.csv"
+    )
+
+    # User-Agent header to prevent potential 403 errors
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/91.0.4472.124 Safari/537.36"
+        ),
+    }
 
     try:
-        # Fetch the CSV file from GitHub
-        response = requests.get(github_csv_url, timeout=10)
+        # Fetch the CSV file from GitHub with User-Agent header
+        response = requests.get(
+            github_csv_url,
+            headers=headers,
+            timeout=10,
+        )
         # Raise an exception for bad responses
         response.raise_for_status()
 
