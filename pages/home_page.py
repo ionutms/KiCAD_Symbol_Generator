@@ -87,22 +87,34 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
     Output(f"{module_name}_repo_visitors_graph", "figure"),
     Input("theme_switch_value_store", "data"),
 )
-def update_graph_with_uploaded_file(
+def update_graph_with_uploaded_file(  # noqa: PLR0915
     theme_switch: bool,  # noqa: FBT001
     ) -> tuple[Any, dict[str, Any]]:
-    """TODO."""
+    """Read CSV data and update the repository graphs."""
+    # GitHub raw URLs for the CSV files
+    github_clones_url = (
+        "https://raw.githubusercontent.com/ionutms/KiCAD_Symbols_Generator/"
+        "main/repo_traffic_data/clones_history.csv"
+    )
+    github_visitors_url = (
+        "https://raw.githubusercontent.com/ionutms/KiCAD_Symbols_Generator/"
+        "main/repo_traffic_data/visitors_history.csv"
+    )
+
     # Local file paths relative to the script's directory
     local_clones_file = "repo_traffic_data/clones_history.csv"
     local_visitors_file = "repo_traffic_data/visitors_history.csv"
 
+    data_frame_1 = None
+    data_frame_2 = None
+
+    # Try loading data from GitHub
     try:
-        # Read the clones CSV file
-        data_frame_1 = pd.read_csv(local_clones_file)
+        data_frame_1 = pd.read_csv(github_clones_url)
         data_frame_1["clone_timestamp"] = pd.to_datetime(
             data_frame_1["clone_timestamp"], utc=True)
 
-        # Read the visitors CSV file
-        data_frame_2 = pd.read_csv(local_visitors_file)
+        data_frame_2 = pd.read_csv(github_visitors_url)
         data_frame_2 = data_frame_2.rename(columns={
             "visitor_timestamp": "clone_timestamp",
             "total_visitors": "total_clones",
@@ -111,14 +123,50 @@ def update_graph_with_uploaded_file(
         data_frame_2["clone_timestamp"] = pd.to_datetime(
             data_frame_2["clone_timestamp"], utc=True)
 
-    except FileNotFoundError as e:
-        print(f"Error reading local CSV file: {e}")
-        # Create empty DataFrames in case of error
+    except pd.errors.ParserError as e:
+        print(
+            f"CSV parsing error from GitHub: {e}. "
+            "Falling back to local files.")
+    except pd.errors.EmptyDataError as e:
+        print(
+            f"Empty CSV error from GitHub: {e}. "
+            "Falling back to local files.")
+    except OSError as e:
+        print(
+            f"Network or GitHub access error: {e}. "
+            "Falling back to local files.")
+
+    # If GitHub read failed, try reading from local files
+    if data_frame_1 is None or data_frame_2 is None:
+        try:
+            data_frame_1 = pd.read_csv(local_clones_file)
+            data_frame_1["clone_timestamp"] = pd.to_datetime(
+                data_frame_1["clone_timestamp"], utc=True)
+
+            data_frame_2 = pd.read_csv(local_visitors_file)
+            data_frame_2 = data_frame_2.rename(columns={
+                "visitor_timestamp": "clone_timestamp",
+                "total_visitors": "total_clones",
+                "unique_visitors": "unique_clones",
+            })
+            data_frame_2["clone_timestamp"] = pd.to_datetime(
+                data_frame_2["clone_timestamp"], utc=True)
+
+        except FileNotFoundError as e:
+            print(f"Local file not found: {e}")
+        except pd.errors.ParserError as e:
+            print(f"CSV parsing error in local files: {e}")
+        except pd.errors.EmptyDataError as e:
+            print(f"Empty CSV error in local files: {e}")
+
+    # If both attempts fail, create empty DataFrames
+    if data_frame_1 is None:
         data_frame_1 = pd.DataFrame({
             "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
             "total_clones": pd.Series(dtype="int"),
             "unique_clones": pd.Series(dtype="int"),
         })
+    if data_frame_2 is None:
         data_frame_2 = pd.DataFrame({
             "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
             "total_clones": pd.Series(dtype="int"),
