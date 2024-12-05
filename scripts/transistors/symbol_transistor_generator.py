@@ -77,4 +77,7 @@ def write_component(
     if component_data.get("Transistor Type") == "N-Channel Dual":
         symbol_utils.write_n_mos_dual_transistor_symbol_drawing(
             symbol_file, symbol_name)
+    if component_data.get("Transistor Type") == "P-Channel Dual":
+        symbol_utils.write_p_mos_dual_transistor_symbol_drawing(
+            symbol_file, symbol_name)
     symbol_file.write(")")

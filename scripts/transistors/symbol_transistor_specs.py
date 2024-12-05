@@ -92,8 +92,8 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
             "PSMN075-100MSE.pdf"),
         drain_source_voltage =[100.0], drain_current=[18],
         package="LFPAK33-8", transistor_type="N-Channel",
-        trustedparts_link="https://www.trustedparts.com/en/search",
-    ),
+        trustedparts_link="https://www.trustedparts.com/en/search"),
+
     "BUK9M120-100EX": SeriesSpec(
         manufacturer="Nexperia", base_series="BUK9M120-100EX",
         footprint="transistor_footprints:LFPAK33-8",
@@ -102,8 +102,8 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
             "BUK9M120-100E.pdf"),
         drain_source_voltage =[100.0], drain_current=[11.5],
         package="LFPAK33-8", transistor_type="N-Channel",
-        trustedparts_link="https://www.trustedparts.com/en/search",
-    ),
+        trustedparts_link="https://www.trustedparts.com/en/search"),
+
     "BUK9M156-100EX": SeriesSpec(
         manufacturer="Nexperia", base_series="BUK9M156-100EX",
         footprint="transistor_footprints:LFPAK33-8",
@@ -112,8 +112,8 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
             "BUK9M156-100E.pdf"),
         drain_source_voltage =[100.0], drain_current=[9.3],
         package="LFPAK33-8", transistor_type="N-Channel",
-        trustedparts_link="https://www.trustedparts.com/en/search",
-    ),
+        trustedparts_link="https://www.trustedparts.com/en/search"),
+
     "BUK9K29-100E": SeriesSpec(
         manufacturer="Nexperia", base_series="BUK9K29-100E",
         footprint="transistor_footprints:LFPAK56D-8",
@@ -122,6 +122,13 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
             "BUK9K29-100E.pdf"),
         drain_source_voltage =[100], drain_current=[30],
         package="LFPAK56D-8", transistor_type="N-Channel Dual",
-        trustedparts_link="https://www.trustedparts.com/en/search",
-    ),
+        trustedparts_link="https://www.trustedparts.com/en/search"),
+
+    "SI7997DP-T1-GE3": SeriesSpec(
+        manufacturer="Vishay Semiconductors", base_series="SI7997DP-T1-GE3",
+        footprint="transistor_footprints:PowerPAK SO-8",
+        datasheet=("https://www.vishay.com/docs/66719/si7997dp.pdf"),
+        drain_source_voltage =[-30], drain_current=[-60],
+        package="PowerPAK SO-8", transistor_type="P-Channel Dual",
+        trustedparts_link="https://www.trustedparts.com/en/search"),
 }
