@@ -4,15 +4,12 @@ This module defines the layout and callback for the home page of the Dash app.
 It displays a title and dynamically generates links to other pages in the app.
 """
 
-import base64
-import io
 from typing import Any
 
 import dash
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
-import requests
 from dash import Input, Output, callback, dcc, html
 
 import pages.utils.dash_component_utils as dcu
@@ -92,83 +89,41 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
 )
 def update_graph_with_uploaded_file(
     theme_switch: bool,  # noqa: FBT001
-) -> tuple[Any, dict[str, Any]]:
-    """Update the graph with repository clone history data from GitHub.
-
-    Fetches the latest CSV file, parses timestamps with UTC timezone,
-    and creates a clone history visualization.
-    """
-    # GitHub API URL to get the latest file content
-    github_api_repo_clones_url = (
-        "https://api.github.com/repos/ionutms/KiCAD_Symbols_Generator/"
-        "contents/repo_traffic_data/clones_history.csv?ref=main")
-
-    github_api_repo_visitors_url = (
-        "https://api.github.com/repos/ionutms/KiCAD_Symbols_Generator/"
-        "contents/repo_traffic_data/visitors_history.csv?ref=main")
-
-    # User-Agent header to prevent potential 403 errors
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/91.0.4472.124 Safari/537.36"
-        ),
-    }
+    ) -> tuple[Any, dict[str, Any]]:
+    """TODO."""
+    # Local file paths relative to the script's directory
+    local_clones_file = "repo_traffic_data/clones_history.csv"
+    local_visitors_file = "repo_traffic_data/visitors_history.csv"
 
     try:
-        # Fetch the file metadata and content via GitHub API
-        response_1 = requests.get(
-            github_api_repo_clones_url, headers=headers, timeout=10)
-        response_1.raise_for_status()
-
-        # Decode the base64 encoded content
-        file_content_1 = base64.b64decode(
-            response_1.json()["content"]).decode("utf-8")
-
-        # Read the CSV from the decoded content
-        data_frame_1 = pd.read_csv(io.StringIO(file_content_1))
-
-        # Parse timestamps with UTC timezone
+        # Read the clones CSV file
+        data_frame_1 = pd.read_csv(local_clones_file)
         data_frame_1["clone_timestamp"] = pd.to_datetime(
             data_frame_1["clone_timestamp"], utc=True)
 
-        # Fetch the file metadata and content via GitHub API
-        response_2 = requests.get(
-            github_api_repo_visitors_url, headers=headers, timeout=10)
-        response_2.raise_for_status()
-
-        # Decode the base64 encoded content
-        file_content_2 = base64.b64decode(
-            response_2.json()["content"]).decode("utf-8")
-
-        # Read the CSV from the decoded content
-        data_frame_2 = pd.read_csv(io.StringIO(file_content_2))
-
-        # Rename columns to match the previous implementation
+        # Read the visitors CSV file
+        data_frame_2 = pd.read_csv(local_visitors_file)
         data_frame_2 = data_frame_2.rename(columns={
             "visitor_timestamp": "clone_timestamp",
             "total_visitors": "total_clones",
             "unique_visitors": "unique_clones",
         })
-
-        # Parse timestamps with UTC timezone
         data_frame_2["clone_timestamp"] = pd.to_datetime(
             data_frame_2["clone_timestamp"], utc=True)
 
-    except requests.RequestException as requests_error_message:
-        print(f"Error fetching CSV from GitHub: {requests_error_message}")
-        # Create an empty DataFrame with the expected structure
+    except FileNotFoundError as e:
+        print(f"Error reading local CSV file: {e}")
+        # Create empty DataFrames in case of error
         data_frame_1 = pd.DataFrame({
             "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
             "total_clones": pd.Series(dtype="int"),
-            "unique_clones": pd.Series(dtype="int")})
-
-        # Create an empty DataFrame with the expected structure
+            "unique_clones": pd.Series(dtype="int"),
+        })
         data_frame_2 = pd.DataFrame({
             "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
             "total_clones": pd.Series(dtype="int"),
-            "unique_clones": pd.Series(dtype="int")})
+            "unique_clones": pd.Series(dtype="int"),
+        })
 
     # Create figure layout
     repo_clones_figure_layout = {
