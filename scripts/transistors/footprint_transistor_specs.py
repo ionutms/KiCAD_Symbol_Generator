@@ -77,4 +77,14 @@ FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
             thermal_pad_numbers=[5, 6], pad_numbers=[1, 2, 3, 4, 5, 5, 6, 6]),
         ref_offset_y=-3.6,
     ),
+    "PowerPAK SO-8": FootprintSpecs(
+        body_dimensions=BodyDimensions(width=7.0, height=5.0),
+        pad_dimensions=PadDimensionsAsymmetric(
+            width=1.27, height=0.66, pad_center_x=2.67,
+            pad_pitch_y=1.27, pins_per_side=4,
+            thermal_width=3.81, thermal_height=1.93,
+            thermal_pad_center_x=0.69, thermal_pad_center_y=[1.27, -1.27],
+            thermal_pad_numbers=[5, 6], pad_numbers=[1, 2, 3, 4, 5, 5, 6, 6]),
+        ref_offset_y=-3.2,
+    ),
 }
