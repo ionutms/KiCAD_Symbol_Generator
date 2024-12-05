@@ -70,6 +70,6 @@ def write_component(
         symbol_file, component_data, property_order, 2)
     if component_data.get("Diode Type") == "Schottky":
         symbol_utils.write_schottky_symbol_drawing(symbol_file, symbol_name)
-    else:
+    if component_data.get("Diode Type") == "Zener":
         symbol_utils.write_zener_symbol_drawing(symbol_file, symbol_name)
     symbol_file.write(")")
