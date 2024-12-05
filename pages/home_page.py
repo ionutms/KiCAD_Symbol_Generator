@@ -195,7 +195,8 @@ def update_graph_with_uploaded_file(
             "title": "Unique Clones", "showgrid": False,
         },
         "title": {
-            "text": "Repository Clone History", "x": 0.5, "xanchor": "center",
+            "text": "Repository Clones History",
+            "x": 0.5, "xanchor": "center",
         },
         "showlegend": False,
     }
@@ -214,17 +215,18 @@ def update_graph_with_uploaded_file(
         "yaxis": {
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
-            "position": 0.0, "anchor": "free", "title": "Total Clones",
+            "position": 0.0, "anchor": "free", "title": "Total Visitors",
             "showgrid": False,
         },
         "yaxis2": {
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
             "position": 1.0, "overlaying": "y", "side": "right",
-            "title": "Unique Clones", "showgrid": False,
+            "title": "Unique Visitors", "showgrid": False,
         },
         "title": {
-            "text": "Repository Clone History", "x": 0.5, "xanchor": "center",
+            "text": "Repository Visitors History",
+            "x": 0.5, "xanchor": "center",
         },
         "showlegend": False,
     }
@@ -244,13 +246,13 @@ def update_graph_with_uploaded_file(
 
     total_visitors_trace = go.Scatter(
         x=data_frame_2["clone_timestamp"], y=data_frame_2["total_clones"],
-        mode="lines+markers", name="Total Clones",
+        mode="lines+markers", name="Total Visitors",
         marker={"color": "#227b33", "size": 8},
         line={"color": "#227b33", "width": 2}, yaxis="y1")
 
     unique_visitors_trace = go.Scatter(
         x=data_frame_2["clone_timestamp"], y=data_frame_2["unique_clones"],
-        mode="lines+markers", name="Unique Clones",
+        mode="lines+markers", name="Unique Visitors",
         marker={"color": "#4187db", "size": 8},
         line={"color": "#4187db", "width": 2}, yaxis="y2")
 
