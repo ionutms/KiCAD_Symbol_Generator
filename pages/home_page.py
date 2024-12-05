@@ -54,8 +54,12 @@ layout = dbc.Container([
     dbc.Row([
         dbc.Col([dcc.Loading([
             dcc.Graph(
-                id=f"{module_name}_data_graph",
-                config={"displaylogo": False})])], xs=12, md=8),
+                id=f"{module_name}_repo_clones_graph",
+                config={"displaylogo": False}),
+            dcc.Graph(
+                id=f"{module_name}_repo_visitors_graph",
+                config={"displaylogo": False}),
+            ])], xs=12, md=8),
 
         dbc.Col([
             html.H4("Application Pages"),
@@ -82,7 +86,8 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
 
 
 @callback(
-    Output(f"{module_name}_data_graph", "figure"),
+    Output(f"{module_name}_repo_clones_graph", "figure"),
+    Output(f"{module_name}_repo_visitors_graph", "figure"),
     Input("theme_switch_value_store", "data"),
 )
 def update_graph_with_uploaded_file(
@@ -94,9 +99,13 @@ def update_graph_with_uploaded_file(
     and creates a clone history visualization.
     """
     # GitHub API URL to get the latest file content
-    github_api_url = (
+    github_api_repo_clones_url = (
         "https://api.github.com/repos/ionutms/KiCAD_Symbols_Generator/"
         "contents/repo_traffic_data/clones_history.csv?ref=main")
+
+    github_api_repo_visitors_url = (
+        "https://api.github.com/repos/ionutms/KiCAD_Symbols_Generator/"
+        "contents/repo_traffic_data/visitors_history.csv?ref=main")
 
     # User-Agent header to prevent potential 403 errors
     headers = {
@@ -109,47 +118,96 @@ def update_graph_with_uploaded_file(
 
     try:
         # Fetch the file metadata and content via GitHub API
-        response = requests.get(
-            github_api_url,
-            headers=headers,
-            timeout=10,
-        )
-        response.raise_for_status()
+        response_1 = requests.get(
+            github_api_repo_clones_url, headers=headers, timeout=10)
+        response_1.raise_for_status()
 
         # Decode the base64 encoded content
-        file_content = base64.b64decode(
-            response.json()["content"]).decode("utf-8")
+        file_content_1 = base64.b64decode(
+            response_1.json()["content"]).decode("utf-8")
 
         # Read the CSV from the decoded content
-        data_frame = pd.read_csv(io.StringIO(file_content))
+        data_frame_1 = pd.read_csv(io.StringIO(file_content_1))
 
         # Parse timestamps with UTC timezone
-        data_frame["clone_timestamp"] = pd.to_datetime(
-            data_frame["clone_timestamp"],
-            utc=True,  # Ensure timestamps are parsed with UTC timezone
-        )
+        data_frame_1["clone_timestamp"] = pd.to_datetime(
+            data_frame_1["clone_timestamp"], utc=True)
+
+        # Fetch the file metadata and content via GitHub API
+        response_2 = requests.get(
+            github_api_repo_visitors_url, headers=headers, timeout=10)
+        response_2.raise_for_status()
+
+        # Decode the base64 encoded content
+        file_content_2 = base64.b64decode(
+            response_2.json()["content"]).decode("utf-8")
+
+        # Read the CSV from the decoded content
+        data_frame_2 = pd.read_csv(io.StringIO(file_content_2))
+
+        # Rename columns to match the previous implementation
+        data_frame_2 = data_frame_2.rename(columns={
+            "visitor_timestamp": "clone_timestamp",
+            "total_visitors": "total_clones",
+            "unique_visitors": "unique_clones",
+        })
+
+        # Parse timestamps with UTC timezone
+        data_frame_2["clone_timestamp"] = pd.to_datetime(
+            data_frame_2["clone_timestamp"], utc=True)
 
     except requests.RequestException as requests_error_message:
         print(f"Error fetching CSV from GitHub: {requests_error_message}")
         # Create an empty DataFrame with the expected structure
-        data_frame = pd.DataFrame({
+        data_frame_1 = pd.DataFrame({
+            "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
+            "total_clones": pd.Series(dtype="int"),
+            "unique_clones": pd.Series(dtype="int")})
+
+        # Create an empty DataFrame with the expected structure
+        data_frame_2 = pd.DataFrame({
             "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
             "total_clones": pd.Series(dtype="int"),
             "unique_clones": pd.Series(dtype="int")})
 
     # Create figure layout
-    figure_layout = {
+    repo_clones_figure_layout = {
         "xaxis": {
-            "gridcolor": "#808080",
-            "griddash": "dash",
-            "zerolinecolor": "lightgray",
-            "zeroline": False,
-            "domain": (0.0, 1.0),
-            "title": "Date",
-            "showgrid": True,
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
             "range": [
-                data_frame["clone_timestamp"].min(),
-                data_frame["clone_timestamp"].max(),
+                data_frame_1["clone_timestamp"].min(),
+                data_frame_1["clone_timestamp"].max(),
+            ],
+            "type": "date",
+        },
+        "yaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
+            "position": 0.0, "anchor": "free", "title": "Total Clones",
+            "showgrid": False,
+        },
+        "yaxis2": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
+            "position": 1.0, "overlaying": "y", "side": "right",
+            "title": "Unique Clones", "showgrid": False,
+        },
+        "title": {
+            "text": "Repository Clone History", "x": 0.5, "xanchor": "center",
+        },
+        "showlegend": False,
+    }
+
+    repo_visitors_figure_layout = {
+        "xaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
+            "range": [
+                data_frame_2["clone_timestamp"].min(),
+                data_frame_2["clone_timestamp"].max(),
             ],
             "type": "date",
         },
@@ -173,23 +231,55 @@ def update_graph_with_uploaded_file(
 
     # Create traces for total and unique clones
     total_clones_trace = go.Scatter(
-        x=data_frame["clone_timestamp"], y=data_frame["total_clones"],
+        x=data_frame_1["clone_timestamp"], y=data_frame_1["total_clones"],
         mode="lines+markers", name="Total Clones",
         marker={"color": "#227b33", "size": 8},
         line={"color": "#227b33", "width": 2}, yaxis="y1")
 
     unique_clones_trace = go.Scatter(
-        x=data_frame["clone_timestamp"], y=data_frame["unique_clones"],
+        x=data_frame_1["clone_timestamp"], y=data_frame_1["unique_clones"],
         mode="lines+markers", name="Unique Clones",
         marker={"color": "#4187db", "size": 8},
         line={"color": "#4187db", "width": 2}, yaxis="y2")
 
-    # Create figure
-    figure = go.Figure(
-        data=[total_clones_trace, unique_clones_trace], layout=figure_layout)
+    total_visitors_trace = go.Scatter(
+        x=data_frame_2["clone_timestamp"], y=data_frame_2["total_clones"],
+        mode="lines+markers", name="Total Clones",
+        marker={"color": "#227b33", "size": 8},
+        line={"color": "#227b33", "width": 2}, yaxis="y1")
+
+    unique_visitors_trace = go.Scatter(
+        x=data_frame_2["clone_timestamp"], y=data_frame_2["unique_clones"],
+        mode="lines+markers", name="Unique Clones",
+        marker={"color": "#4187db", "size": 8},
+        line={"color": "#4187db", "width": 2}, yaxis="y2")
+
+    # Create repo_clones_figure
+    repo_clones_figure = go.Figure(
+        data=[total_clones_trace, unique_clones_trace],
+        layout=repo_clones_figure_layout)
+
+    # Create repo_visitors_figure
+    repo_visitors_figure = go.Figure(
+        data=[total_visitors_trace, unique_visitors_trace],
+        layout=repo_visitors_figure_layout)
 
     # Update axis colors to match trace colors
-    figure.update_layout(
+    repo_clones_figure.update_layout(
+        height=300,
+        hovermode="x unified",
+        yaxis={
+            "tickcolor": "#227b33", "linecolor": "#227b33",
+            "linewidth": 2, "title_font_color": "#227b33",
+            "title_font_size": 14, "title_font_weight": "bold"},
+        yaxis2={
+            "tickcolor": "#4187db", "linecolor": "#4187db",
+            "linewidth": 2, "title_font_color": "#4187db",
+            "title_font_size": 14, "title_font_weight": "bold"},
+    )
+
+    repo_visitors_figure.update_layout(
+        height=300,
         hovermode="x unified",
         yaxis={
             "tickcolor": "#227b33", "linecolor": "#227b33",
@@ -209,9 +299,13 @@ def update_graph_with_uploaded_file(
         "font_color": "black" if theme_switch else "white",
         "margin": {"l": 50, "r": 50, "t": 50, "b": 50}}
 
-    # Update figure layout with theme
-    figure.update_layout(**theme, modebar={"remove": [
+    # Update repo_clones_figure layout with theme
+    repo_clones_figure.update_layout(**theme, modebar={"remove": [
         "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
         "autoScale2d", "resetScale2d", "toImage"]})
 
-    return figure
+    repo_visitors_figure.update_layout(**theme, modebar={"remove": [
+        "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
+        "autoScale2d", "resetScale2d", "toImage"]})
+
+    return repo_clones_figure, repo_visitors_figure
