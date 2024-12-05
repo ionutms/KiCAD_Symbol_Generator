@@ -4,7 +4,9 @@ This module defines the layout and callback for the home page of the Dash app.
 It displays a title and dynamically generates links to other pages in the app.
 """
 
+import base64
 import io
+from typing import Any
 
 import dash
 import dash_bootstrap_components as dbc
@@ -69,25 +71,7 @@ layout = dbc.Container([
     Input("links_store", "data"),
 )
 def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
-    """Generate and display links based on the provided data.
-
-    This callback function creates a list of links to be displayed on the
-    home page. It uses the data stored in the 'links_store' to dynamically
-    generate these links.
-
-    Args:
-        links (list[dict] | None): A list of dictionaries containing link
-            information. Each dictionary should have 'name' and 'path' keys.
-            If None, a loading message is returned.
-
-    Returns:
-        html.Div | str: A Div containing Link components for each link in the
-        input, or a string with a loading message if no links are provided.
-
-    Note:
-        The function excludes the last link in the list when creating the Div.
-
-    """
+    """Generate and display links based on the provided data."""
     if not links:
         return "Loading links..."
 
@@ -103,13 +87,16 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
 )
 def update_graph_with_uploaded_file(
     theme_switch: bool,  # noqa: FBT001
-) -> tuple[any, dict[str, str]]:
-    """Update the graph with repository clone history data from GitHub."""
-    github_csv_url = (
-        "https://raw.githubusercontent.com/"
-        "ionutms/KiCAD_Symbols_Generator/"
-        "main/repo_traffic_data/clones_history.csv"
-    )
+) -> tuple[Any, dict[str, Any]]:
+    """Update the graph with repository clone history data from GitHub.
+
+    Fetches the latest CSV file, parses timestamps with UTC timezone,
+    and creates a clone history visualization.
+    """
+    # GitHub API URL to get the latest file content
+    github_api_url = (
+        "https://api.github.com/repos/ionutms/KiCAD_Symbols_Generator/"
+        "contents/repo_traffic_data/clones_history.csv?ref=main")
 
     # User-Agent header to prevent potential 403 errors
     headers = {
@@ -121,25 +108,32 @@ def update_graph_with_uploaded_file(
     }
 
     try:
-        # Fetch the CSV file from GitHub with User-Agent header
+        # Fetch the file metadata and content via GitHub API
         response = requests.get(
-            github_csv_url,
+            github_api_url,
             headers=headers,
             timeout=10,
         )
-        # Raise an exception for bad responses
         response.raise_for_status()
 
-        # Read the CSV from the response content
-        data_frame = pd.read_csv(io.StringIO(response.text))
+        # Decode the base64 encoded content
+        file_content = base64.b64decode(
+            response.json()["content"]).decode("utf-8")
+
+        # Read the CSV from the decoded content
+        data_frame = pd.read_csv(io.StringIO(file_content))
+
+        # Parse timestamps with UTC timezone
         data_frame["clone_timestamp"] = pd.to_datetime(
-            data_frame["clone_timestamp"])
+            data_frame["clone_timestamp"],
+            utc=True,  # Ensure timestamps are parsed with UTC timezone
+        )
 
     except requests.RequestException as requests_error_message:
         print(f"Error fetching CSV from GitHub: {requests_error_message}")
         # Create an empty DataFrame with the expected structure
         data_frame = pd.DataFrame({
-            "clone_timestamp": pd.Series(dtype="datetime64[ns]"),
+            "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
             "total_clones": pd.Series(dtype="int"),
             "unique_clones": pd.Series(dtype="int")})
 
