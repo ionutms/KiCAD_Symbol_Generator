@@ -561,96 +561,55 @@ def write_p_mos_transistor_symbol_drawing(
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
     symbol_file.write("""
-			(polyline
-				(pts (xy 0 -6.35) (xy 0 -2.54))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 0.508 0.762) (xy 0.508 1.778))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 2.54 -2.54) (xy -2.54 -2.54))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 2.54 -2.032) (xy 1.524 -2.032))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center -2.54 0)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy -1.524 -2.032) (xy -2.54 -2.032))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 0.508 -2.032) (xy -0.508 -2.032))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy -2.032 -2.032) (xy -2.032 0) (xy -2.54 0))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 0 0) (xy -0.508 -1.016) (xy 0.508 -1.016) (xy 0 0))
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy 0.508 1.27) (xy -0.508 1.778)
-                    (xy -0.508 0.762) (xy 0.508 1.27)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy -5.08 1.27) (xy -5.08 0) (xy -2.54 0)
-                    (xy -2.54 1.27) (xy -0.508 1.27)
-                )
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0 -2.032) (xy 0 0) (xy 2.54 0)
-                    (xy 2.032 0) (xy 2.032 -2.032)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0.508 1.27) (xy 2.54 1.27) (xy 2.54 0)
-                    (xy 5.08 0) (xy 5.08 1.27) (xy 5.08 -3.81)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 0)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 0)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
+        (polyline
+            (pts
+                (xy 0 -6.35) (xy 0 -2.54) (xy -2.54 -2.54)
+                (xy 2.54 -2.54) (xy 0 -2.54) (xy 0 -6.35)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (polyline
+            (pts
+                (xy -5.08 1.27) (xy -5.08 0) (xy -2.54 0)
+                (xy -2.032 0) (xy -2.032 -2.032) (xy -2.54 -2.032)
+                (xy -1.524 -2.032) (xy -2.032 -2.032) (xy -2.032 0)
+                (xy -2.54 0) (xy -2.54 1.27) (xy -0.508 1.27)
+                (xy -0.508 0.762) (xy 0.508 1.27) (xy 0.508 0.762)
+                (xy 0.508 1.27) (xy 2.54 1.27) (xy 2.54 0)
+                (xy 0 0) (xy -0.508 -1.016) (xy 0 -1.016)
+                (xy 0 -2.032) (xy -0.508 -2.032) (xy 0.508 -2.032)
+                (xy 0 -2.032) (xy 0 -1.016) (xy 0.508 -1.016)
+                (xy 0 0) (xy 2.032 0) (xy 2.032 -2.032)
+                (xy 1.524 -2.032) (xy 2.54 -2.032) (xy 2.032 -2.032)
+                (xy 2.032 0) (xy 2.54 0) (xy 5.08 0)
+                (xy 5.08 -3.81) (xy 5.08 1.27) (xy 5.08 0)
+                (xy 2.54 0) (xy 2.54 1.27) (xy 0.508 1.27)
+                (xy 0.508 1.778) (xy 0.508 1.27) (xy -0.508 1.778)
+                (xy -0.508 1.27) (xy -2.54 1.27) (xy -2.54 0)
+                (xy -5.08 0) (xy -5.08 1.27)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (circle
+            (center -2.54 0)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.032 0)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.54 0)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
         """)
 
     # Write pins
@@ -677,101 +636,54 @@ def write_n_mos_transistor_symbol_drawing(
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
     symbol_file.write("""
-			(polyline
-				(pts (xy -0.508 1.778) (xy -0.508 0.762))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 0 -6.35) (xy 0 -2.54))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 2.54 -2.54) (xy -2.54 -2.54))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 2.54 -2.032) (xy 1.524 -2.032))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-
-			(circle
-				(center -2.54 0)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy -1.524 -2.032) (xy -2.54 -2.032))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy 0.508 -2.032) (xy -0.508 -2.032))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts (xy -2.032 -2.032) (xy -2.032 0) (xy -2.54 0))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy -0.508 1.27) (xy 0.508 0.762)
-                    (xy 0.508 1.778) (xy -0.508 1.27)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy 0 -2.032) (xy 0.508 -1.016)
-                    (xy -0.508 -1.016) (xy 0 -2.032)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy -5.08 1.27) (xy -5.08 0) (xy -2.54 0)
-                    (xy -2.54 1.27) (xy -0.508 1.27)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0 -1.016) (xy 0 0) (xy 2.54 0)
-                    (xy 2.032 0) (xy 2.032 -2.032)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0.508 1.27) (xy 2.54 1.27) (xy 2.54 0)
-                    (xy 5.08 0) (xy 5.08 1.27) (xy 5.08 -3.81)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 0)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 0)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-
+        (polyline
+            (pts
+                (xy 0 -6.35) (xy 0 -2.54) (xy -2.54 -2.54)
+                (xy 2.54 -2.54) (xy 0 -2.54) (xy 0 -6.35)
+            )
+            (stroke (width 0) (type default))
+            (fill (type none))
+        )
+        (polyline
+            (pts
+                (xy 5.08 1.27) (xy 5.08 0) (xy 2.54 0)
+                (xy 2.54 1.27) (xy 0.508 1.27) (xy 0.508 1.778)
+                (xy -0.508 1.27) (xy -0.508 1.778) (xy -0.508 1.27)
+                (xy -2.54 1.27) (xy -2.54 0) (xy -5.08 0)
+                (xy -5.08 1.27) (xy -5.08 0) (xy -2.032 0)
+                (xy -2.032 -2.032) (xy -2.54 -2.032) (xy -1.524 -2.032)
+                (xy -2.032 -2.032) (xy -2.032 0) (xy -2.54 0)
+                (xy -2.54 1.27) (xy -0.508 1.27) (xy -0.508 0.762)
+                (xy -0.508 1.27) (xy 0.508 0.762) (xy 0.508 1.27)
+                (xy 2.54 1.27) (xy 2.54 0) (xy 0 0)
+                (xy 0 -1.016) (xy -0.508 -1.016) (xy 0 -2.032)
+                (xy -0.508 -2.032) (xy 0.508 -2.032) (xy 0 -2.032)
+                (xy 0.508 -1.016) (xy 0 -1.016) (xy 0 0)
+                (xy 2.032 0) (xy 2.032 -2.032) (xy 1.524 -2.032)
+                (xy 2.54 -2.032) (xy 2.032 -2.032) (xy 2.032 0)
+                (xy 5.08 0) (xy 5.08 -3.81)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (circle
+            (center -2.54 0)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.032 0)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.54 0)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
         """)
 
     # Write pins
@@ -798,133 +710,102 @@ def write_n_mos_dual_transistor_symbol_drawing(
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
     symbol_file.write("""
-			(circle
-				(center -2.54 -3.81)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center -2.54 8.89)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy -0.508 -2.54) (xy 0.508 -3.048)
-                    (xy 0.508 -2.032) (xy -0.508 -2.54)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy -0.508 10.16) (xy 0.508 9.652)
-                    (xy 0.508 10.668) (xy -0.508 10.16)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy 0 -10.16) (xy 0 -6.35)
-                    (xy -2.54 -6.35) (xy 2.54 -6.35)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0 -5.842) (xy 0.508 -4.826)
-                    (xy -0.508 -4.826) (xy 0 -5.842)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy 0 2.54) (xy 0 6.35) (xy -2.54 6.35) (xy 2.54 6.35)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0 6.858) (xy 0.508 7.874)
-                    (xy -0.508 7.874) (xy 0 6.858)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy -2.54 -5.842) (xy -1.524 -5.842) (xy -2.032 -5.842)
-                    (xy -2.032 -3.81) (xy -7.62 -3.81) (xy -7.62 -2.54)
-					(xy -7.62 -3.81) (xy -2.54 -3.81) (xy -2.54 -2.54)
-                    (xy -0.508 -2.54) (xy -0.508 -2.032) (xy -0.508 -3.048)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy -2.54 6.858) (xy -1.524 6.858) (xy -2.032 6.858)
-                    (xy -2.032 8.89) (xy -7.62 8.89) (xy -7.62 10.16)
-					(xy -7.62 8.89) (xy -2.54 8.89) (xy -2.54 10.16)
-                    (xy -0.508 10.16) (xy -0.508 10.668) (xy -0.508 9.652)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0.508 -2.54) (xy 2.54 -2.54) (xy 2.54 -3.81)
-                    (xy 0 -3.81) (xy 0 -5.842) (xy -0.508 -5.842)
-					(xy 0.508 -5.842) (xy 0 -5.842) (xy 0 -3.81)
-                    (xy 2.032 -3.81) (xy 2.032 -5.842) (xy 1.524 -5.842)
-					(xy 2.54 -5.842) (xy 2.032 -5.842) (xy 2.032 -3.81)
-                    (xy 7.62 -3.81) (xy 7.62 -2.54)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0.508 10.16) (xy 2.54 10.16) (xy 2.54 8.89)
-                    (xy 0 8.89) (xy 0 6.858) (xy -0.508 6.858)
-                    (xy 0.508 6.858) (xy 0 6.858) (xy 0 8.89)
-                    (xy 2.032 8.89) (xy 2.032 6.858) (xy 1.524 6.858)
-                    (xy 2.54 6.858) (xy 2.032 6.858) (xy 2.032 8.89)
-                    (xy 7.62 8.89) (xy 7.62 10.16)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 -3.81)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 8.89)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 -3.81)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 8.89)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
+        (circle
+            (center -2.54 -3.81)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center -2.54 8.89)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (polyline
+            (pts
+                (xy 0 -10.16) (xy 0 -6.35) (xy -2.54 -6.35)
+                (xy 2.54 -6.35) (xy 0 -6.35) (xy 0 -10.16)
+            )
+            (stroke (width 0) (type default))
+            (fill (type none))
+        )
+        (polyline
+            (pts
+                (xy 0 2.54) (xy 0 6.35) (xy -2.54 6.35)
+                (xy 2.54 6.35) (xy 0 6.35) (xy 0 2.54)
+            )
+            (stroke (width 0) (type default))
+            (fill (type none))
+        )
+        (polyline
+            (pts
+                (xy 7.62 -2.54) (xy 7.62 -3.81) (xy 2.54 -3.81)
+                (xy 2.54 -2.54) (xy 0.508 -2.54) (xy 0.508 -2.032)
+                (xy -0.508 -2.54) (xy -0.508 -2.032) (xy -0.508 -2.54)
+                (xy -2.54 -2.54) (xy -2.54 -3.81) (xy -7.62 -3.81)
+                (xy -7.62 -2.54) (xy -7.62 -3.81) (xy -2.032 -3.81)
+                (xy -2.032 -5.842) (xy -2.54 -5.842) (xy -1.524 -5.842)
+                (xy -2.032 -5.842) (xy -2.032 -3.81) (xy -2.54 -3.81)
+                (xy -2.54 -2.54) (xy -0.508 -2.54) (xy -0.508 -3.048)
+                (xy -0.508 -2.54) (xy 0.508 -3.048) (xy 0.508 -2.54)
+                (xy 2.54 -2.54) (xy 2.54 -3.81) (xy 0 -3.81)
+                (xy 0 -4.826) (xy -0.508 -4.826) (xy 0 -5.842)
+                (xy -0.508 -5.842) (xy 0.508 -5.842) (xy 0 -5.842)
+                (xy 0.508 -4.826) (xy 0 -4.826) (xy 0 -3.81)
+                (xy 2.032 -3.81) (xy 2.032 -5.842) (xy 1.524 -5.842)
+                (xy 2.54 -5.842) (xy 2.032 -5.842) (xy 2.032 -3.81)
+                (xy 7.62 -3.81) (xy 7.62 -2.54)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (polyline
+            (pts
+                (xy 7.62 10.16) (xy 7.62 8.89) (xy 2.54 8.89)
+                (xy 2.54 10.16) (xy 0.508 10.16) (xy 0.508 10.668)
+                (xy -0.508 10.16) (xy -0.508 10.668) (xy -0.508 10.16)
+                (xy -2.54 10.16) (xy -2.54 8.89) (xy -7.62 8.89)
+                (xy -7.62 10.16) (xy -7.62 8.89) (xy -2.032 8.89)
+                (xy -2.032 6.858) (xy -2.54 6.858) (xy -1.524 6.858)
+                (xy -2.032 6.858) (xy -2.032 8.89) (xy -2.54 8.89)
+                (xy -2.54 10.16) (xy -0.508 10.16) (xy -0.508 9.652)
+                (xy -0.508 10.16) (xy 0.508 9.652) (xy 0.508 10.16)
+                (xy 2.54 10.16) (xy 2.54 8.89) (xy 0 8.89)
+                (xy 0 7.874) (xy -0.508 7.874) (xy 0 6.858)
+                (xy -0.508 6.858) (xy 0.508 6.858) (xy 0 6.858)
+                (xy 0.508 7.874) (xy 0 7.874) (xy 0 8.89)
+                (xy 2.032 8.89) (xy 2.032 6.858) (xy 1.524 6.858)
+                (xy 2.54 6.858) (xy 2.032 6.858) (xy 2.032 8.89)
+                (xy 7.62 8.89) (xy 7.62 10.16)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (circle
+            (center 2.032 -3.81)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.032 8.89)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.54 -3.81)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.54 8.89)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
         """)
 
     # Write pins
@@ -953,132 +834,104 @@ def write_p_mos_dual_transistor_symbol_drawing(
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
     symbol_file.write("""
-			(circle
-				(center -2.54 -3.81)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center -2.54 8.89)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy -0.508 10.16) (xy 0.508 9.652)
-                    (xy 0.508 10.668) (xy -0.508 10.16)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy 0 -10.16) (xy 0 -6.35)
-                    (xy -2.54 -6.35) (xy 2.54 -6.35)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0 -3.81) (xy 0.508 -4.826)
-                    (xy -0.508 -4.826) (xy 0 -3.81)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts (xy 0 2.54) (xy 0 6.35) (xy -2.54 6.35) (xy 2.54 6.35))
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0 6.858) (xy 0.508 7.874) (xy -0.508 7.874)
-                    (xy 0 6.858)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy 0.508 -2.54) (xy -0.508 -3.048) (xy -0.508 -2.032)
-                    (xy 0.508 -2.54)
-				)
-				(stroke (width 0) (type default))
-				(fill (type outline))
-			)
-			(polyline
-				(pts
-					(xy -2.54 -5.842) (xy -1.524 -5.842) (xy -2.032 -5.842)
-                    (xy -2.032 -3.81) (xy -7.62 -3.81) (xy -7.62 -2.54)
-					(xy -7.62 -3.81) (xy -2.54 -3.81) (xy -2.54 -2.54)
-                    (xy -0.508 -2.54)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy -2.54 6.858) (xy -1.524 6.858) (xy -2.032 6.858)
-                    (xy -2.032 8.89) (xy -7.62 8.89) (xy -7.62 10.16)
-					(xy -7.62 8.89) (xy -2.54 8.89) (xy -2.54 10.16)
-                    (xy -0.508 10.16) (xy -0.508 10.668) (xy -0.508 9.652)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0.508 10.16) (xy 2.54 10.16) (xy 2.54 8.89)
-                    (xy 0 8.89) (xy 0 6.858) (xy -0.508 6.858)
-                    (xy 0.508 6.858) (xy 0 6.858) (xy 0 8.89)
-                    (xy 2.032 8.89) (xy 2.032 6.858) (xy 1.524 6.858)
-                    (xy 2.54 6.858) (xy 2.032 6.858) (xy 2.032 8.89)
-                    (xy 7.62 8.89) (xy 7.62 10.16)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(polyline
-				(pts
-					(xy 0.508 -2.032) (xy 0.508 -3.048) (xy 0.508 -2.54)
-                    (xy 2.54 -2.54) (xy 2.54 -3.81) (xy 0 -3.81)
-					(xy 0 -5.842) (xy -0.508 -5.842) (xy 0.508 -5.842)
-                    (xy 0 -5.842) (xy 0 -3.81) (xy 2.032 -3.81)
-					(xy 2.032 -5.842) (xy 1.524 -5.842) (xy 2.54 -5.842)
-                    (xy 2.032 -5.842) (xy 2.032 -3.81) (xy 7.62 -3.81)
-					(xy 7.62 -2.54)
-				)
-				(stroke (width 0.2032) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 -3.81)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 8.89)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 -3.81)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 8.89)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
+        (circle
+            (center -2.54 -3.81)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center -2.54 8.89)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (polyline
+            (pts
+                (xy 0 -10.16) (xy 0 -6.35) (xy -2.54 -6.35)
+                (xy 2.54 -6.35) (xy 0 -6.35) (xy 0 -10.16)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (polyline
+            (pts
+                (xy 0 2.54) (xy 0 6.35) (xy -2.54 6.35)
+                (xy 2.54 6.35) (xy 0 6.35) (xy 0 2.54)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (polyline
+            (pts
+                (xy -7.62 -2.54) (xy -7.62 -3.81) (xy -2.54 -3.81)
+                (xy -2.032 -3.81) (xy -2.032 -5.842) (xy -2.54 -5.842)
+                (xy -1.524 -5.842) (xy -2.032 -5.842) (xy -2.032 -3.81)
+                (xy -2.54 -3.81) (xy -2.54 -2.54) (xy -0.508 -2.54)
+                (xy -0.508 -3.048) (xy 0.508 -2.54) (xy 0.508 -3.048)
+                (xy 0.508 -2.54) (xy 2.54 -2.54) (xy 2.54 -3.81)
+                (xy 0 -3.81) (xy -0.508 -4.826) (xy 0 -4.826)
+                (xy 0 -5.842) (xy -0.508 -5.842) (xy 0.508 -5.842)
+                (xy 0 -5.842) (xy 0 -4.826) (xy 0.508 -4.826)
+                (xy 0 -3.81) (xy 2.032 -3.81) (xy 2.032 -5.842)
+                (xy 1.524 -5.842) (xy 2.54 -5.842) (xy 2.032 -5.842)
+                (xy 2.032 -3.81) (xy 2.54 -3.81) (xy 7.62 -3.81)
+                (xy 7.62 -2.54) (xy 7.62 -2.54) (xy 7.62 -3.81)
+                (xy 2.54 -3.81) (xy 2.54 -2.54) (xy 0.508 -2.54)
+                (xy 0.508 -2.032) (xy 0.508 -2.54) (xy -0.508 -2.032)
+                (xy -0.508 -2.54) (xy -2.54 -2.54) (xy -2.54 -3.81)
+                (xy -7.62 -3.81) (xy -7.62 -2.54)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (polyline
+            (pts
+                (xy -7.62 10.16) (xy -7.62 8.89) (xy -2.54 8.89)
+                (xy -2.032 8.89) (xy -2.032 6.858) (xy -2.54 6.858)
+                (xy -1.524 6.858) (xy -2.032 6.858) (xy -2.032 8.89)
+                (xy -2.54 8.89) (xy -2.54 10.16) (xy -0.508 10.16)
+                (xy -0.508 9.652) (xy 0.508 10.16) (xy 0.508 9.652)
+                (xy 0.508 10.16) (xy 2.54 10.16) (xy 2.54 8.89)
+                (xy 0 8.89) (xy -0.508 7.874) (xy 0 7.874)
+                (xy 0 6.858) (xy -0.508 6.858) (xy 0.508 6.858)
+                (xy 0 6.858) (xy 0 7.874) (xy 0.508 7.874)
+                (xy 0 8.89) (xy 2.032 8.89) (xy 2.032 6.858)
+                (xy 1.524 6.858) (xy 2.54 6.858) (xy 2.032 6.858)
+                (xy 2.032 8.89) (xy 2.54 8.89) (xy 7.62 8.89)
+                (xy 7.62 10.16) (xy 7.62 10.16) (xy 7.62 8.89)
+                (xy 2.54 8.89) (xy 2.54 10.16) (xy 0.508 10.16)
+                (xy 0.508 10.668) (xy 0.508 10.16) (xy -0.508 10.668)
+                (xy -0.508 10.16) (xy -2.54 10.16) (xy -2.54 8.89)
+                (xy -7.62 8.89) (xy -7.62 10.16)
+            )
+            (stroke (width 0) (type default))
+            (fill (type outline))
+        )
+        (circle
+            (center 2.032 -3.81)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.032 8.89)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.54 -3.81)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+        (circle
+            (center 2.54 8.89)
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
         """)
 
     # Write pins
