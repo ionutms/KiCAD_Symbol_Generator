@@ -547,6 +547,22 @@ def write_zener_symbol_drawing(
     symbol_file.write("\t\t)\n")
 
 
+def write_circle(
+    symbol_file: TextIO,
+    x_pos: float,
+    y_pos: float,
+) -> None:
+    """Write circle."""
+    symbol_file.write(f"""
+        (circle
+            (center {x_pos} {y_pos})
+            (radius 0.0254)
+            (stroke (width 0.381) (type default))
+            (fill (type none))
+        )
+    """)
+
+
 def write_p_mos_transistor_symbol_drawing(
         symbol_file: TextIO,
         symbol_name: str,
@@ -592,25 +608,12 @@ def write_p_mos_transistor_symbol_drawing(
             (stroke (width 0) (type default))
             (fill (type outline))
         )
-        (circle
-            (center -2.54 0)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.032 0)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.54 0)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
         """)
+
+    # Write symbol circles
+    write_circle(symbol_file, -2.54, 0)
+    write_circle(symbol_file, 2.032, 0)
+    write_circle(symbol_file, 2.54, 0)
 
     # Write pins
     write_pin(symbol_file, -7.62, 1.27, 0, "5", "D", length=2.54)
@@ -666,25 +669,12 @@ def write_n_mos_transistor_symbol_drawing(
             (stroke (width 0) (type default))
             (fill (type outline))
         )
-        (circle
-            (center -2.54 0)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.032 0)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.54 0)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
         """)
+
+    # Write symbol circles
+    write_circle(symbol_file, -2.54, 0)
+    write_circle(symbol_file, 2.032, 0)
+    write_circle(symbol_file, 2.54, 0)
 
     # Write pins
     write_pin(symbol_file, -7.62, 1.27, 0, "5", "D", length=2.54)
@@ -710,18 +700,6 @@ def write_n_mos_dual_transistor_symbol_drawing(
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
     symbol_file.write("""
-        (circle
-            (center -2.54 -3.81)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center -2.54 8.89)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
         (polyline
             (pts
                 (xy 0 -10.16) (xy 0 -6.35) (xy -2.54 -6.35)
@@ -782,31 +760,16 @@ def write_n_mos_dual_transistor_symbol_drawing(
             (stroke (width 0) (type default))
             (fill (type outline))
         )
-        (circle
-            (center 2.032 -3.81)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.032 8.89)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.54 -3.81)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.54 8.89)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
         """)
+
+    # Write symbol circles
+    write_circle(symbol_file, -2.54, -3.81)
+    write_circle(symbol_file, 2.032, -3.81)
+    write_circle(symbol_file, 2.54, -3.81)
+
+    write_circle(symbol_file, -2.54, 8.89)
+    write_circle(symbol_file, 2.032, 8.89)
+    write_circle(symbol_file, 2.54, 8.89)
 
     # Write pins
     write_pin(symbol_file, -10.16, 10.16, 0, "6", "D1", length=2.54)
@@ -834,18 +797,6 @@ def write_p_mos_dual_transistor_symbol_drawing(
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
     symbol_file.write("""
-        (circle
-            (center -2.54 -3.81)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center -2.54 8.89)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
         (polyline
             (pts
                 (xy 0 -10.16) (xy 0 -6.35) (xy -2.54 -6.35)
@@ -908,31 +859,16 @@ def write_p_mos_dual_transistor_symbol_drawing(
             (stroke (width 0) (type default))
             (fill (type outline))
         )
-        (circle
-            (center 2.032 -3.81)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.032 8.89)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.54 -3.81)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
-        (circle
-            (center 2.54 8.89)
-            (radius 0.0254)
-            (stroke (width 0.381) (type default))
-            (fill (type none))
-        )
         """)
+
+    # Write symbol circles
+    write_circle(symbol_file, -2.54, -3.81)
+    write_circle(symbol_file, 2.032, -3.81)
+    write_circle(symbol_file, 2.54, -3.81)
+
+    write_circle(symbol_file, -2.54, 8.89)
+    write_circle(symbol_file, 2.032, 8.89)
+    write_circle(symbol_file, 2.54, 8.89)
 
     # Write pins
     write_pin(symbol_file, 10.16, 10.16, 180, "1", "S1", length=2.54)
