@@ -54,11 +54,11 @@ layout = dbc.Container([
             dcc.Loading([dcc.Graph(
                 id=f"{module_name}_repo_clones_graph",
                 config={"displaylogo": False}),
-                ], delay_show=700, delay_hide=500),
+                ], delay_show=1000, delay_hide=500),
             dcc.Loading([dcc.Graph(
                 id=f"{module_name}_repo_visitors_graph",
                 config={"displaylogo": False}),
-                ], delay_show=700, delay_hide=500),
+                ], delay_show=1000, delay_hide=500),
             ], xs=12, md=8),
 
         dbc.Col([
@@ -152,14 +152,26 @@ def create_figure(
         height=300,
         hovermode="x unified",
         yaxis={
-            "tickcolor": trace_colors[0], "linecolor": trace_colors[0],
-            "linewidth": 2, "title_font_color": trace_colors[0],
-            "title_font_size": 14, "title_font_weight": "bold",
+            "tickcolor": trace_colors[0],
+            "linecolor": trace_colors[0],
+            "linewidth": 2,
+            "title_font_color": trace_colors[0],
+            "title_font_size": 14,
+            "title_font_weight": "bold",
+            "tickfont": {
+                "color": trace_colors[0], "size": 12, "weight": "bold"},
+            "title_standoff": 10,
         },
         yaxis2={
-            "tickcolor": trace_colors[1], "linecolor": trace_colors[1],
-            "linewidth": 2, "title_font_color": trace_colors[1],
-            "title_font_size": 14, "title_font_weight": "bold",
+            "tickcolor": trace_colors[1],
+            "linecolor": trace_colors[1],
+            "linewidth": 2,
+            "title_font_color": trace_colors[1],
+            "title_font_size": 14,
+            "title_font_weight": "bold",
+            "tickfont": {
+                "color": trace_colors[1], "size": 12, "weight": "bold"},
+            "title_standoff": 10,
         },
     )
 
@@ -169,7 +181,7 @@ def create_figure(
         "paper_bgcolor": "white" if theme_switch else "#222222",
         "plot_bgcolor": "white" if theme_switch else "#222222",
         "font_color": "black" if theme_switch else "white",
-        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
+        "margin": {"l": 0, "r": 0, "t": 50, "b": 50},
     }
 
     figure.update_layout(**theme, modebar={"remove": [
