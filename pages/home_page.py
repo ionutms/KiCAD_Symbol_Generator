@@ -57,7 +57,7 @@ layout = dbc.Container([
             dcc.Graph(
                 id=f"{module_name}_repo_visitors_graph",
                 config={"displaylogo": False}),
-            ], delay_show=1000)], xs=12, md=8),
+            ])], xs=12, md=8),
 
         dbc.Col([
             html.H4("Application Pages"),
