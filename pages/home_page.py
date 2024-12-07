@@ -100,14 +100,28 @@ def create_figure(
             pd.to_datetime(relayout_data["xaxis.range[1]"]),
         ]
 
+    # Prepare tick values to match exact data points
+    tick_values = data_frame["clone_timestamp"].tolist()
+    tick_text = [tick_value.strftime("%m/%d") for tick_value in tick_values]
+
     # Existing figure layout configuration
     figure_layout = {
         "xaxis": {
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
-            "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
+            "domain": (0.0, 1.0), "showgrid": True,
+            "title": {"text": "Date", "standoff": 10},
+            "title_font_weight": "bold",
             "range": x_range,
             "type": "date",
+
+            "tickmode": "array",
+            "tickvals": tick_values,
+            "ticktext": tick_text,
+            "tickangle": -30,
+
+            "tickfont": {"color": "#808080", "weight": "bold"},
+            "titlefont": {"color": "#808080"},
         },
         "yaxis": {
             "gridcolor": "#808080", "griddash": "dash",
@@ -206,8 +220,7 @@ def adjust_y_axis_range(
         # Filter data within the zoomed range
         filtered_df = data_frame[
             (data_frame["clone_timestamp"] >= x_min) &
-            (data_frame["clone_timestamp"] <= x_max)
-        ]
+            (data_frame["clone_timestamp"] <= x_max)]
 
         # Update y-axis ranges based on filtered data
         if not filtered_df.empty:
@@ -223,12 +236,11 @@ def adjust_y_axis_range(
 
             figure.layout.yaxis.update({
                 "range": [y1_min - y1_padding, y1_max + y1_padding],
-                "autorange": False,
-            })
+                "autorange": False})
+
             figure.layout.yaxis2.update({
                 "range": [y2_min - y2_padding, y2_max + y2_padding],
-                "autorange": False,
-            })
+                "autorange": False})
 
     return figure
 
