@@ -3,6 +3,7 @@
 This module defines the layout and callback for the home page of the Dash app.
 It displays a title and dynamically generates links to other pages in the app.
 """
+from __future__ import annotations
 
 from typing import Any
 
@@ -56,7 +57,7 @@ layout = dbc.Container([
             dcc.Graph(
                 id=f"{module_name}_repo_visitors_graph",
                 config={"displaylogo": False}),
-            ])], xs=12, md=8),
+            ], delay_show=1000)], xs=12, md=8),
 
         dbc.Col([
             html.H4("Application Pages"),
@@ -67,11 +68,111 @@ layout = dbc.Container([
 ], fluid=True)
 
 
+def create_figure(
+    theme_switch: bool,  # noqa: FBT001
+    data_frame: pd.DataFrame,
+    trace_colors: tuple[str, str],
+    titles: tuple[str, str],
+    relayout_data: dict[str, Any] | None = None,
+) -> go.Figure:
+    """TODO."""
+    # Determine the x-axis range
+    min_timestamp = data_frame["clone_timestamp"].min()
+    max_timestamp = data_frame["clone_timestamp"].max()
+
+    # Check if we need to reset the x-axis range
+    x_range = None
+    if (relayout_data and
+        ("xaxis.autorange" in relayout_data or
+            "xaxis.range[0]" not in relayout_data)):
+        # Reset to full range if zoomed out completely
+        x_range = [min_timestamp, max_timestamp]
+    elif relayout_data and "xaxis.range[0]" in relayout_data:
+        # Use the current zoom range if not fully zoomed out
+        x_range = [
+            pd.to_datetime(relayout_data["xaxis.range[0]"]),
+            pd.to_datetime(relayout_data["xaxis.range[1]"]),
+        ]
+
+    # Existing figure layout configuration
+    figure_layout = {
+        "xaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
+            "range": x_range or [min_timestamp, max_timestamp],
+            "type": "date",
+        },
+        "yaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
+            "position": 0.0, "title": titles[1], "showgrid": False,
+            "anchor": "free",
+        },
+        "yaxis2": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
+            "position": 1.0, "title": titles[2], "showgrid": False,
+            "overlaying": "y", "side": "right",
+        },
+        "title": {
+            "text": titles[0], "x": 0.5, "xanchor": "center",
+        },
+        "showlegend": False,
+    }
+
+    total_trace = go.Scatter(
+        x=data_frame["clone_timestamp"], y=data_frame["total_clones"],
+        mode="lines+markers", name=titles[1],
+        marker={"color": trace_colors[0], "size": 8},
+        line={"color": trace_colors[0], "width": 2}, yaxis="y1")
+
+    unique_trace = go.Scatter(
+        x=data_frame["clone_timestamp"], y=data_frame["unique_clones"],
+        mode="lines+markers", name=titles[2],
+        marker={"color": trace_colors[1], "size": 8},
+        line={"color": trace_colors[1], "width": 2}, yaxis="y2")
+
+    figure = go.Figure(
+        data=[total_trace, unique_trace], layout=figure_layout)
+
+    figure.update_layout(
+        height=300,
+        hovermode="x unified",
+        yaxis={
+            "tickcolor": trace_colors[0], "linecolor": trace_colors[0],
+            "linewidth": 2, "title_font_color": trace_colors[0],
+            "title_font_size": 14, "title_font_weight": "bold",
+        },
+        yaxis2={
+            "tickcolor": trace_colors[1], "linecolor": trace_colors[1],
+            "linewidth": 2, "title_font_color": trace_colors[1],
+            "title_font_size": 14, "title_font_weight": "bold",
+        },
+    )
+
+    # Theme configuration
+    theme = {
+        "template": "plotly" if theme_switch else "plotly_dark",
+        "paper_bgcolor": "white" if theme_switch else "#222222",
+        "plot_bgcolor": "white" if theme_switch else "#222222",
+        "font_color": "black" if theme_switch else "white",
+        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
+    }
+
+    figure.update_layout(**theme, modebar={"remove": [
+        "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
+        "autoScale2d", "resetScale2d", "toImage",
+    ]})
+
+    return figure
+
+
 @callback(
     Output("links_display", "children"),
     Input("links_store", "data"),
 )
-def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
+def display_links(links: list[dict] | None) -> html.Div | str:
     """Generate and display links based on the provided data."""
     if not links:
         return "Loading links..."
@@ -86,231 +187,92 @@ def display_links(links: list[dict] | None) -> html.Div | str:  # noqa: FA102
     Output(f"{module_name}_repo_clones_graph", "figure"),
     Output(f"{module_name}_repo_visitors_graph", "figure"),
     Input("theme_switch_value_store", "data"),
+    Input(f"{module_name}_repo_clones_graph", "relayoutData"),
+    Input(f"{module_name}_repo_visitors_graph", "relayoutData"),
 )
-def update_graph_with_uploaded_file(  # noqa: PLR0915
+def update_graph_with_uploaded_file(
     theme_switch: bool,  # noqa: FBT001
-    ) -> tuple[Any, dict[str, Any]]:
+    clones_relayout: dict[str, Any] | None = None,
+    visitors_relayout: dict[str, Any] | None = None,
+) -> tuple[Any, dict[str, Any]]:
     """Read CSV data and update the repository graphs."""
-    # GitHub raw URLs for the CSV files
-    github_clones_url = (
-        "https://raw.githubusercontent.com/ionutms/KiCAD_Symbols_Generator/"
-        "main/repo_traffic_data/clones_history.csv"
-    )
-    github_visitors_url = (
-        "https://raw.githubusercontent.com/ionutms/KiCAD_Symbols_Generator/"
-        "main/repo_traffic_data/visitors_history.csv"
-    )
+    def load_traffic_data(
+        github_url: str,
+        local_file: str,
+        rename_columns: dict[str, str] | None = None,
+    ) -> pd.DataFrame:
+        """Load traffic data from GitHub, fallback to local file if needed.
 
-    # Local file paths relative to the script's directory
-    local_clones_file = "repo_traffic_data/clones_history.csv"
-    local_visitors_file = "repo_traffic_data/visitors_history.csv"
+        Args:
+            github_url: URL of the CSV file on GitHub
+            local_file: Path to local CSV file
+            rename_columns: Optional dictionary to rename columns
 
-    data_frame_1 = None
-    data_frame_2 = None
+        Returns:
+            DataFrame with traffic data
 
-    # Try loading data from GitHub
-    try:
-        data_frame_1 = pd.read_csv(github_clones_url)
-        data_frame_1["clone_timestamp"] = pd.to_datetime(
-            data_frame_1["clone_timestamp"], utc=True)
+        """
+        try:
+            # Try loading from GitHub
+            data_frame = pd.read_csv(github_url)
+        except (pd.errors.ParserError, pd.errors.EmptyDataError, OSError):
+            try:
+                # Fallback to local file
+                data_frame = pd.read_csv(local_file)
+            except (
+                FileNotFoundError,
+                pd.errors.ParserError, pd.errors.EmptyDataError):
+                # Return empty DataFrame if both attempts fail
+                return pd.DataFrame({
+                    "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
+                    "total_clones": pd.Series(dtype="int"),
+                    "unique_clones": pd.Series(dtype="int"),
+                })
 
-        data_frame_2 = pd.read_csv(github_visitors_url)
-        data_frame_2 = data_frame_2.rename(columns={
+        # Rename columns if specified
+        if rename_columns:
+            data_frame = data_frame.rename(columns=rename_columns)
+
+        # Convert timestamp to datetime
+        data_frame["clone_timestamp"] = pd.to_datetime(
+            data_frame["clone_timestamp"], utc=True)
+
+        return data_frame
+
+    # Define data sources
+    clones_sources = {
+        "github_url": (
+            "https://raw.githubusercontent.com/ionutms/KiCAD_Symbols_Generator/"
+            "main/repo_traffic_data/clones_history.csv"
+        ),
+        "local_file": "repo_traffic_data/clones_history.csv",
+        "rename_columns": None,
+    }
+
+    visitors_sources = {
+        "github_url": (
+            "https://raw.githubusercontent.com/ionutms/KiCAD_Symbols_Generator/"
+            "main/repo_traffic_data/visitors_history.csv"
+        ),
+        "local_file": "repo_traffic_data/visitors_history.csv",
+        "rename_columns": {
             "visitor_timestamp": "clone_timestamp",
             "total_visitors": "total_clones",
             "unique_visitors": "unique_clones",
-        })
-        data_frame_2["clone_timestamp"] = pd.to_datetime(
-            data_frame_2["clone_timestamp"], utc=True)
-
-    except pd.errors.ParserError as e:
-        print(
-            f"CSV parsing error from GitHub: {e}. "
-            "Falling back to local files.")
-    except pd.errors.EmptyDataError as e:
-        print(
-            f"Empty CSV error from GitHub: {e}. "
-            "Falling back to local files.")
-    except OSError as e:
-        print(
-            f"Network or GitHub access error: {e}. "
-            "Falling back to local files.")
-
-    # If GitHub read failed, try reading from local files
-    if data_frame_1 is None or data_frame_2 is None:
-        try:
-            data_frame_1 = pd.read_csv(local_clones_file)
-            data_frame_1["clone_timestamp"] = pd.to_datetime(
-                data_frame_1["clone_timestamp"], utc=True)
-
-            data_frame_2 = pd.read_csv(local_visitors_file)
-            data_frame_2 = data_frame_2.rename(columns={
-                "visitor_timestamp": "clone_timestamp",
-                "total_visitors": "total_clones",
-                "unique_visitors": "unique_clones",
-            })
-            data_frame_2["clone_timestamp"] = pd.to_datetime(
-                data_frame_2["clone_timestamp"], utc=True)
-
-        except FileNotFoundError as e:
-            print(f"Local file not found: {e}")
-        except pd.errors.ParserError as e:
-            print(f"CSV parsing error in local files: {e}")
-        except pd.errors.EmptyDataError as e:
-            print(f"Empty CSV error in local files: {e}")
-
-    # If both attempts fail, create empty DataFrames
-    if data_frame_1 is None:
-        data_frame_1 = pd.DataFrame({
-            "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
-            "total_clones": pd.Series(dtype="int"),
-            "unique_clones": pd.Series(dtype="int"),
-        })
-    if data_frame_2 is None:
-        data_frame_2 = pd.DataFrame({
-            "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
-            "total_clones": pd.Series(dtype="int"),
-            "unique_clones": pd.Series(dtype="int"),
-        })
-
-    # Create figure layout
-    repo_clones_figure_layout = {
-        "xaxis": {
-            "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False,
-            "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
-            "range": [
-                data_frame_1["clone_timestamp"].min(),
-                data_frame_1["clone_timestamp"].max(),
-            ],
-            "type": "date",
         },
-        "yaxis": {
-            "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
-            "position": 0.0, "anchor": "free", "title": "Total Clones",
-            "showgrid": False,
-        },
-        "yaxis2": {
-            "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
-            "position": 1.0, "overlaying": "y", "side": "right",
-            "title": "Unique Clones", "showgrid": False,
-        },
-        "title": {
-            "text": "Repository Clones History",
-            "x": 0.5, "xanchor": "center",
-        },
-        "showlegend": False,
     }
 
-    repo_visitors_figure_layout = {
-        "xaxis": {
-            "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False,
-            "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
-            "range": [
-                data_frame_2["clone_timestamp"].min(),
-                data_frame_2["clone_timestamp"].max(),
-            ],
-            "type": "date",
-        },
-        "yaxis": {
-            "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
-            "position": 0.0, "anchor": "free", "title": "Total Visitors",
-            "showgrid": False,
-        },
-        "yaxis2": {
-            "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
-            "position": 1.0, "overlaying": "y", "side": "right",
-            "title": "Unique Visitors", "showgrid": False,
-        },
-        "title": {
-            "text": "Repository Visitors History",
-            "x": 0.5, "xanchor": "center",
-        },
-        "showlegend": False,
-    }
+    # Load data
+    data_frame_clones = load_traffic_data(**clones_sources)
+    data_frame_visitors = load_traffic_data(**visitors_sources)
 
-    # Create traces for total and unique clones
-    total_clones_trace = go.Scatter(
-        x=data_frame_1["clone_timestamp"], y=data_frame_1["total_clones"],
-        mode="lines+markers", name="Total Clones",
-        marker={"color": "#227b33", "size": 8},
-        line={"color": "#227b33", "width": 2}, yaxis="y1")
+    # Create figures with specific color schemes
+    repo_clones_figure = create_figure(
+        theme_switch, data_frame_clones, ("#227b33", "#4187db"),
+        ("Git clones", "Clones", "Unique Clones"), clones_relayout)
 
-    unique_clones_trace = go.Scatter(
-        x=data_frame_1["clone_timestamp"], y=data_frame_1["unique_clones"],
-        mode="lines+markers", name="Unique Clones",
-        marker={"color": "#4187db", "size": 8},
-        line={"color": "#4187db", "width": 2}, yaxis="y2")
-
-    total_visitors_trace = go.Scatter(
-        x=data_frame_2["clone_timestamp"], y=data_frame_2["total_clones"],
-        mode="lines+markers", name="Total Visitors",
-        marker={"color": "#227b33", "size": 8},
-        line={"color": "#227b33", "width": 2}, yaxis="y1")
-
-    unique_visitors_trace = go.Scatter(
-        x=data_frame_2["clone_timestamp"], y=data_frame_2["unique_clones"],
-        mode="lines+markers", name="Unique Visitors",
-        marker={"color": "#4187db", "size": 8},
-        line={"color": "#4187db", "width": 2}, yaxis="y2")
-
-    # Create repo_clones_figure
-    repo_clones_figure = go.Figure(
-        data=[total_clones_trace, unique_clones_trace],
-        layout=repo_clones_figure_layout)
-
-    # Create repo_visitors_figure
-    repo_visitors_figure = go.Figure(
-        data=[total_visitors_trace, unique_visitors_trace],
-        layout=repo_visitors_figure_layout)
-
-    # Update axis colors to match trace colors
-    repo_clones_figure.update_layout(
-        height=300,
-        hovermode="x unified",
-        yaxis={
-            "tickcolor": "#227b33", "linecolor": "#227b33",
-            "linewidth": 2, "title_font_color": "#227b33",
-            "title_font_size": 14, "title_font_weight": "bold"},
-        yaxis2={
-            "tickcolor": "#4187db", "linecolor": "#4187db",
-            "linewidth": 2, "title_font_color": "#4187db",
-            "title_font_size": 14, "title_font_weight": "bold"},
-    )
-
-    repo_visitors_figure.update_layout(
-        height=300,
-        hovermode="x unified",
-        yaxis={
-            "tickcolor": "#227b33", "linecolor": "#227b33",
-            "linewidth": 2, "title_font_color": "#227b33",
-            "title_font_size": 14, "title_font_weight": "bold"},
-        yaxis2={
-            "tickcolor": "#4187db", "linecolor": "#4187db",
-            "linewidth": 2, "title_font_color": "#4187db",
-            "title_font_size": 14, "title_font_weight": "bold"},
-    )
-
-    # Theme configuration
-    theme = {
-        "template": "plotly" if theme_switch else "plotly_dark",
-        "paper_bgcolor": "white" if theme_switch else "#222222",
-        "plot_bgcolor": "white" if theme_switch else "#222222",
-        "font_color": "black" if theme_switch else "white",
-        "margin": {"l": 50, "r": 50, "t": 50, "b": 50}}
-
-    # Update repo_clones_figure layout with theme
-    repo_clones_figure.update_layout(**theme, modebar={"remove": [
-        "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
-        "autoScale2d", "resetScale2d", "toImage"]})
-
-    repo_visitors_figure.update_layout(**theme, modebar={"remove": [
-        "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
-        "autoScale2d", "resetScale2d", "toImage"]})
+    repo_visitors_figure = create_figure(
+        theme_switch, data_frame_visitors, ("#227b33", "#4187db"),
+        ("Visitors", "Views", "Unique Views"), visitors_relayout)
 
     return repo_clones_figure, repo_visitors_figure
