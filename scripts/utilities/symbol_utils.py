@@ -564,124 +564,158 @@ def write_circle(
 
 
 def write_p_mos_transistor_symbol_drawing(
-        symbol_file: TextIO,
-        symbol_name: str,
+    symbol_file: TextIO,
+    symbol_name: str,
+    vertical_offset: float = 0.0,
 ) -> None:
-    """Write the horizontal graphical representation of a diode symbol.
+    """Write the graphical representation of a P-MOS transistor symbol.
 
     Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
+        symbol_file: File object for writing the symbol file.
+        symbol_name: Name of the symbol.
+        vertical_offset:
+            Vertical translation in units.
+            Positive moves up, negative moves down. Defaults to 0.0.
 
     """
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
-    symbol_file.write("""
+    def offset_y(y: float) -> float:
+        """Offset y-coordinate by vertical translation."""
+        return y + vertical_offset
+
+    symbol_file.write(f"""
         (polyline
             (pts
-                (xy 0 -6.35) (xy 0 -2.54) (xy -2.54 -2.54)
-                (xy 2.54 -2.54) (xy 0 -2.54) (xy 0 -6.35)
+                (xy 0 {offset_y(-6.35)}) (xy 0 {offset_y(-2.54)})
+                (xy -2.54 {offset_y(-2.54)}) (xy 2.54 {offset_y(-2.54)})
+                (xy 0 {offset_y(-2.54)}) (xy 0 {offset_y(-6.35)})
             )
             (stroke (width 0) (type default))
             (fill (type outline))
         )
         (polyline
             (pts
-                (xy -5.08 1.27) (xy -5.08 0) (xy -2.54 0)
-                (xy -2.032 0) (xy -2.032 -2.032) (xy -2.54 -2.032)
-                (xy -1.524 -2.032) (xy -2.032 -2.032) (xy -2.032 0)
-                (xy -2.54 0) (xy -2.54 1.27) (xy -0.508 1.27)
-                (xy -0.508 0.762) (xy 0.508 1.27) (xy 0.508 0.762)
-                (xy 0.508 1.27) (xy 2.54 1.27) (xy 2.54 0)
-                (xy 0 0) (xy -0.508 -1.016) (xy 0 -1.016)
-                (xy 0 -2.032) (xy -0.508 -2.032) (xy 0.508 -2.032)
-                (xy 0 -2.032) (xy 0 -1.016) (xy 0.508 -1.016)
-                (xy 0 0) (xy 2.032 0) (xy 2.032 -2.032)
-                (xy 1.524 -2.032) (xy 2.54 -2.032) (xy 2.032 -2.032)
-                (xy 2.032 0) (xy 2.54 0) (xy 5.08 0)
-                (xy 5.08 -3.81) (xy 5.08 1.27) (xy 5.08 0)
-                (xy 2.54 0) (xy 2.54 1.27) (xy 0.508 1.27)
-                (xy 0.508 1.778) (xy 0.508 1.27) (xy -0.508 1.778)
-                (xy -0.508 1.27) (xy -2.54 1.27) (xy -2.54 0)
-                (xy -5.08 0) (xy -5.08 1.27)
+                (xy -5.08 {offset_y(1.27)}) (xy -5.08 {offset_y(0)})
+                (xy -2.54 {offset_y(0)}) (xy -2.032 {offset_y(0)})
+                (xy -2.032 {offset_y(-2.032)}) (xy -2.54 {offset_y(-2.032)})
+                (xy -1.524 {offset_y(-2.032)}) (xy -2.032 {offset_y(-2.032)})
+                (xy -2.032 {offset_y(0)}) (xy -2.54 {offset_y(0)})
+                (xy -2.54 {offset_y(1.27)}) (xy -0.508 {offset_y(1.27)})
+                (xy -0.508 {offset_y(0.762)}) (xy 0.508 {offset_y(1.27)})
+                (xy 0.508 {offset_y(0.762)}) (xy 0.508 {offset_y(1.27)})
+                (xy 2.54 {offset_y(1.27)}) (xy 2.54 {offset_y(0)})
+                (xy 0 {offset_y(0)}) (xy -0.508 {offset_y(-1.016)})
+                (xy 0 {offset_y(-1.016)}) (xy 0 {offset_y(-2.032)})
+                (xy -0.508 {offset_y(-2.032)}) (xy 0.508 {offset_y(-2.032)})
+                (xy 0 {offset_y(-2.032)}) (xy 0 {offset_y(-1.016)})
+                (xy 0.508 {offset_y(-1.016)}) (xy 0 {offset_y(0)})
+                (xy 2.032 {offset_y(0)}) (xy 2.032 {offset_y(-2.032)})
+                (xy 1.524 {offset_y(-2.032)}) (xy 2.54 {offset_y(-2.032)})
+                (xy 2.032 {offset_y(-2.032)}) (xy 2.032 {offset_y(0)})
+                (xy 2.54 {offset_y(0)}) (xy 5.08 {offset_y(0)})
+                (xy 5.08 {offset_y(-3.81)}) (xy 5.08 {offset_y(1.27)})
+                (xy 5.08 {offset_y(0)}) (xy 2.54 {offset_y(0)})
+                (xy 2.54 {offset_y(1.27)}) (xy 0.508 {offset_y(1.27)})
+                (xy 0.508 {offset_y(1.778)}) (xy 0.508 {offset_y(1.27)})
+                (xy -0.508 {offset_y(1.778)}) (xy -0.508 {offset_y(1.27)})
+                (xy -2.54 {offset_y(1.27)}) (xy -2.54 {offset_y(0)})
+                (xy -5.08 {offset_y(0)}) (xy -5.08 {offset_y(1.27)})
             )
             (stroke (width 0) (type default))
             (fill (type outline))
         )
         """)
 
-    # Write symbol circles
-    write_circle(symbol_file, -2.54, 0)
-    write_circle(symbol_file, 2.032, 0)
-    write_circle(symbol_file, 2.54, 0)
+    # Write symbol circles with vertical offset
+    write_circle(symbol_file, -2.54, offset_y(0))
+    write_circle(symbol_file, 2.032, offset_y(0))
+    write_circle(symbol_file, 2.54, offset_y(0))
 
-    # Write pins
-    write_pin(symbol_file, -7.62, 1.27, 0, "5", "D", length=2.54)
-    write_pin(symbol_file, 7.62, 1.27, 180, "1", "S", length=2.54)
-    write_pin(symbol_file, 7.62, -1.27, 180, "2", "S", length=2.54)
-    write_pin(symbol_file, 7.62, -3.81, 180, "3", "S", length=2.54)
-    write_pin(symbol_file, 2.54, -6.35, 180, "4", "G", length=2.54)
+    # Write pins with vertical offset
+    write_pin(symbol_file, -7.62, offset_y(1.27), 0, "5", "D", length=2.54)
+    write_pin(symbol_file, 7.62, offset_y(1.27), 180, "1", "S", length=2.54)
+    write_pin(symbol_file, 7.62, offset_y(-1.27), 180, "2", "S", length=2.54)
+    write_pin(symbol_file, 7.62, offset_y(-3.81), 180, "3", "S", length=2.54)
+    write_pin(symbol_file, 2.54, offset_y(-6.35), 180, "4", "G", length=2.54)
 
     symbol_file.write("\t\t)\n")
 
 
 def write_n_mos_transistor_symbol_drawing(
-        symbol_file: TextIO,
-        symbol_name: str,
+    symbol_file: TextIO,
+    symbol_name: str,
+    vertical_offset: float = 0.0,
 ) -> None:
-    """Write the horizontal graphical representation of a diode symbol.
+    """Write the graphical representation of an N-MOS transistor symbol.
 
     Args:
-        symbol_file (TextIO): File object for writing the symbol file.
-        symbol_name (str): Name of the symbol.
+        symbol_file: File object for writing the symbol file.
+        symbol_name: Name of the symbol.
+        vertical_offset:
+            Vertical translation in units.
+            Positive moves up, negative moves down. Defaults to 0.0.
 
     """
     symbol_file.write(f'\t\t(symbol "{symbol_name}_1_0"\n')
 
-    symbol_file.write("""
+    def offset_y(y: float) -> float:
+        """Offset y-coordinate by vertical translation."""
+        return y + vertical_offset
+
+    symbol_file.write(f"""
         (polyline
             (pts
-                (xy 0 -6.35) (xy 0 -2.54) (xy -2.54 -2.54)
-                (xy 2.54 -2.54) (xy 0 -2.54) (xy 0 -6.35)
+                (xy 0 {offset_y(-6.35)}) (xy 0 {offset_y(-2.54)})
+                (xy -2.54 {offset_y(-2.54)}) (xy 2.54 {offset_y(-2.54)})
+                (xy 0 {offset_y(-2.54)}) (xy 0 {offset_y(-6.35)})
             )
             (stroke (width 0) (type default))
             (fill (type none))
         )
         (polyline
             (pts
-                (xy 5.08 1.27) (xy 5.08 0) (xy 2.54 0)
-                (xy 2.54 1.27) (xy 0.508 1.27) (xy 0.508 1.778)
-                (xy -0.508 1.27) (xy -0.508 1.778) (xy -0.508 1.27)
-                (xy -2.54 1.27) (xy -2.54 0) (xy -5.08 0)
-                (xy -5.08 1.27) (xy -5.08 0) (xy -2.032 0)
-                (xy -2.032 -2.032) (xy -2.54 -2.032) (xy -1.524 -2.032)
-                (xy -2.032 -2.032) (xy -2.032 0) (xy -2.54 0)
-                (xy -2.54 1.27) (xy -0.508 1.27) (xy -0.508 0.762)
-                (xy -0.508 1.27) (xy 0.508 0.762) (xy 0.508 1.27)
-                (xy 2.54 1.27) (xy 2.54 0) (xy 0 0)
-                (xy 0 -1.016) (xy -0.508 -1.016) (xy 0 -2.032)
-                (xy -0.508 -2.032) (xy 0.508 -2.032) (xy 0 -2.032)
-                (xy 0.508 -1.016) (xy 0 -1.016) (xy 0 0)
-                (xy 2.032 0) (xy 2.032 -2.032) (xy 1.524 -2.032)
-                (xy 2.54 -2.032) (xy 2.032 -2.032) (xy 2.032 0)
-                (xy 5.08 0) (xy 5.08 -3.81)
+                (xy 5.08 {offset_y(1.27)}) (xy 5.08 {offset_y(0)})
+                (xy 2.54 {offset_y(0)}) (xy 2.54 {offset_y(1.27)})
+                (xy 0.508 {offset_y(1.27)}) (xy 0.508 {offset_y(1.778)})
+                (xy -0.508 {offset_y(1.27)}) (xy -0.508 {offset_y(1.778)})
+                (xy -0.508 {offset_y(1.27)}) (xy -2.54 {offset_y(1.27)})
+                (xy -2.54 {offset_y(0)}) (xy -5.08 {offset_y(0)})
+                (xy -5.08 {offset_y(1.27)}) (xy -5.08 {offset_y(0)})
+                (xy -2.032 {offset_y(0)}) (xy -2.032 {offset_y(-2.032)})
+                (xy -2.54 {offset_y(-2.032)}) (xy -1.524 {offset_y(-2.032)})
+                (xy -2.032 {offset_y(-2.032)}) (xy -2.032 {offset_y(0)})
+                (xy -2.54 {offset_y(0)}) (xy -2.54 {offset_y(1.27)})
+                (xy -0.508 {offset_y(1.27)}) (xy -0.508 {offset_y(0.762)})
+                (xy -0.508 {offset_y(1.27)}) (xy 0.508 {offset_y(0.762)})
+                (xy 0.508 {offset_y(1.27)}) (xy 2.54 {offset_y(1.27)})
+                (xy 2.54 {offset_y(0)}) (xy 0 {offset_y(0)})
+                (xy 0 {offset_y(-1.016)}) (xy -0.508 {offset_y(-1.016)})
+                (xy 0 {offset_y(-2.032)}) (xy -0.508 {offset_y(-2.032)})
+                (xy 0.508 {offset_y(-2.032)}) (xy 0 {offset_y(-2.032)})
+                (xy 0.508 {offset_y(-1.016)}) (xy 0 {offset_y(-1.016)})
+                (xy 0 {offset_y(0)}) (xy 2.032 {offset_y(0)})
+                (xy 2.032 {offset_y(-2.032)}) (xy 1.524 {offset_y(-2.032)})
+                (xy 2.54 {offset_y(-2.032)}) (xy 2.032 {offset_y(-2.032)})
+                (xy 2.032 {offset_y(0)}) (xy 5.08 {offset_y(0)})
+                (xy 5.08 {offset_y(-3.81)})
             )
             (stroke (width 0) (type default))
             (fill (type outline))
         )
         """)
 
-    # Write symbol circles
-    write_circle(symbol_file, -2.54, 0)
-    write_circle(symbol_file, 2.032, 0)
-    write_circle(symbol_file, 2.54, 0)
+    # Write symbol circles with vertical offset
+    write_circle(symbol_file, -2.54, offset_y(0))
+    write_circle(symbol_file, 2.032, offset_y(0))
+    write_circle(symbol_file, 2.54, offset_y(0))
 
-    # Write pins
-    write_pin(symbol_file, -7.62, 1.27, 0, "5", "D", length=2.54)
-    write_pin(symbol_file, 7.62, 1.27, 180, "1", "S", length=2.54)
-    write_pin(symbol_file, 7.62, -1.27, 180, "2", "S", length=2.54)
-    write_pin(symbol_file, 7.62, -3.81, 180, "3", "S", length=2.54)
-    write_pin(symbol_file, 2.54, -6.35, 180, "4", "G", length=2.54)
+    # Write pins with vertical offset
+    write_pin(symbol_file, -7.62, offset_y(1.27), 0, "5", "D", length=2.54)
+    write_pin(symbol_file, 7.62, offset_y(1.27), 180, "1", "S", length=2.54)
+    write_pin(symbol_file, 7.62, offset_y(-1.27), 180, "2", "S", length=2.54)
+    write_pin(symbol_file, 7.62, offset_y(-3.81), 180, "3", "S", length=2.54)
+    write_pin(symbol_file, 2.54, offset_y(-6.35), 180, "4", "G", length=2.54)
 
     symbol_file.write("\t\t)\n")
 
