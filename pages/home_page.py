@@ -50,14 +50,16 @@ layout = dbc.Container([
     dbc.Row([dbc.Col([dcu.app_description(
         TITLE, ABOUT, features, usage_steps)], width=12)]),
     dbc.Row([
-        dbc.Col([dcc.Loading([
-            dcc.Graph(
+        dbc.Col([
+            dcc.Loading([dcc.Graph(
                 id=f"{module_name}_repo_clones_graph",
                 config={"displaylogo": False}),
-            dcc.Graph(
+                ], delay_show=700, delay_hide=500),
+            dcc.Loading([dcc.Graph(
                 id=f"{module_name}_repo_visitors_graph",
                 config={"displaylogo": False}),
-            ])], xs=12, md=8),
+                ], delay_show=700, delay_hide=500),
+            ], xs=12, md=8),
 
         dbc.Col([
             html.H4("Application Pages"),
@@ -75,20 +77,14 @@ def create_figure(
     titles: tuple[str, str],
     relayout_data: dict[str, Any] | None = None,
 ) -> go.Figure:
-    """TODO."""
+    """Create a figure with dynamic x-axis range handling."""
     # Determine the x-axis range
     min_timestamp = data_frame["clone_timestamp"].min()
     max_timestamp = data_frame["clone_timestamp"].max()
 
-    # Check if we need to reset the x-axis range
-    x_range = None
-    if (relayout_data and
-        ("xaxis.autorange" in relayout_data or
-            "xaxis.range[0]" not in relayout_data)):
-        # Reset to full range if zoomed out completely
-        x_range = [min_timestamp, max_timestamp]
-    elif relayout_data and "xaxis.range[0]" in relayout_data:
-        # Use the current zoom range if not fully zoomed out
+    # Determine x-axis range based on relayout data
+    x_range = [min_timestamp, max_timestamp]
+    if (relayout_data and "xaxis.range[0]" in relayout_data):
         x_range = [
             pd.to_datetime(relayout_data["xaxis.range[0]"]),
             pd.to_datetime(relayout_data["xaxis.range[1]"]),
@@ -100,19 +96,21 @@ def create_figure(
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
             "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
-            "range": x_range or [min_timestamp, max_timestamp],
+            "range": x_range,
             "type": "date",
         },
         "yaxis": {
             "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
-            "position": 0.0, "title": titles[1], "showgrid": False,
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "tickangle": -90, "position": 0.0,
+            "title": titles[1], "showgrid": False,
             "anchor": "free",
         },
         "yaxis2": {
             "gridcolor": "#808080", "griddash": "dash",
-            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
-            "position": 1.0, "title": titles[2], "showgrid": False,
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "tickangle": -90, "position": 1.0,
+            "title": titles[2], "showgrid": False,
             "overlaying": "y", "side": "right",
         },
         "title": {
