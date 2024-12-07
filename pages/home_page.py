@@ -5,7 +5,7 @@ It displays a title and dynamically generates links to other pages in the app.
 """
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 import dash
 import dash_bootstrap_components as dbc
@@ -92,8 +92,8 @@ def display_links(links: list[dict] | None) -> html.Div | str:
 )
 def update_graph_with_uploaded_file(
     theme_switch: bool,  # noqa: FBT001
-    clones_relayout: Optional[dict[str, Any]] = None,  # noqa: UP007
-    visitors_relayout: Optional[dict[str, Any]] = None,  # noqa: UP007
+    clones_relayout: dict[str, Any] | None = None,
+    visitors_relayout: dict[str, Any] | None = None,
 ) -> tuple[Any, dict[str, Any]]:
     """Read CSV data and update the repository graphs."""
     def load_traffic_data(
@@ -170,7 +170,7 @@ def update_graph_with_uploaded_file(
         data_frame: pd.DataFrame,
         title: str,
         trace_colors: tuple[str, str],
-        relayout_data: Optional[dict[str, Any]] = None,  # noqa: UP007
+        relayout_data: dict[str, Any] | None = None,
     ) -> go.Figure:
         """TODO."""
         # Determine the x-axis range
