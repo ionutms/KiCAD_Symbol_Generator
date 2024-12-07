@@ -82,6 +82,16 @@ def create_figure(
     min_timestamp = data_frame["clone_timestamp"].min()
     max_timestamp = data_frame["clone_timestamp"].max()
 
+    # Determine y-axis ranges
+    y1_min = data_frame["total_clones"].min()
+    y1_max = data_frame["total_clones"].max()
+    y2_min = data_frame["unique_clones"].min()
+    y2_max = data_frame["unique_clones"].max()
+
+    # Add some padding to the y-axis range (e.g., 10%)
+    y1_padding = (y1_max - y1_min) * 0.1
+    y2_padding = (y2_max - y2_min) * 0.1
+
     # Determine x-axis range based on relayout data
     x_range = [min_timestamp, max_timestamp]
     if (relayout_data and "xaxis.range[0]" in relayout_data):
@@ -105,6 +115,8 @@ def create_figure(
             "tickangle": -90, "position": 0.0,
             "title": titles[1], "showgrid": False,
             "anchor": "free",
+            "autorange": False,
+            "range": [y1_min - y1_padding, y1_max + y1_padding],
         },
         "yaxis2": {
             "gridcolor": "#808080", "griddash": "dash",
@@ -112,6 +124,8 @@ def create_figure(
             "tickangle": -90, "position": 1.0,
             "title": titles[2], "showgrid": False,
             "overlaying": "y", "side": "right",
+            "autorange": False,
+            "range": [y2_min - y2_padding, y2_max + y2_padding],
         },
         "title": {
             "text": titles[0], "x": 0.5, "xanchor": "center",
@@ -162,6 +176,47 @@ def create_figure(
         "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
         "autoScale2d", "resetScale2d", "toImage",
     ]})
+
+    return figure
+
+
+def adjust_y_axis_range(
+        figure: go.Figure,
+        data_frame: pd.DataFrame,
+        relayout_data: dict[str, Any] | None,
+    ) -> go.Figure:
+    """Adjust y-axis range based on the visible x-axis range."""
+    if relayout_data and "xaxis.range[0]" in relayout_data:
+        # Ensure consistent datetime conversion
+        x_min = pd.Timestamp(relayout_data["xaxis.range[0]"])
+        x_max = pd.Timestamp(relayout_data["xaxis.range[1]"])
+
+        # Filter data within the zoomed range
+        filtered_df = data_frame[
+            (data_frame["clone_timestamp"] >= x_min) &
+            (data_frame["clone_timestamp"] <= x_max)
+        ]
+
+        # Update y-axis ranges based on filtered data
+        if not filtered_df.empty:
+            # Add a small padding (5%)
+            # to prevent data points from being exactly at axis edges
+            y1_min = filtered_df["total_clones"].min()
+            y1_max = filtered_df["total_clones"].max()
+            y2_min = filtered_df["unique_clones"].min()
+            y2_max = filtered_df["unique_clones"].max()
+
+            y1_padding = (y1_max - y1_min) * 0.05
+            y2_padding = (y2_max - y2_min) * 0.05
+
+            figure.layout.yaxis.update({
+                "range": [y1_min - y1_padding, y1_max + y1_padding],
+                "autorange": False,
+            })
+            figure.layout.yaxis2.update({
+                "range": [y2_min - y2_padding, y2_max + y2_padding],
+                "autorange": False,
+            })
 
     return figure
 
@@ -222,7 +277,7 @@ def update_graph_with_uploaded_file(
                 pd.errors.ParserError, pd.errors.EmptyDataError):
                 # Return empty DataFrame if both attempts fail
                 return pd.DataFrame({
-                    "clone_timestamp": pd.Series(dtype="datetime64[ns, UTC]"),
+                    "clone_timestamp": pd.Series(dtype="datetime64[ns]"),
                     "total_clones": pd.Series(dtype="int"),
                     "unique_clones": pd.Series(dtype="int"),
                 })
@@ -233,7 +288,7 @@ def update_graph_with_uploaded_file(
 
         # Convert timestamp to datetime
         data_frame["clone_timestamp"] = pd.to_datetime(
-            data_frame["clone_timestamp"], utc=True)
+            data_frame["clone_timestamp"])
 
         return data_frame
 
@@ -272,5 +327,12 @@ def update_graph_with_uploaded_file(
     repo_visitors_figure = create_figure(
         theme_switch, data_frame_visitors, ("#227b33", "#4187db"),
         ("Visitors", "Views", "Unique Views"), visitors_relayout)
+
+    # Adjust y-axis ranges if zoomed
+    repo_clones_figure = adjust_y_axis_range(
+        repo_clones_figure, data_frame_clones, clones_relayout)
+
+    repo_visitors_figure = adjust_y_axis_range(
+        repo_visitors_figure, data_frame_visitors, visitors_relayout)
 
     return repo_clones_figure, repo_visitors_figure
