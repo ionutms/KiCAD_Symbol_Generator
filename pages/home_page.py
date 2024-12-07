@@ -68,6 +68,106 @@ layout = dbc.Container([
 ], fluid=True)
 
 
+def create_figure(
+    theme_switch: bool,  # noqa: FBT001
+    data_frame: pd.DataFrame,
+    trace_colors: tuple[str, str],
+    titles: tuple[str, str],
+    relayout_data: dict[str, Any] | None = None,
+) -> go.Figure:
+    """TODO."""
+    # Determine the x-axis range
+    min_timestamp = data_frame["clone_timestamp"].min()
+    max_timestamp = data_frame["clone_timestamp"].max()
+
+    # Check if we need to reset the x-axis range
+    x_range = None
+    if (relayout_data and
+        ("xaxis.autorange" in relayout_data or
+            "xaxis.range[0]" not in relayout_data)):
+        # Reset to full range if zoomed out completely
+        x_range = [min_timestamp, max_timestamp]
+    elif relayout_data and "xaxis.range[0]" in relayout_data:
+        # Use the current zoom range if not fully zoomed out
+        x_range = [
+            pd.to_datetime(relayout_data["xaxis.range[0]"]),
+            pd.to_datetime(relayout_data["xaxis.range[1]"]),
+        ]
+
+    # Existing figure layout configuration
+    figure_layout = {
+        "xaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
+            "range": x_range or [min_timestamp, max_timestamp],
+            "type": "date",
+        },
+        "yaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
+            "position": 0.0, "title": titles[1], "showgrid": False,
+            "anchor": "free",
+        },
+        "yaxis2": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False, "tickangle": -90,
+            "position": 1.0, "title": titles[2], "showgrid": False,
+            "overlaying": "y", "side": "right",
+        },
+        "title": {
+            "text": titles[0], "x": 0.5, "xanchor": "center",
+        },
+        "showlegend": False,
+    }
+
+    total_trace = go.Scatter(
+        x=data_frame["clone_timestamp"], y=data_frame["total_clones"],
+        mode="lines+markers", name=titles[1],
+        marker={"color": trace_colors[0], "size": 8},
+        line={"color": trace_colors[0], "width": 2}, yaxis="y1")
+
+    unique_trace = go.Scatter(
+        x=data_frame["clone_timestamp"], y=data_frame["unique_clones"],
+        mode="lines+markers", name=titles[2],
+        marker={"color": trace_colors[1], "size": 8},
+        line={"color": trace_colors[1], "width": 2}, yaxis="y2")
+
+    figure = go.Figure(
+        data=[total_trace, unique_trace], layout=figure_layout)
+
+    figure.update_layout(
+        height=300,
+        hovermode="x unified",
+        yaxis={
+            "tickcolor": trace_colors[0], "linecolor": trace_colors[0],
+            "linewidth": 2, "title_font_color": trace_colors[0],
+            "title_font_size": 14, "title_font_weight": "bold",
+        },
+        yaxis2={
+            "tickcolor": trace_colors[1], "linecolor": trace_colors[1],
+            "linewidth": 2, "title_font_color": trace_colors[1],
+            "title_font_size": 14, "title_font_weight": "bold",
+        },
+    )
+
+    # Theme configuration
+    theme = {
+        "template": "plotly" if theme_switch else "plotly_dark",
+        "paper_bgcolor": "white" if theme_switch else "#222222",
+        "plot_bgcolor": "white" if theme_switch else "#222222",
+        "font_color": "black" if theme_switch else "white",
+        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
+    }
+
+    figure.update_layout(**theme, modebar={"remove": [
+        "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
+        "autoScale2d", "resetScale2d", "toImage",
+    ]})
+
+    return figure
+
+
 @callback(
     Output("links_display", "children"),
     Input("links_store", "data"),
@@ -163,115 +263,16 @@ def update_graph_with_uploaded_file(
     }
 
     # Load data
-    data_frame_1 = load_traffic_data(**clones_sources)
-    data_frame_2 = load_traffic_data(**visitors_sources)
-
-    def create_traffic_figure(
-        data_frame: pd.DataFrame,
-        title: str,
-        trace_colors: tuple[str, str],
-        relayout_data: dict[str, Any] | None = None,
-    ) -> go.Figure:
-        """TODO."""
-        # Determine the x-axis range
-        min_timestamp = data_frame["clone_timestamp"].min()
-        max_timestamp = data_frame["clone_timestamp"].max()
-
-        # Check if we need to reset the x-axis range
-        x_range = None
-        if (relayout_data and
-            ("xaxis.autorange" in relayout_data or
-             "xaxis.range[0]" not in relayout_data)):
-            # Reset to full range if zoomed out completely
-            x_range = [min_timestamp, max_timestamp]
-        elif relayout_data and "xaxis.range[0]" in relayout_data:
-            # Use the current zoom range if not fully zoomed out
-            x_range = [
-                pd.to_datetime(relayout_data["xaxis.range[0]"]),
-                pd.to_datetime(relayout_data["xaxis.range[1]"]),
-            ]
-
-        # Existing figure layout configuration
-        figure_layout = {
-            "xaxis": {
-                "gridcolor": "#808080", "griddash": "dash",
-                "zerolinecolor": "lightgray", "zeroline": False,
-                "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
-                "range": x_range or [min_timestamp, max_timestamp],
-                "type": "date",
-            },
-            "yaxis": {
-                "gridcolor": "#808080", "griddash": "dash",
-                "zerolinecolor": "lightgray", "zeroline": False,
-                "tickangle": -90, "position": 0.0, "anchor": "free",
-                "title": "Total", "showgrid": False,
-            },
-            "yaxis2": {
-                "gridcolor": "#808080", "griddash": "dash",
-                "zerolinecolor": "lightgray", "zeroline": False,
-                "tickangle": -90, "position": 1.0, "overlaying": "y",
-                "side": "right", "title": "Unique", "showgrid": False,
-            },
-            "title": {
-                "text": title,
-                "x": 0.5, "xanchor": "center",
-            },
-            "showlegend": False,
-        }
-
-        total_trace = go.Scatter(
-            x=data_frame["clone_timestamp"], y=data_frame["total_clones"],
-            mode="lines+markers", name="Total",
-            marker={"color": trace_colors[0], "size": 8},
-            line={"color": trace_colors[0], "width": 2}, yaxis="y1")
-
-        unique_trace = go.Scatter(
-            x=data_frame["clone_timestamp"], y=data_frame["unique_clones"],
-            mode="lines+markers", name="Unique",
-            marker={"color": trace_colors[1], "size": 8},
-            line={"color": trace_colors[1], "width": 2}, yaxis="y2")
-
-        figure = go.Figure(
-            data=[total_trace, unique_trace], layout=figure_layout)
-
-        figure.update_layout(
-            height=300,
-            hovermode="x unified",
-            yaxis={
-                "tickcolor": trace_colors[0], "linecolor": trace_colors[0],
-                "linewidth": 2, "title_font_color": trace_colors[0],
-                "title_font_size": 14, "title_font_weight": "bold",
-            },
-            yaxis2={
-                "tickcolor": trace_colors[1], "linecolor": trace_colors[1],
-                "linewidth": 2, "title_font_color": trace_colors[1],
-                "title_font_size": 14, "title_font_weight": "bold",
-            },
-        )
-
-        # Theme configuration
-        theme = {
-            "template": "plotly" if theme_switch else "plotly_dark",
-            "paper_bgcolor": "white" if theme_switch else "#222222",
-            "plot_bgcolor": "white" if theme_switch else "#222222",
-            "font_color": "black" if theme_switch else "white",
-            "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
-        }
-
-        figure.update_layout(**theme, modebar={"remove": [
-            "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
-            "autoScale2d", "resetScale2d", "toImage",
-        ]})
-
-        return figure
+    data_frame_clones = load_traffic_data(**clones_sources)
+    data_frame_visitors = load_traffic_data(**visitors_sources)
 
     # Create figures with specific color schemes
-    repo_clones_figure = create_traffic_figure(
-        data_frame_1, "Repository Clones History",
-        ("#227b33", "#4187db"), clones_relayout)
+    repo_clones_figure = create_figure(
+        theme_switch, data_frame_clones, ("#227b33", "#4187db"),
+        ("Git clones", "Clones", "Unique Clones"), clones_relayout)
 
-    repo_visitors_figure = create_traffic_figure(
-        data_frame_2, "Repository Visitors History",
-        ("#227b33", "#4187db"), visitors_relayout)
+    repo_visitors_figure = create_figure(
+        theme_switch, data_frame_visitors, ("#227b33", "#4187db"),
+        ("Visitors", "Views", "Unique Views"), visitors_relayout)
 
     return repo_clones_figure, repo_visitors_figure
