@@ -292,13 +292,17 @@ def update_graph_with_uploaded_file(
         try:
             # Try loading from GitHub
             data_frame = pd.read_csv(github_url)
-        except (pd.errors.ParserError, pd.errors.EmptyDataError, OSError):
+        except (pd.errors.ParserError, pd.errors.EmptyDataError, OSError) \
+                as error_message:
+            print(f"Error reading github file: {error_message}")
             try:
                 # Fallback to local file
                 data_frame = pd.read_csv(local_file)
             except (
                 FileNotFoundError,
-                pd.errors.ParserError, pd.errors.EmptyDataError):
+                pd.errors.ParserError, pd.errors.EmptyDataError) \
+                    as error_message:
+                print(f"Error reading local file: {error_message}")
                 # Return empty DataFrame if both attempts fail
                 return pd.DataFrame({
                     "clone_timestamp": pd.Series(dtype="datetime64[ns]"),
