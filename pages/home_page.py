@@ -5,7 +5,7 @@ It displays a title and dynamically generates links to other pages in the app.
 """
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Optional
 
 import dash
 import dash_bootstrap_components as dbc
@@ -57,7 +57,7 @@ layout = dbc.Container([
             dcc.Graph(
                 id=f"{module_name}_repo_visitors_graph",
                 config={"displaylogo": False}),
-            ])], xs=12, md=8),
+            ], delay_show=1000)], xs=12, md=8),
 
         dbc.Col([
             html.H4("Application Pages"),
@@ -87,9 +87,13 @@ def display_links(links: list[dict] | None) -> html.Div | str:
     Output(f"{module_name}_repo_clones_graph", "figure"),
     Output(f"{module_name}_repo_visitors_graph", "figure"),
     Input("theme_switch_value_store", "data"),
+    Input(f"{module_name}_repo_clones_graph", "relayoutData"),
+    Input(f"{module_name}_repo_visitors_graph", "relayoutData"),
 )
 def update_graph_with_uploaded_file(
     theme_switch: bool,  # noqa: FBT001
+    clones_relayout: Optional[dict[str, Any]] = None,  # noqa: UP007
+    visitors_relayout: Optional[dict[str, Any]] = None,  # noqa: UP007
 ) -> tuple[Any, dict[str, Any]]:
     """Read CSV data and update the repository graphs."""
     def load_traffic_data(
@@ -162,32 +166,38 @@ def update_graph_with_uploaded_file(
     data_frame_1 = load_traffic_data(**clones_sources)
     data_frame_2 = load_traffic_data(**visitors_sources)
 
-    # Create common figure creation function
     def create_traffic_figure(
         data_frame: pd.DataFrame,
         title: str,
         trace_colors: tuple[str, str],
+        relayout_data: Optional[dict[str, Any]] = None,  # noqa: UP007
     ) -> go.Figure:
-        """Create a traffic figure with total and unique traces.
+        """TODO."""
+        # Determine the x-axis range
+        min_timestamp = data_frame["clone_timestamp"].min()
+        max_timestamp = data_frame["clone_timestamp"].max()
 
-        Args:
-            data_frame: DataFrame with traffic data
-            title: Title of the figure
-            trace_colors: Tuple of colors for total and unique traces
+        # Check if we need to reset the x-axis range
+        x_range = None
+        if (relayout_data and
+            ("xaxis.autorange" in relayout_data or
+             "xaxis.range[0]" not in relayout_data)):
+            # Reset to full range if zoomed out completely
+            x_range = [min_timestamp, max_timestamp]
+        elif relayout_data and "xaxis.range[0]" in relayout_data:
+            # Use the current zoom range if not fully zoomed out
+            x_range = [
+                pd.to_datetime(relayout_data["xaxis.range[0]"]),
+                pd.to_datetime(relayout_data["xaxis.range[1]"]),
+            ]
 
-        Returns:
-            Plotly Figure object
-
-        """
+        # Existing figure layout configuration
         figure_layout = {
             "xaxis": {
                 "gridcolor": "#808080", "griddash": "dash",
                 "zerolinecolor": "lightgray", "zeroline": False,
                 "domain": (0.0, 1.0), "title": "Date", "showgrid": True,
-                "range": [
-                    data_frame["clone_timestamp"].min(),
-                    data_frame["clone_timestamp"].max(),
-                ],
+                "range": x_range or [min_timestamp, max_timestamp],
                 "type": "date",
             },
             "yaxis": {
@@ -257,8 +267,11 @@ def update_graph_with_uploaded_file(
 
     # Create figures with specific color schemes
     repo_clones_figure = create_traffic_figure(
-        data_frame_1, "Repository Clones History", ("#227b33", "#4187db"))
+        data_frame_1, "Repository Clones History",
+        ("#227b33", "#4187db"), clones_relayout)
+
     repo_visitors_figure = create_traffic_figure(
-        data_frame_2, "Repository Visitors History", ("#227b33", "#4187db"))
+        data_frame_2, "Repository Visitors History",
+        ("#227b33", "#4187db"), visitors_relayout)
 
     return repo_clones_figure, repo_visitors_figure
