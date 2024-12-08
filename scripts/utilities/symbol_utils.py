@@ -733,12 +733,6 @@ def write_n_mos_dual_transistor_symbol_drawing(
     """
     symbol_file.write(f"""
 		(symbol "{symbol_name}_1_0"
-			(circle
-				(center -2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
 			(polyline
 				(pts
 					(xy 0 -5.08) (xy 0 -1.27) (xy -2.54 -1.27)
@@ -768,6 +762,12 @@ def write_n_mos_dual_transistor_symbol_drawing(
 				)
 				(stroke (width 0) (type default))
 				(fill (type outline))
+			)
+			(circle
+				(center -2.54 1.27)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(circle
 				(center 2.032 1.27)
@@ -801,12 +801,6 @@ def write_n_mos_dual_transistor_symbol_drawing(
 			)
 		)
 		(symbol "{symbol_name}_2_0"
-			(circle
-				(center -2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
 			(polyline
 				(pts
 					(xy 0 -5.08) (xy 0 -1.27) (xy -2.54 -1.27)
@@ -836,6 +830,12 @@ def write_n_mos_dual_transistor_symbol_drawing(
 				)
 				(stroke (width 0) (type default))
 				(fill (type outline))
+			)
+			(circle
+				(center -2.54 1.27)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(circle
 				(center 2.032 1.27)
@@ -884,12 +884,6 @@ def write_p_mos_dual_transistor_symbol_drawing(
     """
     symbol_file.write(f"""
 		(symbol "{symbol_name}_1_0"
-			(circle
-				(center -2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
 			(polyline
 				(pts
 					(xy 0 -5.08) (xy 0 -1.27) (xy -2.54 -1.27)
@@ -920,6 +914,12 @@ def write_p_mos_dual_transistor_symbol_drawing(
 				)
 				(stroke (width 0) (type default))
 				(fill (type outline))
+			)
+			(circle
+				(center -2.54 1.27)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(circle
 				(center 2.032 1.27)
