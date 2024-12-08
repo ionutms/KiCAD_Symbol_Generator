@@ -736,26 +736,16 @@ def write_n_mos_dual_transistor_symbol_drawing(
 			(circle
 				(center -2.54 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -5.08) (xy 0 -1.27) (xy -2.54 -1.27)
                     (xy 2.54 -1.27) (xy 0 -1.27) (xy 0 -5.08)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
@@ -776,115 +766,54 @@ def write_n_mos_dual_transistor_symbol_drawing(
                     (xy 2.54 -0.762) (xy 2.032 -0.762) (xy 2.032 1.27)
                     (xy 7.62 1.27) (xy 7.62 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
 			)
 			(circle
 				(center 2.032 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(circle
 				(center 2.54 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(pin unspecified line
 				(at 10.16 2.54 180)
 				(length 2.54)
-				(name "S1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "S1" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
 			(pin unspecified line
 				(at 2.54 -5.08 180)
 				(length 2.54)
-				(name "G1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "G1" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 			(pin unspecified line
 				(at -10.16 2.54 0)
 				(length 2.54)
-				(name "D1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "6"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "D1" (effects (font (size 1.27 1.27))))
+				(number "6" (effects (font (size 1.27 1.27))))
 			)
 		)
 		(symbol "{symbol_name}_2_0"
 			(circle
 				(center -2.54 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -5.08) (xy 0 -1.27) (xy -2.54 -1.27)
                     (xy 2.54 -1.27) (xy 0 -1.27) (xy 0 -5.08)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
@@ -905,89 +834,38 @@ def write_n_mos_dual_transistor_symbol_drawing(
                     (xy 2.54 -0.762) (xy 2.032 -0.762) (xy 2.032 1.27)
                     (xy 7.62 1.27) (xy 7.62 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
 			)
 			(circle
 				(center 2.032 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(circle
 				(center 2.54 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(pin unspecified line
 				(at 10.16 2.54 180)
 				(length 2.54)
-				(name "S2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "3"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "S2" (effects (font (size 1.27 1.27))))
+				(number "3" (effects (font (size 1.27 1.27))))
 			)
 			(pin unspecified line
 				(at 2.54 -5.08 180)
 				(length 2.54)
-				(name "G2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "4"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "G2" (effects (font (size 1.27 1.27))))
+				(number "4" (effects (font (size 1.27 1.27))))
 			)
 			(pin unspecified line
 				(at -10.16 2.54 0)
 				(length 2.54)
-				(name "D2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "5"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "D2" (effects (font (size 1.27 1.27))))
+				(number "5" (effects (font (size 1.27 1.27))))
 			)
 		)
         """)
@@ -1009,26 +887,16 @@ def write_p_mos_dual_transistor_symbol_drawing(
 			(circle
 				(center -2.54 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(polyline
 				(pts
 					(xy 0 -5.08) (xy 0 -1.27) (xy -2.54 -1.27)
                     (xy 2.54 -1.27) (xy 0 -1.27) (xy 0 -5.08)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
 			)
 			(polyline
 				(pts
@@ -1050,115 +918,48 @@ def write_p_mos_dual_transistor_symbol_drawing(
 					(xy -0.508 2.54) (xy -2.54 2.54) (xy -2.54 1.27)
                     (xy -7.62 1.27) (xy -7.62 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
 			)
 			(circle
 				(center 2.032 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(circle
 				(center 2.54 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(pin unspecified line
 				(at 10.16 2.54 180)
 				(length 2.54)
-				(name "S1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "S1" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
 			)
 			(pin unspecified line
 				(at 2.54 -5.08 180)
 				(length 2.54)
-				(name "G1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "G1" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
 			)
 			(pin unspecified line
 				(at -10.16 2.54 0)
 				(length 2.54)
-				(name "D1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "6"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "D1" (effects (font (size 1.27 1.27))))
+				(number "6" (effects (font (size 1.27 1.27))))
 			)
 		)
 		(symbol "{symbol_name}_2_0"
-			(circle
-				(center -2.54 1.27)
-				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
 			(polyline
 				(pts
 					(xy 0 -5.08) (xy 0 -1.27) (xy -2.54 -1.27)
                     (xy 2.54 -1.27) (xy 0 -1.27) (xy 0 -5.08)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
 			)
 			(polyline
 				(pts
@@ -1180,89 +981,44 @@ def write_p_mos_dual_transistor_symbol_drawing(
 					(xy -0.508 2.54) (xy -2.54 2.54) (xy -2.54 1.27)
                     (xy -7.62 1.27) (xy -7.62 2.54)
 				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
+				(stroke (width 0) (type default))
+				(fill (type outline))
+			)
+			(circle
+				(center -2.54 1.27)
+				(radius 0.0254)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(circle
 				(center 2.032 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(circle
 				(center 2.54 1.27)
 				(radius 0.0254)
-				(stroke
-					(width 0.381)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
+				(stroke (width 0.381) (type default))
+				(fill (type none))
 			)
 			(pin unspecified line
 				(at 10.16 2.54 180)
 				(length 2.54)
-				(name "S2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "3"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "S2" (effects (font (size 1.27 1.27))))
+				(number "3" (effects (font (size 1.27 1.27))))
 			)
 			(pin unspecified line
 				(at 2.54 -5.08 180)
 				(length 2.54)
-				(name "G2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "4"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "G2" (effects (font (size 1.27 1.27))))
+				(number "4" (effects (font (size 1.27 1.27))))
 			)
 			(pin unspecified line
 				(at -10.16 2.54 0)
 				(length 2.54)
-				(name "D2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "5"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
+				(name "D2" (effects (font (size 1.27 1.27))))
+				(number "5" (effects (font (size 1.27 1.27))))
 			)
 		)
         """)
