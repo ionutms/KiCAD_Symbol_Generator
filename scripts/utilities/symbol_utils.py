@@ -723,14 +723,22 @@ def write_n_mos_transistor_symbol_drawing(
 def write_n_mos_dual_transistor_symbol_drawing(
         symbol_file: TextIO,
         symbol_name: str,
+        vertical_offset: float = 0.0,
 ) -> None:
     """Write the horizontal graphical representation of a diode symbol.
 
     Args:
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
+        vertical_offset:
+            Vertical translation in units.
+            Positive moves up, negative moves down. Defaults to 0.0.
 
     """
+    def offset_y(y: float) -> float:
+        """Offset y-coordinate by vertical translation."""
+        return y + vertical_offset
+
     symbol_file.write(f"""
 		(symbol "{symbol_name}_1_0"
 			(polyline
@@ -763,43 +771,21 @@ def write_n_mos_dual_transistor_symbol_drawing(
 				(stroke (width 0) (type default))
 				(fill (type outline))
 			)
-			(circle
-				(center -2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(pin unspecified line
-				(at 10.16 2.54 180)
-				(length 2.54)
-				(name "S1" (effects (font (size 1.27 1.27))))
-				(number "1" (effects (font (size 1.27 1.27))))
-			)
-			(pin unspecified line
-				(at 2.54 -5.08 180)
-				(length 2.54)
-				(name "G1" (effects (font (size 1.27 1.27))))
-				(number "2" (effects (font (size 1.27 1.27))))
-			)
-			(pin unspecified line
-				(at -10.16 2.54 0)
-				(length 2.54)
-				(name "D1" (effects (font (size 1.27 1.27))))
-				(number "6" (effects (font (size 1.27 1.27))))
-			)
-		)
+        """)
+
+    # Write symbol circles with vertical offset
+    write_circle(symbol_file, -2.54, offset_y(1.27))
+    write_circle(symbol_file, 2.032, offset_y(1.27))
+    write_circle(symbol_file, 2.54, offset_y(1.27))
+
+    # Write pins with vertical offset
+    write_pin(symbol_file, 10.16, offset_y(2.54), 180, "1", "S1")
+    write_pin(symbol_file, 2.54, offset_y(-5.08), 180, "2", "G1")
+    write_pin(symbol_file, -10.16, offset_y(2.54), 0, "6", "D1")
+
+    symbol_file.write(")")
+
+    symbol_file.write(f"""
 		(symbol "{symbol_name}_2_0"
 			(polyline
 				(pts
@@ -831,57 +817,40 @@ def write_n_mos_dual_transistor_symbol_drawing(
 				(stroke (width 0) (type default))
 				(fill (type outline))
 			)
-			(circle
-				(center -2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(pin unspecified line
-				(at 10.16 2.54 180)
-				(length 2.54)
-				(name "S2" (effects (font (size 1.27 1.27))))
-				(number "3" (effects (font (size 1.27 1.27))))
-			)
-			(pin unspecified line
-				(at 2.54 -5.08 180)
-				(length 2.54)
-				(name "G2" (effects (font (size 1.27 1.27))))
-				(number "4" (effects (font (size 1.27 1.27))))
-			)
-			(pin unspecified line
-				(at -10.16 2.54 0)
-				(length 2.54)
-				(name "D2" (effects (font (size 1.27 1.27))))
-				(number "5" (effects (font (size 1.27 1.27))))
-			)
-		)
         """)
+
+    # Write symbol circles with vertical offset
+    write_circle(symbol_file, -2.54, offset_y(1.27))
+    write_circle(symbol_file, 2.032, offset_y(1.27))
+    write_circle(symbol_file, 2.54, offset_y(1.27))
+
+    # Write pins with vertical offset
+    write_pin(symbol_file, 10.16, offset_y(2.54), 180, "3", "S2")
+    write_pin(symbol_file, 2.54, offset_y(-5.08), 180, "4", "G2")
+    write_pin(symbol_file, -10.16, offset_y(2.54), 0, "5", "D2")
+
+    symbol_file.write(")")
 
 
 def write_p_mos_dual_transistor_symbol_drawing(
         symbol_file: TextIO,
         symbol_name: str,
+        vertical_offset: float = 0.0,
 ) -> None:
     """Write the horizontal graphical representation of a diode symbol.
 
     Args:
         symbol_file (TextIO): File object for writing the symbol file.
         symbol_name (str): Name of the symbol.
+        vertical_offset:
+            Vertical translation in units.
+            Positive moves up, negative moves down. Defaults to 0.0.
 
     """
+    def offset_y(y: float) -> float:
+        """Offset y-coordinate by vertical translation."""
+        return y + vertical_offset
+
     symbol_file.write(f"""
 		(symbol "{symbol_name}_1_0"
 			(polyline
@@ -915,43 +884,21 @@ def write_p_mos_dual_transistor_symbol_drawing(
 				(stroke (width 0) (type default))
 				(fill (type outline))
 			)
-			(circle
-				(center -2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(pin unspecified line
-				(at 10.16 2.54 180)
-				(length 2.54)
-				(name "S1" (effects (font (size 1.27 1.27))))
-				(number "1" (effects (font (size 1.27 1.27))))
-			)
-			(pin unspecified line
-				(at 2.54 -5.08 180)
-				(length 2.54)
-				(name "G1" (effects (font (size 1.27 1.27))))
-				(number "2" (effects (font (size 1.27 1.27))))
-			)
-			(pin unspecified line
-				(at -10.16 2.54 0)
-				(length 2.54)
-				(name "D1" (effects (font (size 1.27 1.27))))
-				(number "6" (effects (font (size 1.27 1.27))))
-			)
-		)
+        """)
+
+    # Write symbol circles with vertical offset
+    write_circle(symbol_file, -2.54, offset_y(1.27))
+    write_circle(symbol_file, 2.032, offset_y(1.27))
+    write_circle(symbol_file, 2.54, offset_y(1.27))
+
+    # Write pins with vertical offset
+    write_pin(symbol_file, 10.16, offset_y(2.54), 180, "1", "S1")
+    write_pin(symbol_file, 2.54, offset_y(-5.08), 180, "2", "G1")
+    write_pin(symbol_file, -10.16, offset_y(2.54), 0, "6", "D1")
+
+    symbol_file.write(")")
+
+    symbol_file.write(f"""
 		(symbol "{symbol_name}_2_0"
 			(polyline
 				(pts
@@ -984,44 +931,19 @@ def write_p_mos_dual_transistor_symbol_drawing(
 				(stroke (width 0) (type default))
 				(fill (type outline))
 			)
-			(circle
-				(center -2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.032 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(circle
-				(center 2.54 1.27)
-				(radius 0.0254)
-				(stroke (width 0.381) (type default))
-				(fill (type none))
-			)
-			(pin unspecified line
-				(at 10.16 2.54 180)
-				(length 2.54)
-				(name "S2" (effects (font (size 1.27 1.27))))
-				(number "3" (effects (font (size 1.27 1.27))))
-			)
-			(pin unspecified line
-				(at 2.54 -5.08 180)
-				(length 2.54)
-				(name "G2" (effects (font (size 1.27 1.27))))
-				(number "4" (effects (font (size 1.27 1.27))))
-			)
-			(pin unspecified line
-				(at -10.16 2.54 0)
-				(length 2.54)
-				(name "D2" (effects (font (size 1.27 1.27))))
-				(number "5" (effects (font (size 1.27 1.27))))
-			)
-		)
         """)
+
+    # Write symbol circles with vertical offset
+    write_circle(symbol_file, -2.54, offset_y(1.27))
+    write_circle(symbol_file, 2.032, offset_y(1.27))
+    write_circle(symbol_file, 2.54, offset_y(1.27))
+
+    # Write pins with vertical offset
+    write_pin(symbol_file, 10.16, offset_y(2.54), 180, "3", "S2")
+    write_pin(symbol_file, 2.54, offset_y(-5.08), 180, "4", "G2")
+    write_pin(symbol_file, -10.16, offset_y(2.54), 0, "5", "D2")
+
+    symbol_file.write(")")
 
 
 def write_connector_symbol_drawing(
