@@ -739,6 +739,14 @@ def write_n_mos_dual_transistor_symbol_drawing(
         """Offset y-coordinate by vertical translation."""
         return y + vertical_offset
 
+    pin_specs = (
+        {"1": "S1", "2": "G1", "6": "D1"},
+        {"3": "S2", "4": "G2", "5": "D2"},
+    )
+
+    number = [list(pin_spec.keys()) for pin_spec in pin_specs]
+    name = [list(pin_spec.values()) for pin_spec in pin_specs]
+
     symbol_file.write(f"""
 		(symbol "{symbol_name}_1_0"
 			(polyline
@@ -814,9 +822,12 @@ def write_n_mos_dual_transistor_symbol_drawing(
     write_circle(symbol_file, 2.54, offset_y(1.27))
 
     # Write pins with vertical offset
-    write_pin(symbol_file, 10.16, offset_y(2.54), 180, "1", "S1")
-    write_pin(symbol_file, 2.54, offset_y(-5.08), 180, "2", "G1")
-    write_pin(symbol_file, -10.16, offset_y(2.54), 0, "6", "D1")
+    write_pin(
+        symbol_file, 10.16, offset_y(2.54), 180, number[0][0], name[0][0])
+    write_pin(
+        symbol_file, 2.54, offset_y(-5.08), 180, number[0][1], name[0][1])
+    write_pin(
+        symbol_file, -10.16, offset_y(2.54), 0, number[0][2], name[0][2])
 
     symbol_file.write(")")
 
@@ -888,15 +899,19 @@ def write_n_mos_dual_transistor_symbol_drawing(
 				(fill (type outline))
 			)
         """)
+
     # Write symbol circles with vertical offset
     write_circle(symbol_file, -2.54, offset_y(1.27))
     write_circle(symbol_file, 2.032, offset_y(1.27))
     write_circle(symbol_file, 2.54, offset_y(1.27))
 
     # Write pins with vertical offset
-    write_pin(symbol_file, 10.16, offset_y(2.54), 180, "3", "S2")
-    write_pin(symbol_file, 2.54, offset_y(-5.08), 180, "4", "G2")
-    write_pin(symbol_file, -10.16, offset_y(2.54), 0, "5", "D2")
+    write_pin(
+        symbol_file, 10.16, offset_y(2.54), 180, number[1][0], name[1][0])
+    write_pin(
+        symbol_file, 2.54, offset_y(-5.08), 180, number[1][1], name[1][1])
+    write_pin(
+        symbol_file, -10.16, offset_y(2.54), 0, number[1][2], name[1][2])
 
     symbol_file.write(")")
 
@@ -920,6 +935,14 @@ def write_p_mos_dual_transistor_symbol_drawing(
         """Offset y-coordinate by vertical translation."""
         return y + vertical_offset
 
+    pin_specs = (
+        {"1": "S1", "2": "G1", "6": "D1"},
+        {"3": "S2", "4": "G2", "5": "D2"},
+    )
+
+    number = [list(pin_spec.keys()) for pin_spec in pin_specs]
+    name = [list(pin_spec.values()) for pin_spec in pin_specs]
+
     symbol_file.write(f"""
 		(symbol "{symbol_name}_1_0"
 			(polyline
@@ -998,9 +1021,12 @@ def write_p_mos_dual_transistor_symbol_drawing(
     write_circle(symbol_file, 2.54, offset_y(1.27))
 
     # Write pins with vertical offset
-    write_pin(symbol_file, 10.16, offset_y(2.54), 180, "1", "S1")
-    write_pin(symbol_file, 2.54, offset_y(-5.08), 180, "2", "G1")
-    write_pin(symbol_file, -10.16, offset_y(2.54), 0, "6", "D1")
+    write_pin(
+        symbol_file, 10.16, offset_y(2.54), 180, number[0][0], name[0][0])
+    write_pin(
+        symbol_file, 2.54, offset_y(-5.08), 180, number[0][1], name[0][1])
+    write_pin(
+        symbol_file, -10.16, offset_y(2.54), 0, number[0][2], name[0][2])
 
     symbol_file.write(")")
 
@@ -1082,9 +1108,12 @@ def write_p_mos_dual_transistor_symbol_drawing(
     write_circle(symbol_file, 2.54, offset_y(1.27))
 
     # Write pins with vertical offset
-    write_pin(symbol_file, 10.16, offset_y(2.54), 180, "3", "S2")
-    write_pin(symbol_file, 2.54, offset_y(-5.08), 180, "4", "G2")
-    write_pin(symbol_file, -10.16, offset_y(2.54), 0, "5", "D2")
+    write_pin(
+        symbol_file, 10.16, offset_y(2.54), 180, number[1][0], name[1][0])
+    write_pin(
+        symbol_file, 2.54, offset_y(-5.08), 180, number[1][1], name[1][1])
+    write_pin(
+        symbol_file, -10.16, offset_y(2.54), 0, number[1][2], name[1][2])
 
     symbol_file.write(")")
 
