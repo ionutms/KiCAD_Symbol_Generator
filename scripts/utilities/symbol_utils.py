@@ -743,12 +743,12 @@ def write_n_mos_dual_transistor_symbol_drawing(
 		(symbol "{symbol_name}_1_0"
 			(polyline
 				(pts
-					(xy 0 {offset_y(-3.81)})
+					(xy 0 {offset_y(-5.08)})
                     (xy 0 {offset_y(-1.27)})
                     (xy -2.54 {offset_y(-1.27)})
                     (xy 2.54 {offset_y(-1.27)})
                     (xy 0 {offset_y(-1.27)})
-                    (xy 0 {offset_y(-3.81)})
+                    (xy 0 {offset_y(-5.08)})
 				)
 				(stroke (width 0) (type default))
 				(fill (type none))
@@ -824,12 +824,12 @@ def write_n_mos_dual_transistor_symbol_drawing(
 		(symbol "{symbol_name}_2_0"
 			(polyline
 				(pts
-					(xy 0 {offset_y(-3.81)})
+					(xy 0 {offset_y(-5.08)})
                     (xy 0 {offset_y(-1.27)})
                     (xy -2.54 {offset_y(-1.27)})
                     (xy 2.54 {offset_y(-1.27)})
                     (xy 0 {offset_y(-1.27)})
-                    (xy 0 {offset_y(-3.81)})
+                    (xy 0 {offset_y(-5.08)})
 				)
 				(stroke (width 0) (type default))
 				(fill (type none))
@@ -904,7 +904,7 @@ def write_n_mos_dual_transistor_symbol_drawing(
 def write_p_mos_dual_transistor_symbol_drawing(
         symbol_file: TextIO,
         symbol_name: str,
-        vertical_offset: float = 0.0,
+        vertical_offset: float = 1.27,
 ) -> None:
     """Write the horizontal graphical representation of a diode symbol.
 
@@ -924,12 +924,12 @@ def write_p_mos_dual_transistor_symbol_drawing(
 		(symbol "{symbol_name}_1_0"
 			(polyline
 				(pts
-					(xy 0 {offset_y(-3.81)})
+					(xy 0 {offset_y(-5.08)})
                     (xy 0 {offset_y(-1.27)})
                     (xy -2.54 {offset_y(-1.27)})
                     (xy 2.54 {offset_y(-1.27)})
                     (xy 0 {offset_y(-1.27)})
-                    (xy 0 {offset_y(-3.81)})
+                    (xy 0 {offset_y(-5.08)})
 				)
 				(stroke (width 0) (type default))
 				(fill (type outline))
@@ -1008,12 +1008,12 @@ def write_p_mos_dual_transistor_symbol_drawing(
 		(symbol "{symbol_name}_2_0"
 			(polyline
 				(pts
-					(xy 0 {offset_y(-3.81)})
+					(xy 0 {offset_y(-5.08)})
                     (xy 0 {offset_y(-1.27)})
                     (xy -2.54 {offset_y(-1.27)})
                     (xy 2.54 {offset_y(-1.27)})
                     (xy 0 {offset_y(-1.27)})
-                    (xy 0 {offset_y(-3.81)})
+                    (xy 0 {offset_y(-5.08)})
 				)
 				(stroke (width 0) (type default))
 				(fill (type outline))
