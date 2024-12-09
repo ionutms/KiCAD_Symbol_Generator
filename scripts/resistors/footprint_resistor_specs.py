@@ -38,21 +38,21 @@ class FootprintSpecs(NamedTuple):
 
 FOOTPRINTS_SPECS: dict[str, FootprintSpecs] = {
     "0402": FootprintSpecs(
-        body_dimensions=BodyDimensions(width=1.82, height=0.955),
+        body_dimensions=BodyDimensions(width=1.86, height=0.94),
         pad_dimensions=PadDimensions(width=0.54, height=0.64, center_x=0.51),
         ref_offset_y=-1.27),
     "0603": FootprintSpecs(
-        body_dimensions=BodyDimensions(width=2.96, height=1.54),
+        body_dimensions=BodyDimensions(width=2.96, height=1.46),
         pad_dimensions=PadDimensions(width=0.8, height=0.95, center_x=0.825),
         ref_offset_y=-1.524),
     "0805": FootprintSpecs(
-        body_dimensions=BodyDimensions(width=3.36, height=2.09),
+        body_dimensions=BodyDimensions(width=3.36, height=1.9),
         pad_dimensions=PadDimensions(
-            width=1.025, height=1.4, center_x=0.9125),
+            width=1.025, height=1.4, center_x=0.912),
         ref_offset_y=-1.778),
     "1206": FootprintSpecs(
-        body_dimensions=BodyDimensions(width=4.56, height=2.74),
+        body_dimensions=BodyDimensions(width=4.56, height=2.24),
         pad_dimensions=PadDimensions(
-            width=1.125, height=1.75, center_x=1.4625),
+            width=1.125, height=1.75, center_x=1.462),
         ref_offset_y=-2.032),
 }
