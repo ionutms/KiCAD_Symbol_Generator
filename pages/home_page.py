@@ -11,7 +11,7 @@ import dash
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
-from dash import Input, Output, callback, dcc, html, no_update
+from dash import Input, Output, callback, dcc, html
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
@@ -54,11 +54,11 @@ layout = dbc.Container([
             dcc.Loading([dcc.Graph(
                 id=f"{module_name}_repo_clones_graph",
                 config={"displaylogo": False}),
-                ], delay_show=1000, delay_hide=500),
+                ], delay_show=100, delay_hide=100),
             dcc.Loading([dcc.Graph(
                 id=f"{module_name}_repo_visitors_graph",
                 config={"displaylogo": False}),
-                ], delay_show=1000, delay_hide=500),
+                ], delay_show=100, delay_hide=100),
             ], xs=12, md=8),
 
         dbc.Col([
@@ -366,35 +366,16 @@ def update_graph_with_uploaded_file(
     data_frame_clones = load_traffic_data(**clones_sources)
     data_frame_visitors = load_traffic_data(**visitors_sources)
 
-    ctx = dash.callback_context
-    triggered_id = ctx.triggered[0]["prop_id"].split(".")[0]
-
-    if triggered_id.endswith("repo_clones_graph"):
-        # Regenerate clones figure with adjusted y-axis
-        repo_clones_figure = create_figure(
-            theme_switch, data_frame_clones, ("#227b33", "#4187db"),
-            ("Git clones", "Clones", "Unique Clones"), clones_relayout)
-        repo_clones_figure = adjust_y_axis_range(
-            repo_clones_figure, data_frame_clones, clones_relayout)
-
-        return repo_clones_figure, no_update
-
-    if triggered_id.endswith("repo_visitors_graph"):
-        # Regenerate visitors figure with adjusted y-axis
-        repo_visitors_figure = create_figure(
-            theme_switch, data_frame_visitors, ("#227b33", "#4187db"),
-            ("Visitors", "Views", "Unique Views"), visitors_relayout)
-        repo_visitors_figure = adjust_y_axis_range(
-            repo_visitors_figure, data_frame_visitors, visitors_relayout)
-
-        return no_update, repo_visitors_figure
-
     repo_clones_figure = create_figure(
         theme_switch, data_frame_clones, ("#227b33", "#4187db"),
-        ("Git clones", "Clones", "Unique Clones"))
+        ("Git clones", "Clones", "Unique Clones"), clones_relayout)
+    repo_clones_figure = adjust_y_axis_range(
+        repo_clones_figure, data_frame_clones, clones_relayout)
 
     repo_visitors_figure = create_figure(
         theme_switch, data_frame_visitors, ("#227b33", "#4187db"),
-        ("Visitors", "Views", "Unique Views"))
+        ("Visitors", "Views", "Unique Views"), visitors_relayout)
+    repo_visitors_figure = adjust_y_axis_range(
+        repo_visitors_figure, data_frame_visitors, visitors_relayout)
 
     return repo_clones_figure, repo_visitors_figure
