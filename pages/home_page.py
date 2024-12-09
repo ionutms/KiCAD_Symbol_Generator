@@ -279,6 +279,54 @@ def display_links(links: list[dict] | None) -> html.Div | str:
     ][:-1])
 
 
+def load_traffic_data(
+    github_url: str,
+    local_file: str,
+    rename_columns: dict[str, str] | None = None,
+) -> pd.DataFrame:
+    """Load traffic data from GitHub, fallback to local file if needed.
+
+    Args:
+        github_url: URL of the CSV file on GitHub
+        local_file: Path to local CSV file
+        rename_columns: Optional dictionary to rename columns
+
+    Returns:
+        DataFrame with traffic data
+
+    """
+    try:
+        # Try loading from GitHub
+        data_frame = pd.read_csv(github_url)
+    except (pd.errors.ParserError, pd.errors.EmptyDataError, OSError) \
+            as error_message:
+        print(f"Error reading github file: {error_message}")
+        try:
+            # Fallback to local file
+            data_frame = pd.read_csv(local_file)
+        except (
+            FileNotFoundError,
+            pd.errors.ParserError, pd.errors.EmptyDataError) \
+                as error_message:
+            print(f"Error reading local file: {error_message}")
+            # Return empty DataFrame if both attempts fail
+            return pd.DataFrame({
+                "clone_timestamp": pd.Series(dtype="datetime64[ns]"),
+                "total_clones": pd.Series(dtype="int"),
+                "unique_clones": pd.Series(dtype="int"),
+            })
+
+    # Rename columns if specified
+    if rename_columns:
+        data_frame = data_frame.rename(columns=rename_columns)
+
+    # Convert timestamp to datetime
+    data_frame["clone_timestamp"] = pd.to_datetime(
+        data_frame["clone_timestamp"])
+
+    return data_frame
+
+
 @callback(
     Output(f"{module_name}_repo_clones_graph", "figure"),
     Output(f"{module_name}_repo_visitors_graph", "figure"),
@@ -292,53 +340,6 @@ def update_graph_with_uploaded_file(
     visitors_relayout: dict[str, Any] | None = None,
 ) -> tuple[Any, dict[str, Any]]:
     """Read CSV data and update the repository graphs."""
-    def load_traffic_data(
-        github_url: str,
-        local_file: str,
-        rename_columns: dict[str, str] | None = None,
-    ) -> pd.DataFrame:
-        """Load traffic data from GitHub, fallback to local file if needed.
-
-        Args:
-            github_url: URL of the CSV file on GitHub
-            local_file: Path to local CSV file
-            rename_columns: Optional dictionary to rename columns
-
-        Returns:
-            DataFrame with traffic data
-
-        """
-        try:
-            # Try loading from GitHub
-            data_frame = pd.read_csv(github_url)
-        except (pd.errors.ParserError, pd.errors.EmptyDataError, OSError) \
-                as error_message:
-            print(f"Error reading github file: {error_message}")
-            try:
-                # Fallback to local file
-                data_frame = pd.read_csv(local_file)
-            except (
-                FileNotFoundError,
-                pd.errors.ParserError, pd.errors.EmptyDataError) \
-                    as error_message:
-                print(f"Error reading local file: {error_message}")
-                # Return empty DataFrame if both attempts fail
-                return pd.DataFrame({
-                    "clone_timestamp": pd.Series(dtype="datetime64[ns]"),
-                    "total_clones": pd.Series(dtype="int"),
-                    "unique_clones": pd.Series(dtype="int"),
-                })
-
-        # Rename columns if specified
-        if rename_columns:
-            data_frame = data_frame.rename(columns=rename_columns)
-
-        # Convert timestamp to datetime
-        data_frame["clone_timestamp"] = pd.to_datetime(
-            data_frame["clone_timestamp"])
-
-        return data_frame
-
     # Define data sources
     clones_sources = {
         "github_url": (
