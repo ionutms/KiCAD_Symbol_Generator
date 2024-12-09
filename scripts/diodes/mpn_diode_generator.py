@@ -47,101 +47,6 @@ import symbol_diode_specs
 from utilities import file_handler_utilities, print_message_utilities
 
 
-def format_value(value: float) -> str:
-    """Format the diode voltage value with a 'V' suffix.
-
-    Args:
-        value (float): The voltage rating of the diode.
-
-    Returns:
-        str: Formatted voltage value with 'V' appended.
-
-    """
-    return f"{value} V"
-
-
-def create_description(value: float) -> str:
-    """Create a descriptive string for the diode component.
-
-    Args:
-        value (float): The voltage rating of the diode.
-
-    Returns:
-        str: A descriptive string combining 'DIODE SMD' and formatted voltage.
-
-    """
-    parts = ["DIODE SMD", format_value(value)]
-
-    return " ".join(parts)
-
-
-def create_part_info(
-    value: float,
-    specs: symbol_diode_specs.SeriesSpec,
-) -> symbol_diode_specs.PartInfo:
-    """Create a PartInfo object for a specific diode component.
-
-    Args:
-        value (float): The voltage rating of the diode.
-        specs (SeriesSpec): Specifications for the diode series.
-
-    Returns:
-        PartInfo: A comprehensive part information object for the diode.
-
-    Raises:
-        ValueError: If the voltage rating is not found in the series.
-        IndexError: If no DC specifications are found for the given voltage.
-
-    """
-    # Construct MPN with optional suffix
-    mpn = f"{specs.base_series}"
-    if specs.part_number_suffix:
-        # Find index of voltage in ratings list
-        try:
-            index = specs.voltage_rating.index(value)
-            # Adjust index to start from 21
-            adjusted_index = index + 21
-            mpn = (
-                f"{specs.base_series}{adjusted_index}"
-                f"{specs.part_number_suffix}")
-        except ValueError:
-            print_message_utilities.print_error(
-                f"Error: value {value} V "
-                f"not found in series {specs.base_series}")
-            return None
-
-    trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
-
-    try:
-        index = specs.voltage_rating.index(value)
-        current_rating = float(specs.current_rating[index])
-    except ValueError:
-        print_message_utilities.print_error(
-            f"Error: value {value} V not found in series {specs.base_series}")
-        current_rating = 0.0
-    except IndexError:
-        print_message_utilities.print_error(
-            "Error: No DC specifications found for value "
-            f"{value} V in series {specs.base_series}")
-        current_rating = 0.0
-
-    return symbol_diode_specs.PartInfo(
-        symbol_name=f"{specs.reference}_{mpn}",
-        reference=specs.reference,
-        value=value,
-        footprint=specs.footprint,
-        datasheet=specs.datasheet,
-        description=create_description(value),
-        manufacturer=specs.manufacturer,
-        mpn=mpn,
-        package=specs.package,
-        series=specs.base_series,
-        trustedparts_link=trustedparts_link,
-        current_rating=current_rating,
-        diode_type=specs.diode_type,
-    )
-
-
 def generate_part_numbers(
     specs: symbol_diode_specs.SeriesSpec,
 ) -> list[symbol_diode_specs.PartInfo]:
@@ -155,9 +60,10 @@ def generate_part_numbers(
 
     """
     return [
-        create_part_info(value, specs)
+        part_info
         for value in specs.voltage_rating
-        if create_part_info(value, specs) is not None
+        if (part_info := symbol_diode_specs.PartInfo.create_part_info(
+            value, specs)) is not None
     ]
 
 
@@ -165,7 +71,8 @@ def generate_part_numbers(
 HEADER_MAPPING: Final[dict] = {
     "Symbol Name": lambda part: part.symbol_name,
     "Reference": lambda part: part.reference,
-    "Value": lambda part: format_value(part.value),
+    "Value":
+        lambda part: symbol_diode_specs.PartInfo.format_value(part.value),
     "Footprint": lambda part: part.footprint,
     "Datasheet": lambda part: part.datasheet,
     "Description": lambda part: part.description,
