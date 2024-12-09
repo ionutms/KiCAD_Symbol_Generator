@@ -140,7 +140,7 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
         inductance_values=[470.0],
         max_dc_current=[0.80],
         max_dc_resistance=[1.1],
-        value_suffix="ALD",
+        value_suffix="-ALD",
         trustedparts_link="https://www.trustedparts.com/en/search",
         pin_config=SidePinConfig(
             left=[
@@ -168,7 +168,7 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
         inductance_values=[470.0],
         max_dc_current=[0.49],
         max_dc_resistance=[1.8],
-        value_suffix="AED",
+        value_suffix="-AED",
         trustedparts_link="https://www.trustedparts.com/en/search",
         pin_config=SidePinConfig(
             left=[
@@ -181,6 +181,35 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
                 PinConfig("6", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
                 PinConfig("7", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
                 PinConfig("8", -5.08, "unspecified", 5.08)],
+        ),
+    ),
+    "750315836": SeriesSpec(
+        manufacturer="Wurth Elektronik",
+        base_series="750315836",
+        footprint="transformer_footprints:750315836",
+        tolerance="±10%",
+        datasheet=(
+            "https://www.we-online.com/components/products/datasheet/"
+            "750315836.pdf"),
+        inductance_values=[40.0],
+        max_dc_current=[3.2],
+        max_dc_resistance=[0.095],
+        value_suffix="",
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        pin_config=SidePinConfig(
+            left=[
+                PinConfig("3", 10.16, "unspecified", 5.08),
+                PinConfig("1", 5.08, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("4", 0.0, "unspecified", 5.08),
+                PinConfig("2", -5.08, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("5", -10.16, "unspecified", 5.08),
+                ],
+            right=[
+                PinConfig("7", 5.08, "unspecified", 5.08),
+                PinConfig("6", 2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("8", 0.0, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("10", -2.54, "no_connect", 2.54, True),  # noqa: FBT003
+                PinConfig("9", -5.08, "unspecified", 5.08)],
         ),
     ),
 }

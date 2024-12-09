@@ -398,14 +398,104 @@ def write_transformer_symbol_drawing(
     # Write left side pins
     for pin in pin_config["left"]:
         write_pin(
-            symbol_file, -7.62, pin["y_pos"], 0, pin["number"],
-            pin["pin_type"], pin.get("hide", False), pin["lenght"])
+            symbol_file=symbol_file, x_pos=-7.62, y_pos=pin["y_pos"],
+            angle=0, number=pin["number"], pin_type=pin["pin_type"],
+            hide=pin.get("hide", False), length=pin["lenght"])
 
     # Write right side pins
     for pin in pin_config["right"]:
         write_pin(
-            symbol_file, 7.62, pin["y_pos"], 180, pin["number"],
-            pin["pin_type"], pin.get("hide", False), pin["lenght"])
+            symbol_file=symbol_file, x_pos=7.62, y_pos=pin["y_pos"],
+            angle=180, number=pin["number"], pin_type=pin["pin_type"],
+            hide=pin.get("hide", False), length=pin["lenght"])
+
+    symbol_file.write("        )\n")
+
+
+def write_transformer_symbol_drawing_v2(
+        symbol_file: TextIO,
+        symbol_name: str,
+        pin_config: dict,
+) -> None:
+    """Write the horizontal graphical representation of a transformer symbol.
+
+    Args:
+        symbol_file (TextIO): File object for writing the symbol file.
+        symbol_name (str): Name of the symbol.
+        pin_config (dict, optional): Dictionary defining pin configuration.
+
+    """
+    def get_symbol_bounds(pin_config: dict) -> tuple:
+        """Calculate symbol bounds based on pin configuration."""
+        y_positions = (
+            [pin["y_pos"] for pin in pin_config["left"]] +
+            [pin["y_pos"] for pin in pin_config["right"]]
+        )
+        max_y = max(y_positions)
+        min_y = min(y_positions)
+        return min_y, max_y
+
+    # Write symbol drawing section - split into two units
+    symbol_file.write(f'        (symbol "{symbol_name}_0_1"\n')
+
+    # Write left inductor arcs
+    for y_start in range(8):
+        symbol_file.write(f"""
+            (arc
+                (start -2.54 {-10.16 + (y_start * 2.54)})
+                (mid -1.27 {-8.89 + (y_start * 2.54)})
+                (end -2.54 {-7.62 + (y_start * 2.54)})
+                (stroke (width 0) (type default) )
+                (fill (type none) )
+            )
+            """)
+
+    # Write right inductor arcs
+    for y_start in range(4):
+        symbol_file.write(f"""
+            (arc
+                (start 2.54 {5.08 - (y_start * 2.54)})
+                (mid 1.27 {3.81 - (y_start * 2.54)})
+                (end 2.54 {2.54 - (y_start * 2.54)})
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            """)
+
+    # Write polarity dots
+    for x, y in [(-2.54, 8.89), (-2.54, -1.27), (2.54, 3.81)]:
+        symbol_file.write(f"""
+            (circle
+                (center {x} {y})
+                (radius 0.508)
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            """)
+
+    # Write coupling lines
+    for x in [-0.254, 0.254]:
+        symbol_file.write(f"""
+            (polyline
+                (pts (xy {x} -10.16) (xy {x} 10.16))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            """)
+
+    # Write left side pins
+    for pin in pin_config["left"]:
+        write_pin(
+            symbol_file=symbol_file, x_pos=-7.62, y_pos=pin["y_pos"],
+            angle=0, number=pin["number"], pin_type=pin["pin_type"],
+            hide=pin.get("hide", False), length=pin["lenght"])
+
+    # Write right side pins
+    for pin in pin_config["right"]:
+        write_pin(
+            symbol_file=symbol_file, x_pos=7.62, y_pos=pin["y_pos"],
+            angle=180, number=pin["number"], pin_type=pin["pin_type"],
+            hide=pin.get("hide", False), length=pin["lenght"])
 
     symbol_file.write("        )\n")
 

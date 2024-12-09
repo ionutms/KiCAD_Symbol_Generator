@@ -101,9 +101,14 @@ def write_component(
     pin_config = convert_pin_config(series_spec.pin_config)
 
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
-    symbol_utils.write_properties(
-        symbol_file, component_data, property_order, 3)
     if component_data.get("Series") in ("ZA9384", "ZA9644"):
+        symbol_utils.write_properties(
+            symbol_file, component_data, property_order, 3)
         symbol_utils.write_transformer_symbol_drawing(
+            symbol_file, symbol_name, pin_config)
+    if component_data.get("Series") in ("750315836"):
+        symbol_utils.write_properties(
+            symbol_file, component_data, property_order, 5)
+        symbol_utils.write_transformer_symbol_drawing_v2(
             symbol_file, symbol_name, pin_config)
     symbol_file.write(")")
