@@ -83,14 +83,14 @@ def create_figure(
     max_timestamp = data_frame["clone_timestamp"].max()
 
     # Determine y-axis ranges
-    y1_min = data_frame["total_clones"].min()
-    y1_max = data_frame["total_clones"].max()
-    y2_min = data_frame["unique_clones"].min()
-    y2_max = data_frame["unique_clones"].max()
+    y1_min = int(data_frame["total_clones"].min())
+    y1_max = int(data_frame["total_clones"].max())
+    y2_min = int(data_frame["unique_clones"].min())
+    y2_max = int(data_frame["unique_clones"].max())
 
     # Add some padding to the y-axis range (e.g., 10%)
-    y1_padding = (y1_max - y1_min) * 0.1
-    y2_padding = (y2_max - y2_min) * 0.1
+    y1_padding = max(1, int((y1_max - y1_min) * 0.1))
+    y2_padding = max(1, int((y2_max - y2_min) * 0.1))
 
     # Determine x-axis range based on relayout data
     x_range = [min_timestamp, max_timestamp]
@@ -108,7 +108,7 @@ def create_figure(
     num_data_points = len(data_frame)
 
     # Define a maximum number of ticks to display
-    max_ticks = 12
+    max_ticks = 10
 
     # Determine tick selection strategy
     if num_data_points > max_ticks:
@@ -150,6 +150,7 @@ def create_figure(
             "anchor": "free",
             "autorange": False,
             "range": [y1_min - y1_padding, y1_max + y1_padding],
+            "tickformat": ".0f",  # Integer formatting
         },
         "yaxis2": {
             "gridcolor": "#808080", "griddash": "dash",
@@ -159,6 +160,7 @@ def create_figure(
             "overlaying": "y", "side": "right",
             "autorange": False,
             "range": [y2_min - y2_padding, y2_max + y2_padding],
+            "tickformat": ".0f",  # Integer formatting
         },
         "title": {
             "text": titles[0], "x": 0.5, "xanchor": "center",
