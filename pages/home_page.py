@@ -104,6 +104,25 @@ def create_figure(
     tick_values = data_frame["clone_timestamp"].tolist()
     tick_text = [tick_value.strftime("%m/%d") for tick_value in tick_values]
 
+    # Calculate the number of data points
+    num_data_points = len(data_frame)
+
+    # Define a maximum number of ticks to display
+    max_ticks = 12
+
+    # Determine tick selection strategy
+    if num_data_points > max_ticks:
+        # Select evenly spaced tick indices
+        tick_indices = list(
+            range(0, num_data_points, num_data_points // max_ticks))
+        # Ensure the last index is included
+        if tick_indices[-1] != num_data_points - 1:
+            tick_indices.append(num_data_points - 1)
+
+        # Filter tick values and text
+        tick_values = [tick_values[i] for i in tick_indices]
+        tick_text = [tick_text[i] for i in tick_indices]
+
     # Existing figure layout configuration
     figure_layout = {
         "xaxis": {
