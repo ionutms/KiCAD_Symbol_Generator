@@ -78,4 +78,16 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
         trustedparts_link="https://www.trustedparts.com/en/search",
         part_number_suffix="BT1G",
     ),
+    "US1DWF": SeriesSpec(
+        manufacturer="Diodes Incorporated",
+        base_series="US1DWF",
+        footprint="diode_footprints:SOD_123F",
+        datasheet="https://www.diodes.com/assets/Datasheets/US1DWF.pdf",
+        voltage_rating=[200.0],
+        current_rating=[1.0],
+        package="SOD_123F",
+        diode_type="Rectifier",
+        trustedparts_link="https://www.trustedparts.com/en/search",
+        part_number_suffix=None,
+    ),
 }
