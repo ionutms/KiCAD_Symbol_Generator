@@ -103,6 +103,7 @@ def write_component(
     symbol_utils.write_symbol_header(symbol_file, symbol_name)
     symbol_utils.write_properties(
         symbol_file, component_data, property_order, 3)
-    symbol_utils.write_transformer_symbol_drawing(
-        symbol_file, symbol_name, pin_config)
+    if component_data.get("Series") in ("ZA9384", "ZA9644"):
+        symbol_utils.write_transformer_symbol_drawing(
+            symbol_file, symbol_name, pin_config)
     symbol_file.write(")")
