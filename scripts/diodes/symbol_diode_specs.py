@@ -5,7 +5,9 @@ series, including their specifications and individual component
 information.
 """
 
-from typing import NamedTuple
+from typing import NamedTuple, Optional, Self
+
+from utilities import print_message_utilities
 
 
 class SeriesSpec(NamedTuple):
@@ -24,7 +26,7 @@ class SeriesSpec(NamedTuple):
     current_rating: list[float]
     package: str
     diode_type: str
-    part_number_suffix: str | None  # noqa: FA102
+    part_number_suffix: Optional[str] = None  # noqa: FA100
     reference: str = "D"
 
 
@@ -44,6 +46,108 @@ class PartInfo(NamedTuple):
     current_rating: float
     package: str
     diode_type: str
+
+    @staticmethod
+    def format_value(value: float) -> str:
+        """Format the diode voltage value with a 'V' suffix.
+
+        Args:
+            value (float): The voltage rating of the diode.
+
+        Returns:
+            str: Formatted voltage value with 'V' appended.
+
+        """
+        return f"{value} V"
+
+    @classmethod
+    def create_description(
+        cls, value: float, diode_type: str = "DIODE") -> str:
+        """Create a descriptive string for the diode component.
+
+        Args:
+            value (float): The voltage rating of the diode.
+            diode_type (str, optional): Type of diode. Defaults to "DIODE".
+
+        Returns:
+            str:
+                A descriptive string combining diode type
+                and formatted voltage.
+
+        """
+        parts = [f"{diode_type} SMD", cls.format_value(value)]
+        return " ".join(parts)
+
+    @classmethod
+    def create_part_info(
+        cls: type[Self],
+        value: float,
+        specs: SeriesSpec,
+    ) -> Optional[Self]:  # noqa: FA100
+        """Create a PartInfo object for a specific diode component.
+
+        Args:
+            value (float): The voltage rating of the diode.
+            specs (SeriesSpec): Specifications for the diode series.
+
+        Returns:
+            Optional[PartInfo]:
+                A comprehensive part information object for the diode.
+
+        Raises:
+            ValueError: If the voltage rating is not found in the series.
+            IndexError:
+                If no DC specifications are found for the given voltage.
+
+        """
+        # Construct MPN with optional suffix
+        mpn = f"{specs.base_series}"
+        if specs.part_number_suffix:
+            # Find index of voltage in ratings list
+            try:
+                index = specs.voltage_rating.index(value)
+                # Adjust index to start from 21
+                adjusted_index = index + 21
+                mpn = (
+                    f"{specs.base_series}{adjusted_index}"
+                    f"{specs.part_number_suffix}")
+            except ValueError:
+                print_message_utilities.print_error(
+                    f"Error: value {value} V "
+                    f"not found in series {specs.base_series}")
+                return None
+
+        trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
+
+        try:
+            index = specs.voltage_rating.index(value)
+            current_rating = float(specs.current_rating[index])
+        except ValueError:
+            print_message_utilities.print_error(
+                f"Error: value {value} V "
+                f"not found in series {specs.base_series}")
+            current_rating = 0.0
+        except IndexError:
+            print_message_utilities.print_error(
+                "Error: No DC specifications found for value "
+                f"{value} V in series {specs.base_series}")
+            current_rating = 0.0
+
+        return cls(
+            symbol_name=f"{specs.reference}_{mpn}",
+            reference=specs.reference,
+            value=value,
+            footprint=specs.footprint,
+            datasheet=specs.datasheet,
+            description=cls.create_description(value, specs.diode_type),
+            manufacturer=specs.manufacturer,
+            mpn=mpn,
+            package=specs.package,
+            series=specs.base_series,
+            trustedparts_link=trustedparts_link,
+            current_rating=current_rating,
+            diode_type=specs.diode_type,
+        )
 
 
 SYMBOLS_SPECS: dict[str, SeriesSpec] = {
