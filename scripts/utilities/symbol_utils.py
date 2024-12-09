@@ -740,9 +740,7 @@ def write_n_mos_dual_transistor_symbol_drawing(
         return y + vertical_offset
 
     pin_specs = (
-        {"1": "S1", "2": "G1", "6": "D1"},
-        {"3": "S2", "4": "G2", "5": "D2"},
-    )
+        {"1": "S1", "2": "G1", "6": "D1"}, {"3": "S2", "4": "G2", "5": "D2"})
 
     number = [list(pin_spec.keys()) for pin_spec in pin_specs]
     name = [list(pin_spec.values()) for pin_spec in pin_specs]
@@ -856,9 +854,7 @@ def write_p_mos_dual_transistor_symbol_drawing(
         return y + vertical_offset
 
     pin_specs = (
-        {"1": "S1", "2": "G1", "6": "D1"},
-        {"3": "S2", "4": "G2", "5": "D2"},
-    )
+        {"1": "S1", "2": "G1", "6": "D1"}, {"3": "S2", "4": "G2", "5": "D2"})
 
     number = [list(pin_spec.keys()) for pin_spec in pin_specs]
     name = [list(pin_spec.values()) for pin_spec in pin_specs]
