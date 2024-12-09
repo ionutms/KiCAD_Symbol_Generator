@@ -81,7 +81,7 @@ def create_part_info(
         PartInfo instance with all specifications
 
     """
-    mpn = f"{specs.base_series}-{specs.value_suffix}"
+    mpn = f"{specs.base_series}{specs.value_suffix}"
     trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
 
     try:
