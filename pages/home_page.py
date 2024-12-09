@@ -11,7 +11,7 @@ import dash
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
-from dash import Input, Output, callback, dcc, html
+from dash import Input, Output, callback, dcc, html, no_update
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
@@ -103,6 +103,25 @@ def create_figure(
     # Prepare tick values to match exact data points
     tick_values = data_frame["clone_timestamp"].tolist()
     tick_text = [tick_value.strftime("%m/%d") for tick_value in tick_values]
+
+    # Calculate the number of data points
+    num_data_points = len(data_frame)
+
+    # Define a maximum number of ticks to display
+    max_ticks = 12
+
+    # Determine tick selection strategy
+    if num_data_points > max_ticks:
+        # Select evenly spaced tick indices
+        tick_indices = list(
+            range(0, num_data_points, num_data_points // max_ticks))
+        # Ensure the last index is included
+        if tick_indices[-1] != num_data_points - 1:
+            tick_indices.append(num_data_points - 1)
+
+        # Filter tick values and text
+        tick_values = [tick_values[i] for i in tick_indices]
+        tick_text = [tick_text[i] for i in tick_indices]
 
     # Existing figure layout configuration
     figure_layout = {
@@ -347,20 +366,35 @@ def update_graph_with_uploaded_file(
     data_frame_clones = load_traffic_data(**clones_sources)
     data_frame_visitors = load_traffic_data(**visitors_sources)
 
-    # Create figures with specific color schemes
+    ctx = dash.callback_context
+    triggered_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+    if triggered_id.endswith("repo_clones_graph"):
+        # Regenerate clones figure with adjusted y-axis
+        repo_clones_figure = create_figure(
+            theme_switch, data_frame_clones, ("#227b33", "#4187db"),
+            ("Git clones", "Clones", "Unique Clones"), clones_relayout)
+        repo_clones_figure = adjust_y_axis_range(
+            repo_clones_figure, data_frame_clones, clones_relayout)
+
+        return repo_clones_figure, no_update
+
+    if triggered_id.endswith("repo_visitors_graph"):
+        # Regenerate visitors figure with adjusted y-axis
+        repo_visitors_figure = create_figure(
+            theme_switch, data_frame_visitors, ("#227b33", "#4187db"),
+            ("Visitors", "Views", "Unique Views"), visitors_relayout)
+        repo_visitors_figure = adjust_y_axis_range(
+            repo_visitors_figure, data_frame_visitors, visitors_relayout)
+
+        return no_update, repo_visitors_figure
+
     repo_clones_figure = create_figure(
         theme_switch, data_frame_clones, ("#227b33", "#4187db"),
-        ("Git clones", "Clones", "Unique Clones"), clones_relayout)
+        ("Git clones", "Clones", "Unique Clones"))
 
     repo_visitors_figure = create_figure(
         theme_switch, data_frame_visitors, ("#227b33", "#4187db"),
-        ("Visitors", "Views", "Unique Views"), visitors_relayout)
-
-    # Adjust y-axis ranges if zoomed
-    repo_clones_figure = adjust_y_axis_range(
-        repo_clones_figure, data_frame_clones, clones_relayout)
-
-    repo_visitors_figure = adjust_y_axis_range(
-        repo_visitors_figure, data_frame_visitors, visitors_relayout)
+        ("Visitors", "Views", "Unique Views"))
 
     return repo_clones_figure, repo_visitors_figure
