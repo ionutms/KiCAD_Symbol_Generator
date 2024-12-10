@@ -149,6 +149,27 @@ class PartInfo(NamedTuple):
             diode_type=specs.diode_type,
         )
 
+    @classmethod
+    def generate_part_numbers(
+        cls,
+        specs: SeriesSpec,
+    ) -> list[Self]:
+        """Generate all part numbers for the series.
+
+        Class method that creates a list of PartInfo instances for
+        all voltage ratings in the given series specifications.
+
+        Args:
+            specs: Series specifications for generating part numbers
+
+        Returns:
+            List of PartInfo instances for the series
+
+        """
+        return [
+            part_info for value in specs.voltage_rating
+            if (part_info := cls.create_part_info(value, specs)) is not None]
+
 
 SYMBOLS_SPECS: dict[str, SeriesSpec] = {
     "DFLS1200-7": SeriesSpec(
@@ -161,8 +182,8 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
         package="PowerDI_123",
         diode_type="Schottky",
         trustedparts_link="https://www.trustedparts.com/en/search",
-        part_number_suffix=None,
-    ),
+        part_number_suffix=None),
+
     "MMSZ52": SeriesSpec(
         manufacturer="Onsemi",
         base_series="MMSZ52",
@@ -180,8 +201,8 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
         package="SOD_123",
         diode_type="Zener",
         trustedparts_link="https://www.trustedparts.com/en/search",
-        part_number_suffix="BT1G",
-    ),
+        part_number_suffix="BT1G"),
+
     "US1DWF": SeriesSpec(
         manufacturer="Diodes Incorporated",
         base_series="US1DWF",
@@ -192,6 +213,6 @@ SYMBOLS_SPECS: dict[str, SeriesSpec] = {
         package="SOD_123F",
         diode_type="Rectifier",
         trustedparts_link="https://www.trustedparts.com/en/search",
-        part_number_suffix=None,
-    ),
+        part_number_suffix=None),
+
 }

@@ -46,27 +46,6 @@ import symbol_diode_generator
 import symbol_diode_specs
 from utilities import file_handler_utilities, print_message_utilities
 
-
-def generate_part_numbers(
-    specs: symbol_diode_specs.SeriesSpec,
-) -> list[symbol_diode_specs.PartInfo]:
-    """Generate all part numbers for the series.
-
-    Args:
-        specs: Series specifications
-
-    Returns:
-        List of PartInfo instances
-
-    """
-    return [
-        part_info
-        for value in specs.voltage_rating
-        if (part_info := symbol_diode_specs.PartInfo.create_part_info(
-            value, specs)) is not None
-    ]
-
-
 # Global header to attribute mapping
 HEADER_MAPPING: Final[dict] = {
     "Symbol Name": lambda part: part.symbol_name,
@@ -125,7 +104,7 @@ def generate_files_for_series(
 
     # Generate part numbers and write to CSV
     try:
-        parts_list = generate_part_numbers(specs)
+        parts_list = symbol_diode_specs.PartInfo.generate_part_numbers(specs)
         file_handler_utilities.write_to_csv(
             parts_list, csv_filename, HEADER_MAPPING)
         print_message_utilities.print_success(
