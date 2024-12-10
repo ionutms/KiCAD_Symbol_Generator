@@ -433,7 +433,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         tolerance_map={"E24": {"J": "5%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
-            "RDA0000/AOA0000C304.pdf"),
+            "RDA0000/AOA0000C301.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 }
