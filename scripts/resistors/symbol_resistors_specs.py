@@ -134,19 +134,21 @@ class PartInfo(NamedTuple):
         return f"{clean_number(resistance)} Ω"
 
     @classmethod
-    def generate_resistance_code(
+    def generate_resistance_code(  # noqa: C901, PLR0912
         cls,
         resistance: float,
         max_resistance: int,
+        series: str,
     ) -> str:
         """Generate the resistance code portion of a Panasonic part number.
 
         Args:
             resistance: The resistance value in ohms
             max_resistance: Maximum allowed resistance value for the series
+            series: Optional series identifier for series-specific encoding
 
         Returns:
-            A 4-character string representing the resistance code
+            A string representing the resistance code
 
         Raises:
             ValueError: If resistance is outside valid range
@@ -155,6 +157,32 @@ class PartInfo(NamedTuple):
         if resistance < 10 or resistance > max_resistance:  # noqa: PLR2004
             msg = f"Resistance value out of range (10Ω to {max_resistance}Ω)"
             raise ValueError(msg)
+
+        # Special handling for ERJ-2GE series
+        if series == "ERJ-2GE":
+            if resistance < 100:  # noqa: PLR2004
+                whole = int(resistance)
+                decimal = int(round((resistance - whole) * 10))
+                return f"{whole:01d}{decimal}"
+
+            # For values ≥ 100Ω, determine multiplier and significant digits
+            if resistance < 1000:  # 100-999Ω  # noqa: PLR2004
+                significant = int(round(resistance / 10))
+                multiplier = "1"
+            elif resistance < 10000:  # 1k-9.99kΩ  # noqa: PLR2004
+                significant = int(round(resistance / 100))
+                multiplier = "2"
+            elif resistance < 100000:  # 10k-99.9kΩ  # noqa: PLR2004
+                significant = int(round(resistance / 1000))
+                multiplier = "3"
+            elif resistance < 1000000:  # 100k-999kΩ  # noqa: PLR2004
+                significant = int(round(resistance / 10000))
+                multiplier = "4"
+            else:  # 1MΩ+
+                significant = int(round(resistance / 100000))
+                multiplier = "5"
+
+            return f"{significant:02d}{multiplier}"
 
         # Handle values less than 100Ω using R notation
         if resistance < 100:  # noqa: PLR2004
@@ -228,7 +256,7 @@ class PartInfo(NamedTuple):
 
         """
         resistance_code = cls.generate_resistance_code(
-            resistance, specs.max_resistance)
+            resistance, specs.max_resistance, specs.base_series)
         mpn = \
             f"{specs.base_series}{tolerance_code}{resistance_code}{packaging}"
         description = (
