@@ -380,6 +380,23 @@ MURATA_SYMBOLS_SPECS = {
         trustedparts_url="https://www.trustedparts.com/en/search",
         characteristic_codes={0: "E11"},
     ),
+    "GCM32D": SeriesSpec(
+        base_series="GCM32D",
+        manufacturer="Murata Electronics",
+        footprint="capacitor_footprints:C_1210_3225Metric",
+        voltage_rating="100V",
+        case_code_in="1210",
+        case_code_mm="3225",
+        packaging_options=["K"],
+        tolerance_map={"X7S": {"K": "10%"}},
+        value_range={"X7S": (4.7e-6, 4.7e-6)},  # Only 4.7µF
+        voltage_code="2A",
+        dielectric_code={"X7S": "C7"},
+        excluded_values=set(),
+        datasheet_url=f"{MURATA_DOC_BASE}/GCM32D",
+        trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={0: "E02"},
+    ),
 }
 
 # Base URLs for documentation
