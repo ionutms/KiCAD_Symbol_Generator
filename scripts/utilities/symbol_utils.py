@@ -561,14 +561,16 @@ def write_coupled_inductor_symbol_drawing(
     # Write left side pins
     for pin in pin_config["left"]:
         write_pin(
-            symbol_file, -7.62, pin["y_pos"], 0, pin["number"],
-            pin["pin_type"], pin.get("hide", False), pin["lenght"])
+            symbol_file=symbol_file, x_pos=-7.62, y_pos=pin["y_pos"],
+            angle=0, number=pin["number"], pin_type=pin["pin_type"],
+            hide=pin.get("hide", False), length=pin["lenght"])
 
     # Write right side pins
     for pin in pin_config["right"]:
         write_pin(
-            symbol_file, 7.62, pin["y_pos"], 180, pin["number"],
-            pin["pin_type"], pin.get("hide", False), pin["lenght"])
+            symbol_file=symbol_file, x_pos=7.62, y_pos=pin["y_pos"],
+            angle=180, number=pin["number"], pin_type=pin["pin_type"],
+            hide=pin.get("hide", False), length=pin["lenght"])
 
     symbol_file.write("        )\n")
 
