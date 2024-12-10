@@ -23,6 +23,7 @@ class SeriesSpec(NamedTuple):
         case_code_in: Package dimensions in inches (e.g., '0402')
         case_code_mm: Package dimensions in millimeters (e.g., '1005')
         power_rating: Maximum power dissipation specification
+        min_resistance: Minimum resistance value in ohms
         max_resistance: Maximum resistance value in ohms
         packaging_options:
             List of available packaging codes (e.g., ['V', 'X'])
@@ -44,12 +45,13 @@ class SeriesSpec(NamedTuple):
     case_code_in: str
     case_code_mm: str
     power_rating: str
-    max_resistance: int
     packaging_options: list[str]
     tolerance_map: dict[str, dict[str, str]]
     datasheet: str
     manufacturer: str
     trustedparts_url: str
+    min_resistance: int = 10
+    max_resistance: int = 1_000_000
     high_resistance_tolerance: dict[str, str] | None = None  # noqa: FA102
     reference: str = "R"
 
@@ -337,6 +339,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0402",
         case_code_mm="1005",
         power_rating="0.1W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["X"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
@@ -352,6 +355,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.1W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
@@ -367,6 +371,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
+        min_resistance=10,
         max_resistance=2_200_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
@@ -383,6 +388,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="1206",
         case_code_mm="3216",
         power_rating="0.66W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
@@ -398,6 +404,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.5W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
@@ -413,6 +420,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.25W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
@@ -428,6 +436,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0402",
         case_code_mm="1005",
         power_rating="0.1W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["X"],
         tolerance_map={"E24": {"J": "5%"}},
@@ -443,6 +452,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.1W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E24": {"YJ": "5%"}},
@@ -458,6 +468,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E24": {"YJ": "5%"}},
