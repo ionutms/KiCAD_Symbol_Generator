@@ -113,9 +113,6 @@ class PartInfo(NamedTuple):
     series: str
     trustedparts_link: str
 
-
-
-
     @classmethod
     def format_resistance_value(cls, resistance: float) -> str:
         """Convert a resistance value to a human-readable string format.
@@ -137,19 +134,21 @@ class PartInfo(NamedTuple):
         return f"{clean_number(resistance)} Ω"
 
     @classmethod
-    def generate_resistance_code(
+    def generate_resistance_code(  # noqa: C901, PLR0912
         cls,
         resistance: float,
         max_resistance: int,
+        series: str,
     ) -> str:
         """Generate the resistance code portion of a Panasonic part number.
 
         Args:
             resistance: The resistance value in ohms
             max_resistance: Maximum allowed resistance value for the series
+            series: Optional series identifier for series-specific encoding
 
         Returns:
-            A 4-character string representing the resistance code
+            A string representing the resistance code
 
         Raises:
             ValueError: If resistance is outside valid range
@@ -158,6 +157,32 @@ class PartInfo(NamedTuple):
         if resistance < 10 or resistance > max_resistance:  # noqa: PLR2004
             msg = f"Resistance value out of range (10Ω to {max_resistance}Ω)"
             raise ValueError(msg)
+
+        # Special handling for ERJ-2GE series
+        if series == "ERJ-2GE":
+            if resistance < 100:  # noqa: PLR2004
+                whole = int(resistance)
+                decimal = int(round((resistance - whole) * 10))
+                return f"{whole:01d}{decimal}"
+
+            # For values ≥ 100Ω, determine multiplier and significant digits
+            if resistance < 1000:  # 100-999Ω  # noqa: PLR2004
+                significant = int(round(resistance / 10))
+                multiplier = "1"
+            elif resistance < 10000:  # 1k-9.99kΩ  # noqa: PLR2004
+                significant = int(round(resistance / 100))
+                multiplier = "2"
+            elif resistance < 100000:  # 10k-99.9kΩ  # noqa: PLR2004
+                significant = int(round(resistance / 1000))
+                multiplier = "3"
+            elif resistance < 1000000:  # 100k-999kΩ  # noqa: PLR2004
+                significant = int(round(resistance / 10000))
+                multiplier = "4"
+            else:  # 1MΩ+
+                significant = int(round(resistance / 100000))
+                multiplier = "5"
+
+            return f"{significant:02d}{multiplier}"
 
         # Handle values less than 100Ω using R notation
         if resistance < 100:  # noqa: PLR2004
@@ -231,7 +256,7 @@ class PartInfo(NamedTuple):
 
         """
         resistance_code = cls.generate_resistance_code(
-            resistance, specs.max_resistance)
+            resistance, specs.max_resistance, specs.base_series)
         mpn = \
             f"{specs.base_series}{tolerance_code}{resistance_code}{packaging}"
         description = (
@@ -272,14 +297,20 @@ class PartInfo(NamedTuple):
         """
         parts_list: list[PartInfo] = []
 
-        for series_type in ["E96", "E24"]:
+        # Determine which series types are available for this specific series
+        available_series_types = list(specs.tolerance_map.keys())
+
+        for series_type in available_series_types:
             base_values = (
-                E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES)
+                E96_BASE_VALUES
+                if series_type == "E96"
+                else E24_BASE_VALUES)
 
             for resistance in cls.generate_resistance_values(
                     base_values, specs.max_resistance):
                 # Handle special case for high resistance values
-                if resistance > 1_000_000 and specs.high_resistance_tolerance:  # noqa: PLR2004
+                if resistance > 1_000_000 and \
+                        specs.high_resistance_tolerance:  # noqa: PLR2004
                     tolerance_codes = specs.high_resistance_tolerance
                 else:
                     tolerance_codes = specs.tolerance_map[series_type]
@@ -388,6 +419,21 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+    "ERJ-2GE": SeriesSpec(
+        base_series="ERJ-2GE",
+        footprint="resistor_footprints:R_0402_1005Metric",
+        voltage_rating="50V",
+        case_code_in="0402",
+        case_code_mm="1005",
+        power_rating="0.1W",
+        max_resistance=1_000_000,
+        packaging_options=["X"],
+        tolerance_map={"E24": {"J": "5%"}},
+        datasheet=(
+            "https://industrial.panasonic.com/cdbs/www-data/pdf/"
+            "RDA0000/AOA0000C304.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 }
