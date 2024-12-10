@@ -139,6 +139,7 @@ class PartInfo(NamedTuple):
     def generate_resistance_code(  # noqa: C901, PLR0912
         cls,
         resistance: float,
+        min_resistance: int,
         max_resistance: int,
         series: str,
     ) -> str:
@@ -146,6 +147,7 @@ class PartInfo(NamedTuple):
 
         Args:
             resistance: The resistance value in ohms
+            min_resistance: Minimum allowed resistance value for the series
             max_resistance: Maximum allowed resistance value for the series
             series: Optional series identifier for series-specific encoding
 
@@ -156,8 +158,10 @@ class PartInfo(NamedTuple):
             ValueError: If resistance is outside valid range
 
         """
-        if resistance < 10 or resistance > max_resistance:  # noqa: PLR2004
-            msg = f"Resistance value out of range (10Ω to {max_resistance}Ω)"
+        if resistance < min_resistance or resistance > max_resistance:
+            msg = (
+                f"Rezsistance value out of range "
+                f"({min_resistance}Ω to {max_resistance}Ω)")
             raise ValueError(msg)
 
         # Special handling for ERJ-2GE series
@@ -215,12 +219,14 @@ class PartInfo(NamedTuple):
     def generate_resistance_values(
         cls,
         base_values: list[float],
+        min_resistance: int,
         max_resistance: int,
     ) -> Iterator[float]:
         """Generate all valid resistance values from a list of base values.
 
         Args:
             base_values: List of base resistance values (E96 or E24 series)
+            min_resistance: Minimum resistance value to generate
             max_resistance: Maximum resistance value to generate
 
         Yields:
@@ -230,7 +236,7 @@ class PartInfo(NamedTuple):
         for base_value in base_values:
             current = base_value
             while current <= max_resistance:
-                if current >= 10:  # noqa: PLR2004
+                if current >= min_resistance:
                     yield current
                 current *= 10
 
@@ -241,7 +247,7 @@ class PartInfo(NamedTuple):
         tolerance_code: str,
         tolerance_value: str,
         packaging: str,
-        specs: "SeriesSpec",
+        specs: SeriesSpec,
     ) -> "PartInfo":
         """Create a PartInfo instance with complete component specifications.
 
@@ -258,7 +264,8 @@ class PartInfo(NamedTuple):
 
         """
         resistance_code = cls.generate_resistance_code(
-            resistance, specs.max_resistance, specs.base_series)
+            resistance, specs.min_resistance, specs.max_resistance,
+            specs.base_series)
         mpn = \
             f"{specs.base_series}{tolerance_code}{resistance_code}{packaging}"
         description = (
@@ -309,7 +316,7 @@ class PartInfo(NamedTuple):
                 else E24_BASE_VALUES)
 
             for resistance in cls.generate_resistance_values(
-                    base_values, specs.max_resistance):
+                    base_values, specs.min_resistance, specs.max_resistance):
                 # Handle special case for high resistance values
                 if resistance > 1_000_000 and \
                         specs.high_resistance_tolerance:  # noqa: PLR2004
