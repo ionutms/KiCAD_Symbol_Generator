@@ -159,7 +159,7 @@ class PartInfo(NamedTuple):
             raise ValueError(msg)
 
         # Special handling for ERJ-2GE series
-        if series in ("ERJ-2GE", "ERJ-3GE"):
+        if series in ("ERJ-2GE", "ERJ-3GE", "ERJ-6GE"):
             if resistance < 100:  # noqa: PLR2004
                 whole = int(resistance)
                 decimal = int(round((resistance - whole) * 10))
@@ -443,6 +443,21 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.1W",
+        max_resistance=1_000_000,
+        packaging_options=["V"],
+        tolerance_map={"E24": {"YJ": "5%"}},
+        datasheet=(
+            "https://industrial.panasonic.com/cdbs/www-data/pdf/"
+            "RDA0000/AOA0000C301.pdf"),
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+    "ERJ-6GE": SeriesSpec(
+        base_series="ERJ-6GE",
+        footprint="resistor_footprints:R_0805_2012Metric",
+        voltage_rating="150V",
+        case_code_in="0805",
+        case_code_mm="2012",
+        power_rating="0.125W",
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E24": {"YJ": "5%"}},
