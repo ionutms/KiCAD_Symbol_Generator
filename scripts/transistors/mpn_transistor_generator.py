@@ -46,92 +46,6 @@ import symbol_transistor_generator
 import symbol_transistor_specs
 from utilities import file_handler_utilities, print_message_utilities
 
-
-def create_description(value: float) -> str:
-    """Create a descriptive string for the diode component.
-
-    Args:
-        value (float): The voltage rating of the diode.
-
-    Returns:
-        str: A descriptive string combining 'DIODE SMD' and formatted voltage.
-
-    """
-    parts = ["Transistor", f"{value} V"]
-
-    return " ".join(parts)
-
-
-def create_part_info(
-    value: float,
-    specs: symbol_transistor_specs.SeriesSpec,
-) -> symbol_transistor_specs.PartInfo:
-    """Create a PartInfo object for a specific diode component.
-
-    Args:
-        value (float): The voltage rating of the diode.
-        specs (SeriesSpec): Specifications for the diode series.
-
-    Returns:
-        PartInfo: A comprehensive part information object for the diode.
-
-    Raises:
-        ValueError: If the voltage rating is not found in the series.
-        IndexError: If no DC specifications are found for the given voltage.
-
-    """
-    # Construct MPN with optional suffix
-    mpn = f"{specs.base_series}"
-
-    trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
-
-    try:
-        index = specs.drain_source_voltage .index(value)
-        drain_current = float(specs.drain_current[index])
-    except ValueError:
-        print_message_utilities.print_error(
-            f"Error: value {value} V not found in series {specs.base_series}")
-        drain_current = 0.0
-    except IndexError:
-        print_message_utilities.print_error(
-            "Error: No DC specifications found for value "
-            f"{value} V in series {specs.base_series}")
-        drain_current = 0.0
-
-    return symbol_transistor_specs.PartInfo(
-        symbol_name=f"{specs.reference}_{mpn}",
-        reference=specs.reference,
-        value=value,
-        footprint=specs.footprint,
-        datasheet=specs.datasheet,
-        description=create_description(value),
-        manufacturer=specs.manufacturer,
-        mpn=mpn,
-        package=specs.package,
-        series=specs.base_series,
-        trustedparts_link=trustedparts_link,
-        drain_current=drain_current,
-        transistor_type=specs.transistor_type,
-    )
-
-
-def generate_part_numbers(
-    specs: symbol_transistor_specs.SeriesSpec,
-) -> list[symbol_transistor_specs.PartInfo]:
-    """Generate all part numbers for the series.
-
-    Args:
-        specs: Series specifications
-
-    Returns:
-        List of PartInfo instances
-
-    """
-    return [
-        create_part_info(value, specs) for value in specs.drain_source_voltage
-        if create_part_info(value, specs) is not None]
-
-
 # Global header to attribute mapping
 HEADER_MAPPING: Final[dict] = {
     "Symbol Name": lambda part: part.symbol_name,
@@ -189,7 +103,8 @@ def generate_files_for_series(
 
     # Generate part numbers and write to CSV
     try:
-        parts_list = generate_part_numbers(specs)
+        parts_list = symbol_transistor_specs.PartInfo.generate_part_numbers(
+            specs)
         file_handler_utilities.write_to_csv(
             parts_list, csv_filename, HEADER_MAPPING)
         print_message_utilities.print_success(

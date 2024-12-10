@@ -1,25 +1,28 @@
-"""Library for managing diode specifications.
+"""Library for managing transistor specifications.
 
-This module provides data structures and definitions for various diode
+This module provides data structures and definitions for various transistor
 series, including their specifications and individual component
 information.
 """
 
 from typing import NamedTuple
 
+from utilities import print_message_utilities
+
 
 class SeriesSpec(NamedTuple):
-    """Diode series specifications.
+    """Transistor series specifications.
 
-    This class defines the complete specifications for a series of diodes,
-    including physical, electrical, and documentation characteristics.
+    This class defines the complete specifications for a series of
+    transistors, including physical, electrical,
+    and documentation characteristics.
     """
 
     manufacturer: str
     base_series: str
     footprint: str
     datasheet: str
-    drain_source_voltage : list[float]
+    drain_source_voltage: list[float]
     trustedparts_link: str
     drain_current: list[float]
     package: str
@@ -28,7 +31,7 @@ class SeriesSpec(NamedTuple):
 
 
 class PartInfo(NamedTuple):
-    """Component part information structure for individual diodes."""
+    """Component part information structure for individual transistors."""
 
     symbol_name: str
     reference: str
@@ -43,6 +46,98 @@ class PartInfo(NamedTuple):
     drain_current: float
     package: str
     transistor_type: str
+
+    @classmethod
+    def create_description(cls, value: float) -> str:
+        """Create a descriptive string for the transistor component.
+
+        Args:
+            value (float): The voltage rating of the transistor.
+
+        Returns:
+            str:
+                A descriptive string combining
+                'Transistor' and formatted voltage.
+
+        """
+        parts = ["Transistor", f"{value} V"]
+        return " ".join(parts)
+
+    @classmethod
+    def create_part_info(
+        cls,
+        value: float,
+        specs: SeriesSpec,
+    ) -> "PartInfo":
+        """Create a PartInfo object for a specific transistor component.
+
+        Args:
+            value (float): The voltage rating of the transistor.
+            specs (SeriesSpec): Specifications for the transistor series.
+
+        Returns:
+            PartInfo:
+                A comprehensive part information object for the transistor.
+
+        Raises:
+            ValueError: If the voltage rating is not found in the series.
+            IndexError:
+                If no DC specifications are found for the given voltage.
+
+        """
+        # Construct MPN with optional suffix
+        mpn = f"{specs.base_series}"
+
+        trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
+
+        try:
+            index = specs.drain_source_voltage.index(value)
+            drain_current = float(specs.drain_current[index])
+        except ValueError:
+            print_message_utilities.print_error(
+                f"Error: value {value} V "
+                f"not found in series {specs.base_series}")
+            drain_current = 0.0
+        except IndexError:
+            print_message_utilities.print_error(
+                "Error: No DC specifications found for value "
+                f"{value} V in series {specs.base_series}")
+            drain_current = 0.0
+
+        return cls(
+            symbol_name=f"{specs.reference}_{mpn}",
+            reference=specs.reference,
+            value=value,
+            footprint=specs.footprint,
+            datasheet=specs.datasheet,
+            description=cls.create_description(value),
+            manufacturer=specs.manufacturer,
+            mpn=mpn,
+            package=specs.package,
+            series=specs.base_series,
+            trustedparts_link=trustedparts_link,
+            drain_current=drain_current,
+            transistor_type=specs.transistor_type,
+        )
+
+    @classmethod
+    def generate_part_numbers(
+        cls,
+        specs: SeriesSpec,
+    ) -> list["PartInfo"]:
+        """Generate all part numbers for the series.
+
+        Args:
+            specs: Series specifications
+
+        Returns:
+            List of PartInfo instances
+
+        """
+        return [
+            cls.create_part_info(value, specs)
+            for value in specs.drain_source_voltage
+            if cls.create_part_info(value, specs) is not None]
 
 
 SYMBOLS_SPECS: dict[str, SeriesSpec] = {
