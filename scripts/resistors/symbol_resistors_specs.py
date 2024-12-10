@@ -113,9 +113,6 @@ class PartInfo(NamedTuple):
     series: str
     trustedparts_link: str
 
-
-
-
     @classmethod
     def format_resistance_value(cls, resistance: float) -> str:
         """Convert a resistance value to a human-readable string format.
@@ -272,14 +269,20 @@ class PartInfo(NamedTuple):
         """
         parts_list: list[PartInfo] = []
 
-        for series_type in ["E96", "E24"]:
+        # Determine which series types are available for this specific series
+        available_series_types = list(specs.tolerance_map.keys())
+
+        for series_type in available_series_types:
             base_values = (
-                E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES)
+                E96_BASE_VALUES
+                if series_type == "E96"
+                else E24_BASE_VALUES)
 
             for resistance in cls.generate_resistance_values(
                     base_values, specs.max_resistance):
                 # Handle special case for high resistance values
-                if resistance > 1_000_000 and specs.high_resistance_tolerance:  # noqa: PLR2004
+                if resistance > 1_000_000 and \
+                        specs.high_resistance_tolerance:  # noqa: PLR2004
                     tolerance_codes = specs.high_resistance_tolerance
                 else:
                     tolerance_codes = specs.tolerance_map[series_type]
@@ -388,6 +391,21 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+    "ERJ-2GE": SeriesSpec(
+        base_series="ERJ-2GE",
+        footprint="resistor_footprints:R_0402_1005Metric",
+        voltage_rating="50V",
+        case_code_in="0402",
+        case_code_mm="1005",
+        power_rating="0.1W",
+        max_resistance=1_000_000,
+        packaging_options=["X"],
+        tolerance_map={"E24": {"J": "5%"}},
+        datasheet=(
+            "https://industrial.panasonic.com/cdbs/www-data/pdf/"
+            "RDA0000/AOA0000C304.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 }
