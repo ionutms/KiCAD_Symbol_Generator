@@ -161,13 +161,9 @@ class PartInfo(NamedTuple):
         # Special handling for ERJ-2GE series
         if series in ("ERJ-2GE", "ERJ-3GE"):
             if resistance < 100:  # noqa: PLR2004
-                if series=="ERJ-2GE":
-                    whole = int(resistance)
-                    decimal = int(round((resistance - whole) * 10))
-                    return f"{whole:01d}{decimal}"
-                whole = int(resistance/10)
-                decimal = int(round((resistance) % 10))
-                return f"{whole:01d}R{decimal}"
+                whole = int(resistance)
+                decimal = int(round((resistance - whole) * 10))
+                return f"{whole:01d}{decimal}"
 
             # For values ≥ 100Ω, determine multiplier and significant digits
             if resistance < 1000:  # 100-999Ω  # noqa: PLR2004
