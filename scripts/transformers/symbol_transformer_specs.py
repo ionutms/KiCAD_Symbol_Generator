@@ -2,7 +2,7 @@
 
 This module provides data structures and configurations
 for managing transformer and coupled inductor specifications,
-particularly for Coilcraftcomponents.
+particularly for Coilcraft components.
 It includes definitions for pin layouts, series specifications,
 and individual component details used in electronic design.
 
@@ -125,6 +125,123 @@ class PartInfo(NamedTuple):
     trustedparts_link: str
     max_dc_current: float
     max_dc_resistance: float
+
+    @staticmethod
+    def format_inductance_value(inductance: float) -> str:
+        """Format inductance value with appropriate unit.
+
+        Shows integer values where possible (no decimal places needed).
+
+        Args:
+            inductance: Value in µH
+
+        Returns:
+            Formatted string with unit
+
+        """
+        if inductance < 1:
+            return f"{int(inductance*1000)} nH"
+        if inductance.is_integer():
+            return f"{int(inductance)} µH"
+        return f"{inductance:.1f} µH"
+
+    @classmethod
+    def create_description(
+        cls,
+        value: float,
+        specs: "SeriesSpec",
+        is_aec: bool,  # noqa: FBT001
+    ) -> str:
+        """Create component description.
+
+        Args:
+            value: Inductance value in µH
+            specs: Series specifications
+            is_aec: If True, add AEC-Q200 qualification
+
+        Returns:
+            Formatted description string
+
+        """
+        parts = [
+            "POWER TRANSFORMER SMD",
+            cls.format_inductance_value(value),
+            specs.tolerance,
+        ]
+
+        if is_aec and specs.has_aec:
+            parts.append("AEC-Q200")
+
+        return " ".join(parts)
+
+    @classmethod
+    def create_part_info(
+        cls,
+        inductance: float,
+        specs: SeriesSpec,
+        is_aec: bool = True,  # noqa: FBT001, FBT002
+    ) -> "PartInfo":
+        """Create complete part information.
+
+        Args:
+            inductance: Value in µH
+            specs: Series specifications
+            is_aec: If True, create AEC-Q200 qualified part
+
+        Returns:
+            PartInfo instance with all specifications
+
+        """
+        mpn = f"{specs.base_series}{specs.value_suffix}"
+        trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
+
+        try:
+            index = specs.inductance_values.index(inductance)
+            max_dc_current = float(specs.max_dc_current[index])
+            max_dc_resistance = float(specs.max_dc_resistance[index])
+        except (ValueError, IndexError):
+            msg = (
+                f"Error: Inductance value {inductance} µH "
+                f"not found in series {specs.base_series}"
+            )
+            raise ValueError(msg)  # noqa: B904
+
+        return cls(
+            symbol_name=f"{specs.reference}_{mpn}",
+            reference=specs.reference,
+            value=inductance,
+            footprint=specs.footprint,
+            datasheet=specs.datasheet,
+            description=cls.create_description(inductance, specs, is_aec),
+            manufacturer=specs.manufacturer,
+            mpn=mpn,
+            tolerance=specs.tolerance,
+            series=specs.base_series,
+            trustedparts_link=trustedparts_link,
+            max_dc_current=max_dc_current,
+            max_dc_resistance=max_dc_resistance,
+        )
+
+    @classmethod
+    def generate_part_numbers(
+        cls,
+        specs: SeriesSpec,
+        is_aec: bool = True,  # noqa: FBT001, FBT002
+    ) -> list["PartInfo"]:
+        """Generate all part numbers for the series.
+
+        Args:
+            specs: Series specifications
+            is_aec: If True, generate AEC-Q200 qualified parts
+
+        Returns:
+            List of PartInfo instances
+
+        """
+        return [
+            cls.create_part_info(value, specs, is_aec)
+            for value in specs.inductance_values
+        ]
 
 
 # Series specifications for supported transformer families

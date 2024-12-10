@@ -1,10 +1,5 @@
-"""Coilcraft Inductor Series Part Number Generator.
+"""Coilcraft Inductor Series Part Number Generator."""
 
-Generates part numbers and specifications for Coilcraft inductor series
-with custom inductance values.
-Supports both standard and AEC-Q200 qualified parts.
-Generates both individual series files and unified component database.
-"""
 import csv
 import os
 import sys
@@ -16,127 +11,6 @@ import footprint_transformer_generator
 import symbol_transformer_generator
 import symbol_transformer_specs
 from utilities import file_handler_utilities, print_message_utilities
-
-
-def format_inductance_value(inductance: float) -> str:
-    """Format inductance value with appropriate unit.
-
-    Shows integer values where possible (no decimal places needed).
-
-    Args:
-        inductance: Value in µH
-
-    Returns:
-        Formatted string with unit
-
-    """
-    if inductance < 1:
-        return f"{int(inductance*1000)} nH"
-    if inductance.is_integer():
-        return f"{int(inductance)} µH"
-    return f"{inductance:.1f} µH"
-
-
-def create_description(
-    inductance: float,
-    specs: symbol_transformer_specs.SeriesSpec,
-    is_aec: bool,  # noqa: FBT001
-) -> str:
-    """Create component description.
-
-    Args:
-        inductance: Value in µH
-        specs: Series specifications
-        is_aec: If True, add AEC-Q200 qualification
-
-    Returns:
-        Formatted description string
-
-    """
-    parts = [
-        "POWER TRANSFORMER SMD",
-        format_inductance_value(inductance),
-        specs.tolerance,
-    ]
-
-    if is_aec and specs.has_aec:
-        parts.append("AEC-Q200")
-
-    return " ".join(parts)
-
-
-def create_part_info(
-    inductance: float,
-    specs: symbol_transformer_specs.SeriesSpec,
-    is_aec: bool = True,  # noqa: FBT001, FBT002
-) -> symbol_transformer_specs.PartInfo:
-    """Create complete part information.
-
-    Args:
-        inductance: Value in µH
-        specs: Series specifications
-        is_aec: If True, create AEC-Q200 qualified part
-
-    Returns:
-        PartInfo instance with all specifications
-
-    """
-    mpn = f"{specs.base_series}{specs.value_suffix}"
-    trustedparts_link = f"{specs.trustedparts_link}/{mpn}"
-
-    try:
-        index = specs.inductance_values.index(inductance)
-        max_dc_current = float(specs.max_dc_current[index])
-        max_dc_resistance = float(specs.max_dc_resistance[index])
-    except ValueError:
-        print_message_utilities.print_error(
-            f"Error: Inductance value {inductance} µH "
-            f"not found in series {specs.base_series}")
-        max_dc_current = 0.0
-        max_dc_resistance = 0.0
-    except IndexError:
-        print_message_utilities.print_error(
-            "Error: No DC specifications found for inductance "
-            f"{inductance} µH in series {specs.base_series}")
-        max_dc_current = 0.0
-        max_dc_resistance = 0.0
-
-    return symbol_transformer_specs.PartInfo(
-        symbol_name=f"{specs.reference}_{mpn}",
-        reference=specs.reference,
-        value=mpn,
-        footprint=specs.footprint,
-        datasheet=specs.datasheet,
-        description=create_description(inductance, specs, is_aec),
-        manufacturer=specs.manufacturer,
-        mpn=mpn,
-        tolerance=specs.tolerance,
-        series=specs.base_series,
-        trustedparts_link=trustedparts_link,
-        max_dc_current=max_dc_current,
-        max_dc_resistance=max_dc_resistance,
-    )
-
-
-def generate_part_numbers(
-    specs: symbol_transformer_specs.SeriesSpec,
-    is_aec: bool = True,  # noqa: FBT001, FBT002
-) -> list[symbol_transformer_specs.PartInfo]:
-    """Generate all part numbers for the series.
-
-    Args:
-        specs: Series specifications
-        is_aec: If True, generate AEC-Q200 qualified parts
-
-    Returns:
-        List of PartInfo instances
-
-    """
-    return [
-        create_part_info(value, specs, is_aec)
-        for value in specs.inductance_values
-    ]
-
 
 # Global header to attribute mapping
 HEADER_MAPPING: Final[dict] = {
@@ -199,7 +73,8 @@ def generate_files_for_series(
 
     # Generate part numbers and write to CSV
     try:
-        parts_list = generate_part_numbers(specs, is_aec)
+        parts_list = symbol_transformer_specs.PartInfo.generate_part_numbers(
+            specs, is_aec)
         file_handler_utilities.write_to_csv(
             parts_list, csv_filename, HEADER_MAPPING)
         print_message_utilities.print_success(
