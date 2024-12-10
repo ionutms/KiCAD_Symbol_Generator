@@ -248,7 +248,7 @@ class PartInfo(NamedTuple):
     ) -> list["PartInfo"]:
         """Generate all valid part numbers for a series specification."""
         parts_list: list[PartInfo] = []
-        dielectric_types = ["X7R"]
+        dielectric_types = ["X7R", "X7S"]
 
         for dielectric_type in dielectric_types:
             if dielectric_type in specs.value_range:
@@ -276,7 +276,7 @@ class PartInfo(NamedTuple):
 MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
 
 # Murata specifications
-SYMBOLS_SPECS = {
+MURATA_SYMBOLS_SPECS = {
     "GCM155": SeriesSpec(
         base_series="GCM155",
         manufacturer="Murata Electronics",
@@ -363,6 +363,23 @@ SYMBOLS_SPECS = {
         trustedparts_url="https://www.trustedparts.com/en/search",
         characteristic_codes={4.7e-6: "A55", 0: "A55"},
     ),
+    "GRM188": SeriesSpec(
+        base_series="GRM188",
+        manufacturer="Murata Electronics",
+        footprint="capacitor_footprints:C_0603_1608Metric",
+        voltage_rating="10V",
+        case_code_in="0603",
+        case_code_mm="1608",
+        packaging_options=["D"],
+        tolerance_map={"X7S": {"K": "10%"}},
+        value_range={"X7S": (4.7e-6, 4.7e-6)},  # Only 4.7µF
+        voltage_code="1A",
+        dielectric_code={"X7S": "C7"},
+        excluded_values=set(),
+        datasheet_url=f"{MURATA_DOC_BASE}/GRM188",
+        trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={0: "E11"},
+    ),
 }
 
 # Base URLs for documentation
@@ -370,7 +387,7 @@ SAMSUNG_DOC_BASE = (
     "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=")
 
 # Samsung specifications (X7R only)
-SAMSUNG_SPECS = {
+SAMSUNG_SYMBOLS_SPECS = {
     "CL31": SeriesSpec(
         base_series="CL31",
         manufacturer="Samsung Electro-Mechanics",
@@ -394,4 +411,4 @@ SAMSUNG_SPECS = {
 
 # Combined specifications dictionary
 SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
-    **SYMBOLS_SPECS, **SAMSUNG_SPECS}
+    **MURATA_SYMBOLS_SPECS, **SAMSUNG_SYMBOLS_SPECS}
