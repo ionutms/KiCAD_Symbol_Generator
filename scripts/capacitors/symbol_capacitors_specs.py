@@ -6,7 +6,7 @@ dielectric types. It provides comprehensive component information including
 physical dimensions, electrical characteristics, and packaging options.
 """
 
-from typing import Final, NamedTuple
+from typing import Final, Iterator, NamedTuple  # noqa: UP035
 
 
 class SeriesSpec(NamedTuple):
@@ -71,6 +71,205 @@ class PartInfo(NamedTuple):
     case_code_mm: str
     series: str
     trustedparts_link: str
+
+    @staticmethod
+    def format_capacitance_value(capacitance: float) -> str:
+        """Convert capacitance value to human-readable format with units."""
+        pf_value = capacitance * 1e12
+
+        # 1 µF and above
+        if capacitance >= 1e-6:  # noqa: PLR2004
+            value = capacitance / 1e-6
+            unit = "µF"
+
+        # 1000 pF and above -> convert to nF
+        elif pf_value >= 1000:  # noqa: PLR2004
+            value = pf_value / 1000
+            unit = "nF"
+        else:  # Below 1000 pF
+            value = pf_value
+            unit = "pF"
+
+        # Format the number to remove unnecessary decimals
+        if value % 1 == 0:
+            return f"{int(value)} {unit}"
+        formatted = f"{value:.3g}"
+
+        return f"{formatted} {unit}"
+
+    @staticmethod
+    def generate_capacitance_code(capacitance: float) -> str:
+        """Generate the capacitance portion of Murata part number."""
+        pf_value = capacitance * 1e12
+
+        # Handle values under 10pF
+        if pf_value < 10:  # noqa: PLR2004
+            whole = int(pf_value)
+            decimal = int((pf_value - whole) * 10)
+            return f"{whole}R{decimal}"
+
+        # Handle values under 1000pF
+        if pf_value < 1000:  # noqa: PLR2004
+            significant = round(pf_value)
+            if significant % 10 == 0:
+                significant += 1
+            return f"{significant:03d}"
+
+        # Handle values 1000pF and above
+        sci_notation = f"{pf_value:.2e}"
+        parts = sci_notation.split("e")
+        significand = float(parts[0])
+        power = int(parts[1])
+
+        first_two = int(round(significand * 10))
+        zero_count = power - 1
+
+        return f"{first_two}{zero_count}"
+
+    @classmethod
+    def get_characteristic_code(
+        cls,
+        capacitance: float,
+        specs: SeriesSpec,
+    ) -> str:
+        """Determine characteristic code based on series and capacitance."""
+        if specs.base_series.startswith("CL"):
+            return "X7R"
+
+        for threshold, code in sorted(
+                specs.characteristic_codes.items(), reverse=True):
+            if capacitance > threshold:
+                return code
+
+        return list(specs.characteristic_codes.values())[-1]
+
+    @classmethod
+    def generate_standard_values(
+        cls,
+        min_value: float,
+        max_value: float,
+        excluded_values: set[float],
+    ) -> Iterator[float]:
+        """Generate standard E12 series capacitance values within range."""
+        e12_multipliers = [
+            1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2]
+
+        normalized_excluded = {
+            float(f"{value:.1e}") for value in excluded_values}
+
+        decade = 1.0e-12
+        while decade <= max_value:
+            for multiplier in e12_multipliers:
+                normalized_value = float(f"{decade * multiplier:.1e}")
+                if min_value <= normalized_value <= max_value:  # noqa: SIM102
+                    if normalized_value not in normalized_excluded:
+                        yield normalized_value
+            decade *= 10
+
+    @staticmethod
+    def generate_datasheet_url(
+        mpn: str,
+        specs: SeriesSpec,
+    ) -> str:
+        """Generate the datasheet URL for a given Murata part number."""
+        if specs.manufacturer == "Murata Electronics":
+            base_mpn = mpn[:-1]
+            specific_part = base_mpn[len(specs.base_series):]
+            return f"{specs.datasheet_url}{specific_part}-01.pdf"
+        return f"{specs.datasheet_url}{mpn}"
+
+    @classmethod
+    def create_part_info(  # noqa: PLR0913
+        cls,
+        capacitance: float,
+        tolerance_code: str,
+        tolerance_value: str,
+        packaging: str,
+        dielectric_type: str,
+        specs: SeriesSpec,
+    ) -> "PartInfo":
+        """Create complete part information from component parameters."""
+        capacitance_code = cls.generate_capacitance_code(capacitance)
+        characteristic_code = cls.get_characteristic_code(capacitance, specs)
+        formatted_value = cls.format_capacitance_value(capacitance)
+
+        if specs.manufacturer == "Murata Electronics":
+            mpn = (
+                f"{specs.base_series}"
+                f"{specs.dielectric_code[dielectric_type]}"
+                f"{specs.voltage_code}"
+                f"{capacitance_code}"
+                f"{tolerance_code}"
+                f"{characteristic_code}"
+                f"{packaging}"
+            )
+        else:
+            mpn = (
+                f"{specs.base_series}"
+                f"{specs.dielectric_code[dielectric_type]}"
+                f"{capacitance_code}"
+                f"{tolerance_code}"
+                f"{specs.voltage_code}"
+                f"{packaging}"
+            )
+
+        description = (
+            f"CAP SMD {formatted_value} "
+            f"{dielectric_type} {tolerance_value} "
+            f"{specs.case_code_in} {specs.voltage_rating}"
+        )
+
+        trustedparts_link = f"{specs.trustedparts_url}/{mpn}"
+        datasheet_url = cls.generate_datasheet_url(mpn, specs)
+
+        return cls(
+            symbol_name=f"{specs.reference}_{mpn}",
+            reference="C",
+            value=capacitance,
+            formatted_value=formatted_value,
+            footprint=specs.footprint,
+            datasheet=datasheet_url,
+            description=description,
+            manufacturer=specs.manufacturer,
+            mpn=mpn,
+            dielectric=dielectric_type,
+            tolerance=tolerance_value,
+            voltage_rating=specs.voltage_rating,
+            case_code_in=specs.case_code_in,
+            case_code_mm=specs.case_code_mm,
+            series=specs.base_series,
+            trustedparts_link=trustedparts_link,
+        )
+
+    @classmethod
+    def generate_part_numbers(
+        cls,
+        specs: SeriesSpec,
+    ) -> list["PartInfo"]:
+        """Generate all valid part numbers for a series specification."""
+        parts_list: list[PartInfo] = []
+        dielectric_types = ["X7R"]
+
+        for dielectric_type in dielectric_types:
+            if dielectric_type in specs.value_range:
+                min_val, max_val = specs.value_range[dielectric_type]
+
+                for capacitance in cls.generate_standard_values(
+                        min_val, max_val, specs.excluded_values):
+                    for tolerance_code, tolerance_value in \
+                            specs.tolerance_map[
+                                dielectric_type].items():
+                        for packaging in specs.packaging_options:
+                            parts_list.append(cls.create_part_info(  # noqa: PERF401
+                                capacitance=capacitance,
+                                tolerance_code=tolerance_code,
+                                tolerance_value=tolerance_value,
+                                packaging=packaging,
+                                dielectric_type=dielectric_type,
+                                specs=specs,
+                            ))
+
+        return sorted(parts_list, key=lambda x: (x.dielectric, x.value))
 
 
 # Base URLs for documentation
