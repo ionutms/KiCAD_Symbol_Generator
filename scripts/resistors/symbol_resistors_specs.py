@@ -159,11 +159,15 @@ class PartInfo(NamedTuple):
             raise ValueError(msg)
 
         # Special handling for ERJ-2GE series
-        if series == "ERJ-2GE":
+        if series in ("ERJ-2GE", "ERJ-3GE"):
             if resistance < 100:  # noqa: PLR2004
-                whole = int(resistance)
-                decimal = int(round((resistance - whole) * 10))
-                return f"{whole:01d}{decimal}"
+                if series=="ERJ-2GE":
+                    whole = int(resistance)
+                    decimal = int(round((resistance - whole) * 10))
+                    return f"{whole:01d}{decimal}"
+                whole = int(resistance/10)
+                decimal = int(round((resistance) % 10))
+                return f"{whole:01d}R{decimal}"
 
             # For values ≥ 100Ω, determine multiplier and significant digits
             if resistance < 1000:  # 100-999Ω  # noqa: PLR2004
@@ -431,6 +435,21 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         max_resistance=1_000_000,
         packaging_options=["X"],
         tolerance_map={"E24": {"J": "5%"}},
+        datasheet=(
+            "https://industrial.panasonic.com/cdbs/www-data/pdf/"
+            "RDA0000/AOA0000C301.pdf"),
+        manufacturer="Panasonic",
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+    "ERJ-3GE": SeriesSpec(
+        base_series="ERJ-3GE",
+        footprint="resistor_footprints:R_0603_1608Metric",
+        voltage_rating="75V",
+        case_code_in="0603",
+        case_code_mm="1608",
+        power_rating="0.1W",
+        max_resistance=1_000_000,
+        packaging_options=["V"],
+        tolerance_map={"E24": {"YJ": "5%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C301.pdf"),
