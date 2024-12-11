@@ -23,6 +23,7 @@ class SeriesSpec(NamedTuple):
         case_code_in: Package dimensions in inches (e.g., '0402')
         case_code_mm: Package dimensions in millimeters (e.g., '1005')
         power_rating: Maximum power dissipation specification
+        min_resistance: Minimum resistance value in ohms
         max_resistance: Maximum resistance value in ohms
         packaging_options:
             List of available packaging codes (e.g., ['V', 'X'])
@@ -44,12 +45,13 @@ class SeriesSpec(NamedTuple):
     case_code_in: str
     case_code_mm: str
     power_rating: str
-    max_resistance: int
     packaging_options: list[str]
     tolerance_map: dict[str, dict[str, str]]
     datasheet: str
     manufacturer: str
     trustedparts_url: str
+    min_resistance: int = 10
+    max_resistance: int = 1_000_000
     high_resistance_tolerance: dict[str, str] | None = None  # noqa: FA102
     reference: str = "R"
 
@@ -137,6 +139,7 @@ class PartInfo(NamedTuple):
     def generate_resistance_code(  # noqa: C901, PLR0912
         cls,
         resistance: float,
+        min_resistance: int,
         max_resistance: int,
         series: str,
     ) -> str:
@@ -144,6 +147,7 @@ class PartInfo(NamedTuple):
 
         Args:
             resistance: The resistance value in ohms
+            min_resistance: Minimum allowed resistance value for the series
             max_resistance: Maximum allowed resistance value for the series
             series: Optional series identifier for series-specific encoding
 
@@ -154,12 +158,19 @@ class PartInfo(NamedTuple):
             ValueError: If resistance is outside valid range
 
         """
-        if resistance < 10 or resistance > max_resistance:  # noqa: PLR2004
-            msg = f"Resistance value out of range (10Ω to {max_resistance}Ω)"
+        if resistance < min_resistance or resistance > max_resistance:
+            msg = (
+                f"Rezsistance value out of range "
+                f"({min_resistance}Ω to {max_resistance}Ω)")
             raise ValueError(msg)
 
         # Special handling for ERJ-2GE series
         if series in ("ERJ-2GE", "ERJ-3GE", "ERJ-6GE"):
+            if resistance < 10:  # noqa: PLR2004
+                whole = int(resistance)
+                decimal = int(round((resistance - whole) * 10))
+                return f"{whole:01d}R{decimal}"
+
             if resistance < 100:  # noqa: PLR2004
                 whole = int(resistance)
                 decimal = int(round((resistance - whole) * 10))
@@ -213,24 +224,27 @@ class PartInfo(NamedTuple):
     def generate_resistance_values(
         cls,
         base_values: list[float],
+        min_resistance: int,
         max_resistance: int,
     ) -> Iterator[float]:
         """Generate all valid resistance values from a list of base values.
 
         Args:
             base_values: List of base resistance values (E96 or E24 series)
+            min_resistance: Minimum resistance value to generate
             max_resistance: Maximum resistance value to generate
 
         Yields:
             float: Valid resistance values in ascending order
 
         """
+        multipliers = [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000]
+
         for base_value in base_values:
-            current = base_value
-            while current <= max_resistance:
-                if current >= 10:  # noqa: PLR2004
-                    yield current
-                current *= 10
+            for multiplier in multipliers:
+                resistance = base_value * multiplier
+                if min_resistance <= resistance <= max_resistance:
+                    yield resistance
 
     @classmethod
     def create_part_info(
@@ -239,7 +253,7 @@ class PartInfo(NamedTuple):
         tolerance_code: str,
         tolerance_value: str,
         packaging: str,
-        specs: "SeriesSpec",
+        specs: SeriesSpec,
     ) -> "PartInfo":
         """Create a PartInfo instance with complete component specifications.
 
@@ -256,7 +270,8 @@ class PartInfo(NamedTuple):
 
         """
         resistance_code = cls.generate_resistance_code(
-            resistance, specs.max_resistance, specs.base_series)
+            resistance, specs.min_resistance, specs.max_resistance,
+            specs.base_series)
         mpn = \
             f"{specs.base_series}{tolerance_code}{resistance_code}{packaging}"
         description = (
@@ -302,12 +317,10 @@ class PartInfo(NamedTuple):
 
         for series_type in available_series_types:
             base_values = (
-                E96_BASE_VALUES
-                if series_type == "E96"
-                else E24_BASE_VALUES)
+                E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES)
 
             for resistance in cls.generate_resistance_values(
-                    base_values, specs.max_resistance):
+                    base_values, specs.min_resistance, specs.max_resistance):
                 # Handle special case for high resistance values
                 if resistance > 1_000_000 and \
                         specs.high_resistance_tolerance:  # noqa: PLR2004
@@ -337,6 +350,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0402",
         case_code_mm="1005",
         power_rating="0.1W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["X"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
@@ -352,6 +366,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.1W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
@@ -367,6 +382,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
+        min_resistance=10,
         max_resistance=2_200_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
@@ -383,6 +399,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="1206",
         case_code_mm="3216",
         power_rating="0.66W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
@@ -398,6 +415,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.5W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
@@ -413,6 +431,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.25W",
+        min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
@@ -428,6 +447,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0402",
         case_code_mm="1005",
         power_rating="0.1W",
+        min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["X"],
         tolerance_map={"E24": {"J": "5%"}},
@@ -443,6 +463,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.1W",
+        min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E24": {"YJ": "5%"}},
@@ -458,6 +479,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
+        min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E24": {"YJ": "5%"}},
