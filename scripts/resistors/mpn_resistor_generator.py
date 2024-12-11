@@ -91,8 +91,10 @@ def generate_files_for_series(
     csv_filename = f"{series_code}_part_numbers.csv"
     symbol_filename = f"RESISTORS_{series_code}_DATA_BASE.kicad_sym"
 
-    # Generate part numbers and write to CSV
+    # Generate part numbers and sort by value
     parts_list = symbol_resistors_specs.PartInfo.generate_part_numbers(specs)
+    parts_list.sort(key=lambda part: part.value)
+
     file_handler_utilities.write_to_csv(
         parts_list, csv_filename, HEADER_MAPPING)
     print_message_utilities.print_success(
@@ -157,6 +159,9 @@ def generate_unified_files(
         IOError: If file operations fail
 
     """
+    # Sort all parts by value before writing
+    all_parts.sort(key=lambda part: part.value)
+
     # Write unified CSV file
     file_handler_utilities.write_to_csv(
         all_parts, unified_csv, HEADER_MAPPING)
