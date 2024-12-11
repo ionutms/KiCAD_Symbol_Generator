@@ -203,6 +203,15 @@ class PartInfo(NamedTuple):
                 f"{characteristic_code}"
                 f"{packaging}"
             )
+        elif specs.manufacturer == "TDK":
+            mpn = (
+                f"{specs.base_series}"
+                f"{specs.dielectric_code[dielectric_type]}"
+                f"{specs.voltage_code}"
+                f"{capacitance_code}"
+                f"{tolerance_code}"
+                f"{packaging}"
+            )
         else:
             mpn = (
                 f"{specs.base_series}"
@@ -427,6 +436,31 @@ SAMSUNG_SYMBOLS_SPECS = {
     ),
 }
 
+TDK_DOC_BASE = (
+    "https://product.tdk.com/system/files/dam/doc/product/capacitor/"
+    "ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf")
+
+# TDK specifications (X7R only)
+TDK_SYMBOLS_SPECS = {
+    "C1608": SeriesSpec(
+        manufacturer="TDK",
+        base_series="C1608",
+        dielectric_code={"X7S": "X7S"},
+        voltage_code="1A",
+        value_range={"X7S": (2.2e-6, 4.7e-6)},
+        tolerance_map={"X7S": {"K": "10%"}},
+        packaging_options=["080AC"],
+        footprint="capacitor_footprints:C_0603_1608Metric",
+        voltage_rating="10V",
+        case_code_in="0603",
+        case_code_mm="1608",
+        excluded_values={2.7e-6, 3.3e-6, 3.9e-6},
+        datasheet_url=f"{TDK_DOC_BASE}",
+        trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={0: "X7S"},
+    ),
+}
+
 # Combined specifications dictionary
 SERIES_SPECS: Final[dict[str, SeriesSpec]] = {
-    **MURATA_SYMBOLS_SPECS, **SAMSUNG_SYMBOLS_SPECS}
+    **MURATA_SYMBOLS_SPECS, **SAMSUNG_SYMBOLS_SPECS, **TDK_SYMBOLS_SPECS}
