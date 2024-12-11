@@ -266,8 +266,7 @@ class PartInfo(NamedTuple):
                 for capacitance in cls.generate_standard_values(
                         min_val, max_val, specs.excluded_values):
                     for tolerance_code, tolerance_value in \
-                            specs.tolerance_map[
-                                dielectric_type].items():
+                            specs.tolerance_map[dielectric_type].items():
                         for packaging in specs.packaging_options:
                             parts_list.append(cls.create_part_info(  # noqa: PERF401
                                 capacitance=capacitance,
@@ -437,8 +436,7 @@ SAMSUNG_SYMBOLS_SPECS = {
 }
 
 TDK_DOC_BASE = (
-    "https://product.tdk.com/system/files/dam/doc/product/capacitor/"
-    "ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf")
+    "https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=")
 
 # TDK specifications (X7R only)
 TDK_SYMBOLS_SPECS = {
