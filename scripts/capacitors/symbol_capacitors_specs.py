@@ -43,12 +43,12 @@ class SeriesSpec(NamedTuple):
     packaging_options: list[str]
     tolerance_map: dict[str, dict[str, str]]
     value_range: dict[str, tuple[float, float]]
-    voltage_code: str
-    dielectric_code: dict[str, str]
     excluded_values: set[float]
     datasheet_url: str
     trustedparts_url: str
-    characteristic_codes: dict[float, str]
+    voltage_code: str = ""
+    dielectric_code: dict[str, str] = {}  # noqa: RUF012
+    characteristic_codes: dict[float, str] = {}  # noqa: RUF012
     reference: str = "C"
 
 
@@ -136,6 +136,9 @@ class PartInfo(NamedTuple):
         if specs.base_series.startswith("CL"):
             return "X7R"
 
+        if not specs.characteristic_codes:
+            return ""
+
         for threshold, code in sorted(
                 specs.characteristic_codes.items(), reverse=True):
             if capacitance > threshold:
@@ -193,10 +196,16 @@ class PartInfo(NamedTuple):
         characteristic_code = cls.get_characteristic_code(capacitance, specs)
         formatted_value = cls.format_capacitance_value(capacitance)
 
+        dielectric_part = (
+            specs.dielectric_code.get(dielectric_type, dielectric_type)
+            if specs.dielectric_code
+            else dielectric_type
+        )
+
         if specs.manufacturer == "Murata Electronics":
             mpn = (
                 f"{specs.base_series}"
-                f"{specs.dielectric_code[dielectric_type]}"
+                f"{dielectric_part}"
                 f"{specs.voltage_code}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
@@ -206,7 +215,6 @@ class PartInfo(NamedTuple):
         elif specs.manufacturer == "TDK":
             mpn = (
                 f"{specs.base_series}"
-                f"{specs.dielectric_code[dielectric_type]}"
                 f"{specs.voltage_code}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
@@ -215,7 +223,7 @@ class PartInfo(NamedTuple):
         else:
             mpn = (
                 f"{specs.base_series}"
-                f"{specs.dielectric_code[dielectric_type]}"
+                f"{dielectric_part}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
                 f"{specs.voltage_code}"
@@ -438,11 +446,9 @@ TDK_DOC_BASE = (
     "https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=")
 
 TDK_SYMBOLS_SPECS = {
-    "C1005": SeriesSpec(
+    "C1005X7S1A": SeriesSpec(
         manufacturer="TDK",
-        base_series="C1005",
-        dielectric_code={"X7S": "X7S"},
-        voltage_code="1A",
+        base_series="C1005X7S1A",
         value_range={"X7S": (0.33e-6, 2.2e-6)},
         tolerance_map={"X7S": {"K": "10%"}},
         packaging_options=["050BC"],
@@ -453,13 +459,10 @@ TDK_SYMBOLS_SPECS = {
         excluded_values={0.39e-6, 0.56e-6, 0.82e-6, 1.2e-6, 1.8e-6},
         datasheet_url=f"{TDK_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
-        characteristic_codes={0: "X7S"},
     ),
-    "C1608": SeriesSpec(
+    "C1608X7S1A": SeriesSpec(
         manufacturer="TDK",
-        base_series="C1608",
-        dielectric_code={"X7S": "X7S"},
-        voltage_code="1A",
+        base_series="C1608X7S1A",
         value_range={"X7S": (2.2e-6, 4.7e-6)},
         tolerance_map={"X7S": {"K": "10%"}},
         packaging_options=["080AC"],
@@ -470,13 +473,10 @@ TDK_SYMBOLS_SPECS = {
         excluded_values={2.7e-6, 3.3e-6, 3.9e-6},
         datasheet_url=f"{TDK_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
-        characteristic_codes={0: "X7S"},
     ),
-    "C2012": SeriesSpec(
+    "C2012X7S1A": SeriesSpec(
         manufacturer="TDK",
-        base_series="C2012",
-        dielectric_code={"X7S": "X7S"},
-        voltage_code="1A",
+        base_series="C2012X7S1A",
         value_range={"X7S": (15e-6, 22e-6)},
         tolerance_map={"X7S": {"M": "20%"}},
         packaging_options=["125AC"],
@@ -487,7 +487,6 @@ TDK_SYMBOLS_SPECS = {
         excluded_values={18e-6},
         datasheet_url=f"{TDK_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
-        characteristic_codes={0: "X7S"},
     ),
 }
 
