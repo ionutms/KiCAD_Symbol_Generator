@@ -4,6 +4,205 @@
             (generator kicad_symbol_editor)
             (generator_version 8.0)
         
+        (symbol "R_ERJ-2GEJ1R0X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 1 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ1R0X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ1R0X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ1R0X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ1R0X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ100X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -1198,6 +1397,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ1R1X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.1 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 1.1 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ1R1X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ1R1X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ1R1X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ1R1X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ110X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -2141,6 +2539,205 @@
         )
         
         (symbol "R_ERJ-2GEJ114X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ1R2X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.2 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 1.2 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ1R2X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ1R2X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ1R2X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ1R2X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -3188,6 +3785,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ1R3X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.3 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 1.3 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ1R3X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ1R3X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ1R3X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ1R3X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ130X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -4131,6 +4927,205 @@
         )
         
         (symbol "R_ERJ-2GEJ134X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ1R5X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.5 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 1.5 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ1R5X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ1R5X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ1R5X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ1R5X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -5178,6 +6173,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ1R6X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.6 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 1.6 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ1R6X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ1R6X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ1R6X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ1R6X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ160X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -6121,6 +7315,205 @@
         )
         
         (symbol "R_ERJ-2GEJ164X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ1R8X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "1.8 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 1.8 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ1R8X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ1R8X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ1R8X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ1R8X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -7168,6 +8561,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ2R0X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "2 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 2 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ2R0X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ2R0X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ2R0X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ2R0X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ200X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -8111,6 +9703,205 @@
         )
         
         (symbol "R_ERJ-2GEJ204X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ2R2X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "2.2 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 2.2 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ2R2X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ2R2X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ2R2X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ2R2X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -9158,6 +10949,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ2R4X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "2.4 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 2.4 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ2R4X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ2R4X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ2R4X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ2R4X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ240X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -10101,6 +12091,205 @@
         )
         
         (symbol "R_ERJ-2GEJ244X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ2R7X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "2.7 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 2.7 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ2R7X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ2R7X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ2R7X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ2R7X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -11148,6 +13337,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ3R0X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "3 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 3 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ3R0X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ3R0X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ3R0X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ3R0X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ300X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -12091,6 +14479,205 @@
         )
         
         (symbol "R_ERJ-2GEJ304X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ3R3X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "3.3 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 3.3 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ3R3X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ3R3X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ3R3X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ3R3X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -13138,6 +15725,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ3R6X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "3.6 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 3.6 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ3R6X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ3R6X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ3R6X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ3R6X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ360X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -14081,6 +16867,205 @@
         )
         
         (symbol "R_ERJ-2GEJ364X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ3R9X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "3.9 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 3.9 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ3R9X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ3R9X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ3R9X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ3R9X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -15128,6 +18113,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ4R3X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "4.3 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 4.3 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ4R3X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ4R3X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ4R3X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ4R3X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ430X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -16071,6 +19255,205 @@
         )
         
         (symbol "R_ERJ-2GEJ434X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ4R7X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "4.7 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 4.7 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ4R7X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ4R7X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ4R7X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ4R7X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -17118,6 +20501,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ5R1X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "5.1 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 5.1 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ5R1X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ5R1X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ5R1X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ5R1X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ510X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -18061,6 +21643,205 @@
         )
         
         (symbol "R_ERJ-2GEJ514X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ5R6X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "5.6 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 5.6 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ5R6X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ5R6X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ5R6X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ5R6X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -19108,6 +22889,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ6R2X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "6.2 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 6.2 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ6R2X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ6R2X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ6R2X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ6R2X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ620X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -20051,6 +24031,205 @@
         )
         
         (symbol "R_ERJ-2GEJ624X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ6R8X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "6.8 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 6.8 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ6R8X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ6R8X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ6R8X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ6R8X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
@@ -21098,6 +25277,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ7R5X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "7.5 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 7.5 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ7R5X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ7R5X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ7R5X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ7R5X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ750X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -22093,6 +26471,205 @@
             
         )
         )
+        (symbol "R_ERJ-2GEJ8R2X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "8.2 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 8.2 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ8R2X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ8R2X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ8R2X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ8R2X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
         (symbol "R_ERJ-2GEJ820X"
             (pin_names(offset 0.254))
             (exclude_from_sim no)
@@ -23036,6 +27613,205 @@
         )
         
         (symbol "R_ERJ-2GEJ824X_0_1"
+            (polyline
+                (pts (xy 2.286 0) (xy 2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts (xy -2.286 0) (xy -2.54 0))
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy 0.762 0) (xy 1.143 1.016) (xy 1.524 0)
+                    (xy 1.905 -1.016) (xy 2.286 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -0.762 0) (xy -0.381 1.016) (xy 0 0)
+                    (xy 0.381 -1.016) (xy 0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+            (polyline
+                (pts
+                    (xy -2.286 0) (xy -1.905 1.016) (xy -1.524 0)
+                    (xy -1.143 -1.016) (xy -0.762 0)
+                )
+                (stroke (width 0) (type default))
+                (fill (type none))
+            )
+        )
+        
+        (pin unspecified line
+            (at -5.08 0 0)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "1"(effects(font(size 1.27 1.27))))
+            
+        )
+        
+        (pin unspecified line
+            (at 5.08 0 180)
+            (length 2.54)
+            (name ""(effects(font(size 1.27 1.27))))
+            (number "2"(effects(font(size 1.27 1.27))))
+            
+        )
+        )
+        (symbol "R_ERJ-2GEJ9R1X"
+            (pin_names(offset 0.254))
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+        
+        (property "Reference" "R"
+            (at 0.0 2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Value" "9.1 Ω"
+            (at 0.0 -2.54 0)
+            
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                
+            )
+        )
+        
+        (property "Footprint" "resistor_footprints:R_0402_1005Metric"
+            (at 0.0 -5.08 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C301.pdf"
+            (at 0.0 -7.62 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - in" "0402"
+            (at 0.0 -12.7 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Case Code - mm" "1005"
+            (at 0.0 -15.239999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Description" "RES SMD 9.1 Ω 5% 0402 50V"
+            (at 0.0 -10.16 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "MPN" "ERJ-2GEJ9R1X"
+            (at 0.0 -17.779999999999998 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Manufacturer" "Panasonic"
+            (at 0.0 -20.319999999999997 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Series" "ERJ-2GE"
+            (at 0.0 -22.859999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Symbol Name" "R_ERJ-2GEJ9R1X"
+            (at 0.0 -25.399999999999995 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Tolerance" "5%"
+            (at 0.0 -27.939999999999994 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Trustedparts Search" "https://www.trustedparts.com/en/search/ERJ-2GEJ9R1X"
+            (at 0.0 -30.479999999999993 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (property "Voltage Rating" "50V"
+            (at 0.0 -33.019999999999996 0)
+            (show_name)
+            (effects
+                (font(size 1.27 1.27))
+                (justify left)
+                (hide yes)
+            )
+        )
+        
+        (symbol "R_ERJ-2GEJ9R1X_0_1"
             (polyline
                 (pts (xy 2.286 0) (xy 2.54 0))
                 (stroke (width 0) (type default))
