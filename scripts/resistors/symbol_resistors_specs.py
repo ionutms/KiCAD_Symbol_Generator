@@ -166,6 +166,11 @@ class PartInfo(NamedTuple):
 
         # Special handling for ERJ-2GE series
         if series in ("ERJ-2GE", "ERJ-3GE", "ERJ-6GE"):
+            if resistance < 10:  # noqa: PLR2004
+                whole = int(resistance)
+                decimal = int(round((resistance - whole) * 10))
+                return f"{whole:01d}R{decimal}"
+
             if resistance < 100:  # noqa: PLR2004
                 whole = int(resistance)
                 decimal = int(round((resistance - whole) * 10))
@@ -233,12 +238,13 @@ class PartInfo(NamedTuple):
             float: Valid resistance values in ascending order
 
         """
+        multipliers = [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000]
+
         for base_value in base_values:
-            current = base_value
-            while current <= max_resistance:
-                if current >= min_resistance:
-                    yield current
-                current *= 10
+            for multiplier in multipliers:
+                resistance = base_value * multiplier
+                if min_resistance <= resistance <= max_resistance:
+                    yield resistance
 
     @classmethod
     def create_part_info(
@@ -311,9 +317,7 @@ class PartInfo(NamedTuple):
 
         for series_type in available_series_types:
             base_values = (
-                E96_BASE_VALUES
-                if series_type == "E96"
-                else E24_BASE_VALUES)
+                E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES)
 
             for resistance in cls.generate_resistance_values(
                     base_values, specs.min_resistance, specs.max_resistance):
@@ -443,7 +447,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0402",
         case_code_mm="1005",
         power_rating="0.1W",
-        min_resistance=10,
+        min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["X"],
         tolerance_map={"E24": {"J": "5%"}},
@@ -459,7 +463,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.1W",
-        min_resistance=10,
+        min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E24": {"YJ": "5%"}},
@@ -475,7 +479,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=10,
+        min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["V"],
         tolerance_map={"E24": {"YJ": "5%"}},
