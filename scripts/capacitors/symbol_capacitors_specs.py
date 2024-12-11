@@ -283,7 +283,6 @@ class PartInfo(NamedTuple):
 # Base URLs for documentation
 MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
 
-# Murata specifications
 MURATA_SYMBOLS_SPECS = {
     "GCM155": SeriesSpec(
         manufacturer="Murata Electronics",
@@ -412,7 +411,6 @@ MURATA_SYMBOLS_SPECS = {
 SAMSUNG_DOC_BASE = (
     "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=")
 
-# Samsung specifications (X7R only)
 SAMSUNG_SYMBOLS_SPECS = {
     "CL31": SeriesSpec(
         base_series="CL31",
@@ -435,11 +433,28 @@ SAMSUNG_SYMBOLS_SPECS = {
     ),
 }
 
+# Base URLs for documentation
 TDK_DOC_BASE = (
     "https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=")
 
-# TDK specifications (X7R only)
 TDK_SYMBOLS_SPECS = {
+    "C1005": SeriesSpec(
+        manufacturer="TDK",
+        base_series="C1005",
+        dielectric_code={"X7S": "X7S"},
+        voltage_code="1A",
+        value_range={"X7S": (0.33e-6, 2.2e-6)},
+        tolerance_map={"X7S": {"K": "10%"}},
+        packaging_options=["050BC"],
+        footprint="capacitor_footprints:C_0402_1005Metric",
+        voltage_rating="10V",
+        case_code_in="0402",
+        case_code_mm="1005",
+        excluded_values={0.39e-6, 0.56e-6, 0.82e-6, 1.2e-6, 1.8e-6},
+        datasheet_url=f"{TDK_DOC_BASE}",
+        trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={0: "X7S"},
+    ),
     "C1608": SeriesSpec(
         manufacturer="TDK",
         base_series="C1608",
@@ -453,6 +468,23 @@ TDK_SYMBOLS_SPECS = {
         case_code_in="0603",
         case_code_mm="1608",
         excluded_values={2.7e-6, 3.3e-6, 3.9e-6},
+        datasheet_url=f"{TDK_DOC_BASE}",
+        trustedparts_url="https://www.trustedparts.com/en/search",
+        characteristic_codes={0: "X7S"},
+    ),
+    "C2012": SeriesSpec(
+        manufacturer="TDK",
+        base_series="C2012",
+        dielectric_code={"X7S": "X7S"},
+        voltage_code="1A",
+        value_range={"X7S": (15e-6, 22e-6)},
+        tolerance_map={"X7S": {"M": "20%"}},
+        packaging_options=["125AC"],
+        footprint="capacitor_footprints:C_0805_2012Metric",
+        voltage_rating="10V",
+        case_code_in="0805",
+        case_code_mm="2012",
+        excluded_values={18e-6},
         datasheet_url=f"{TDK_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
         characteristic_codes={0: "X7S"},
