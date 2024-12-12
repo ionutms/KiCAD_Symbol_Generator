@@ -26,7 +26,6 @@ class SeriesSpec(NamedTuple):
         packaging_options: List of available packaging codes
         tolerance_map: Maps dielectric types to tolerance codes and values
         value_range: Valid capacitance range for each dielectric type
-        voltage_code: Voltage rating code used in part numbering
         dielectric_code: Maps dielectric types to their material codes
         excluded_values: Set of unsupported capacitance values within range
         datasheet_url: Complete URL to component datasheet
@@ -46,7 +45,6 @@ class SeriesSpec(NamedTuple):
     excluded_values: set[float]
     datasheet_url: str
     trustedparts_url: str
-    voltage_code: str = ""
     dielectric_code: dict[str, str] = {}  # noqa: RUF012
     characteristic_codes: dict[float, str] = {}  # noqa: RUF012
     reference: str = "C"
@@ -176,9 +174,7 @@ class PartInfo(NamedTuple):
     ) -> str:
         """Generate the datasheet URL for a given Murata part number."""
         if specs.manufacturer == "Murata Electronics":
-            base_mpn = mpn[:-1]
-            specific_part = base_mpn[len(specs.base_series):]
-            return f"{specs.datasheet_url}{specific_part}-01.pdf"
+            return f"{specs.datasheet_url}{mpn[:-1]}-01.pdf"
         return f"{specs.datasheet_url}{mpn}"
 
     @classmethod
@@ -196,17 +192,9 @@ class PartInfo(NamedTuple):
         characteristic_code = cls.get_characteristic_code(capacitance, specs)
         formatted_value = cls.format_capacitance_value(capacitance)
 
-        dielectric_part = (
-            specs.dielectric_code.get(dielectric_type, dielectric_type)
-            if specs.dielectric_code
-            else dielectric_type
-        )
-
         if specs.manufacturer == "Murata Electronics":
             mpn = (
                 f"{specs.base_series}"
-                f"{dielectric_part}"
-                f"{specs.voltage_code}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
                 f"{characteristic_code}"
@@ -215,7 +203,6 @@ class PartInfo(NamedTuple):
         elif specs.manufacturer == "TDK":
             mpn = (
                 f"{specs.base_series}"
-                f"{specs.voltage_code}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
                 f"{packaging}"
@@ -225,7 +212,6 @@ class PartInfo(NamedTuple):
                 f"{specs.base_series}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
-                f"{specs.voltage_code}"
                 f"{packaging}"
             )
 
@@ -288,14 +274,12 @@ class PartInfo(NamedTuple):
 
 
 # Base URLs for documentation
-MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
+MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
 
 MURATA_SYMBOLS_SPECS = {
-    "GCM155": SeriesSpec(
+    "GCM155R71H": SeriesSpec(
         manufacturer="Murata Electronics",
-        base_series="GCM155",
-        dielectric_code={"X7R": "R7"},
-        voltage_code="1H",
+        base_series="GCM155R71H",
         value_range={"X7R": (220e-12, 0.1e-6)},  # 220pF to 0.1µF
         tolerance_map={"X7R": {"K": "10%"}},
         characteristic_codes={22e-9: "E02", 4.7e-9: "A55", 0: "A37"},
@@ -305,15 +289,13 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="0402",
         case_code_mm="1005",
         excluded_values={27e-9, 39e-9, 56e-9, 82e-9},
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM155",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
 
-    "GCM188": SeriesSpec(
+    "GCM188R71H": SeriesSpec(
         manufacturer="Murata Electronics",
-        base_series="GCM188",
-        dielectric_code={"X7R": "R7"},
-        voltage_code="1H",
+        base_series="GCM188R71H",
         value_range={"X7R": (1e-9, 220e-9)},  # 1nF to 220nF
         tolerance_map={"X7R": {"K": "10%"}},
         characteristic_codes={
@@ -324,14 +306,12 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="0603",
         case_code_mm="1608",
         excluded_values={120e-9, 180e-9},
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM188",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
-    "GCM216": SeriesSpec(
+    "GCM216R71H": SeriesSpec(
         manufacturer="Murata Electronics",
-        base_series="GCM216",
-        dielectric_code={"X7R": "R7"},
-        voltage_code="1H",
+        base_series="GCM216R71H",
         value_range={"X7R": (1e-9, 22e-9)},  # 1nF to 22nF
         tolerance_map={"X7R": {"K": "10%"}},
         characteristic_codes={22e-9: "A55", 0: "A37"},
@@ -341,14 +321,12 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="0805",
         case_code_mm="2012",
         excluded_values=set(),
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM216",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
-    "GCM31M": SeriesSpec(
+    "GCM31MR71H": SeriesSpec(
         manufacturer="Murata Electronics",
-        base_series="GCM31M",
-        dielectric_code={"X7R": "R7"},
-        voltage_code="1H",
+        base_series="GCM31MR71H",
         value_range={"X7R": (100e-9, 1e-6)},  # 100nF to 1µF
         tolerance_map={"X7R": {"K": "10%"}},
         characteristic_codes={560e-9: "A55", 100e-9: "A37", 0: "A37"},
@@ -358,31 +336,27 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="1206",
         case_code_mm="3216",
         excluded_values={180e-9, 560e-9},
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM31M",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
-    "GCM31C": SeriesSpec(
+    "GCM31CR71E": SeriesSpec(
         manufacturer="Murata Electronics",
-        base_series="GCM31C",
-        dielectric_code={"X7R": "R7"},
-        voltage_code="1E",
+        base_series="GCM31CR71E",
         value_range={"X7R": (4.7e-6, 4.7e-6)},  # Only 4.7µF
         tolerance_map={"X7R": {"K": "10%"}},
-        characteristic_codes={4.7e-6: "A55", 0: "A55"},
+        characteristic_codes={0: "A55"},
         packaging_options=["K", "L"],
         footprint="capacitor_footprints:C_1206_3216Metric",
         voltage_rating="25V",
         case_code_in="1206",
         case_code_mm="3216",
         excluded_values=set(),
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM31C",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
-    "GRM188": SeriesSpec(
+    "GRM188C71A": SeriesSpec(
         manufacturer="Murata Electronics",
-        base_series="GRM188",
-        dielectric_code={"X7S": "C7"},
-        voltage_code="1A",
+        base_series="GRM188C71A",
         value_range={"X7S": (4.7e-6, 4.7e-6)},  # Only 4.7µF
         tolerance_map={"X7S": {"K": "10%"}},
         characteristic_codes={0: "E11"},
@@ -392,14 +366,12 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="0603",
         case_code_mm="1608",
         excluded_values=set(),
-        datasheet_url=f"{MURATA_DOC_BASE}/GRM188",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
-    "GCM32D": SeriesSpec(
+    "GCM32DC72A": SeriesSpec(
         manufacturer="Murata Electronics",
-        base_series="GCM32D",
-        dielectric_code={"X7S": "C7"},
-        voltage_code="2A",
+        base_series="GCM32DC72A",
         value_range={"X7S": (4.7e-6, 4.7e-6)},  # Only 4.7µF
         tolerance_map={"X7S": {"K": "10%"}},
         characteristic_codes={0: "E02"},
@@ -409,7 +381,7 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="1210",
         case_code_mm="3225",
         excluded_values=set(),
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM32D",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
 }
