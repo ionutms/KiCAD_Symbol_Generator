@@ -176,9 +176,7 @@ class PartInfo(NamedTuple):
     ) -> str:
         """Generate the datasheet URL for a given Murata part number."""
         if specs.manufacturer == "Murata Electronics":
-            base_mpn = mpn[:-1]
-            specific_part = base_mpn[len(specs.base_series):]
-            return f"{specs.datasheet_url}{specific_part}-01.pdf"
+            return f"{specs.datasheet_url}{mpn[:-1]}-01.pdf"
         return f"{specs.datasheet_url}{mpn}"
 
     @classmethod
@@ -288,7 +286,7 @@ class PartInfo(NamedTuple):
 
 
 # Base URLs for documentation
-MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG"
+MURATA_DOC_BASE = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/"
 
 MURATA_SYMBOLS_SPECS = {
     "GCM155": SeriesSpec(
@@ -305,7 +303,7 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="0402",
         case_code_mm="1005",
         excluded_values={27e-9, 39e-9, 56e-9, 82e-9},
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM155",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
 
@@ -324,7 +322,7 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="0603",
         case_code_mm="1608",
         excluded_values={120e-9, 180e-9},
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM188",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
     "GCM216": SeriesSpec(
@@ -341,7 +339,7 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="0805",
         case_code_mm="2012",
         excluded_values=set(),
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM216",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
     "GCM31M": SeriesSpec(
@@ -358,7 +356,7 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="1206",
         case_code_mm="3216",
         excluded_values={180e-9, 560e-9},
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM31M",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
     "GCM31C": SeriesSpec(
@@ -375,7 +373,7 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="1206",
         case_code_mm="3216",
         excluded_values=set(),
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM31C",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
     "GRM188": SeriesSpec(
@@ -392,7 +390,7 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="0603",
         case_code_mm="1608",
         excluded_values=set(),
-        datasheet_url=f"{MURATA_DOC_BASE}/GRM188",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
     "GCM32D": SeriesSpec(
@@ -409,7 +407,7 @@ MURATA_SYMBOLS_SPECS = {
         case_code_in="1210",
         case_code_mm="3225",
         excluded_values=set(),
-        datasheet_url=f"{MURATA_DOC_BASE}/GCM32D",
+        datasheet_url=f"{MURATA_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search",
     ),
 }
