@@ -223,7 +223,6 @@ class PartInfo(NamedTuple):
         else:
             mpn = (
                 f"{specs.base_series}"
-                f"{dielectric_part}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
                 f"{specs.voltage_code}"
@@ -420,24 +419,22 @@ SAMSUNG_DOC_BASE = (
     "https://weblib.samsungsem.com/mlcc/mlcc-ec-data-sheet.do?partNumber=")
 
 SAMSUNG_SYMBOLS_SPECS = {
-    "CL31": SeriesSpec(
-        base_series="CL31",
+    "CL31B": SeriesSpec(
+        base_series="CL31B",
         manufacturer="Samsung Electro-Mechanics",
         footprint="capacitor_footprints:C_1206_3216Metric",
         voltage_rating="50V",
         case_code_in="1206",
         case_code_mm="3216",
-        packaging_options=["HNNN#"],
+        packaging_options=["BHNNN#"],
         tolerance_map={"X7R": {"K": "10%"}},
         value_range={"X7R": (0.47e-6, 10e-6)},
-        voltage_code="B",
         dielectric_code={"X7R": "B"},
         excluded_values={
             0.56e-6, 0.68e-6, 0.82e-6, 1.2e-6, 1.5e-6, 1.8e-6, 2.7e-6, 3.3e-6,
             3.9e-6, 5.6e-6, 6.8e-6, 8.2e-6},
         datasheet_url=f"{SAMSUNG_DOC_BASE}",
         trustedparts_url="https://www.trustedparts.com/en/search/CL31",
-        characteristic_codes={0: "X7R"},
     ),
 }
 
