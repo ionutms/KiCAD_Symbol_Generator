@@ -26,7 +26,6 @@ class SeriesSpec(NamedTuple):
         packaging_options: List of available packaging codes
         tolerance_map: Maps dielectric types to tolerance codes and values
         value_range: Valid capacitance range for each dielectric type
-        voltage_code: Voltage rating code used in part numbering
         dielectric_code: Maps dielectric types to their material codes
         excluded_values: Set of unsupported capacitance values within range
         datasheet_url: Complete URL to component datasheet
@@ -46,7 +45,6 @@ class SeriesSpec(NamedTuple):
     excluded_values: set[float]
     datasheet_url: str
     trustedparts_url: str
-    voltage_code: str = ""
     dielectric_code: dict[str, str] = {}  # noqa: RUF012
     characteristic_codes: dict[float, str] = {}  # noqa: RUF012
     reference: str = "C"
@@ -205,7 +203,6 @@ class PartInfo(NamedTuple):
         elif specs.manufacturer == "TDK":
             mpn = (
                 f"{specs.base_series}"
-                f"{specs.voltage_code}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
                 f"{packaging}"
@@ -215,7 +212,6 @@ class PartInfo(NamedTuple):
                 f"{specs.base_series}"
                 f"{capacitance_code}"
                 f"{tolerance_code}"
-                f"{specs.voltage_code}"
                 f"{packaging}"
             )
 
