@@ -20,9 +20,12 @@ Bootstrap components for a polished user interface and includes
 comprehensive styling support for both light and dark themes.
 """
 
+from typing import Any
+
 import dash_bootstrap_components as dbc
 import pandas as pd
-from dash import dash_table, dcc, html, register_page
+import plotly.graph_objects as go
+from dash import Input, Output, callback, dash_table, dcc, html, register_page
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
@@ -96,6 +99,12 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
+    dbc.Row([dcc.Loading([dcc.Graph(
+        id=f"{module_name}_bar_graph",
+        config={"displaylogo": False}),
+        ], delay_show=100, delay_hide=100),
+    ]),
+
     dcu.table_controls_row(module_name, dataframe, visible_columns),
 
     dash_table.DataTable(
@@ -125,3 +134,105 @@ dcu.callback_update_page_size(
     f"{module_name}_table", f"{module_name}_page_size")
 
 dcu.callback_update_dropdown_style(f"{module_name}_page_size")
+
+def get_unique_values_with_repetitions(input_list):  # noqa: ANN001, ANN201
+    """TODO."""
+    if not input_list:
+        return []
+
+    unique_counts = []
+    current_value = input_list[0]
+    current_count = 1
+
+    for item in input_list[1:]:
+        if item == current_value:
+            current_count += 1
+        else:
+            unique_counts.append((current_value, current_count))
+            current_value = item
+            current_count = 1
+
+    unique_counts.append((current_value, current_count))
+
+    unique_values, counts = zip(*unique_counts)
+
+    return list(unique_values), list(counts)
+
+
+@callback(
+    Output(f"{module_name}_bar_graph", "figure"),
+    Input("theme_switch_value_store", "data"),
+)
+def update_distribution_graph(
+    theme_switch: bool,  # noqa: FBT001
+) -> tuple[Any, dict[str, Any]]:
+    """Create a bar graph showing the distribution of capacitance values.
+
+    Args:
+        theme_switch (bool): Indicates the current theme (light/dark).
+
+    Returns:
+        Plotly figure with capacitance distribution visualization.
+
+    """
+    values, counts = \
+        get_unique_values_with_repetitions(dataframe["Value"].to_list())
+    # Existing figure layout configuration
+    figure_layout = {
+        "xaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "domain": (0.0, 1.0), "showgrid": True,
+            "title": {"text": "Capacitance Value", "standoff": 10},
+            "title_font_weight": "bold", "tickmode": "array",
+            "tickangle": -30,
+            "tickfont": {"color": "#808080", "weight": "bold"},
+            "titlefont": {"color": "#808080"},
+        },
+        "yaxis": {
+            "gridcolor": "#808080", "griddash": "dash",
+            "zerolinecolor": "lightgray", "zeroline": False,
+            "tickangle": -30, "position": 0.0,
+            "title": "Number of Capacitors",
+            "tickfont": {"color": "#808080", "weight": "bold"},
+            "titlefont": {"color": "#808080"}, "showgrid": True,
+            "anchor": "free", "autorange": True, "tickformat": ".0f",
+        },
+        "title": {
+            "text":
+                "Capacitance Value Distribution",
+                "x": 0.5, "xanchor": "center",
+        },
+        "showlegend": False,
+    }
+
+    # Create the figure
+    figure = go.Figure(
+        data=[go.Bar(
+            x=values, y=counts, textposition="auto", text=counts,
+            hovertemplate=(
+                "Capacitance: %{x}<br>"
+                "Number of Capacitors: %{y}<extra></extra>"),
+        )],
+        layout=figure_layout)
+
+    # Define theme settings
+    theme = {
+        "template": "plotly" if theme_switch else "plotly_dark",
+        "paper_bgcolor": "white" if theme_switch else "#222222",
+        "plot_bgcolor": "white" if theme_switch else "#222222",
+        "font_color": "black" if theme_switch else "white",
+        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
+        "xaxis": {"tickangle": -45},
+    }
+
+    # Update figure layout with theme and remove unnecessary modebar options
+    figure.update_layout(
+        **theme,
+        modebar={"remove": [
+            "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
+            "autoScale2d", "resetScale2d", "toImage",
+        ]},
+    )
+
+    return figure
