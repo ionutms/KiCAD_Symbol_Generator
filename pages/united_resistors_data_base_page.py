@@ -25,17 +25,7 @@ from typing import Any
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
-from dash import (
-    Input,
-    Output,
-    State,
-    callback,
-    ctx,
-    dash_table,
-    dcc,
-    html,
-    register_page,
-)
+from dash import Input, Output, callback, dash_table, dcc, html, register_page
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
@@ -102,6 +92,59 @@ try:
 except KeyError:
     pass
 
+
+def extract_consecutive_value_groups(
+    input_list: list,
+) -> tuple[list, list]:
+    """Extract unique consecutive values and their repetition counts.
+
+    Processes a list to identify consecutive identical values, returning
+    two separate lists: one with unique consecutive values and another
+    with their respective repetition counts.
+
+    Args:
+        input_list: The input list to process.
+
+    Returns:
+        A tuple containing two lists:
+        - First list: Unique consecutive values
+        - Second list: Corresponding repetition counts
+
+    """
+    if not input_list:
+        return [], []
+
+    unique_counts = []
+    current_value = input_list[0]
+    current_count = 1
+
+    for item in input_list[1:]:
+        if item == current_value:
+            current_count += 1
+        else:
+            unique_counts.append((current_value, current_count))
+            current_value = item
+            current_count = 1
+
+    unique_counts.append((current_value, current_count))
+
+    unique_values, counts = zip(*unique_counts)
+
+    return list(unique_values), list(counts)
+
+
+values, _ = extract_consecutive_value_groups(dataframe["Value"].to_list())
+
+# Create marks with a step of 100 increments, avoiding duplicates
+marks = {}
+
+# Add intermediary marks at 100-increment steps
+for i in range(0, len(values), 50):
+    marks[i] = values[i]
+
+# Always add the last value
+marks[len(values) - 1] = values[-1]
+
 layout = dbc.Container([html.Div([
     dbc.Row([dbc.Col([dcc.Link("Go back Home", href="/")])]),
     dbc.Row([dbc.Col([html.H3(
@@ -109,27 +152,18 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
-    dbc.Row([
-        dbc.Col([
-            html.Div([
-                # Store to persist the current value
-                dcc.Store(id="current_value_store", data=10),
+    dcc.RangeSlider(
+        id="resistance_slider",
+        min=0,
+        max=len(values) - 1,
+        value=[0, 50],
+        marks=marks,
+        step=50,
+        pushable=50,
+        allowCross=False,
+    ),
 
-                # Buttons for incrementing and decrementing
-                dbc.ButtonGroup([
-                    dbc.Button(
-                        "<", id="decrement_button",
-                        color="primary", outline=True),
-                    dbc.Button(
-                        "", id="current_value_display",
-                        color="primary", outline=True, disabled=True),
-                    dbc.Button(
-                        ">", id="increment_button",
-                        color="primary", outline=True),
-                ]),
-            ]),
-        ]),
-    ]),
+    html.Hr(),
 
     dbc.Row([dcc.Loading([dcc.Graph(
         id=f"{module_name}_bar_graph",
@@ -167,132 +201,21 @@ dcu.callback_update_page_size(
 
 dcu.callback_update_dropdown_style(f"{module_name}_page_size")
 
-def get_unique_values_with_repetitions(input_list):  # noqa: ANN001, ANN201
-    """TODO."""
-    if not input_list:
-        return []
-
-    unique_counts = []
-    current_value = input_list[0]
-    current_count = 1
-
-    for item in input_list[1:]:
-        if item == current_value:
-            current_count += 1
-        else:
-            unique_counts.append((current_value, current_count))
-            current_value = item
-            current_count = 1
-
-    unique_counts.append((current_value, current_count))
-
-    unique_values, counts = zip(*unique_counts)
-
-    return list(unique_values), list(counts)
-
-
-@callback(
-    Output("current_value_store", "data"),
-    Output("current_value_display", "children"),
-    Input("increment_button", "n_clicks"),
-    Input("decrement_button", "n_clicks"),
-    State("current_value_store", "data"),
-    prevent_initial_call=True,
-)
-def update_stored_value(
-    _increment_clicks: int,
-    _decrement_clicks: int,
-    current_value: int,
-) -> tuple[int, str]:
-    """Update the stored value based on increment/decrement button clicks.
-
-    This callback handles two scenarios:
-    - Increment button: Multiplies the current value by 10
-    - Decrement button: Divides the current value by 10, with a minimum of 1
-
-    Args:
-        _increment_clicks (Optional[int]):
-            Number of times increment button was clicked
-        _decrement_clicks (Optional[int]):
-            Number of times decrement button was clicked
-        current_value (Optional[int]): Current stored value
-
-    Returns:
-        Tuple[int, str]:
-            - First element: Updated stored value
-            - Second element: Display text showing the current value
-
-    """
-    # Determine which button was clicked
-    triggered_id = ctx.triggered[0]["prop_id"].split(".")[0]
-
-    # Initialize current_value if None
-    if current_value is None:
-        current_value = 10
-
-    # Update the value based on the clicked button
-    if triggered_id == "increment_button":
-        current_value *= 10
-    elif triggered_id == "decrement_button":
-        current_value = max(1, current_value // 10)
-
-    # Create display text
-    display_text = f"{current_value}"
-
-    return current_value, display_text
-
-
-def format_resistance(value: float) -> str:
-    """Convert a numeric value to engineering notation with Ω symbol.
-
-    Args:
-        value (float): Resistance value in ohms
-
-    Returns:
-        str: Formatted resistance with appropriate SI prefix and Ω symbol
-
-    """
-    # Define the SI prefixes for different magnitude ranges
-    prefixes = [
-        (1e9, "GΩ"),  # Gigaohm
-        (1e6, "MΩ"),  # Megaohm
-        (1e3, "kΩ"),  # Kiloohm
-        (1e0, "Ω"),   # Ohm
-        (1e-3, "mΩ"), # Milliohm
-    ]
-
-    # Handle zero and near-zero values
-    if value == 0:
-        return "0 Ω"
-
-    # Find the appropriate prefix
-    for threshold, prefix in prefixes:
-        if abs(value) >= threshold:
-            scaled_value = value / threshold
-
-            # Use different formatting for whole numbers vs. decimal values
-            if scaled_value == int(scaled_value):
-                return f"{int(scaled_value)} {prefix}"
-            return f"{scaled_value:.3g} {prefix}".rstrip("0").rstrip(".")
-
-    # Fallback for extremely small values
-    return f"{value} Ω"
-
 
 @callback(
     Output(f"{module_name}_bar_graph", "figure"),
     Input("theme_switch_value_store", "data"),
-    Input("current_value_store", "data"),
+    Input("resistance_slider", "value"),
 )
 def update_distribution_graph(
     theme_switch: bool,  # noqa: FBT001
-    current_value: int,
+    resistance_slider: int,
 ) -> tuple[Any, dict[str, Any]]:
     """Create a bar graph showing the distribution of resistance values.
 
     Args:
         theme_switch (bool): Indicates the current theme (light/dark).
-        current_value: todo
+        resistance_slider: todo
 
     Returns:
         Plotly figure with resistance distribution visualization.
@@ -300,7 +223,7 @@ def update_distribution_graph(
     """
     # Prepare data for the graph
     values, counts = \
-        get_unique_values_with_repetitions(dataframe["Value"].to_list())
+        extract_consecutive_value_groups(dataframe["Value"].to_list())
 
     # Existing figure layout configuration
     figure_layout = {
@@ -341,11 +264,8 @@ def update_distribution_graph(
         )],
         layout=figure_layout)
 
-    # TODO: solve possible ValueError when outside range
-    index_start = values.index(format_resistance(current_value/10))
-    index_end = values.index(format_resistance(current_value))
-
-    figure.update_layout(xaxis_range=[index_start-0.5, index_end+0.5])
+    figure.update_layout(
+        xaxis_range=[resistance_slider[0] -0.5, resistance_slider[1] + 0.5])
 
     # Define theme settings
     theme = {
