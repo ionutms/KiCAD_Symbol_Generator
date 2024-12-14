@@ -25,7 +25,16 @@ from typing import Any
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
-from dash import Input, Output, callback, dash_table, dcc, html, register_page
+from dash import (
+    Input,
+    Output,
+    State,
+    callback,
+    dash_table,
+    dcc,
+    html,
+    register_page,
+)
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
@@ -152,6 +161,8 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
+    dcc.Store(id="resistance_slider_previous_state", data=[0, 50]),
+
     dcc.RangeSlider(
         id="resistance_slider",
         min=0,
@@ -201,6 +212,32 @@ dcu.callback_update_page_size(
 
 dcu.callback_update_dropdown_style(f"{module_name}_page_size")
 
+@callback(
+    Output("resistance_slider_previous_state", "data"),
+    Output("resistance_slider", "value"),
+    Input("resistance_slider", "value"),
+    State("resistance_slider_previous_state", "data"),
+    prevent_initial_call=True,
+)
+def save_previous_slider_state(
+        current_value: list[int],
+        stored_value: list[int],
+    ) -> list[int]:
+    """Save the previous state of the range slider.
+
+    Args:
+        current_value (list): Current values of the range slider
+        stored_value (list): Stored values of the range slider
+
+    Returns:
+        dict: Previous slider state
+
+    """
+    if current_value[1] != stored_value[1]:
+        current_value[0] = current_value[1] - 50
+    if current_value[0] != stored_value[0]:
+        current_value[1] = current_value[0] + 50
+    return current_value, current_value
 
 @callback(
     Output(f"{module_name}_bar_graph", "figure"),
@@ -233,7 +270,7 @@ def update_distribution_graph(
             "domain": (0.0, 1.0), "showgrid": True,
             "title": {"text": "Resistance Value (Ω)", "standoff": 10},
             "title_font_weight": "bold", "tickmode": "array",
-            "tickangle": -30,
+            "tickangle": -30, "fixedrange": True,
             "tickfont": {"color": "#808080", "weight": "bold"},
             "titlefont": {"color": "#808080"},
         },
@@ -256,12 +293,15 @@ def update_distribution_graph(
 
     # Create the figure
     figure = go.Figure(
-        data=[go.Bar(
-            x=values, y=counts, textposition="auto", text=counts,
-            hovertemplate=(
-                "Resistance: %{x}<br>"
-                "Number of Resistors: %{y}<extra></extra>"),
-        )],
+        data=[
+            go.Bar(
+                x=values, y=counts,
+                textposition="auto", textangle=-30, text=counts,
+                hovertemplate=(
+                    "Resistance: %{x}<br>"
+                    "Number of Resistors: %{y}<extra></extra>"),
+            ),
+        ],
         layout=figure_layout)
 
     figure.update_layout(
@@ -273,13 +313,16 @@ def update_distribution_graph(
         "paper_bgcolor": "white" if theme_switch else "#222222",
         "plot_bgcolor": "white" if theme_switch else "#222222",
         "font_color": "black" if theme_switch else "white",
-        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
+        "margin": {"l": 0, "r": 0, "t": 50, "b": 50},
         "xaxis": {"tickangle": -45},
     }
 
     # Update figure layout with theme and remove unnecessary modebar options
     figure.update_layout(
         **theme,
+        barmode="stack",
+        bargap=0.0,
+        bargroupgap=0.0,
         modebar={"remove": [
             "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
             "autoScale2d", "resetScale2d", "toImage",
