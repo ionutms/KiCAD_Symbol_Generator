@@ -25,7 +25,17 @@ from typing import Any
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
-from dash import Input, Output, callback, dash_table, dcc, html, register_page
+from dash import (
+    Input,
+    Output,
+    State,
+    callback,
+    ctx,
+    dash_table,
+    dcc,
+    html,
+    register_page,
+)
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
@@ -99,6 +109,28 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
+    dbc.Row([
+        dbc.Col([
+            html.Div([
+                # Store to persist the current value
+                dcc.Store(id="current_value_store", data=10),
+
+                # Buttons for incrementing and decrementing
+                dbc.ButtonGroup([
+                    dbc.Button(
+                        "<", id="decrement_button",
+                        color="primary", outline=True),
+                    dbc.Button(
+                        "", id="current_value_display",
+                        color="primary", outline=True, disabled=True),
+                    dbc.Button(
+                        ">", id="increment_button",
+                        color="primary", outline=True),
+                ]),
+            ]),
+        ]),
+    ]),
+
     dbc.Row([dcc.Loading([dcc.Graph(
         id=f"{module_name}_bar_graph",
         config={"displaylogo": False}),
@@ -160,40 +192,132 @@ def get_unique_values_with_repetitions(input_list):  # noqa: ANN001, ANN201
 
 
 @callback(
+    Output("current_value_store", "data"),
+    Output("current_value_display", "children"),
+    Input("increment_button", "n_clicks"),
+    Input("decrement_button", "n_clicks"),
+    State("current_value_store", "data"),
+    prevent_initial_call=True,
+)
+def update_stored_value(
+    _increment_clicks: int,
+    _decrement_clicks: int,
+    current_value: int,
+) -> tuple[int, str]:
+    """Update the stored value based on increment/decrement button clicks.
+
+    This callback handles two scenarios:
+    - Increment button: Multiplies the current value by 10
+    - Decrement button: Divides the current value by 10, with a minimum of 1
+
+    Args:
+        _increment_clicks (Optional[int]):
+            Number of times increment button was clicked
+        _decrement_clicks (Optional[int]):
+            Number of times decrement button was clicked
+        current_value (Optional[int]): Current stored value
+
+    Returns:
+        Tuple[int, str]:
+            - First element: Updated stored value
+            - Second element: Display text showing the current value
+
+    """
+    # Determine which button was clicked
+    triggered_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+    # Initialize current_value if None
+    if current_value is None:
+        current_value = 10
+
+    # Update the value based on the clicked button
+    if triggered_id == "increment_button":
+        current_value *= 10
+    elif triggered_id == "decrement_button":
+        current_value = max(1, current_value // 10)
+
+    # Create display text
+    display_text = f"{current_value}"
+
+    return current_value, display_text
+
+
+def format_resistance(value: float) -> str:
+    """Convert a numeric value to engineering notation with Ω symbol.
+
+    Args:
+        value (float): Resistance value in ohms
+
+    Returns:
+        str: Formatted resistance with appropriate SI prefix and Ω symbol
+
+    """
+    # Define the SI prefixes for different magnitude ranges
+    prefixes = [
+        (1e9, "GΩ"),  # Gigaohm
+        (1e6, "MΩ"),  # Megaohm
+        (1e3, "kΩ"),  # Kiloohm
+        (1e0, "Ω"),   # Ohm
+        (1e-3, "mΩ"), # Milliohm
+    ]
+
+    # Handle zero and near-zero values
+    if value == 0:
+        return "0 Ω"
+
+    # Find the appropriate prefix
+    for threshold, prefix in prefixes:
+        if abs(value) >= threshold:
+            scaled_value = value / threshold
+
+            # Use different formatting for whole numbers vs. decimal values
+            if scaled_value == int(scaled_value):
+                return f"{int(scaled_value)} {prefix}"
+            return f"{scaled_value:.3g} {prefix}".rstrip("0").rstrip(".")
+
+    # Fallback for extremely small values
+    return f"{value} Ω"
+
+
+@callback(
     Output(f"{module_name}_bar_graph", "figure"),
     Input("theme_switch_value_store", "data"),
+    Input("current_value_store", "data"),
 )
 def update_distribution_graph(
     theme_switch: bool,  # noqa: FBT001
+    current_value: int,
 ) -> tuple[Any, dict[str, Any]]:
-    """Create a bar graph showing the distribution of capacitance values.
+    """Create a bar graph showing the distribution of resistance values.
 
     Args:
         theme_switch (bool): Indicates the current theme (light/dark).
+        current_value: todo
 
     Returns:
-        Plotly figure with capacitance distribution visualization.
+        Plotly figure with resistance distribution visualization.
 
     """
+    # Prepare data for the graph
     values, counts = \
         get_unique_values_with_repetitions(dataframe["Value"].to_list())
+
     # Existing figure layout configuration
     figure_layout = {
         "xaxis": {
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
             "domain": (0.0, 1.0), "showgrid": True,
-            "title": {"text": "Resistance Value", "standoff": 10},
+            "title": {"text": "Resistance Value (Ω)", "standoff": 10},
             "title_font_weight": "bold", "tickmode": "array",
             "tickangle": -30,
             "tickfont": {"color": "#808080", "weight": "bold"},
             "titlefont": {"color": "#808080"},
-            "rangeslider":{"visible": True},
         },
         "yaxis": {
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
-            "tickangle": -30, "position": 0.0,
+            "tickangle": -30, "title_font_weight": "bold", "position": 0.0,
             "title": "Number of Resistors",
             "tickfont": {"color": "#808080", "weight": "bold"},
             "titlefont": {"color": "#808080"}, "showgrid": True,
@@ -212,10 +336,16 @@ def update_distribution_graph(
         data=[go.Bar(
             x=values, y=counts, textposition="auto", text=counts,
             hovertemplate=(
-                "Capacitance: %{x}<br>"
-                "Number of Capacitors: %{y}<extra></extra>"),
+                "Resistance: %{x}<br>"
+                "Number of Resistors: %{y}<extra></extra>"),
         )],
         layout=figure_layout)
+
+    # TODO: solve possible ValueError when outside range
+    index_start = values.index(format_resistance(current_value/10))
+    index_end = values.index(format_resistance(current_value))
+
+    figure.update_layout(xaxis_range=[index_start-0.5, index_end+0.5])
 
     # Define theme settings
     theme = {
