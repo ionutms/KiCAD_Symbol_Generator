@@ -113,7 +113,7 @@ layout = dbc.Container([html.Div([
         dbc.Col([
             html.Div([
                 # Store to persist the current value
-                dcc.Store(id="current_value_store", data=10),
+                dcc.Store(id="current_value_store", data=[10, 0, 1]),
 
                 # Buttons for incrementing and decrementing
                 dbc.ButtonGroup([
@@ -167,10 +167,27 @@ dcu.callback_update_page_size(
 
 dcu.callback_update_dropdown_style(f"{module_name}_page_size")
 
-def get_unique_values_with_repetitions(input_list):  # noqa: ANN001, ANN201
-    """TODO."""
+
+def extract_consecutive_value_groups(
+    input_list: list,
+) -> tuple[list, list]:
+    """Extract unique consecutive values and their repetition counts.
+
+    Processes a list to identify consecutive identical values, returning
+    two separate lists: one with unique consecutive values and another
+    with their respective repetition counts.
+
+    Args:
+        input_list: The input list to process.
+
+    Returns:
+        A tuple containing two lists:
+        - First list: Unique consecutive values
+        - Second list: Corresponding repetition counts
+
+    """
     if not input_list:
-        return []
+        return [], []
 
     unique_counts = []
     current_value = input_list[0]
@@ -226,18 +243,31 @@ def update_stored_value(
     # Determine which button was clicked
     triggered_id = ctx.triggered[0]["prop_id"].split(".")[0]
 
-    # Initialize current_value if None
-    if current_value is None:
-        current_value = 10
-
     # Update the value based on the clicked button
     if triggered_id == "increment_button":
-        current_value *= 10
+        current_value[0] *= 10
     elif triggered_id == "decrement_button":
-        current_value = max(1, current_value // 10)
+        current_value[0] = max(1, current_value[0] // 10)
 
     # Create display text
-    display_text = f"{current_value}"
+    display_text = f"{current_value[0]}"
+
+    values, _ = extract_consecutive_value_groups(dataframe["Value"].to_list())
+
+    try:
+        index_start = values.index(format_resistance(current_value[0]/10))
+    except ValueError:
+        print("index_start")
+        index_start = 0
+
+    try:
+        index_end = values.index(format_resistance(current_value[0]))
+    except ValueError:
+        print("index_end")
+        index_end = values.index(values[-1])
+
+    print(index_start, index_end)
+    current_value[1], current_value[2] = index_start, index_end
 
     return current_value, display_text
 
@@ -300,7 +330,7 @@ def update_distribution_graph(
     """
     # Prepare data for the graph
     values, counts = \
-        get_unique_values_with_repetitions(dataframe["Value"].to_list())
+        extract_consecutive_value_groups(dataframe["Value"].to_list())
 
     # Existing figure layout configuration
     figure_layout = {
@@ -341,11 +371,8 @@ def update_distribution_graph(
         )],
         layout=figure_layout)
 
-    # TODO: solve possible ValueError when outside range
-    index_start = values.index(format_resistance(current_value/10))
-    index_end = values.index(format_resistance(current_value))
-
-    figure.update_layout(xaxis_range=[index_start-0.5, index_end+0.5])
+    figure.update_layout(
+        xaxis_range=[current_value[1]-0.5, current_value[2]+0.5])
 
     # Define theme settings
     theme = {
