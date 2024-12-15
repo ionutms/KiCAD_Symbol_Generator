@@ -80,6 +80,7 @@ def generate_files_for_series(
     try:
         parts_list = symbol_inductors_specs.PartInfo.generate_part_numbers(
             specs)
+        parts_list.sort(key=lambda part: part.value)
         file_handler_utilities.write_to_csv(
             parts_list, csv_filename, HEADER_MAPPING)
         print_message_utilities.print_success(
@@ -139,6 +140,8 @@ def generate_unified_files(
         unified_symbol: Name of the unified KiCad symbol file to generate
 
     """
+    # Sort all parts by value before writing
+    all_parts.sort(key=lambda part: part.value)
     # Write unified CSV file
     file_handler_utilities.write_to_csv(
         all_parts, unified_csv, HEADER_MAPPING)
