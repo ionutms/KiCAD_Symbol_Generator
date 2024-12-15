@@ -25,16 +25,7 @@ from typing import Any
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
-from dash import (
-    Input,
-    Output,
-    State,
-    callback,
-    dash_table,
-    dcc,
-    html,
-    register_page,
-)
+from dash import Input, Output, callback, dash_table, dcc, html, register_page
 
 import pages.utils.dash_component_utils as dcu
 import pages.utils.style_utils as styles
@@ -109,9 +100,6 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
-    dcc.Store(
-        id=f"{module_name}_resistance_slider_previous_state", data=[0, 50]),
-
     dcu.generate_range_slider(module_name, dataframe),
 
     html.Hr(),
@@ -152,47 +140,24 @@ dcu.callback_update_page_size(
 
 dcu.callback_update_dropdown_style(f"{module_name}_page_size")
 
-@callback(
-    Output(f"{module_name}_resistance_slider_previous_state", "data"),
-    Output(f"{module_name}_resistance_slider", "value"),
-    Input(f"{module_name}_resistance_slider", "value"),
-    State(f"{module_name}_resistance_slider_previous_state", "data"),
-    prevent_initial_call=True,
-)
-def save_previous_slider_state(
-        current_value: list[int],
-        stored_value: list[int],
-    ) -> list[int]:
-    """Save the previous state of the range slider.
-
-    Args:
-        current_value (list): Current values of the range slider
-        stored_value (list): Stored values of the range slider
-
-    Returns:
-        dict: Previous slider state
-
-    """
-    if current_value[1] != stored_value[1]:
-        current_value[0] = current_value[1] - 50
-    if current_value[0] != stored_value[0]:
-        current_value[1] = current_value[0] + 50
-    return current_value, current_value
+dcu.save_previous_slider_state_callback(
+    f"{module_name}_value_rangeslider",
+    f"{module_name}_rangeslider_store")
 
 @callback(
     Output(f"{module_name}_bar_graph", "figure"),
     Input("theme_switch_value_store", "data"),
-    Input(f"{module_name}_resistance_slider", "value"),
+    Input(f"{module_name}_value_rangeslider", "value"),
 )
 def update_distribution_graph(
     theme_switch: bool,  # noqa: FBT001
-    resistance_slider: int,
+    rangeslider_value: list[int],
 ) -> tuple[Any, dict[str, Any]]:
     """Create a bar graph showing the distribution of resistance values.
 
     Args:
         theme_switch (bool): Indicates the current theme (light/dark).
-        resistance_slider: todo
+        rangeslider_value: todo
 
     Returns:
         Plotly figure with resistance distribution visualization.
@@ -245,7 +210,7 @@ def update_distribution_graph(
         layout=figure_layout)
 
     figure.update_layout(
-        xaxis_range=[resistance_slider[0] -0.5, resistance_slider[1] + 0.5])
+        xaxis_range=[rangeslider_value[0] -0.5, rangeslider_value[1] + 0.5])
 
     # Define theme settings
     theme = {

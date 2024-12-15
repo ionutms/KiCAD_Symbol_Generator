@@ -102,6 +102,10 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
+    dcu.generate_range_slider(module_name, dataframe, 25),
+
+    html.Hr(),
+
     dbc.Row([dcc.Loading([dcc.Graph(
         id=f"{module_name}_bar_graph",
         config={"displaylogo": False}),
@@ -137,6 +141,11 @@ dcu.callback_update_page_size(
 
 dcu.callback_update_dropdown_style(f"{module_name}_page_size")
 
+dcu.save_previous_slider_state_callback(
+    f"{module_name}_value_rangeslider",
+    f"{module_name}_rangeslider_store",
+    25)
+
 
 def get_unique_values_with_repetitions(input_list):  # noqa: ANN001, ANN201
     """TODO."""
@@ -165,14 +174,17 @@ def get_unique_values_with_repetitions(input_list):  # noqa: ANN001, ANN201
 @callback(
     Output(f"{module_name}_bar_graph", "figure"),
     Input("theme_switch_value_store", "data"),
+    Input(f"{module_name}_value_rangeslider", "value"),
 )
 def update_distribution_graph(
     theme_switch: bool,  # noqa: FBT001
+    rangeslider_value: list[int],
 ) -> tuple[Any, dict[str, Any]]:
     """Create a bar graph showing the distribution of capacitance values.
 
     Args:
         theme_switch (bool): Indicates the current theme (light/dark).
+        rangeslider_value: todo
 
     Returns:
         Plotly figure with capacitance distribution visualization.
@@ -218,6 +230,9 @@ def update_distribution_graph(
                 "Number of Capacitors: %{y}<extra></extra>"),
         )],
         layout=figure_layout)
+
+    figure.update_layout(
+        xaxis_range=[rangeslider_value[0] -0.5, rangeslider_value[1] + 0.5])
 
     # Define theme settings
     theme = {

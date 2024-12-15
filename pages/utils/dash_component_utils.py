@@ -5,7 +5,7 @@ from typing import Any
 import dash_bootstrap_components as dbc
 import pandas as pd
 from dash import callback, dcc, html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
 import pages.utils.style_utils as styles
 
@@ -329,8 +329,29 @@ def table_controls_row(
         module_name: str,
         dataframe: pd.DataFrame,
         visible_columns: list[str],
-) -> dbc.Col:
-    """TODO."""
+) -> dbc.Row:
+    """Create a row of controls for a data table.
+
+    This function generates a responsive row with two columns:
+    1. A dropdown to select the number of items per page
+    2. A checklist to show/hide columns in the table
+
+    Args:
+        module_name (str): A unique identifier prefix for component IDs.
+        dataframe (pd.DataFrame):
+            The source DataFrame to derive column options.
+        visible_columns (Optional[List[str]], optional):
+            Initial list of visible columns.
+            Defaults to all columns if not provided.
+
+    Returns:
+        dbc.Row: A Dash Bootstrap Components row with table control elements.
+
+    """
+    # Use all columns if no visible columns are specified
+    if visible_columns is None:
+        visible_columns = list(dataframe.columns)
+
     col_left = dbc.Col([
         html.Div([
             html.H6("Items per page:", className="mb-1"),
@@ -370,51 +391,79 @@ def table_controls_row(
 def generate_range_slider(
         module_name: str,
         dataframe: pd.DataFrame,
-    ) -> dcc.RangeSlider:
-    """Generate a Dash RangeSlider component for a given DataFrame column.
+        step: int = 50,
+) -> dbc.Row:
+    """Generate a Dash RangeSlider component for exploring DataFrame values.
 
-    This function creates a range slider with marks at regular intervals from
-    the values in the specified DataFrame column. The slider allows selecting
-    a range of values with step increments.
+    Creates a range slider with marks at regular intervals, allowing users
+    to select and explore a subset of values from a DataFrame column.
 
     Args:
-        module_name (str): component prefix id
+        module_name (str): Unique prefix for component IDs to avoid conflicts.
         dataframe (pd.DataFrame):
-            The input DataFrame containing
-            the values to be used for the slider.
+            Source DataFrame containing values to visualize.
+        step (int, optional):
+            Interval between slider marks. Defaults to 50.
+            Controls the density of marks and initial range selection.
 
     Returns:
-        dcc.RangeSlider:
-            A Dash RangeSlider component configured
-            with marks from the DataFrame column values.
+        dbc.Row: A Dash Bootstrap Row containing:
+            - A dcc.Store component to persist slider state
+            - A dcc.RangeSlider for value selection
+
+    Raises:
+        ValueError:
+            If the DataFrame is empty or the 'Value' column is missing.
 
     Notes:
-        - Marks are created at every 50th index to avoid overcrowding
-        - The slider's range covers the entire list of values
-        - Default selected range is from the first value to the 50th index
+        - Marks are created at specified step intervals
+            to prevent overcrowding
+        - The slider covers the entire range of values
+        - Initial selected range starts from the first value
+            to the step-th index
 
     """
+    # Validate input DataFrame
+    if dataframe is None or dataframe.empty:
+        msg = "Input DataFrame cannot be None or empty"
+        raise ValueError(msg)
+
+    if "Value" not in dataframe.columns:
+        msg = "DataFrame must contain a 'Value' column"
+        raise ValueError(msg)
+
     # Extract consecutive value groups (assuming this function exists)
     values, _ = extract_consecutive_value_groups(dataframe["Value"].to_list())
 
-    # Create marks with a step of 50 increments, avoiding duplicates
+    # Validate values list
+    if not values:
+        msg = "No values found in the 'Value' column"
+        raise ValueError(msg)
+
+    # Create marks with specified step increments, avoiding duplicates
     marks: dict[int, float] = {}
 
-    # Add intermediary marks at 50-increment steps
-    for mark_index in range(0, len(values), 50):
+    # Add intermediary marks at step increments
+    for mark_index in range(0, len(values), step):
         marks[mark_index] = values[mark_index]
 
     # Always add the last value
     marks[len(values) - 1] = values[-1]
 
-    return dcc.RangeSlider(
-        id=f"{module_name}_resistance_slider",
-        min=0,
-        max=len(values) - 1,
-        value=[0, 50],
-        marks=marks,
-        step=50,
-    )
+    return dbc.Row([
+        dcc.Store(
+            id=f"{module_name}_rangeslider_store",
+            data=[0, step],
+        ),
+        dcc.RangeSlider(
+            id=f"{module_name}_value_rangeslider",
+            min=0,
+            max=len(values) - 1,
+            value=[0, step],
+            marks=marks,
+            step=step,
+        ),
+    ])
 
 
 def extract_consecutive_value_groups(
@@ -455,3 +504,68 @@ def extract_consecutive_value_groups(
     unique_values, counts = zip(*unique_counts)
 
     return list(unique_values), list(counts)
+
+
+def save_previous_slider_state_callback(
+        rangeslider_id: str,
+        rangeslider_store_id: str,
+        step: int = 50,
+    ) -> None:
+    """Create a callback to manage range slider state.
+
+    This callback ensures that when one end of the range slider is moved,
+    the other end adjusts by a specified step size while maintaining the
+    overall range width.
+
+    Args:
+        rangeslider_id (str): The ID of the range slider component.
+        rangeslider_store_id (str): The ID of the data store for slider state.
+        step (int, optional):
+            The fixed step size for slider adjustments. Defaults to 50.
+
+    Returns:
+        dash.development.base_component.Callback: A Dash callback function.
+
+    """
+    @callback(
+        Output(rangeslider_store_id, "data"),
+        Output(rangeslider_id, "value"),
+        Input(rangeslider_id, "value"),
+        State(rangeslider_store_id, "data"),
+        prevent_initial_call=True,
+    )
+    def save_previous_slider_state(
+            current_value: list[int],
+            stored_value: list[int],
+        ) -> list[int]:
+        """Adjust range slider values to maintain a consistent step size.
+
+        When one end of the slider is moved, this function ensures the
+        other end moves by the specified step size while preserving the
+        relative positioning.
+
+        Args:
+            current_value (List[int]):
+                Current values of the range slider. Expected to be a list
+                of two integers representing the lower and upper bounds.
+            stored_value (List[int], optional):
+                Previous values of the range slider. Defaults to None.
+
+        Returns:
+            List[int]: Adjusted slider values with consistent step size.
+
+        """
+        # Use empty list as default if stored_value is None
+        stored_value = stored_value or [0, 0]
+
+        # If upper bound changed, adjust lower bound
+        if current_value[1] != stored_value[1]:
+            current_value[0] = current_value[1] - step
+
+        # If lower bound changed, adjust upper bound
+        if current_value[0] != stored_value[0]:
+            current_value[1] = current_value[0] + step
+
+        return current_value, current_value
+
+    return save_previous_slider_state
