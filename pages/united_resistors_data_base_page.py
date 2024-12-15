@@ -102,58 +102,6 @@ except KeyError:
     pass
 
 
-def extract_consecutive_value_groups(
-    input_list: list,
-) -> tuple[list, list]:
-    """Extract unique consecutive values and their repetition counts.
-
-    Processes a list to identify consecutive identical values, returning
-    two separate lists: one with unique consecutive values and another
-    with their respective repetition counts.
-
-    Args:
-        input_list: The input list to process.
-
-    Returns:
-        A tuple containing two lists:
-        - First list: Unique consecutive values
-        - Second list: Corresponding repetition counts
-
-    """
-    if not input_list:
-        return [], []
-
-    unique_counts = []
-    current_value = input_list[0]
-    current_count = 1
-
-    for item in input_list[1:]:
-        if item == current_value:
-            current_count += 1
-        else:
-            unique_counts.append((current_value, current_count))
-            current_value = item
-            current_count = 1
-
-    unique_counts.append((current_value, current_count))
-
-    unique_values, counts = zip(*unique_counts)
-
-    return list(unique_values), list(counts)
-
-
-values, _ = extract_consecutive_value_groups(dataframe["Value"].to_list())
-
-# Create marks with a step of 100 increments, avoiding duplicates
-marks = {}
-
-# Add intermediary marks at 100-increment steps
-for i in range(0, len(values), 50):
-    marks[i] = values[i]
-
-# Always add the last value
-marks[len(values) - 1] = values[-1]
-
 layout = dbc.Container([html.Div([
     dbc.Row([dbc.Col([dcc.Link("Go back Home", href="/")])]),
     dbc.Row([dbc.Col([html.H3(
@@ -161,18 +109,10 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
-    dcc.Store(id="resistance_slider_previous_state", data=[0, 50]),
+    dcc.Store(
+        id=f"{module_name}_resistance_slider_previous_state", data=[0, 50]),
 
-    dcc.RangeSlider(
-        id="resistance_slider",
-        min=0,
-        max=len(values) - 1,
-        value=[0, 50],
-        marks=marks,
-        step=50,
-        pushable=50,
-        allowCross=False,
-    ),
+    dcu.generate_range_slider(module_name, dataframe),
 
     html.Hr(),
 
@@ -213,10 +153,10 @@ dcu.callback_update_page_size(
 dcu.callback_update_dropdown_style(f"{module_name}_page_size")
 
 @callback(
-    Output("resistance_slider_previous_state", "data"),
-    Output("resistance_slider", "value"),
-    Input("resistance_slider", "value"),
-    State("resistance_slider_previous_state", "data"),
+    Output(f"{module_name}_resistance_slider_previous_state", "data"),
+    Output(f"{module_name}_resistance_slider", "value"),
+    Input(f"{module_name}_resistance_slider", "value"),
+    State(f"{module_name}_resistance_slider_previous_state", "data"),
     prevent_initial_call=True,
 )
 def save_previous_slider_state(
@@ -242,7 +182,7 @@ def save_previous_slider_state(
 @callback(
     Output(f"{module_name}_bar_graph", "figure"),
     Input("theme_switch_value_store", "data"),
-    Input("resistance_slider", "value"),
+    Input(f"{module_name}_resistance_slider", "value"),
 )
 def update_distribution_graph(
     theme_switch: bool,  # noqa: FBT001
@@ -260,7 +200,7 @@ def update_distribution_graph(
     """
     # Prepare data for the graph
     values, counts = \
-        extract_consecutive_value_groups(dataframe["Value"].to_list())
+        dcu.extract_consecutive_value_groups(dataframe["Value"].to_list())
 
     # Existing figure layout configuration
     figure_layout = {

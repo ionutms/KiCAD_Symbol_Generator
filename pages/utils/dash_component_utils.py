@@ -365,3 +365,93 @@ def table_controls_row(
     ], xs=12, sm=10)
 
     return dbc.Row([col_left, col_right], className="mb-1")
+
+
+def generate_range_slider(
+        module_name: str,
+        dataframe: pd.DataFrame,
+    ) -> dcc.RangeSlider:
+    """Generate a Dash RangeSlider component for a given DataFrame column.
+
+    This function creates a range slider with marks at regular intervals from
+    the values in the specified DataFrame column. The slider allows selecting
+    a range of values with step increments.
+
+    Args:
+        module_name (str): component prefix id
+        dataframe (pd.DataFrame):
+            The input DataFrame containing
+            the values to be used for the slider.
+
+    Returns:
+        dcc.RangeSlider:
+            A Dash RangeSlider component configured
+            with marks from the DataFrame column values.
+
+    Notes:
+        - Marks are created at every 50th index to avoid overcrowding
+        - The slider's range covers the entire list of values
+        - Default selected range is from the first value to the 50th index
+
+    """
+    # Extract consecutive value groups (assuming this function exists)
+    values, _ = extract_consecutive_value_groups(dataframe["Value"].to_list())
+
+    # Create marks with a step of 50 increments, avoiding duplicates
+    marks: dict[int, float] = {}
+
+    # Add intermediary marks at 50-increment steps
+    for mark_index in range(0, len(values), 50):
+        marks[mark_index] = values[mark_index]
+
+    # Always add the last value
+    marks[len(values) - 1] = values[-1]
+
+    return dcc.RangeSlider(
+        id=f"{module_name}_resistance_slider",
+        min=0,
+        max=len(values) - 1,
+        value=[0, 50],
+        marks=marks,
+        step=50,
+    )
+
+
+def extract_consecutive_value_groups(
+    input_list: list,
+) -> tuple[list, list]:
+    """Extract unique consecutive values and their repetition counts.
+
+    Processes a list to identify consecutive identical values, returning
+    two separate lists: one with unique consecutive values and another
+    with their respective repetition counts.
+
+    Args:
+        input_list: The input list to process.
+
+    Returns:
+        A tuple containing two lists:
+        - First list: Unique consecutive values
+        - Second list: Corresponding repetition counts
+
+    """
+    if not input_list:
+        return [], []
+
+    unique_counts = []
+    current_value = input_list[0]
+    current_count = 1
+
+    for item in input_list[1:]:
+        if item == current_value:
+            current_count += 1
+        else:
+            unique_counts.append((current_value, current_count))
+            current_value = item
+            current_count = 1
+
+    unique_counts.append((current_value, current_count))
+
+    unique_values, counts = zip(*unique_counts)
+
+    return list(unique_values), list(counts)

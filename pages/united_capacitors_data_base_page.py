@@ -225,13 +225,16 @@ def update_distribution_graph(
         "paper_bgcolor": "white" if theme_switch else "#222222",
         "plot_bgcolor": "white" if theme_switch else "#222222",
         "font_color": "black" if theme_switch else "white",
-        "margin": {"l": 50, "r": 50, "t": 50, "b": 50},
+        "margin": {"l": 0, "r": 0, "t": 50, "b": 50},
         "xaxis": {"tickangle": -45},
     }
 
     # Update figure layout with theme and remove unnecessary modebar options
     figure.update_layout(
         **theme,
+        barmode="stack",
+        bargap=0.0,
+        bargroupgap=0.0,
         modebar={"remove": [
             "zoom", "pan", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
             "autoScale2d", "resetScale2d", "toImage",
