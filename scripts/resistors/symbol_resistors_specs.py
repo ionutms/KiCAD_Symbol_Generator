@@ -160,9 +160,16 @@ class PartInfo(NamedTuple):
         """
         if resistance < min_resistance or resistance > max_resistance:
             msg = (
-                f"Rezsistance value out of range "
+                f"Resistance value out of range "
                 f"({min_resistance}Ω to {max_resistance}Ω)")
             raise ValueError(msg)
+
+        if series in ("RT0805BRB07"):  # noqa: SIM102
+            if resistance < 1000:  # noqa: PLR2004
+                whole = int(resistance)
+                decimal = \
+                    str(int(round((resistance - whole) * 100))).rstrip("0")
+                return f"{whole:01d}R{decimal}"
 
         # Special handling for ERJ-2GE series
         if series in ("ERJ-2GEJ", "ERJ-3GEYJ", "ERJ-6GEYJ"):
@@ -342,7 +349,7 @@ class PartInfo(NamedTuple):
         return parts_list
 
 
-SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
+PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-2RKF": SeriesSpec(
         manufacturer="Panasonic",
         base_series="ERJ-2RKF",
@@ -496,3 +503,27 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 }
+
+YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
+    "RT0805BRB07": SeriesSpec(
+        manufacturer="Yageo",
+        base_series="RT0805BRB07",
+        footprint="resistor_footprints:R_0805_2012Metric",
+        voltage_rating="150V",
+        case_code_in="0805",
+        case_code_mm="2012",
+        power_rating="0.125W",
+        min_resistance=4.7,
+        # max_resistance=1_000_000,  # noqa: ERA001
+        max_resistance=999,
+        packaging_options=["L"],
+        tolerance_map={"E96": "0.1%", "E24": "0.1%"},
+        datasheet=(
+            "https://www.yageo.com/upload/media/product/productsearch/"
+            "datasheet/rchip/PYu-RT_1-to-0.01_RoHS_L_15.pdf"),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+}
+
+# Combined specifications dictionary
+SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
+    **PANASONIC_SYMBOLS_SPECS, **YAGEO_SYMBOLS_SPECS}
