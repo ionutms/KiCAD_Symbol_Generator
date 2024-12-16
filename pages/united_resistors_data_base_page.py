@@ -157,15 +157,24 @@ def update_distribution_graph(
 
     Args:
         theme_switch (bool): Indicates the current theme (light/dark).
-        rangeslider_value: todo
+        rangeslider_value:
+            Range slider values for filtering resistance values.
 
     Returns:
         Plotly figure with resistance distribution visualization.
 
     """
-    # Prepare data for the graph
-    values, counts = \
-        dcu.extract_consecutive_value_groups(dataframe["Value"].to_list())
+    # Prepare full data range
+    values, _ = dcu.extract_consecutive_value_groups(
+        dataframe["Value"].to_list())
+
+    # Dynamically extract all unique tolerances
+    tolerances = sorted(dataframe["Tolerance"].unique())
+
+    # Create tolerance-based dataframes and configurations
+    tolerance_configs = [{
+        "dataframe": dataframe[dataframe["Tolerance"] == tolerance],
+        "name": f"{tolerance} Tolerance"} for tolerance in tolerances]
 
     # Existing figure layout configuration
     figure_layout = {
@@ -183,34 +192,55 @@ def update_distribution_graph(
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
             "tickangle": -30, "title_font_weight": "bold", "position": 0.0,
-            "title": "Number of Resistors",
+            "title": "Number of Resistors", "fixedrange": True,
             "tickfont": {"color": "#808080", "weight": "bold"},
             "titlefont": {"color": "#808080"}, "showgrid": True,
             "anchor": "free", "autorange": True, "tickformat": ".0f",
         },
         "title": {
             "text":
-                "Resistance Value Distribution",
-                "x": 0.5, "xanchor": "center",
+                "Resistance Value Distribution "
+                f"(Tolerances: {', '.join(tolerances)})",
+            "x": 0.5, "xanchor": "center",
         },
-        "showlegend": False,
+        "showlegend": True,
     }
 
     # Create the figure
-    figure = go.Figure(
-        data=[
-            go.Bar(
-                x=values, y=counts,
-                textposition="auto", textangle=-30, text=counts,
-                hovertemplate=(
-                    "Resistance: %{x}<br>"
-                    "Number of Resistors: %{y}<extra></extra>"),
-            ),
-        ],
-        layout=figure_layout)
+    figure = go.Figure(layout=figure_layout)
 
+    # Add traces for each tolerance group
+    for config in tolerance_configs:
+        # Extract values and counts
+        values_tolerance, counts_tolerance = \
+            dcu.extract_consecutive_value_groups(
+                config["dataframe"]["Value"].to_list())
+
+        # Pad values and counts to match full range
+        values_tolerance, counts_tolerance = dcu.pad_values_and_counts(
+            values, values_tolerance, counts_tolerance)
+
+        # Add trace for this tolerance group
+        figure.add_trace(go.Bar(
+            x=values_tolerance,
+            y=counts_tolerance,
+            name=config["name"],
+            textposition="auto",
+            textangle=-30,
+            text=counts_tolerance,
+            hovertemplate=(
+                "Resistance: %{x}<br>"
+                "Number of Resistors: %{y}<extra></extra>"
+            ),
+        ))
+
+    # Update x-axis range based on slider
     figure.update_layout(
-        xaxis_range=[rangeslider_value[0] -0.5, rangeslider_value[1] + 0.5])
+        xaxis_range=[rangeslider_value[0] - 0.5, rangeslider_value[1] + 0.5],
+        # Horizontal legend configuration
+        legend={
+            "orientation": "h", "yanchor": "bottom", "xanchor": "center",
+            "y": 0.98, "x": 0.5})
 
     # Define theme settings
     theme = {

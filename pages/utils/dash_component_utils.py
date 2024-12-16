@@ -506,6 +506,47 @@ def extract_consecutive_value_groups(
     return list(unique_values), list(counts)
 
 
+def pad_values_and_counts(
+        values: list[Any],
+        specific_values: list[Any],
+        specific_counts: list[int],
+) -> tuple[list[Any], list[int]]:
+    """Pad values with their corresponding counts.
+
+    This function takes a list of values and compares it with a list of
+    specific values and their counts. For each value in the input list:
+    - If the value exists in specific values, its corresponding count is used
+    - If the value does not exist, it is added with a zero count
+
+    Args:
+        values: A list of values to be padded
+        specific_values: A list of specific values with known counts
+        specific_counts: A list of counts corresponding to specific_values
+
+    Returns:
+        A tuple containing two lists:
+        - A list of padded values in the same order as the input values
+        - A list of corresponding counts (with zero for missing values)
+
+    """
+    # Add missing values with zero count
+    padded_specific_values = []
+    padded_specific_counts = []
+
+    for val in values:
+        if val in specific_values:
+            # If the value exists in specific values, use its count
+            index = specific_values.index(val)
+            padded_specific_values.append(val)
+            padded_specific_counts.append(specific_counts[index])
+        else:
+            # If the value doesn't exist, add it with a zero count
+            padded_specific_values.append(val)
+            padded_specific_counts.append(0)
+
+    return padded_specific_values, padded_specific_counts
+
+
 def save_previous_slider_state_callback(
         rangeslider_id: str,
         rangeslider_store_id: str,
