@@ -271,7 +271,9 @@ class PartInfo(NamedTuple):
             resistance, specs.min_resistance, specs.max_resistance,
             specs.base_series)
 
-        mpn = f"{specs.base_series}{resistance_code}{packaging}"
+        packaging_code = packaging
+
+        mpn = f"{specs.base_series}{resistance_code}{packaging_code}"
 
         description = (
             f"RES SMD {cls.format_resistance_value(resistance)} "
@@ -324,10 +326,11 @@ class PartInfo(NamedTuple):
                 if resistance > 1_000_000 and \
                         specs.high_resistance_tolerance:  # noqa: PLR2004
                     tolerance_codes = specs.high_resistance_tolerance
+                    tolerance_values = list(tolerance_codes.values())
                 else:
-                    tolerance_codes = specs.tolerance_map[series_type]
+                    tolerance_values = [specs.tolerance_map[series_type]]
 
-                for tolerance_value in tolerance_codes.values():
+                for tolerance_value in tolerance_values:
                     for packaging in specs.packaging_options:
                         parts_list.append(cls.create_part_info(  # noqa: PERF401
                             resistance,
@@ -340,7 +343,6 @@ class PartInfo(NamedTuple):
 
 
 SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
-
     "ERJ-2RKF": SeriesSpec(
         manufacturer="Panasonic",
         base_series="ERJ-2RKF",
@@ -352,7 +354,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["X"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "1%"}},
+        tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
@@ -368,7 +370,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "1%"}},
+        tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
@@ -385,7 +387,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=2_200_000,
         packaging_options=["V"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "1%"}},
+        tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
@@ -402,7 +404,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
+        tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
@@ -419,7 +421,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
+        tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
@@ -436,7 +438,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"F": "1%"}},
+        tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
@@ -453,7 +455,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["X"],
-        tolerance_map={"E24": {"J": "5%"}},
+        tolerance_map={"E24": "5%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C301.pdf"),
@@ -470,7 +472,7 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={"E24": {"YJ": "5%"}},
+        tolerance_map={"E24": "5%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C301.pdf"),
@@ -487,11 +489,10 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=1,
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={"E24": {"YJ": "5%"}},
+        tolerance_map={"E24": "5%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C301.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
-
 }
