@@ -208,30 +208,16 @@ def update_distribution_graph(
     }
 
     # Create the figure
-    figure = go.Figure(
-        data=[
-            go.Bar(
-                x=values, y=counts,
-                textposition="auto", textangle=-30, text=counts,
-                hovertemplate=(
-                    "Resistance: %{x}<br>"
-                    "Number of Resistors: %{y}<extra></extra>"),
-            ),
-        ],
-        layout=figure_layout)
+    figure = go.Figure(layout=figure_layout)
 
-    # Add 1% tolerance bar graph
-    figure.add_trace(go.Bar(
-        x=values_1_percent,
-        y=counts_1_percent,
-        name="1% Tolerance",
-        textposition="auto",
-        textangle=-30,
-        text=counts_1_percent,
-        hovertemplate=(
-            "Resistance: %{x}<br>"
-            "Number of Resistors: %{y}<extra></extra>"),
-    ))
+    # Add dummy values and zero counts to match the full range
+
+    # In the update_distribution_graph function:
+    values_5_percent, counts_5_percent = dcu.pad_values_and_counts(
+        values, values_5_percent, counts_5_percent)
+
+    values_1_percent, counts_1_percent = dcu.pad_values_and_counts(
+        values, values_1_percent, counts_1_percent)
 
     # Add 5% tolerance bar graph
     figure.add_trace(go.Bar(
@@ -241,6 +227,19 @@ def update_distribution_graph(
         textposition="auto",
         textangle=-30,
         text=counts_5_percent,
+        hovertemplate=(
+            "Resistance: %{x}<br>"
+            "Number of Resistors: %{y}<extra></extra>"),
+    ))
+
+    # Add 1% tolerance bar graph
+    figure.add_trace(go.Bar(
+        x=values_1_percent,
+        y=counts_1_percent,
+        name="1% Tolerance",
+        textposition="auto",
+        textangle=-30,
+        text=counts_1_percent,
         hovertemplate=(
             "Resistance: %{x}<br>"
             "Number of Resistors: %{y}<extra></extra>"),
