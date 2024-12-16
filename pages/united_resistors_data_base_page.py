@@ -166,6 +166,17 @@ def update_distribution_graph(
     # Prepare data for the graph
     values, counts = \
         dcu.extract_consecutive_value_groups(dataframe["Value"].to_list())
+    # Separate dataframes for each tolerance
+    df_1_percent = dataframe[dataframe["Tolerance"] == "1%"]
+    df_5_percent = dataframe[dataframe["Tolerance"] == "5%"]
+
+    # Extract values and counts for 1% tolerance
+    values_1_percent, counts_1_percent = \
+        dcu.extract_consecutive_value_groups(df_1_percent["Value"].to_list())
+
+    # Extract values and counts for 5% tolerance
+    values_5_percent, counts_5_percent = \
+        dcu.extract_consecutive_value_groups(df_5_percent["Value"].to_list())
 
     # Existing figure layout configuration
     figure_layout = {
@@ -193,7 +204,7 @@ def update_distribution_graph(
                 "Resistance Value Distribution",
                 "x": 0.5, "xanchor": "center",
         },
-        "showlegend": False,
+        "showlegend": True,
     }
 
     # Create the figure
@@ -208,6 +219,32 @@ def update_distribution_graph(
             ),
         ],
         layout=figure_layout)
+
+    # Add 1% tolerance bar graph
+    figure.add_trace(go.Bar(
+        x=values_1_percent,
+        y=counts_1_percent,
+        name="1% Tolerance",
+        textposition="auto",
+        textangle=-30,
+        text=counts_1_percent,
+        hovertemplate=(
+            "Resistance: %{x}<br>"
+            "Number of Resistors: %{y}<extra></extra>"),
+    ))
+
+    # Add 5% tolerance bar graph
+    figure.add_trace(go.Bar(
+        x=values_5_percent,
+        y=counts_5_percent,
+        name="5% Tolerance",
+        textposition="auto",
+        textangle=-30,
+        text=counts_5_percent,
+        hovertemplate=(
+            "Resistance: %{x}<br>"
+            "Number of Resistors: %{y}<extra></extra>"),
+    ))
 
     figure.update_layout(
         xaxis_range=[rangeslider_value[0] -0.5, rangeslider_value[1] + 0.5])
