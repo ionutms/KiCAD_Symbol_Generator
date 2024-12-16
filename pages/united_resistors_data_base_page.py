@@ -168,17 +168,13 @@ def update_distribution_graph(
     values, _ = dcu.extract_consecutive_value_groups(
         dataframe["Value"].to_list())
 
-    # Define tolerance-based dataframes and their trace configurations
-    tolerance_configs = [
-        {
-            "dataframe": dataframe[dataframe["Tolerance"] == "5%"],
-            "name": "5% Tolerance",
-        },
-        {
-            "dataframe": dataframe[dataframe["Tolerance"] == "1%"],
-            "name": "1% Tolerance",
-        },
-    ]
+    # Dynamically extract all unique tolerances
+    tolerances = sorted(dataframe["Tolerance"].unique())
+
+    # Create tolerance-based dataframes and configurations
+    tolerance_configs = [{
+        "dataframe": dataframe[dataframe["Tolerance"] == tolerance],
+        "name": f"{tolerance} Tolerance"} for tolerance in tolerances]
 
     # Existing figure layout configuration
     figure_layout = {
@@ -196,13 +192,15 @@ def update_distribution_graph(
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
             "tickangle": -30, "title_font_weight": "bold", "position": 0.0,
-            "title": "Number of Resistors",
+            "title": "Number of Resistors", "fixedrange": True,
             "tickfont": {"color": "#808080", "weight": "bold"},
             "titlefont": {"color": "#808080"}, "showgrid": True,
             "anchor": "free", "autorange": True, "tickformat": ".0f",
         },
         "title": {
-            "text": "Resistance Value Distribution",
+            "text":
+                "Resistance Value Distribution "
+                f"(Tolerances: {', '.join(tolerances)})",
             "x": 0.5, "xanchor": "center",
         },
         "showlegend": True,
@@ -238,7 +236,11 @@ def update_distribution_graph(
 
     # Update x-axis range based on slider
     figure.update_layout(
-        xaxis_range=[rangeslider_value[0] - 0.5, rangeslider_value[1] + 0.5])
+        xaxis_range=[rangeslider_value[0] - 0.5, rangeslider_value[1] + 0.5],
+        # Horizontal legend configuration
+        legend={
+            "orientation": "h", "yanchor": "bottom", "xanchor": "center",
+            "y": 0.98, "x": 0.5})
 
     # Define theme settings
     theme = {
