@@ -110,7 +110,11 @@ layout = dbc.Container([html.Div([
         ], delay_show=100, delay_hide=100),
     ]),
 
+    html.Hr(),
+
     dcu.table_controls_row(module_name, dataframe, visible_columns),
+
+    html.Hr(),
 
     dash_table.DataTable(
         id=f"{module_name}_table",
@@ -122,6 +126,8 @@ layout = dbc.Container([html.Div([
         filter_action="native",
         sort_action="native",
         sort_mode="multi"),
+
+    html.Hr(),
 
 ], style=styles.GLOBAL_STYLE),
 ], fluid=True)
@@ -153,15 +159,15 @@ def update_distribution_graph(
     theme_switch: bool,  # noqa: FBT001
     rangeslider_value: list[int],
 ) -> tuple[Any, dict[str, Any]]:
-    """Create a bar graph showing the distribution of resistance values.
+    """Create a bar graph showing the distribution of components values.
 
     Args:
         theme_switch (bool): Indicates the current theme (light/dark).
         rangeslider_value:
-            Range slider values for filtering resistance values.
+            Range slider values for filtering components values.
 
     Returns:
-        Plotly figure with resistance distribution visualization.
+        Plotly figure with components distribution visualization.
 
     """
     # Prepare full data range
@@ -182,7 +188,7 @@ def update_distribution_graph(
             "gridcolor": "#808080", "griddash": "dash",
             "zerolinecolor": "lightgray", "zeroline": False,
             "domain": (0.0, 1.0), "showgrid": True,
-            "title": {"text": "Resistance Value (Ω)", "standoff": 10},
+            "title": {"text": "Resistance Value", "standoff": 10},
             "title_font_weight": "bold", "tickmode": "array",
             "tickangle": -30, "fixedrange": True,
             "tickfont": {"color": "#808080", "weight": "bold"},
