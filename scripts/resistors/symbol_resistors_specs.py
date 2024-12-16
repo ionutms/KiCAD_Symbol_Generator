@@ -165,7 +165,7 @@ class PartInfo(NamedTuple):
             raise ValueError(msg)
 
         # Special handling for ERJ-2GE series
-        if series in ("ERJ-2GE", "ERJ-3GE", "ERJ-6GE"):
+        if series in ("ERJ-2GEJ", "ERJ-3GEYJ", "ERJ-6GEYJ"):
             if resistance < 10:  # noqa: PLR2004
                 whole = int(resistance)
                 decimal = int(round((resistance - whole) * 10))
@@ -274,6 +274,13 @@ class PartInfo(NamedTuple):
             specs.base_series)
         mpn = \
             f"{specs.base_series}{tolerance_code}{resistance_code}{packaging}"
+
+        if specs.base_series in (
+                "ERJ-2RKF", "ERJ-3EKF", "ERJ-6ENF",
+                "ERJ-P03F", "ERJ-P06F", "ERJ-P08F",
+                "ERJ-2GEJ", "ERJ-3GEYJ", "ERJ-6GEYJ"):
+            mpn = f"{specs.base_series}{resistance_code}{packaging}"
+
         description = (
             f"RES SMD {cls.format_resistance_value(resistance)} "
             f"{tolerance_value} {specs.case_code_in} {specs.voltage_rating}")
@@ -343,8 +350,10 @@ class PartInfo(NamedTuple):
 
 
 SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
-    "ERJ-2RK": SeriesSpec(
-        base_series="ERJ-2RK",
+
+    "ERJ-2RKF": SeriesSpec(
+        manufacturer="Panasonic",
+        base_series="ERJ-2RKF",
         footprint="resistor_footprints:R_0402_1005Metric",
         voltage_rating="50V",
         case_code_in="0402",
@@ -353,14 +362,14 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["X"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
-    "ERJ-3EK": SeriesSpec(
-        base_series="ERJ-3EK",
+
+    "ERJ-3EKF": SeriesSpec(
+        base_series="ERJ-3EKF",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="75V",
         case_code_in="0603",
@@ -369,14 +378,15 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=1_000_000,
         packaging_options=["V"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
-    "ERJ-6EN": SeriesSpec(
-        base_series="ERJ-6EN",
+
+    "ERJ-6ENF": SeriesSpec(
+        base_series="ERJ-6ENF",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
@@ -385,15 +395,15 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         min_resistance=10,
         max_resistance=2_200_000,
         packaging_options=["V"],
-        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "5%"}},
+        tolerance_map={"E96": {"F": "1%"}, "E24": {"J": "1%"}},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
         manufacturer="Panasonic",
-        trustedparts_url="https://www.trustedparts.com/en/search/",
-        high_resistance_tolerance={"F": "1%"}),
-    "ERJ-P08": SeriesSpec(
-        base_series="ERJ-P08",
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+
+    "ERJ-P08F": SeriesSpec(
+        base_series="ERJ-P08F",
         footprint="resistor_footprints:R_1206_3216Metric",
         voltage_rating="500V",
         case_code_in="1206",
@@ -408,8 +418,9 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
             "RDO0000/AOA0000C331.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
-    "ERJ-P06": SeriesSpec(
-        base_series="ERJ-P06",
+
+    "ERJ-P06F": SeriesSpec(
+        base_series="ERJ-P06F",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="400V",
         case_code_in="0805",
@@ -424,8 +435,9 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
             "RDO0000/AOA0000C331.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
-    "ERJ-P03": SeriesSpec(
-        base_series="ERJ-P03",
+
+    "ERJ-P03F": SeriesSpec(
+        base_series="ERJ-P03F",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="150V",
         case_code_in="0603",
@@ -440,8 +452,9 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
             "RDO0000/AOA0000C331.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
-    "ERJ-2GE": SeriesSpec(
-        base_series="ERJ-2GE",
+
+    "ERJ-2GEJ": SeriesSpec(
+        base_series="ERJ-2GEJ",
         footprint="resistor_footprints:R_0402_1005Metric",
         voltage_rating="50V",
         case_code_in="0402",
@@ -456,8 +469,9 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
             "RDA0000/AOA0000C301.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
-    "ERJ-3GE": SeriesSpec(
-        base_series="ERJ-3GE",
+
+    "ERJ-3GEYJ": SeriesSpec(
+        base_series="ERJ-3GEYJ",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="75V",
         case_code_in="0603",
@@ -472,8 +486,9 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
             "RDA0000/AOA0000C301.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
-    "ERJ-6GE": SeriesSpec(
-        base_series="ERJ-6GE",
+
+    "ERJ-6GEYJ": SeriesSpec(
+        base_series="ERJ-6GEYJ",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
@@ -488,4 +503,5 @@ SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
             "RDA0000/AOA0000C301.pdf"),
         manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
+
 }

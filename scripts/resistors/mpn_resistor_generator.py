@@ -93,6 +93,9 @@ def generate_files_for_series(
 
     # Generate part numbers and sort by value
     parts_list = symbol_resistors_specs.PartInfo.generate_part_numbers(specs)
+    # Remove duplicates
+    unique_parts_dict = {part.mpn: part for part in parts_list}
+    parts_list = list(unique_parts_dict.values())
     parts_list.sort(key=lambda part: part.value)
 
     file_handler_utilities.write_to_csv(
