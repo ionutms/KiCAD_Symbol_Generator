@@ -157,26 +157,28 @@ def update_distribution_graph(
 
     Args:
         theme_switch (bool): Indicates the current theme (light/dark).
-        rangeslider_value: todo
+        rangeslider_value:
+            Range slider values for filtering resistance values.
 
     Returns:
         Plotly figure with resistance distribution visualization.
 
     """
-    # Prepare data for the graph
-    values, counts = \
-        dcu.extract_consecutive_value_groups(dataframe["Value"].to_list())
-    # Separate dataframes for each tolerance
-    df_1_percent = dataframe[dataframe["Tolerance"] == "1%"]
-    df_5_percent = dataframe[dataframe["Tolerance"] == "5%"]
+    # Prepare full data range
+    values, _ = dcu.extract_consecutive_value_groups(
+        dataframe["Value"].to_list())
 
-    # Extract values and counts for 1% tolerance
-    values_1_percent, counts_1_percent = \
-        dcu.extract_consecutive_value_groups(df_1_percent["Value"].to_list())
-
-    # Extract values and counts for 5% tolerance
-    values_5_percent, counts_5_percent = \
-        dcu.extract_consecutive_value_groups(df_5_percent["Value"].to_list())
+    # Define tolerance-based dataframes and their trace configurations
+    tolerance_configs = [
+        {
+            "dataframe": dataframe[dataframe["Tolerance"] == "5%"],
+            "name": "5% Tolerance",
+        },
+        {
+            "dataframe": dataframe[dataframe["Tolerance"] == "1%"],
+            "name": "1% Tolerance",
+        },
+    ]
 
     # Existing figure layout configuration
     figure_layout = {
@@ -200,9 +202,8 @@ def update_distribution_graph(
             "anchor": "free", "autorange": True, "tickformat": ".0f",
         },
         "title": {
-            "text":
-                "Resistance Value Distribution",
-                "x": 0.5, "xanchor": "center",
+            "text": "Resistance Value Distribution",
+            "x": 0.5, "xanchor": "center",
         },
         "showlegend": True,
     }
@@ -210,43 +211,34 @@ def update_distribution_graph(
     # Create the figure
     figure = go.Figure(layout=figure_layout)
 
-    # Add dummy values and zero counts to match the full range
+    # Add traces for each tolerance group
+    for config in tolerance_configs:
+        # Extract values and counts
+        values_tolerance, counts_tolerance = \
+            dcu.extract_consecutive_value_groups(
+                config["dataframe"]["Value"].to_list())
 
-    # In the update_distribution_graph function:
-    values_5_percent, counts_5_percent = dcu.pad_values_and_counts(
-        values, values_5_percent, counts_5_percent)
+        # Pad values and counts to match full range
+        values_tolerance, counts_tolerance = dcu.pad_values_and_counts(
+            values, values_tolerance, counts_tolerance)
 
-    values_1_percent, counts_1_percent = dcu.pad_values_and_counts(
-        values, values_1_percent, counts_1_percent)
+        # Add trace for this tolerance group
+        figure.add_trace(go.Bar(
+            x=values_tolerance,
+            y=counts_tolerance,
+            name=config["name"],
+            textposition="auto",
+            textangle=-30,
+            text=counts_tolerance,
+            hovertemplate=(
+                "Resistance: %{x}<br>"
+                "Number of Resistors: %{y}<extra></extra>"
+            ),
+        ))
 
-    # Add 5% tolerance bar graph
-    figure.add_trace(go.Bar(
-        x=values_5_percent,
-        y=counts_5_percent,
-        name="5% Tolerance",
-        textposition="auto",
-        textangle=-30,
-        text=counts_5_percent,
-        hovertemplate=(
-            "Resistance: %{x}<br>"
-            "Number of Resistors: %{y}<extra></extra>"),
-    ))
-
-    # Add 1% tolerance bar graph
-    figure.add_trace(go.Bar(
-        x=values_1_percent,
-        y=counts_1_percent,
-        name="1% Tolerance",
-        textposition="auto",
-        textangle=-30,
-        text=counts_1_percent,
-        hovertemplate=(
-            "Resistance: %{x}<br>"
-            "Number of Resistors: %{y}<extra></extra>"),
-    ))
-
+    # Update x-axis range based on slider
     figure.update_layout(
-        xaxis_range=[rangeslider_value[0] -0.5, rangeslider_value[1] + 0.5])
+        xaxis_range=[rangeslider_value[0] - 0.5, rangeslider_value[1] + 0.5])
 
     # Define theme settings
     theme = {
