@@ -100,7 +100,7 @@ layout = dbc.Container([html.Div([
         style=styles.heading_3_style)])]),
     dbc.Row([dcu.app_description(TITLE, ABOUT, features, usage_steps)]),
 
-    dcu.generate_range_slider(module_name, dataframe),
+    dcu.generate_range_slider(module_name, dataframe, 60),
 
     html.Hr(),
 
@@ -148,7 +148,8 @@ dcu.callback_update_dropdown_style(f"{module_name}_page_size")
 
 dcu.save_previous_slider_state_callback(
     f"{module_name}_value_rangeslider",
-    f"{module_name}_rangeslider_store")
+    f"{module_name}_rangeslider_store",
+    60)
 
 @callback(
     Output(f"{module_name}_bar_graph", "figure"),
