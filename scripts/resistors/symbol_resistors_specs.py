@@ -164,7 +164,8 @@ class PartInfo(NamedTuple):
                 f"({min_resistance}Ω to {max_resistance}Ω)")
             raise ValueError(msg)
 
-        if series in ("RT0805BRB07", "RT0805BRC07", "RT0805BRD07"):
+        if series in (
+                "RT0805BRB07", "RT0805BRC07", "RT0805BRD07", "RT0805BRE07"):
             if resistance < 1000:  # noqa: PLR2004
                 whole = int(resistance)
                 decimal = \
@@ -563,6 +564,23 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         power_rating="0.125W",
         min_resistance=1,
         max_resistance=1_500_000,
+        packaging_options=["L"],
+        tolerance_map={"E96": "0.1%", "E24": "0.1%"},
+        datasheet=(
+            "https://www.yageo.com/en/ProductSearch/"
+            "PartNumberSearch?part_number="),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+
+    "RT0805BRE07": SeriesSpec(
+        manufacturer="Yageo",
+        base_series="RT0805BRE07",
+        footprint="resistor_footprints:R_0805_2012Metric",
+        voltage_rating="150V",
+        case_code_in="0805",
+        case_code_mm="2012",
+        power_rating="0.125W",
+        min_resistance=1,
+        max_resistance=3_000_000,
         packaging_options=["L"],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
