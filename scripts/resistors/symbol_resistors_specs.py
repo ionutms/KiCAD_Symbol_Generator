@@ -141,7 +141,7 @@ class PartInfo(NamedTuple):
         resistance: float,
         min_resistance: int,
         max_resistance: int,
-        series: str,
+        specs: SeriesSpec,
     ) -> str:
         """Generate the resistance code portion of a Panasonic part number.
 
@@ -149,7 +149,7 @@ class PartInfo(NamedTuple):
             resistance: The resistance value in ohms
             min_resistance: Minimum allowed resistance value for the series
             max_resistance: Maximum allowed resistance value for the series
-            series: Optional series identifier for series-specific encoding
+            specs: todo
 
         Returns:
             A string representing the resistance code
@@ -164,26 +164,24 @@ class PartInfo(NamedTuple):
                 f"({min_resistance}Ω to {max_resistance}Ω)")
             raise ValueError(msg)
 
-        if series in (
-                "RT0805BRB07", "RT0805BRC07", "RT0805BRD07", "RT0805BRE07"):
+        if specs.manufacturer == "Yageo":
             if resistance < 1000:  # noqa: PLR2004
                 whole = int(resistance)
-                decimal = \
-                    str(int(round((resistance - whole) * 100))).rstrip("0")
+                decimal = str(
+                    int(round((resistance - whole) * 100))).rstrip("0")
                 return f"{whole:01d}R{decimal}"
             if resistance < 10_000:  # noqa: PLR2004
                 whole = int(resistance / 1000)
-                decimal = \
-                    str(int(round((resistance % 1000) / 10))).rstrip("0")
+                decimal = str(
+                    int(round((resistance % 1000) / 10))).rstrip("0")
                 return f"{whole}K{decimal}"
-            if resistance < 10_000_000:  # noqa: PLR2004
-                whole = int(resistance / 1000000)
-                decimal = \
-                    str(int(round((resistance % 1000000) / 10))).rstrip("0")
-                return f"{whole}M{decimal}"
+            whole = int(resistance / 1000000)
+            decimal = str(
+                int(round((resistance % 1000000) / 10))).rstrip("0")
+            return f"{whole}M{decimal}"
 
         # Special handling for ERJ-2GE series
-        if series in ("ERJ-2GEJ", "ERJ-3GEYJ", "ERJ-6GEYJ"):
+        if specs.base_series in ("ERJ-2GEJ", "ERJ-3GEYJ", "ERJ-6GEYJ"):
             if resistance < 10:  # noqa: PLR2004
                 whole = int(resistance)
                 decimal = int(round((resistance - whole) * 10))
@@ -287,7 +285,7 @@ class PartInfo(NamedTuple):
         """
         resistance_code = cls.generate_resistance_code(
             resistance, specs.min_resistance, specs.max_resistance,
-            specs.base_series)
+            specs)
 
         packaging_code = packaging
 
