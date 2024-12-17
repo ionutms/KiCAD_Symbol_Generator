@@ -347,29 +347,22 @@ class PartInfo(NamedTuple):
             List of PartInfo instances for all valid combinations
 
         """
-        parts_list: list[PartInfo] = []
-
-        # Determine which series types are available for this specific series
-        available_series_types = list(specs.tolerance_map.keys())
-
-        for series_type in available_series_types:
-            base_values = (
-                E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES)
-
+        return [
+            cls.create_part_info(
+                resistance,
+                tolerance_value,
+                packaging,
+                specs,
+            )
+            for series_type in specs.tolerance_map
             for resistance in cls.generate_resistance_values(
-                    base_values, specs.min_resistance, specs.max_resistance):
-                tolerance_values = [specs.tolerance_map[series_type]]
-
-                for tolerance_value in tolerance_values:
-                    for packaging in specs.packaging_options:
-                        parts_list.append(cls.create_part_info(  # noqa: PERF401
-                            resistance,
-                            tolerance_value,
-                            packaging,
-                            specs,
-                        ))
-
-        return parts_list
+                E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES,
+                specs.min_resistance,
+                specs.max_resistance,
+            )
+            for tolerance_value in [specs.tolerance_map[series_type]]
+            for packaging in specs.packaging_options
+        ]
 
 
 PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
