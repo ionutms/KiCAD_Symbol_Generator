@@ -384,6 +384,7 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 
     "ERJ-3EKF": SeriesSpec(
+        manufacturer="Panasonic",
         base_series="ERJ-3EKF",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="75V",
@@ -397,10 +398,10 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 
     "ERJ-6ENF": SeriesSpec(
+        manufacturer="Panasonic",
         base_series="ERJ-6ENF",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
@@ -414,10 +415,10 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C304.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 
     "ERJ-P08F": SeriesSpec(
+        manufacturer="Panasonic",
         base_series="ERJ-P08F",
         footprint="resistor_footprints:R_1206_3216Metric",
         voltage_rating="500V",
@@ -431,10 +432,10 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 
     "ERJ-P06F": SeriesSpec(
+        manufacturer="Panasonic",
         base_series="ERJ-P06F",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="400V",
@@ -448,10 +449,10 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 
     "ERJ-P03F": SeriesSpec(
+        manufacturer="Panasonic",
         base_series="ERJ-P03F",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="150V",
@@ -465,10 +466,10 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDO0000/AOA0000C331.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 
     "ERJ-2GEJ": SeriesSpec(
+        manufacturer="Panasonic",
         base_series="ERJ-2GEJ",
         footprint="resistor_footprints:R_0402_1005Metric",
         voltage_rating="50V",
@@ -482,10 +483,10 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C301.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 
     "ERJ-3GEYJ": SeriesSpec(
+        manufacturer="Panasonic",
         base_series="ERJ-3GEYJ",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="75V",
@@ -499,10 +500,10 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C301.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 
     "ERJ-6GEYJ": SeriesSpec(
+        manufacturer="Panasonic",
         base_series="ERJ-6GEYJ",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
@@ -516,7 +517,6 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
             "RDA0000/AOA0000C301.pdf"),
-        manufacturer="Panasonic",
         trustedparts_url="https://www.trustedparts.com/en/search/"),
 }
 
