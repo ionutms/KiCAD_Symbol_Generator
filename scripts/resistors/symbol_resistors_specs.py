@@ -6,7 +6,8 @@ It provides comprehensive component information including physical dimensions,
 electrical characteristics, and packaging options.
 """
 
-from typing import Final, Iterator, NamedTuple  # noqa: UP035
+from collections.abc import Iterator
+from typing import Final, NamedTuple
 
 
 class SeriesSpec(NamedTuple):
@@ -34,8 +35,6 @@ class SeriesSpec(NamedTuple):
         manufacturer: Name of the component manufacturer
         trustedparts_url:
             Base URL for component listing on Trustedparts platform
-        high_resistance_tolerance: Optional special tolerances for high values
-            Format: {code: value} or None if not applicable
 
     """
 
@@ -52,7 +51,6 @@ class SeriesSpec(NamedTuple):
     trustedparts_url: str
     min_resistance: int = 10
     max_resistance: int = 1_000_000
-    high_resistance_tolerance: dict[str, str] | None = None  # noqa: FA102
     reference: str = "R"
 
 
@@ -136,7 +134,7 @@ class PartInfo(NamedTuple):
         return f"{clean_number(resistance)} Ω"
 
     @classmethod
-    def generate_resistance_code(  # noqa: C901, PLR0911, PLR0912, PLR0915
+    def generate_resistance_code(
         cls,
         resistance: float,
         min_resistance: int,
@@ -149,7 +147,7 @@ class PartInfo(NamedTuple):
             resistance: The resistance value in ohms
             min_resistance: Minimum allowed resistance value for the series
             max_resistance: Maximum allowed resistance value for the series
-            specs: todo
+            specs: Series specifications
 
         Returns:
             A string representing the resistance code
@@ -158,59 +156,77 @@ class PartInfo(NamedTuple):
             ValueError: If resistance is outside valid range
 
         """
+        # Check resistance range first
         if resistance < min_resistance or resistance > max_resistance:
             msg = (
                 f"Resistance value out of range "
                 f"({min_resistance}Ω to {max_resistance}Ω)")
             raise ValueError(msg)
 
+        # Special handling for Yageo manufacturer
         if specs.manufacturer == "Yageo":
-            if resistance < 1000:  # noqa: PLR2004
-                whole = int(resistance)
-                decimal = str(
-                    int(round((resistance - whole) * 100))).rstrip("0")
-                return f"{whole:01d}R{decimal}"
-            if resistance < 10_000:  # noqa: PLR2004
-                whole = int(resistance / 1000)
-                decimal = str(
-                    int(round((resistance % 1000) / 10))).rstrip("0")
-                return f"{whole}K{decimal}"
-            whole = int(resistance / 1000000)
-            decimal = str(
-                int(round((resistance % 1000000) / 10))).rstrip("0")
-            return f"{whole}M{decimal}"
+            return cls._generate_yageo_resistance_code(resistance)
 
-        # Special handling for ERJ-2GE series
+        # Special handling for specific ERJ series
         if specs.base_series in ("ERJ-2GEJ", "ERJ-3GEYJ", "ERJ-6GEYJ"):
-            if resistance < 10:  # noqa: PLR2004
-                whole = int(resistance)
-                decimal = int(round((resistance - whole) * 10))
-                return f"{whole:01d}R{decimal}"
+            return cls._generate_erj_special_series_code(resistance)
 
-            if resistance < 100:  # noqa: PLR2004
-                whole = int(resistance)
-                decimal = int(round((resistance - whole) * 10))
-                return f"{whole:01d}{decimal}"
+        # Standard Panasonic/generic resistance code generation
+        return cls._generate_standard_resistance_code(resistance)
 
-            # For values ≥ 100Ω, determine multiplier and significant digits
-            if resistance < 1000:  # 100-999Ω  # noqa: PLR2004
-                significant = int(round(resistance / 10))
-                multiplier = "1"
-            elif resistance < 10000:  # 1k-9.99kΩ  # noqa: PLR2004
-                significant = int(round(resistance / 100))
-                multiplier = "2"
-            elif resistance < 100000:  # 10k-99.9kΩ  # noqa: PLR2004
-                significant = int(round(resistance / 1000))
-                multiplier = "3"
-            elif resistance < 1000000:  # 100k-999kΩ  # noqa: PLR2004
-                significant = int(round(resistance / 10000))
-                multiplier = "4"
-            else:  # 1MΩ+
-                significant = int(round(resistance / 100000))
-                multiplier = "5"
+    @classmethod
+    def _generate_yageo_resistance_code(cls, resistance: float) -> str:
+        """Generate resistance code for Yageo manufacturer."""
+        if resistance < 1000:  # < 1kΩ  # noqa: PLR2004
+            whole = int(resistance)
+            decimal = str(int(round((resistance - whole) * 100))).rstrip("0")
+            return f"{whole:01d}R{decimal}"
 
-            return f"{significant:02d}{multiplier}"
+        if resistance < 10_000:  # 1-10kΩ  # noqa: PLR2004
+            whole = int(resistance / 1000)
+            decimal = str(int(round((resistance % 1000) / 10))).rstrip("0")
+            return f"{whole}K{decimal}"
 
+        # ≥ 10kΩ
+        whole = int(resistance / 1000000)
+        decimal = str(int(round((resistance % 1000000) / 10))).rstrip("0")
+        return f"{whole}M{decimal}"
+
+    @classmethod
+    def _generate_erj_special_series_code(cls, resistance: float) -> str:
+        """Generate resistance code for special ERJ series."""
+        if resistance < 10:  # < 10Ω  # noqa: PLR2004
+            whole = int(resistance)
+            decimal = int(round((resistance - whole) * 10))
+            return f"{whole:01d}R{decimal}"
+
+        if resistance < 100:  # 10-99Ω  # noqa: PLR2004
+            whole = int(resistance)
+            decimal = int(round((resistance - whole) * 10))
+            return f"{whole:01d}{decimal}"
+
+        # Determine multiplier and significant digits for values ≥ 100Ω
+        if resistance < 1000:  # 100-999Ω  # noqa: PLR2004
+            significant = int(round(resistance / 10))
+            multiplier = "1"
+        elif resistance < 10000:  # 1k-9.99kΩ  # noqa: PLR2004
+            significant = int(round(resistance / 100))
+            multiplier = "2"
+        elif resistance < 100000:  # 10k-99.9kΩ  # noqa: PLR2004
+            significant = int(round(resistance / 1000))
+            multiplier = "3"
+        elif resistance < 1000000:  # 100k-999kΩ  # noqa: PLR2004
+            significant = int(round(resistance / 10000))
+            multiplier = "4"
+        else:  # 1MΩ+
+            significant = int(round(resistance / 100000))
+            multiplier = "5"
+
+        return f"{significant:02d}{multiplier}"
+
+    @classmethod
+    def _generate_standard_resistance_code(cls, resistance: float) -> str:
+        """Generate standard resistance code for Panasonic style."""
         # Handle values less than 100Ω using R notation
         if resistance < 100:  # noqa: PLR2004
             whole = int(resistance)
@@ -342,13 +358,7 @@ class PartInfo(NamedTuple):
 
             for resistance in cls.generate_resistance_values(
                     base_values, specs.min_resistance, specs.max_resistance):
-                # Handle special case for high resistance values
-                if resistance > 1_000_000 and \
-                        specs.high_resistance_tolerance:  # noqa: PLR2004
-                    tolerance_codes = specs.high_resistance_tolerance
-                    tolerance_values = list(tolerance_codes.values())
-                else:
-                    tolerance_values = [specs.tolerance_map[series_type]]
+                tolerance_values = [specs.tolerance_map[series_type]]
 
                 for tolerance_value in tolerance_values:
                     for packaging in specs.packaging_options:
