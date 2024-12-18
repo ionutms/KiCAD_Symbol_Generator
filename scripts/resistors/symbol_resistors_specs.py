@@ -7,7 +7,7 @@ electrical characteristics, and packaging options.
 """
 
 from collections.abc import Iterator
-from typing import Final, NamedTuple, Optional
+from typing import Final, NamedTuple, Optional, Union
 
 import numpy as np
 
@@ -26,8 +26,7 @@ class SeriesSpec(NamedTuple):
         case_code_in: Package dimensions in inches (e.g., '0402')
         case_code_mm: Package dimensions in millimeters (e.g., '1005')
         power_rating: Maximum power dissipation specification
-        min_resistance: Minimum resistance value in ohms
-        max_resistance: Maximum resistance value in ohms
+        resistance_range: Minimum and maximum resistance values in ohms
         mpn_sufix: Part number sufix
         tolerance_map:
             Maps series types to available tolerance codes and values
@@ -36,6 +35,8 @@ class SeriesSpec(NamedTuple):
         manufacturer: Name of the component manufacturer
         trustedparts_url:
             Base URL for component listing on Trustedparts platform
+        reference: Reference designator for the component
+        excluded_values: Optional list of values to exclude from calculations
 
     """
 
@@ -50,8 +51,7 @@ class SeriesSpec(NamedTuple):
     datasheet: str
     manufacturer: str
     trustedparts_url: str
-    min_resistance: int = 10
-    max_resistance: int = 1_000_000
+    resistance_range: list[Union[int, float]] = [10, 1_000_000]  # noqa: FA100, RUF012
     reference: str = "R"
     excluded_values: Optional[list[float]] = None  # noqa: FA100
 
@@ -139,16 +139,12 @@ class PartInfo(NamedTuple):
     def generate_resistance_code(
         cls,
         resistance: float,
-        min_resistance: int,
-        max_resistance: int,
         specs: SeriesSpec,
     ) -> str:
         """Generate the resistance code portion of a Panasonic part number.
 
         Args:
             resistance: The resistance value in ohms
-            min_resistance: Minimum allowed resistance value for the series
-            max_resistance: Maximum allowed resistance value for the series
             specs: Series specifications
 
         Returns:
@@ -158,6 +154,9 @@ class PartInfo(NamedTuple):
             ValueError: If resistance is outside valid range
 
         """
+        # Unpack resistance range
+        min_resistance, max_resistance = specs.resistance_range
+
         # Check resistance range first
         if resistance < min_resistance or resistance > max_resistance:
             msg = (
@@ -275,9 +274,7 @@ class PartInfo(NamedTuple):
             and vendor information
 
         """
-        resistance_code = cls.generate_resistance_code(
-            resistance, specs.min_resistance, specs.max_resistance,
-            specs)
+        resistance_code = cls.generate_resistance_code(resistance, specs)
 
         packaging_code = packaging
 
@@ -333,8 +330,7 @@ class PartInfo(NamedTuple):
             for series_type in specs.tolerance_map
             for resistance in cls._filtered_resistance_values(
                 E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES,
-                specs.min_resistance,
-                specs.max_resistance,
+                specs.resistance_range,
                 specs.excluded_values,
             )
             for tolerance_value in [specs.tolerance_map[series_type]]
@@ -344,22 +340,22 @@ class PartInfo(NamedTuple):
     def _filtered_resistance_values(
         cls,
         base_values: list[float],
-        min_resistance: int,
-        max_resistance: int,
+        resistance_range: list[Union[int, float]],  # noqa: FA100
         excluded_values: Optional[list[float]] = None,  # noqa: FA100
     ) -> Iterator[float]:
         """Generate valid resistance values with optional exclusions.
 
         Args:
             base_values: List of base resistance values (E96 or E24 series)
-            min_resistance: Minimum resistance value to generate
-            max_resistance: Maximum resistance value to generate
+            resistance_range:
+                Minimum and maximum resistance values to generate
             excluded_values: Optional list of values to exclude
 
         Yields:
             float: Valid resistance values in ascending order
 
         """
+        min_resistance, max_resistance = resistance_range
         multipliers = [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000]
 
         for base_value in base_values:
@@ -376,14 +372,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-2RKF": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-2RKF",
+        mpn_sufix="X",
         footprint="resistor_footprints:R_0402_1005Metric",
         voltage_rating="50V",
         case_code_in="0402",
         case_code_mm="1005",
         power_rating="0.1W",
-        min_resistance=10,
-        max_resistance=1_000_000,
-        mpn_sufix="X",
+        resistance_range=[10, 1_000_000],
         tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -393,14 +388,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-3EKF": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-3EKF",
+        mpn_sufix="V",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="75V",
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.1W",
-        min_resistance=10,
-        max_resistance=1_000_000,
-        mpn_sufix="V",
+        resistance_range=[10, 1_000_000],
         tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -410,14 +404,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-6ENF": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-6ENF",
+        mpn_sufix="V",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=10,
-        max_resistance=2_200_000,
-        mpn_sufix="V",
+        resistance_range=[10, 2_200_000],
         tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -427,14 +420,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-P08F": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-P08F",
+        mpn_sufix="V",
         footprint="resistor_footprints:R_1206_3216Metric",
         voltage_rating="500V",
         case_code_in="1206",
         case_code_mm="3216",
         power_rating="0.66W",
-        min_resistance=10,
-        max_resistance=1_000_000,
-        mpn_sufix="V",
+        resistance_range=[10, 1_000_000],
         tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -444,14 +436,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-P06F": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-P06F",
+        mpn_sufix="V",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="400V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.5W",
-        min_resistance=10,
-        max_resistance=1_000_000,
-        mpn_sufix="V",
+        resistance_range=[10, 1_000_000],
         tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -461,14 +452,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-P03F": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-P03F",
+        mpn_sufix="V",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="150V",
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.25W",
-        min_resistance=10,
-        max_resistance=1_000_000,
-        mpn_sufix="V",
+        resistance_range=[10, 1_000_000],
         tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -478,14 +468,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-2GEJ": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-2GEJ",
+        mpn_sufix="X",
         footprint="resistor_footprints:R_0402_1005Metric",
         voltage_rating="50V",
         case_code_in="0402",
         case_code_mm="1005",
         power_rating="0.1W",
-        min_resistance=1,
-        max_resistance=1_000_000,
-        mpn_sufix="X",
+        resistance_range=[1, 1_000_000],
         tolerance_map={"E24": "5%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -495,14 +484,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-3GEYJ": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-3GEYJ",
+        mpn_sufix="V",
         footprint="resistor_footprints:R_0603_1608Metric",
         voltage_rating="75V",
         case_code_in="0603",
         case_code_mm="1608",
         power_rating="0.1W",
-        min_resistance=1,
-        max_resistance=1_000_000,
-        mpn_sufix="V",
+        resistance_range=[1, 1_000_000],
         tolerance_map={"E24": "5%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -512,14 +500,13 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-6GEYJ": SeriesSpec(
         manufacturer="Panasonic",
         mpn_prefix="ERJ-6GEYJ",
+        mpn_sufix="V",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=1,
-        max_resistance=1_000_000,
-        mpn_sufix="V",
+        resistance_range=[1, 1_000_000],
         tolerance_map={"E24": "5%"},
         datasheet=(
             "https://industrial.panasonic.com/cdbs/www-data/pdf/"
@@ -531,20 +518,19 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "RT0805BRA07": SeriesSpec(
         manufacturer="Yageo",
         mpn_prefix="RT0805BRA07",
+        mpn_sufix="L",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=20,
-        max_resistance=50_000,
+        resistance_range=[20, 50_000],
         excluded_values=[
             val for val in np.round(np.arange(20, 50000, 0.01), 2).tolist()
             if val not in [
                 41.2, 205, 806, 1000, 1050, 1800, 2000, 3000, 4020, 6800,
                 8060, 10000, 11000, 12000, 15000, 20000, 22000, 27000, 49900]
             ],
-        mpn_sufix="L",
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
@@ -554,14 +540,13 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "RT0805BRB07": SeriesSpec(
         manufacturer="Yageo",
         mpn_prefix="RT0805BRB07",
+        mpn_sufix="L",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=4.7,
-        max_resistance=1_000_000,
-        mpn_sufix="L",
+        resistance_range=[4.7, 1_000_000],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
@@ -571,14 +556,13 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "RT0805BRC07": SeriesSpec(
         manufacturer="Yageo",
         mpn_prefix="RT0805BRC07",
+        mpn_sufix="L",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=4.7,
-        max_resistance=1_000_000,
-        mpn_sufix="L",
+        resistance_range=[4.7, 1_000_000],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
@@ -588,14 +572,13 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "RT0805BRD07": SeriesSpec(
         manufacturer="Yageo",
         mpn_prefix="RT0805BRD07",
+        mpn_sufix="L",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=1,
-        max_resistance=1_500_000,
-        mpn_sufix="L",
+        resistance_range=[1, 1_500_000],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
@@ -605,14 +588,13 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "RT0805BRE07": SeriesSpec(
         manufacturer="Yageo",
         mpn_prefix="RT0805BRE07",
+        mpn_sufix="L",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=1,
-        max_resistance=3_000_000,
-        mpn_sufix="L",
+        resistance_range=[1, 3_000_000],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
@@ -622,14 +604,13 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "RT0805FRE07": SeriesSpec(
         manufacturer="Yageo",
         mpn_prefix="RT0805FRE07",
+        mpn_sufix="L",
         footprint="resistor_footprints:R_0805_2012Metric",
         voltage_rating="150V",
         case_code_in="0805",
         case_code_mm="2012",
         power_rating="0.125W",
-        min_resistance=1,
-        max_resistance=3_000_000,
-        mpn_sufix="L",
+        resistance_range=[1, 3_000_000],
         tolerance_map={"E96": "1%", "E24": "1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
