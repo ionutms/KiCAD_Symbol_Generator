@@ -7,7 +7,9 @@ electrical characteristics, and packaging options.
 """
 
 from collections.abc import Iterator
-from typing import Final, NamedTuple
+from typing import Final, NamedTuple, Optional
+
+import numpy as np
 
 
 class SeriesSpec(NamedTuple):
@@ -51,6 +53,7 @@ class SeriesSpec(NamedTuple):
     min_resistance: int = 10
     max_resistance: int = 1_000_000
     reference: str = "R"
+    excluded_values: Optional[list[float]] = None  # noqa: FA100
 
 
 E96_BASE_VALUES: Final[list[float]] = [
@@ -252,32 +255,6 @@ class PartInfo(NamedTuple):
         return f"{significant:03d}{multiplier}"
 
     @classmethod
-    def generate_resistance_values(
-        cls,
-        base_values: list[float],
-        min_resistance: int,
-        max_resistance: int,
-    ) -> Iterator[float]:
-        """Generate all valid resistance values from a list of base values.
-
-        Args:
-            base_values: List of base resistance values (E96 or E24 series)
-            min_resistance: Minimum resistance value to generate
-            max_resistance: Maximum resistance value to generate
-
-        Yields:
-            float: Valid resistance values in ascending order
-
-        """
-        multipliers = [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000]
-
-        for base_value in base_values:
-            for multiplier in multipliers:
-                resistance = base_value * multiplier
-                if min_resistance <= resistance <= max_resistance:
-                    yield resistance
-
-    @classmethod
     def create_part_info(
         cls,
         resistance: float,
@@ -354,13 +331,45 @@ class PartInfo(NamedTuple):
                 specs,
             )
             for series_type in specs.tolerance_map
-            for resistance in cls.generate_resistance_values(
+            for resistance in cls._filtered_resistance_values(
                 E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES,
                 specs.min_resistance,
                 specs.max_resistance,
+                specs.excluded_values,
             )
             for tolerance_value in [specs.tolerance_map[series_type]]
         ]
+
+    @classmethod
+    def _filtered_resistance_values(
+        cls,
+        base_values: list[float],
+        min_resistance: int,
+        max_resistance: int,
+        excluded_values: Optional[list[float]] = None,  # noqa: FA100
+    ) -> Iterator[float]:
+        """Generate valid resistance values with optional exclusions.
+
+        Args:
+            base_values: List of base resistance values (E96 or E24 series)
+            min_resistance: Minimum resistance value to generate
+            max_resistance: Maximum resistance value to generate
+            excluded_values: Optional list of values to exclude
+
+        Yields:
+            float: Valid resistance values in ascending order
+
+        """
+        multipliers = [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000]
+
+        for base_value in base_values:
+            for multiplier in multipliers:
+                resistance = round(base_value * multiplier, 2)
+
+                if (min_resistance <= resistance <= max_resistance and (
+                        excluded_values is None or
+                        resistance not in excluded_values)):
+                    yield resistance
 
 
 PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
@@ -519,6 +528,29 @@ PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
 }
 
 YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
+    "RT0805BRA07": SeriesSpec(
+        manufacturer="Yageo",
+        mpn_prefix="RT0805BRA07",
+        footprint="resistor_footprints:R_0805_2012Metric",
+        voltage_rating="150V",
+        case_code_in="0805",
+        case_code_mm="2012",
+        power_rating="0.125W",
+        min_resistance=20,
+        max_resistance=50_000,
+        excluded_values=[
+            val for val in np.round(np.arange(20, 50000, 0.01), 2).tolist()
+            if val not in [
+                41.2, 205, 806, 1000, 1050, 1800, 2000, 3000, 4020, 6800,
+                8060, 10000, 11000, 12000, 15000, 20000, 22000, 27000, 49900]
+            ],
+        mpn_sufix="L",
+        tolerance_map={"E96": "0.1%", "E24": "0.1%"},
+        datasheet=(
+            "https://www.yageo.com/en/ProductSearch/"
+            "PartNumberSearch?part_number="),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+
     "RT0805BRB07": SeriesSpec(
         manufacturer="Yageo",
         mpn_prefix="RT0805BRB07",
