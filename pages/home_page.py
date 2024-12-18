@@ -108,7 +108,7 @@ def create_figure(
     num_data_points = len(data_frame)
 
     # Define a maximum number of ticks to display
-    max_ticks = 10
+    max_ticks = 8
 
     # Determine tick selection strategy
     if num_data_points > max_ticks:
