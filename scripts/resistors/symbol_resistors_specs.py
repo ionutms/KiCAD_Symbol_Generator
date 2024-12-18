@@ -9,8 +9,6 @@ electrical characteristics, and packaging options.
 from collections.abc import Iterator
 from typing import Final, NamedTuple, Optional, Union
 
-import numpy as np
-
 
 class SeriesSpec(NamedTuple):
     """Detailed specifications for a resistor series.
@@ -37,6 +35,7 @@ class SeriesSpec(NamedTuple):
             Base URL for component listing on Trustedparts platform
         reference: Reference designator for the component
         excluded_values: Optional list of values to exclude from calculations
+        specified_values: Optional list of values to specifically include
 
     """
 
@@ -54,6 +53,7 @@ class SeriesSpec(NamedTuple):
     resistance_range: list[Union[int, float]] = [10, 1_000_000]  # noqa: FA100, RUF012
     reference: str = "R"
     excluded_values: Optional[list[float]] = None  # noqa: FA100
+    specified_values: Optional[list[float]] = None  # noqa: FA100
 
 
 E96_BASE_VALUES: Final[list[float]] = [
@@ -332,6 +332,7 @@ class PartInfo(NamedTuple):
                 E96_BASE_VALUES if series_type == "E96" else E24_BASE_VALUES,
                 specs.resistance_range,
                 specs.excluded_values,
+                specs.specified_values,
             )
             for tolerance_value in [specs.tolerance_map[series_type]]
         ]
@@ -342,14 +343,16 @@ class PartInfo(NamedTuple):
         base_values: list[float],
         resistance_range: list[Union[int, float]],  # noqa: FA100
         excluded_values: Optional[list[float]] = None,  # noqa: FA100
+        specified_values: Optional[list[float]] = None,  # noqa: FA100
     ) -> Iterator[float]:
-        """Generate valid resistance values with optional exclusions.
+        """Generate resistance values with optional exclusions and inclusions.
 
         Args:
             base_values: List of base resistance values (E96 or E24 series)
             resistance_range:
                 Minimum and maximum resistance values to generate
             excluded_values: Optional list of values to exclude
+            specified_values: Optional list of values to include if not None
 
         Yields:
             float: Valid resistance values in ascending order
@@ -362,11 +365,25 @@ class PartInfo(NamedTuple):
             for multiplier in multipliers:
                 resistance = round(base_value * multiplier, 2)
 
-                if (min_resistance <= resistance <= max_resistance and (
-                        excluded_values is None or
-                        resistance not in excluded_values)):
-                    yield resistance
+                # Check if resistance is within range
+                is_within_range = \
+                    min_resistance <= resistance <= max_resistance
 
+                # Check exclusion conditions
+                is_not_excluded = (
+                    excluded_values is None or
+                    resistance not in excluded_values
+                )
+
+                # Check specified values condition
+                is_specified = (
+                    specified_values is None or
+                    resistance in specified_values
+                )
+
+                # Yield only if all conditions are met
+                if is_within_range and is_not_excluded and is_specified:
+                    yield resistance
 
 PANASONIC_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
     "ERJ-2RKF": SeriesSpec(
@@ -525,12 +542,9 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_mm="2012",
         power_rating="0.125W",
         resistance_range=[20, 50_000],
-        excluded_values=[
-            val for val in np.round(np.arange(20, 50000, 0.01), 2).tolist()
-            if val not in [
-                41.2, 205, 806, 1000, 1050, 1800, 2000, 3000, 4020, 6800,
-                8060, 10000, 11000, 12000, 15000, 20000, 22000, 27000, 49900]
-            ],
+        specified_values=[
+            41.2, 205, 806, 1000, 1050, 1800, 2000, 3000, 4020, 6800,
+            8060, 10000, 11000, 12000, 15000, 20000, 22000, 27000, 49900],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
@@ -596,6 +610,33 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         power_rating="0.125W",
         resistance_range=[1, 3_000_000],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
+        datasheet=(
+            "https://www.yageo.com/en/ProductSearch/"
+            "PartNumberSearch?part_number="),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+
+    "RT0805CRE07": SeriesSpec(
+        manufacturer="Yageo",
+        mpn_prefix="RT0805CRE07",
+        mpn_sufix="L",
+        footprint="resistor_footprints:R_0805_2012Metric",
+        voltage_rating="150V",
+        case_code_in="0805",
+        case_code_mm="2012",
+        power_rating="0.125W",
+        resistance_range=[1, 3_000_000],
+        tolerance_map={"E96": "0.25%", "E24": "0.25%"},
+        specified_values=[
+            6.8, 8.2, 18, 24.9, 36, 60.4, 75, 100, 110, 124, 200, 374, 402,
+            510, 680, 900, 909, 1000, 1200, 1270, 1500, 1800, 1890, 2320,
+            2430, 2490, 2700, 3000, 3010, 3160, 3300, 3570, 4020, 4580, 4700,
+            4990, 5050, 5100, 5490, 5620, 6190, 9100, 10000, 11000, 11100,
+            11500, 12000, 13000, 15000, 17400, 20000, 20500, 21500, 22100,
+            22300, 23200, 24000, 24900, 25500, 26100, 26700, 33000, 33200,
+            40200, 45300, 46400, 47000, 49900, 51000, 60400, 62000, 66500,
+            68000, 68100, 73200, 91000, 100000, 158000, 160000, 205000,
+            249000, 330000, 360000, 390000, 417000, 470000, 604000, 698000,
+            910000, 931000, 976000, 1000000],
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
             "PartNumberSearch?part_number="),
