@@ -275,9 +275,7 @@ class PartInfo(NamedTuple):
 
         """
         resistance_code = cls.generate_resistance_code(resistance, specs)
-
         packaging_code = packaging
-
         mpn = f"{specs.mpn_prefix}{resistance_code}{packaging_code}"
 
         description = (
@@ -542,9 +540,7 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_mm="2012",
         power_rating="0.125W",
         resistance_range=[20, 50_000],
-        specified_values=[
-            41.2, 205, 806, 1000, 1050, 1800, 2000, 3000, 4020, 6800,
-            8060, 10000, 11000, 12000, 15000, 20000, 22000, 27000, 49900],
+        specified_values=[41.2, 205, 806, 1000, 1800, 2000, 3000, 6800],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
@@ -561,6 +557,7 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
         case_code_mm="2012",
         power_rating="0.125W",
         resistance_range=[4.7, 1_000_000],
+        excluded_values=[6.04, 8.06, 9.09],
         tolerance_map={"E96": "0.1%", "E24": "0.1%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
@@ -637,6 +634,22 @@ YAGEO_SYMBOLS_SPECS: Final[dict[str, SeriesSpec]] = {
             68000, 68100, 73200, 91000, 100000, 158000, 160000, 205000,
             249000, 330000, 360000, 390000, 417000, 470000, 604000, 698000,
             910000, 931000, 976000, 1000000],
+        datasheet=(
+            "https://www.yageo.com/en/ProductSearch/"
+            "PartNumberSearch?part_number="),
+        trustedparts_url="https://www.trustedparts.com/en/search/"),
+
+    "RT0805DRE07": SeriesSpec(
+        manufacturer="Yageo",
+        mpn_prefix="RT0805DRE07",
+        mpn_sufix="L",
+        footprint="resistor_footprints:R_0805_2012Metric",
+        voltage_rating="150V",
+        case_code_in="0805",
+        case_code_mm="2012",
+        power_rating="0.125W",
+        resistance_range=[1, 3_000_000],
+        tolerance_map={"E96": "0.5%", "E24": "0.5%"},
         datasheet=(
             "https://www.yageo.com/en/ProductSearch/"
             "PartNumberSearch?part_number="),
