@@ -206,8 +206,7 @@ def update_distribution_graph(
         },
         "title": {
             "text":
-                "Resistance Value Distribution "
-                f"(Tolerances: {', '.join(tolerances)})",
+                "Resistance Value Distribution",
             "x": 0.5, "xanchor": "center",
         },
         "showlegend": True,
@@ -232,7 +231,7 @@ def update_distribution_graph(
             x=values_tolerance,
             y=counts_tolerance,
             name=config["name"],
-            textposition="auto",
+            textposition="none",
             textangle=-30,
             text=counts_tolerance,
             hovertemplate=(
