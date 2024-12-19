@@ -125,4 +125,6 @@ def check_url(
                 f"at search number {index}")
 
 if __name__ == "__main__":
-    check_url("data/RT0805BRD07_part_numbers.csv", "RT0805BRD07")
+    mpn_prefixes = ["RT0805FRE07"]
+    for mpn_prefix in mpn_prefixes:
+        check_url(f"data/{mpn_prefix}_part_numbers.csv", mpn_prefix)
