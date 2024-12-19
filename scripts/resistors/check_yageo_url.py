@@ -125,5 +125,4 @@ def check_url(
                 f"at search number {index}")
 
 if __name__ == "__main__":
-    print_message_utilities.check_url(
-        "data/RT0805BRB07_part_numbers.csv", "RT0805BRB07")
+    check_url("data/RT0805BRB07_part_numbers.csv", "RT0805BRB07")
